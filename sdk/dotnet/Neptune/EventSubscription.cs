@@ -24,17 +24,17 @@ namespace Pulumi.Aws.Neptune
     ///     {
     ///         var defaultCluster = new Aws.Neptune.Cluster("defaultCluster", new Aws.Neptune.ClusterArgs
     ///         {
-    ///             ApplyImmediately = "true",
+    ///             ApplyImmediately = true,
     ///             BackupRetentionPeriod = 5,
     ///             ClusterIdentifier = "neptune-cluster-demo",
     ///             Engine = "neptune",
-    ///             IamDatabaseAuthenticationEnabled = "true",
+    ///             IamDatabaseAuthenticationEnabled = true,
     ///             PreferredBackupWindow = "07:00-09:00",
     ///             SkipFinalSnapshot = true,
     ///         });
     ///         var example = new Aws.Neptune.ClusterInstance("example", new Aws.Neptune.ClusterInstanceArgs
     ///         {
-    ///             ApplyImmediately = "true",
+    ///             ApplyImmediately = true,
     ///             ClusterIdentifier = defaultCluster.Id,
     ///             Engine = "neptune",
     ///             InstanceClass = "db.r4.large",

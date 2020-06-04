@@ -68,6 +68,10 @@ export interface GetLoadBalancerResult {
     readonly crossZoneLoadBalancing: boolean;
     readonly dnsName: string;
     readonly healthCheck: outputs.elb.GetLoadBalancerHealthCheck;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly idleTimeout: number;
     readonly instances: string[];
     readonly internal: boolean;
@@ -79,8 +83,4 @@ export interface GetLoadBalancerResult {
     readonly subnets: string[];
     readonly tags: {[key: string]: any};
     readonly zoneId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

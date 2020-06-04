@@ -72,14 +72,14 @@ export interface GetPatchBaselineResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the baseline.
      */
     readonly name: string;
     readonly namePrefix?: string;
     readonly operatingSystem?: string;
     readonly owner: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

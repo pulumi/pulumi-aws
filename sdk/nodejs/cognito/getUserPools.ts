@@ -59,12 +59,12 @@ export interface GetUserPoolsArgs {
 export interface GetUserPoolsResult {
     readonly arns: string[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The list of cognito user pool ids.
      */
     readonly ids: string[];
     readonly name: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

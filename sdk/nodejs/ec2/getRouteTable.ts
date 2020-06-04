@@ -95,6 +95,10 @@ export interface GetRouteTableResult {
      */
     readonly gatewayId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ID of the AWS account that owns the route table
      */
     readonly ownerId: string;
@@ -109,8 +113,4 @@ export interface GetRouteTableResult {
     readonly subnetId: string;
     readonly tags: {[key: string]: any};
     readonly vpcId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

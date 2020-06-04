@@ -84,8 +84,9 @@ import * as utilities from "../utilities";
  *     policyNames: [wu_tang_ssl.policyName],
  * });
  * ```
+ *
+ * @deprecated aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favor of aws.elb.LoadBalancerPolicy
  */
-/** @deprecated aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favor of aws.elb.LoadBalancerPolicy */
 export class LoadBalancerPolicy extends pulumi.CustomResource {
     /**
      * Get an existing LoadBalancerPolicy resource's state with the given name, ID, and optional extra
@@ -94,6 +95,7 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LoadBalancerPolicyState, opts?: pulumi.CustomResourceOptions): LoadBalancerPolicy {
         pulumi.log.warn("LoadBalancerPolicy is deprecated: aws.elasticloadbalancing.LoadBalancerPolicy has been deprecated in favor of aws.elb.LoadBalancerPolicy")

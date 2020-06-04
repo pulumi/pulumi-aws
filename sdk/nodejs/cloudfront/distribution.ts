@@ -164,6 +164,7 @@ export class Distribution extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DistributionState, opts?: pulumi.CustomResourceOptions): Distribution {
         return new Distribution(name, <any>state, { ...opts, id: id });
@@ -275,15 +276,15 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly orderedCacheBehaviors!: pulumi.Output<outputs.cloudfront.DistributionOrderedCacheBehavior[] | undefined>;
     /**
-     * One or more origins for this
-     * distribution (multiples allowed).
-     */
-    public readonly origins!: pulumi.Output<outputs.cloudfront.DistributionOrigin[]>;
-    /**
      * One or more originGroup for this
      * distribution (multiples allowed).
      */
     public readonly originGroups!: pulumi.Output<outputs.cloudfront.DistributionOriginGroup[] | undefined>;
+    /**
+     * One or more origins for this
+     * distribution (multiples allowed).
+     */
+    public readonly origins!: pulumi.Output<outputs.cloudfront.DistributionOrigin[]>;
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
@@ -361,8 +362,8 @@ export class Distribution extends pulumi.CustomResource {
             inputs["lastModifiedTime"] = state ? state.lastModifiedTime : undefined;
             inputs["loggingConfig"] = state ? state.loggingConfig : undefined;
             inputs["orderedCacheBehaviors"] = state ? state.orderedCacheBehaviors : undefined;
-            inputs["origins"] = state ? state.origins : undefined;
             inputs["originGroups"] = state ? state.originGroups : undefined;
+            inputs["origins"] = state ? state.origins : undefined;
             inputs["priceClass"] = state ? state.priceClass : undefined;
             inputs["restrictions"] = state ? state.restrictions : undefined;
             inputs["retainOnDelete"] = state ? state.retainOnDelete : undefined;
@@ -398,8 +399,8 @@ export class Distribution extends pulumi.CustomResource {
             inputs["isIpv6Enabled"] = args ? args.isIpv6Enabled : undefined;
             inputs["loggingConfig"] = args ? args.loggingConfig : undefined;
             inputs["orderedCacheBehaviors"] = args ? args.orderedCacheBehaviors : undefined;
-            inputs["origins"] = args ? args.origins : undefined;
             inputs["originGroups"] = args ? args.originGroups : undefined;
+            inputs["origins"] = args ? args.origins : undefined;
             inputs["priceClass"] = args ? args.priceClass : undefined;
             inputs["restrictions"] = args ? args.restrictions : undefined;
             inputs["retainOnDelete"] = args ? args.retainOnDelete : undefined;
@@ -524,15 +525,15 @@ export interface DistributionState {
      */
     readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehavior>[]>;
     /**
-     * One or more origins for this
-     * distribution (multiples allowed).
-     */
-    readonly origins?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[]>;
-    /**
      * One or more originGroup for this
      * distribution (multiples allowed).
      */
     readonly originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroup>[]>;
+    /**
+     * One or more origins for this
+     * distribution (multiples allowed).
+     */
+    readonly origins?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[]>;
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
@@ -637,15 +638,15 @@ export interface DistributionArgs {
      */
     readonly orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehavior>[]>;
     /**
-     * One or more origins for this
-     * distribution (multiples allowed).
-     */
-    readonly origins: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[]>;
-    /**
      * One or more originGroup for this
      * distribution (multiples allowed).
      */
     readonly originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroup>[]>;
+    /**
+     * One or more origins for this
+     * distribution (multiples allowed).
+     */
+    readonly origins: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[]>;
     /**
      * The price class for this distribution. One of
      * `PriceClass_All`, `PriceClass_200`, `PriceClass_100`

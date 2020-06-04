@@ -240,6 +240,10 @@ export interface GetScriptArgs {
 export interface GetScriptResult {
     readonly dagEdges: outputs.glue.GetScriptDagEdge[];
     readonly dagNodes: outputs.glue.GetScriptDagNode[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly language?: string;
     /**
      * The Python script generated from the DAG when the `language` argument is set to `PYTHON`.
@@ -249,8 +253,4 @@ export interface GetScriptResult {
      * The Scala code generated from the DAG when the `language` argument is set to `SCALA`.
      */
     readonly scalaCode: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -91,6 +91,10 @@ export interface GetIpRangesResult {
      */
     readonly createDate: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The lexically ordered list of IPv6 CIDR blocks.
      */
     readonly ipv6CidrBlocks: string[];
@@ -102,8 +106,4 @@ export interface GetIpRangesResult {
      */
     readonly syncToken: number;
     readonly url?: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

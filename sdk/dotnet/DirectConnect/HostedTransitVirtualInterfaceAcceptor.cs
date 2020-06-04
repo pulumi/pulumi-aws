@@ -43,7 +43,7 @@ namespace Pulumi.Aws.DirectConnect
     ///         // Accepter's side of the VIF.
     ///         var example = new Aws.DirectConnect.Gateway("example", new Aws.DirectConnect.GatewayArgs
     ///         {
-    ///             AmazonSideAsn = 64512,
+    ///             AmazonSideAsn = "64512",
     ///         });
     ///         var accepterHostedTransitVirtualInterfaceAcceptor = new Aws.DirectConnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor", new Aws.DirectConnect.HostedTransitVirtualInterfaceAcceptorArgs
     ///         {

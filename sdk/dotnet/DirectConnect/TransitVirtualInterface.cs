@@ -27,7 +27,7 @@ namespace Pulumi.Aws.DirectConnect
     ///     {
     ///         var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new Aws.DirectConnect.GatewayArgs
     ///         {
-    ///             AmazonSideAsn = 64512,
+    ///             AmazonSideAsn = "64512",
     ///         });
     ///         var exampleTransitVirtualInterface = new Aws.DirectConnect.TransitVirtualInterface("exampleTransitVirtualInterface", new Aws.DirectConnect.TransitVirtualInterfaceArgs
     ///         {

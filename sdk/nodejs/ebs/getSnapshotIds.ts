@@ -74,11 +74,11 @@ export interface GetSnapshotIdsArgs {
  */
 export interface GetSnapshotIdsResult {
     readonly filters?: outputs.ebs.GetSnapshotIdsFilter[];
-    readonly ids: string[];
-    readonly owners?: string[];
-    readonly restorableByUserIds?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly ids: string[];
+    readonly owners?: string[];
+    readonly restorableByUserIds?: string[];
 }

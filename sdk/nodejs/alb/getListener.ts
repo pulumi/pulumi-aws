@@ -79,12 +79,12 @@ export interface GetListenerResult {
     readonly arn: string;
     readonly certificateArn: string;
     readonly defaultActions: outputs.alb.GetListenerDefaultAction[];
-    readonly loadBalancerArn: string;
-    readonly port: number;
-    readonly protocol: string;
-    readonly sslPolicy: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly loadBalancerArn: string;
+    readonly port: number;
+    readonly protocol: string;
+    readonly sslPolicy: string;
 }

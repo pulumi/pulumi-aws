@@ -112,14 +112,14 @@ export interface GetRouteResult {
     readonly destinationIpv6CidrBlock: string;
     readonly egressOnlyGatewayId: string;
     readonly gatewayId: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly instanceId: string;
     readonly natGatewayId: string;
     readonly networkInterfaceId: string;
     readonly routeTableId: string;
     readonly transitGatewayId: string;
     readonly vpcPeeringConnectionId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

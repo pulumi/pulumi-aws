@@ -49,9 +49,9 @@ export interface GetIpsetArgs {
  * A collection of values returned by getIpset.
  */
 export interface GetIpsetResult {
-    readonly name: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

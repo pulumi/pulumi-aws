@@ -74,6 +74,10 @@ export interface GetContainerDefinitionResult {
      */
     readonly environment: {[key: string]: string};
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The docker image in use, including the digest
      */
     readonly image: string;
@@ -90,8 +94,4 @@ export interface GetContainerDefinitionResult {
      */
     readonly memoryReservation: number;
     readonly taskDefinition: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

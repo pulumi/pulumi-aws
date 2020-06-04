@@ -103,12 +103,12 @@ export interface GetPrefixListResult {
     readonly cidrBlocks: string[];
     readonly filters?: outputs.GetPrefixListFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the selected prefix list.
      */
     readonly name: string;
     readonly prefixListId?: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

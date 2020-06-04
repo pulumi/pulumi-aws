@@ -62,12 +62,12 @@ export interface GetLocalGatewaysArgs {
 export interface GetLocalGatewaysResult {
     readonly filters?: outputs.ec2.GetLocalGatewaysFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Set of all the Local Gateway identifiers
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

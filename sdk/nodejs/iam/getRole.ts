@@ -73,6 +73,10 @@ export interface GetRoleResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Maximum session duration.
      */
     readonly maxSessionDuration: number;
@@ -93,8 +97,4 @@ export interface GetRoleResult {
      * The stable and unique string identifying the role.
      */
     readonly uniqueId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -87,6 +87,7 @@ export class GatewayAssociation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GatewayAssociationState, opts?: pulumi.CustomResourceOptions): GatewayAssociation {
         return new GatewayAssociation(name, <any>state, { ...opts, id: id });
@@ -144,6 +145,8 @@ export class GatewayAssociation extends pulumi.CustomResource {
     /**
      * *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
      * Used for single account Direct Connect gateway associations.
+     *
+     * @deprecated use 'associated_gateway_id' argument instead
      */
     public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
 
@@ -236,6 +239,7 @@ export interface GatewayAssociationState {
     /**
      * *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
      * Used for single account Direct Connect gateway associations.
+     *
      * @deprecated use 'associated_gateway_id' argument instead
      */
     readonly vpnGatewayId?: pulumi.Input<string>;
@@ -271,6 +275,7 @@ export interface GatewayAssociationArgs {
     /**
      * *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
      * Used for single account Direct Connect gateway associations.
+     *
      * @deprecated use 'associated_gateway_id' argument instead
      */
     readonly vpnGatewayId?: pulumi.Input<string>;

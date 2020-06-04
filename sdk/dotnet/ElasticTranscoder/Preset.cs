@@ -29,10 +29,10 @@ namespace Pulumi.Aws.ElasticTranscoder
     ///             Audio = new Aws.ElasticTranscoder.Inputs.PresetAudioArgs
     ///             {
     ///                 AudioPackingMode = "SingleTrack",
-    ///                 BitRate = 96,
-    ///                 Channels = 2,
+    ///                 BitRate = "96",
+    ///                 Channels = "2",
     ///                 Codec = "AAC",
-    ///                 SampleRate = 44100,
+    ///                 SampleRate = "44100",
     ///             },
     ///             AudioCodecOptions = new Aws.ElasticTranscoder.Inputs.PresetAudioCodecOptionsArgs
     ///             {
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     ///             Thumbnails = new Aws.ElasticTranscoder.Inputs.PresetThumbnailsArgs
     ///             {
     ///                 Format = "png",
-    ///                 Interval = 120,
+    ///                 Interval = "120",
     ///                 MaxHeight = "auto",
     ///                 MaxWidth = "auto",
     ///                 PaddingPolicy = "Pad",
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     ///                 DisplayAspectRatio = "16:9",
     ///                 FixedGop = "false",
     ///                 FrameRate = "auto",
-    ///                 KeyframesMaxDist = 240,
+    ///                 KeyframesMaxDist = "240",
     ///                 MaxFrameRate = "60",
     ///                 MaxHeight = "auto",
     ///                 MaxWidth = "auto",

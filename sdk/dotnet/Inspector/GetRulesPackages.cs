@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Inspector
         ///         });
         ///         var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessmentAssessmentTemplate", new Aws.Inspector.AssessmentTemplateArgs
         ///         {
-        ///             Duration = "60",
+        ///             Duration = 60,
         ///             RulesPackageArns = rules.Apply(rules =&gt; rules.Arns),
         ///             TargetArn = assessmentAssessmentTarget.Arn,
         ///         });

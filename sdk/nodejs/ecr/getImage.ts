@@ -65,6 +65,10 @@ export interface GetImageArgs {
  * A collection of values returned by getImage.
  */
 export interface GetImageResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly imageDigest: string;
     /**
      * The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
@@ -81,8 +85,4 @@ export interface GetImageResult {
     readonly imageTags: string[];
     readonly registryId: string;
     readonly repositoryName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

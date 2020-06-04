@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -67,6 +69,10 @@ export interface GetReportDefinitionResult {
      * Preferred compression format for report.
      */
     readonly format: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly reportName: string;
     /**
      * Name of customer S3 bucket.
@@ -84,8 +90,4 @@ export interface GetReportDefinitionResult {
      * The frequency on which report data are measured and displayed.
      */
     readonly timeUnit: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

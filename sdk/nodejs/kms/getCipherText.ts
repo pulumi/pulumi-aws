@@ -76,10 +76,10 @@ export interface GetCipherTextResult {
      */
     readonly ciphertextBlob: string;
     readonly context?: {[key: string]: string};
-    readonly keyId: string;
-    readonly plaintext: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly keyId: string;
+    readonly plaintext: string;
 }

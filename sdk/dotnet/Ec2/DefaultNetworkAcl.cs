@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 new Aws.Ec2.Inputs.DefaultNetworkAclIngressArgs
     ///                 {
-    ///                     Protocol = -1,
+    ///                     Protocol = "-1",
     ///                     RuleNo = 100,
     ///                     Action = "allow",
     ///                     CidrBlock = mainvpc.CidrBlock,
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 new Aws.Ec2.Inputs.DefaultNetworkAclEgressArgs
     ///                 {
-    ///                     Protocol = -1,
+    ///                     Protocol = "-1",
     ///                     RuleNo = 100,
     ///                     Action = "allow",
     ///                     CidrBlock = "0.0.0.0/0",
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 new Aws.Ec2.Inputs.DefaultNetworkAclIngressArgs
     ///                 {
-    ///                     Protocol = -1,
+    ///                     Protocol = "-1",
     ///                     RuleNo = 100,
     ///                     Action = "allow",
     ///                     CidrBlock = mainvpc.CidrBlock,

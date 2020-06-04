@@ -104,6 +104,10 @@ export interface GetDomainResult {
      */
     readonly endpoint: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Domain-specific endpoint used to access the Kibana application.
      */
     readonly kibanaEndpoint: string;
@@ -129,8 +133,4 @@ export interface GetDomainResult {
      * VPC Options for private Elasticsearch domains.
      */
     readonly vpcOptions: outputs.elasticsearch.GetDomainVpcOption[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -90,6 +90,9 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             if dx_gateway_owner_account_id is None:
                 raise TypeError("Missing required property 'dx_gateway_owner_account_id'")
             __props__['dx_gateway_owner_account_id'] = dx_gateway_owner_account_id
+            if vpn_gateway_id is not None:
+                warnings.warn("use 'associated_gateway_id' argument instead", DeprecationWarning)
+                pulumi.log.warn("vpn_gateway_id is deprecated: use 'associated_gateway_id' argument instead")
             __props__['vpn_gateway_id'] = vpn_gateway_id
             __props__['associated_gateway_owner_account_id'] = None
             __props__['associated_gateway_type'] = None

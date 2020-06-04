@@ -120,6 +120,10 @@ export interface GetLaunchTemplateResult {
      */
     readonly iamInstanceProfiles: outputs.ec2.GetLaunchTemplateIamInstanceProfile[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The AMI from which to launch the instance.
      */
     readonly imageId: string;
@@ -192,8 +196,4 @@ export interface GetLaunchTemplateResult {
      * A list of security group IDs to associate with.
      */
     readonly vpcSecurityGroupIds: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

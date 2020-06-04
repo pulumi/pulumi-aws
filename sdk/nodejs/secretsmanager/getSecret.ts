@@ -75,6 +75,10 @@ export interface GetSecretResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
      */
     readonly kmsKeyId: string;
@@ -99,8 +103,4 @@ export interface GetSecretResult {
      * Tags of the secret.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -58,6 +58,10 @@ export interface GetRepositoryResult {
      * Full ARN of the repository.
      */
     readonly arn: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The registry ID where the repository was created.
@@ -71,8 +75,4 @@ export interface GetRepositoryResult {
      * A map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

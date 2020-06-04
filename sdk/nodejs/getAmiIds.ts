@@ -82,12 +82,12 @@ export interface GetAmiIdsArgs {
 export interface GetAmiIdsResult {
     readonly executableUsers?: string[];
     readonly filters?: outputs.GetAmiIdsFilter[];
-    readonly ids: string[];
-    readonly nameRegex?: string;
-    readonly owners: string[];
-    readonly sortAscending?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly ids: string[];
+    readonly nameRegex?: string;
+    readonly owners: string[];
+    readonly sortAscending?: boolean;
 }

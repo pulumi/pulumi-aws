@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Route53
     ///             {
     ///                 aws_eip.Lb.Public_ip,
     ///             },
-    ///             Ttl = "300",
+    ///             Ttl = 300,
     ///             Type = "A",
     ///             ZoneId = aws_route53_zone.Primary.Zone_id,
     ///         });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Route53
     ///                 "dev.example.com",
     ///             },
     ///             SetIdentifier = "dev",
-    ///             Ttl = "5",
+    ///             Ttl = 5,
     ///             Type = "CNAME",
     ///             WeightedRoutingPolicies = 
     ///             {
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Route53
     ///                 "live.example.com",
     ///             },
     ///             SetIdentifier = "live",
-    ///             Ttl = "5",
+    ///             Ttl = 5,
     ///             Type = "CNAME",
     ///             WeightedRoutingPolicies = 
     ///             {

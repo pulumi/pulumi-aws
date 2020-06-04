@@ -70,14 +70,14 @@ export interface GetKeyResult {
     readonly enabled: boolean;
     readonly expirationModel: string;
     readonly grantTokens?: string[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly keyId: string;
     readonly keyManager: string;
     readonly keyState: string;
     readonly keyUsage: string;
     readonly origin: string;
     readonly validTo: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

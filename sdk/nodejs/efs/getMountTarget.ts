@@ -65,6 +65,10 @@ export interface GetMountTargetResult {
      */
     readonly fileSystemId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Address at which the file system may be mounted via the mount target.
      */
     readonly ipAddress: string;
@@ -81,8 +85,4 @@ export interface GetMountTargetResult {
      * ID of the mount target's subnet.
      */
     readonly subnetId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

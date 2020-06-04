@@ -62,6 +62,10 @@ export interface GetReplicationGroupResult {
      */
     readonly configurationEndpointAddress: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The identifiers of all the nodes that are part of this replication group.
      */
     readonly memberClusters: string[];
@@ -97,8 +101,4 @@ export interface GetReplicationGroupResult {
      * The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
      */
     readonly snapshotWindow: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

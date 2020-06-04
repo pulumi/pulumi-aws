@@ -75,6 +75,10 @@ export interface GetFileSystemResult {
     readonly encrypted: boolean;
     readonly fileSystemId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
@@ -100,8 +104,4 @@ export interface GetFileSystemResult {
      * Throughput mode for the file system.
      */
     readonly throughputMode: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

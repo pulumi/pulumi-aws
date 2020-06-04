@@ -61,6 +61,10 @@ export interface GetJobQueueResult {
      * * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
      */
     readonly computeEnvironmentOrders: outputs.batch.GetJobQueueComputeEnvironmentOrder[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The priority of the job queue. Job queues with a higher priority are evaluated first when
@@ -80,8 +84,4 @@ export interface GetJobQueueResult {
      * of the job queue.
      */
     readonly statusReason: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

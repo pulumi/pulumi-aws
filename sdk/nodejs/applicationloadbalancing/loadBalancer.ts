@@ -6,8 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {IpAddressType} from "../alb/ipAddressType";
-import {LoadBalancerType} from "../alb/loadBalancerType";
+import {IpAddressType, LoadBalancerType} from "../alb";
 
 /**
  * Provides a Load Balancer resource.
@@ -76,8 +75,9 @@ import {LoadBalancerType} from "../alb/loadBalancerType";
  *     ],
  * });
  * ```
+ *
+ * @deprecated aws.applicationloadbalancing.LoadBalancer has been deprecated in favor of aws.alb.LoadBalancer
  */
-/** @deprecated aws.applicationloadbalancing.LoadBalancer has been deprecated in favor of aws.alb.LoadBalancer */
 export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Get an existing LoadBalancer resource's state with the given name, ID, and optional extra
@@ -86,6 +86,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LoadBalancerState, opts?: pulumi.CustomResourceOptions): LoadBalancer {
         pulumi.log.warn("LoadBalancer is deprecated: aws.applicationloadbalancing.LoadBalancer has been deprecated in favor of aws.alb.LoadBalancer")

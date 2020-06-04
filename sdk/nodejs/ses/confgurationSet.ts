@@ -4,7 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/** @deprecated aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet */
+/**
+ * @deprecated aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet
+ */
 export class ConfgurationSet extends pulumi.CustomResource {
     /**
      * Get an existing ConfgurationSet resource's state with the given name, ID, and optional extra
@@ -13,6 +15,7 @@ export class ConfgurationSet extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ConfgurationSetState, opts?: pulumi.CustomResourceOptions): ConfgurationSet {
         pulumi.log.warn("ConfgurationSet is deprecated: aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet")

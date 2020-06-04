@@ -74,6 +74,10 @@ export interface GetLoadBalancerResult {
     readonly dnsName: string;
     readonly dropInvalidHeaderFields: boolean;
     readonly enableDeletionProtection: boolean;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly idleTimeout: number;
     readonly internal: boolean;
     readonly ipAddressType: string;
@@ -85,8 +89,4 @@ export interface GetLoadBalancerResult {
     readonly tags: {[key: string]: any};
     readonly vpcId: string;
     readonly zoneId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

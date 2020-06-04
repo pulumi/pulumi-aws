@@ -82,13 +82,13 @@ export interface GetVpnAttachmentArgs {
 export interface GetVpnAttachmentResult {
     readonly filters?: outputs.ec2transitgateway.GetVpnAttachmentFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Key-value tags for the EC2 Transit Gateway VPN Attachment
      */
     readonly tags: {[key: string]: any};
     readonly transitGatewayId?: string;
     readonly vpnConnectionId?: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

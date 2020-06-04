@@ -28,13 +28,13 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             AlarmDescription = "This metric monitors ec2 cpu utilization",
     ///             ComparisonOperator = "GreaterThanOrEqualToThreshold",
-    ///             EvaluationPeriods = "2",
+    ///             EvaluationPeriods = 2,
     ///             InsufficientDataActions = {},
     ///             MetricName = "CPUUtilization",
     ///             Namespace = "AWS/EC2",
-    ///             Period = "120",
+    ///             Period = 120,
     ///             Statistic = "Average",
-    ///             Threshold = "80",
+    ///             Threshold = 80,
     ///         });
     ///     }
     /// 
@@ -70,12 +70,12 @@ namespace Pulumi.Aws.CloudWatch
     ///             {
     ///                 { "AutoScalingGroupName", aws_autoscaling_group.Bar.Name },
     ///             },
-    ///             EvaluationPeriods = "2",
+    ///             EvaluationPeriods = 2,
     ///             MetricName = "CPUUtilization",
     ///             Namespace = "AWS/EC2",
-    ///             Period = "120",
+    ///             Period = 120,
     ///             Statistic = "Average",
-    ///             Threshold = "80",
+    ///             Threshold = 80,
     ///         });
     ///     }
     /// 
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             AlarmDescription = "Request error rate has exceeded 10%",
     ///             ComparisonOperator = "GreaterThanOrEqualToThreshold",
-    ///             EvaluationPeriods = "2",
+    ///             EvaluationPeriods = 2,
     ///             InsufficientDataActions = {},
     ///             MetricQueries = 
     ///             {
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                     Expression = "m2/m1*100",
     ///                     Id = "e1",
     ///                     Label = "Error Rate",
-    ///                     ReturnData = "true",
+    ///                     ReturnData = true,
     ///                 },
     ///                 new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
     ///                 {
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                         },
     ///                         MetricName = "RequestCount",
     ///                         Namespace = "AWS/ApplicationELB",
-    ///                         Period = "120",
+    ///                         Period = 120,
     ///                         Stat = "Sum",
     ///                         Unit = "Count",
     ///                     },
@@ -134,13 +134,13 @@ namespace Pulumi.Aws.CloudWatch
     ///                         },
     ///                         MetricName = "HTTPCode_ELB_5XX_Count",
     ///                         Namespace = "AWS/ApplicationELB",
-    ///                         Period = "120",
+    ///                         Period = 120,
     ///                         Stat = "Sum",
     ///                         Unit = "Count",
     ///                     },
     ///                 },
     ///             },
-    ///             Threshold = "10",
+    ///             Threshold = 10,
     ///         });
     ///     }
     /// 
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             AlarmDescription = "This metric monitors ec2 cpu utilization",
     ///             ComparisonOperator = "GreaterThanUpperThreshold",
-    ///             EvaluationPeriods = "2",
+    ///             EvaluationPeriods = 2,
     ///             InsufficientDataActions = {},
     ///             MetricQueries = 
     ///             {
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                     Expression = "ANOMALY_DETECTION_BAND(m1)",
     ///                     Id = "e1",
     ///                     Label = "CPUUtilization (Expected)",
-    ///                     ReturnData = "true",
+    ///                     ReturnData = true,
     ///                 },
     ///                 new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
     ///                 {
@@ -181,11 +181,11 @@ namespace Pulumi.Aws.CloudWatch
     ///                         },
     ///                         MetricName = "CPUUtilization",
     ///                         Namespace = "AWS/EC2",
-    ///                         Period = "120",
+    ///                         Period = 120,
     ///                         Stat = "Average",
     ///                         Unit = "Count",
     ///                     },
-    ///                     ReturnData = "true",
+    ///                     ReturnData = true,
     ///                 },
     ///             },
     ///             ThresholdMetricId = "e1",
@@ -208,14 +208,14 @@ namespace Pulumi.Aws.CloudWatch
     ///         var xxxNlbHealthyhosts = new Aws.CloudWatch.MetricAlarm("xxxNlbHealthyhosts", new Aws.CloudWatch.MetricAlarmArgs
     ///         {
     ///             ComparisonOperator = "LessThanThreshold",
-    ///             EvaluationPeriods = "1",
+    ///             EvaluationPeriods = 1,
     ///             MetricName = "HealthyHostCount",
     ///             Namespace = "AWS/NetworkELB",
-    ///             Period = "60",
+    ///             Period = 60,
     ///             Statistic = "Average",
     ///             Threshold = @var.Logstash_servers_count,
     ///             AlarmDescription = "Number of XXXX nodes healthy in Target Group",
-    ///             ActionsEnabled = "true",
+    ///             ActionsEnabled = true,
     ///             AlarmActions = 
     ///             {
     ///                 aws_sns_topic.Sns.Arn,

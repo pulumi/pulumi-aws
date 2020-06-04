@@ -436,6 +436,9 @@ class Instance(pulumi.CustomResource):
             __props__['placement_group'] = placement_group
             __props__['private_ip'] = private_ip
             __props__['root_block_device'] = root_block_device
+            if security_groups is not None:
+                warnings.warn("Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.", DeprecationWarning)
+                pulumi.log.warn("security_groups is deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.")
             __props__['security_groups'] = security_groups
             __props__['source_dest_check'] = source_dest_check
             __props__['subnet_id'] = subnet_id

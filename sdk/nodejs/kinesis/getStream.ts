@@ -70,6 +70,10 @@ export interface GetStreamResult {
      */
     readonly creationTimestamp: number;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the Kinesis Stream.
      */
     readonly name: string;
@@ -93,8 +97,4 @@ export interface GetStreamResult {
      * A map of tags to assigned to the stream.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

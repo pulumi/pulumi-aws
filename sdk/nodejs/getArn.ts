@@ -55,6 +55,10 @@ export interface GetArnResult {
     readonly account: string;
     readonly arn: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The partition that the resource is in.
      */
     readonly partition: string;
@@ -72,8 +76,4 @@ export interface GetArnResult {
      * The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
      */
     readonly service: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

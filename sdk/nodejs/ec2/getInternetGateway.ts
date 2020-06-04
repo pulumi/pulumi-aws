@@ -69,14 +69,14 @@ export interface GetInternetGatewayArgs {
 export interface GetInternetGatewayResult {
     readonly attachments: outputs.ec2.GetInternetGatewayAttachment[];
     readonly filters?: outputs.ec2.GetInternetGatewayFilter[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly internetGatewayId: string;
     /**
      * The ID of the AWS account that owns the internet gateway.
      */
     readonly ownerId: string;
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

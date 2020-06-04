@@ -80,13 +80,13 @@ export interface GetLocalGatewayRouteTableArgs {
  */
 export interface GetLocalGatewayRouteTableResult {
     readonly filters?: outputs.ec2.GetLocalGatewayRouteTableFilter[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly localGatewayId: string;
     readonly localGatewayRouteTableId: string;
     readonly outpostArn: string;
     readonly state: string;
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

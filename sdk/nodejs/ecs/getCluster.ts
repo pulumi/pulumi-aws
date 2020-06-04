@@ -56,6 +56,10 @@ export interface GetClusterResult {
     readonly arn: string;
     readonly clusterName: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The number of pending tasks for the ECS Cluster
      */
     readonly pendingTasksCount: number;
@@ -75,8 +79,4 @@ export interface GetClusterResult {
      * The status of the ECS Cluster
      */
     readonly status: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -88,6 +88,10 @@ export interface GetVolumeResult {
     readonly encrypted: boolean;
     readonly filters?: outputs.ebs.GetVolumeFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The amount of IOPS for the disk.
      */
     readonly iops: number;
@@ -124,8 +128,4 @@ export interface GetVolumeResult {
      * The type of EBS volume.
      */
     readonly volumeType: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

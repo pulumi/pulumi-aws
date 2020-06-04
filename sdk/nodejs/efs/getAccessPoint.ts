@@ -67,6 +67,10 @@ export interface GetAccessPointResult {
      * The ID of the file system for which the access point is intended.
      */
     readonly fileSystemId: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly ownerId: string;
     /**
      * Single element list containing operating system user and group applied to all file system requests made using the access point.
@@ -77,8 +81,4 @@ export interface GetAccessPointResult {
      * Key-value mapping of resource tags.
      */
     readonly tags?: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

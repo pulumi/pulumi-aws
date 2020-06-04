@@ -36,7 +36,7 @@ namespace Pulumi.Aws.OpsWorks
     ///                     Url = "https://github.com/example.git",
     ///                 },
     ///             },
-    ///             AutoBundleOnDeploy = true,
+    ///             AutoBundleOnDeploy = "true",
     ///             Description = "This is a Rails application",
     ///             DocumentRoot = "public",
     ///             Domains = 

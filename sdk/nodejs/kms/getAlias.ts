@@ -55,6 +55,10 @@ export interface GetAliasResult {
      * The Amazon Resource Name(ARN) of the key alias.
      */
     readonly arn: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * ARN pointed to by the alias.
@@ -64,8 +68,4 @@ export interface GetAliasResult {
      * Key identifier pointed to by the alias.
      */
     readonly targetKeyId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

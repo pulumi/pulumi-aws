@@ -84,14 +84,14 @@ export interface GetServerCertificateResult {
     readonly certificateBody: string;
     readonly certificateChain: string;
     readonly expirationDate: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly latest?: boolean;
     readonly name: string;
     readonly namePrefix?: string;
     readonly path: string;
     readonly pathPrefix?: string;
     readonly uploadDate: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

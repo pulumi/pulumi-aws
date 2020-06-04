@@ -129,6 +129,10 @@ export interface GetInstanceResult {
      */
     readonly hostedZoneId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Specifies the Provisioned IOPS (I/O operations per second) value.
      */
     readonly iops: number;
@@ -201,8 +205,4 @@ export interface GetInstanceResult {
      * Provides a list of VPC security group elements that the DB instance belongs to.
      */
     readonly vpcSecurityGroups: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

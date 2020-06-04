@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ec2
     ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
     ///                 {
     ///                     FromPort = 0,
-    ///                     Protocol = -1,
+    ///                     Protocol = "-1",
     ///                     Self = true,
     ///                     ToPort = 0,
     ///                 },
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Ec2
     ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
     ///                 {
     ///                     FromPort = 0,
-    ///                     Protocol = -1,
+    ///                     Protocol = "-1",
     ///                     Self = true,
     ///                     ToPort = 0,
     ///                 },

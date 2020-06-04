@@ -59,6 +59,10 @@ export interface GetBundleResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the compute type.
      */
     readonly name: string;
@@ -74,8 +78,4 @@ export interface GetBundleResult {
      * The user storage. See supported fields below.
      */
     readonly userStorages: outputs.workspaces.GetBundleUserStorage[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

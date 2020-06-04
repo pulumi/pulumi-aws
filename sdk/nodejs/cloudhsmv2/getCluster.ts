@@ -67,6 +67,10 @@ export interface GetClusterResult {
     readonly clusterId: string;
     readonly clusterState: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ID of the security group associated with the CloudHSM cluster.
      */
     readonly securityGroupId: string;
@@ -78,8 +82,4 @@ export interface GetClusterResult {
      * The id of the VPC that the CloudHSM cluster resides in.
      */
     readonly vpcId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

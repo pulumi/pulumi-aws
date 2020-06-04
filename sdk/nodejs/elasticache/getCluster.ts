@@ -82,6 +82,10 @@ export interface GetClusterResult {
      */
     readonly engineVersion: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed.
      */
@@ -138,8 +142,4 @@ export interface GetClusterResult {
      * The tags assigned to the resource
      */
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

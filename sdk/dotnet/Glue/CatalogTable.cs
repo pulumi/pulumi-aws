@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Glue
     ///                     Name = "my-stream",
     ///                     Parameters = 
     ///                     {
-    ///                         { "serialization.format", 1 },
+    ///                         { "serialization.format", "1" },
     ///                     },
     ///                     SerializationLibrary = "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
     ///                 },

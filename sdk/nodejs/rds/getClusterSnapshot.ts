@@ -126,6 +126,10 @@ export interface GetClusterSnapshotResult {
      * Version of the database engine for this DB cluster snapshot.
      */
     readonly engineVersion: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly includePublic?: boolean;
     readonly includeShared?: boolean;
     /**
@@ -163,8 +167,4 @@ export interface GetClusterSnapshotResult {
      * The VPC ID associated with the DB cluster snapshot.
      */
     readonly vpcId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

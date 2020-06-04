@@ -44,7 +44,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     ///                 },
     ///             },
     ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
-    ///             Port = "443",
+    ///             Port = 443,
     ///             Protocol = "HTTPS",
     ///             SslPolicy = "ELBSecurityPolicy-2016-08",
     ///         });
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     ///                 },
     ///             },
     ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
-    ///             Port = "80",
+    ///             Port = 80,
     ///             Protocol = "HTTP",
     ///         });
     ///     }
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     ///                 },
     ///             },
     ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
-    ///             Port = "80",
+    ///             Port = 80,
     ///             Protocol = "HTTP",
     ///         });
     ///     }
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     ///                 },
     ///             },
     ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
-    ///             Port = "80",
+    ///             Port = 80,
     ///             Protocol = "HTTP",
     ///         });
     ///     }
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     ///                 },
     ///             },
     ///             LoadBalancerArn = frontEndLoadBalancer.Arn,
-    ///             Port = "80",
+    ///             Port = 80,
     ///             Protocol = "HTTP",
     ///         });
     ///     }

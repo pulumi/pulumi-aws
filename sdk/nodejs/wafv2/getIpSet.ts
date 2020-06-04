@@ -68,13 +68,13 @@ export interface GetIpSetResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The IP address version of the set.
      */
     readonly ipAddressVersion: string;
     readonly name: string;
     readonly scope: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

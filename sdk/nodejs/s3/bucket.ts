@@ -6,9 +6,8 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "../iam/documents";
-import {CannedAcl} from "./cannedAcl";
-import {RoutingRule} from "./routingRules";
+import {PolicyDocument} from "../iam";
+import {CannedAcl} from "./index";
 
 /**
  * Provides a S3 bucket resource.
@@ -323,6 +322,7 @@ export class Bucket extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BucketState, opts?: pulumi.CustomResourceOptions): Bucket {
         return new Bucket(name, <any>state, { ...opts, id: id });

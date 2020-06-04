@@ -78,6 +78,10 @@ export interface GetCertificateAuthorityResult {
      */
     readonly certificateSigningRequest: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */
     readonly notAfter: string;
@@ -110,8 +114,4 @@ export interface GetCertificateAuthorityResult {
      * The type of the certificate authority.
      */
     readonly type: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Neptune
     ///                 new Aws.Neptune.Inputs.ClusterParameterGroupParameterArgs
     ///                 {
     ///                     Name = "neptune_enable_audit_log",
-    ///                     Value = 1,
+    ///                     Value = "1",
     ///                 },
     ///             },
     ///         });

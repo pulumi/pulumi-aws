@@ -58,12 +58,12 @@ export interface GetLocalGatewayRouteTablesArgs {
 export interface GetLocalGatewayRouteTablesResult {
     readonly filters?: outputs.ec2.GetLocalGatewayRouteTablesFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Set of Local Gateway Route Table identifiers
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

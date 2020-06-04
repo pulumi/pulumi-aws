@@ -66,6 +66,10 @@ export interface GetServiceResult {
      */
     readonly desiredCount: number;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The launch type for the ECS Service
      */
     readonly launchType: string;
@@ -78,8 +82,4 @@ export interface GetServiceResult {
      * The family for the latest ACTIVE revision
      */
     readonly taskDefinition: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

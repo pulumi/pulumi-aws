@@ -76,11 +76,11 @@ export interface GetAutoscalingGroupsResult {
     readonly arns: string[];
     readonly filters?: outputs.GetAutoscalingGroupsFilter[];
     /**
-     * A list of the Autoscaling Groups in the current region.
-     */
-    readonly names: string[];
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A list of the Autoscaling Groups in the current region.
+     */
+    readonly names: string[];
 }

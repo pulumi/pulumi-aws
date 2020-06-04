@@ -133,6 +133,10 @@ export interface GetInstanceResult {
      * The name of the instance profile associated with the Instance.
      */
     readonly iamInstanceProfile: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly instanceId?: string;
     /**
      * The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
@@ -229,8 +233,4 @@ export interface GetInstanceResult {
      * The associated security groups in a non-default VPC.
      */
     readonly vpcSecurityGroupIds: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

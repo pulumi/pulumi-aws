@@ -194,6 +194,9 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if allocated_capacity is not None:
+                warnings.warn("Please use attribute `max_capacity' instead. This attribute might be removed in future releases.", DeprecationWarning)
+                pulumi.log.warn("allocated_capacity is deprecated: Please use attribute `max_capacity' instead. This attribute might be removed in future releases.")
             __props__['allocated_capacity'] = allocated_capacity
             if command is None:
                 raise TypeError("Missing required property 'command'")

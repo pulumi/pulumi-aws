@@ -59,6 +59,10 @@ export interface GetVaultResult {
      */
     readonly arn: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The server-side encryption key that is used to protect your backups.
      */
     readonly kmsKeyArn: string;
@@ -71,8 +75,4 @@ export interface GetVaultResult {
      * Metadata that you can assign to help organize the resources that you create.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

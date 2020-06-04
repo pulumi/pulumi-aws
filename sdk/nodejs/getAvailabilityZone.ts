@@ -120,6 +120,10 @@ export interface GetAvailabilityZoneResult {
      * For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
      */
     readonly groupName: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
@@ -139,8 +143,4 @@ export interface GetAvailabilityZoneResult {
     readonly region: string;
     readonly state: string;
     readonly zoneId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

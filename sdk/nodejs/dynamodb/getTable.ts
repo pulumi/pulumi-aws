@@ -58,6 +58,10 @@ export interface GetTableResult {
     readonly billingMode: string;
     readonly globalSecondaryIndexes: outputs.dynamodb.GetTableGlobalSecondaryIndex[];
     readonly hashKey: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly localSecondaryIndexes: outputs.dynamodb.GetTableLocalSecondaryIndex[];
     readonly name: string;
     readonly pointInTimeRecovery: outputs.dynamodb.GetTablePointInTimeRecovery;
@@ -72,8 +76,4 @@ export interface GetTableResult {
     readonly tags: {[key: string]: any};
     readonly ttl: outputs.dynamodb.GetTableTtl;
     readonly writeCapacity: number;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

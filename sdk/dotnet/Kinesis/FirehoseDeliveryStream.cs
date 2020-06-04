@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Kinesis
     ///                 BucketArn = bucket.Arn,
     ///                 ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
     ///                 {
-    ///                     Enabled = "true",
+    ///                     Enabled = true,
     ///                     Processors = 
     ///                     {
     ///                         new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Kinesis
     ///                 IndexName = "test",
     ///                 ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs
     ///                 {
-    ///                     Enabled = "true",
+    ///                     Enabled = true,
     ///                     Processors = 
     ///                     {
     ///                         new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs

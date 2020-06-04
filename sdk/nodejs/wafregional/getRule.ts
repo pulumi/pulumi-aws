@@ -49,9 +49,9 @@ export interface GetRuleArgs {
  * A collection of values returned by getRule.
  */
 export interface GetRuleResult {
-    readonly name: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
 }

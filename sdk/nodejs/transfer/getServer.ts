@@ -59,6 +59,10 @@ export interface GetServerResult {
      */
     readonly endpoint: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
      */
     readonly identityProviderType: string;
@@ -75,8 +79,4 @@ export interface GetServerResult {
      * URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */
     readonly url: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

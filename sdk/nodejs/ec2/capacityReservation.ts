@@ -2,13 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {InstancePlatform} from "./instancePlatform";
-import {InstanceType} from "./instanceType";
-import {Tenancy} from "./tenancy";
+import {InstancePlatform, InstanceType, Tenancy} from "./index";
 
 /**
  * Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
@@ -37,6 +33,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CapacityReservationState, opts?: pulumi.CustomResourceOptions): CapacityReservation {
         return new CapacityReservation(name, <any>state, { ...opts, id: id });
