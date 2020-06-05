@@ -22,6 +22,7 @@ class Directory(pulumi.CustomResource):
     """
     Connector related information about the directory. Fields documented below.
 
+      * `availability_zones` (`list`)
       * `connectIps` (`list`) - The IP addresses of the AD Connector servers.
       * `customerDnsIps` (`list`) - The DNS IP addresses of the domain to connect to.
       * `customerUsername` (`str`) - The username corresponding to the password provided.
@@ -76,6 +77,7 @@ class Directory(pulumi.CustomResource):
     """
     VPC related information about the directory. Fields documented below.
 
+      * `availability_zones` (`list`)
       * `subnet_ids` (`list`) - The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
       * `vpc_id` (`str`) - The identifier of the VPC that the directory is in.
     """
@@ -84,7 +86,6 @@ class Directory(pulumi.CustomResource):
         Provides a Simple or Managed Microsoft directory in AWS Directory Service.
 
         > **Note:** All arguments including the password and customer username will be stored in the raw state as plain-text.
-        [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
         ## Example Usage
 
@@ -197,6 +198,7 @@ class Directory(pulumi.CustomResource):
 
         The **connect_settings** object supports the following:
 
+          * `availability_zones` (`pulumi.Input[list]`)
           * `connectIps` (`pulumi.Input[list]`) - The IP addresses of the AD Connector servers.
           * `customerDnsIps` (`pulumi.Input[list]`) - The DNS IP addresses of the domain to connect to.
           * `customerUsername` (`pulumi.Input[str]`) - The username corresponding to the password provided.
@@ -205,6 +207,7 @@ class Directory(pulumi.CustomResource):
 
         The **vpc_settings** object supports the following:
 
+          * `availability_zones` (`pulumi.Input[list]`)
           * `subnet_ids` (`pulumi.Input[list]`) - The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
           * `vpc_id` (`pulumi.Input[str]`) - The identifier of the VPC that the directory is in.
         """
@@ -275,6 +278,7 @@ class Directory(pulumi.CustomResource):
 
         The **connect_settings** object supports the following:
 
+          * `availability_zones` (`pulumi.Input[list]`)
           * `connectIps` (`pulumi.Input[list]`) - The IP addresses of the AD Connector servers.
           * `customerDnsIps` (`pulumi.Input[list]`) - The DNS IP addresses of the domain to connect to.
           * `customerUsername` (`pulumi.Input[str]`) - The username corresponding to the password provided.
@@ -283,6 +287,7 @@ class Directory(pulumi.CustomResource):
 
         The **vpc_settings** object supports the following:
 
+          * `availability_zones` (`pulumi.Input[list]`)
           * `subnet_ids` (`pulumi.Input[list]`) - The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
           * `vpc_id` (`pulumi.Input[str]`) - The identifier of the VPC that the directory is in.
         """

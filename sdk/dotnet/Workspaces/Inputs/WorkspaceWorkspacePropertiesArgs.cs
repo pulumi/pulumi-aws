@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Workspaces.Inputs
         public Input<int>? RootVolumeSizeGib { get; set; }
 
         /// <summary>
-        /// The size of the root volume. The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+        /// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
         /// </summary>
         [Input("runningMode")]
         public Input<string>? RunningMode { get; set; }

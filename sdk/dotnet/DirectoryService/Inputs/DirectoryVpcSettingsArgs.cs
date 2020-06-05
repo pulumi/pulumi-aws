@@ -12,6 +12,14 @@ namespace Pulumi.Aws.DirectoryService.Inputs
 
     public sealed class DirectoryVpcSettingsArgs : Pulumi.ResourceArgs
     {
+        [Input("availabilityZones")]
+        private InputList<string>? _availabilityZones;
+        public InputList<string> AvailabilityZones
+        {
+            get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
+            set => _availabilityZones = value;
+        }
+
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
 

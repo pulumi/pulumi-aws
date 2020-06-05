@@ -43,7 +43,7 @@ type Record struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
 	WeightedRoutingPolicies RecordWeightedRoutingPolicyArrayOutput `pulumi:"weightedRoutingPolicies"`
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
 
@@ -113,7 +113,7 @@ type recordState struct {
 	Type *string `pulumi:"type"`
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
 	WeightedRoutingPolicies []RecordWeightedRoutingPolicy `pulumi:"weightedRoutingPolicies"`
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId *string `pulumi:"zoneId"`
 }
 
@@ -147,7 +147,7 @@ type RecordState struct {
 	Type pulumi.StringPtrInput
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
 	WeightedRoutingPolicies RecordWeightedRoutingPolicyArrayInput
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId pulumi.StringPtrInput
 }
 
@@ -183,7 +183,7 @@ type recordArgs struct {
 	Type interface{} `pulumi:"type"`
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
 	WeightedRoutingPolicies []RecordWeightedRoutingPolicy `pulumi:"weightedRoutingPolicies"`
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId string `pulumi:"zoneId"`
 }
 
@@ -216,7 +216,7 @@ type RecordArgs struct {
 	Type pulumi.Input
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
 	WeightedRoutingPolicies RecordWeightedRoutingPolicyArrayInput
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId pulumi.StringInput
 }
 

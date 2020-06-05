@@ -22,11 +22,11 @@ namespace Pulumi.Aws.WafRegional.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)
+        /// The ID of a `waf_regional_rule`
         /// </summary>
         public readonly string RuleId;
         /// <summary>
-        /// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+        /// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
         /// </summary>
         public readonly string? Type;
 

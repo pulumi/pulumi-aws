@@ -27,7 +27,7 @@ class DomainName(pulumi.CustomResource):
     The domain name configuration.
 
       * `certificate_arn` (`str`) - The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-        Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+        Use the `acm.Certificate` resource to configure an ACM certificate.
       * `endpoint_type` (`str`) - The endpoint type. Valid values: `REGIONAL`.
       * `hosted_zone_id` (`str`) - The Amazon Route 53 Hosted Zone ID of the endpoint.
       * `security_policy` (`str`) - The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
@@ -72,7 +72,7 @@ class DomainName(pulumi.CustomResource):
         The **domain_name_configuration** object supports the following:
 
           * `certificate_arn` (`pulumi.Input[str]`) - The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-            Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+            Use the `acm.Certificate` resource to configure an ACM certificate.
           * `endpoint_type` (`pulumi.Input[str]`) - The endpoint type. Valid values: `REGIONAL`.
           * `hosted_zone_id` (`pulumi.Input[str]`) - The Amazon Route 53 Hosted Zone ID of the endpoint.
           * `security_policy` (`pulumi.Input[str]`) - The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
@@ -128,7 +128,7 @@ class DomainName(pulumi.CustomResource):
         The **domain_name_configuration** object supports the following:
 
           * `certificate_arn` (`pulumi.Input[str]`) - The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-            Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+            Use the `acm.Certificate` resource to configure an ACM certificate.
           * `endpoint_type` (`pulumi.Input[str]`) - The endpoint type. Valid values: `REGIONAL`.
           * `hosted_zone_id` (`pulumi.Input[str]`) - The Amazon Route 53 Hosted Zone ID of the endpoint.
           * `security_policy` (`pulumi.Input[str]`) - The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.

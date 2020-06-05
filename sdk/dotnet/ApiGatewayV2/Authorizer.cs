@@ -97,7 +97,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// The authorizer's Uniform Resource Identifier (URI).
-        /// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the [`aws.lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) resource.
+        /// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
         /// Supported only for `REQUEST` authorizers.
         /// </summary>
         [Output("authorizerUri")]
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// The authorizer's Uniform Resource Identifier (URI).
-        /// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the [`aws.lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) resource.
+        /// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
         /// Supported only for `REQUEST` authorizers.
         /// </summary>
         [Input("authorizerUri")]
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// The authorizer's Uniform Resource Identifier (URI).
-        /// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the [`aws.lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) resource.
+        /// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
         /// Supported only for `REQUEST` authorizers.
         /// </summary>
         [Input("authorizerUri")]

@@ -232,13 +232,13 @@ namespace Pulumi.Aws.Alb
     public partial class Listener : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the listener (matches `id`)
+        /// The Amazon Resource Name (ARN) of the target group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws.lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
         /// </summary>
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
@@ -324,7 +324,7 @@ namespace Pulumi.Aws.Alb
     public sealed class ListenerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws.lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
@@ -373,13 +373,13 @@ namespace Pulumi.Aws.Alb
     public sealed class ListenerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the listener (matches `id`)
+        /// The Amazon Resource Name (ARN) of the target group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`aws.lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+        /// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }

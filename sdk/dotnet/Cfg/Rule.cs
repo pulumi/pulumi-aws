@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Cfg
     /// <summary>
     /// Provides an AWS Config Rule.
     /// 
-    /// &gt; **Note:** Config Rule requires an existing [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
+    /// &gt; **Note:** Config Rule requires an existing `Configuration Recorder` to be present. Use of `depends_on` is recommended (as shown below) to avoid race conditions.
     /// 
     /// ## Example Usage
     /// 

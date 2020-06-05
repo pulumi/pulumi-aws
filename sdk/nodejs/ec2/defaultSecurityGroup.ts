@@ -89,7 +89,7 @@ import * as utilities from "../utilities";
  * ## Usage
  *
  * With the exceptions mentioned above, `aws.ec2.DefaultSecurityGroup` should
- * identical behavior to `aws.ec2.SecurityGroup`. Please consult [AWS_SECURITY_GROUP](https://www.terraform.io/docs/providers/aws/r/security_group.html)
+ * identical behavior to `aws.ec2.SecurityGroup`. Please consult `AWS_SECURITY_GROUP`
  * for further usage documentation.
  *
  * ### Removing `aws.ec2.DefaultSecurityGroup` from your configuration

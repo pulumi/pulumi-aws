@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Pinpoint
     /// Provides a Pinpoint GCM Channel resource.
     /// 
     /// &gt; **Note:** Api Key argument will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
     /// ## Example Usage
     /// 

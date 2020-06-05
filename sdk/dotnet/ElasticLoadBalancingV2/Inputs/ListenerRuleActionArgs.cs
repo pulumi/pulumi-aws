@@ -30,6 +30,12 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
         [Input("fixedResponse")]
         public Input<Inputs.ListenerRuleActionFixedResponseArgs>? FixedResponse { get; set; }
 
+        /// <summary>
+        /// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+        /// </summary>
+        [Input("forward")]
+        public Input<Inputs.ListenerRuleActionForwardArgs>? Forward { get; set; }
+
         [Input("order")]
         public Input<int>? Order { get; set; }
 
@@ -40,7 +46,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
         public Input<Inputs.ListenerRuleActionRedirectArgs>? Redirect { get; set; }
 
         /// <summary>
-        /// The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+        /// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
         /// </summary>
         [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }

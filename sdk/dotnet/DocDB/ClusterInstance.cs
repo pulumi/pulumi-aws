@@ -94,7 +94,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> CaCertIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+        /// The identifier of the `aws.docdb.Cluster` in which to launch this instance.
         /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? CaCertIdentifier { get; set; }
 
         /// <summary>
-        /// The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+        /// The identifier of the `aws.docdb.Cluster` in which to launch this instance.
         /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? CaCertIdentifier { get; set; }
 
         /// <summary>
-        /// The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+        /// The identifier of the `aws.docdb.Cluster` in which to launch this instance.
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }

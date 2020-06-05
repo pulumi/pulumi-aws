@@ -50,7 +50,7 @@ class WebAcl(pulumi.CustomResource):
 
       * `priority` (`float`) - Specifies the order in which the rules in a WebACL are evaluated.
         Rules with a lower value are evaluated before rules with a higher value.
-      * `rule_id` (`str`) - ID of the associated WAF (Global) rule (e.g. [`waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
+      * `rule_id` (`str`) - ID of the associated WAF (Global) rule (e.g. `waf.Rule`). WAF (Regional) rules cannot be used.
       * `type` (`str`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
     """
     tags: pulumi.Output[dict]
@@ -149,7 +149,7 @@ class WebAcl(pulumi.CustomResource):
 
           * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules in a WebACL are evaluated.
             Rules with a lower value are evaluated before rules with a higher value.
-          * `rule_id` (`pulumi.Input[str]`) - ID of the associated WAF (Global) rule (e.g. [`waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
+          * `rule_id` (`pulumi.Input[str]`) - ID of the associated WAF (Global) rule (e.g. `waf.Rule`). WAF (Regional) rules cannot be used.
           * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
         """
         if __name__ is not None:
@@ -225,7 +225,7 @@ class WebAcl(pulumi.CustomResource):
 
           * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules in a WebACL are evaluated.
             Rules with a lower value are evaluated before rules with a higher value.
-          * `rule_id` (`pulumi.Input[str]`) - ID of the associated WAF (Global) rule (e.g. [`waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
+          * `rule_id` (`pulumi.Input[str]`) - ID of the associated WAF (Global) rule (e.g. `waf.Rule`). WAF (Regional) rules cannot be used.
           * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

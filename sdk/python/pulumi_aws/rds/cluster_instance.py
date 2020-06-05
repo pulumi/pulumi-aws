@@ -33,7 +33,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     cluster_identifier: pulumi.Output[str]
     """
-    The identifier of the [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+    The identifier of the `rds.Cluster` in which to launch this instance.
     """
     copy_tags_to_snapshot: pulumi.Output[bool]
     """
@@ -45,7 +45,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     db_subnet_group_name: pulumi.Output[str]
     """
-    A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+    A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
     """
     dbi_resource_id: pulumi.Output[str]
     """
@@ -188,10 +188,10 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
-        :param pulumi.Input[str] cluster_identifier: The identifier of the [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+        :param pulumi.Input[str] cluster_identifier: The identifier of the `rds.Cluster` in which to launch this instance.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         :param pulumi.Input[str] db_parameter_group_name: The name of the DB parameter group to associate with this instance.
-        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
@@ -288,10 +288,10 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
-        :param pulumi.Input[str] cluster_identifier: The identifier of the [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+        :param pulumi.Input[str] cluster_identifier: The identifier of the `rds.Cluster` in which to launch this instance.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         :param pulumi.Input[str] db_parameter_group_name: The name of the DB parameter group to associate with this instance.
-        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the DB instance.
         :param pulumi.Input[str] endpoint: The DNS address for this instance. May not be writable
         :param pulumi.Input[str] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.

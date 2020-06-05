@@ -19,7 +19,7 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public Input<Inputs.RegexMatchSetRegexMatchTupleFieldToMatchGetArgs> FieldToMatch { get; set; } = null!;
 
         /// <summary>
-        /// The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
+        /// The ID of a `WAF Regex Pattern Set`.
         /// </summary>
         [Input("regexPatternSetId", required: true)]
         public Input<string> RegexPatternSetId { get; set; } = null!;

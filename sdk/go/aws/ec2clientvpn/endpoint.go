@@ -15,6 +15,8 @@ import (
 type Endpoint struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Client VPN endpoint.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Information about the authentication method to be used to authenticate clients.
 	AuthenticationOptions EndpointAuthenticationOptionArrayOutput `pulumi:"authenticationOptions"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
@@ -79,6 +81,8 @@ func GetEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
+	// The ARN of the Client VPN endpoint.
+	Arn *string `pulumi:"arn"`
 	// Information about the authentication method to be used to authenticate clients.
 	AuthenticationOptions []EndpointAuthenticationOption `pulumi:"authenticationOptions"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
@@ -104,6 +108,8 @@ type endpointState struct {
 }
 
 type EndpointState struct {
+	// The ARN of the Client VPN endpoint.
+	Arn pulumi.StringPtrInput
 	// Information about the authentication method to be used to authenticate clients.
 	AuthenticationOptions EndpointAuthenticationOptionArrayInput
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.

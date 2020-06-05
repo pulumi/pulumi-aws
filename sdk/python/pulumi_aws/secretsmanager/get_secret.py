@@ -90,7 +90,7 @@ class AwaitableGetSecretResult(GetSecretResult):
 
 def get_secret(arn=None,name=None,opts=None):
     """
-    Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the [`secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
+    Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion`.
 
     ## Example Usage
 

@@ -1186,13 +1186,13 @@ func (o UserPoolDeviceConfigurationPtrOutput) DeviceOnlyRememberedOnUserPrompt()
 }
 
 type UserPoolEmailConfiguration struct {
-	// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+	// The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
 	EmailSendingAccount *string `pulumi:"emailSendingAccount"`
-	// Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
+	// Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
 	FromEmailAddress *string `pulumi:"fromEmailAddress"`
 	// The REPLY-TO email address.
 	ReplyToEmailAddress *string `pulumi:"replyToEmailAddress"`
-	// The ARN of the email source.
+	// The ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
 	SourceArn *string `pulumi:"sourceArn"`
 }
 
@@ -1209,13 +1209,13 @@ type UserPoolEmailConfigurationInput interface {
 }
 
 type UserPoolEmailConfigurationArgs struct {
-	// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+	// The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
 	EmailSendingAccount pulumi.StringPtrInput `pulumi:"emailSendingAccount"`
-	// Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
+	// Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
 	FromEmailAddress pulumi.StringPtrInput `pulumi:"fromEmailAddress"`
 	// The REPLY-TO email address.
 	ReplyToEmailAddress pulumi.StringPtrInput `pulumi:"replyToEmailAddress"`
-	// The ARN of the email source.
+	// The ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
 	SourceArn pulumi.StringPtrInput `pulumi:"sourceArn"`
 }
 
@@ -1297,12 +1297,12 @@ func (o UserPoolEmailConfigurationOutput) ToUserPoolEmailConfigurationPtrOutputW
 	}).(UserPoolEmailConfigurationPtrOutput)
 }
 
-// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+// The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
 func (o UserPoolEmailConfigurationOutput) EmailSendingAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.EmailSendingAccount }).(pulumi.StringPtrOutput)
 }
 
-// Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
+// Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
 func (o UserPoolEmailConfigurationOutput) FromEmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.FromEmailAddress }).(pulumi.StringPtrOutput)
 }
@@ -1312,7 +1312,7 @@ func (o UserPoolEmailConfigurationOutput) ReplyToEmailAddress() pulumi.StringPtr
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.ReplyToEmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the email source.
+// The ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
 func (o UserPoolEmailConfigurationOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.SourceArn }).(pulumi.StringPtrOutput)
 }
@@ -1335,7 +1335,7 @@ func (o UserPoolEmailConfigurationPtrOutput) Elem() UserPoolEmailConfigurationOu
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) UserPoolEmailConfiguration { return *v }).(UserPoolEmailConfigurationOutput)
 }
 
-// Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+// The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
 func (o UserPoolEmailConfigurationPtrOutput) EmailSendingAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {
@@ -1345,7 +1345,7 @@ func (o UserPoolEmailConfigurationPtrOutput) EmailSendingAccount() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
+// Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
 func (o UserPoolEmailConfigurationPtrOutput) FromEmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {
@@ -1365,7 +1365,7 @@ func (o UserPoolEmailConfigurationPtrOutput) ReplyToEmailAddress() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the email source.
+// The ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
 func (o UserPoolEmailConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {

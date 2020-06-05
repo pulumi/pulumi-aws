@@ -136,7 +136,7 @@ type ClusterCoreInstanceGroup struct {
 	EbsConfigs []ClusterCoreInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
 	// The ID of the EMR Cluster
 	Id *string `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount *int `pulumi:"instanceCount"`
 	// EC2 instance type for all instances in the instance group.
 	InstanceType string `pulumi:"instanceType"`
@@ -165,7 +165,7 @@ type ClusterCoreInstanceGroupArgs struct {
 	EbsConfigs ClusterCoreInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
 	// The ID of the EMR Cluster
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// EC2 instance type for all instances in the instance group.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
@@ -271,7 +271,7 @@ func (o ClusterCoreInstanceGroupOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 func (o ClusterCoreInstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -344,7 +344,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 func (o ClusterCoreInstanceGroupPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *int {
 		if v == nil {
@@ -775,7 +775,7 @@ type ClusterInstanceGroup struct {
 	EbsConfigs []ClusterInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
 	// The ID of the EMR Cluster
 	Id *string `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount *int `pulumi:"instanceCount"`
 	// The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
 	InstanceRole string `pulumi:"instanceRole"`
@@ -806,7 +806,7 @@ type ClusterInstanceGroupArgs struct {
 	EbsConfigs ClusterInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
 	// The ID of the EMR Cluster
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
 	InstanceRole pulumi.StringInput `pulumi:"instanceRole"`
@@ -888,7 +888,7 @@ func (o ClusterInstanceGroupOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 func (o ClusterInstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -1270,7 +1270,7 @@ type ClusterMasterInstanceGroup struct {
 	EbsConfigs []ClusterMasterInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
 	// The ID of the EMR Cluster
 	Id *string `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount *int `pulumi:"instanceCount"`
 	// EC2 instance type for all instances in the instance group.
 	InstanceType string `pulumi:"instanceType"`
@@ -1297,7 +1297,7 @@ type ClusterMasterInstanceGroupArgs struct {
 	EbsConfigs ClusterMasterInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
 	// The ID of the EMR Cluster
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// EC2 instance type for all instances in the instance group.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
@@ -1398,7 +1398,7 @@ func (o ClusterMasterInstanceGroupOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 func (o ClusterMasterInstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -1461,7 +1461,7 @@ func (o ClusterMasterInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 func (o ClusterMasterInstanceGroupPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *int {
 		if v == nil {

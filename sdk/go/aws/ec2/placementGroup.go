@@ -19,7 +19,7 @@ type PlacementGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the placement group.
 	PlacementGroupId pulumi.StringOutput `pulumi:"placementGroupId"`
-	// The placement strategy.
+	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy pulumi.StringOutput `pulumi:"strategy"`
 	// Key-value map of resource tags.
 	Tags pulumi.MapOutput `pulumi:"tags"`
@@ -60,7 +60,7 @@ type placementGroupState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the placement group.
 	PlacementGroupId *string `pulumi:"placementGroupId"`
-	// The placement strategy.
+	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy *string `pulumi:"strategy"`
 	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -71,7 +71,7 @@ type PlacementGroupState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the placement group.
 	PlacementGroupId pulumi.StringPtrInput
-	// The placement strategy.
+	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy pulumi.StringPtrInput
 	// Key-value map of resource tags.
 	Tags pulumi.MapInput
@@ -84,7 +84,7 @@ func (PlacementGroupState) ElementType() reflect.Type {
 type placementGroupArgs struct {
 	// The name of the placement group.
 	Name *string `pulumi:"name"`
-	// The placement strategy.
+	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy string `pulumi:"strategy"`
 	// Key-value map of resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
@@ -94,7 +94,7 @@ type placementGroupArgs struct {
 type PlacementGroupArgs struct {
 	// The name of the placement group.
 	Name pulumi.StringPtrInput
-	// The placement strategy.
+	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy pulumi.StringInput
 	// Key-value map of resource tags.
 	Tags pulumi.MapInput

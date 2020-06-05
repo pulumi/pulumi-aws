@@ -4218,7 +4218,7 @@ func (o LaunchTemplateBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) La
 }
 
 type LaunchTemplateBlockDeviceMappingEbs struct {
-	// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+	// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
 	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
 	// on the volume (Default: `false`). Cannot be used with `snapshotId`.
@@ -4251,7 +4251,7 @@ type LaunchTemplateBlockDeviceMappingEbsInput interface {
 }
 
 type LaunchTemplateBlockDeviceMappingEbsArgs struct {
-	// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+	// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
 	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
 	// on the volume (Default: `false`). Cannot be used with `snapshotId`.
@@ -4349,7 +4349,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) ToLaunchTemplateBlockDeviceMa
 	}).(LaunchTemplateBlockDeviceMappingEbsPtrOutput)
 }
 
-// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.DeleteOnTermination }).(pulumi.StringPtrOutput)
 }
@@ -4406,7 +4406,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Elem() LaunchTemplateBlock
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) LaunchTemplateBlockDeviceMappingEbs { return *v }).(LaunchTemplateBlockDeviceMappingEbsOutput)
 }
 
-// Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+// Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -6356,7 +6356,7 @@ func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 type LaunchTemplateNetworkInterface struct {
 	// Associate a public ip address with the network interface.  Boolean value.
 	AssociatePublicIpAddress *string `pulumi:"associatePublicIpAddress"`
-	// Whether the network interface should be destroyed on instance termination.
+	// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
 	// Description of the network interface.
 	Description *string `pulumi:"description"`
@@ -6395,7 +6395,7 @@ type LaunchTemplateNetworkInterfaceInput interface {
 type LaunchTemplateNetworkInterfaceArgs struct {
 	// Associate a public ip address with the network interface.  Boolean value.
 	AssociatePublicIpAddress pulumi.StringPtrInput `pulumi:"associatePublicIpAddress"`
-	// Whether the network interface should be destroyed on instance termination.
+	// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
 	// Description of the network interface.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -6476,7 +6476,7 @@ func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.AssociatePublicIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Whether the network interface should be destroyed on instance termination.
+// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
 func (o LaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }

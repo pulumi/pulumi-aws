@@ -71,7 +71,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly authorizationType!: pulumi.Output<string | undefined>;
     /**
-     * The identifier of the [`aws.apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+     * The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
      */
     public readonly authorizerId!: pulumi.Output<string | undefined>;
     /**
@@ -177,7 +177,7 @@ export interface RouteState {
      */
     readonly authorizationType?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws.apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+     * The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
      */
     readonly authorizerId?: pulumi.Input<string>;
     /**
@@ -230,7 +230,7 @@ export interface RouteArgs {
      */
     readonly authorizationType?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws.apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+     * The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
      */
     readonly authorizerId?: pulumi.Input<string>;
     /**

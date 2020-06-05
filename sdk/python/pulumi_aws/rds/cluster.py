@@ -60,7 +60,7 @@ class Cluster(pulumi.CustomResource):
     """
     db_subnet_group_name: pulumi.Output[str]
     """
-    A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+    A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
     """
     deletion_protection: pulumi.Output[bool]
     """
@@ -96,7 +96,7 @@ class Cluster(pulumi.CustomResource):
     """
     global_cluster_identifier: pulumi.Output[str]
     """
-    The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+    The global cluster identifier specified on `rds.GlobalCluster`.
     """
     hosted_zone_id: pulumi.Output[str]
     """
@@ -180,7 +180,7 @@ class Cluster(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, copy_tags_to_snapshot=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, deletion_protection=None, enable_http_endpoint=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, global_cluster_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, s3_import=None, scaling_configuration=None, skip_final_snapshot=None, snapshot_identifier=None, source_region=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`rds.ClusterInstance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`rds.Instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
+        Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the `rds.ClusterInstance` resource. To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the `rds.Instance` resource.
 
         For information on the difference between the available Aurora MySQL engines
         see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
@@ -198,7 +198,6 @@ class Cluster(pulumi.CustomResource):
         for more information.
 
         > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-        [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
         ## Example Usage
 
@@ -293,7 +292,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
-        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[list] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
@@ -301,7 +300,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine_mode: The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
-        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `rds.GlobalCluster`.
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
         :param pulumi.Input[list] iam_roles: A List of ARNs for the IAM roles to associate to the RDS Cluster.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
@@ -420,7 +419,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
-        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every [`rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[list] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
@@ -429,7 +428,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine_mode: The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
-        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `rds.GlobalCluster`.
         :param pulumi.Input[str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
         :param pulumi.Input[list] iam_roles: A List of ARNs for the IAM roles to associate to the RDS Cluster.

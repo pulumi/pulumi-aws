@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         fromPort: 443,
  *         toPort: 443,
  *         protocol: "tcp",
- *         cidrBlocks: aws_vpc.main.cidr_block,
+ *         cidrBlocks: [aws_vpc.main.cidr_block],
  *     }],
  *     egress: [{
  *         fromPort: 0,

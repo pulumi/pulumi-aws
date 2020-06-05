@@ -12,7 +12,7 @@ import (
 
 // Provides an AWS Config Rule.
 //
-// > **Note:** Config Rule requires an existing [Configuration Recorder](https://www.terraform.io/docs/providers/aws/r/config_configuration_recorder.html) to be present. Use of `dependsOn` is recommended (as shown below) to avoid race conditions.
+// > **Note:** Config Rule requires an existing `Configuration Recorder` to be present. Use of `dependsOn` is recommended (as shown below) to avoid race conditions.
 type Rule struct {
 	pulumi.CustomResourceState
 

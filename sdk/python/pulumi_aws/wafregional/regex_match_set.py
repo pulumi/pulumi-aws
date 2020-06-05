@@ -27,7 +27,7 @@ class RegexMatchSet(pulumi.CustomResource):
           See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
           for all supported values.
 
-      * `regexPatternSetId` (`str`) - The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
+      * `regexPatternSetId` (`str`) - The ID of a `WAF Regex Pattern Set`.
       * `textTransformation` (`str`) - Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
         e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
@@ -76,7 +76,7 @@ class RegexMatchSet(pulumi.CustomResource):
               See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
               for all supported values.
 
-          * `regexPatternSetId` (`pulumi.Input[str]`) - The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
+          * `regexPatternSetId` (`pulumi.Input[str]`) - The ID of a `WAF Regex Pattern Set`.
           * `textTransformation` (`pulumi.Input[str]`) - Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
             e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
             See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
@@ -130,7 +130,7 @@ class RegexMatchSet(pulumi.CustomResource):
               See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
               for all supported values.
 
-          * `regexPatternSetId` (`pulumi.Input[str]`) - The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
+          * `regexPatternSetId` (`pulumi.Input[str]`) - The ID of a `WAF Regex Pattern Set`.
           * `textTransformation` (`pulumi.Input[str]`) - Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
             e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
             See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)

@@ -175,7 +175,6 @@ class Cluster(pulumi.CustomResource):
         Provides a Redshift Cluster Resource.
 
         > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-        [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
         ## Example Usage
 

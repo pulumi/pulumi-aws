@@ -28,7 +28,7 @@ class Alias(pulumi.CustomResource):
     """
     invoke_arn: pulumi.Output[str]
     """
-    The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+    The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
     """
     name: pulumi.Output[str]
     """
@@ -126,7 +126,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] function_name: The function ARN of the Lambda function for which you want to create an alias.
         :param pulumi.Input[str] function_version: Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-        :param pulumi.Input[str] invoke_arn: The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+        :param pulumi.Input[str] invoke_arn: The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
         :param pulumi.Input[str] name: Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
         :param pulumi.Input[dict] routing_config: The Lambda alias' route configuration settings. Fields documented below
 

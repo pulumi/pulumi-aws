@@ -25,7 +25,7 @@ type Authorizer struct {
 	// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
 	AuthorizerType pulumi.StringOutput `pulumi:"authorizerType"`
 	// The authorizer's Uniform Resource Identifier (URI).
-	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the [`lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) resource.
+	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
 	// Supported only for `REQUEST` authorizers.
 	AuthorizerUri pulumi.StringPtrOutput `pulumi:"authorizerUri"`
 	// The identity sources for which authorization is requested.
@@ -86,7 +86,7 @@ type authorizerState struct {
 	// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
 	AuthorizerType *string `pulumi:"authorizerType"`
 	// The authorizer's Uniform Resource Identifier (URI).
-	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the [`lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) resource.
+	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
 	// Supported only for `REQUEST` authorizers.
 	AuthorizerUri *string `pulumi:"authorizerUri"`
 	// The identity sources for which authorization is requested.
@@ -111,7 +111,7 @@ type AuthorizerState struct {
 	// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
 	AuthorizerType pulumi.StringPtrInput
 	// The authorizer's Uniform Resource Identifier (URI).
-	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the [`lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) resource.
+	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
 	// Supported only for `REQUEST` authorizers.
 	AuthorizerUri pulumi.StringPtrInput
 	// The identity sources for which authorization is requested.
@@ -140,7 +140,7 @@ type authorizerArgs struct {
 	// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
 	AuthorizerType string `pulumi:"authorizerType"`
 	// The authorizer's Uniform Resource Identifier (URI).
-	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the [`lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) resource.
+	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
 	// Supported only for `REQUEST` authorizers.
 	AuthorizerUri *string `pulumi:"authorizerUri"`
 	// The identity sources for which authorization is requested.
@@ -166,7 +166,7 @@ type AuthorizerArgs struct {
 	// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
 	AuthorizerType pulumi.StringInput
 	// The authorizer's Uniform Resource Identifier (URI).
-	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the [`lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) resource.
+	// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `lambda.Function` resource.
 	// Supported only for `REQUEST` authorizers.
 	AuthorizerUri pulumi.StringPtrInput
 	// The identity sources for which authorization is requested.

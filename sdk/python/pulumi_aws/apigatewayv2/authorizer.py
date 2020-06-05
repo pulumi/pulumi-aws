@@ -28,7 +28,7 @@ class Authorizer(pulumi.CustomResource):
     authorizer_uri: pulumi.Output[str]
     """
     The authorizer's Uniform Resource Identifier (URI).
-    For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the [`lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) resource.
+    For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
     Supported only for `REQUEST` authorizers.
     """
     identity_sources: pulumi.Output[list]
@@ -43,7 +43,7 @@ class Authorizer(pulumi.CustomResource):
     Supported only for HTTP APIs.
 
       * `audiences` (`list`) - A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
-      * `issuer` (`str`) - The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
+      * `issuer` (`str`) - The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
     """
     name: pulumi.Output[str]
     """
@@ -95,7 +95,7 @@ class Authorizer(pulumi.CustomResource):
                For WebSocket APIs, specify `REQUEST` for a Lambda function using incoming request parameters.
                For HTTP APIs, specify `JWT` to use JSON Web Tokens.
         :param pulumi.Input[str] authorizer_uri: The authorizer's Uniform Resource Identifier (URI).
-               For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the [`lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) resource.
+               For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
                Supported only for `REQUEST` authorizers.
         :param pulumi.Input[list] identity_sources: The identity sources for which authorization is requested.
                For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
@@ -107,7 +107,7 @@ class Authorizer(pulumi.CustomResource):
         The **jwt_configuration** object supports the following:
 
           * `audiences` (`pulumi.Input[list]`) - A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
-          * `issuer` (`pulumi.Input[str]`) - The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
+          * `issuer` (`pulumi.Input[str]`) - The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -161,7 +161,7 @@ class Authorizer(pulumi.CustomResource):
                For WebSocket APIs, specify `REQUEST` for a Lambda function using incoming request parameters.
                For HTTP APIs, specify `JWT` to use JSON Web Tokens.
         :param pulumi.Input[str] authorizer_uri: The authorizer's Uniform Resource Identifier (URI).
-               For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the [`lambda.Function`](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) resource.
+               For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `lambda.Function` resource.
                Supported only for `REQUEST` authorizers.
         :param pulumi.Input[list] identity_sources: The identity sources for which authorization is requested.
                For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
@@ -173,7 +173,7 @@ class Authorizer(pulumi.CustomResource):
         The **jwt_configuration** object supports the following:
 
           * `audiences` (`pulumi.Input[list]`) - A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
-          * `issuer` (`pulumi.Input[str]`) - The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
+          * `issuer` (`pulumi.Input[str]`) - The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

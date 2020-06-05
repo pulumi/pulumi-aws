@@ -45,8 +45,8 @@ class Api(pulumi.CustomResource):
     """
     execution_arn: pulumi.Output[str]
     """
-    The ARN prefix to be used in an [`lambda.Permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn` attribute
-    or in an [`iam.Policy`](https://www.terraform.io/docs/providers/aws/r/iam_policy.html) to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
+    The ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
+    or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
     See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
     """
     name: pulumi.Output[str]
@@ -193,8 +193,8 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[dict] cors_configuration: The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         :param pulumi.Input[str] credentials_arn: Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         :param pulumi.Input[str] description: The description of the API.
-        :param pulumi.Input[str] execution_arn: The ARN prefix to be used in an [`lambda.Permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn` attribute
-               or in an [`iam.Policy`](https://www.terraform.io/docs/providers/aws/r/iam_policy.html) to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
+        :param pulumi.Input[str] execution_arn: The ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
+               or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
                See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         :param pulumi.Input[str] name: The name of the API.
         :param pulumi.Input[str] protocol_type: The API protocol. Valid values: `HTTP`, `WEBSOCKET`.

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the [`aws.secretsmanager.SecretVersion` resource](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret_version.html).
+ * Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the `aws.secretsmanager.SecretVersion` resource.
  *
  * ## Example Usage
  *

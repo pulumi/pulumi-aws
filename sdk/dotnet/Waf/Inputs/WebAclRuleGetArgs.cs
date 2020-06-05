@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Waf.Inputs
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// ID of the associated WAF (Global) rule (e.g. [`aws.waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
+        /// ID of the associated WAF (Global) rule (e.g. `aws.waf.Rule`). WAF (Regional) rules cannot be used.
         /// </summary>
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;

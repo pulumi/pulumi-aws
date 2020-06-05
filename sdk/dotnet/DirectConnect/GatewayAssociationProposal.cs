@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DirectConnect
 {
     /// <summary>
-    /// Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the [`aws.directconnect.GatewayAssociation` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association.html).
+    /// Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the `aws.directconnect.GatewayAssociation` resource.
     /// 
     /// ## Example Usage
     /// 

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Inspector
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+        /// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Inspector
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+        /// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
         /// </summary>
         public InputMap<object> Tags
         {
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Inspector
         private InputMap<object>? _tags;
 
         /// <summary>
-        /// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+        /// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
         /// </summary>
         public InputMap<object> Tags
         {

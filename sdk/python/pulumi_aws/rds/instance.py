@@ -73,7 +73,7 @@ class Instance(pulumi.CustomResource):
     """
     db_subnet_group_name: pulumi.Output[str]
     """
-    Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
+    Name of `DB subnet group`. DB instance will
     be created in the VPC associated with the DB subnet group. If unspecified, will
     be created in the `default` VPC, or in EC2 Classic, if available. When working
     with read replicas, it should be specified only if the source database
@@ -109,7 +109,7 @@ class Instance(pulumi.CustomResource):
     """
     (Required unless a `snapshot_identifier` or `replicate_source_db`
     is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-    Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
+    Note that for Amazon Aurora instances the engine must match the `DB cluster`'s engine'.
     For information on the difference between the available Aurora MySQL engines
     see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
     in the Amazon RDS User Guide.
@@ -120,7 +120,7 @@ class Instance(pulumi.CustomResource):
     is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
     this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
     For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-    Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+    Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
     """
     final_snapshot_identifier: pulumi.Output[str]
     """
@@ -345,8 +345,7 @@ class Instance(pulumi.CustomResource):
         server reboots. See the AWS Docs on [RDS Maintenance][2] for more information.
 
         > **Note:** All arguments including the username and password will be stored in
-        the raw state as plain-text. [Read more about sensitive data in
-        state](https://www.terraform.io/docs/state/sensitive-data.html).
+        the raw state as plain-text.
 
         ## RDS Instance Class Types
 
@@ -411,7 +410,7 @@ class Instance(pulumi.CustomResource):
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
                or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
-        :param pulumi.Input[str] db_subnet_group_name: Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
+        :param pulumi.Input[str] db_subnet_group_name: Name of `DB subnet group`. DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
                be created in the `default` VPC, or in EC2 Classic, if available. When working
                with read replicas, it should be specified only if the source database
@@ -425,7 +424,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[list] enabled_cloudwatch_logs_exports: List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
         :param pulumi.Input[str] engine: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-               Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
+               Note that for Amazon Aurora instances the engine must match the `DB cluster`'s engine'.
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
@@ -433,7 +432,7 @@ class Instance(pulumi.CustomResource):
                is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
                this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
                For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-               Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+               Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
                set to `false`.
@@ -644,7 +643,7 @@ class Instance(pulumi.CustomResource):
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
                or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
-        :param pulumi.Input[str] db_subnet_group_name: Name of [DB subnet group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html). DB instance will
+        :param pulumi.Input[str] db_subnet_group_name: Name of `DB subnet group`. DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
                be created in the `default` VPC, or in EC2 Classic, if available. When working
                with read replicas, it should be specified only if the source database
@@ -659,7 +658,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[str] engine: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-               Note that for Amazon Aurora instances the engine must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine'.
+               Note that for Amazon Aurora instances the engine must match the `DB cluster`'s engine'.
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
@@ -667,7 +666,7 @@ class Instance(pulumi.CustomResource):
                is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
                this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
                For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-               Note that for Amazon Aurora instances the engine version must match the [DB cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)'s engine version'.
+               Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
                set to `false`.

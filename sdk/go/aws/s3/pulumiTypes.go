@@ -4638,7 +4638,7 @@ func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 type BucketVersioning struct {
 	// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
 	Enabled *bool `pulumi:"enabled"`
-	// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`.
+	// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
 	MfaDelete *bool `pulumi:"mfaDelete"`
 }
 
@@ -4657,7 +4657,7 @@ type BucketVersioningInput interface {
 type BucketVersioningArgs struct {
 	// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`.
+	// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
 	MfaDelete pulumi.BoolPtrInput `pulumi:"mfaDelete"`
 }
 
@@ -4744,7 +4744,7 @@ func (o BucketVersioningOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketVersioning) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`.
+// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
 func (o BucketVersioningOutput) MfaDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketVersioning) *bool { return v.MfaDelete }).(pulumi.BoolPtrOutput)
 }
@@ -4777,7 +4777,7 @@ func (o BucketVersioningPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`.
+// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
 func (o BucketVersioningPtrOutput) MfaDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BucketVersioning) *bool {
 		if v == nil {

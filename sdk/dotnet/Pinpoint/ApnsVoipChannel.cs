@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Pinpoint
     /// Provides a Pinpoint APNs VoIP Channel resource.
     /// 
     /// &gt; **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
     /// ## Example Usage
     /// 

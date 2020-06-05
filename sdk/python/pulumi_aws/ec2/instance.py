@@ -189,7 +189,7 @@ class Instance(pulumi.CustomResource):
     """
     public_ip: pulumi.Output[str]
     """
-    The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+    The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
     """
     root_block_device: pulumi.Output[dict]
     """
@@ -249,7 +249,7 @@ class Instance(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, ami=None, associate_public_ip_address=None, availability_zone=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, metadata_options=None, monitoring=None, network_interfaces=None, placement_group=None, private_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an EC2 instance resource. This allows instances to be created, updated,
-        and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
+        and deleted.
 
         ## Example Usage
 
@@ -520,7 +520,7 @@ class Instance(pulumi.CustomResource):
                instance in a VPC.
         :param pulumi.Input[str] public_dns: The public DNS name assigned to the instance. For EC2-VPC, this
                is only available if you've enabled DNS hostnames for your VPC
-        :param pulumi.Input[str] public_ip: The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+        :param pulumi.Input[str] public_ip: The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         :param pulumi.Input[dict] root_block_device: Customize details about the root block
                device of the instance. See Block Devices below for details.
         :param pulumi.Input[list] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.

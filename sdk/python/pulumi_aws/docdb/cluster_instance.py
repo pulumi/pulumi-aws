@@ -33,7 +33,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     cluster_identifier: pulumi.Output[str]
     """
-    The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+    The identifier of the `docdb.Cluster` in which to launch this instance.
     """
     db_subnet_group_name: pulumi.Output[str]
     """
@@ -152,7 +152,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
-        :param pulumi.Input[str] cluster_identifier: The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+        :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         :param pulumi.Input[str] identifier: The indentifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifer`.
@@ -234,7 +234,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
-        :param pulumi.Input[str] cluster_identifier: The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+        :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
         :param pulumi.Input[str] db_subnet_group_name: The DB subnet group to associate with this DB instance.
         :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the DB instance.
         :param pulumi.Input[str] endpoint: The DNS address for this instance. May not be writable

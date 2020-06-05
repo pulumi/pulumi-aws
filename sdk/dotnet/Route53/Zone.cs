@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws.route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         /// </summary>
         [Output("vpcs")]
         public Output<ImmutableArray<Outputs.ZoneVpc>> Vpcs { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Route53
         private InputList<Inputs.ZoneVpcArgs>? _vpcs;
 
         /// <summary>
-        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws.route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         /// </summary>
         public InputList<Inputs.ZoneVpcArgs> Vpcs
         {
@@ -302,7 +302,7 @@ namespace Pulumi.Aws.Route53
         private InputList<Inputs.ZoneVpcGetArgs>? _vpcs;
 
         /// <summary>
-        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any [`aws.route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+        /// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         /// </summary>
         public InputList<Inputs.ZoneVpcGetArgs> Vpcs
         {

@@ -76,7 +76,7 @@ export class Alias extends pulumi.CustomResource {
      */
     public readonly functionVersion!: pulumi.Output<string>;
     /**
-     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
      */
     public /*out*/ readonly invokeArn!: pulumi.Output<string>;
     /**
@@ -155,7 +155,7 @@ export interface AliasState {
      */
     readonly functionVersion?: pulumi.Input<string>;
     /**
-     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
      */
     readonly invokeArn?: pulumi.Input<string>;
     /**

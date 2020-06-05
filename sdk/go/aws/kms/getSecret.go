@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// !> **WARNING:** This data source was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the [`kms.getSecrets` data source](https://www.terraform.io/docs/providers/aws/d/kms_secrets.html) following instructions available in the [Version 2 Upgrade Guide](https://www.terraform.io/docs/providers/aws/guides/version-2-upgrade.html#data-source-aws_kms_secret).
 func GetSecret(ctx *pulumi.Context, args *GetSecretArgs, opts ...pulumi.InvokeOption) (*GetSecretResult, error) {
 	var rv GetSecretResult
 	err := ctx.Invoke("aws:kms/getSecret:getSecret", args, &rv, opts...)

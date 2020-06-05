@@ -10,7 +10,7 @@ import (
 // Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
 //
 // > **NOTE:** This data source does not apply to snapshots created on DB Instances.
-// See the [`rds.Snapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_snapshot.html) for DB Instance snapshots.
+// See the `rds.Snapshot` data source for DB Instance snapshots.
 func LookupClusterSnapshot(ctx *pulumi.Context, args *LookupClusterSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupClusterSnapshotResult, error) {
 	var rv LookupClusterSnapshotResult
 	err := ctx.Invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", args, &rv, opts...)

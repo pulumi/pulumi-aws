@@ -47,7 +47,10 @@ namespace Pulumi.Aws.Ec2
     ///                     FromPort = 443,
     ///                     ToPort = 443,
     ///                     Protocol = "tcp",
-    ///                     CidrBlocks = aws_vpc.Main.Cidr_block,
+    ///                     CidrBlocks = 
+    ///                     {
+    ///                         aws_vpc.Main.Cidr_block,
+    ///                     },
     ///                 },
     ///             },
     ///             Egress = 

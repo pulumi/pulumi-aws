@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Waf.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// ID of the associated WAF (Global) rule (e.g. [`aws.waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
+        /// ID of the associated WAF (Global) rule (e.g. `aws.waf.Rule`). WAF (Regional) rules cannot be used.
         /// </summary>
         public readonly string RuleId;
         /// <summary>

@@ -24,7 +24,7 @@ class RouteResponse(pulumi.CustomResource):
     """
     route_id: pulumi.Output[str]
     """
-    The identifier of the [`apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+    The identifier of the `apigatewayv2.Route`.
     """
     route_response_key: pulumi.Output[str]
     """
@@ -55,7 +55,7 @@ class RouteResponse(pulumi.CustomResource):
         :param pulumi.Input[str] api_id: The API identifier.
         :param pulumi.Input[str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
         :param pulumi.Input[dict] response_models: The response models for the route response.
-        :param pulumi.Input[str] route_id: The identifier of the [`apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+        :param pulumi.Input[str] route_id: The identifier of the `apigatewayv2.Route`.
         :param pulumi.Input[str] route_response_key: The route response key.
         """
         if __name__ is not None:
@@ -104,7 +104,7 @@ class RouteResponse(pulumi.CustomResource):
         :param pulumi.Input[str] api_id: The API identifier.
         :param pulumi.Input[str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
         :param pulumi.Input[dict] response_models: The response models for the route response.
-        :param pulumi.Input[str] route_id: The identifier of the [`apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+        :param pulumi.Input[str] route_id: The identifier of the `apigatewayv2.Route`.
         :param pulumi.Input[str] route_response_key: The route response key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

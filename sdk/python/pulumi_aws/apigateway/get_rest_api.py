@@ -48,7 +48,7 @@ class GetRestApiResult:
             raise TypeError("Expected argument 'execution_arn' to be a str")
         __self__.execution_arn = execution_arn
         """
-        The execution ARN part to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+        The execution ARN part to be used in `lambda_permission`'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")

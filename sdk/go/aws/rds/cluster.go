@@ -9,7 +9,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the [`rds.ClusterInstance` resource](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html). To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the [`rds.Instance` resource](https://www.terraform.io/docs/providers/aws/r/db_instance.html).
+// Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the `rds.ClusterInstance` resource. To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the `rds.Instance` resource.
 //
 // For information on the difference between the available Aurora MySQL engines
 // see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
@@ -27,7 +27,6 @@ import (
 // for more information.
 //
 // > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -55,7 +54,7 @@ type Cluster struct {
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName pulumi.StringOutput `pulumi:"dbClusterParameterGroupName"`
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `rds.ClusterInstance` in the cluster.
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
@@ -73,7 +72,7 @@ type Cluster struct {
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
-	// The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+	// The global cluster identifier specified on `rds.GlobalCluster`.
 	GlobalClusterIdentifier pulumi.StringPtrOutput `pulumi:"globalClusterIdentifier"`
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
@@ -167,7 +166,7 @@ type clusterState struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `rds.ClusterInstance` in the cluster.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
@@ -185,7 +184,7 @@ type clusterState struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
-	// The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+	// The global cluster identifier specified on `rds.GlobalCluster`.
 	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId *string `pulumi:"hostedZoneId"`
@@ -252,7 +251,7 @@ type ClusterState struct {
 	DatabaseName pulumi.StringPtrInput
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName pulumi.StringPtrInput
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `rds.ClusterInstance` in the cluster.
 	DbSubnetGroupName pulumi.StringPtrInput
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
@@ -270,7 +269,7 @@ type ClusterState struct {
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
-	// The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+	// The global cluster identifier specified on `rds.GlobalCluster`.
 	GlobalClusterIdentifier pulumi.StringPtrInput
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId pulumi.StringPtrInput
@@ -337,7 +336,7 @@ type clusterArgs struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `rds.ClusterInstance` in the cluster.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
@@ -353,7 +352,7 @@ type clusterArgs struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
-	// The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+	// The global cluster identifier specified on `rds.GlobalCluster`.
 	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
 	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
 	IamDatabaseAuthenticationEnabled *bool `pulumi:"iamDatabaseAuthenticationEnabled"`
@@ -412,7 +411,7 @@ type ClusterArgs struct {
 	DatabaseName pulumi.StringPtrInput
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName pulumi.StringPtrInput
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every [`rds.ClusterInstance`](https://www.terraform.io/docs/providers/aws/r/rds_cluster_instance.html) in the cluster.
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `rds.ClusterInstance` in the cluster.
 	DbSubnetGroupName pulumi.StringPtrInput
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
@@ -428,7 +427,7 @@ type ClusterArgs struct {
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
-	// The global cluster identifier specified on [`rds.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/rds_global_cluster.html).
+	// The global cluster identifier specified on `rds.GlobalCluster`.
 	GlobalClusterIdentifier pulumi.StringPtrInput
 	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrInput

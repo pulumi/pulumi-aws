@@ -19,7 +19,7 @@ type IntegrationResponse struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
 	ContentHandlingStrategy pulumi.StringPtrOutput `pulumi:"contentHandlingStrategy"`
-	// The identifier of the [`apigatewayv2.Integration`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration.html).
+	// The identifier of the `apigatewayv2.Integration`.
 	IntegrationId pulumi.StringOutput `pulumi:"integrationId"`
 	// The integration response key.
 	IntegrationResponseKey pulumi.StringOutput `pulumi:"integrationResponseKey"`
@@ -70,7 +70,7 @@ type integrationResponseState struct {
 	ApiId *string `pulumi:"apiId"`
 	// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
 	ContentHandlingStrategy *string `pulumi:"contentHandlingStrategy"`
-	// The identifier of the [`apigatewayv2.Integration`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration.html).
+	// The identifier of the `apigatewayv2.Integration`.
 	IntegrationId *string `pulumi:"integrationId"`
 	// The integration response key.
 	IntegrationResponseKey *string `pulumi:"integrationResponseKey"`
@@ -85,7 +85,7 @@ type IntegrationResponseState struct {
 	ApiId pulumi.StringPtrInput
 	// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
 	ContentHandlingStrategy pulumi.StringPtrInput
-	// The identifier of the [`apigatewayv2.Integration`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration.html).
+	// The identifier of the `apigatewayv2.Integration`.
 	IntegrationId pulumi.StringPtrInput
 	// The integration response key.
 	IntegrationResponseKey pulumi.StringPtrInput
@@ -104,7 +104,7 @@ type integrationResponseArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
 	ContentHandlingStrategy *string `pulumi:"contentHandlingStrategy"`
-	// The identifier of the [`apigatewayv2.Integration`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration.html).
+	// The identifier of the `apigatewayv2.Integration`.
 	IntegrationId string `pulumi:"integrationId"`
 	// The integration response key.
 	IntegrationResponseKey string `pulumi:"integrationResponseKey"`
@@ -120,7 +120,7 @@ type IntegrationResponseArgs struct {
 	ApiId pulumi.StringInput
 	// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
 	ContentHandlingStrategy pulumi.StringPtrInput
-	// The identifier of the [`apigatewayv2.Integration`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration.html).
+	// The identifier of the `apigatewayv2.Integration`.
 	IntegrationId pulumi.StringInput
 	// The integration response key.
 	IntegrationResponseKey pulumi.StringInput

@@ -15,7 +15,7 @@ type RecordAlias struct {
 	EvaluateTargetHealth bool `pulumi:"evaluateTargetHealth"`
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
 	Name string `pulumi:"name"`
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId string `pulumi:"zoneId"`
 }
 
@@ -36,7 +36,7 @@ type RecordAliasArgs struct {
 	EvaluateTargetHealth pulumi.BoolInput `pulumi:"evaluateTargetHealth"`
 	// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+	// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 	ZoneId pulumi.StringInput `pulumi:"zoneId"`
 }
 
@@ -102,7 +102,7 @@ func (o RecordAliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordAlias) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
 func (o RecordAliasOutput) ZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordAlias) string { return v.ZoneId }).(pulumi.StringOutput)
 }

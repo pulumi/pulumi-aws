@@ -38,13 +38,13 @@ type ClusterInstance struct {
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringOutput `pulumi:"caCertIdentifier"`
-	// The identifier of the [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+	// The identifier of the `rds.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
 	// The name of the DB parameter group to associate with this instance.
 	DbParameterGroupName pulumi.StringOutput `pulumi:"dbParameterGroupName"`
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
 	// The region-unique, immutable identifier for the DB instance.
 	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
@@ -143,13 +143,13 @@ type clusterInstanceState struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
-	// The identifier of the [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+	// The identifier of the `rds.Cluster` in which to launch this instance.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// The name of the DB parameter group to associate with this instance.
 	DbParameterGroupName *string `pulumi:"dbParameterGroupName"`
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// The region-unique, immutable identifier for the DB instance.
 	DbiResourceId *string `pulumi:"dbiResourceId"`
@@ -215,13 +215,13 @@ type ClusterInstanceState struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
-	// The identifier of the [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+	// The identifier of the `rds.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringPtrInput
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
 	// The name of the DB parameter group to associate with this instance.
 	DbParameterGroupName pulumi.StringPtrInput
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
 	DbSubnetGroupName pulumi.StringPtrInput
 	// The region-unique, immutable identifier for the DB instance.
 	DbiResourceId pulumi.StringPtrInput
@@ -289,13 +289,13 @@ type clusterInstanceArgs struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
-	// The identifier of the [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+	// The identifier of the `rds.Cluster` in which to launch this instance.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// The name of the DB parameter group to associate with this instance.
 	DbParameterGroupName *string `pulumi:"dbParameterGroupName"`
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
 	// For information on the difference between the available Aurora MySQL engines
@@ -348,13 +348,13 @@ type ClusterInstanceArgs struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
-	// The identifier of the [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+	// The identifier of the `rds.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringInput
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
 	// The name of the DB parameter group to associate with this instance.
 	DbParameterGroupName pulumi.StringPtrInput
-	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached [`rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+	// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
 	DbSubnetGroupName pulumi.StringPtrInput
 	// The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
 	// For information on the difference between the available Aurora MySQL engines

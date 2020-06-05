@@ -53,7 +53,7 @@ type DefaultVpc struct {
 	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
-	// [`ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html)
+	// `ec2.MainRouteTableAssociation`
 	MainRouteTableId pulumi.StringOutput `pulumi:"mainRouteTableId"`
 	// The ID of the AWS account that owns the VPC.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
@@ -120,7 +120,7 @@ type defaultVpcState struct {
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
-	// [`ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html)
+	// `ec2.MainRouteTableAssociation`
 	MainRouteTableId *string `pulumi:"mainRouteTableId"`
 	// The ID of the AWS account that owns the VPC.
 	OwnerId *string `pulumi:"ownerId"`
@@ -160,7 +160,7 @@ type DefaultVpcState struct {
 	Ipv6CidrBlock pulumi.StringPtrInput
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
-	// [`ec2.MainRouteTableAssociation`](https://www.terraform.io/docs/providers/aws/r/main_route_table_association.html)
+	// `ec2.MainRouteTableAssociation`
 	MainRouteTableId pulumi.StringPtrInput
 	// The ID of the AWS account that owns the VPC.
 	OwnerId pulumi.StringPtrInput

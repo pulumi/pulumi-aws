@@ -20,7 +20,7 @@ class IntegrationResponse(pulumi.CustomResource):
     """
     integration_id: pulumi.Output[str]
     """
-    The identifier of the [`apigatewayv2.Integration`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration.html).
+    The identifier of the `apigatewayv2.Integration`.
     """
     integration_response_key: pulumi.Output[str]
     """
@@ -58,7 +58,7 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.
         :param pulumi.Input[str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-        :param pulumi.Input[str] integration_id: The identifier of the [`apigatewayv2.Integration`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration.html).
+        :param pulumi.Input[str] integration_id: The identifier of the `apigatewayv2.Integration`.
         :param pulumi.Input[str] integration_response_key: The integration response key.
         :param pulumi.Input[dict] response_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
@@ -109,7 +109,7 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.
         :param pulumi.Input[str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-        :param pulumi.Input[str] integration_id: The identifier of the [`apigatewayv2.Integration`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration.html).
+        :param pulumi.Input[str] integration_id: The identifier of the `apigatewayv2.Integration`.
         :param pulumi.Input[str] integration_response_key: The integration response key.
         :param pulumi.Input[dict] response_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.

@@ -15,11 +15,11 @@ class RuleGroup(pulumi.CustomResource):
     A list of activated rules, see below
 
       * `action` (`dict`) - Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
-        * `type` (`str`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+        * `type` (`str`) - The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 
       * `priority` (`float`) - Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-      * `rule_id` (`str`) - The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)
-      * `type` (`str`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+      * `rule_id` (`str`) - The ID of a `waf_regional_rule`
+      * `type` (`str`) - The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
     """
     arn: pulumi.Output[str]
     """
@@ -72,11 +72,11 @@ class RuleGroup(pulumi.CustomResource):
         The **activated_rules** object supports the following:
 
           * `action` (`pulumi.Input[dict]`) - Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
-            * `type` (`pulumi.Input[str]`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+            * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 
           * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-          * `rule_id` (`pulumi.Input[str]`) - The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)
-          * `type` (`pulumi.Input[str]`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+          * `rule_id` (`pulumi.Input[str]`) - The ID of a `waf_regional_rule`
+          * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -126,11 +126,11 @@ class RuleGroup(pulumi.CustomResource):
         The **activated_rules** object supports the following:
 
           * `action` (`pulumi.Input[dict]`) - Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
-            * `type` (`pulumi.Input[str]`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+            * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 
           * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-          * `rule_id` (`pulumi.Input[str]`) - The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)
-          * `type` (`pulumi.Input[str]`) - The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+          * `rule_id` (`pulumi.Input[str]`) - The ID of a `waf_regional_rule`
+          * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

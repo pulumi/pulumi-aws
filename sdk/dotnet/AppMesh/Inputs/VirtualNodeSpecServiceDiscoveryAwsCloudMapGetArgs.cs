@@ -26,13 +26,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
         /// <summary>
         /// The name of the AWS Cloud Map namespace to use.
-        /// Use the [`aws.servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
+        /// Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the AWS Cloud Map service to use. Use the [`aws.servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
+        /// The name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;

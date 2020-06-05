@@ -42,7 +42,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, connections_bandwidth=None, force_destroy=None, location=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Direct Connect LAG. Connections can be added to the LAG via the [`directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) and [`directconnect.ConnectionAssociation`](https://www.terraform.io/docs/providers/aws/r/dx_connection_association.html) resources.
+        Provides a Direct Connect LAG. Connections can be added to the LAG via the `directconnect.Connection` and `directconnect.ConnectionAssociation` resources.
 
         > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. This provider will remove this unmanaged connection during resource creation.
 

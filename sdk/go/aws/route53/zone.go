@@ -26,7 +26,7 @@ type Zone struct {
 	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
 	// A mapping of tags to assign to the zone.
 	Tags pulumi.MapOutput `pulumi:"tags"`
-	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs ZoneVpcArrayOutput `pulumi:"vpcs"`
 	// The Hosted Zone ID. This can be referenced by zone records.
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
@@ -76,7 +76,7 @@ type zoneState struct {
 	NameServers []string `pulumi:"nameServers"`
 	// A mapping of tags to assign to the zone.
 	Tags map[string]interface{} `pulumi:"tags"`
-	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs []ZoneVpc `pulumi:"vpcs"`
 	// The Hosted Zone ID. This can be referenced by zone records.
 	ZoneId *string `pulumi:"zoneId"`
@@ -96,7 +96,7 @@ type ZoneState struct {
 	NameServers pulumi.StringArrayInput
 	// A mapping of tags to assign to the zone.
 	Tags pulumi.MapInput
-	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs ZoneVpcArrayInput
 	// The Hosted Zone ID. This can be referenced by zone records.
 	ZoneId pulumi.StringPtrInput
@@ -117,7 +117,7 @@ type zoneArgs struct {
 	Name *string `pulumi:"name"`
 	// A mapping of tags to assign to the zone.
 	Tags map[string]interface{} `pulumi:"tags"`
-	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs []ZoneVpc `pulumi:"vpcs"`
 }
 
@@ -133,7 +133,7 @@ type ZoneArgs struct {
 	Name pulumi.StringPtrInput
 	// A mapping of tags to assign to the zone.
 	Tags pulumi.MapInput
-	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any [`route53.ZoneAssociation` resource](https://www.terraform.io/docs/providers/aws/r/route53_zone_association.html) specifying the same zone ID. Detailed below.
+	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs ZoneVpcArrayInput
 }
 

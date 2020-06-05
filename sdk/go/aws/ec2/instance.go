@@ -11,7 +11,7 @@ import (
 )
 
 // Provides an EC2 instance resource. This allows instances to be created, updated,
-// and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
+// and deleted.
 type Instance struct {
 	pulumi.CustomResourceState
 
@@ -98,7 +98,7 @@ type Instance struct {
 	// The public DNS name assigned to the instance. For EC2-VPC, this
 	// is only available if you've enabled DNS hostnames for your VPC
 	PublicDns pulumi.StringOutput `pulumi:"publicDns"`
-	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
+	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
 	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
@@ -243,7 +243,7 @@ type instanceState struct {
 	// The public DNS name assigned to the instance. For EC2-VPC, this
 	// is only available if you've enabled DNS hostnames for your VPC
 	PublicDns *string `pulumi:"publicDns"`
-	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
+	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
 	PublicIp *string `pulumi:"publicIp"`
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
@@ -355,7 +355,7 @@ type InstanceState struct {
 	// The public DNS name assigned to the instance. For EC2-VPC, this
 	// is only available if you've enabled DNS hostnames for your VPC
 	PublicDns pulumi.StringPtrInput
-	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
+	// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
 	PublicIp pulumi.StringPtrInput
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.

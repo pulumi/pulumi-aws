@@ -20,11 +20,11 @@ class ApiMapping(pulumi.CustomResource):
     """
     domain_name: pulumi.Output[str]
     """
-    The domain name. Use the [`apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
+    The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
     """
     stage: pulumi.Output[str]
     """
-    The API stage. Use the [`apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+    The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
     """
     def __init__(__self__, resource_name, opts=None, api_id=None, api_mapping_key=None, domain_name=None, stage=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -50,8 +50,8 @@ class ApiMapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.
         :param pulumi.Input[str] api_mapping_key: The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
-        :param pulumi.Input[str] domain_name: The domain name. Use the [`apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
-        :param pulumi.Input[str] stage: The API stage. Use the [`apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+        :param pulumi.Input[str] domain_name: The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+        :param pulumi.Input[str] stage: The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -97,8 +97,8 @@ class ApiMapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.
         :param pulumi.Input[str] api_mapping_key: The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
-        :param pulumi.Input[str] domain_name: The domain name. Use the [`apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
-        :param pulumi.Input[str] stage: The API stage. Use the [`apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+        :param pulumi.Input[str] domain_name: The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+        :param pulumi.Input[str] stage: The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

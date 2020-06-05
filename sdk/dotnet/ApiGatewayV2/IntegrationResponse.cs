@@ -51,7 +51,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> ContentHandlingStrategy { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the [`aws.apigatewayv2.Integration`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration.html).
+        /// The identifier of the `aws.apigatewayv2.Integration`.
         /// </summary>
         [Output("integrationId")]
         public Output<string> IntegrationId { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ContentHandlingStrategy { get; set; }
 
         /// <summary>
-        /// The identifier of the [`aws.apigatewayv2.Integration`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration.html).
+        /// The identifier of the `aws.apigatewayv2.Integration`.
         /// </summary>
         [Input("integrationId", required: true)]
         public Input<string> IntegrationId { get; set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ContentHandlingStrategy { get; set; }
 
         /// <summary>
-        /// The identifier of the [`aws.apigatewayv2.Integration`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_integration.html).
+        /// The identifier of the `aws.apigatewayv2.Integration`.
         /// </summary>
         [Input("integrationId")]
         public Input<string>? IntegrationId { get; set; }

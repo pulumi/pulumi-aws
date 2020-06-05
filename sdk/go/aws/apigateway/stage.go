@@ -31,7 +31,7 @@ type Stage struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The version of the associated API documentation
 	DocumentationVersion pulumi.StringPtrOutput `pulumi:"documentationVersion"`
-	// The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+	// The execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
@@ -104,7 +104,7 @@ type stageState struct {
 	Description *string `pulumi:"description"`
 	// The version of the associated API documentation
 	DocumentationVersion *string `pulumi:"documentationVersion"`
-	// The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+	// The execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn *string `pulumi:"executionArn"`
@@ -141,7 +141,7 @@ type StageState struct {
 	Description pulumi.StringPtrInput
 	// The version of the associated API documentation
 	DocumentationVersion pulumi.StringPtrInput
-	// The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+	// The execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn pulumi.StringPtrInput

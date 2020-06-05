@@ -124,13 +124,21 @@ export class Certificate extends pulumi.CustomResource {
      * A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
      */
     public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.acm.CertificateDomainValidationOption[]>;
+    /**
+     * Configuration block used to set certificate options. Detailed below.
+     * * Importing an existing certificate
+     */
     public readonly options!: pulumi.Output<outputs.acm.CertificateOptions | undefined>;
     /**
      * The certificate's PEM-formatted private key
      */
     public readonly privateKey!: pulumi.Output<string | undefined>;
     /**
-     * A list of domains that should be SANs in the issued certificate
+     * Status of the certificate.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      */
     public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
     /**
@@ -143,7 +151,6 @@ export class Certificate extends pulumi.CustomResource {
     public /*out*/ readonly validationEmails!: pulumi.Output<string[]>;
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
-     * * Importing an existing certificate
      */
     public readonly validationMethod!: pulumi.Output<string>;
 
@@ -167,6 +174,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["domainValidationOptions"] = state ? state.domainValidationOptions : undefined;
             inputs["options"] = state ? state.options : undefined;
             inputs["privateKey"] = state ? state.privateKey : undefined;
+            inputs["status"] = state ? state.status : undefined;
             inputs["subjectAlternativeNames"] = state ? state.subjectAlternativeNames : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["validationEmails"] = state ? state.validationEmails : undefined;
@@ -184,6 +192,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["validationMethod"] = args ? args.validationMethod : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["domainValidationOptions"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["validationEmails"] = undefined /*out*/;
         }
         if (!opts) {
@@ -226,13 +235,21 @@ export interface CertificateState {
      * A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
      */
     readonly domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateDomainValidationOption>[]>;
+    /**
+     * Configuration block used to set certificate options. Detailed below.
+     * * Importing an existing certificate
+     */
     readonly options?: pulumi.Input<inputs.acm.CertificateOptions>;
     /**
      * The certificate's PEM-formatted private key
      */
     readonly privateKey?: pulumi.Input<string>;
     /**
-     * A list of domains that should be SANs in the issued certificate
+     * Status of the certificate.
+     */
+    readonly status?: pulumi.Input<string>;
+    /**
+     * A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      */
     readonly subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -245,7 +262,6 @@ export interface CertificateState {
     readonly validationEmails?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
-     * * Importing an existing certificate
      */
     readonly validationMethod?: pulumi.Input<string>;
 }
@@ -271,13 +287,17 @@ export interface CertificateArgs {
      * A domain name for which the certificate should be issued
      */
     readonly domainName?: pulumi.Input<string>;
+    /**
+     * Configuration block used to set certificate options. Detailed below.
+     * * Importing an existing certificate
+     */
     readonly options?: pulumi.Input<inputs.acm.CertificateOptions>;
     /**
      * The certificate's PEM-formatted private key
      */
     readonly privateKey?: pulumi.Input<string>;
     /**
-     * A list of domains that should be SANs in the issued certificate
+     * A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
      */
     readonly subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -286,7 +306,6 @@ export interface CertificateArgs {
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
-     * * Importing an existing certificate
      */
     readonly validationMethod?: pulumi.Input<string>;
 }

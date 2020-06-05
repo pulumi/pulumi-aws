@@ -9,9 +9,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a KMS Customer Master Key that uses external key material. To instead manage a KMS Customer Master Key where AWS automatically generates and potentially rotates key material, see the [`kms.Key` resource](https://www.terraform.io/docs/providers/aws/r/kms_key.html).
+// Manages a KMS Customer Master Key that uses external key material. To instead manage a KMS Customer Master Key where AWS automatically generates and potentially rotates key material, see the `kms.Key` resource.
 //
-// > **Note:** All arguments including the key material will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+// > **Note:** All arguments including the key material will be stored in the raw state as plain-text.
 type ExternalKey struct {
 	pulumi.CustomResourceState
 

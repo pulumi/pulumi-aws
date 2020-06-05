@@ -16,9 +16,9 @@ import (
 type Listener struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the listener (matches `id`)
+	// The Amazon Resource Name (ARN) of the target group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// An Action block. Action blocks are documented below.
 	DefaultActions ListenerDefaultActionArrayOutput `pulumi:"defaultActions"`
@@ -75,9 +75,9 @@ func GetListener(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Listener resources.
 type listenerState struct {
-	// The ARN of the listener (matches `id`)
+	// The Amazon Resource Name (ARN) of the target group.
 	Arn *string `pulumi:"arn"`
-	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// An Action block. Action blocks are documented below.
 	DefaultActions []ListenerDefaultAction `pulumi:"defaultActions"`
@@ -92,9 +92,9 @@ type listenerState struct {
 }
 
 type ListenerState struct {
-	// The ARN of the listener (matches `id`)
+	// The Amazon Resource Name (ARN) of the target group.
 	Arn pulumi.StringPtrInput
-	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrInput
 	// An Action block. Action blocks are documented below.
 	DefaultActions ListenerDefaultActionArrayInput
@@ -113,7 +113,7 @@ func (ListenerState) ElementType() reflect.Type {
 }
 
 type listenerArgs struct {
-	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// An Action block. Action blocks are documented below.
 	DefaultActions []ListenerDefaultAction `pulumi:"defaultActions"`
@@ -129,7 +129,7 @@ type listenerArgs struct {
 
 // The set of arguments for constructing a Listener resource.
 type ListenerArgs struct {
-	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+	// The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrInput
 	// An Action block. Action blocks are documented below.
 	DefaultActions ListenerDefaultActionArrayInput
