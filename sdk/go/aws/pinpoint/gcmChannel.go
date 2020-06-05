@@ -13,7 +13,6 @@ import (
 // Provides a Pinpoint GCM Channel resource.
 //
 // > **Note:** Api Key argument will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type GcmChannel struct {
 	pulumi.CustomResourceState
 

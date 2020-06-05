@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafRegional.Inputs
     public sealed class RuleGroupActivatedRuleActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+        /// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

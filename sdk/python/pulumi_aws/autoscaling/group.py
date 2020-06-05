@@ -54,7 +54,7 @@ class Group(pulumi.CustomResource):
     [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
     to attach to the autoscaling group **before** instances are launched. The
     syntax is exactly the same as the separate
-    [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
+    `autoscaling.LifecycleHook`
     resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
     a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 
@@ -389,7 +389,7 @@ class Group(pulumi.CustomResource):
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the autoscaling group **before** instances are launched. The
                syntax is exactly the same as the separate
-               [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
+               `autoscaling.LifecycleHook`
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
         :param pulumi.Input[dict] launch_configuration: The name of the launch configuration to use.
@@ -560,7 +560,7 @@ class Group(pulumi.CustomResource):
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the autoscaling group **before** instances are launched. The
                syntax is exactly the same as the separate
-               [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
+               `autoscaling.LifecycleHook`
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
         :param pulumi.Input[dict] launch_configuration: The name of the launch configuration to use.

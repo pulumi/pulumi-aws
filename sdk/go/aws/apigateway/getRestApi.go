@@ -40,7 +40,7 @@ type LookupRestApiResult struct {
 	Description string `pulumi:"description"`
 	// The endpoint configuration of this RestApi showing the endpoint types of the API.
 	EndpointConfigurations []GetRestApiEndpointConfiguration `pulumi:"endpointConfigurations"`
-	// The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+	// The execution ARN part to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn string `pulumi:"executionArn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

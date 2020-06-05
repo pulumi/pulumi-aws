@@ -12,7 +12,7 @@ namespace Pulumi.Aws.SecretsManager
     public static class GetSecretVersion
     {
         /// <summary>
-        /// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the [`aws.secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html).
+        /// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

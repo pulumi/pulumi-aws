@@ -16,7 +16,7 @@ type ResourceGroup struct {
 
 	// The resource group ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
@@ -53,14 +53,14 @@ func GetResourceGroup(ctx *pulumi.Context,
 type resourceGroupState struct {
 	// The resource group ARN.
 	Arn *string `pulumi:"arn"`
-	// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 type ResourceGroupState struct {
 	// The resource group ARN.
 	Arn pulumi.StringPtrInput
-	// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
 	Tags pulumi.MapInput
 }
 
@@ -69,13 +69,13 @@ func (ResourceGroupState) ElementType() reflect.Type {
 }
 
 type resourceGroupArgs struct {
-	// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
 	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceGroup resource.
 type ResourceGroupArgs struct {
-	// Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
 	Tags pulumi.MapInput
 }
 

@@ -25,7 +25,7 @@ type Alias struct {
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
 	FunctionVersion pulumi.StringOutput `pulumi:"functionVersion"`
-	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
 	InvokeArn pulumi.StringOutput `pulumi:"invokeArn"`
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -75,7 +75,7 @@ type aliasState struct {
 	FunctionName *string `pulumi:"functionName"`
 	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
 	FunctionVersion *string `pulumi:"functionVersion"`
-	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
 	InvokeArn *string `pulumi:"invokeArn"`
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name *string `pulumi:"name"`
@@ -92,7 +92,7 @@ type AliasState struct {
 	FunctionName pulumi.StringPtrInput
 	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
 	FunctionVersion pulumi.StringPtrInput
-	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
 	InvokeArn pulumi.StringPtrInput
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name pulumi.StringPtrInput

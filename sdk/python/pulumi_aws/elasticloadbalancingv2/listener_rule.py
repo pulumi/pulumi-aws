@@ -43,6 +43,15 @@ class ListenerRule(pulumi.CustomResource):
         * `messageBody` (`str`) - The message body.
         * `status_code` (`str`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
 
+      * `forward` (`dict`) - Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+        * `stickiness` (`dict`) - The target group stickiness for the rule.
+          * `duration` (`float`) - The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+          * `enabled` (`bool`) - Indicates whether target group stickiness is enabled.
+
+        * `targetGroups` (`list`) - One or more target groups block.
+          * `arn` (`str`) - The Amazon Resource Name (ARN) of the target group.
+          * `weight` (`float`) - The weight. The range is 0 to 999.
+
       * `order` (`float`)
       * `redirect` (`dict`) - Information for creating a redirect action. Required if `type` is `redirect`.
         * `host` (`str`) - The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -52,12 +61,12 @@ class ListenerRule(pulumi.CustomResource):
         * `query` (`str`) - The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
         * `status_code` (`str`) - The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 
-      * `target_group_arn` (`str`) - The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+      * `target_group_arn` (`str`) - The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
       * `type` (`str`) - The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
     """
     arn: pulumi.Output[str]
     """
-    The ARN of the rule (matches `id`)
+    The Amazon Resource Name (ARN) of the target group.
     """
     conditions: pulumi.Output[list]
     """
@@ -131,6 +140,33 @@ class ListenerRule(pulumi.CustomResource):
             listener_arn=front_end_listener.arn,
             priority=100)
         host_based_routing = aws.lb.ListenerRule("hostBasedRouting",
+            actions=[{
+                "forward": {
+                    "stickiness": {
+                        "duration": 600,
+                        "enabled": True,
+                    },
+                    "targetGroup": [
+                        {
+                            "arn": aws_lb_target_group["main"]["arn"],
+                            "weight": 80,
+                        },
+                        {
+                            "arn": aws_lb_target_group["canary"]["arn"],
+                            "weight": 20,
+                        },
+                    ],
+                },
+                "type": "forward",
+            }],
+            conditions=[{
+                "hostHeader": {
+                    "values": ["my-service.*.mycompany.io"],
+                },
+            }],
+            listener_arn=front_end_listener.arn,
+            priority=99)
+        host_based_weighted_routing = aws.lb.ListenerRule("hostBasedWeightedRouting",
             actions=[{
                 "target_group_arn": aws_lb_target_group["static"]["arn"],
                 "type": "forward",
@@ -241,6 +277,15 @@ class ListenerRule(pulumi.CustomResource):
             * `messageBody` (`pulumi.Input[str]`) - The message body.
             * `status_code` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
 
+          * `forward` (`pulumi.Input[dict]`) - Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+            * `stickiness` (`pulumi.Input[dict]`) - The target group stickiness for the rule.
+              * `duration` (`pulumi.Input[float]`) - The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether target group stickiness is enabled.
+
+            * `targetGroups` (`pulumi.Input[list]`) - One or more target groups block.
+              * `arn` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the target group.
+              * `weight` (`pulumi.Input[float]`) - The weight. The range is 0 to 999.
+
           * `order` (`pulumi.Input[float]`)
           * `redirect` (`pulumi.Input[dict]`) - Information for creating a redirect action. Required if `type` is `redirect`.
             * `host` (`pulumi.Input[str]`) - The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -250,7 +295,7 @@ class ListenerRule(pulumi.CustomResource):
             * `query` (`pulumi.Input[str]`) - The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
             * `status_code` (`pulumi.Input[str]`) - The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 
-          * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+          * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
           * `type` (`pulumi.Input[str]`) - The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 
         The **conditions** object supports the following:
@@ -323,7 +368,7 @@ class ListenerRule(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] actions: An Action block. Action blocks are documented below.
-        :param pulumi.Input[str] arn: The ARN of the rule (matches `id`)
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target group.
         :param pulumi.Input[list] conditions: A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the rule.
         :param pulumi.Input[float] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
@@ -358,6 +403,15 @@ class ListenerRule(pulumi.CustomResource):
             * `messageBody` (`pulumi.Input[str]`) - The message body.
             * `status_code` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
 
+          * `forward` (`pulumi.Input[dict]`) - Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+            * `stickiness` (`pulumi.Input[dict]`) - The target group stickiness for the rule.
+              * `duration` (`pulumi.Input[float]`) - The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether target group stickiness is enabled.
+
+            * `targetGroups` (`pulumi.Input[list]`) - One or more target groups block.
+              * `arn` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the target group.
+              * `weight` (`pulumi.Input[float]`) - The weight. The range is 0 to 999.
+
           * `order` (`pulumi.Input[float]`)
           * `redirect` (`pulumi.Input[dict]`) - Information for creating a redirect action. Required if `type` is `redirect`.
             * `host` (`pulumi.Input[str]`) - The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -367,7 +421,7 @@ class ListenerRule(pulumi.CustomResource):
             * `query` (`pulumi.Input[str]`) - The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
             * `status_code` (`pulumi.Input[str]`) - The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 
-          * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+          * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
           * `type` (`pulumi.Input[str]`) - The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 
         The **conditions** object supports the following:

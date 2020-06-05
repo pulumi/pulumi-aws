@@ -70,7 +70,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, db_cluster_identifier=None, db_cluster_snapshot_identifier=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages an RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the [`rds.Snapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_snapshot.html).
+        Manages an RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the `rds.Snapshot` resource.
 
         ## Example Usage
 

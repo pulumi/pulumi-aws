@@ -31,7 +31,7 @@ class Route(pulumi.CustomResource):
     """
     authorizer_id: pulumi.Output[str]
     """
-    The identifier of the [`apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+    The identifier of the `apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
     """
     model_selection_expression: pulumi.Output[str]
     """
@@ -85,7 +85,7 @@ class Route(pulumi.CustomResource):
                For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
                For HTTP APIs, valid values are `NONE` for open access, or `JWT` for using JSON Web Tokens.
                Defaults to `NONE`.
-        :param pulumi.Input[str] authorizer_id: The identifier of the [`apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+        :param pulumi.Input[str] authorizer_id: The identifier of the `apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
         :param pulumi.Input[str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route.
         :param pulumi.Input[str] operation_name: The operation name for the route.
         :param pulumi.Input[dict] request_models: The request models for the route.
@@ -147,7 +147,7 @@ class Route(pulumi.CustomResource):
                For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
                For HTTP APIs, valid values are `NONE` for open access, or `JWT` for using JSON Web Tokens.
                Defaults to `NONE`.
-        :param pulumi.Input[str] authorizer_id: The identifier of the [`apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+        :param pulumi.Input[str] authorizer_id: The identifier of the `apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
         :param pulumi.Input[str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route.
         :param pulumi.Input[str] operation_name: The operation name for the route.
         :param pulumi.Input[dict] request_models: The request models for the route.

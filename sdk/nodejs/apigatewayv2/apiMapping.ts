@@ -61,11 +61,11 @@ export class ApiMapping extends pulumi.CustomResource {
      */
     public readonly apiMappingKey!: pulumi.Output<string | undefined>;
     /**
-     * The domain name. Use the [`aws.apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
+     * The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
-     * The API stage. Use the [`aws.apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+     * The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */
     public readonly stage!: pulumi.Output<string>;
 
@@ -125,11 +125,11 @@ export interface ApiMappingState {
      */
     readonly apiMappingKey?: pulumi.Input<string>;
     /**
-     * The domain name. Use the [`aws.apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
+     * The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      */
     readonly domainName?: pulumi.Input<string>;
     /**
-     * The API stage. Use the [`aws.apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+     * The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */
     readonly stage?: pulumi.Input<string>;
 }
@@ -147,11 +147,11 @@ export interface ApiMappingArgs {
      */
     readonly apiMappingKey?: pulumi.Input<string>;
     /**
-     * The domain name. Use the [`aws.apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
+     * The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      */
     readonly domainName: pulumi.Input<string>;
     /**
-     * The API stage. Use the [`aws.apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+     * The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */
     readonly stage: pulumi.Input<string>;
 }

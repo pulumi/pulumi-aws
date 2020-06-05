@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+        /// The identifier of the `aws.neptune.Cluster` in which to launch this instance.
         /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string?> NeptuneParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Output("neptuneSubnetGroupName")]
         public Output<string> NeptuneSubnetGroupName { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The identifier of the [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+        /// The identifier of the `aws.neptune.Cluster` in which to launch this instance.
         /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NeptuneParameterGroupName { get; set; }
 
         /// <summary>
-        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Input("neptuneSubnetGroupName")]
         public Input<string>? NeptuneSubnetGroupName { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The identifier of the [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+        /// The identifier of the `aws.neptune.Cluster` in which to launch this instance.
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
@@ -459,7 +459,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? NeptuneParameterGroupName { get; set; }
 
         /// <summary>
-        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`aws.neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Input("neptuneSubnetGroupName")]
         public Input<string>? NeptuneSubnetGroupName { get; set; }

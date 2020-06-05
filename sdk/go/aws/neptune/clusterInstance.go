@@ -28,7 +28,7 @@ type ClusterInstance struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the neptune instance is created in.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+	// The identifier of the `neptune.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// The region-unique, immutable identifier for the neptune instance.
 	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
@@ -48,7 +48,7 @@ type ClusterInstance struct {
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// The name of the neptune parameter group to associate with this instance.
 	NeptuneParameterGroupName pulumi.StringPtrOutput `pulumi:"neptuneParameterGroupName"`
-	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.
 	NeptuneSubnetGroupName pulumi.StringOutput `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the DB accepts connections. Defaults to `8182`.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
@@ -114,7 +114,7 @@ type clusterInstanceState struct {
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the neptune instance is created in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+	// The identifier of the `neptune.Cluster` in which to launch this instance.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// The region-unique, immutable identifier for the neptune instance.
 	DbiResourceId *string `pulumi:"dbiResourceId"`
@@ -134,7 +134,7 @@ type clusterInstanceState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the neptune parameter group to associate with this instance.
 	NeptuneParameterGroupName *string `pulumi:"neptuneParameterGroupName"`
-	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.
 	NeptuneSubnetGroupName *string `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the DB accepts connections. Defaults to `8182`.
 	Port *int `pulumi:"port"`
@@ -167,7 +167,7 @@ type ClusterInstanceState struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// The EC2 Availability Zone that the neptune instance is created in.
 	AvailabilityZone pulumi.StringPtrInput
-	// The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+	// The identifier of the `neptune.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringPtrInput
 	// The region-unique, immutable identifier for the neptune instance.
 	DbiResourceId pulumi.StringPtrInput
@@ -187,7 +187,7 @@ type ClusterInstanceState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// The name of the neptune parameter group to associate with this instance.
 	NeptuneParameterGroupName pulumi.StringPtrInput
-	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.
 	NeptuneSubnetGroupName pulumi.StringPtrInput
 	// The port on which the DB accepts connections. Defaults to `8182`.
 	Port pulumi.IntPtrInput
@@ -220,7 +220,7 @@ type clusterInstanceArgs struct {
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the neptune instance is created in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+	// The identifier of the `neptune.Cluster` in which to launch this instance.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
 	Engine *string `pulumi:"engine"`
@@ -234,7 +234,7 @@ type clusterInstanceArgs struct {
 	InstanceClass string `pulumi:"instanceClass"`
 	// The name of the neptune parameter group to associate with this instance.
 	NeptuneParameterGroupName *string `pulumi:"neptuneParameterGroupName"`
-	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.
 	NeptuneSubnetGroupName *string `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the DB accepts connections. Defaults to `8182`.
 	Port *int `pulumi:"port"`
@@ -260,7 +260,7 @@ type ClusterInstanceArgs struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// The EC2 Availability Zone that the neptune instance is created in.
 	AvailabilityZone pulumi.StringPtrInput
-	// The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+	// The identifier of the `neptune.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringInput
 	// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
 	Engine pulumi.StringPtrInput
@@ -274,7 +274,7 @@ type ClusterInstanceArgs struct {
 	InstanceClass pulumi.StringInput
 	// The name of the neptune parameter group to associate with this instance.
 	NeptuneParameterGroupName pulumi.StringPtrInput
-	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.
 	NeptuneSubnetGroupName pulumi.StringPtrInput
 	// The port on which the DB accepts connections. Defaults to `8182`.
 	Port pulumi.IntPtrInput

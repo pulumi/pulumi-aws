@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Waf.Inputs
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
+        /// The ID of a `waf_rule`
         /// </summary>
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;
 
         /// <summary>
-        /// The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+        /// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

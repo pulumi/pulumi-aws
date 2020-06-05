@@ -173,7 +173,7 @@ def get_snapshot(db_instance_identifier=None,db_snapshot_identifier=None,include
     Use this data source to get information about a DB Snapshot for use when provisioning DB instances
 
     > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
-    See the [`rds.ClusterSnapshot` data source](https://www.terraform.io/docs/providers/aws/d/db_cluster_snapshot.html) for DB Cluster snapshots.
+    See the `rds.ClusterSnapshot` data source for DB Cluster snapshots.
 
     ## Example Usage
 

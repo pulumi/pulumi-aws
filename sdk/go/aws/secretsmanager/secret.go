@@ -9,7 +9,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the [`secretsmanager.SecretVersion` resource](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret_version.html).
+// Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the `secretsmanager.SecretVersion` resource.
 type Secret struct {
 	pulumi.CustomResourceState
 

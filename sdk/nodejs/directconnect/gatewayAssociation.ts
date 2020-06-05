@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Associates a Direct Connect Gateway with a VGW or transit gateway.
  *
- * To create a cross-account association, create an [`aws.directconnect.GatewayAssociationProposal` resource](https://www.terraform.io/docs/providers/aws/r/dx_gateway_association_proposal.html)
+ * To create a cross-account association, create an `aws.directconnect.GatewayAssociationProposal` resource
  * in the AWS account that owns the VGW or transit gateway and then accept the proposal in the AWS account that owns the Direct Connect Gateway
  * by creating an `aws.directconnect.GatewayAssociation` resource with the `proposalId` and `associatedGatewayOwnerAccountId` attributes set.
  *

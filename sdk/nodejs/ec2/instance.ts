@@ -11,7 +11,7 @@ import {InstanceType} from "./instanceType";
 
 /**
  * Provides an EC2 instance resource. This allows instances to be created, updated,
- * and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
+ * and deleted.
  *
  * ## Example Usage
  *
@@ -217,7 +217,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicDns!: pulumi.Output<string>;
     /**
-     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws.ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
+     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
      */
     public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
@@ -529,7 +529,7 @@ export interface InstanceState {
      */
     readonly publicDns?: pulumi.Input<string>;
     /**
-     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws.ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
+     * The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
      */
     readonly publicIp?: pulumi.Input<string>;
     /**

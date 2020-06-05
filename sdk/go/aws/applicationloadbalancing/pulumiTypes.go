@@ -15,10 +15,12 @@ type ListenerDefaultAction struct {
 	AuthenticateOidc    *ListenerDefaultActionAuthenticateOidc    `pulumi:"authenticateOidc"`
 	// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
 	FixedResponse *ListenerDefaultActionFixedResponse `pulumi:"fixedResponse"`
-	Order         *int                                `pulumi:"order"`
+	// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+	Forward *ListenerDefaultActionForward `pulumi:"forward"`
+	Order   *int                          `pulumi:"order"`
 	// Information for creating a redirect action. Required if `type` is `redirect`.
 	Redirect *ListenerDefaultActionRedirect `pulumi:"redirect"`
-	// The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+	// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 	// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 	Type string `pulumi:"type"`
@@ -41,10 +43,12 @@ type ListenerDefaultActionArgs struct {
 	AuthenticateOidc    ListenerDefaultActionAuthenticateOidcPtrInput    `pulumi:"authenticateOidc"`
 	// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
 	FixedResponse ListenerDefaultActionFixedResponsePtrInput `pulumi:"fixedResponse"`
-	Order         pulumi.IntPtrInput                         `pulumi:"order"`
+	// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+	Forward ListenerDefaultActionForwardPtrInput `pulumi:"forward"`
+	Order   pulumi.IntPtrInput                   `pulumi:"order"`
 	// Information for creating a redirect action. Required if `type` is `redirect`.
 	Redirect ListenerDefaultActionRedirectPtrInput `pulumi:"redirect"`
-	// The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+	// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 	// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -115,6 +119,11 @@ func (o ListenerDefaultActionOutput) FixedResponse() ListenerDefaultActionFixedR
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionFixedResponse { return v.FixedResponse }).(ListenerDefaultActionFixedResponsePtrOutput)
 }
 
+// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+func (o ListenerDefaultActionOutput) Forward() ListenerDefaultActionForwardPtrOutput {
+	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionForward { return v.Forward }).(ListenerDefaultActionForwardPtrOutput)
+}
+
 func (o ListenerDefaultActionOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
@@ -124,7 +133,7 @@ func (o ListenerDefaultActionOutput) Redirect() ListenerDefaultActionRedirectPtr
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionRedirect { return v.Redirect }).(ListenerDefaultActionRedirectPtrOutput)
 }
 
-// The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 func (o ListenerDefaultActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -918,6 +927,418 @@ func (o ListenerDefaultActionFixedResponsePtrOutput) StatusCode() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+type ListenerDefaultActionForward struct {
+	// The target group stickiness for the rule.
+	Stickiness *ListenerDefaultActionForwardStickiness `pulumi:"stickiness"`
+	// One or more target groups block.
+	TargetGroups []ListenerDefaultActionForwardTargetGroup `pulumi:"targetGroups"`
+}
+
+// ListenerDefaultActionForwardInput is an input type that accepts ListenerDefaultActionForwardArgs and ListenerDefaultActionForwardOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionForwardInput` via:
+//
+// 		 ListenerDefaultActionForwardArgs{...}
+//
+type ListenerDefaultActionForwardInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionForwardOutput() ListenerDefaultActionForwardOutput
+	ToListenerDefaultActionForwardOutputWithContext(context.Context) ListenerDefaultActionForwardOutput
+}
+
+type ListenerDefaultActionForwardArgs struct {
+	// The target group stickiness for the rule.
+	Stickiness ListenerDefaultActionForwardStickinessPtrInput `pulumi:"stickiness"`
+	// One or more target groups block.
+	TargetGroups ListenerDefaultActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
+}
+
+func (ListenerDefaultActionForwardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (i ListenerDefaultActionForwardArgs) ToListenerDefaultActionForwardOutput() ListenerDefaultActionForwardOutput {
+	return i.ToListenerDefaultActionForwardOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionForwardArgs) ToListenerDefaultActionForwardOutputWithContext(ctx context.Context) ListenerDefaultActionForwardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardOutput)
+}
+
+func (i ListenerDefaultActionForwardArgs) ToListenerDefaultActionForwardPtrOutput() ListenerDefaultActionForwardPtrOutput {
+	return i.ToListenerDefaultActionForwardPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionForwardArgs) ToListenerDefaultActionForwardPtrOutputWithContext(ctx context.Context) ListenerDefaultActionForwardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardOutput).ToListenerDefaultActionForwardPtrOutputWithContext(ctx)
+}
+
+// ListenerDefaultActionForwardPtrInput is an input type that accepts ListenerDefaultActionForwardArgs, ListenerDefaultActionForwardPtr and ListenerDefaultActionForwardPtrOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionForwardPtrInput` via:
+//
+// 		 ListenerDefaultActionForwardArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ListenerDefaultActionForwardPtrInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionForwardPtrOutput() ListenerDefaultActionForwardPtrOutput
+	ToListenerDefaultActionForwardPtrOutputWithContext(context.Context) ListenerDefaultActionForwardPtrOutput
+}
+
+type listenerDefaultActionForwardPtrType ListenerDefaultActionForwardArgs
+
+func ListenerDefaultActionForwardPtr(v *ListenerDefaultActionForwardArgs) ListenerDefaultActionForwardPtrInput {
+	return (*listenerDefaultActionForwardPtrType)(v)
+}
+
+func (*listenerDefaultActionForwardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (i *listenerDefaultActionForwardPtrType) ToListenerDefaultActionForwardPtrOutput() ListenerDefaultActionForwardPtrOutput {
+	return i.ToListenerDefaultActionForwardPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerDefaultActionForwardPtrType) ToListenerDefaultActionForwardPtrOutputWithContext(ctx context.Context) ListenerDefaultActionForwardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardPtrOutput)
+}
+
+type ListenerDefaultActionForwardOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionForwardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionForwardOutput) ToListenerDefaultActionForwardOutput() ListenerDefaultActionForwardOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardOutput) ToListenerDefaultActionForwardOutputWithContext(ctx context.Context) ListenerDefaultActionForwardOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardOutput) ToListenerDefaultActionForwardPtrOutput() ListenerDefaultActionForwardPtrOutput {
+	return o.ToListenerDefaultActionForwardPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerDefaultActionForwardOutput) ToListenerDefaultActionForwardPtrOutputWithContext(ctx context.Context) ListenerDefaultActionForwardPtrOutput {
+	return o.ApplyT(func(v ListenerDefaultActionForward) *ListenerDefaultActionForward {
+		return &v
+	}).(ListenerDefaultActionForwardPtrOutput)
+}
+
+// The target group stickiness for the rule.
+func (o ListenerDefaultActionForwardOutput) Stickiness() ListenerDefaultActionForwardStickinessPtrOutput {
+	return o.ApplyT(func(v ListenerDefaultActionForward) *ListenerDefaultActionForwardStickiness { return v.Stickiness }).(ListenerDefaultActionForwardStickinessPtrOutput)
+}
+
+// One or more target groups block.
+func (o ListenerDefaultActionForwardOutput) TargetGroups() ListenerDefaultActionForwardTargetGroupArrayOutput {
+	return o.ApplyT(func(v ListenerDefaultActionForward) []ListenerDefaultActionForwardTargetGroup { return v.TargetGroups }).(ListenerDefaultActionForwardTargetGroupArrayOutput)
+}
+
+type ListenerDefaultActionForwardPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionForwardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerDefaultActionForward)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionForwardPtrOutput) ToListenerDefaultActionForwardPtrOutput() ListenerDefaultActionForwardPtrOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardPtrOutput) ToListenerDefaultActionForwardPtrOutputWithContext(ctx context.Context) ListenerDefaultActionForwardPtrOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardPtrOutput) Elem() ListenerDefaultActionForwardOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionForward) ListenerDefaultActionForward { return *v }).(ListenerDefaultActionForwardOutput)
+}
+
+// The target group stickiness for the rule.
+func (o ListenerDefaultActionForwardPtrOutput) Stickiness() ListenerDefaultActionForwardStickinessPtrOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionForward) *ListenerDefaultActionForwardStickiness {
+		if v == nil {
+			return nil
+		}
+		return v.Stickiness
+	}).(ListenerDefaultActionForwardStickinessPtrOutput)
+}
+
+// One or more target groups block.
+func (o ListenerDefaultActionForwardPtrOutput) TargetGroups() ListenerDefaultActionForwardTargetGroupArrayOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionForward) []ListenerDefaultActionForwardTargetGroup {
+		if v == nil {
+			return nil
+		}
+		return v.TargetGroups
+	}).(ListenerDefaultActionForwardTargetGroupArrayOutput)
+}
+
+type ListenerDefaultActionForwardStickiness struct {
+	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	Duration int `pulumi:"duration"`
+	// Indicates whether target group stickiness is enabled.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ListenerDefaultActionForwardStickinessInput is an input type that accepts ListenerDefaultActionForwardStickinessArgs and ListenerDefaultActionForwardStickinessOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionForwardStickinessInput` via:
+//
+// 		 ListenerDefaultActionForwardStickinessArgs{...}
+//
+type ListenerDefaultActionForwardStickinessInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionForwardStickinessOutput() ListenerDefaultActionForwardStickinessOutput
+	ToListenerDefaultActionForwardStickinessOutputWithContext(context.Context) ListenerDefaultActionForwardStickinessOutput
+}
+
+type ListenerDefaultActionForwardStickinessArgs struct {
+	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Indicates whether target group stickiness is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ListenerDefaultActionForwardStickinessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionForwardStickiness)(nil)).Elem()
+}
+
+func (i ListenerDefaultActionForwardStickinessArgs) ToListenerDefaultActionForwardStickinessOutput() ListenerDefaultActionForwardStickinessOutput {
+	return i.ToListenerDefaultActionForwardStickinessOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionForwardStickinessArgs) ToListenerDefaultActionForwardStickinessOutputWithContext(ctx context.Context) ListenerDefaultActionForwardStickinessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardStickinessOutput)
+}
+
+func (i ListenerDefaultActionForwardStickinessArgs) ToListenerDefaultActionForwardStickinessPtrOutput() ListenerDefaultActionForwardStickinessPtrOutput {
+	return i.ToListenerDefaultActionForwardStickinessPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionForwardStickinessArgs) ToListenerDefaultActionForwardStickinessPtrOutputWithContext(ctx context.Context) ListenerDefaultActionForwardStickinessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardStickinessOutput).ToListenerDefaultActionForwardStickinessPtrOutputWithContext(ctx)
+}
+
+// ListenerDefaultActionForwardStickinessPtrInput is an input type that accepts ListenerDefaultActionForwardStickinessArgs, ListenerDefaultActionForwardStickinessPtr and ListenerDefaultActionForwardStickinessPtrOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionForwardStickinessPtrInput` via:
+//
+// 		 ListenerDefaultActionForwardStickinessArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ListenerDefaultActionForwardStickinessPtrInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionForwardStickinessPtrOutput() ListenerDefaultActionForwardStickinessPtrOutput
+	ToListenerDefaultActionForwardStickinessPtrOutputWithContext(context.Context) ListenerDefaultActionForwardStickinessPtrOutput
+}
+
+type listenerDefaultActionForwardStickinessPtrType ListenerDefaultActionForwardStickinessArgs
+
+func ListenerDefaultActionForwardStickinessPtr(v *ListenerDefaultActionForwardStickinessArgs) ListenerDefaultActionForwardStickinessPtrInput {
+	return (*listenerDefaultActionForwardStickinessPtrType)(v)
+}
+
+func (*listenerDefaultActionForwardStickinessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerDefaultActionForwardStickiness)(nil)).Elem()
+}
+
+func (i *listenerDefaultActionForwardStickinessPtrType) ToListenerDefaultActionForwardStickinessPtrOutput() ListenerDefaultActionForwardStickinessPtrOutput {
+	return i.ToListenerDefaultActionForwardStickinessPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerDefaultActionForwardStickinessPtrType) ToListenerDefaultActionForwardStickinessPtrOutputWithContext(ctx context.Context) ListenerDefaultActionForwardStickinessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardStickinessPtrOutput)
+}
+
+type ListenerDefaultActionForwardStickinessOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionForwardStickinessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionForwardStickiness)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionForwardStickinessOutput) ToListenerDefaultActionForwardStickinessOutput() ListenerDefaultActionForwardStickinessOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardStickinessOutput) ToListenerDefaultActionForwardStickinessOutputWithContext(ctx context.Context) ListenerDefaultActionForwardStickinessOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardStickinessOutput) ToListenerDefaultActionForwardStickinessPtrOutput() ListenerDefaultActionForwardStickinessPtrOutput {
+	return o.ToListenerDefaultActionForwardStickinessPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerDefaultActionForwardStickinessOutput) ToListenerDefaultActionForwardStickinessPtrOutputWithContext(ctx context.Context) ListenerDefaultActionForwardStickinessPtrOutput {
+	return o.ApplyT(func(v ListenerDefaultActionForwardStickiness) *ListenerDefaultActionForwardStickiness {
+		return &v
+	}).(ListenerDefaultActionForwardStickinessPtrOutput)
+}
+
+// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+func (o ListenerDefaultActionForwardStickinessOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v ListenerDefaultActionForwardStickiness) int { return v.Duration }).(pulumi.IntOutput)
+}
+
+// Indicates whether target group stickiness is enabled.
+func (o ListenerDefaultActionForwardStickinessOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListenerDefaultActionForwardStickiness) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ListenerDefaultActionForwardStickinessPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionForwardStickinessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerDefaultActionForwardStickiness)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionForwardStickinessPtrOutput) ToListenerDefaultActionForwardStickinessPtrOutput() ListenerDefaultActionForwardStickinessPtrOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardStickinessPtrOutput) ToListenerDefaultActionForwardStickinessPtrOutputWithContext(ctx context.Context) ListenerDefaultActionForwardStickinessPtrOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardStickinessPtrOutput) Elem() ListenerDefaultActionForwardStickinessOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionForwardStickiness) ListenerDefaultActionForwardStickiness { return *v }).(ListenerDefaultActionForwardStickinessOutput)
+}
+
+// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+func (o ListenerDefaultActionForwardStickinessPtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionForwardStickiness) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether target group stickiness is enabled.
+func (o ListenerDefaultActionForwardStickinessPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionForwardStickiness) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ListenerDefaultActionForwardTargetGroup struct {
+	// The Amazon Resource Name (ARN) of the target group.
+	Arn string `pulumi:"arn"`
+	// The weight. The range is 0 to 999.
+	Weight *int `pulumi:"weight"`
+}
+
+// ListenerDefaultActionForwardTargetGroupInput is an input type that accepts ListenerDefaultActionForwardTargetGroupArgs and ListenerDefaultActionForwardTargetGroupOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionForwardTargetGroupInput` via:
+//
+// 		 ListenerDefaultActionForwardTargetGroupArgs{...}
+//
+type ListenerDefaultActionForwardTargetGroupInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionForwardTargetGroupOutput() ListenerDefaultActionForwardTargetGroupOutput
+	ToListenerDefaultActionForwardTargetGroupOutputWithContext(context.Context) ListenerDefaultActionForwardTargetGroupOutput
+}
+
+type ListenerDefaultActionForwardTargetGroupArgs struct {
+	// The Amazon Resource Name (ARN) of the target group.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The weight. The range is 0 to 999.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (ListenerDefaultActionForwardTargetGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i ListenerDefaultActionForwardTargetGroupArgs) ToListenerDefaultActionForwardTargetGroupOutput() ListenerDefaultActionForwardTargetGroupOutput {
+	return i.ToListenerDefaultActionForwardTargetGroupOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionForwardTargetGroupArgs) ToListenerDefaultActionForwardTargetGroupOutputWithContext(ctx context.Context) ListenerDefaultActionForwardTargetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardTargetGroupOutput)
+}
+
+// ListenerDefaultActionForwardTargetGroupArrayInput is an input type that accepts ListenerDefaultActionForwardTargetGroupArray and ListenerDefaultActionForwardTargetGroupArrayOutput values.
+// You can construct a concrete instance of `ListenerDefaultActionForwardTargetGroupArrayInput` via:
+//
+// 		 ListenerDefaultActionForwardTargetGroupArray{ ListenerDefaultActionForwardTargetGroupArgs{...} }
+//
+type ListenerDefaultActionForwardTargetGroupArrayInput interface {
+	pulumi.Input
+
+	ToListenerDefaultActionForwardTargetGroupArrayOutput() ListenerDefaultActionForwardTargetGroupArrayOutput
+	ToListenerDefaultActionForwardTargetGroupArrayOutputWithContext(context.Context) ListenerDefaultActionForwardTargetGroupArrayOutput
+}
+
+type ListenerDefaultActionForwardTargetGroupArray []ListenerDefaultActionForwardTargetGroupInput
+
+func (ListenerDefaultActionForwardTargetGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i ListenerDefaultActionForwardTargetGroupArray) ToListenerDefaultActionForwardTargetGroupArrayOutput() ListenerDefaultActionForwardTargetGroupArrayOutput {
+	return i.ToListenerDefaultActionForwardTargetGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerDefaultActionForwardTargetGroupArray) ToListenerDefaultActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) ListenerDefaultActionForwardTargetGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardTargetGroupArrayOutput)
+}
+
+type ListenerDefaultActionForwardTargetGroupOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionForwardTargetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionForwardTargetGroupOutput) ToListenerDefaultActionForwardTargetGroupOutput() ListenerDefaultActionForwardTargetGroupOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardTargetGroupOutput) ToListenerDefaultActionForwardTargetGroupOutputWithContext(ctx context.Context) ListenerDefaultActionForwardTargetGroupOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the target group.
+func (o ListenerDefaultActionForwardTargetGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The weight. The range is 0 to 999.
+func (o ListenerDefaultActionForwardTargetGroupOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type ListenerDefaultActionForwardTargetGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerDefaultActionForwardTargetGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerDefaultActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o ListenerDefaultActionForwardTargetGroupArrayOutput) ToListenerDefaultActionForwardTargetGroupArrayOutput() ListenerDefaultActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardTargetGroupArrayOutput) ToListenerDefaultActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) ListenerDefaultActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o ListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.IntInput) ListenerDefaultActionForwardTargetGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerDefaultActionForwardTargetGroup {
+		return vs[0].([]ListenerDefaultActionForwardTargetGroup)[vs[1].(int)]
+	}).(ListenerDefaultActionForwardTargetGroupOutput)
+}
+
 type ListenerDefaultActionRedirect struct {
 	// The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
 	Host *string `pulumi:"host"`
@@ -1153,10 +1574,12 @@ type ListenerRuleAction struct {
 	AuthenticateOidc *ListenerRuleActionAuthenticateOidc `pulumi:"authenticateOidc"`
 	// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
 	FixedResponse *ListenerRuleActionFixedResponse `pulumi:"fixedResponse"`
-	Order         *int                             `pulumi:"order"`
+	// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+	Forward *ListenerRuleActionForward `pulumi:"forward"`
+	Order   *int                       `pulumi:"order"`
 	// Information for creating a redirect action. Required if `type` is `redirect`.
 	Redirect *ListenerRuleActionRedirect `pulumi:"redirect"`
-	// The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+	// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 	// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 	Type string `pulumi:"type"`
@@ -1181,10 +1604,12 @@ type ListenerRuleActionArgs struct {
 	AuthenticateOidc ListenerRuleActionAuthenticateOidcPtrInput `pulumi:"authenticateOidc"`
 	// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
 	FixedResponse ListenerRuleActionFixedResponsePtrInput `pulumi:"fixedResponse"`
-	Order         pulumi.IntPtrInput                      `pulumi:"order"`
+	// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+	Forward ListenerRuleActionForwardPtrInput `pulumi:"forward"`
+	Order   pulumi.IntPtrInput                `pulumi:"order"`
 	// Information for creating a redirect action. Required if `type` is `redirect`.
 	Redirect ListenerRuleActionRedirectPtrInput `pulumi:"redirect"`
-	// The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+	// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 	// The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1257,6 +1682,11 @@ func (o ListenerRuleActionOutput) FixedResponse() ListenerRuleActionFixedRespons
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionFixedResponse { return v.FixedResponse }).(ListenerRuleActionFixedResponsePtrOutput)
 }
 
+// Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+func (o ListenerRuleActionOutput) Forward() ListenerRuleActionForwardPtrOutput {
+	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionForward { return v.Forward }).(ListenerRuleActionForwardPtrOutput)
+}
+
 func (o ListenerRuleActionOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
@@ -1266,7 +1696,7 @@ func (o ListenerRuleActionOutput) Redirect() ListenerRuleActionRedirectPtrOutput
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionRedirect { return v.Redirect }).(ListenerRuleActionRedirectPtrOutput)
 }
 
-// The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+// The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 func (o ListenerRuleActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -2058,6 +2488,418 @@ func (o ListenerRuleActionFixedResponsePtrOutput) StatusCode() pulumi.StringPtrO
 		}
 		return v.StatusCode
 	}).(pulumi.StringPtrOutput)
+}
+
+type ListenerRuleActionForward struct {
+	// The target group stickiness for the rule.
+	Stickiness *ListenerRuleActionForwardStickiness `pulumi:"stickiness"`
+	// One or more target groups block.
+	TargetGroups []ListenerRuleActionForwardTargetGroup `pulumi:"targetGroups"`
+}
+
+// ListenerRuleActionForwardInput is an input type that accepts ListenerRuleActionForwardArgs and ListenerRuleActionForwardOutput values.
+// You can construct a concrete instance of `ListenerRuleActionForwardInput` via:
+//
+// 		 ListenerRuleActionForwardArgs{...}
+//
+type ListenerRuleActionForwardInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionForwardOutput() ListenerRuleActionForwardOutput
+	ToListenerRuleActionForwardOutputWithContext(context.Context) ListenerRuleActionForwardOutput
+}
+
+type ListenerRuleActionForwardArgs struct {
+	// The target group stickiness for the rule.
+	Stickiness ListenerRuleActionForwardStickinessPtrInput `pulumi:"stickiness"`
+	// One or more target groups block.
+	TargetGroups ListenerRuleActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
+}
+
+func (ListenerRuleActionForwardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionForward)(nil)).Elem()
+}
+
+func (i ListenerRuleActionForwardArgs) ToListenerRuleActionForwardOutput() ListenerRuleActionForwardOutput {
+	return i.ToListenerRuleActionForwardOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionForwardArgs) ToListenerRuleActionForwardOutputWithContext(ctx context.Context) ListenerRuleActionForwardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardOutput)
+}
+
+func (i ListenerRuleActionForwardArgs) ToListenerRuleActionForwardPtrOutput() ListenerRuleActionForwardPtrOutput {
+	return i.ToListenerRuleActionForwardPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionForwardArgs) ToListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardOutput).ToListenerRuleActionForwardPtrOutputWithContext(ctx)
+}
+
+// ListenerRuleActionForwardPtrInput is an input type that accepts ListenerRuleActionForwardArgs, ListenerRuleActionForwardPtr and ListenerRuleActionForwardPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleActionForwardPtrInput` via:
+//
+// 		 ListenerRuleActionForwardArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ListenerRuleActionForwardPtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionForwardPtrOutput() ListenerRuleActionForwardPtrOutput
+	ToListenerRuleActionForwardPtrOutputWithContext(context.Context) ListenerRuleActionForwardPtrOutput
+}
+
+type listenerRuleActionForwardPtrType ListenerRuleActionForwardArgs
+
+func ListenerRuleActionForwardPtr(v *ListenerRuleActionForwardArgs) ListenerRuleActionForwardPtrInput {
+	return (*listenerRuleActionForwardPtrType)(v)
+}
+
+func (*listenerRuleActionForwardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleActionForward)(nil)).Elem()
+}
+
+func (i *listenerRuleActionForwardPtrType) ToListenerRuleActionForwardPtrOutput() ListenerRuleActionForwardPtrOutput {
+	return i.ToListenerRuleActionForwardPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleActionForwardPtrType) ToListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardPtrOutput)
+}
+
+type ListenerRuleActionForwardOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionForwardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionForward)(nil)).Elem()
+}
+
+func (o ListenerRuleActionForwardOutput) ToListenerRuleActionForwardOutput() ListenerRuleActionForwardOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardOutput) ToListenerRuleActionForwardOutputWithContext(ctx context.Context) ListenerRuleActionForwardOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardOutput) ToListenerRuleActionForwardPtrOutput() ListenerRuleActionForwardPtrOutput {
+	return o.ToListenerRuleActionForwardPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleActionForwardOutput) ToListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardPtrOutput {
+	return o.ApplyT(func(v ListenerRuleActionForward) *ListenerRuleActionForward {
+		return &v
+	}).(ListenerRuleActionForwardPtrOutput)
+}
+
+// The target group stickiness for the rule.
+func (o ListenerRuleActionForwardOutput) Stickiness() ListenerRuleActionForwardStickinessPtrOutput {
+	return o.ApplyT(func(v ListenerRuleActionForward) *ListenerRuleActionForwardStickiness { return v.Stickiness }).(ListenerRuleActionForwardStickinessPtrOutput)
+}
+
+// One or more target groups block.
+func (o ListenerRuleActionForwardOutput) TargetGroups() ListenerRuleActionForwardTargetGroupArrayOutput {
+	return o.ApplyT(func(v ListenerRuleActionForward) []ListenerRuleActionForwardTargetGroup { return v.TargetGroups }).(ListenerRuleActionForwardTargetGroupArrayOutput)
+}
+
+type ListenerRuleActionForwardPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionForwardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleActionForward)(nil)).Elem()
+}
+
+func (o ListenerRuleActionForwardPtrOutput) ToListenerRuleActionForwardPtrOutput() ListenerRuleActionForwardPtrOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardPtrOutput) ToListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardPtrOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardPtrOutput) Elem() ListenerRuleActionForwardOutput {
+	return o.ApplyT(func(v *ListenerRuleActionForward) ListenerRuleActionForward { return *v }).(ListenerRuleActionForwardOutput)
+}
+
+// The target group stickiness for the rule.
+func (o ListenerRuleActionForwardPtrOutput) Stickiness() ListenerRuleActionForwardStickinessPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleActionForward) *ListenerRuleActionForwardStickiness {
+		if v == nil {
+			return nil
+		}
+		return v.Stickiness
+	}).(ListenerRuleActionForwardStickinessPtrOutput)
+}
+
+// One or more target groups block.
+func (o ListenerRuleActionForwardPtrOutput) TargetGroups() ListenerRuleActionForwardTargetGroupArrayOutput {
+	return o.ApplyT(func(v *ListenerRuleActionForward) []ListenerRuleActionForwardTargetGroup {
+		if v == nil {
+			return nil
+		}
+		return v.TargetGroups
+	}).(ListenerRuleActionForwardTargetGroupArrayOutput)
+}
+
+type ListenerRuleActionForwardStickiness struct {
+	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	Duration int `pulumi:"duration"`
+	// Indicates whether target group stickiness is enabled.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ListenerRuleActionForwardStickinessInput is an input type that accepts ListenerRuleActionForwardStickinessArgs and ListenerRuleActionForwardStickinessOutput values.
+// You can construct a concrete instance of `ListenerRuleActionForwardStickinessInput` via:
+//
+// 		 ListenerRuleActionForwardStickinessArgs{...}
+//
+type ListenerRuleActionForwardStickinessInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionForwardStickinessOutput() ListenerRuleActionForwardStickinessOutput
+	ToListenerRuleActionForwardStickinessOutputWithContext(context.Context) ListenerRuleActionForwardStickinessOutput
+}
+
+type ListenerRuleActionForwardStickinessArgs struct {
+	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Indicates whether target group stickiness is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ListenerRuleActionForwardStickinessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionForwardStickiness)(nil)).Elem()
+}
+
+func (i ListenerRuleActionForwardStickinessArgs) ToListenerRuleActionForwardStickinessOutput() ListenerRuleActionForwardStickinessOutput {
+	return i.ToListenerRuleActionForwardStickinessOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionForwardStickinessArgs) ToListenerRuleActionForwardStickinessOutputWithContext(ctx context.Context) ListenerRuleActionForwardStickinessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardStickinessOutput)
+}
+
+func (i ListenerRuleActionForwardStickinessArgs) ToListenerRuleActionForwardStickinessPtrOutput() ListenerRuleActionForwardStickinessPtrOutput {
+	return i.ToListenerRuleActionForwardStickinessPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionForwardStickinessArgs) ToListenerRuleActionForwardStickinessPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardStickinessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardStickinessOutput).ToListenerRuleActionForwardStickinessPtrOutputWithContext(ctx)
+}
+
+// ListenerRuleActionForwardStickinessPtrInput is an input type that accepts ListenerRuleActionForwardStickinessArgs, ListenerRuleActionForwardStickinessPtr and ListenerRuleActionForwardStickinessPtrOutput values.
+// You can construct a concrete instance of `ListenerRuleActionForwardStickinessPtrInput` via:
+//
+// 		 ListenerRuleActionForwardStickinessArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ListenerRuleActionForwardStickinessPtrInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionForwardStickinessPtrOutput() ListenerRuleActionForwardStickinessPtrOutput
+	ToListenerRuleActionForwardStickinessPtrOutputWithContext(context.Context) ListenerRuleActionForwardStickinessPtrOutput
+}
+
+type listenerRuleActionForwardStickinessPtrType ListenerRuleActionForwardStickinessArgs
+
+func ListenerRuleActionForwardStickinessPtr(v *ListenerRuleActionForwardStickinessArgs) ListenerRuleActionForwardStickinessPtrInput {
+	return (*listenerRuleActionForwardStickinessPtrType)(v)
+}
+
+func (*listenerRuleActionForwardStickinessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleActionForwardStickiness)(nil)).Elem()
+}
+
+func (i *listenerRuleActionForwardStickinessPtrType) ToListenerRuleActionForwardStickinessPtrOutput() ListenerRuleActionForwardStickinessPtrOutput {
+	return i.ToListenerRuleActionForwardStickinessPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerRuleActionForwardStickinessPtrType) ToListenerRuleActionForwardStickinessPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardStickinessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardStickinessPtrOutput)
+}
+
+type ListenerRuleActionForwardStickinessOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionForwardStickinessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionForwardStickiness)(nil)).Elem()
+}
+
+func (o ListenerRuleActionForwardStickinessOutput) ToListenerRuleActionForwardStickinessOutput() ListenerRuleActionForwardStickinessOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardStickinessOutput) ToListenerRuleActionForwardStickinessOutputWithContext(ctx context.Context) ListenerRuleActionForwardStickinessOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardStickinessOutput) ToListenerRuleActionForwardStickinessPtrOutput() ListenerRuleActionForwardStickinessPtrOutput {
+	return o.ToListenerRuleActionForwardStickinessPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerRuleActionForwardStickinessOutput) ToListenerRuleActionForwardStickinessPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardStickinessPtrOutput {
+	return o.ApplyT(func(v ListenerRuleActionForwardStickiness) *ListenerRuleActionForwardStickiness {
+		return &v
+	}).(ListenerRuleActionForwardStickinessPtrOutput)
+}
+
+// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+func (o ListenerRuleActionForwardStickinessOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v ListenerRuleActionForwardStickiness) int { return v.Duration }).(pulumi.IntOutput)
+}
+
+// Indicates whether target group stickiness is enabled.
+func (o ListenerRuleActionForwardStickinessOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListenerRuleActionForwardStickiness) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ListenerRuleActionForwardStickinessPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionForwardStickinessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerRuleActionForwardStickiness)(nil)).Elem()
+}
+
+func (o ListenerRuleActionForwardStickinessPtrOutput) ToListenerRuleActionForwardStickinessPtrOutput() ListenerRuleActionForwardStickinessPtrOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardStickinessPtrOutput) ToListenerRuleActionForwardStickinessPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardStickinessPtrOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardStickinessPtrOutput) Elem() ListenerRuleActionForwardStickinessOutput {
+	return o.ApplyT(func(v *ListenerRuleActionForwardStickiness) ListenerRuleActionForwardStickiness { return *v }).(ListenerRuleActionForwardStickinessOutput)
+}
+
+// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+func (o ListenerRuleActionForwardStickinessPtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleActionForwardStickiness) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether target group stickiness is enabled.
+func (o ListenerRuleActionForwardStickinessPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleActionForwardStickiness) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ListenerRuleActionForwardTargetGroup struct {
+	// The Amazon Resource Name (ARN) of the target group.
+	Arn string `pulumi:"arn"`
+	// The weight. The range is 0 to 999.
+	Weight *int `pulumi:"weight"`
+}
+
+// ListenerRuleActionForwardTargetGroupInput is an input type that accepts ListenerRuleActionForwardTargetGroupArgs and ListenerRuleActionForwardTargetGroupOutput values.
+// You can construct a concrete instance of `ListenerRuleActionForwardTargetGroupInput` via:
+//
+// 		 ListenerRuleActionForwardTargetGroupArgs{...}
+//
+type ListenerRuleActionForwardTargetGroupInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionForwardTargetGroupOutput() ListenerRuleActionForwardTargetGroupOutput
+	ToListenerRuleActionForwardTargetGroupOutputWithContext(context.Context) ListenerRuleActionForwardTargetGroupOutput
+}
+
+type ListenerRuleActionForwardTargetGroupArgs struct {
+	// The Amazon Resource Name (ARN) of the target group.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The weight. The range is 0 to 999.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (ListenerRuleActionForwardTargetGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i ListenerRuleActionForwardTargetGroupArgs) ToListenerRuleActionForwardTargetGroupOutput() ListenerRuleActionForwardTargetGroupOutput {
+	return i.ToListenerRuleActionForwardTargetGroupOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionForwardTargetGroupArgs) ToListenerRuleActionForwardTargetGroupOutputWithContext(ctx context.Context) ListenerRuleActionForwardTargetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardTargetGroupOutput)
+}
+
+// ListenerRuleActionForwardTargetGroupArrayInput is an input type that accepts ListenerRuleActionForwardTargetGroupArray and ListenerRuleActionForwardTargetGroupArrayOutput values.
+// You can construct a concrete instance of `ListenerRuleActionForwardTargetGroupArrayInput` via:
+//
+// 		 ListenerRuleActionForwardTargetGroupArray{ ListenerRuleActionForwardTargetGroupArgs{...} }
+//
+type ListenerRuleActionForwardTargetGroupArrayInput interface {
+	pulumi.Input
+
+	ToListenerRuleActionForwardTargetGroupArrayOutput() ListenerRuleActionForwardTargetGroupArrayOutput
+	ToListenerRuleActionForwardTargetGroupArrayOutputWithContext(context.Context) ListenerRuleActionForwardTargetGroupArrayOutput
+}
+
+type ListenerRuleActionForwardTargetGroupArray []ListenerRuleActionForwardTargetGroupInput
+
+func (ListenerRuleActionForwardTargetGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i ListenerRuleActionForwardTargetGroupArray) ToListenerRuleActionForwardTargetGroupArrayOutput() ListenerRuleActionForwardTargetGroupArrayOutput {
+	return i.ToListenerRuleActionForwardTargetGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerRuleActionForwardTargetGroupArray) ToListenerRuleActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) ListenerRuleActionForwardTargetGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardTargetGroupArrayOutput)
+}
+
+type ListenerRuleActionForwardTargetGroupOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionForwardTargetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerRuleActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o ListenerRuleActionForwardTargetGroupOutput) ToListenerRuleActionForwardTargetGroupOutput() ListenerRuleActionForwardTargetGroupOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardTargetGroupOutput) ToListenerRuleActionForwardTargetGroupOutputWithContext(ctx context.Context) ListenerRuleActionForwardTargetGroupOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the target group.
+func (o ListenerRuleActionForwardTargetGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v ListenerRuleActionForwardTargetGroup) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The weight. The range is 0 to 999.
+func (o ListenerRuleActionForwardTargetGroupOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ListenerRuleActionForwardTargetGroup) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type ListenerRuleActionForwardTargetGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerRuleActionForwardTargetGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerRuleActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o ListenerRuleActionForwardTargetGroupArrayOutput) ToListenerRuleActionForwardTargetGroupArrayOutput() ListenerRuleActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardTargetGroupArrayOutput) ToListenerRuleActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) ListenerRuleActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o ListenerRuleActionForwardTargetGroupArrayOutput) Index(i pulumi.IntInput) ListenerRuleActionForwardTargetGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerRuleActionForwardTargetGroup {
+		return vs[0].([]ListenerRuleActionForwardTargetGroup)[vs[1].(int)]
+	}).(ListenerRuleActionForwardTargetGroupOutput)
 }
 
 type ListenerRuleActionRedirect struct {
@@ -4993,6 +5835,12 @@ func init() {
 	pulumi.RegisterOutputType(ListenerDefaultActionAuthenticateOidcPtrOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionFixedResponseOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionFixedResponsePtrOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionForwardOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionForwardPtrOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionForwardStickinessOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionForwardStickinessPtrOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionForwardTargetGroupOutput{})
+	pulumi.RegisterOutputType(ListenerDefaultActionForwardTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionRedirectOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionRedirectPtrOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionOutput{})
@@ -5003,6 +5851,12 @@ func init() {
 	pulumi.RegisterOutputType(ListenerRuleActionAuthenticateOidcPtrOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionFixedResponseOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionFixedResponsePtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionForwardOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionForwardPtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionForwardStickinessOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionForwardStickinessPtrOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionForwardTargetGroupOutput{})
+	pulumi.RegisterOutputType(ListenerRuleActionForwardTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionRedirectOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionRedirectPtrOutput{})
 	pulumi.RegisterOutputType(ListenerRuleConditionOutput{})

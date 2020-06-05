@@ -56,9 +56,9 @@ class ExternalKey(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, deletion_window_in_days=None, description=None, enabled=None, key_material_base64=None, policy=None, tags=None, valid_to=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a KMS Customer Master Key that uses external key material. To instead manage a KMS Customer Master Key where AWS automatically generates and potentially rotates key material, see the [`kms.Key` resource](https://www.terraform.io/docs/providers/aws/r/kms_key.html).
+        Manages a KMS Customer Master Key that uses external key material. To instead manage a KMS Customer Master Key where AWS automatically generates and potentially rotates key material, see the `kms.Key` resource.
 
-        > **Note:** All arguments including the key material will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+        > **Note:** All arguments including the key material will be stored in the raw state as plain-text.
 
         ## Example Usage
 

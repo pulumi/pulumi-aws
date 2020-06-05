@@ -103,7 +103,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly caCertIdentifier!: pulumi.Output<string>;
     /**
-     * The identifier of the [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+     * The identifier of the `aws.rds.Cluster` in which to launch this instance.
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
@@ -115,7 +115,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly dbParameterGroupName!: pulumi.Output<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
@@ -325,7 +325,7 @@ export interface ClusterInstanceState {
      */
     readonly caCertIdentifier?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+     * The identifier of the `aws.rds.Cluster` in which to launch this instance.
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
@@ -337,7 +337,7 @@ export interface ClusterInstanceState {
      */
     readonly dbParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -454,7 +454,7 @@ export interface ClusterInstanceArgs {
      */
     readonly caCertIdentifier?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+     * The identifier of the `aws.rds.Cluster` in which to launch this instance.
      */
     readonly clusterIdentifier: pulumi.Input<string>;
     /**
@@ -466,7 +466,7 @@ export interface ClusterInstanceArgs {
      */
     readonly dbParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      */
     readonly dbSubnetGroupName?: pulumi.Input<string>;
     /**

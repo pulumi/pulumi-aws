@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> CaCertIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+        /// The identifier of the `aws.rds.Cluster` in which to launch this instance.
         /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+        /// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
         /// </summary>
         [Output("dbSubnetGroupName")]
         public Output<string> DbSubnetGroupName { get; private set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? CaCertIdentifier { get; set; }
 
         /// <summary>
-        /// The identifier of the [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+        /// The identifier of the `aws.rds.Cluster` in which to launch this instance.
         /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbParameterGroupName { get; set; }
 
         /// <summary>
-        /// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+        /// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? CaCertIdentifier { get; set; }
 
         /// <summary>
-        /// The identifier of the [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html) in which to launch this instance.
+        /// The identifier of the `aws.rds.Cluster` in which to launch this instance.
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
@@ -506,7 +506,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbParameterGroupName { get; set; }
 
         /// <summary>
-        /// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached [`aws.rds.Cluster`](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html).
+        /// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `aws.rds.Cluster`.
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }

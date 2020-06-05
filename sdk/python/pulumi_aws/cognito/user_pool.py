@@ -49,10 +49,10 @@ class UserPool(pulumi.CustomResource):
     """
     The Email Configuration.
 
-      * `emailSendingAccount` (`str`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
-      * `fromEmailAddress` (`str`) - Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
+      * `emailSendingAccount` (`str`) - The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+      * `fromEmailAddress` (`str`) - Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
       * `replyToEmailAddress` (`str`) - The REPLY-TO email address.
-      * `source_arn` (`str`) - The ARN of the email source.
+      * `source_arn` (`str`) - The ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
     """
     email_verification_message: pulumi.Output[str]
     """
@@ -249,10 +249,10 @@ class UserPool(pulumi.CustomResource):
 
         The **email_configuration** object supports the following:
 
-          * `emailSendingAccount` (`pulumi.Input[str]`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
-          * `fromEmailAddress` (`pulumi.Input[str]`) - Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
+          * `emailSendingAccount` (`pulumi.Input[str]`) - The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+          * `fromEmailAddress` (`pulumi.Input[str]`) - Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
           * `replyToEmailAddress` (`pulumi.Input[str]`) - The REPLY-TO email address.
-          * `source_arn` (`pulumi.Input[str]`) - The ARN of the email source.
+          * `source_arn` (`pulumi.Input[str]`) - The ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
 
         The **lambda_config** object supports the following:
 
@@ -417,10 +417,10 @@ class UserPool(pulumi.CustomResource):
 
         The **email_configuration** object supports the following:
 
-          * `emailSendingAccount` (`pulumi.Input[str]`) - Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
-          * `fromEmailAddress` (`pulumi.Input[str]`) - Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
+          * `emailSendingAccount` (`pulumi.Input[str]`) - The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+          * `fromEmailAddress` (`pulumi.Input[str]`) - Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
           * `replyToEmailAddress` (`pulumi.Input[str]`) - The REPLY-TO email address.
-          * `source_arn` (`pulumi.Input[str]`) - The ARN of the email source.
+          * `source_arn` (`pulumi.Input[str]`) - The ARN of the SES verified email identity to to use. Required if `email_sending_account` is set to `DEVELOPER`.
 
         The **lambda_config** object supports the following:
 

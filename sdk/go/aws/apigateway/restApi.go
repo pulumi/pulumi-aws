@@ -29,7 +29,7 @@ type RestApi struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration RestApiEndpointConfigurationOutput `pulumi:"endpointConfiguration"`
-	// The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+	// The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
@@ -87,7 +87,7 @@ type restApiState struct {
 	Description *string `pulumi:"description"`
 	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
-	// The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+	// The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn *string `pulumi:"executionArn"`
@@ -118,7 +118,7 @@ type RestApiState struct {
 	Description pulumi.StringPtrInput
 	// Nested argument defining API endpoint configuration including endpoint type. Defined below.
 	EndpointConfiguration RestApiEndpointConfigurationPtrInput
-	// The execution ARN part to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+	// The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
 	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn pulumi.StringPtrInput

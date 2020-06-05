@@ -49,7 +49,7 @@ class Stage(pulumi.CustomResource):
     """
     execution_arn: pulumi.Output[str]
     """
-    The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+    The execution ARN to be used in `lambda_permission`'s `source_arn`
     when allowing API Gateway to invoke a Lambda function,
     e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
     """
@@ -222,7 +222,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[dict] deployment: The ID of the deployment that the stage points to
         :param pulumi.Input[str] description: The description of the stage
         :param pulumi.Input[str] documentation_version: The version of the associated API documentation
-        :param pulumi.Input[str] execution_arn: The execution ARN to be used in [`lambda_permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `source_arn`
+        :param pulumi.Input[str] execution_arn: The execution ARN to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,

@@ -20,7 +20,7 @@ class PlacementGroup(pulumi.CustomResource):
     """
     strategy: pulumi.Output[str]
     """
-    The placement strategy.
+    The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
     """
     tags: pulumi.Output[dict]
     """
@@ -46,7 +46,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the placement group.
-        :param pulumi.Input[str] strategy: The placement strategy.
+        :param pulumi.Input[str] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         :param pulumi.Input[dict] tags: Key-value map of resource tags.
         """
         if __name__ is not None:
@@ -89,7 +89,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the placement group.
         :param pulumi.Input[str] placement_group_id: The ID of the placement group.
-        :param pulumi.Input[str] strategy: The placement strategy.
+        :param pulumi.Input[str] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         :param pulumi.Input[dict] tags: Key-value map of resource tags.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

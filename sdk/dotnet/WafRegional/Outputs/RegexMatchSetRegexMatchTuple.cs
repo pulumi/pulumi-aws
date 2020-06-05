@@ -18,7 +18,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
         /// </summary>
         public readonly Outputs.RegexMatchSetRegexMatchTupleFieldToMatch FieldToMatch;
         /// <summary>
-        /// The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
+        /// The ID of a `WAF Regex Pattern Set`.
         /// </summary>
         public readonly string RegexPatternSetId;
         /// <summary>

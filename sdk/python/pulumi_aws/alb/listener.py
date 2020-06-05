@@ -12,11 +12,11 @@ from .. import utilities, tables
 class Listener(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
-    The ARN of the listener (matches `id`)
+    The Amazon Resource Name (ARN) of the target group.
     """
     certificate_arn: pulumi.Output[str]
     """
-    The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+    The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
     """
     default_actions: pulumi.Output[list]
     """
@@ -50,6 +50,15 @@ class Listener(pulumi.CustomResource):
         * `messageBody` (`str`) - The message body.
         * `status_code` (`str`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
 
+      * `forward` (`dict`) - Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+        * `stickiness` (`dict`) - The target group stickiness for the rule.
+          * `duration` (`float`) - The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+          * `enabled` (`bool`) - Indicates whether target group stickiness is enabled.
+
+        * `targetGroups` (`list`) - One or more target groups block.
+          * `arn` (`str`) - The Amazon Resource Name (ARN) of the target group.
+          * `weight` (`float`) - The weight. The range is 0 to 999.
+
       * `order` (`float`)
       * `redirect` (`dict`) - Information for creating a redirect action. Required if `type` is `redirect`.
         * `host` (`str`) - The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -59,7 +68,7 @@ class Listener(pulumi.CustomResource):
         * `query` (`str`) - The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
         * `status_code` (`str`) - The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 
-      * `target_group_arn` (`str`) - The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+      * `target_group_arn` (`str`) - The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
       * `type` (`str`) - The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
     """
     load_balancer_arn: pulumi.Output[str]
@@ -213,7 +222,7 @@ class Listener(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_arn: The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+        :param pulumi.Input[str] certificate_arn: The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
         :param pulumi.Input[list] default_actions: An Action block. Action blocks are documented below.
         :param pulumi.Input[str] load_balancer_arn: The ARN of the load balancer.
         :param pulumi.Input[float] port: The port on which the load balancer is listening.
@@ -250,6 +259,15 @@ class Listener(pulumi.CustomResource):
             * `messageBody` (`pulumi.Input[str]`) - The message body.
             * `status_code` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
 
+          * `forward` (`pulumi.Input[dict]`) - Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+            * `stickiness` (`pulumi.Input[dict]`) - The target group stickiness for the rule.
+              * `duration` (`pulumi.Input[float]`) - The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether target group stickiness is enabled.
+
+            * `targetGroups` (`pulumi.Input[list]`) - One or more target groups block.
+              * `arn` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the target group.
+              * `weight` (`pulumi.Input[float]`) - The weight. The range is 0 to 999.
+
           * `order` (`pulumi.Input[float]`)
           * `redirect` (`pulumi.Input[dict]`) - Information for creating a redirect action. Required if `type` is `redirect`.
             * `host` (`pulumi.Input[str]`) - The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -259,7 +277,7 @@ class Listener(pulumi.CustomResource):
             * `query` (`pulumi.Input[str]`) - The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
             * `status_code` (`pulumi.Input[str]`) - The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 
-          * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+          * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
           * `type` (`pulumi.Input[str]`) - The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
         """
         if __name__ is not None:
@@ -309,8 +327,8 @@ class Listener(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the listener (matches `id`)
-        :param pulumi.Input[str] certificate_arn: The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the [`lb.ListenerCertificate` resource](https://www.terraform.io/docs/providers/aws/r/lb_listener_certificate.html).
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target group.
+        :param pulumi.Input[str] certificate_arn: The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
         :param pulumi.Input[list] default_actions: An Action block. Action blocks are documented below.
         :param pulumi.Input[str] load_balancer_arn: The ARN of the load balancer.
         :param pulumi.Input[float] port: The port on which the load balancer is listening.
@@ -347,6 +365,15 @@ class Listener(pulumi.CustomResource):
             * `messageBody` (`pulumi.Input[str]`) - The message body.
             * `status_code` (`pulumi.Input[str]`) - The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
 
+          * `forward` (`pulumi.Input[dict]`) - Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+            * `stickiness` (`pulumi.Input[dict]`) - The target group stickiness for the rule.
+              * `duration` (`pulumi.Input[float]`) - The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether target group stickiness is enabled.
+
+            * `targetGroups` (`pulumi.Input[list]`) - One or more target groups block.
+              * `arn` (`pulumi.Input[str]`) - The Amazon Resource Name (ARN) of the target group.
+              * `weight` (`pulumi.Input[float]`) - The weight. The range is 0 to 999.
+
           * `order` (`pulumi.Input[float]`)
           * `redirect` (`pulumi.Input[dict]`) - Information for creating a redirect action. Required if `type` is `redirect`.
             * `host` (`pulumi.Input[str]`) - The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -356,7 +383,7 @@ class Listener(pulumi.CustomResource):
             * `query` (`pulumi.Input[str]`) - The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
             * `status_code` (`pulumi.Input[str]`) - The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
 
-          * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+          * `target_group_arn` (`pulumi.Input[str]`) - The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
           * `type` (`pulumi.Input[str]`) - The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

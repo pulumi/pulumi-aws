@@ -62,6 +62,10 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the Client VPN endpoint.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Information about the authentication method to be used to authenticate clients.
      */
     public readonly authenticationOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointAuthenticationOption[]>;
@@ -118,6 +122,7 @@ export class Endpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EndpointState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["authenticationOptions"] = state ? state.authenticationOptions : undefined;
             inputs["clientCidrBlock"] = state ? state.clientCidrBlock : undefined;
             inputs["connectionLogOptions"] = state ? state.connectionLogOptions : undefined;
@@ -152,6 +157,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["splitTunnel"] = args ? args.splitTunnel : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["transportProtocol"] = args ? args.transportProtocol : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
@@ -170,6 +176,10 @@ export class Endpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Endpoint resources.
  */
 export interface EndpointState {
+    /**
+     * The ARN of the Client VPN endpoint.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Information about the authentication method to be used to authenticate clients.
      */

@@ -316,13 +316,17 @@ export namespace alb {
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: outputs.alb.ListenerDefaultActionFixedResponse;
+        /**
+         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         */
+        forward?: outputs.alb.ListenerDefaultActionForward;
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.alb.ListenerDefaultActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
@@ -428,6 +432,39 @@ export namespace alb {
         statusCode: string;
     }
 
+    export interface ListenerDefaultActionForward {
+        /**
+         * The target group stickiness for the rule.
+         */
+        stickiness?: outputs.alb.ListenerDefaultActionForwardStickiness;
+        /**
+         * One or more target groups block.
+         */
+        targetGroups: outputs.alb.ListenerDefaultActionForwardTargetGroup[];
+    }
+
+    export interface ListenerDefaultActionForwardStickiness {
+        /**
+         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         */
+        duration: number;
+        /**
+         * Indicates whether target group stickiness is enabled.
+         */
+        enabled?: boolean;
+    }
+
+    export interface ListenerDefaultActionForwardTargetGroup {
+        /**
+         * The Amazon Resource Name (ARN) of the target group.
+         */
+        arn: string;
+        /**
+         * The weight. The range is 0 to 999.
+         */
+        weight?: number;
+    }
+
     export interface ListenerDefaultActionRedirect {
         /**
          * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -468,13 +505,17 @@ export namespace alb {
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: outputs.alb.ListenerRuleActionFixedResponse;
+        /**
+         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         */
+        forward?: outputs.alb.ListenerRuleActionForward;
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.alb.ListenerRuleActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
@@ -578,6 +619,39 @@ export namespace alb {
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
         statusCode: string;
+    }
+
+    export interface ListenerRuleActionForward {
+        /**
+         * The target group stickiness for the rule.
+         */
+        stickiness?: outputs.alb.ListenerRuleActionForwardStickiness;
+        /**
+         * One or more target groups block.
+         */
+        targetGroups: outputs.alb.ListenerRuleActionForwardTargetGroup[];
+    }
+
+    export interface ListenerRuleActionForwardStickiness {
+        /**
+         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         */
+        duration: number;
+        /**
+         * Indicates whether target group stickiness is enabled.
+         */
+        enabled?: boolean;
+    }
+
+    export interface ListenerRuleActionForwardTargetGroup {
+        /**
+         * The Amazon Resource Name (ARN) of the target group.
+         */
+        arn: string;
+        /**
+         * The weight. The range is 0 to 999.
+         */
+        weight?: number;
     }
 
     export interface ListenerRuleActionRedirect {
@@ -958,7 +1032,7 @@ export namespace apigatewayv2 {
          */
         audiences?: string[];
         /**
-         * The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`aws.cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
+         * The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
          */
         issuer?: string;
     }
@@ -966,7 +1040,7 @@ export namespace apigatewayv2 {
     export interface DomainNameDomainNameConfiguration {
         /**
          * The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-         * Use the [`aws.acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+         * Use the `aws.acm.Certificate` resource to configure an ACM certificate.
          */
         certificateArn: string;
         /**
@@ -1257,13 +1331,17 @@ export namespace applicationloadbalancing {
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: outputs.applicationloadbalancing.ListenerDefaultActionFixedResponse;
+        /**
+         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         */
+        forward?: outputs.applicationloadbalancing.ListenerDefaultActionForward;
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.applicationloadbalancing.ListenerDefaultActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
@@ -1369,6 +1447,39 @@ export namespace applicationloadbalancing {
         statusCode: string;
     }
 
+    export interface ListenerDefaultActionForward {
+        /**
+         * The target group stickiness for the rule.
+         */
+        stickiness?: outputs.applicationloadbalancing.ListenerDefaultActionForwardStickiness;
+        /**
+         * One or more target groups block.
+         */
+        targetGroups: outputs.applicationloadbalancing.ListenerDefaultActionForwardTargetGroup[];
+    }
+
+    export interface ListenerDefaultActionForwardStickiness {
+        /**
+         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         */
+        duration: number;
+        /**
+         * Indicates whether target group stickiness is enabled.
+         */
+        enabled?: boolean;
+    }
+
+    export interface ListenerDefaultActionForwardTargetGroup {
+        /**
+         * The Amazon Resource Name (ARN) of the target group.
+         */
+        arn: string;
+        /**
+         * The weight. The range is 0 to 999.
+         */
+        weight?: number;
+    }
+
     export interface ListenerDefaultActionRedirect {
         /**
          * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -1409,13 +1520,17 @@ export namespace applicationloadbalancing {
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: outputs.applicationloadbalancing.ListenerRuleActionFixedResponse;
+        /**
+         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         */
+        forward?: outputs.applicationloadbalancing.ListenerRuleActionForward;
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.applicationloadbalancing.ListenerRuleActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
@@ -1519,6 +1634,39 @@ export namespace applicationloadbalancing {
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
         statusCode: string;
+    }
+
+    export interface ListenerRuleActionForward {
+        /**
+         * The target group stickiness for the rule.
+         */
+        stickiness?: outputs.applicationloadbalancing.ListenerRuleActionForwardStickiness;
+        /**
+         * One or more target groups block.
+         */
+        targetGroups: outputs.applicationloadbalancing.ListenerRuleActionForwardTargetGroup[];
+    }
+
+    export interface ListenerRuleActionForwardStickiness {
+        /**
+         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         */
+        duration: number;
+        /**
+         * Indicates whether target group stickiness is enabled.
+         */
+        enabled?: boolean;
+    }
+
+    export interface ListenerRuleActionForwardTargetGroup {
+        /**
+         * The Amazon Resource Name (ARN) of the target group.
+         */
+        arn: string;
+        /**
+         * The weight. The range is 0 to 999.
+         */
+        weight?: number;
     }
 
     export interface ListenerRuleActionRedirect {
@@ -1997,11 +2145,11 @@ export namespace appmesh {
         attributes?: {[key: string]: string};
         /**
          * The name of the AWS Cloud Map namespace to use.
-         * Use the [`aws.servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
+         * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
          */
         namespaceName: string;
         /**
-         * The name of the AWS Cloud Map service to use. Use the [`aws.servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
+         * The name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service.
          */
         serviceName: string;
     }
@@ -2840,7 +2988,7 @@ export namespace cfg {
 
     export interface RuleSource {
         /**
-         * Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the [`aws.lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
+         * Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `aws.lambda.Permission` resource.
          */
         owner: string;
         /**
@@ -2848,7 +2996,7 @@ export namespace cfg {
          */
         sourceDetails?: outputs.cfg.RuleSourceSourceDetail[];
         /**
-         * For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `aws.lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
+         * For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `aws.lambda.Function` resource.
          */
         sourceIdentifier: string;
     }
@@ -4503,11 +4651,11 @@ export namespace cognito {
 
     export interface UserPoolEmailConfiguration {
         /**
-         * Instruct Cognito to either use its built-in functional or Amazon SES to send out emails.
+         * The email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
          */
         emailSendingAccount?: string;
         /**
-         * Sender’s email address or sender’s name with their email address (e.g. `john@smith.com` or `John Smith <john@smith.com>`)
+         * Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
          */
         fromEmailAddress?: string;
         /**
@@ -4515,7 +4663,7 @@ export namespace cognito {
          */
         replyToEmailAddress?: string;
         /**
-         * The ARN of the email source.
+         * The ARN of the SES verified email identity to to use. Required if `emailSendingAccount` is set to `DEVELOPER`.
          */
         sourceArn?: string;
     }
@@ -4808,6 +4956,7 @@ export namespace dax {
 
 export namespace directoryservice {
     export interface DirectoryConnectSettings {
+        availabilityZones: string[];
         /**
          * The IP addresses of the AD Connector servers.
          */
@@ -4831,6 +4980,7 @@ export namespace directoryservice {
     }
 
     export interface DirectoryVpcSettings {
+        availabilityZones: string[];
         /**
          * The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
          */
@@ -4842,6 +4992,7 @@ export namespace directoryservice {
     }
 
     export interface GetDirectoryConnectSetting {
+        availabilityZones: string[];
         /**
          * The IP addresses of the AD Connector servers.
          */
@@ -4865,6 +5016,7 @@ export namespace directoryservice {
     }
 
     export interface GetDirectoryVpcSetting {
+        availabilityZones: string[];
         /**
          * The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
          */
@@ -6561,7 +6713,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateBlockDeviceMappingEbs {
         /**
-         * Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+         * Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
          */
         deleteOnTermination?: string;
         /**
@@ -6733,7 +6885,7 @@ export namespace ec2 {
          */
         associatePublicIpAddress?: string;
         /**
-         * Whether the network interface should be destroyed on instance termination.
+         * Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
          */
         deleteOnTermination?: boolean;
         /**
@@ -8432,13 +8584,17 @@ export namespace elasticloadbalancingv2 {
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: outputs.elasticloadbalancingv2.ListenerDefaultActionFixedResponse;
+        /**
+         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         */
+        forward?: outputs.elasticloadbalancingv2.ListenerDefaultActionForward;
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.elasticloadbalancingv2.ListenerDefaultActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
@@ -8544,6 +8700,39 @@ export namespace elasticloadbalancingv2 {
         statusCode: string;
     }
 
+    export interface ListenerDefaultActionForward {
+        /**
+         * The target group stickiness for the rule.
+         */
+        stickiness?: outputs.elasticloadbalancingv2.ListenerDefaultActionForwardStickiness;
+        /**
+         * One or more target groups block.
+         */
+        targetGroups: outputs.elasticloadbalancingv2.ListenerDefaultActionForwardTargetGroup[];
+    }
+
+    export interface ListenerDefaultActionForwardStickiness {
+        /**
+         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         */
+        duration: number;
+        /**
+         * Indicates whether target group stickiness is enabled.
+         */
+        enabled?: boolean;
+    }
+
+    export interface ListenerDefaultActionForwardTargetGroup {
+        /**
+         * The Amazon Resource Name (ARN) of the target group.
+         */
+        arn: string;
+        /**
+         * The weight. The range is 0 to 999.
+         */
+        weight?: number;
+    }
+
     export interface ListenerDefaultActionRedirect {
         /**
          * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -8584,13 +8773,17 @@ export namespace elasticloadbalancingv2 {
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: outputs.elasticloadbalancingv2.ListenerRuleActionFixedResponse;
+        /**
+         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         */
+        forward?: outputs.elasticloadbalancingv2.ListenerRuleActionForward;
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.elasticloadbalancingv2.ListenerRuleActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
@@ -8694,6 +8887,39 @@ export namespace elasticloadbalancingv2 {
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
         statusCode: string;
+    }
+
+    export interface ListenerRuleActionForward {
+        /**
+         * The target group stickiness for the rule.
+         */
+        stickiness?: outputs.elasticloadbalancingv2.ListenerRuleActionForwardStickiness;
+        /**
+         * One or more target groups block.
+         */
+        targetGroups: outputs.elasticloadbalancingv2.ListenerRuleActionForwardTargetGroup[];
+    }
+
+    export interface ListenerRuleActionForwardStickiness {
+        /**
+         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         */
+        duration: number;
+        /**
+         * Indicates whether target group stickiness is enabled.
+         */
+        enabled?: boolean;
+    }
+
+    export interface ListenerRuleActionForwardTargetGroup {
+        /**
+         * The Amazon Resource Name (ARN) of the target group.
+         */
+        arn: string;
+        /**
+         * The weight. The range is 0 to 999.
+         */
+        weight?: number;
     }
 
     export interface ListenerRuleActionRedirect {
@@ -9565,7 +9791,7 @@ export namespace emr {
          */
         id: string;
         /**
-         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
          */
         instanceCount?: number;
         /**
@@ -9650,7 +9876,7 @@ export namespace emr {
          */
         id: string;
         /**
-         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
          */
         instanceCount?: number;
         /**
@@ -9723,7 +9949,7 @@ export namespace emr {
          */
         id: string;
         /**
-         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have [map public IP on launch](https://www.terraform.io/docs/providers/aws/r/subnet.html#map_public_ip_on_launch) enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
          */
         instanceCount?: number;
         /**
@@ -12153,13 +12379,17 @@ export namespace lb {
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: outputs.lb.ListenerDefaultActionFixedResponse;
+        /**
+         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         */
+        forward?: outputs.lb.ListenerDefaultActionForward;
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.lb.ListenerDefaultActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
@@ -12265,6 +12495,39 @@ export namespace lb {
         statusCode: string;
     }
 
+    export interface ListenerDefaultActionForward {
+        /**
+         * The target group stickiness for the rule.
+         */
+        stickiness?: outputs.lb.ListenerDefaultActionForwardStickiness;
+        /**
+         * One or more target groups block.
+         */
+        targetGroups: outputs.lb.ListenerDefaultActionForwardTargetGroup[];
+    }
+
+    export interface ListenerDefaultActionForwardStickiness {
+        /**
+         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         */
+        duration: number;
+        /**
+         * Indicates whether target group stickiness is enabled.
+         */
+        enabled?: boolean;
+    }
+
+    export interface ListenerDefaultActionForwardTargetGroup {
+        /**
+         * The Amazon Resource Name (ARN) of the target group.
+         */
+        arn: string;
+        /**
+         * The weight. The range is 0 to 999.
+         */
+        weight?: number;
+    }
+
     export interface ListenerDefaultActionRedirect {
         /**
          * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -12305,13 +12568,17 @@ export namespace lb {
          * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
          */
         fixedResponse?: outputs.lb.ListenerRuleActionFixedResponse;
+        /**
+         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         */
+        forward?: outputs.lb.ListenerRuleActionForward;
         order: number;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: outputs.lb.ListenerRuleActionRedirect;
         /**
-         * The ARN of the Target Group to which to route traffic. Required if `type` is `forward`.
+         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
          */
         targetGroupArn?: string;
         /**
@@ -12415,6 +12682,39 @@ export namespace lb {
          * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          */
         statusCode: string;
+    }
+
+    export interface ListenerRuleActionForward {
+        /**
+         * The target group stickiness for the rule.
+         */
+        stickiness?: outputs.lb.ListenerRuleActionForwardStickiness;
+        /**
+         * One or more target groups block.
+         */
+        targetGroups: outputs.lb.ListenerRuleActionForwardTargetGroup[];
+    }
+
+    export interface ListenerRuleActionForwardStickiness {
+        /**
+         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         */
+        duration: number;
+        /**
+         * Indicates whether target group stickiness is enabled.
+         */
+        enabled?: boolean;
+    }
+
+    export interface ListenerRuleActionForwardTargetGroup {
+        /**
+         * The Amazon Resource Name (ARN) of the target group.
+         */
+        arn: string;
+        /**
+         * The weight. The range is 0 to 999.
+         */
+        weight?: number;
     }
 
     export interface ListenerRuleActionRedirect {
@@ -13852,7 +14152,7 @@ export namespace route53 {
          */
         name: string;
         /**
-         * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+         * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
          */
         zoneId: string;
     }
@@ -14400,7 +14700,7 @@ export namespace s3 {
          */
         enabled?: boolean;
         /**
-         * Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`.
+         * Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
          */
         mfaDelete?: boolean;
     }
@@ -15188,7 +15488,7 @@ export namespace waf {
          */
         fieldToMatch: outputs.waf.RegexMatchSetRegexMatchTupleFieldToMatch;
         /**
-         * The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
+         * The ID of a `WAF Regex Pattern Set`.
          */
         regexPatternSetId: string;
         /**
@@ -15225,18 +15525,18 @@ export namespace waf {
          */
         priority: number;
         /**
-         * The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)
+         * The ID of a `wafRule`
          */
         ruleId: string;
         /**
-         * The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+         * The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
          */
         type?: string;
     }
 
     export interface RuleGroupActivatedRuleAction {
         /**
-         * The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/waf_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+         * The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
          */
         type: string;
     }
@@ -15248,7 +15548,7 @@ export namespace waf {
         dataId: string;
         /**
          * Set this to `false` if you want to allow, block, or count requests
-         * based on the settings in the specified [wafByteMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_byte_match_set.html), [wafIpset](https://www.terraform.io/docs/providers/aws/r/waf_ipset.html), [aws.waf.SizeConstraintSet](https://www.terraform.io/docs/providers/aws/r/waf_size_constraint_set.html), [aws.waf.SqlInjectionMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_sql_injection_match_set.html) or [aws.waf.XssMatchSet](https://www.terraform.io/docs/providers/aws/r/waf_xss_match_set.html).
+         * based on the settings in the specified `wafByteMatchSet`, `wafIpset`, `aws.waf.SizeConstraintSet`, `aws.waf.SqlInjectionMatchSet` or `aws.waf.XssMatchSet`.
          * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
          * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
          */
@@ -15382,7 +15682,7 @@ export namespace waf {
          */
         priority: number;
         /**
-         * ID of the associated WAF (Global) rule (e.g. [`aws.waf.Rule`](https://www.terraform.io/docs/providers/aws/r/waf_rule.html)). WAF (Regional) rules cannot be used.
+         * ID of the associated WAF (Global) rule (e.g. `aws.waf.Rule`). WAF (Regional) rules cannot be used.
          */
         ruleId: string;
         /**
@@ -15515,7 +15815,7 @@ export namespace wafregional {
          */
         fieldToMatch: outputs.wafregional.RegexMatchSetRegexMatchTupleFieldToMatch;
         /**
-         * The ID of a [Regex Pattern Set](https://www.terraform.io/docs/providers/aws/r/waf_regex_pattern_set.html).
+         * The ID of a `WAF Regex Pattern Set`.
          */
         regexPatternSetId: string;
         /**
@@ -15552,18 +15852,18 @@ export namespace wafregional {
          */
         priority: number;
         /**
-         * The ID of a [rule](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)
+         * The ID of a `wafRegionalRule`
          */
         ruleId: string;
         /**
-         * The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+         * The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
          */
         type?: string;
     }
 
     export interface RuleGroupActivatedRuleAction {
         /**
-         * The rule type, either [`REGULAR`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html), [`RATE_BASED`](https://www.terraform.io/docs/providers/aws/r/wafregional_rate_based_rule.html), or `GROUP`. Defaults to `REGULAR`.
+         * The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
          */
         type: string;
     }
@@ -15697,7 +15997,7 @@ export namespace wafregional {
          */
         priority: number;
         /**
-         * ID of the associated WAF (Regional) rule (e.g. [`aws.wafregional.Rule`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)). WAF (Global) rules cannot be used.
+         * ID of the associated WAF (Regional) rule (e.g. `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
          */
         ruleId: string;
         /**
@@ -15853,7 +16153,7 @@ export namespace workspaces {
          */
         rootVolumeSizeGib?: number;
         /**
-         * The size of the root volume. The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+         * The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
          */
         runningMode?: string;
         /**

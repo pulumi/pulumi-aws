@@ -64,7 +64,7 @@ namespace Pulumi.Aws.ServiceQuotas
         public string? QuotaName { get; set; }
 
         /// <summary>
-        /// Service code for the quota. Available values can be found with the [`aws.servicequotas.getService` data source](https://www.terraform.io/docs/providers/aws/d/servicequotas_service.html) or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+        /// Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         /// </summary>
         [Input("serviceCode", required: true)]
         public string ServiceCode { get; set; } = null!;

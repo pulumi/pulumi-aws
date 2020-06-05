@@ -13,7 +13,6 @@ import (
 // Provides a Simple or Managed Microsoft directory in AWS Directory Service.
 //
 // > **Note:** All arguments including the password and customer username will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type Directory struct {
 	pulumi.CustomResourceState
 

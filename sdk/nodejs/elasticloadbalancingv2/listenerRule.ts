@@ -43,6 +43,34 @@ import * as utilities from "../utilities";
  * });
  * const hostBasedRouting = new aws.lb.ListenerRule("hostBasedRouting", {
  *     actions: [{
+ *         forward: {
+ *             stickiness: {
+ *                 duration: 600,
+ *                 enabled: true,
+ *             },
+ *             targetGroups: [
+ *                 {
+ *                     arn: aws_lb_target_group_main.arn,
+ *                     weight: 80,
+ *                 },
+ *                 {
+ *                     arn: aws_lb_target_group_canary.arn,
+ *                     weight: 20,
+ *                 },
+ *             ],
+ *         },
+ *         type: "forward",
+ *     }],
+ *     conditions: [{
+ *         hostHeader: {
+ *             values: ["my-service.*.mycompany.io"],
+ *         },
+ *     }],
+ *     listenerArn: frontEndListener.arn,
+ *     priority: 99,
+ * });
+ * const hostBasedWeightedRouting = new aws.lb.ListenerRule("hostBasedWeightedRouting", {
+ *     actions: [{
  *         targetGroupArn: aws_lb_target_group_static.arn,
  *         type: "forward",
  *     }],
@@ -152,7 +180,7 @@ export class ListenerRule extends pulumi.CustomResource {
      */
     public readonly actions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleAction[]>;
     /**
-     * The ARN of the rule (matches `id`)
+     * The Amazon Resource Name (ARN) of the target group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -225,7 +253,7 @@ export interface ListenerRuleState {
      */
     readonly actions?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleAction>[]>;
     /**
-     * The ARN of the rule (matches `id`)
+     * The Amazon Resource Name (ARN) of the target group.
      */
     readonly arn?: pulumi.Input<string>;
     /**

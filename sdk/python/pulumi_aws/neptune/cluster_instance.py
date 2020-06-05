@@ -33,7 +33,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     cluster_identifier: pulumi.Output[str]
     """
-    The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+    The identifier of the `neptune.Cluster` in which to launch this instance.
     """
     dbi_resource_id: pulumi.Output[str]
     """
@@ -73,7 +73,7 @@ class ClusterInstance(pulumi.CustomResource):
     """
     neptune_subnet_group_name: pulumi.Output[str]
     """
-    A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+    A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `neptune.Cluster`.
     """
     port: pulumi.Output[float]
     """
@@ -148,14 +148,14 @@ class ClusterInstance(pulumi.CustomResource):
                are applied immediately, or during the next maintenance window. Default is`false`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the neptune instance is created in.
-        :param pulumi.Input[str] cluster_identifier: The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+        :param pulumi.Input[str] cluster_identifier: The identifier of the `neptune.Cluster` in which to launch this instance.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
         :param pulumi.Input[str] engine_version: The neptune engine version.
         :param pulumi.Input[str] identifier: The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use.
         :param pulumi.Input[str] neptune_parameter_group_name: The name of the neptune parameter group to associate with this instance.
-        :param pulumi.Input[str] neptune_subnet_group_name: A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+        :param pulumi.Input[str] neptune_subnet_group_name: A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `neptune.Cluster`.
         :param pulumi.Input[float] port: The port on which the DB accepts connections. Defaults to `8182`.
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
@@ -230,7 +230,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of neptune instance
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the neptune instance is created in.
-        :param pulumi.Input[str] cluster_identifier: The identifier of the [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html) in which to launch this instance.
+        :param pulumi.Input[str] cluster_identifier: The identifier of the `neptune.Cluster` in which to launch this instance.
         :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the neptune instance.
         :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
@@ -240,7 +240,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] instance_class: The instance class to use.
         :param pulumi.Input[str] kms_key_arn: The ARN for the KMS encryption key if one is set to the neptune cluster.
         :param pulumi.Input[str] neptune_parameter_group_name: The name of the neptune parameter group to associate with this instance.
-        :param pulumi.Input[str] neptune_subnet_group_name: A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached [`neptune.Cluster`](https://www.terraform.io/docs/providers/aws/r/neptune_cluster.html).
+        :param pulumi.Input[str] neptune_subnet_group_name: A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `neptune.Cluster`.
         :param pulumi.Input[float] port: The port on which the DB accepts connections. Defaults to `8182`.
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// Manages an Amazon API Gateway Version 2 VPC Link.
     /// 
     /// &gt; **Note:** Amazon API Gateway Version 2 VPC Links enable private integrations that connect HTTP APIs to private resources in a VPC.
-    /// To enable private integration for REST APIs, use the Amazon API Gateway Version 1 VPC Link [resource](https://www.terraform.io/docs/providers/aws/r/api_gateway_vpc_link.html).
+    /// To enable private integration for REST APIs, use the `Amazon API Gateway Version 1 VPC Link` resource.
     /// 
     /// ## Example Usage
     /// 

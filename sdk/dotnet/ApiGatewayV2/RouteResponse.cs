@@ -57,7 +57,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<ImmutableDictionary<string, string>?> ResponseModels { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the [`aws.apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+        /// The identifier of the `aws.apigatewayv2.Route`.
         /// </summary>
         [Output("routeId")]
         public Output<string> RouteId { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// The identifier of the [`aws.apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+        /// The identifier of the `aws.apigatewayv2.Route`.
         /// </summary>
         [Input("routeId", required: true)]
         public Input<string> RouteId { get; set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// The identifier of the [`aws.apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+        /// The identifier of the `aws.apigatewayv2.Route`.
         /// </summary>
         [Input("routeId")]
         public Input<string>? RouteId { get; set; }

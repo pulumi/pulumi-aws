@@ -21,7 +21,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
       * `device_name` (`str`) - The name of the device to mount.
       * `ebs` (`dict`) - Configure EBS volume properties.
-        * `deleteOnTermination` (`str`) - Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+        * `deleteOnTermination` (`str`) - Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
         * `encrypted` (`str`) - Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
           on the volume (Default: `false`). Cannot be used with `snapshot_id`.
         * `iops` (`float`) - The amount of provisioned
@@ -178,7 +178,7 @@ class LaunchTemplate(pulumi.CustomResource):
     Interfaces below for more details.
 
       * `associate_public_ip_address` (`str`) - Associate a public ip address with the network interface.  Boolean value.
-      * `deleteOnTermination` (`bool`) - Whether the network interface should be destroyed on instance termination.
+      * `deleteOnTermination` (`bool`) - Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
       * `description` (`str`) - Description of the network interface.
       * `device_index` (`float`) - The integer index of the network interface attachment.
       * `ipv4AddressCount` (`float`) - The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
@@ -282,7 +282,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
           * `device_name` (`pulumi.Input[str]`) - The name of the device to mount.
           * `ebs` (`pulumi.Input[dict]`) - Configure EBS volume properties.
-            * `deleteOnTermination` (`pulumi.Input[str]`) - Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+            * `deleteOnTermination` (`pulumi.Input[str]`) - Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
             * `encrypted` (`pulumi.Input[str]`) - Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
               on the volume (Default: `false`). Cannot be used with `snapshot_id`.
             * `iops` (`pulumi.Input[float]`) - The amount of provisioned
@@ -360,7 +360,7 @@ class LaunchTemplate(pulumi.CustomResource):
         The **network_interfaces** object supports the following:
 
           * `associate_public_ip_address` (`pulumi.Input[str]`) - Associate a public ip address with the network interface.  Boolean value.
-          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the network interface should be destroyed on instance termination.
+          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
           * `description` (`pulumi.Input[str]`) - Description of the network interface.
           * `device_index` (`pulumi.Input[float]`) - The integer index of the network interface attachment.
           * `ipv4AddressCount` (`pulumi.Input[float]`) - The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
@@ -499,7 +499,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
           * `device_name` (`pulumi.Input[str]`) - The name of the device to mount.
           * `ebs` (`pulumi.Input[dict]`) - Configure EBS volume properties.
-            * `deleteOnTermination` (`pulumi.Input[str]`) - Whether the volume should be destroyed on instance termination (Default: `false`). See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+            * `deleteOnTermination` (`pulumi.Input[str]`) - Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
             * `encrypted` (`pulumi.Input[str]`) - Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html)
               on the volume (Default: `false`). Cannot be used with `snapshot_id`.
             * `iops` (`pulumi.Input[float]`) - The amount of provisioned
@@ -577,7 +577,7 @@ class LaunchTemplate(pulumi.CustomResource):
         The **network_interfaces** object supports the following:
 
           * `associate_public_ip_address` (`pulumi.Input[str]`) - Associate a public ip address with the network interface.  Boolean value.
-          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the network interface should be destroyed on instance termination.
+          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
           * `description` (`pulumi.Input[str]`) - Description of the network interface.
           * `device_index` (`pulumi.Input[float]`) - The integer index of the network interface attachment.
           * `ipv4AddressCount` (`pulumi.Input[float]`) - The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`

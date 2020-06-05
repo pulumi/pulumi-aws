@@ -139,7 +139,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly documentationVersion!: pulumi.Output<string | undefined>;
     /**
-     * The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+     * The execution ARN to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
@@ -273,7 +273,7 @@ export interface StageState {
      */
     readonly documentationVersion?: pulumi.Input<string>;
     /**
-     * The execution ARN to be used in [`lambdaPermission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn`
+     * The execution ARN to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */

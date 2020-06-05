@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? AssociatePublicIpAddress { get; set; }
 
         /// <summary>
-        /// Whether the network interface should be destroyed on instance termination.
+        /// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
         /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }

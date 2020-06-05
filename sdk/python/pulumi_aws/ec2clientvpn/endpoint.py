@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class Endpoint(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the Client VPN endpoint.
+    """
     authentication_options: pulumi.Output[list]
     """
     Information about the authentication method to be used to authenticate clients.
@@ -149,6 +153,7 @@ class Endpoint(pulumi.CustomResource):
             __props__['split_tunnel'] = split_tunnel
             __props__['tags'] = tags
             __props__['transport_protocol'] = transport_protocol
+            __props__['arn'] = None
             __props__['dns_name'] = None
             __props__['status'] = None
         super(Endpoint, __self__).__init__(
@@ -158,7 +163,7 @@ class Endpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, authentication_options=None, client_cidr_block=None, connection_log_options=None, description=None, dns_name=None, dns_servers=None, server_certificate_arn=None, split_tunnel=None, status=None, tags=None, transport_protocol=None):
+    def get(resource_name, id, opts=None, arn=None, authentication_options=None, client_cidr_block=None, connection_log_options=None, description=None, dns_name=None, dns_servers=None, server_certificate_arn=None, split_tunnel=None, status=None, tags=None, transport_protocol=None):
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -166,6 +171,7 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Client VPN endpoint.
         :param pulumi.Input[list] authentication_options: Information about the authentication method to be used to authenticate clients.
         :param pulumi.Input[str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         :param pulumi.Input[dict] connection_log_options: Information about the client connection logging options.
@@ -194,6 +200,7 @@ class Endpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["authentication_options"] = authentication_options
         __props__["client_cidr_block"] = client_cidr_block
         __props__["connection_log_options"] = connection_log_options

@@ -11,7 +11,7 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Provides an EC2 instance resource. This allows instances to be created, updated,
-    /// and deleted. Instances also support [provisioning](https://www.terraform.io/docs/provisioners/index.html).
+    /// and deleted.
     /// 
     /// ## Example Usage
     /// 
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PublicDns { get; private set; } = null!;
 
         /// <summary>
-        /// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws.ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+        /// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         /// </summary>
         [Output("publicIp")]
         public Output<string> PublicIp { get; private set; } = null!;
@@ -897,7 +897,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PublicDns { get; set; }
 
         /// <summary>
-        /// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an [`aws.ec2.Eip`](https://www.terraform.io/docs/providers/aws/r/eip.html) with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
+        /// The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         /// </summary>
         [Input("publicIp")]
         public Input<string>? PublicIp { get; set; }

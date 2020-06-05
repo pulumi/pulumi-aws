@@ -21,7 +21,6 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
     /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
     /// ## Example Usage
     /// 

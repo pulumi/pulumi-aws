@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PlacementGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The placement strategy.
+        /// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         /// </summary>
         [Output("strategy")]
         public Output<string> Strategy { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The placement strategy.
+        /// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         /// </summary>
         [Input("strategy", required: true)]
         public Input<string> Strategy { get; set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PlacementGroupId { get; set; }
 
         /// <summary>
-        /// The placement strategy.
+        /// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         /// </summary>
         [Input("strategy")]
         public Input<string>? Strategy { get; set; }

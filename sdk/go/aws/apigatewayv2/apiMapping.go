@@ -19,9 +19,9 @@ type ApiMapping struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
 	ApiMappingKey pulumi.StringPtrOutput `pulumi:"apiMappingKey"`
-	// The domain name. Use the [`apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
+	// The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The API stage. Use the [`apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+	// The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage pulumi.StringOutput `pulumi:"stage"`
 }
 
@@ -66,9 +66,9 @@ type apiMappingState struct {
 	ApiId *string `pulumi:"apiId"`
 	// The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
 	ApiMappingKey *string `pulumi:"apiMappingKey"`
-	// The domain name. Use the [`apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
+	// The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName *string `pulumi:"domainName"`
-	// The API stage. Use the [`apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+	// The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage *string `pulumi:"stage"`
 }
 
@@ -77,9 +77,9 @@ type ApiMappingState struct {
 	ApiId pulumi.StringPtrInput
 	// The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
 	ApiMappingKey pulumi.StringPtrInput
-	// The domain name. Use the [`apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
+	// The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName pulumi.StringPtrInput
-	// The API stage. Use the [`apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+	// The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage pulumi.StringPtrInput
 }
 
@@ -92,9 +92,9 @@ type apiMappingArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
 	ApiMappingKey *string `pulumi:"apiMappingKey"`
-	// The domain name. Use the [`apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
+	// The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName string `pulumi:"domainName"`
-	// The API stage. Use the [`apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+	// The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage string `pulumi:"stage"`
 }
 
@@ -104,9 +104,9 @@ type ApiMappingArgs struct {
 	ApiId pulumi.StringInput
 	// The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
 	ApiMappingKey pulumi.StringPtrInput
-	// The domain name. Use the [`apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
+	// The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName pulumi.StringInput
-	// The API stage. Use the [`apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+	// The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
 	Stage pulumi.StringInput
 }
 

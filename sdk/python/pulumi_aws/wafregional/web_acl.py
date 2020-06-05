@@ -50,7 +50,7 @@ class WebAcl(pulumi.CustomResource):
 
       * `priority` (`float`) - Specifies the order in which the rules in a WebACL are evaluated.
         Rules with a lower value are evaluated before rules with a higher value.
-      * `rule_id` (`str`) - ID of the associated WAF (Regional) rule (e.g. [`wafregional.Rule`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)). WAF (Global) rules cannot be used.
+      * `rule_id` (`str`) - ID of the associated WAF (Regional) rule (e.g. `wafregional.Rule`). WAF (Global) rules cannot be used.
       * `type` (`str`) - Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
     """
     tags: pulumi.Output[dict]
@@ -170,7 +170,7 @@ class WebAcl(pulumi.CustomResource):
 
           * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules in a WebACL are evaluated.
             Rules with a lower value are evaluated before rules with a higher value.
-          * `rule_id` (`pulumi.Input[str]`) - ID of the associated WAF (Regional) rule (e.g. [`wafregional.Rule`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)). WAF (Global) rules cannot be used.
+          * `rule_id` (`pulumi.Input[str]`) - ID of the associated WAF (Regional) rule (e.g. `wafregional.Rule`). WAF (Global) rules cannot be used.
           * `type` (`pulumi.Input[str]`) - Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
         """
         if __name__ is not None:
@@ -246,7 +246,7 @@ class WebAcl(pulumi.CustomResource):
 
           * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules in a WebACL are evaluated.
             Rules with a lower value are evaluated before rules with a higher value.
-          * `rule_id` (`pulumi.Input[str]`) - ID of the associated WAF (Regional) rule (e.g. [`wafregional.Rule`](https://www.terraform.io/docs/providers/aws/r/wafregional_rule.html)). WAF (Global) rules cannot be used.
+          * `rule_id` (`pulumi.Input[str]`) - ID of the associated WAF (Regional) rule (e.g. `wafregional.Rule`). WAF (Global) rules cannot be used.
           * `type` (`pulumi.Input[str]`) - Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -55,7 +55,7 @@ export class ResourceGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+     * Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
@@ -101,7 +101,7 @@ export interface ResourceGroupState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
-     * Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+     * Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -111,7 +111,7 @@ export interface ResourceGroupState {
  */
 export interface ResourceGroupArgs {
     /**
-     * Key-value map of tags that are used to select the EC2 instances to be included in an [Amazon Inspector assessment target](https://www.terraform.io/docs/providers/aws/r/inspector_assessment_target.html).
+     * Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
      */
     readonly tags: pulumi.Input<{[key: string]: any}>;
 }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an ElastiCache Cluster resource, which manages a Memcached cluster or Redis instance.
  * For working with Redis (Cluster Mode Enabled) replication groups, see the
- * [`aws.elasticache.ReplicationGroup` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_replication_group.html).
+ * `aws.elasticache.ReplicationGroup` resource.
  *
  * > **Note:** When you change an attribute, such as `nodeType`, by default
  * it is applied in the next maintenance window. Because of this, this provider may report

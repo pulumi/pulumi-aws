@@ -91,7 +91,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly caCertIdentifier!: pulumi.Output<string>;
     /**
-     * The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+     * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
@@ -272,7 +272,7 @@ export interface ClusterInstanceState {
      */
     readonly caCertIdentifier?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+     * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
      */
     readonly clusterIdentifier?: pulumi.Input<string>;
     /**
@@ -372,7 +372,7 @@ export interface ClusterInstanceArgs {
      */
     readonly caCertIdentifier?: pulumi.Input<string>;
     /**
-     * The identifier of the [`aws.docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+     * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
      */
     readonly clusterIdentifier: pulumi.Input<string>;
     /**

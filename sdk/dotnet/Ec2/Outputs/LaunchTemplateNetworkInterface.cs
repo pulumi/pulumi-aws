@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? AssociatePublicIpAddress;
         /// <summary>
-        /// Whether the network interface should be destroyed on instance termination.
+        /// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
         /// </summary>
         public readonly bool? DeleteOnTermination;
         /// <summary>

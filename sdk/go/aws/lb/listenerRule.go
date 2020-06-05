@@ -18,7 +18,7 @@ type ListenerRule struct {
 
 	// An Action block. Action blocks are documented below.
 	Actions ListenerRuleActionArrayOutput `pulumi:"actions"`
-	// The ARN of the rule (matches `id`)
+	// The Amazon Resource Name (ARN) of the target group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
 	Conditions ListenerRuleConditionArrayOutput `pulumi:"conditions"`
@@ -73,7 +73,7 @@ func GetListenerRule(ctx *pulumi.Context,
 type listenerRuleState struct {
 	// An Action block. Action blocks are documented below.
 	Actions []ListenerRuleAction `pulumi:"actions"`
-	// The ARN of the rule (matches `id`)
+	// The Amazon Resource Name (ARN) of the target group.
 	Arn *string `pulumi:"arn"`
 	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
 	Conditions []ListenerRuleCondition `pulumi:"conditions"`
@@ -86,7 +86,7 @@ type listenerRuleState struct {
 type ListenerRuleState struct {
 	// An Action block. Action blocks are documented below.
 	Actions ListenerRuleActionArrayInput
-	// The ARN of the rule (matches `id`)
+	// The Amazon Resource Name (ARN) of the target group.
 	Arn pulumi.StringPtrInput
 	// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
 	Conditions ListenerRuleConditionArrayInput

@@ -3436,9 +3436,9 @@ type VirtualNodeSpecServiceDiscoveryAwsCloudMap struct {
 	// A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
 	Attributes map[string]string `pulumi:"attributes"`
 	// The name of the AWS Cloud Map namespace to use.
-	// Use the [`servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
+	// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
 	NamespaceName string `pulumi:"namespaceName"`
-	// The name of the AWS Cloud Map service to use. Use the [`servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
+	// The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service.
 	ServiceName string `pulumi:"serviceName"`
 }
 
@@ -3458,9 +3458,9 @@ type VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs struct {
 	// A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
 	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 	// The name of the AWS Cloud Map namespace to use.
-	// Use the [`servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
+	// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
 	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
-	// The name of the AWS Cloud Map service to use. Use the [`servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
+	// The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service.
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 }
 
@@ -3548,12 +3548,12 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) Attributes() pulumi.St
 }
 
 // The name of the AWS Cloud Map namespace to use.
-// Use the [`servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
+// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
-// The name of the AWS Cloud Map service to use. Use the [`servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
+// The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.ServiceName }).(pulumi.StringOutput)
 }
@@ -3589,7 +3589,7 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) Attributes() pulumi
 }
 
 // The name of the AWS Cloud Map namespace to use.
-// Use the [`servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
+// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscoveryAwsCloudMap) *string {
 		if v == nil {
@@ -3599,7 +3599,7 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) NamespaceName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the AWS Cloud Map service to use. Use the [`servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
+// The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscoveryAwsCloudMap) *string {
 		if v == nil {

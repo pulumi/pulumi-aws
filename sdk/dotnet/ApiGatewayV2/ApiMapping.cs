@@ -51,13 +51,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> ApiMappingKey { get; private set; } = null!;
 
         /// <summary>
-        /// The domain name. Use the [`aws.apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
+        /// The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The API stage. Use the [`aws.apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+        /// The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
         /// </summary>
         [Output("stage")]
         public Output<string> Stage { get; private set; } = null!;
@@ -121,13 +121,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ApiMappingKey { get; set; }
 
         /// <summary>
-        /// The domain name. Use the [`aws.apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
+        /// The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The API stage. Use the [`aws.apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+        /// The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
         /// </summary>
         [Input("stage", required: true)]
         public Input<string> Stage { get; set; } = null!;
@@ -152,13 +152,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ApiMappingKey { get; set; }
 
         /// <summary>
-        /// The domain name. Use the [`aws.apigatewayv2.DomainName`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_domain_name.html) resource to configure a domain name.
+        /// The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The API stage. Use the [`aws.apigatewayv2.Stage`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_stage.html) resource to configure an API stage.
+        /// The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
         /// </summary>
         [Input("stage")]
         public Input<string>? Stage { get; set; }

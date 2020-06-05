@@ -241,7 +241,7 @@ func (o ApiCorsConfigurationPtrOutput) MaxAge() pulumi.IntPtrOutput {
 type AuthorizerJwtConfiguration struct {
 	// A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
 	Audiences []string `pulumi:"audiences"`
-	// The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
+	// The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
 	Issuer *string `pulumi:"issuer"`
 }
 
@@ -260,7 +260,7 @@ type AuthorizerJwtConfigurationInput interface {
 type AuthorizerJwtConfigurationArgs struct {
 	// A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
 	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
-	// The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
+	// The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
 	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
 }
 
@@ -347,7 +347,7 @@ func (o AuthorizerJwtConfigurationOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AuthorizerJwtConfiguration) []string { return v.Audiences }).(pulumi.StringArrayOutput)
 }
 
-// The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
+// The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
 func (o AuthorizerJwtConfigurationOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthorizerJwtConfiguration) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
@@ -380,7 +380,7 @@ func (o AuthorizerJwtConfigurationPtrOutput) Audiences() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the [`cognito.UserPool`](https://www.terraform.io/docs/providers/aws/r/cognito_user_pool.html) resource.
+// The base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
 func (o AuthorizerJwtConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizerJwtConfiguration) *string {
 		if v == nil {
@@ -392,7 +392,7 @@ func (o AuthorizerJwtConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
 
 type DomainNameDomainNameConfiguration struct {
 	// The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-	// Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+	// Use the `acm.Certificate` resource to configure an ACM certificate.
 	CertificateArn string `pulumi:"certificateArn"`
 	// The endpoint type. Valid values: `REGIONAL`.
 	EndpointType string `pulumi:"endpointType"`
@@ -418,7 +418,7 @@ type DomainNameDomainNameConfigurationInput interface {
 
 type DomainNameDomainNameConfigurationArgs struct {
 	// The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-	// Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+	// Use the `acm.Certificate` resource to configure an ACM certificate.
 	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 	// The endpoint type. Valid values: `REGIONAL`.
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
@@ -509,7 +509,7 @@ func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigura
 }
 
 // The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-// Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+// Use the `acm.Certificate` resource to configure an ACM certificate.
 func (o DomainNameDomainNameConfigurationOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
@@ -553,7 +553,7 @@ func (o DomainNameDomainNameConfigurationPtrOutput) Elem() DomainNameDomainNameC
 }
 
 // The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-// Use the [`acm.Certificate`](https://www.terraform.io/docs/providers/aws/r/acm_certificate.html) resource to configure an ACM certificate.
+// Use the `acm.Certificate` resource to configure an ACM certificate.
 func (o DomainNameDomainNameConfigurationPtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
 		if v == nil {

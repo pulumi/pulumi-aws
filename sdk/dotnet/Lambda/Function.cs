@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Handler { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+        /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
         /// </summary>
         [Output("invokeArn")]
         public Output<string> InvokeArn { get; private set; } = null!;
@@ -494,7 +494,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Handler { get; set; }
 
         /// <summary>
-        /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in [`aws.apigateway.Integration`](https://www.terraform.io/docs/providers/aws/r/api_gateway_integration.html)'s `uri`
+        /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
         /// </summary>
         [Input("invokeArn")]
         public Input<string>? InvokeArn { get; set; }

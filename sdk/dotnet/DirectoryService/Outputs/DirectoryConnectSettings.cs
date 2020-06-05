@@ -13,6 +13,7 @@ namespace Pulumi.Aws.DirectoryService.Outputs
     [OutputType]
     public sealed class DirectoryConnectSettings
     {
+        public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
         /// The IP addresses of the AD Connector servers.
         /// </summary>
@@ -36,6 +37,8 @@ namespace Pulumi.Aws.DirectoryService.Outputs
 
         [OutputConstructor]
         private DirectoryConnectSettings(
+            ImmutableArray<string> availabilityZones,
+
             ImmutableArray<string> connectIps,
 
             ImmutableArray<string> customerDnsIps,
@@ -46,6 +49,7 @@ namespace Pulumi.Aws.DirectoryService.Outputs
 
             string vpcId)
         {
+            AvailabilityZones = availabilityZones;
             ConnectIps = connectIps;
             CustomerDnsIps = customerDnsIps;
             CustomerUsername = customerUsername;

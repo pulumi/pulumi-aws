@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See [`resource_elb.zone_id`](https://www.terraform.io/docs/providers/aws/r/elb.html#zone_id) for example.
+        /// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
         /// </summary>
         public readonly string ZoneId;
 

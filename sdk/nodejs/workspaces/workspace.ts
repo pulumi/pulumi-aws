@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     },
  *     userName: "jhon.doe",
  *     userVolumeEncryptionEnabled: true,
- *     volumeEncryptionKey: "aws/workspaces",
+ *     volumeEncryptionKey: "alias/aws/workspaces",
  *     workspaceProperties: {
  *         computeTypeName: "VALUE",
  *         rootVolumeSizeGib: 80,

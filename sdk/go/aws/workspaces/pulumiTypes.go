@@ -332,7 +332,7 @@ type WorkspaceWorkspaceProperties struct {
 	ComputeTypeName *string `pulumi:"computeTypeName"`
 	// The size of the root volume.
 	RootVolumeSizeGib *int `pulumi:"rootVolumeSizeGib"`
-	// The size of the root volume. The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+	// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
 	RunningMode *string `pulumi:"runningMode"`
 	// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
 	RunningModeAutoStopTimeoutInMinutes *int `pulumi:"runningModeAutoStopTimeoutInMinutes"`
@@ -357,7 +357,7 @@ type WorkspaceWorkspacePropertiesArgs struct {
 	ComputeTypeName pulumi.StringPtrInput `pulumi:"computeTypeName"`
 	// The size of the root volume.
 	RootVolumeSizeGib pulumi.IntPtrInput `pulumi:"rootVolumeSizeGib"`
-	// The size of the root volume. The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+	// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
 	RunningMode pulumi.StringPtrInput `pulumi:"runningMode"`
 	// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
 	RunningModeAutoStopTimeoutInMinutes pulumi.IntPtrInput `pulumi:"runningModeAutoStopTimeoutInMinutes"`
@@ -453,7 +453,7 @@ func (o WorkspaceWorkspacePropertiesOutput) RootVolumeSizeGib() pulumi.IntPtrOut
 	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *int { return v.RootVolumeSizeGib }).(pulumi.IntPtrOutput)
 }
 
-// The size of the root volume. The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
 func (o WorkspaceWorkspacePropertiesOutput) RunningMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *string { return v.RunningMode }).(pulumi.StringPtrOutput)
 }
@@ -506,7 +506,7 @@ func (o WorkspaceWorkspacePropertiesPtrOutput) RootVolumeSizeGib() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The size of the root volume. The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
 func (o WorkspaceWorkspacePropertiesPtrOutput) RunningMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *string {
 		if v == nil {

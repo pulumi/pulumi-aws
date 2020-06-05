@@ -61,7 +61,7 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly placementGroupId!: pulumi.Output<string>;
     /**
-     * The placement strategy.
+     * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
      */
     public readonly strategy!: pulumi.Output<PlacementStrategy>;
     /**
@@ -119,7 +119,7 @@ export interface PlacementGroupState {
      */
     readonly placementGroupId?: pulumi.Input<string>;
     /**
-     * The placement strategy.
+     * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
      */
     readonly strategy?: pulumi.Input<PlacementStrategy>;
     /**
@@ -137,7 +137,7 @@ export interface PlacementGroupArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The placement strategy.
+     * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
      */
     readonly strategy: pulumi.Input<PlacementStrategy>;
     /**

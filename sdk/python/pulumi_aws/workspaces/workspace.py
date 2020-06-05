@@ -56,7 +56,7 @@ class Workspace(pulumi.CustomResource):
 
       * `computeTypeName` (`str`) - The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
       * `rootVolumeSizeGib` (`float`) - The size of the root volume.
-      * `runningMode` (`str`) - The size of the root volume. The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+      * `runningMode` (`str`) - The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
       * `runningModeAutoStopTimeoutInMinutes` (`float`) - The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
       * `userVolumeSizeGib` (`float`) - The size of the user storage.
     """
@@ -84,7 +84,7 @@ class Workspace(pulumi.CustomResource):
 
           * `computeTypeName` (`pulumi.Input[str]`) - The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
           * `rootVolumeSizeGib` (`pulumi.Input[float]`) - The size of the root volume.
-          * `runningMode` (`pulumi.Input[str]`) - The size of the root volume. The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+          * `runningMode` (`pulumi.Input[str]`) - The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
           * `runningModeAutoStopTimeoutInMinutes` (`pulumi.Input[float]`) - The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
           * `userVolumeSizeGib` (`pulumi.Input[float]`) - The size of the user storage.
         """
@@ -153,7 +153,7 @@ class Workspace(pulumi.CustomResource):
 
           * `computeTypeName` (`pulumi.Input[str]`) - The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
           * `rootVolumeSizeGib` (`pulumi.Input[float]`) - The size of the root volume.
-          * `runningMode` (`pulumi.Input[str]`) - The size of the root volume. The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+          * `runningMode` (`pulumi.Input[str]`) - The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
           * `runningModeAutoStopTimeoutInMinutes` (`pulumi.Input[float]`) - The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
           * `userVolumeSizeGib` (`pulumi.Input[float]`) - The size of the user storage.
         """

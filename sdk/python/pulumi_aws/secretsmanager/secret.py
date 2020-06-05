@@ -58,7 +58,7 @@ class Secret(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, kms_key_id=None, name=None, name_prefix=None, policy=None, recovery_window_in_days=None, rotation_lambda_arn=None, rotation_rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the [`secretsmanager.SecretVersion` resource](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret_version.html).
+        Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the `secretsmanager.SecretVersion` resource.
 
         ## Example Usage
 

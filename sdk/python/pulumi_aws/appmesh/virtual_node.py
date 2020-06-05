@@ -61,8 +61,8 @@ class VirtualNode(pulumi.CustomResource):
         * `awsCloudMap` (`dict`) - Specifies any AWS Cloud Map information for the virtual node.
           * `attributes` (`dict`) - A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
           * `namespaceName` (`str`) - The name of the AWS Cloud Map namespace to use.
-            Use the [`servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
-          * `service_name` (`str`) - The name of the AWS Cloud Map service to use. Use the [`servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
+            Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
+          * `service_name` (`str`) - The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service.
 
         * `dns` (`dict`) - Specifies the DNS service name for the virtual node.
           * `hostname` (`str`) - The DNS host name for your virtual node.
@@ -257,8 +257,8 @@ class VirtualNode(pulumi.CustomResource):
             * `awsCloudMap` (`pulumi.Input[dict]`) - Specifies any AWS Cloud Map information for the virtual node.
               * `attributes` (`pulumi.Input[dict]`) - A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
               * `namespaceName` (`pulumi.Input[str]`) - The name of the AWS Cloud Map namespace to use.
-                Use the [`servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
-              * `service_name` (`pulumi.Input[str]`) - The name of the AWS Cloud Map service to use. Use the [`servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
+                Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
+              * `service_name` (`pulumi.Input[str]`) - The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service.
 
             * `dns` (`pulumi.Input[dict]`) - Specifies the DNS service name for the virtual node.
               * `hostname` (`pulumi.Input[str]`) - The DNS host name for your virtual node.
@@ -343,8 +343,8 @@ class VirtualNode(pulumi.CustomResource):
             * `awsCloudMap` (`pulumi.Input[dict]`) - Specifies any AWS Cloud Map information for the virtual node.
               * `attributes` (`pulumi.Input[dict]`) - A string map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
               * `namespaceName` (`pulumi.Input[str]`) - The name of the AWS Cloud Map namespace to use.
-                Use the [`servicediscovery.HttpNamespace`](https://www.terraform.io/docs/providers/aws/r/service_discovery_http_namespace.html) resource to configure a Cloud Map namespace.
-              * `service_name` (`pulumi.Input[str]`) - The name of the AWS Cloud Map service to use. Use the [`servicediscovery.Service`](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html) resource to configure a Cloud Map service.
+                Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace.
+              * `service_name` (`pulumi.Input[str]`) - The name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service.
 
             * `dns` (`pulumi.Input[dict]`) - Specifies the DNS service name for the virtual node.
               * `hostname` (`pulumi.Input[str]`) - The DNS host name for your virtual node.

@@ -148,7 +148,7 @@ class ReplicationGroup(pulumi.CustomResource):
         """
         Provides an ElastiCache Replication Group resource.
         For working with Memcached or single primary Redis instances (Cluster Mode Disabled), see the
-        [`elasticache.Cluster` resource](https://www.terraform.io/docs/providers/aws/r/elasticache_cluster.html).
+        `elasticache.Cluster` resource.
 
         > **Note:** When you change an attribute, such as `engine_version`, by
         default the ElastiCache API applies it in the next maintenance window. Because

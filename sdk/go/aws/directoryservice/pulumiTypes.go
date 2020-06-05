@@ -11,6 +11,7 @@ import (
 )
 
 type DirectoryConnectSettings struct {
+	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The IP addresses of the AD Connector servers.
 	ConnectIps []string `pulumi:"connectIps"`
 	// The DNS IP addresses of the domain to connect to.
@@ -36,6 +37,7 @@ type DirectoryConnectSettingsInput interface {
 }
 
 type DirectoryConnectSettingsArgs struct {
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// The IP addresses of the AD Connector servers.
 	ConnectIps pulumi.StringArrayInput `pulumi:"connectIps"`
 	// The DNS IP addresses of the domain to connect to.
@@ -125,6 +127,9 @@ func (o DirectoryConnectSettingsOutput) ToDirectoryConnectSettingsPtrOutputWithC
 		return &v
 	}).(DirectoryConnectSettingsPtrOutput)
 }
+func (o DirectoryConnectSettingsOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
 
 // The IP addresses of the AD Connector servers.
 func (o DirectoryConnectSettingsOutput) ConnectIps() pulumi.StringArrayOutput {
@@ -167,6 +172,15 @@ func (o DirectoryConnectSettingsPtrOutput) ToDirectoryConnectSettingsPtrOutputWi
 
 func (o DirectoryConnectSettingsPtrOutput) Elem() DirectoryConnectSettingsOutput {
 	return o.ApplyT(func(v *DirectoryConnectSettings) DirectoryConnectSettings { return *v }).(DirectoryConnectSettingsOutput)
+}
+
+func (o DirectoryConnectSettingsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DirectoryConnectSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZones
+	}).(pulumi.StringArrayOutput)
 }
 
 // The IP addresses of the AD Connector servers.
@@ -220,6 +234,7 @@ func (o DirectoryConnectSettingsPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type DirectoryVpcSettings struct {
+	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The identifier of the VPC that the directory is in.
@@ -239,6 +254,7 @@ type DirectoryVpcSettingsInput interface {
 }
 
 type DirectoryVpcSettingsArgs struct {
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// The identifier of the VPC that the directory is in.
@@ -322,6 +338,9 @@ func (o DirectoryVpcSettingsOutput) ToDirectoryVpcSettingsPtrOutputWithContext(c
 		return &v
 	}).(DirectoryVpcSettingsPtrOutput)
 }
+func (o DirectoryVpcSettingsOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DirectoryVpcSettings) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
 
 // The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 func (o DirectoryVpcSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
@@ -351,6 +370,15 @@ func (o DirectoryVpcSettingsPtrOutput) Elem() DirectoryVpcSettingsOutput {
 	return o.ApplyT(func(v *DirectoryVpcSettings) DirectoryVpcSettings { return *v }).(DirectoryVpcSettingsOutput)
 }
 
+func (o DirectoryVpcSettingsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DirectoryVpcSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZones
+	}).(pulumi.StringArrayOutput)
+}
+
 // The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
 func (o DirectoryVpcSettingsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DirectoryVpcSettings) []string {
@@ -372,6 +400,7 @@ func (o DirectoryVpcSettingsPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type GetDirectoryConnectSetting struct {
+	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The IP addresses of the AD Connector servers.
 	ConnectIps []string `pulumi:"connectIps"`
 	// The DNS IP addresses of the domain to connect to.
@@ -397,6 +426,7 @@ type GetDirectoryConnectSettingInput interface {
 }
 
 type GetDirectoryConnectSettingArgs struct {
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// The IP addresses of the AD Connector servers.
 	ConnectIps pulumi.StringArrayInput `pulumi:"connectIps"`
 	// The DNS IP addresses of the domain to connect to.
@@ -461,6 +491,10 @@ func (o GetDirectoryConnectSettingOutput) ToGetDirectoryConnectSettingOutputWith
 	return o
 }
 
+func (o GetDirectoryConnectSettingOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDirectoryConnectSetting) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
 // The IP addresses of the AD Connector servers.
 func (o GetDirectoryConnectSettingOutput) ConnectIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDirectoryConnectSetting) []string { return v.ConnectIps }).(pulumi.StringArrayOutput)
@@ -507,6 +541,7 @@ func (o GetDirectoryConnectSettingArrayOutput) Index(i pulumi.IntInput) GetDirec
 }
 
 type GetDirectoryVpcSetting struct {
+	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The ID of the VPC that the connector is in.
@@ -526,6 +561,7 @@ type GetDirectoryVpcSettingInput interface {
 }
 
 type GetDirectoryVpcSettingArgs struct {
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// The ID of the VPC that the connector is in.
@@ -582,6 +618,10 @@ func (o GetDirectoryVpcSettingOutput) ToGetDirectoryVpcSettingOutput() GetDirect
 
 func (o GetDirectoryVpcSettingOutput) ToGetDirectoryVpcSettingOutputWithContext(ctx context.Context) GetDirectoryVpcSettingOutput {
 	return o
+}
+
+func (o GetDirectoryVpcSettingOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDirectoryVpcSetting) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
 // The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).

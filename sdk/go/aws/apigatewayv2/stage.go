@@ -16,7 +16,7 @@ type Stage struct {
 	pulumi.CustomResourceState
 
 	// Settings for logging access in this stage.
-	// Use the [`apigateway.Account`](https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html) resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+	// Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
 	AccessLogSettings StageAccessLogSettingsPtrOutput `pulumi:"accessLogSettings"`
 	// The API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
@@ -24,7 +24,7 @@ type Stage struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
 	AutoDeploy pulumi.BoolPtrOutput `pulumi:"autoDeploy"`
-	// The identifier of a client certificate for the stage. Use the [`apigateway.ClientCertificate`](https://www.terraform.io/docs/providers/aws/r/api_gateway_client_certificate.html) resource to configure a client certificate.
+	// The identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
 	// Supported only for WebSocket APIs.
 	ClientCertificateId pulumi.StringPtrOutput `pulumi:"clientCertificateId"`
 	// The default route settings for the stage.
@@ -33,12 +33,13 @@ type Stage struct {
 	DeploymentId pulumi.StringPtrOutput `pulumi:"deploymentId"`
 	// The description for the stage.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ARN prefix to be used in an [`lambda.Permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn` attribute
-	// or in an [`iam.Policy`](https://www.terraform.io/docs/providers/aws/r/iam_policy.html) to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
+	// The ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
+	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+	// Set only for WebSocket APIs.
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
 	// The URL to invoke the API pointing to the stage,
-	// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`
+	// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
 	// The name of the stage.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -82,7 +83,7 @@ func GetStage(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Stage resources.
 type stageState struct {
 	// Settings for logging access in this stage.
-	// Use the [`apigateway.Account`](https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html) resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+	// Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
 	AccessLogSettings *StageAccessLogSettings `pulumi:"accessLogSettings"`
 	// The API identifier.
 	ApiId *string `pulumi:"apiId"`
@@ -90,7 +91,7 @@ type stageState struct {
 	Arn *string `pulumi:"arn"`
 	// Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
 	AutoDeploy *bool `pulumi:"autoDeploy"`
-	// The identifier of a client certificate for the stage. Use the [`apigateway.ClientCertificate`](https://www.terraform.io/docs/providers/aws/r/api_gateway_client_certificate.html) resource to configure a client certificate.
+	// The identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
 	// Supported only for WebSocket APIs.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// The default route settings for the stage.
@@ -99,12 +100,13 @@ type stageState struct {
 	DeploymentId *string `pulumi:"deploymentId"`
 	// The description for the stage.
 	Description *string `pulumi:"description"`
-	// The ARN prefix to be used in an [`lambda.Permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn` attribute
-	// or in an [`iam.Policy`](https://www.terraform.io/docs/providers/aws/r/iam_policy.html) to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
+	// The ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
+	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+	// Set only for WebSocket APIs.
 	ExecutionArn *string `pulumi:"executionArn"`
 	// The URL to invoke the API pointing to the stage,
-	// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`
+	// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl *string `pulumi:"invokeUrl"`
 	// The name of the stage.
 	Name *string `pulumi:"name"`
@@ -118,7 +120,7 @@ type stageState struct {
 
 type StageState struct {
 	// Settings for logging access in this stage.
-	// Use the [`apigateway.Account`](https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html) resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+	// Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
 	AccessLogSettings StageAccessLogSettingsPtrInput
 	// The API identifier.
 	ApiId pulumi.StringPtrInput
@@ -126,7 +128,7 @@ type StageState struct {
 	Arn pulumi.StringPtrInput
 	// Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
 	AutoDeploy pulumi.BoolPtrInput
-	// The identifier of a client certificate for the stage. Use the [`apigateway.ClientCertificate`](https://www.terraform.io/docs/providers/aws/r/api_gateway_client_certificate.html) resource to configure a client certificate.
+	// The identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
 	// Supported only for WebSocket APIs.
 	ClientCertificateId pulumi.StringPtrInput
 	// The default route settings for the stage.
@@ -135,12 +137,13 @@ type StageState struct {
 	DeploymentId pulumi.StringPtrInput
 	// The description for the stage.
 	Description pulumi.StringPtrInput
-	// The ARN prefix to be used in an [`lambda.Permission`](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html)'s `sourceArn` attribute
-	// or in an [`iam.Policy`](https://www.terraform.io/docs/providers/aws/r/iam_policy.html) to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
+	// The ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
+	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+	// Set only for WebSocket APIs.
 	ExecutionArn pulumi.StringPtrInput
 	// The URL to invoke the API pointing to the stage,
-	// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`
+	// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl pulumi.StringPtrInput
 	// The name of the stage.
 	Name pulumi.StringPtrInput
@@ -158,13 +161,13 @@ func (StageState) ElementType() reflect.Type {
 
 type stageArgs struct {
 	// Settings for logging access in this stage.
-	// Use the [`apigateway.Account`](https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html) resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+	// Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
 	AccessLogSettings *StageAccessLogSettings `pulumi:"accessLogSettings"`
 	// The API identifier.
 	ApiId string `pulumi:"apiId"`
 	// Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
 	AutoDeploy *bool `pulumi:"autoDeploy"`
-	// The identifier of a client certificate for the stage. Use the [`apigateway.ClientCertificate`](https://www.terraform.io/docs/providers/aws/r/api_gateway_client_certificate.html) resource to configure a client certificate.
+	// The identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
 	// Supported only for WebSocket APIs.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// The default route settings for the stage.
@@ -186,13 +189,13 @@ type stageArgs struct {
 // The set of arguments for constructing a Stage resource.
 type StageArgs struct {
 	// Settings for logging access in this stage.
-	// Use the [`apigateway.Account`](https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html) resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+	// Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
 	AccessLogSettings StageAccessLogSettingsPtrInput
 	// The API identifier.
 	ApiId pulumi.StringInput
 	// Whether updates to an API automatically trigger a new deployment. Defaults to `false`.
 	AutoDeploy pulumi.BoolPtrInput
-	// The identifier of a client certificate for the stage. Use the [`apigateway.ClientCertificate`](https://www.terraform.io/docs/providers/aws/r/api_gateway_client_certificate.html) resource to configure a client certificate.
+	// The identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
 	// Supported only for WebSocket APIs.
 	ClientCertificateId pulumi.StringPtrInput
 	// The default route settings for the stage.

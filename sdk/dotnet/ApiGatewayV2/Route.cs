@@ -65,7 +65,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> AuthorizationType { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the [`aws.apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+        /// The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
         /// </summary>
         [Output("authorizerId")]
         public Output<string?> AuthorizerId { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? AuthorizationType { get; set; }
 
         /// <summary>
-        /// The identifier of the [`aws.apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+        /// The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
         /// </summary>
         [Input("authorizerId")]
         public Input<string>? AuthorizerId { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? AuthorizationType { get; set; }
 
         /// <summary>
-        /// The identifier of the [`aws.apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+        /// The identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
         /// </summary>
         [Input("authorizerId")]
         public Input<string>? AuthorizerId { get; set; }

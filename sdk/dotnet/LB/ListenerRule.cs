@@ -74,6 +74,52 @@ namespace Pulumi.Aws.LB
     ///             {
     ///                 new Aws.LB.Inputs.ListenerRuleActionArgs
     ///                 {
+    ///                     Forward = new Aws.LB.Inputs.ListenerRuleActionForwardArgs
+    ///                     {
+    ///                         Stickiness = new Aws.LB.Inputs.ListenerRuleActionForwardStickinessArgs
+    ///                         {
+    ///                             Duration = 600,
+    ///                             Enabled = true,
+    ///                         },
+    ///                         TargetGroup = 
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "arn", aws_lb_target_group.Main.Arn },
+    ///                                 { "weight", 80 },
+    ///                             },
+    ///                             
+    ///                             {
+    ///                                 { "arn", aws_lb_target_group.Canary.Arn },
+    ///                                 { "weight", 20 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Type = "forward",
+    ///                 },
+    ///             },
+    ///             Conditions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerRuleConditionArgs
+    ///                 {
+    ///                     HostHeader = new Aws.LB.Inputs.ListenerRuleConditionHostHeaderArgs
+    ///                     {
+    ///                         Values = 
+    ///                         {
+    ///                             "my-service.*.mycompany.io",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ListenerArn = frontEndListener.Arn,
+    ///             Priority = 99,
+    ///         });
+    ///         var hostBasedWeightedRouting = new Aws.LB.ListenerRule("hostBasedWeightedRouting", new Aws.LB.ListenerRuleArgs
+    ///         {
+    ///             Actions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerRuleActionArgs
+    ///                 {
     ///                     TargetGroupArn = aws_lb_target_group.Static.Arn,
     ///                     Type = "forward",
     ///                 },
@@ -208,7 +254,7 @@ namespace Pulumi.Aws.LB
         public Output<ImmutableArray<Outputs.ListenerRuleAction>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the rule (matches `id`)
+        /// The Amazon Resource Name (ARN) of the target group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -337,7 +383,7 @@ namespace Pulumi.Aws.LB
         }
 
         /// <summary>
-        /// The ARN of the rule (matches `id`)
+        /// The Amazon Resource Name (ARN) of the target group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

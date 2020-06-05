@@ -53,6 +53,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the Client VPN endpoint.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Information about the authentication method to be used to authenticate clients.
         /// </summary>
         [Output("authenticationOptions")]
@@ -243,6 +249,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
 
     public sealed class EndpointState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Client VPN endpoint.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("authenticationOptions")]
         private InputList<Inputs.EndpointAuthenticationOptionGetArgs>? _authenticationOptions;
 

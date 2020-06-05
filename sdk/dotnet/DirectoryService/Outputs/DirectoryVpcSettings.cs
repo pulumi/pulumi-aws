@@ -13,6 +13,7 @@ namespace Pulumi.Aws.DirectoryService.Outputs
     [OutputType]
     public sealed class DirectoryVpcSettings
     {
+        public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
         /// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
         /// </summary>
@@ -24,10 +25,13 @@ namespace Pulumi.Aws.DirectoryService.Outputs
 
         [OutputConstructor]
         private DirectoryVpcSettings(
+            ImmutableArray<string> availabilityZones,
+
             ImmutableArray<string> subnetIds,
 
             string vpcId)
         {
+            AvailabilityZones = availabilityZones;
             SubnetIds = subnetIds;
             VpcId = vpcId;
         }

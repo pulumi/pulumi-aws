@@ -138,6 +138,10 @@ namespace Pulumi.Aws.Acm
         [Output("domainValidationOptions")]
         public Output<ImmutableArray<Outputs.CertificateDomainValidationOption>> DomainValidationOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block used to set certificate options. Detailed below.
+        /// * Importing an existing certificate
+        /// </summary>
         [Output("options")]
         public Output<Outputs.CertificateOptions?> Options { get; private set; } = null!;
 
@@ -148,7 +152,13 @@ namespace Pulumi.Aws.Acm
         public Output<string?> PrivateKey { get; private set; } = null!;
 
         /// <summary>
-        /// A list of domains that should be SANs in the issued certificate
+        /// Status of the certificate.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         /// </summary>
         [Output("subjectAlternativeNames")]
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
@@ -167,7 +177,6 @@ namespace Pulumi.Aws.Acm
 
         /// <summary>
         /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
-        /// * Importing an existing certificate
         /// </summary>
         [Output("validationMethod")]
         public Output<string> ValidationMethod { get; private set; } = null!;
@@ -243,6 +252,10 @@ namespace Pulumi.Aws.Acm
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
+        /// <summary>
+        /// Configuration block used to set certificate options. Detailed below.
+        /// * Importing an existing certificate
+        /// </summary>
         [Input("options")]
         public Input<Inputs.CertificateOptionsArgs>? Options { get; set; }
 
@@ -256,7 +269,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// A list of domains that should be SANs in the issued certificate
+        /// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
@@ -278,7 +291,6 @@ namespace Pulumi.Aws.Acm
 
         /// <summary>
         /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
-        /// * Importing an existing certificate
         /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }
@@ -333,6 +345,10 @@ namespace Pulumi.Aws.Acm
             set => _domainValidationOptions = value;
         }
 
+        /// <summary>
+        /// Configuration block used to set certificate options. Detailed below.
+        /// * Importing an existing certificate
+        /// </summary>
         [Input("options")]
         public Input<Inputs.CertificateOptionsGetArgs>? Options { get; set; }
 
@@ -342,11 +358,17 @@ namespace Pulumi.Aws.Acm
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
 
+        /// <summary>
+        /// Status of the certificate.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
         [Input("subjectAlternativeNames")]
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// A list of domains that should be SANs in the issued certificate
+        /// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
@@ -380,7 +402,6 @@ namespace Pulumi.Aws.Acm
 
         /// <summary>
         /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
-        /// * Importing an existing certificate
         /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }

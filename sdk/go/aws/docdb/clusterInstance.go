@@ -32,7 +32,7 @@ type ClusterInstance struct {
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// (Optional) The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringOutput `pulumi:"caCertIdentifier"`
-	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// The DB subnet group to associate with this DB instance.
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
@@ -122,7 +122,7 @@ type clusterInstanceState struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// (Optional) The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
-	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// The DB subnet group to associate with this DB instance.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
@@ -179,7 +179,7 @@ type ClusterInstanceState struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// (Optional) The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
-	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringPtrInput
 	// The DB subnet group to associate with this DB instance.
 	DbSubnetGroupName pulumi.StringPtrInput
@@ -238,7 +238,7 @@ type clusterInstanceArgs struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// (Optional) The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
-	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine *string `pulumi:"engine"`
@@ -275,7 +275,7 @@ type ClusterInstanceArgs struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// (Optional) The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
-	// The identifier of the [`docdb.Cluster`](https://www.terraform.io/docs/providers/aws/r/docdb_cluster.html) in which to launch this instance.
+	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringInput
 	// The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine pulumi.StringPtrInput

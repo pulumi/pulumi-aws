@@ -65,7 +65,7 @@ export class RouteResponse extends pulumi.CustomResource {
      */
     public readonly responseModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The identifier of the [`aws.apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+     * The identifier of the `aws.apigatewayv2.Route`.
      */
     public readonly routeId!: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export interface RouteResponseState {
      */
     readonly responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The identifier of the [`aws.apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+     * The identifier of the `aws.apigatewayv2.Route`.
      */
     readonly routeId?: pulumi.Input<string>;
     /**
@@ -161,7 +161,7 @@ export interface RouteResponseArgs {
      */
     readonly responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The identifier of the [`aws.apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+     * The identifier of the `aws.apigatewayv2.Route`.
      */
     readonly routeId: pulumi.Input<string>;
     /**

@@ -26,7 +26,7 @@ type Route struct {
 	// For HTTP APIs, valid values are `NONE` for open access, or `JWT` for using JSON Web Tokens.
 	// Defaults to `NONE`.
 	AuthorizationType pulumi.StringPtrOutput `pulumi:"authorizationType"`
-	// The identifier of the [`apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+	// The identifier of the `apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
 	AuthorizerId pulumi.StringPtrOutput `pulumi:"authorizerId"`
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route.
 	ModelSelectionExpression pulumi.StringPtrOutput `pulumi:"modelSelectionExpression"`
@@ -87,7 +87,7 @@ type routeState struct {
 	// For HTTP APIs, valid values are `NONE` for open access, or `JWT` for using JSON Web Tokens.
 	// Defaults to `NONE`.
 	AuthorizationType *string `pulumi:"authorizationType"`
-	// The identifier of the [`apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+	// The identifier of the `apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
 	AuthorizerId *string `pulumi:"authorizerId"`
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route.
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
@@ -115,7 +115,7 @@ type RouteState struct {
 	// For HTTP APIs, valid values are `NONE` for open access, or `JWT` for using JSON Web Tokens.
 	// Defaults to `NONE`.
 	AuthorizationType pulumi.StringPtrInput
-	// The identifier of the [`apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+	// The identifier of the `apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
 	AuthorizerId pulumi.StringPtrInput
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route.
 	ModelSelectionExpression pulumi.StringPtrInput
@@ -147,7 +147,7 @@ type routeArgs struct {
 	// For HTTP APIs, valid values are `NONE` for open access, or `JWT` for using JSON Web Tokens.
 	// Defaults to `NONE`.
 	AuthorizationType *string `pulumi:"authorizationType"`
-	// The identifier of the [`apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+	// The identifier of the `apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
 	AuthorizerId *string `pulumi:"authorizerId"`
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route.
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
@@ -176,7 +176,7 @@ type RouteArgs struct {
 	// For HTTP APIs, valid values are `NONE` for open access, or `JWT` for using JSON Web Tokens.
 	// Defaults to `NONE`.
 	AuthorizationType pulumi.StringPtrInput
-	// The identifier of the [`apigatewayv2.Authorizer`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_authorizer.html) resource to be associated with this route, if the authorizationType is `CUSTOM`.
+	// The identifier of the `apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
 	AuthorizerId pulumi.StringPtrInput
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route.
 	ModelSelectionExpression pulumi.StringPtrInput

@@ -21,7 +21,7 @@ type RouteResponse struct {
 	ModelSelectionExpression pulumi.StringPtrOutput `pulumi:"modelSelectionExpression"`
 	// The response models for the route response.
 	ResponseModels pulumi.StringMapOutput `pulumi:"responseModels"`
-	// The identifier of the [`apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+	// The identifier of the `apigatewayv2.Route`.
 	RouteId pulumi.StringOutput `pulumi:"routeId"`
 	// The route response key.
 	RouteResponseKey pulumi.StringOutput `pulumi:"routeResponseKey"`
@@ -70,7 +70,7 @@ type routeResponseState struct {
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
 	// The response models for the route response.
 	ResponseModels map[string]string `pulumi:"responseModels"`
-	// The identifier of the [`apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+	// The identifier of the `apigatewayv2.Route`.
 	RouteId *string `pulumi:"routeId"`
 	// The route response key.
 	RouteResponseKey *string `pulumi:"routeResponseKey"`
@@ -83,7 +83,7 @@ type RouteResponseState struct {
 	ModelSelectionExpression pulumi.StringPtrInput
 	// The response models for the route response.
 	ResponseModels pulumi.StringMapInput
-	// The identifier of the [`apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+	// The identifier of the `apigatewayv2.Route`.
 	RouteId pulumi.StringPtrInput
 	// The route response key.
 	RouteResponseKey pulumi.StringPtrInput
@@ -100,7 +100,7 @@ type routeResponseArgs struct {
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
 	// The response models for the route response.
 	ResponseModels map[string]string `pulumi:"responseModels"`
-	// The identifier of the [`apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+	// The identifier of the `apigatewayv2.Route`.
 	RouteId string `pulumi:"routeId"`
 	// The route response key.
 	RouteResponseKey string `pulumi:"routeResponseKey"`
@@ -114,7 +114,7 @@ type RouteResponseArgs struct {
 	ModelSelectionExpression pulumi.StringPtrInput
 	// The response models for the route response.
 	ResponseModels pulumi.StringMapInput
-	// The identifier of the [`apigatewayv2.Route`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_route.html).
+	// The identifier of the `apigatewayv2.Route`.
 	RouteId pulumi.StringInput
 	// The route response key.
 	RouteResponseKey pulumi.StringInput

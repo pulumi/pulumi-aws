@@ -105,7 +105,7 @@ type Group struct {
 	// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
 	// to attach to the autoscaling group **before** instances are launched. The
 	// syntax is exactly the same as the separate
-	// [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
+	// `autoscaling.LifecycleHook`
 	// resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
 	// a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 	InitialLifecycleHooks GroupInitialLifecycleHookArrayOutput `pulumi:"initialLifecycleHooks"`
@@ -232,7 +232,7 @@ type groupState struct {
 	// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
 	// to attach to the autoscaling group **before** instances are launched. The
 	// syntax is exactly the same as the separate
-	// [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
+	// `autoscaling.LifecycleHook`
 	// resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
 	// a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 	InitialLifecycleHooks []GroupInitialLifecycleHook `pulumi:"initialLifecycleHooks"`
@@ -326,7 +326,7 @@ type GroupState struct {
 	// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
 	// to attach to the autoscaling group **before** instances are launched. The
 	// syntax is exactly the same as the separate
-	// [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
+	// `autoscaling.LifecycleHook`
 	// resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
 	// a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 	InitialLifecycleHooks GroupInitialLifecycleHookArrayInput
@@ -422,7 +422,7 @@ type groupArgs struct {
 	// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
 	// to attach to the autoscaling group **before** instances are launched. The
 	// syntax is exactly the same as the separate
-	// [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
+	// `autoscaling.LifecycleHook`
 	// resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
 	// a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 	InitialLifecycleHooks []GroupInitialLifecycleHook `pulumi:"initialLifecycleHooks"`
@@ -515,7 +515,7 @@ type GroupArgs struct {
 	// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
 	// to attach to the autoscaling group **before** instances are launched. The
 	// syntax is exactly the same as the separate
-	// [`autoscaling.LifecycleHook`](https://www.terraform.io/docs/providers/aws/r/autoscaling_lifecycle_hook.html)
+	// `autoscaling.LifecycleHook`
 	// resource, without the `autoscalingGroupName` attribute. Please note that this will only work when creating
 	// a new autoscaling group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
 	InitialLifecycleHooks GroupInitialLifecycleHookArrayInput
