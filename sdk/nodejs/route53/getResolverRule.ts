@@ -81,6 +81,10 @@ export interface GetResolverRuleResult {
      */
     readonly arn: string;
     readonly domainName: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
@@ -98,8 +102,4 @@ export interface GetResolverRuleResult {
      * A map of tags assigned to the resolver rule.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

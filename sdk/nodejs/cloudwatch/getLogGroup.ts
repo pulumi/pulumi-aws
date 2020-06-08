@@ -63,6 +63,10 @@ export interface GetLogGroupResult {
      */
     readonly creationTime: number;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN of the KMS Key to use when encrypting log data.
      */
     readonly kmsKeyId: string;
@@ -75,8 +79,4 @@ export interface GetLogGroupResult {
      * A map of tags to assign to the resource.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

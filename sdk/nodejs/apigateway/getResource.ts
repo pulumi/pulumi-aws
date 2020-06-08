@@ -60,6 +60,10 @@ export interface GetResourceArgs {
  */
 export interface GetResourceResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Set to the ID of the parent Resource.
      */
     readonly parentId: string;
@@ -69,8 +73,4 @@ export interface GetResourceResult {
      */
     readonly pathPart: string;
     readonly restApiId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

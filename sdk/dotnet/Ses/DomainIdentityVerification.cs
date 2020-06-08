@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Ses
     ///             {
     ///                 example.VerificationToken,
     ///             },
-    ///             Ttl = "600",
+    ///             Ttl = 600,
     ///             Type = "TXT",
     ///             ZoneId = aws_route53_zone.Example.Zone_id,
     ///         });

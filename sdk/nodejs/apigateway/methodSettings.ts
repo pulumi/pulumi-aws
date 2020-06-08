@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {RestApi} from "./restApi";
+import {RestApi} from "./index";
 
 /**
  * Provides an API Gateway Method Settings, e.g. logging or monitoring.
@@ -73,6 +73,7 @@ export class MethodSettings extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MethodSettingsState, opts?: pulumi.CustomResourceOptions): MethodSettings {
         return new MethodSettings(name, <any>state, { ...opts, id: id });

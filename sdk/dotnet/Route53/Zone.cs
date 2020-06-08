@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Route53
     ///                 dev.NameServers.Apply(nameServers =&gt; nameServers[2]),
     ///                 dev.NameServers.Apply(nameServers =&gt; nameServers[3]),
     ///             },
-    ///             Ttl = "30",
+    ///             Ttl = 30,
     ///             Type = "NS",
     ///             ZoneId = main.ZoneId,
     ///         });

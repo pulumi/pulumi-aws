@@ -69,12 +69,12 @@ export interface GetDirectConnectGatewayAttachmentResult {
     readonly dxGatewayId?: string;
     readonly filters?: outputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Key-value tags for the EC2 Transit Gateway Attachment
      */
     readonly tags: {[key: string]: any};
     readonly transitGatewayId?: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

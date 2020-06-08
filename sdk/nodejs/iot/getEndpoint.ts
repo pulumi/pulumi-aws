@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a unique endpoint specific to the AWS account making the call.
- *
  */
 export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     args = args || {};

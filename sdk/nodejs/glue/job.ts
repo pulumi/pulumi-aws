@@ -72,6 +72,7 @@ export class Job extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: JobState, opts?: pulumi.CustomResourceOptions): Job {
         return new Job(name, <any>state, { ...opts, id: id });
@@ -93,6 +94,8 @@ export class Job extends pulumi.CustomResource {
 
     /**
      * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+     *
+     * @deprecated Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
      */
     public readonly allocatedCapacity!: pulumi.Output<number>;
     /**
@@ -238,6 +241,7 @@ export class Job extends pulumi.CustomResource {
 export interface JobState {
     /**
      * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+     *
      * @deprecated Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
      */
     readonly allocatedCapacity?: pulumi.Input<number>;
@@ -317,6 +321,7 @@ export interface JobState {
 export interface JobArgs {
     /**
      * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+     *
      * @deprecated Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
      */
     readonly allocatedCapacity?: pulumi.Input<number>;

@@ -56,12 +56,12 @@ export interface GetNetworkInterfacesArgs {
 export interface GetNetworkInterfacesResult {
     readonly filters?: outputs.ec2.GetNetworkInterfacesFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of all the network interface ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

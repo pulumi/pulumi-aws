@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Swf
     ///         var foo = new Aws.Swf.Domain("foo", new Aws.Swf.DomainArgs
     ///         {
     ///             Description = "SWF Domain",
-    ///             WorkflowExecutionRetentionPeriodInDays = 30,
+    ///             WorkflowExecutionRetentionPeriodInDays = "30",
     ///         });
     ///     }
     /// 

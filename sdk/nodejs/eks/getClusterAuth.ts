@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  * [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
  * This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
  * server configured.
- *
  */
 export function getClusterAuth(args: GetClusterAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterAuthResult> {
     if (!opts) {
@@ -42,13 +41,13 @@ export interface GetClusterAuthArgs {
  * A collection of values returned by getClusterAuth.
  */
 export interface GetClusterAuthResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The token to use to authenticate with the cluster.
      */
     readonly token: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

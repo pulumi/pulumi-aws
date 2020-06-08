@@ -62,9 +62,9 @@ export interface GetHostedZoneIdArgs {
  * A collection of values returned by getHostedZoneId.
  */
 export interface GetHostedZoneIdResult {
-    readonly region?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region?: string;
 }

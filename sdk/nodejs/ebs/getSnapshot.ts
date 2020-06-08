@@ -102,6 +102,10 @@ export interface GetSnapshotResult {
     readonly encrypted: boolean;
     readonly filters?: outputs.ebs.GetSnapshotFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
@@ -137,8 +141,4 @@ export interface GetSnapshotResult {
      * The size of the drive in GiBs.
      */
     readonly volumeSize: number;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

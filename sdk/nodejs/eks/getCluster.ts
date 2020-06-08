@@ -80,6 +80,10 @@ export interface GetClusterResult {
      */
     readonly endpoint: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `aws.eks.Cluster` resource documentation.
      */
     readonly identities: outputs.eks.GetClusterIdentity[];
@@ -108,8 +112,4 @@ export interface GetClusterResult {
      * Nested list containing VPC configuration for the cluster.
      */
     readonly vpcConfig: outputs.eks.GetClusterVpcConfig;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

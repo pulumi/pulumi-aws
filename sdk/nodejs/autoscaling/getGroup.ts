@@ -71,6 +71,10 @@ export interface GetGroupResult {
      */
     readonly healthCheckType: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of the associated launch configuration.
      */
     readonly launchConfiguration: string;
@@ -115,8 +119,4 @@ export interface GetGroupResult {
      * VPC ID for the group.
      */
     readonly vpcZoneIdentifier: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

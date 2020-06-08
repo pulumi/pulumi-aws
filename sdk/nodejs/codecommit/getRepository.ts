@@ -62,12 +62,12 @@ export interface GetRepositoryResult {
      */
     readonly cloneUrlSsh: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ID of the repository
      */
     readonly repositoryId: string;
     readonly repositoryName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

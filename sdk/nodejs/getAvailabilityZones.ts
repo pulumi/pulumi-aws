@@ -110,6 +110,10 @@ export interface GetAvailabilityZonesResult {
     readonly filters?: outputs.GetAvailabilityZonesFilter[];
     readonly groupNames?: string[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of the Availability Zone names available to the account.
      */
     readonly names: string[];
@@ -118,8 +122,4 @@ export interface GetAvailabilityZonesResult {
      * A list of the Availability Zone IDs available to the account.
      */
     readonly zoneIds: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

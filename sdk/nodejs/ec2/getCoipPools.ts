@@ -58,12 +58,12 @@ export interface GetCoipPoolsArgs {
 export interface GetCoipPoolsResult {
     readonly filters?: outputs.ec2.GetCoipPoolsFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Set of COIP Pool Identifiers
      */
     readonly poolIds: string[];
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -81,9 +81,9 @@ export interface GetServiceAccountResult {
      * The ARN of the AWS CloudTrail service account in the selected region.
      */
     readonly arn: string;
-    readonly region?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region?: string;
 }

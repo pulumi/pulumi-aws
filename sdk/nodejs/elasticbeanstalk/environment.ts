@@ -6,8 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {Application} from "./application";
-import {ApplicationVersion} from "./applicationVersion";
+import {Application, ApplicationVersion} from "./index";
 
 /**
  * Provides an Elastic Beanstalk Environment Resource. Elastic Beanstalk allows
@@ -81,6 +80,7 @@ export class Environment extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EnvironmentState, opts?: pulumi.CustomResourceOptions): Environment {
         return new Environment(name, <any>state, { ...opts, id: id });

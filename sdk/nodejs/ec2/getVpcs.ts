@@ -64,12 +64,12 @@ export interface GetVpcsArgs {
 export interface GetVpcsResult {
     readonly filters?: outputs.ec2.GetVpcsFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of all the VPC Ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -128,6 +128,10 @@ export interface GetSnapshotResult {
      * Specifies the version of the database engine.
      */
     readonly engineVersion: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly includePublic?: boolean;
     readonly includeShared?: boolean;
     /**
@@ -173,8 +177,4 @@ export interface GetSnapshotResult {
      * Specifies the ID of the VPC associated with the DB snapshot.
      */
     readonly vpcId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -58,6 +58,10 @@ export interface GetConfigurationResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * List of Apache Kafka versions which can use this configuration.
      */
     readonly kafkaVersions: string[];
@@ -70,8 +74,4 @@ export interface GetConfigurationResult {
      * Contents of the server.properties file.
      */
     readonly serverProperties: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

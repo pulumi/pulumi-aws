@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Ec2
         ///         }));
         ///         var main = new Aws.Ec2.VpnGateway("main", new Aws.Ec2.VpnGatewayArgs
         ///         {
-        ///             AmazonSideAsn = 7224,
+        ///             AmazonSideAsn = "7224",
         ///             VpcId = aws_vpc.Main.Id,
         ///         });
         ///         var transit = new Aws.Ec2.VpnConnection("transit", new Aws.Ec2.VpnConnectionArgs

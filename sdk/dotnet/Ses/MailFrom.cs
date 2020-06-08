@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ses
     ///             {
     ///                 "10 feedback-smtp.us-east-1.amazonses.com",
     ///             },
-    ///             Ttl = "600",
+    ///             Ttl = 600,
     ///             Type = "MX",
     ///             ZoneId = aws_route53_zone.Example.Id,
     ///         });
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ses
     ///             {
     ///                 "v=spf1 include:amazonses.com -all",
     ///             },
-    ///             Ttl = "600",
+    ///             Ttl = 600,
     ///             Type = "TXT",
     ///             ZoneId = aws_route53_zone.Example.Id,
     ///         });

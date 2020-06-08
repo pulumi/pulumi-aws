@@ -78,6 +78,10 @@ export interface GetLaunchConfigurationResult {
      */
     readonly iamInstanceProfile: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The EC2 Image ID of the instance.
      */
     readonly imageId: string;
@@ -121,8 +125,4 @@ export interface GetLaunchConfigurationResult {
      * The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
      */
     readonly vpcClassicLinkSecurityGroups: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

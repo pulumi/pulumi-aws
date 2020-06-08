@@ -99,6 +99,10 @@ export interface GetBucketResult {
      */
     readonly hostedZoneId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The AWS region this bucket resides in.
      */
     readonly region: string;
@@ -110,8 +114,4 @@ export interface GetBucketResult {
      * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      */
     readonly websiteEndpoint: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

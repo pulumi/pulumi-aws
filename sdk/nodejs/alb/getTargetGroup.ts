@@ -72,6 +72,10 @@ export interface GetTargetGroupResult {
     readonly arnSuffix: string;
     readonly deregistrationDelay: number;
     readonly healthCheck: outputs.alb.GetTargetGroupHealthCheck;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly lambdaMultiValueHeadersEnabled: boolean;
     readonly loadBalancingAlgorithmType: string;
     readonly name: string;
@@ -83,8 +87,4 @@ export interface GetTargetGroupResult {
     readonly tags: {[key: string]: any};
     readonly targetType: string;
     readonly vpcId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

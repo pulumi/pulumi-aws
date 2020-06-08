@@ -76,6 +76,10 @@ export interface GetBrokerResult {
     readonly engineType: string;
     readonly engineVersion: string;
     readonly hostInstanceType: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly instances: outputs.mq.GetBrokerInstance[];
     readonly logs?: outputs.mq.GetBrokerLogs;
     readonly maintenanceWindowStartTime: outputs.mq.GetBrokerMaintenanceWindowStartTime;
@@ -84,8 +88,4 @@ export interface GetBrokerResult {
     readonly subnetIds: string[];
     readonly tags: {[key: string]: any};
     readonly users: outputs.mq.GetBrokerUser[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

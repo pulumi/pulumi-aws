@@ -289,6 +289,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
+            if logging_info is not None:
+                warnings.warn("use 'task_invocation_parameters' argument instead", DeprecationWarning)
+                pulumi.log.warn("logging_info is deprecated: use 'task_invocation_parameters' argument instead")
             __props__['logging_info'] = logging_info
             if max_concurrency is None:
                 raise TypeError("Missing required property 'max_concurrency'")
@@ -308,6 +311,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                 raise TypeError("Missing required property 'task_arn'")
             __props__['task_arn'] = task_arn
             __props__['task_invocation_parameters'] = task_invocation_parameters
+            if task_parameters is not None:
+                warnings.warn("use 'task_invocation_parameters' argument instead", DeprecationWarning)
+                pulumi.log.warn("task_parameters is deprecated: use 'task_invocation_parameters' argument instead")
             __props__['task_parameters'] = task_parameters
             if task_type is None:
                 raise TypeError("Missing required property 'task_type'")

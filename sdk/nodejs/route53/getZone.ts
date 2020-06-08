@@ -94,6 +94,10 @@ export interface GetZoneResult {
      */
     readonly comment: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
      */
     readonly linkedServiceDescription: string;
@@ -114,8 +118,4 @@ export interface GetZoneResult {
     readonly tags: {[key: string]: any};
     readonly vpcId: string;
     readonly zoneId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

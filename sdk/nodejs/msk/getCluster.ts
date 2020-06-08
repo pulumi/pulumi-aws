@@ -68,6 +68,10 @@ export interface GetClusterResult {
     readonly bootstrapBrokersTls: string;
     readonly clusterName: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Apache Kafka version.
      */
     readonly kafkaVersion: string;
@@ -83,8 +87,4 @@ export interface GetClusterResult {
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
      */
     readonly zookeeperConnectString: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

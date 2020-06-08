@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Route53
         ///             {
         ///                 "10.0.0.1",
         ///             },
-        ///             Ttl = "300",
+        ///             Ttl = 300,
         ///             Type = "A",
         ///             ZoneId = selected.Apply(selected =&gt; selected.ZoneId),
         ///         });

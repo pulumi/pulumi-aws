@@ -81,6 +81,10 @@ export interface GetFunctionResult {
      */
     readonly handler: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ARN to be used for invoking Lambda Function from API Gateway.
      */
     readonly invokeArn: string;
@@ -142,8 +146,4 @@ export interface GetFunctionResult {
      * VPC configuration associated with your Lambda function.
      */
     readonly vpcConfig: outputs.lambda.GetFunctionVpcConfig;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

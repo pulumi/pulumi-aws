@@ -115,6 +115,10 @@ export interface GetVpcEndpointServiceResult {
     readonly baseEndpointDnsNames: string[];
     readonly filters?: outputs.ec2.GetVpcEndpointServiceFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Whether or not the service manages its VPC endpoints - `true` or `false`.
      */
     readonly managesVpcEndpoints: boolean;
@@ -144,8 +148,4 @@ export interface GetVpcEndpointServiceResult {
      * Whether or not the service supports endpoint policies - `true` or `false`.
      */
     readonly vpcEndpointPolicySupported: boolean;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

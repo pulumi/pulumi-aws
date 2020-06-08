@@ -219,7 +219,7 @@
         "datasync/index.ts",
         "datasync/locationSmb.ts",
         "datasync/nfsLocation.ts",
-        "datasync/s3Location.ts",
+        "datasync/s3location.ts",
         "datasync/task.ts",
         "dax/cluster.ts",
         "dax/index.ts",
@@ -542,9 +542,9 @@
         "glue/workflow.ts",
         "guardduty/detector.ts",
         "guardduty/getDetector.ts",
-        "guardduty/iPSet.ts",
         "guardduty/index.ts",
         "guardduty/inviteAccepter.ts",
+        "guardduty/ipset.ts",
         "guardduty/member.ts",
         "guardduty/organizationAdminAccount.ts",
         "guardduty/organizationConfiguration.ts",
@@ -653,7 +653,7 @@
         "lightsail/staticIpAttachment.ts",
         "macie/index.ts",
         "macie/memberAccountAssociation.ts",
-        "macie/s3BucketAssociation.ts",
+        "macie/s3bucketAssociation.ts",
         "mediaconvert/index.ts",
         "mediaconvert/queue.ts",
         "mediapackage/channel.ts",
@@ -957,4 +957,3 @@
         "xray/samplingRule.ts"
     ]
 }
-

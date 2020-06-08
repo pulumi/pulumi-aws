@@ -44,8 +44,8 @@ namespace Pulumi.Aws
         ///             {
         ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
         ///                 {
-        ///                     FromPort = "443",
-        ///                     ToPort = "443",
+        ///                     FromPort = 443,
+        ///                     ToPort = 443,
         ///                     Protocol = "tcp",
         ///                     CidrBlocks = europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.CidrBlocks),
         ///                     Ipv6CidrBlocks = europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.Ipv6CidrBlocks),

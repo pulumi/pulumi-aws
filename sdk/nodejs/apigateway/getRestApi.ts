@@ -82,6 +82,10 @@ export interface GetRestApiResult {
      */
     readonly executionArn: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Minimum response size to compress for the REST API.
      */
     readonly minimumCompressionSize: number;
@@ -98,8 +102,4 @@ export interface GetRestApiResult {
      * Key-value map of resource tags.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

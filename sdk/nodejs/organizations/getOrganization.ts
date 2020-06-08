@@ -91,6 +91,10 @@ export interface GetOrganizationResult {
      */
     readonly featureSet: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
      */
     readonly masterAccountArn: string;
@@ -110,8 +114,4 @@ export interface GetOrganizationResult {
      * List of organization roots. All elements have these attributes:
      */
     readonly roots: outputs.organizations.GetOrganizationRoot[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -26,8 +26,8 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         var example = new Aws.Ssm.MaintenanceWindowTask("example", new Aws.Ssm.MaintenanceWindowTaskArgs
     ///         {
-    ///             MaxConcurrency = 2,
-    ///             MaxErrors = 1,
+    ///             MaxConcurrency = "2",
+    ///             MaxErrors = "1",
     ///             Priority = 1,
     ///             ServiceRoleArn = aws_iam_role.Example.Arn,
     ///             Targets = 
@@ -80,8 +80,8 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         var example = new Aws.Ssm.MaintenanceWindowTask("example", new Aws.Ssm.MaintenanceWindowTaskArgs
     ///         {
-    ///             MaxConcurrency = 2,
-    ///             MaxErrors = 1,
+    ///             MaxConcurrency = "2",
+    ///             MaxErrors = "1",
     ///             Priority = 1,
     ///             ServiceRoleArn = aws_iam_role.Example.Arn,
     ///             Targets = 
@@ -146,8 +146,8 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         var example = new Aws.Ssm.MaintenanceWindowTask("example", new Aws.Ssm.MaintenanceWindowTaskArgs
     ///         {
-    ///             MaxConcurrency = 2,
-    ///             MaxErrors = 1,
+    ///             MaxConcurrency = "2",
+    ///             MaxErrors = "1",
     ///             Priority = 1,
     ///             ServiceRoleArn = aws_iam_role.Example.Arn,
     ///             Targets = 

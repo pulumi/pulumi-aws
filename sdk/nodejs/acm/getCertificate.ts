@@ -85,6 +85,10 @@ export interface GetCertificateResult {
      */
     readonly arn: string;
     readonly domain: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly keyTypes?: string[];
     readonly mostRecent?: boolean;
     readonly statuses?: string[];
@@ -93,8 +97,4 @@ export interface GetCertificateResult {
      */
     readonly tags: {[key: string]: any};
     readonly types?: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

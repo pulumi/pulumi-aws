@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Waf
     ///                     {
     ///                         Type = "BODY",
     ///                     },
-    ///                     Size = "4096",
+    ///                     Size = 4096,
     ///                     TextTransformation = "NONE",
     ///                 },
     ///             },

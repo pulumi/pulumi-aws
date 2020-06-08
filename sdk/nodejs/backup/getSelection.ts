@@ -60,6 +60,10 @@ export interface GetSelectionResult {
      */
     readonly iamRoleArn: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The display name of a resource selection document.
      */
     readonly name: string;
@@ -69,8 +73,4 @@ export interface GetSelectionResult {
      */
     readonly resources: string[];
     readonly selectionId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

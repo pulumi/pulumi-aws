@@ -3,4 +3,4 @@
 
 // Export members:
 export * from "./memberAccountAssociation";
-export * from "./s3BucketAssociation";
+export * from "./s3bucketAssociation";

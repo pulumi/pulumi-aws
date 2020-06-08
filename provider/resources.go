@@ -174,12 +174,6 @@ func awsType(mod string, fn string, typ string) tokens.Type {
 	return tokens.Type(awsMember(mod, fn, typ))
 }
 
-// awsTypeNoFile manufactures a type token for the AWS package and the given module and type.  It does not append any
-// file name to the module.
-func awsTypeNoFile(mod string, typ string) tokens.Type {
-	return tokens.Type(awsMember(mod, "", typ))
-}
-
 // awsResource manufactures a standard resource token given a module and resource name.  It automatically uses the AWS
 // package and names the file by simply lower casing the type's first character.
 func awsTypeDefaultFile(mod string, typ string) tokens.Type {
@@ -263,7 +257,7 @@ func Provider() tfbridge.ProviderInfo {
 		Version:     version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
-				Type: awsTypeNoFile("region", "Region"),
+				Type: awsTypeDefaultFile(awsMod, "Region"),
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
 				},
@@ -756,22 +750,22 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_datasync_location_efs": {
 				Tok: awsResource(datasyncMod, "EfsLocation"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"efs_file_system_arn": {Type: awsTypeNoFile(awsMod, "ARN")},
+					"efs_file_system_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
 				},
 			},
 			"aws_datasync_location_nfs": {Tok: awsResource(datasyncMod, "NfsLocation")},
 			"aws_datasync_location_s3": {
 				Tok: awsResource(datasyncMod, "S3Location"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"s3_bucket_arn": {Type: awsTypeNoFile(awsMod, "ARN")},
+					"s3_bucket_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
 				},
 			},
 			"aws_datasync_task": {
 				Tok: awsResource(datasyncMod, "Task"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"destination_location_arn": {Type: awsTypeNoFile(awsMod, "ARN")},
-					"source_location_arn":      {Type: awsTypeNoFile(awsMod, "ARN")},
-					"cloudwatch_log_group_arn": {Type: awsTypeNoFile(awsMod, "ARN")},
+					"destination_location_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
+					"source_location_arn":      {Type: awsTypeDefaultFile(awsMod, "ARN")},
+					"cloudwatch_log_group_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
 				},
 			},
 			"aws_datasync_location_smb": {Tok: awsResource(datasyncMod, "LocationSmb")},
@@ -944,7 +938,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"iam_instance_profile": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeNoFile(iamMod, "InstanceProfile")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "InstanceProfile")},
 					},
 					"instance_type": {
 						Type: awsTypeDefaultFile(ec2Mod, "InstanceType"),
@@ -971,7 +965,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"iam_instance_profile": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeNoFile(iamMod, "InstanceProfile")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "InstanceProfile")},
 					},
 				},
 			},
@@ -1111,7 +1105,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway": {
 				Tok: awsResource(ec2TransitGatewayMod, "TransitGateway"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"arn": {Type: awsTypeNoFile(awsMod, "ARN")},
+					"arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
 				},
 			},
 			"aws_ec2_transit_gateway_route": {
@@ -1346,7 +1340,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsTypeNoFile(awsMod, "ARN"),
+						Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -1403,7 +1397,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsTypeNoFile(awsMod, "ARN"),
+						Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -1419,7 +1413,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsTypeNoFile(awsMod, "ARN"),
+						Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -1464,7 +1458,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsTypeNoFile(awsMod, "ARN"),
+						Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -1504,10 +1498,10 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeNoFile(iotMod, "Policy")},
+						AltTypes: []tokens.Type{awsTypeDefaultFile(iotMod, "Policy")},
 					},
 					"target": {
-						Type: awsTypeNoFile(awsMod, "ARN"),
+						Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 			},
@@ -1517,7 +1511,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(iotMod, "ThingPrincipalAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"principal": {
-						Type: awsTypeNoFile(awsMod, "ARN"),
+						Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 			},
@@ -1550,7 +1544,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(kinesisMod, "AnalyticsApplication"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"arn": {
-						Type: awsTypeNoFile(awsMod, "ARN"),
+						Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 			},
@@ -1566,7 +1560,7 @@ func Provider() tfbridge.ProviderInfo {
 				IDFields: []string{"function_name"},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"function_name": tfbridge.AutoName("name", 64),
-					"role":          {Type: awsTypeNoFile(awsMod, "ARN")},
+					"role":          {Type: awsTypeDefaultFile(awsMod, "ARN")},
 					// Terraform accepts two sources for lambdas: a local filename or a S3 bucket/object.  To bridge
 					// with Pulumi's asset model, we will hijack the filename property.  A Pulumi archive is passed in
 					// its stead and we will turn around and emit the archive as a temp file that Terraform can read.
@@ -2027,7 +2021,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sns_topic": {
 				Tok: awsResource(snsMod, "Topic"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"arn": {Type: awsTypeNoFile(awsMod, "ARN")},
+					"arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
 				},
 			},
 			"aws_sns_topic_policy": {Tok: awsResource(snsMod, "TopicPolicy")},

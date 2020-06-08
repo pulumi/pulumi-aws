@@ -81,6 +81,10 @@ export interface GetDirectoryResult {
      */
     readonly enableSso: boolean;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The fully qualified name for the directory/connector.
      */
     readonly name: string;
@@ -105,8 +109,4 @@ export interface GetDirectoryResult {
      */
     readonly type: string;
     readonly vpcSettings: outputs.directoryservice.GetDirectoryVpcSetting[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

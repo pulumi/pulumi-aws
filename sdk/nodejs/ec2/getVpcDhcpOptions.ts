@@ -94,6 +94,10 @@ export interface GetVpcDhcpOptionsResult {
     readonly domainNameServers: string[];
     readonly filters?: outputs.ec2.GetVpcDhcpOptionsFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * List of NETBIOS name servers.
      */
     readonly netbiosNameServers: string[];
@@ -113,8 +117,4 @@ export interface GetVpcDhcpOptionsResult {
      * A map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

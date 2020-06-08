@@ -68,13 +68,13 @@ export interface GetSubnetIdsArgs {
 export interface GetSubnetIdsResult {
     readonly filters?: outputs.ec2.GetSubnetIdsFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A set of all the subnet ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
     readonly tags: {[key: string]: any};
     readonly vpcId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

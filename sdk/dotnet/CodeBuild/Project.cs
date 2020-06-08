@@ -119,7 +119,7 @@ namespace Pulumi.Aws.CodeBuild
     ///             {
     ///                 Type = "NO_ARTIFACTS",
     ///             },
-    ///             BuildTimeout = "5",
+    ///             BuildTimeout = 5,
     ///             Cache = new Aws.CodeBuild.Inputs.ProjectCacheArgs
     ///             {
     ///                 Location = exampleBucket.BucketName,
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.CodeBuild
     ///             {
     ///                 Type = "NO_ARTIFACTS",
     ///             },
-    ///             BuildTimeout = "5",
+    ///             BuildTimeout = 5,
     ///             Cache = new Aws.CodeBuild.Inputs.ProjectCacheArgs
     ///             {
     ///                 Modes = 
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.CodeBuild
     ///                 ImagePullCredentialsType = "CODEBUILD",
     ///                 Type = "LINUX_CONTAINER",
     ///             },
-    ///             QueuedTimeout = "5",
+    ///             QueuedTimeout = 5,
     ///             ServiceRole = exampleRole.Arn,
     ///             Source = new Aws.CodeBuild.Inputs.ProjectSourceArgs
     ///             {

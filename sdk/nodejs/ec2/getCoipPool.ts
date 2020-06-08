@@ -71,6 +71,10 @@ export interface GetCoipPoolArgs {
  */
 export interface GetCoipPoolResult {
     readonly filters?: outputs.ec2.GetCoipPoolFilter[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly localGatewayRouteTableId: string;
     /**
      * Set of CIDR blocks in pool
@@ -78,8 +82,4 @@ export interface GetCoipPoolResult {
     readonly poolCidrs: string[];
     readonly poolId: string;
     readonly tags: {[key: string]: any};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

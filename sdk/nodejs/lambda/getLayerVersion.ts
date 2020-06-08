@@ -80,6 +80,10 @@ export interface GetLayerVersionResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Amazon Resource Name (ARN) of the Lambda Layer without version.
      */
     readonly layerArn: string;
@@ -100,8 +104,4 @@ export interface GetLayerVersionResult {
      * This Lamba Layer version.
      */
     readonly version: number;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

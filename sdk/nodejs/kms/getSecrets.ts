@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Decrypt multiple secrets from data encrypted with the AWS KMS service.
- *
  */
 export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> {
     if (!opts) {
@@ -38,12 +37,12 @@ export interface GetSecretsArgs {
  */
 export interface GetSecretsResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Map containing each `secret` `name` as the key with its decrypted plaintext value
      */
     readonly plaintext: {[key: string]: string};
     readonly secrets: outputs.kms.GetSecretsSecret[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

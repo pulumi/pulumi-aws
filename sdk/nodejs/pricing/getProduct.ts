@@ -87,12 +87,12 @@ export interface GetProductArgs {
 export interface GetProductResult {
     readonly filters: outputs.pricing.GetProductFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Set to the product returned from the API.
      */
     readonly result: string;
     readonly serviceCode: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

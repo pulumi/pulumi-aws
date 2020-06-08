@@ -59,6 +59,10 @@ export interface GetPlanResult {
      */
     readonly arn: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The display name of a backup plan.
      */
     readonly name: string;
@@ -71,8 +75,4 @@ export interface GetPlanResult {
      * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */
     readonly version: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -4,8 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "../index";
-import {User} from "./user";
+import {ARN} from "..";
+import {User} from "./index";
 
 /**
  * Attaches a Managed IAM Policy to an IAM user
@@ -39,6 +39,7 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserPolicyAttachmentState, opts?: pulumi.CustomResourceOptions): UserPolicyAttachment {
         return new UserPolicyAttachment(name, <any>state, { ...opts, id: id });

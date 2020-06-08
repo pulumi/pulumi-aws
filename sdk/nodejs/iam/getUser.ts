@@ -56,6 +56,10 @@ export interface GetUserResult {
      */
     readonly arn: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Path in which this user was created.
      */
     readonly path: string;
@@ -71,8 +75,4 @@ export interface GetUserResult {
      * The name associated to this User
      */
     readonly userName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

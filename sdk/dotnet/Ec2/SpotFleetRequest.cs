@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Ec2
     ///                     {
     ///                         { "Name", "spot-fleet-example" },
     ///                     },
-    ///                     WeightedCapacity = 35,
+    ///                     WeightedCapacity = "35",
     ///                 },
     ///             },
     ///             SpotPrice = "0.03",

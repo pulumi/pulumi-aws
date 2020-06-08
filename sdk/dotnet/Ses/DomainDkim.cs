@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ses
     ///                 {
     ///                     exampleDomainDkim.DkimTokens[range.Value].Apply(dkimTokens =&gt; $"{dkimTokens}.dkim.amazonses.com"),
     ///                 },
-    ///                 Ttl = "600",
+    ///                 Ttl = 600,
     ///                 Type = "CNAME",
     ///                 ZoneId = "ABCDEFGHIJ123",
     ///             }));

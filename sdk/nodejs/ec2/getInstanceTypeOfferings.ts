@@ -70,12 +70,12 @@ export interface GetInstanceTypeOfferingsArgs {
 export interface GetInstanceTypeOfferingsResult {
     readonly filters?: outputs.ec2.GetInstanceTypeOfferingsFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Set of EC2 Instance Types.
      */
     readonly instanceTypes: string[];
     readonly locationType?: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

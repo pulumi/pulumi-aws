@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Dms
     ///         // Create a new replication task
     ///         var test = new Aws.Dms.ReplicationTask("test", new Aws.Dms.ReplicationTaskArgs
     ///         {
-    ///             CdcStartTime = 1484346880,
+    ///             CdcStartTime = "1484346880",
     ///             MigrationType = "full-load",
     ///             ReplicationInstanceArn = aws_dms_replication_instance.Test_dms_replication_instance_tf.Replication_instance_arn,
     ///             ReplicationTaskId = "test-dms-replication-task-tf",

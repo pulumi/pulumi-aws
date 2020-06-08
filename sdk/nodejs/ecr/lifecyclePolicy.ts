@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {LifecyclePolicyDocument} from "./lifecyclePolicyDocument";
+import {LifecyclePolicyDocument} from "./index";
 
 /**
  * Manages an ECR repository lifecycle policy.
@@ -83,6 +83,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LifecyclePolicyState, opts?: pulumi.CustomResourceOptions): LifecyclePolicy {
         return new LifecyclePolicy(name, <any>state, { ...opts, id: id });

@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Use this data source to invoke custom lambda functions as data source.
  * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
  * invocation type.
- *
  */
 export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvocationResult> {
     if (!opts) {
@@ -51,6 +50,10 @@ export interface GetInvocationArgs {
  */
 export interface GetInvocationResult {
     readonly functionName: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly input: string;
     readonly qualifier?: string;
     /**
@@ -59,11 +62,8 @@ export interface GetInvocationResult {
     readonly result: string;
     /**
      * (**DEPRECATED**) This field is set only if result is a map of primitive types, where the map is string keys and string values.
+     *
      * @deprecated use `result` attribute with jsondecode() function
      */
     readonly resultMap: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

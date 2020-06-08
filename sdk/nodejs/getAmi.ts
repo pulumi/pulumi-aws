@@ -140,6 +140,10 @@ export interface GetAmiResult {
      */
     readonly hypervisor: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ID of the AMI. Should be the same as the resource `id`.
      */
     readonly imageId: string;
@@ -230,8 +234,4 @@ export interface GetAmiResult {
      * `paravirtual`).
      */
     readonly virtualizationType: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

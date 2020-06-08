@@ -68,6 +68,10 @@ export interface GetResolverRulesArgs {
  * A collection of values returned by getResolverRules.
  */
 export interface GetResolverRulesResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly ownerId?: string;
     readonly resolverEndpointId?: string;
     /**
@@ -76,8 +80,4 @@ export interface GetResolverRulesResult {
     readonly resolverRuleIds: string[];
     readonly ruleType?: string;
     readonly shareStatus?: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 ptfeServiceVpcEndpoint.DnsEntries.Apply(dnsEntries =&gt; dnsEntries[0])["dns_name"],
     ///             },
-    ///             Ttl = "300",
+    ///             Ttl = 300,
     ///             Type = "CNAME",
     ///             ZoneId = @internal.Apply(@internal =&gt; @internal.ZoneId),
     ///         });

@@ -147,6 +147,10 @@ export interface GetClusterResult {
      */
     readonly iamRoles: string[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The KMS encryption key associated to the cluster
      */
     readonly kmsKeyId: string;
@@ -190,8 +194,4 @@ export interface GetClusterResult {
      * The VPC security group Ids associated with the cluster
      */
     readonly vpcSecurityGroupIds: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

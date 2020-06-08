@@ -56,11 +56,11 @@ export interface GetRegionsResult {
     readonly allRegions?: boolean;
     readonly filters?: outputs.GetRegionsFilter[];
     /**
-     * Names of regions that meets the criteria.
-     */
-    readonly names: string[];
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Names of regions that meets the criteria.
+     */
+    readonly names: string[];
 }

@@ -64,6 +64,10 @@ export interface GetSecurityGroupsArgs {
 export interface GetSecurityGroupsResult {
     readonly filters?: outputs.ec2.GetSecurityGroupsFilter[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * IDs of the matches security groups.
      */
     readonly ids: string[];
@@ -73,8 +77,4 @@ export interface GetSecurityGroupsResult {
      * unless the `vpc-id` filter is also used.
      */
     readonly vpcIds: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

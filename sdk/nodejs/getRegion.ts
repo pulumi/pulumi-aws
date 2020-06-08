@@ -67,11 +67,11 @@ export interface GetRegionResult {
      */
     readonly endpoint: string;
     /**
-     * The name of the selected region.
-     */
-    readonly name: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The name of the selected region.
+     */
+    readonly name: string;
 }

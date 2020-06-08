@@ -50,11 +50,11 @@ export interface GetCallerIdentityResult {
      */
     readonly arn: string;
     /**
-     * The unique identifier of the calling entity.
-     */
-    readonly userId: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The unique identifier of the calling entity.
+     */
+    readonly userId: string;
 }
