@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testQueue = pulumi.output(aws.batch.getJobQueue({
+ * const test_queue = pulumi.output(aws.batch.getJobQueue({
  *     name: "tf-test-batch-job-queue",
  * }, { async: true }));
  * ```

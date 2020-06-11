@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const awsLogins = new aws.sns.Topic("awsLogins", {});
+ * const awsLogins = new aws.sns.Topic("aws_logins", {});
  * const sns = new aws.cloudwatch.EventTarget("sns", {
  *     arn: awsLogins.arn,
  *     rule: console.name,

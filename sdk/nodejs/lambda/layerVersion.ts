@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lambdaLayer = new aws.lambda.LayerVersion("lambdaLayer", {
+ * const lambdaLayer = new aws.lambda.LayerVersion("lambda_layer", {
  *     compatibleRuntimes: ["nodejs8.10"],
  *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
- *     layerName: "lambdaLayerName",
+ *     layerName: "lambda_layer_name",
  * });
  * ```
  *

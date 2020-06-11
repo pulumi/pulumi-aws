@@ -13,6 +13,34 @@ import (
 // Provides a Direct Connect hosted transit virtual interface resource.
 // This resource represents the allocator's side of the hosted virtual interface.
 // A hosted virtual interface is a virtual interface that is owned by another AWS account.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/directconnect"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := directconnect.NewHostedTransitVirtualInterface(ctx, "example", &directconnect.HostedTransitVirtualInterfaceArgs{
+// 			AddressFamily: pulumi.String("ipv4"),
+// 			BgpAsn:        pulumi.Int(65352),
+// 			ConnectionId:  pulumi.String(aws_dx_connection.Example.Id),
+// 			Vlan:          pulumi.Int(4094),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type HostedTransitVirtualInterface struct {
 	pulumi.CustomResourceState
 

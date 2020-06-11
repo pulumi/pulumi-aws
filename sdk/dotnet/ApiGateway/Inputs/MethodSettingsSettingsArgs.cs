@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public Input<int>? CacheTtlInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+        /// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
         /// </summary>
         [Input("cachingEnabled")]
         public Input<bool>? CachingEnabled { get; set; }

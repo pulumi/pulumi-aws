@@ -13,6 +13,70 @@ import (
 // Manages a FSx Windows File System. See the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) for more information.
 //
 // > **NOTE:** Either the `activeDirectoryId` argument or `selfManagedActiveDirectory` configuration block must be specified.
+//
+// ## Example Usage
+//
+// ### Using AWS Directory Service
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/fsx"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
+// 			ActiveDirectoryId:  pulumi.String(aws_directory_service_directory.Example.Id),
+// 			KmsKeyId:           pulumi.String(aws_kms_key.Example.Arn),
+// 			StorageCapacity:    pulumi.Int(300),
+// 			SubnetIds:          pulumi.String(aws_subnet.Example.Id),
+// 			ThroughputCapacity: pulumi.Int(1024),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Using a Self-Managed Microsoft Active Directory
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/fsx"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
+// 			KmsKeyId: pulumi.String(aws_kms_key.Example.Arn),
+// 			SelfManagedActiveDirectory: &fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs{
+// 				DnsIps: pulumi.StringArray{
+// 					pulumi.String("10.0.0.111"),
+// 					pulumi.String("10.0.0.222"),
+// 				},
+// 				DomainName: pulumi.String("corp.example.com"),
+// 				Password:   pulumi.String("avoid-plaintext-passwords"),
+// 				Username:   pulumi.String("Admin"),
+// 			},
+// 			StorageCapacity:    pulumi.Int(300),
+// 			SubnetIds:          pulumi.String(aws_subnet.Example.Id),
+// 			ThroughputCapacity: pulumi.Int(1024),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type WindowsFileSystem struct {
 	pulumi.CustomResourceState
 

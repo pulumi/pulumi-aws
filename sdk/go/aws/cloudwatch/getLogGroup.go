@@ -8,6 +8,30 @@ import (
 )
 
 // Use this data source to get information about an AWS Cloudwatch Log Group
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := cloudwatch.LookupLogGroup(ctx, &cloudwatch.LookupLogGroupArgs{
+// 			Name: "MyImportantLogs",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupLogGroup(ctx *pulumi.Context, args *LookupLogGroupArgs, opts ...pulumi.InvokeOption) (*LookupLogGroupResult, error) {
 	var rv LookupLogGroupResult
 	err := ctx.Invoke("aws:cloudwatch/getLogGroup:getLogGroup", args, &rv, opts...)

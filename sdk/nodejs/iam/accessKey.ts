@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     pgpKey: "keybase:some_person_that_exists",
  *     user: lbUser.name,
  * });
- * const lbRo = new aws.iam.UserPolicy("lbRo", {
+ * const lbRo = new aws.iam.UserPolicy("lb_ro", {
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [

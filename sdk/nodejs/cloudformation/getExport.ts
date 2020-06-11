@@ -58,7 +58,7 @@ export interface GetExportArgs {
  */
 export interface GetExportResult {
     /**
-     * The exportingStackId (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html) 
+     * The exportingStackId (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      */
     readonly exportingStackId: string;
     /**

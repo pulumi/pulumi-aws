@@ -11,6 +11,45 @@ import (
 )
 
 // Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
+//
+// ## Example Usage
+//
+// ### Bitbucket and GitHub
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/codebuild"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
+// 			FilterGroups: codebuild.WebhookFilterGroupArray{
+// 				&codebuild.WebhookFilterGroupArgs{
+// 					Filter: []map[string]interface{}{
+// 						map[string]interface{}{
+// 							"pattern": "PUSH",
+// 							"type":    "EVENT",
+// 						},
+// 						map[string]interface{}{
+// 							"pattern": "master",
+// 							"type":    "HEAD_REF",
+// 						},
+// 					},
+// 				},
+// 			},
+// 			ProjectName: pulumi.String(aws_codebuild_project.Example.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Webhook struct {
 	pulumi.CustomResourceState
 

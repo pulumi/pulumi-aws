@@ -29,7 +29,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///         {
     ///             ApiId = aws_apigatewayv2_api.Example.Id,
     ///             RouteId = aws_apigatewayv2_route.Example.Id,
-    ///             RouteResponseKey = "$$default",
+    ///             RouteResponseKey = "$default",
     ///         });
     ///     }
     /// 

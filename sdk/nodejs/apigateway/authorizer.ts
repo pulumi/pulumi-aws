@@ -18,7 +18,7 @@ import {RestApi} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const demoRestApi = new aws.apigateway.RestApi("demo", {});
- * const invocationRole = new aws.iam.Role("invocationRole", {
+ * const invocationRole = new aws.iam.Role("invocation_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -61,7 +61,7 @@ import {RestApi} from "./index";
  *     authorizerUri: authorizer.invokeArn,
  *     restApi: demoRestApi.id,
  * });
- * const invocationPolicy = new aws.iam.RolePolicy("invocationPolicy", {
+ * const invocationPolicy = new aws.iam.RolePolicy("invocation_policy", {
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [

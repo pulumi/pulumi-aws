@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ClusterLoggingInfoBrokerLogsS3
     {
         /// <summary>
-        /// Name of the S3 bucket to deliver logs to. 
+        /// Name of the S3 bucket to deliver logs to.
         /// </summary>
         public readonly string? Bucket;
         /// <summary>
-        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// Prefix to append to the folder name. 
+        /// Prefix to append to the folder name.
         /// </summary>
         public readonly string? Prefix;
 

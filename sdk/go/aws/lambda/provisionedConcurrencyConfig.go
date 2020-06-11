@@ -11,6 +11,58 @@ import (
 )
 
 // Manages a Lambda Provisioned Concurrency Configuration.
+//
+// ## Example Usage
+//
+// ### Alias Name
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
+// 			FunctionName:                    pulumi.String(aws_lambda_alias.Example.Function_name),
+// 			ProvisionedConcurrentExecutions: pulumi.Int(1),
+// 			Qualifier:                       pulumi.String(aws_lambda_alias.Example.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Function Version
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
+// 			FunctionName:                    pulumi.String(aws_lambda_function.Example.Function_name),
+// 			ProvisionedConcurrentExecutions: pulumi.Int(1),
+// 			Qualifier:                       pulumi.String(aws_lambda_function.Example.Version),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ProvisionedConcurrencyConfig struct {
 	pulumi.CustomResourceState
 

@@ -8,6 +8,30 @@ import (
 )
 
 // Provides an SSM Parameter data source.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		foo, err := ssm.LookupParameter(ctx, &ssm.LookupParameterArgs{
+// 			Name: "foo",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pulumi.InvokeOption) (*LookupParameterResult, error) {
 	var rv LookupParameterResult
 	err := ctx.Invoke("aws:ssm/getParameter:getParameter", args, &rv, opts...)

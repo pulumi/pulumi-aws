@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Efs.Outputs
         /// </summary>
         public readonly Outputs.AccessPointRootDirectoryCreationInfo? CreationInfo;
         /// <summary>
-        /// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`. 
+        /// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
         /// </summary>
         public readonly string? Path;
 

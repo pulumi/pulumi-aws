@@ -96,7 +96,7 @@ import {CannedAcl} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const logBucket = new aws.s3.Bucket("logBucket", {
+ * const logBucket = new aws.s3.Bucket("log_bucket", {
  *     acl: "log-delivery-write",
  * });
  * const bucket = new aws.s3.Bucket("b", {
@@ -149,7 +149,7 @@ import {CannedAcl} from "./index";
  *         },
  *     ],
  * });
- * const versioningBucket = new aws.s3.Bucket("versioningBucket", {
+ * const versioningBucket = new aws.s3.Bucket("versioning_bucket", {
  *     acl: "private",
  *     lifecycleRules: [{
  *         enabled: true,

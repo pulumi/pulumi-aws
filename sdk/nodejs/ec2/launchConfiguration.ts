@@ -33,7 +33,7 @@ import {InstanceProfile} from "../iam";
  *     mostRecent: true,
  *     owners: ["099720109477"], // Canonical
  * }, { async: true }));
- * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
+ * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
  *     imageId: ubuntu.id,
  *     instanceType: "t2.micro",
  * });
@@ -67,7 +67,7 @@ import {InstanceProfile} from "../iam";
  *     mostRecent: true,
  *     owners: ["099720109477"], // Canonical
  * }, { async: true }));
- * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
+ * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
  *     imageId: ubuntu.id,
  *     instanceType: "t2.micro",
  *     namePrefix: "lc-example-",
@@ -110,7 +110,7 @@ import {InstanceProfile} from "../iam";
  *     mostRecent: true,
  *     owners: ["099720109477"], // Canonical
  * }, { async: true }));
- * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
+ * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
  *     imageId: ubuntu.id,
  *     instanceType: "m4.large",
  *     spotPrice: "0.001",

@@ -13,6 +13,35 @@ import (
 // Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
 // but API (hence this provider too) allows you to create as many aliases as
 // the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/kms"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		key, err := kms.NewKey(ctx, "key", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		alias, err := kms.NewAlias(ctx, "alias", &kms.AliasArgs{
+// 			TargetKeyId: key.KeyId,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Alias struct {
 	pulumi.CustomResourceState
 

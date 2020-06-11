@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Iam
         public Output<ImmutableArray<string>> ClientIdLists { get; private set; } = null!;
 
         /// <summary>
-        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
         /// </summary>
         [Output("thumbprintLists")]
         public Output<ImmutableArray<string>> ThumbprintLists { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _thumbprintLists;
 
         /// <summary>
-        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
         /// </summary>
         public InputList<string> ThumbprintLists
         {
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _thumbprintLists;
 
         /// <summary>
-        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
         /// </summary>
         public InputList<string> ThumbprintLists
         {

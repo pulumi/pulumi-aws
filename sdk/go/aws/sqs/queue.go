@@ -9,6 +9,95 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/json"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/sqs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 			"deadLetterTargetArn": aws_sqs_queue.Queue_deadletter.Arn,
+// 			"maxReceiveCount":     4,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json0 := string(tmpJSON0)
+// 		queue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+// 			DelaySeconds:            pulumi.Int(90),
+// 			MaxMessageSize:          pulumi.Int(2048),
+// 			MessageRetentionSeconds: pulumi.Int(86400),
+// 			ReceiveWaitTimeSeconds:  pulumi.Int(10),
+// 			RedrivePolicy:           pulumi.String(json0),
+// 			Tags: map[string]interface{}{
+// 				"Environment": "production",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## FIFO queue
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/sqs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		queue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+// 			ContentBasedDeduplication: pulumi.Bool(true),
+// 			FifoQueue:                 pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Server-side encryption (SSE)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/sqs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		queue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+// 			KmsDataKeyReusePeriodSeconds: pulumi.Int(300),
+// 			KmsMasterKeyId:               pulumi.String("alias/aws/sqs"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Queue struct {
 	pulumi.CustomResourceState
 

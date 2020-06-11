@@ -14,6 +14,39 @@ import (
 //
 // > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API - recreate the resource instead.
 //
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/licensemanager"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := licensemanager.NewLicenseConfiguration(ctx, "example", &licensemanager.LicenseConfigurationArgs{
+// 			Description:           pulumi.String("Example"),
+// 			LicenseCount:          pulumi.Int(10),
+// 			LicenseCountHardLimit: pulumi.Bool(true),
+// 			LicenseCountingType:   pulumi.String("Socket"),
+// 			LicenseRules: pulumi.StringArray{
+// 				pulumi.String("#minimumSockets=2"),
+// 			},
+// 			Tags: map[string]interface{}{
+// 				"foo": "barr",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Rules
 //

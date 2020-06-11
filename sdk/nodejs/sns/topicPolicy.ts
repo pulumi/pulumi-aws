@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *         ],
  *         conditions: [{
  *             test: "StringEquals",
- *             values: [varAccountId],
+ *             values: [var_account_id],
  *             variable: "AWS:SourceOwner",
  *         }],
  *         effect: "Allow",

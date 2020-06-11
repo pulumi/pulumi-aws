@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string>? Delimiter { get; set; }
 
         /// <summary>
-        /// Specifies whether to trim column values. 
+        /// Specifies whether to trim column values.
         /// </summary>
         [Input("disableValueTrimming")]
         public Input<bool>? DisableValueTrimming { get; set; }

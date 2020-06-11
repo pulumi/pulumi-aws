@@ -32,6 +32,37 @@ import (
 // point in time. See the [AWS Spot Instance
 // documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 // for more information.
+//
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cheapWorker, err := ec2.NewSpotInstanceRequest(ctx, "cheapWorker", &ec2.SpotInstanceRequestArgs{
+// 			Ami:          pulumi.String("ami-1234"),
+// 			InstanceType: pulumi.String("c4.xlarge"),
+// 			SpotPrice:    pulumi.String("0.03"),
+// 			Tags: map[string]interface{}{
+// 				"Name": "CheapWorker",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SpotInstanceRequest struct {
 	pulumi.CustomResourceState
 

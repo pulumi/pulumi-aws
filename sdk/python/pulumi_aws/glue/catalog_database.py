@@ -42,7 +42,7 @@ class CatalogDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        glue.CatalogDatabase = aws.glue.CatalogDatabase("awsGlueCatalogDatabase", name="MyCatalogDatabase")
+        aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase", name="MyCatalogDatabase")
         ```
 
 

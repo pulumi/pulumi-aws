@@ -8,6 +8,30 @@ import (
 )
 
 // The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		service, err := ecr.LookupRepository(ctx, &ecr.LookupRepositoryArgs{
+// 			Name: "ecr-repository",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryResult, error) {
 	var rv LookupRepositoryResult
 	err := ctx.Invoke("aws:ecr/getRepository:getRepository", args, &rv, opts...)

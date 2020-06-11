@@ -22,13 +22,13 @@ import * as utilities from "../utilities";
  *         Name: "HelloWorld",
  *     },
  * });
- * const exampleSnapshot = new aws.ebs.Snapshot("exampleSnapshot", {
+ * const exampleSnapshot = new aws.ebs.Snapshot("example_snapshot", {
  *     tags: {
  *         Name: "HelloWorld_snap",
  *     },
  *     volumeId: example.id,
  * });
- * const exampleCopy = new aws.ebs.SnapshotCopy("exampleCopy", {
+ * const exampleCopy = new aws.ebs.SnapshotCopy("example_copy", {
  *     sourceRegion: "us-west-2",
  *     sourceSnapshotId: exampleSnapshot.id,
  *     tags: {

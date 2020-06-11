@@ -17,7 +17,7 @@ class Classifier(pulumi.CustomResource):
       * `allowSingleColumn` (`bool`) - Enables the processing of files that contain only one column.
       * `containsHeader` (`str`) - Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
       * `delimiter` (`str`) - The delimiter used in the Csv to separate columns.
-      * `disableValueTrimming` (`bool`) - Specifies whether to trim column values. 
+      * `disableValueTrimming` (`bool`) - Specifies whether to trim column values.
       * `headers` (`list`) - A list of strings representing column names.
       * `quoteSymbol` (`str`) - A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
     """
@@ -122,7 +122,7 @@ class Classifier(pulumi.CustomResource):
           * `allowSingleColumn` (`pulumi.Input[bool]`) - Enables the processing of files that contain only one column.
           * `containsHeader` (`pulumi.Input[str]`) - Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
           * `delimiter` (`pulumi.Input[str]`) - The delimiter used in the Csv to separate columns.
-          * `disableValueTrimming` (`pulumi.Input[bool]`) - Specifies whether to trim column values. 
+          * `disableValueTrimming` (`pulumi.Input[bool]`) - Specifies whether to trim column values.
           * `headers` (`pulumi.Input[list]`) - A list of strings representing column names.
           * `quoteSymbol` (`pulumi.Input[str]`) - A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 
@@ -189,7 +189,7 @@ class Classifier(pulumi.CustomResource):
           * `allowSingleColumn` (`pulumi.Input[bool]`) - Enables the processing of files that contain only one column.
           * `containsHeader` (`pulumi.Input[str]`) - Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
           * `delimiter` (`pulumi.Input[str]`) - The delimiter used in the Csv to separate columns.
-          * `disableValueTrimming` (`pulumi.Input[bool]`) - Specifies whether to trim column values. 
+          * `disableValueTrimming` (`pulumi.Input[bool]`) - Specifies whether to trim column values.
           * `headers` (`pulumi.Input[list]`) - A list of strings representing column names.
           * `quoteSymbol` (`pulumi.Input[str]`) - A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 

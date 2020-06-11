@@ -50,7 +50,7 @@ def get_rules_packages(opts=None):
     import pulumi_aws as aws
 
     rules = aws.inspector.get_rules_packages()
-    # e.g. Use in inspector.AssessmentTemplate
+    # e.g. Use in aws_inspector_assessment_template
     group = aws.inspector.ResourceGroup("group", tags={
         "test": "test",
     })

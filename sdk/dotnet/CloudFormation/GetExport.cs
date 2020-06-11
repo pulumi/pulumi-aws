@@ -70,7 +70,7 @@ namespace Pulumi.Aws.CloudFormation
     public sealed class GetExportResult
     {
         /// <summary>
-        /// The exporting_stack_id (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html) 
+        /// The exporting_stack_id (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
         /// </summary>
         public readonly string ExportingStackId;
         /// <summary>

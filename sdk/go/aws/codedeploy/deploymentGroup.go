@@ -13,6 +13,60 @@ import (
 // Provides a CodeDeploy Deployment Group for a CodeDeploy Application
 //
 // > **NOTE on blue/green deployments:** When using `greenFleetProvisioningOption` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
+//
+// ## Example Usage
+//
+// ### Blue Green Deployments with Servers and Classic ELB
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/codedeploy"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleApplication, err := codedeploy.NewApplication(ctx, "exampleApplication", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleDeploymentGroup, err := codedeploy.NewDeploymentGroup(ctx, "exampleDeploymentGroup", &codedeploy.DeploymentGroupArgs{
+// 			AppName: exampleApplication.Name,
+// 			BlueGreenDeploymentConfig: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs{
+// 				DeploymentReadyOption: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs{
+// 					ActionOnTimeout:   pulumi.String("STOP_DEPLOYMENT"),
+// 					WaitTimeInMinutes: pulumi.Int(60),
+// 				},
+// 				GreenFleetProvisioningOption: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs{
+// 					Action: pulumi.String("DISCOVER_EXISTING"),
+// 				},
+// 				TerminateBlueInstancesOnDeploymentSuccess: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs{
+// 					Action: pulumi.String("KEEP_ALIVE"),
+// 				},
+// 			},
+// 			DeploymentGroupName: pulumi.String("example-group"),
+// 			DeploymentStyle: &codedeploy.DeploymentGroupDeploymentStyleArgs{
+// 				DeploymentOption: pulumi.String("WITH_TRAFFIC_CONTROL"),
+// 				DeploymentType:   pulumi.String("BLUE_GREEN"),
+// 			},
+// 			LoadBalancerInfo: &codedeploy.DeploymentGroupLoadBalancerInfoArgs{
+// 				ElbInfo: []map[string]interface{}{
+// 					map[string]interface{}{
+// 						"name": aws_elb.Example.Name,
+// 					},
+// 				},
+// 			},
+// 			ServiceRoleArn: pulumi.String(aws_iam_role.Example.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DeploymentGroup struct {
 	pulumi.CustomResourceState
 

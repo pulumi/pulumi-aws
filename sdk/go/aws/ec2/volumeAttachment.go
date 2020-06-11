@@ -14,6 +14,52 @@ import (
 // detach volumes from AWS Instances.
 //
 // > **NOTE on EBS block devices:** If you use `ebsBlockDevice` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebsBlockDevice` cannot be mixed with external `ebs.Volume` + `awsEbsVolumeAttachment` resources for a given instance.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ebs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		web, err := ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
+// 			Ami:              pulumi.String("ami-21f78e11"),
+// 			AvailabilityZone: pulumi.String("us-west-2a"),
+// 			InstanceType:     pulumi.String("t1.micro"),
+// 			Tags: map[string]interface{}{
+// 				"Name": "HelloWorld",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
+// 			AvailabilityZone: pulumi.String("us-west-2a"),
+// 			Size:             pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ebsAtt, err := ec2.NewVolumeAttachment(ctx, "ebsAtt", &ec2.VolumeAttachmentArgs{
+// 			DeviceName: pulumi.String("/dev/sdh"),
+// 			InstanceId: web.ID(),
+// 			VolumeId:   example.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VolumeAttachment struct {
 	pulumi.CustomResourceState
 

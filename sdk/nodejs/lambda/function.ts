@@ -23,7 +23,7 @@ import {ARN} from "..";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const iamForLambda = new aws.iam.Role("iamForLambda", {
+ * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -39,7 +39,7 @@ import {ARN} from "..";
  * }
  * `,
  * });
- * const testLambda = new aws.lambda.Function("testLambda", {
+ * const testLambda = new aws.lambda.Function("test_lambda", {
  *     environment: {
  *         variables: {
  *             foo: "bar",
@@ -77,7 +77,7 @@ import {ARN} from "..";
  *     retentionInDays: 14,
  * });
  * // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
- * const lambdaLogging = new aws.iam.Policy("lambdaLogging", {
+ * const lambdaLogging = new aws.iam.Policy("lambda_logging", {
  *     description: "IAM policy for logging from a lambda",
  *     path: "/",
  *     policy: `{
@@ -96,11 +96,11 @@ import {ARN} from "..";
  * }
  * `,
  * });
- * const lambdaLogs = new aws.iam.RolePolicyAttachment("lambdaLogs", {
+ * const lambdaLogs = new aws.iam.RolePolicyAttachment("lambda_logs", {
  *     policyArn: lambdaLogging.arn,
  *     role: aws_iam_role_iam_for_lambda.name,
  * });
- * const testLambda = new aws.lambda.Function("testLambda", {}, { dependsOn: [example, lambdaLogs] });
+ * const testLambda = new aws.lambda.Function("test_lambda", {}, { dependsOn: [example, lambdaLogs] });
  * ```
  *
  * ## Specifying the Deployment Package

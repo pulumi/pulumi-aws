@@ -30,9 +30,9 @@ import * as utilities from "../utilities";
  *     enableDnsSupport: true,
  * });
  * const example = new aws.route53.Zone("example", {
- *     // NOTE: The aws.route53.Zone vpc argument accepts multiple configuration
+ *     // NOTE: The aws_route53_zone vpc argument accepts multiple configuration
  *     //       blocks. The below usage of the single vpc configuration, the
- *     //       lifecycle configuration, and the aws.route53.ZoneAssociation
+ *     //       lifecycle configuration, and the aws_route53_zone_association
  *     //       resource is for illustrative purposes (e.g. for a separate
  *     //       cross-account authorization process, which is not shown here).
  *     vpcs: [{

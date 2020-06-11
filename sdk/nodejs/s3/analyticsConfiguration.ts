@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3.Bucket("example", {});
  * const analytics = new aws.s3.Bucket("analytics", {});
- * const exampleEntireBucket = new aws.s3.AnalyticsConfiguration("example-entire-bucket", {
+ * const example_entire_bucket = new aws.s3.AnalyticsConfiguration("example-entire-bucket", {
  *     bucket: example.bucket,
  *     storage_class_analysis: {
  *         data_export: {
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.Bucket("example", {});
- * const exampleFiltered = new aws.s3.AnalyticsConfiguration("example-filtered", {
+ * const example_filtered = new aws.s3.AnalyticsConfiguration("example-filtered", {
  *     bucket: example.bucket,
  *     filter: {
  *         prefix: "documents/",

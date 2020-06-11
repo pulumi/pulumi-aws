@@ -148,7 +148,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly masterPassword!: pulumi.Output<string | undefined>;
     /**
-     * Username for the master DB user. 
+     * Username for the master DB user.
      */
     public readonly masterUsername!: pulumi.Output<string>;
     /**
@@ -359,7 +359,7 @@ export interface ClusterState {
      */
     readonly masterPassword?: pulumi.Input<string>;
     /**
-     * Username for the master DB user. 
+     * Username for the master DB user.
      */
     readonly masterUsername?: pulumi.Input<string>;
     /**
@@ -471,7 +471,7 @@ export interface ClusterArgs {
      */
     readonly masterPassword?: pulumi.Input<string>;
     /**
-     * Username for the master DB user. 
+     * Username for the master DB user.
      */
     readonly masterUsername?: pulumi.Input<string>;
     /**

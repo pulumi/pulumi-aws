@@ -17,6 +17,37 @@ import (
 // Environments are often things such as `development`, `integration`, or
 // `production`.
 //
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/elasticbeanstalk"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+// 			Description: pulumi.String("tf-test-desc"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		tfenvtest, err := elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
+// 			Application:       tftest.Name,
+// 			SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Option Settings
 //
@@ -29,6 +60,48 @@ import (
 // * `name` - name of the configuration option
 // * `value` - value for the configuration option
 // * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+//
+// ### Example With Options
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/elasticbeanstalk"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+// 			Description: pulumi.String("tf-test-desc"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		tfenvtest, err := elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
+// 			Application: tftest.Name,
+// 			Settings: elasticbeanstalk.EnvironmentSettingArray{
+// 				&elasticbeanstalk.EnvironmentSettingArgs{
+// 					Name:      pulumi.String("VPCId"),
+// 					Namespace: pulumi.String("aws:ec2:vpc"),
+// 					Value:     pulumi.String("vpc-xxxxxxxx"),
+// 				},
+// 				&elasticbeanstalk.EnvironmentSettingArgs{
+// 					Name:      pulumi.String("Subnets"),
+// 					Namespace: pulumi.String("aws:ec2:vpc"),
+// 					Value:     pulumi.String("subnet-xxxxxxxx"),
+// 				},
+// 			},
+// 			SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Environment struct {
 	pulumi.CustomResourceState
 

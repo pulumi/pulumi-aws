@@ -56,7 +56,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///             AuthorizerType = "JWT",
     ///             IdentitySources = 
     ///             {
-    ///                 "$$request.header.Authorization",
+    ///                 "$request.header.Authorization",
     ///             },
     ///             JwtConfiguration = new Aws.ApiGatewayV2.Inputs.AuthorizerJwtConfigurationArgs
     ///             {

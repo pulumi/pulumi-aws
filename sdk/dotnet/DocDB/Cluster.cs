@@ -173,7 +173,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string?> MasterPassword { get; private set; } = null!;
 
         /// <summary>
-        /// Username for the master DB user. 
+        /// Username for the master DB user.
         /// </summary>
         [Output("masterUsername")]
         public Output<string> MasterUsername { get; private set; } = null!;
@@ -393,7 +393,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? MasterPassword { get; set; }
 
         /// <summary>
-        /// Username for the master DB user. 
+        /// Username for the master DB user.
         /// </summary>
         [Input("masterUsername")]
         public Input<string>? MasterUsername { get; set; }
@@ -604,7 +604,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? MasterPassword { get; set; }
 
         /// <summary>
-        /// Username for the master DB user. 
+        /// Username for the master DB user.
         /// </summary>
         [Input("masterUsername")]
         public Input<string>? MasterUsername { get; set; }

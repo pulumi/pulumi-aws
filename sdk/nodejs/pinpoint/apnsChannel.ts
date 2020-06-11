@@ -86,7 +86,7 @@ export class ApnsChannel extends pulumi.CustomResource {
      */
     public readonly teamId!: pulumi.Output<string | undefined>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
     public readonly tokenKey!: pulumi.Output<string | undefined>;
     /**
@@ -177,7 +177,7 @@ export interface ApnsChannelState {
      */
     readonly teamId?: pulumi.Input<string>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
     readonly tokenKey?: pulumi.Input<string>;
     /**
@@ -222,7 +222,7 @@ export interface ApnsChannelArgs {
      */
     readonly teamId?: pulumi.Input<string>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
     readonly tokenKey?: pulumi.Input<string>;
     /**

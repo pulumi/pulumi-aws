@@ -48,8 +48,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
- * const allowAll = new aws.ec2.SecurityGroupRule("allowAll", {
+ * const myEndpoint = new aws.ec2.VpcEndpoint("my_endpoint", {});
+ * const allowAll = new aws.ec2.SecurityGroupRule("allow_all", {
  *     fromPort: 0,
  *     prefixListIds: [myEndpoint.prefixListId],
  *     protocol: "-1",

@@ -9,6 +9,37 @@ import (
 
 // Use this data source to get the id of a Resource in API Gateway.
 // To fetch the Resource, you must provide the REST API id as well as the full path.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		myRestApi, err := apigateway.LookupRestApi(ctx, &apigateway.LookupRestApiArgs{
+// 			Name: "my-rest-api",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		myResource, err := apigateway.LookupResource(ctx, &apigateway.LookupResourceArgs{
+// 			Path:      "/endpoint/path",
+// 			RestApiId: myRestApi.Id,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	var rv LookupResourceResult
 	err := ctx.Invoke("aws:apigateway/getResource:getResource", args, &rv, opts...)

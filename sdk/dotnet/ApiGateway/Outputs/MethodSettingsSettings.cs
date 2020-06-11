@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ApiGateway.Outputs
         /// </summary>
         public readonly int? CacheTtlInSeconds;
         /// <summary>
-        /// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+        /// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
         /// </summary>
         public readonly bool? CachingEnabled;
         /// <summary>

@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  * const mainVpc = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const privateA = new aws.ec2.Subnet("private-a", {
+ * const private_a = new aws.ec2.Subnet("private-a", {
  *     availabilityZone: "us-east-1a",
  *     cidrBlock: "10.0.0.0/24",
  *     vpcId: mainVpc.id,
  * });
- * const privateB = new aws.ec2.Subnet("private-b", {
+ * const private_b = new aws.ec2.Subnet("private-b", {
  *     availabilityZone: "us-east-1b",
  *     cidrBlock: "10.0.1.0/24",
  *     vpcId: mainVpc.id,

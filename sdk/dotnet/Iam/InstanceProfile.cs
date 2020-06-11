@@ -91,7 +91,6 @@ namespace Pulumi.Aws.Iam
         public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
-        /// 
         /// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
         /// </summary>
         [Output("roles")]
@@ -177,7 +176,6 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _roles;
 
         /// <summary>
-        /// 
         /// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
         /// </summary>
         [Obsolete(@"Use `role` instead. Only a single role can be passed to an IAM Instance Profile")]
@@ -234,7 +232,6 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _roles;
 
         /// <summary>
-        /// 
         /// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
         /// </summary>
         [Obsolete(@"Use `role` instead. Only a single role can be passed to an IAM Instance Profile")]

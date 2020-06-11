@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = pulumi.output(aws.organizations.getOrganization({ async: true }));
- * const snsTopic = new aws.sns.Topic("snsTopic", {});
+ * const snsTopic = new aws.sns.Topic("sns_topic", {});
  * const snsTopicPolicyPolicyDocument = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *         resources: [arn],
  *     }],
  * }, { async: true }));
- * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("snsTopicPolicy", {
+ * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("sns_topic_policy", {
  *     arn: snsTopic.arn,
  *     policy: snsTopicPolicyPolicyDocument.json,
  * });

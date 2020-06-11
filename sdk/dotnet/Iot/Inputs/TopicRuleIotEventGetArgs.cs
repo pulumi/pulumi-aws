@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Iot.Inputs
         public Input<string> InputName { get; set; } = null!;
 
         /// <summary>
-        /// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector. 
+        /// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
         /// </summary>
         [Input("messageId")]
         public Input<string>? MessageId { get; set; }

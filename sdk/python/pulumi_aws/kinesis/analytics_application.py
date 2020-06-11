@@ -195,7 +195,7 @@ class AnalyticsApplication(pulumi.CustomResource):
             },
             "schema": {
                 "recordColumns": [{
-                    "mapping": "$$.test",
+                    "mapping": "$.test",
                     "name": "test",
                     "sqlType": "VARCHAR(8)",
                 }],
@@ -203,7 +203,7 @@ class AnalyticsApplication(pulumi.CustomResource):
                 "recordFormat": {
                     "mappingParameters": {
                         "json": {
-                            "recordRowPath": "$$",
+                            "recordRowPath": "$",
                         },
                     },
                 },

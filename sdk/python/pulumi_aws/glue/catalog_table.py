@@ -102,7 +102,7 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        glue.CatalogTable = aws.glue.CatalogTable("awsGlueCatalogTable",
+        aws_glue_catalog_table = aws.glue.CatalogTable("awsGlueCatalogTable",
             database_name="MyCatalogDatabase",
             name="MyCatalogTable")
         ```
@@ -113,7 +113,7 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        glue.CatalogTable = aws.glue.CatalogTable("awsGlueCatalogTable",
+        aws_glue_catalog_table = aws.glue.CatalogTable("awsGlueCatalogTable",
             database_name="MyCatalogDatabase",
             name="MyCatalogTable",
             parameters={

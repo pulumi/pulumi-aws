@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketGrant
     {
         /// <summary>
-        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
         /// </summary>
         public readonly string? Id;
         /// <summary>

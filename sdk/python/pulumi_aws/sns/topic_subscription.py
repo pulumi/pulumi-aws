@@ -48,7 +48,7 @@ class TopicSubscription(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, confirmation_timeout_in_minutes=None, delivery_policy=None, endpoint=None, endpoint_auto_confirms=None, filter_policy=None, protocol=None, raw_message_delivery=None, topic=None, __props__=None, __name__=None, __opts__=None):
         """
-          Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to.
+        Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to.
         This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests
         to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case will
         probably be SQS queues.

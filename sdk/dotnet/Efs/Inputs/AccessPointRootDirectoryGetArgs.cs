@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Efs.Inputs
         public Input<Inputs.AccessPointRootDirectoryCreationInfoGetArgs>? CreationInfo { get; set; }
 
         /// <summary>
-        /// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`. 
+        /// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

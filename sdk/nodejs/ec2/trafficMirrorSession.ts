@@ -72,7 +72,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
      */
     public readonly packetLength!: pulumi.Output<number | undefined>;
     /**
-     * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets. 
+     * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
     public readonly sessionNumber!: pulumi.Output<number>;
     /**
@@ -163,7 +163,7 @@ export interface TrafficMirrorSessionState {
      */
     readonly packetLength?: pulumi.Input<number>;
     /**
-     * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets. 
+     * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
     readonly sessionNumber?: pulumi.Input<number>;
     /**
@@ -201,7 +201,7 @@ export interface TrafficMirrorSessionArgs {
      */
     readonly packetLength?: pulumi.Input<number>;
     /**
-     * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets. 
+     * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
     readonly sessionNumber: pulumi.Input<number>;
     /**

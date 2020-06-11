@@ -29,7 +29,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///         var example = new Aws.ApiGatewayV2.Api("example", new Aws.ApiGatewayV2.ApiArgs
     ///         {
     ///             ProtocolType = "WEBSOCKET",
-    ///             RouteSelectionExpression = "$$request.body.action",
+    ///             RouteSelectionExpression = "$request.body.action",
     ///         });
     ///     }
     /// 

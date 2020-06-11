@@ -56,7 +56,7 @@ import {Group, Role, User} from "./index";
  * }
  * `,
  * });
- * const testAttach = new aws.iam.PolicyAttachment("test-attach", {
+ * const test_attach = new aws.iam.PolicyAttachment("test-attach", {
  *     groups: [group.name],
  *     policyArn: policy.arn,
  *     roles: [role.name],

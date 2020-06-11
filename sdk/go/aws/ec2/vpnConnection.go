@@ -16,6 +16,92 @@ import (
 //
 // > **Note:** The CIDR blocks in the arguments `tunnel1InsideCidr` and `tunnel2InsideCidr` must have a prefix of /30 and be a part of a specific range.
 // [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
+//
+// ## Example Usage
+//
+// ### EC2 Transit Gateway
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2transitgateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
+// 			BgpAsn:    pulumi.Int(65000),
+// 			IpAddress: pulumi.String("172.0.0.1"),
+// 			Type:      pulumi.String("ipsec.1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
+// 			CustomerGatewayId: exampleCustomerGateway.ID(),
+// 			TransitGatewayId:  exampleTransitGateway.ID(),
+// 			Type:              exampleCustomerGateway.Type,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Virtual Private Gateway
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.0.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		vpnGateway, err := ec2.NewVpnGateway(ctx, "vpnGateway", &ec2.VpnGatewayArgs{
+// 			VpcId: vpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		customerGateway, err := ec2.NewCustomerGateway(ctx, "customerGateway", &ec2.CustomerGatewayArgs{
+// 			BgpAsn:    pulumi.Int(65000),
+// 			IpAddress: pulumi.String("172.0.0.1"),
+// 			Type:      pulumi.String("ipsec.1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		main, err := ec2.NewVpnConnection(ctx, "main", &ec2.VpnConnectionArgs{
+// 			CustomerGatewayId: customerGateway.ID(),
+// 			StaticRoutesOnly:  pulumi.Bool(true),
+// 			Type:              pulumi.String("ipsec.1"),
+// 			VpnGatewayId:      vpnGateway.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VpnConnection struct {
 	pulumi.CustomResourceState
 

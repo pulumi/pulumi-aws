@@ -89,7 +89,7 @@ class Permission(pulumi.CustomResource):
         test_alias = aws.lambda_.Alias("testAlias",
             description="a sample description",
             function_name=test_lambda.name,
-            function_version="$$LATEST")
+            function_version="$LATEST")
         allow_cloudwatch = aws.lambda_.Permission("allowCloudwatch",
             action="lambda:InvokeFunction",
             function=test_lambda.name,

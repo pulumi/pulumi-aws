@@ -15,6 +15,31 @@ import (
 // Associates an AWS account with Amazon Macie as a member account.
 //
 // > **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/macie"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := macie.NewMemberAccountAssociation(ctx, "example", &macie.MemberAccountAssociationArgs{
+// 			MemberAccountId: pulumi.String("123456789012"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type MemberAccountAssociation struct {
 	pulumi.CustomResourceState
 

@@ -10,6 +10,34 @@ import (
 )
 
 // Manages a Resource Access Manager (RAM) Resource Share. To associate principals with the share, see the `ram.PrincipalAssociation` resource. To associate resources with the share, see the `ram.ResourceAssociation` resource.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ram"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ram.NewResourceShare(ctx, "example", &ram.ResourceShareArgs{
+// 			AllowExternalPrincipals: pulumi.Bool(true),
+// 			Tags: map[string]interface{}{
+// 				"Environment": "Production",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ResourceShare struct {
 	pulumi.CustomResourceState
 

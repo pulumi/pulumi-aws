@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     availabilityZone: "us-east-1b",
  *     blueprintId: "string",
  *     bundleId: "string",
- *     keyPairName: "someKeyName",
+ *     keyPairName: "some_key_name",
  * });
  * const testStaticIpAttachment = new aws.lightsail.StaticIpAttachment("test", {
  *     instanceName: testInstance.id,

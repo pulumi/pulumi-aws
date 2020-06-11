@@ -8,6 +8,33 @@ import (
 )
 
 // Provides information for multiple EC2 Local Gateways, such as their identifiers.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		fooLocalGateways, err := ec2.LookupLocalGateways(ctx, &ec2.LookupLocalGatewaysArgs{
+// 			Tags: map[string]interface{}{
+// 				"service": "production",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("foo", fooLocalGateways.Ids)
+// 		return nil
+// 	})
+// }
+// ```
 func GetLocalGateways(ctx *pulumi.Context, args *GetLocalGatewaysArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewaysResult, error) {
 	var rv GetLocalGatewaysResult
 	err := ctx.Invoke("aws:ec2/getLocalGateways:getLocalGateways", args, &rv, opts...)

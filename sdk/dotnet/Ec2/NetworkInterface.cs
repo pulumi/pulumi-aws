@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> PrivateIps { get; private set; } = null!;
 
         /// <summary>
-        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
         /// </summary>
         [Output("privateIpsCount")]
         public Output<int> PrivateIpsCount { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
         /// </summary>
         [Input("privateIpsCount")]
         public Input<int>? PrivateIpsCount { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
         /// </summary>
         [Input("privateIpsCount")]
         public Input<int>? PrivateIpsCount { get; set; }

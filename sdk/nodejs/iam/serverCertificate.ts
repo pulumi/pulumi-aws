@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const testCert = new aws.iam.ServerCertificate("testCert", {
+ * const testCert = new aws.iam.ServerCertificate("test_cert", {
  *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
  *     privateKey: fs.readFileSync("test-key.pem", "utf-8"),
  * });

@@ -11,6 +11,37 @@ import (
 )
 
 // Provides a Global Accelerator endpoint group.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/globalaccelerator"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := globalaccelerator.NewEndpointGroup(ctx, "example", &globalaccelerator.EndpointGroupArgs{
+// 			EndpointConfigurations: globalaccelerator.EndpointGroupEndpointConfigurationArray{
+// 				&globalaccelerator.EndpointGroupEndpointConfigurationArgs{
+// 					EndpointId: pulumi.String(aws_lb.Example.Arn),
+// 					Weight:     pulumi.Int(100),
+// 				},
+// 			},
+// 			ListenerArn: pulumi.String(aws_globalaccelerator_listener.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type EndpointGroup struct {
 	pulumi.CustomResourceState
 

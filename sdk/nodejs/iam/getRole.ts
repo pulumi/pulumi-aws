@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = pulumi.output(aws.iam.getRole({
- *     name: "anExampleRoleName",
+ *     name: "an_example_role_name",
  * }, { async: true }));
  * ```
  */

@@ -13,6 +13,39 @@ import (
 // Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
 //
 // > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
+//
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/pinpoint"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		app, err := pinpoint.NewApp(ctx, "app", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		channel, err := pinpoint.NewAdmChannel(ctx, "channel", &pinpoint.AdmChannelArgs{
+// 			ApplicationId: app.ApplicationId,
+// 			ClientId:      pulumi.String(""),
+// 			ClientSecret:  pulumi.String(""),
+// 			Enabled:       pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type AdmChannel struct {
 	pulumi.CustomResourceState
 

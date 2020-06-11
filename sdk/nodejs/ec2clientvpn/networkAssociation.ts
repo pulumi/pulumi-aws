@@ -67,7 +67,7 @@ export class NetworkAssociation extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
-     * The ID of the VPC in which the target network (subnet) is located. 
+     * The ID of the VPC in which the target network (subnet) is located.
      */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
@@ -134,7 +134,7 @@ export interface NetworkAssociationState {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * The ID of the VPC in which the target network (subnet) is located. 
+     * The ID of the VPC in which the target network (subnet) is located.
      */
     readonly vpcId?: pulumi.Input<string>;
 }

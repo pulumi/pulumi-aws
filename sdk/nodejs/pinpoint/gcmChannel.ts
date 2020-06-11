@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * const app = new aws.pinpoint.App("app", {});
  * const gcm = new aws.pinpoint.GcmChannel("gcm", {
- *     apiKey: "apiKey",
+ *     apiKey: "api_key",
  *     applicationId: app.applicationId,
  * });
  * ```

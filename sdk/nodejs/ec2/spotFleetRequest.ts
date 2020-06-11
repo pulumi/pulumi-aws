@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Request a Spot fleet
- * const cheapCompute = new aws.ec2.SpotFleetRequest("cheapCompute", {
+ * const cheapCompute = new aws.ec2.SpotFleetRequest("cheap_compute", {
  *     allocationStrategy: "diversified",
  *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
  *     launchSpecifications: [
@@ -208,7 +208,6 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public readonly instanceInterruptionBehaviour!: pulumi.Output<string | undefined>;
     /**
-     *
      * The number of Spot pools across which to allocate your target Spot capacity.
      * Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
      * the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -383,7 +382,6 @@ export interface SpotFleetRequestState {
      */
     readonly instanceInterruptionBehaviour?: pulumi.Input<string>;
     /**
-     *
      * The number of Spot pools across which to allocate your target Spot capacity.
      * Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
      * the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -486,7 +484,6 @@ export interface SpotFleetRequestArgs {
      */
     readonly instanceInterruptionBehaviour?: pulumi.Input<string>;
     /**
-     *
      * The number of Spot pools across which to allocate your target Spot capacity.
      * Valid only when `allocationStrategy` is set to `lowestPrice`. Spot Fleet selects
      * the cheapest Spot pools and evenly allocates your target Spot capacity across

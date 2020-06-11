@@ -54,9 +54,9 @@ import * as utilities from "../utilities";
  * });
  * const exampleSelfSignedCert = new tls.SelfSignedCert("example", {
  *     allowedUses: [
- *         "keyEncipherment",
- *         "digitalSignature",
- *         "serverAuth",
+ *         "key_encipherment",
+ *         "digital_signature",
+ *         "server_auth",
  *     ],
  *     keyAlgorithm: "RSA",
  *     privateKeyPem: examplePrivateKey.privateKeyPem,

@@ -14,6 +14,43 @@ import (
 // This data source can prove useful when a module accepts an LB Listener as an
 // input variable and needs to know the LB it is attached to, or other
 // information specific to the listener in question.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		listener, err := lb.LookupListener(ctx, &lb.LookupListenerArgs{
+// 			Arn: listenerArn,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		selected, err := lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
+// 			Name: "default-public",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		selected443, err := lb.LookupListener(ctx, &lb.LookupListenerArgs{
+// 			LoadBalancerArn: selected.Arn,
+// 			Port:            443,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulumi.InvokeOption) (*LookupListenerResult, error) {
 	var rv LookupListenerResult
 	err := ctx.Invoke("aws:alb/getListener:getListener", args, &rv, opts...)

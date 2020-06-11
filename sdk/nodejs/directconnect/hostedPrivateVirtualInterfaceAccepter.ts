@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const accepter = new aws.Provider("accepter", {});
  * const accepterCallerIdentity = pulumi.output(aws.getCallerIdentity({ provider: accepter, async: true }));
  * // Accepter's side of the VIF.
- * const vpnGw = new aws.ec2.VpnGateway("vpnGw", {}, { provider: accepter });
+ * const vpnGw = new aws.ec2.VpnGateway("vpn_gw", {}, { provider: accepter });
  * // Creator's side of the VIF
  * const creator = new aws.directconnect.HostedPrivateVirtualInterface("creator", {
  *     addressFamily: "ipv4",

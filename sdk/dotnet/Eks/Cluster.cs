@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+        /// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -345,7 +345,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+        /// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

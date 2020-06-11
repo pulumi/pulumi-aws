@@ -11,6 +11,41 @@ import (
 )
 
 // Provides a CloudWatch Logs destination policy resource.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testDestination, err := cloudwatch.NewLogDestination(ctx, "testDestination", &cloudwatch.LogDestinationArgs{
+// 			RoleArn:   pulumi.String(aws_iam_role.Iam_for_cloudwatch.Arn),
+// 			TargetArn: pulumi.String(aws_kinesis_stream.Kinesis_for_cloudwatch.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testDestinationPolicyLogDestinationPolicy, err := cloudwatch.NewLogDestinationPolicy(ctx, "testDestinationPolicyLogDestinationPolicy", &cloudwatch.LogDestinationPolicyArgs{
+// 			AccessPolicy: testDestinationPolicyPolicyDocument.ApplyT(func(testDestinationPolicyPolicyDocument iam.LookupPolicyDocumentResult) (string, error) {
+// 				return testDestinationPolicyPolicyDocument.Json, nil
+// 			}).(pulumi.StringOutput),
+// 			DestinationName: testDestination.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LogDestinationPolicy struct {
 	pulumi.CustomResourceState
 

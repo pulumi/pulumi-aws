@@ -12,6 +12,47 @@ import (
 // This resource can prove useful when a module accepts a subnet id as
 // an input variable and needs to, for example, determine the id of the
 // VPC that the subnet belongs to.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		selected, err := ec2.LookupSubnet(ctx, &ec2.LookupSubnetArgs{
+// 			Id: subnetId,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		subnet, err := ec2.NewSecurityGroup(ctx, "subnet", &ec2.SecurityGroupArgs{
+// 			Ingress: ec2.SecurityGroupIngressArray{
+// 				&ec2.SecurityGroupIngressArgs{
+// 					CidrBlocks: pulumi.StringArray{
+// 						pulumi.String(selected.CidrBlock),
+// 					},
+// 					FromPort: pulumi.Int(80),
+// 					Protocol: pulumi.String("tcp"),
+// 					ToPort:   pulumi.Int(80),
+// 				},
+// 			},
+// 			VpcId: pulumi.String(selected.VpcId),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	var rv LookupSubnetResult
 	err := ctx.Invoke("aws:ec2/getSubnet:getSubnet", args, &rv, opts...)

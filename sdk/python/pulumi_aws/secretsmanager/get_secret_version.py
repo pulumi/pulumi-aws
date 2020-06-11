@@ -80,7 +80,7 @@ def get_secret_version(secret_id=None,version_id=None,version_stage=None,opts=No
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.secretsmanager.get_secret_version(secret_id=data["secretsmanager.Secret"]["example"]["id"])
+    example = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"])
     ```
 
     ### Retrieve Specific Secret Version
@@ -89,7 +89,7 @@ def get_secret_version(secret_id=None,version_id=None,version_stage=None,opts=No
     import pulumi
     import pulumi_aws as aws
 
-    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=data["secretsmanager.Secret"]["example"]["id"],
+    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"],
         version_stage="example")
     ```
 

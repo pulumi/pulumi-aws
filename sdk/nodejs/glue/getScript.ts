@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *                     value: `"${aws_glue_catalog_database_sourceName}"`,
  *                 },
  *                 {
- *                     name: "tableName",
+ *                     name: "table_name",
  *                     value: `"${aws_glue_catalog_table_sourceName}"`,
  *                 },
  *             ],
@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  *                     value: `"${aws_glue_catalog_database_destinationName}"`,
  *                 },
  *                 {
- *                     name: "tableName",
+ *                     name: "table_name",
  *                     value: `"${aws_glue_catalog_table_destinationName}"`,
  *                 },
  *             ],
@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *                     value: `"${aws_glue_catalog_database_destinationName1}"`,
  *                 },
  *                 {
- *                     name: "tableName",
+ *                     name: "table_name",
  *                     value: `"${aws_glue_catalog_table_destinationName1}"`,
  *                 },
  *             ],
@@ -139,7 +139,7 @@ import * as utilities from "../utilities";
  *                     value: `"${aws_glue_catalog_database_sourceName}"`,
  *                 },
  *                 {
- *                     name: "tableName",
+ *                     name: "table_name",
  *                     value: `"${aws_glue_catalog_table_sourceName}"`,
  *                 },
  *             ],
@@ -173,7 +173,7 @@ import * as utilities from "../utilities";
  *                     value: `"${aws_glue_catalog_database_destinationName}"`,
  *                 },
  *                 {
- *                     name: "tableName",
+ *                     name: "table_name",
  *                     value: `"${aws_glue_catalog_table_destinationName}"`,
  *                 },
  *             ],
@@ -187,7 +187,7 @@ import * as utilities from "../utilities";
  *                     value: `"${aws_glue_catalog_database_destinationName1}"`,
  *                 },
  *                 {
- *                     name: "tableName",
+ *                     name: "table_name",
  *                     value: `"${aws_glue_catalog_table_destinationName1}"`,
  *                 },
  *             ],

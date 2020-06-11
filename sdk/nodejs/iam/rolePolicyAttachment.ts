@@ -52,7 +52,7 @@ import {Role} from "./index";
  * }
  * `,
  * });
- * const testAttach = new aws.iam.RolePolicyAttachment("test-attach", {
+ * const test_attach = new aws.iam.RolePolicyAttachment("test-attach", {
  *     policyArn: policy.arn,
  *     role: role.name,
  * });

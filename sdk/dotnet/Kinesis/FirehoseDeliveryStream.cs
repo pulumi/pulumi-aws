@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Kinesis
     ///                                 new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
     ///                                 {
     ///                                     ParameterName = "LambdaArn",
-    ///                                     ParameterValue = lambdaProcessor.Arn.Apply(arn =&gt; $"{arn}:$$LATEST"),
+    ///                                     ParameterValue = lambdaProcessor.Arn.Apply(arn =&gt; $"{arn}:$LATEST"),
     ///                                 },
     ///                             },
     ///                             Type = "Lambda",
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Kinesis
     ///                                 new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs
     ///                                 {
     ///                                     ParameterName = "LambdaArn",
-    ///                                     ParameterValue = $"{aws_lambda_function.Lambda_processor.Arn}:$$LATEST",
+    ///                                     ParameterValue = $"{aws_lambda_function.Lambda_processor.Arn}:$LATEST",
     ///                                 },
     ///                             },
     ///                             Type = "Lambda",

@@ -18,7 +18,7 @@ import {Bucket} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const object = new aws.s3.BucketObject("object", {
- *     bucket: "yourBucketName",
+ *     bucket: "your_bucket_name",
  *     // The filemd5() function is available in this provider 0.11.12 and later
  *     // For this provider 0.11.11 and earlier, use the md5() function and the file() function:
  *     // etag = "${md5(file("path/to/file"))}"
@@ -26,7 +26,7 @@ import {Bucket} from "./index";
  *         throw "tf2pulumi error: NYI: call to filemd5";
  *         return (() => { throw "NYI: call to filemd5"; })();
  *     })(),
- *     key: "newObjectKey",
+ *     key: "new_object_key",
  *     source: new pulumi.asset.FileAsset("path/to/file"),
  * });
  * ```
@@ -44,7 +44,7 @@ import {Bucket} from "./index";
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
  * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
+ * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
  *     bucket: examplebucket.id,
  *     key: "someobject",
  *     kmsKeyId: examplekms.arn,
@@ -61,7 +61,7 @@ import {Bucket} from "./index";
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
  * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
+ * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
  *     bucket: examplebucket.id,
  *     key: "someobject",
  *     serverSideEncryption: "aws:kms",
@@ -78,7 +78,7 @@ import {Bucket} from "./index";
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
  * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
+ * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
  *     bucket: examplebucket.id,
  *     key: "someobject",
  *     serverSideEncryption: "AES256",
@@ -101,7 +101,7 @@ import {Bucket} from "./index";
  *         enabled: true,
  *     },
  * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
+ * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
  *     bucket: examplebucket.id,
  *     forceDestroy: true,
  *     key: "someobject",

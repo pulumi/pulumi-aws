@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * // Declare the data source
  * const rules = pulumi.output(aws.inspector.getRulesPackages({ async: true }));
- * // e.g. Use in aws.inspector.AssessmentTemplate
+ * // e.g. Use in aws_inspector_assessment_template
  * const group = new aws.inspector.ResourceGroup("group", {
  *     tags: {
  *         test: "test",

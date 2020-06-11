@@ -11,6 +11,108 @@ import (
 )
 
 // Provides a Route53 health check.
+//
+// ## Example Usage
+//
+// ### Connectivity and HTTP Status Code Check
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := route53.NewHealthCheck(ctx, "example", &route53.HealthCheckArgs{
+// 			FailureThreshold: pulumi.Int(5),
+// 			Fqdn:             pulumi.String("example.com"),
+// 			Port:             pulumi.Int(80),
+// 			RequestInterval:  pulumi.Int(30),
+// 			ResourcePath:     pulumi.String("/"),
+// 			Tags: map[string]interface{}{
+// 				"Name": "tf-test-health-check",
+// 			},
+// 			Type: pulumi.String("HTTP"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Connectivity and String Matching Check
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := route53.NewHealthCheck(ctx, "example", &route53.HealthCheckArgs{
+// 			FailureThreshold: pulumi.Int(5),
+// 			Fqdn:             pulumi.String("example.com"),
+// 			Port:             pulumi.Int(443),
+// 			RequestInterval:  pulumi.Int(30),
+// 			ResourcePath:     pulumi.String("/"),
+// 			SearchString:     pulumi.String("example"),
+// 			Type:             pulumi.String("HTTPS_STR_MATCH"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### CloudWatch Alarm Check
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		foobar, err := cloudwatch.NewMetricAlarm(ctx, "foobar", &cloudwatch.MetricAlarmArgs{
+// 			AlarmDescription:   pulumi.String("This metric monitors ec2 cpu utilization"),
+// 			ComparisonOperator: pulumi.String("GreaterThanOrEqualToThreshold"),
+// 			EvaluationPeriods:  pulumi.Int(2),
+// 			MetricName:         pulumi.String("CPUUtilization"),
+// 			Namespace:          pulumi.String("AWS/EC2"),
+// 			Period:             pulumi.Int(120),
+// 			Statistic:          pulumi.String("Average"),
+// 			Threshold:          pulumi.Float64(80),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		foo, err := route53.NewHealthCheck(ctx, "foo", &route53.HealthCheckArgs{
+// 			CloudwatchAlarmName:          foobar.Name,
+// 			CloudwatchAlarmRegion:        pulumi.String("us-west-2"),
+// 			InsufficientDataHealthStatus: pulumi.String("Healthy"),
+// 			Type:                         pulumi.String("CLOUDWATCH_METRIC"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type HealthCheck struct {
 	pulumi.CustomResourceState
 

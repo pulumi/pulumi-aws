@@ -12,6 +12,41 @@ import (
 
 // Provides a Direct Connect transit virtual interface resource.
 // A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit gateways.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/directconnect"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
+// 			AmazonSideAsn: pulumi.String("64512"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleTransitVirtualInterface, err := directconnect.NewTransitVirtualInterface(ctx, "exampleTransitVirtualInterface", &directconnect.TransitVirtualInterfaceArgs{
+// 			AddressFamily: pulumi.String("ipv4"),
+// 			BgpAsn:        pulumi.Int(65352),
+// 			ConnectionId:  pulumi.String(aws_dx_connection.Example.Id),
+// 			DxGatewayId:   exampleGateway.ID(),
+// 			Vlan:          pulumi.Int(4094),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type TransitVirtualInterface struct {
 	pulumi.CustomResourceState
 

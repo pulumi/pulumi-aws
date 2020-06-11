@@ -23,6 +23,53 @@ import (
 //
 // Basic usage:
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.0.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		bar, err := ec2.NewVpc(ctx, "bar", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.1.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "fooVpcPeeringConnection", &ec2.VpcPeeringConnectionArgs{
+// 			AutoAccept: pulumi.Bool(true),
+// 			PeerVpcId:  bar.ID(),
+// 			VpcId:      fooVpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooPeeringConnectionOptions, err := ec2.NewPeeringConnectionOptions(ctx, "fooPeeringConnectionOptions", &ec2.PeeringConnectionOptionsArgs{
+// 			Accepter: &ec2.PeeringConnectionOptionsAccepterArgs{
+// 				AllowRemoteVpcDnsResolution: pulumi.Bool(true),
+// 			},
+// 			Requester: &ec2.PeeringConnectionOptionsRequesterArgs{
+// 				AllowClassicLinkToRemoteVpc: pulumi.Bool(true),
+// 				AllowVpcToRemoteClassicLink: pulumi.Bool(true),
+// 			},
+// 			VpcPeeringConnectionId: fooVpcPeeringConnection.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // Basic cross-account usage:
 type PeeringConnectionOptions struct {

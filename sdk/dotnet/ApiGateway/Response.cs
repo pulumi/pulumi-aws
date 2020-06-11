@@ -35,7 +35,7 @@ namespace Pulumi.Aws.ApiGateway
     ///             },
     ///             ResponseTemplates = 
     ///             {
-    ///                 { "application/json", "{'message':$$context.error.messageString}" },
+    ///                 { "application/json", "{'message':$context.error.messageString}" },
     ///             },
     ///             ResponseType = "UNAUTHORIZED",
     ///             RestApiId = main.Id,

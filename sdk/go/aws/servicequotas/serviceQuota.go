@@ -11,6 +11,33 @@ import (
 )
 
 // Manages an individual Service Quota.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/servicequotas"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := servicequotas.NewServiceQuota(ctx, "example", &servicequotas.ServiceQuotaArgs{
+// 			QuotaCode:   pulumi.String("L-F678F1CE"),
+// 			ServiceCode: pulumi.String("vpc"),
+// 			Value:       pulumi.Float64(75),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ServiceQuota struct {
 	pulumi.CustomResourceState
 

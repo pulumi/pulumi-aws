@@ -14,6 +14,61 @@ import (
 //
 // > **Note:** You must specify either `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
 //
+// ## Example Usage
+//
+// ### Mixed Instances Policy
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
+// 			ImageId:      pulumi.String(data.Aws_ami.Example.Id),
+// 			InstanceType: pulumi.String("c5.large"),
+// 			NamePrefix:   pulumi.String("example"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleGroup, err := autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-east-1a"),
+// 			},
+// 			DesiredCapacity: pulumi.Int(1),
+// 			MaxSize:         pulumi.Int(1),
+// 			MinSize:         pulumi.Int(1),
+// 			MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
+// 				LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
+// 					LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
+// 						LaunchTemplateId: exampleLaunchTemplate.ID(),
+// 					},
+// 					Override: []map[string]interface{}{
+// 						map[string]interface{}{
+// 							"instanceType":     "c4.large",
+// 							"weightedCapacity": "3",
+// 						},
+// 						map[string]interface{}{
+// 							"instanceType":     "c3.large",
+// 							"weightedCapacity": "2",
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Waiting for Capacity
 //

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.GameLift.Inputs
         public Input<int>? GameSessionActivationTimeoutSeconds { get; set; }
 
         /// <summary>
-        /// Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously. 
+        /// Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
         /// </summary>
         [Input("maxConcurrentGameSessionActivations")]
         public Input<int>? MaxConcurrentGameSessionActivations { get; set; }

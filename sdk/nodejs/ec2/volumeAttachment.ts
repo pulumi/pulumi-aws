@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     availabilityZone: "us-west-2a",
  *     size: 1,
  * });
- * const ebsAtt = new aws.ec2.VolumeAttachment("ebsAtt", {
+ * const ebsAtt = new aws.ec2.VolumeAttachment("ebs_att", {
  *     deviceName: "/dev/sdh",
  *     instanceId: web.id,
  *     volumeId: example.id,

@@ -10,6 +10,77 @@ import (
 )
 
 // Provides a CodeDeploy application to be used as a basis for deployments
+//
+// ## Example Usage
+//
+// ### ECS Application
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/codedeploy"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
+// 			ComputePlatform: pulumi.String("ECS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Lambda Application
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/codedeploy"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
+// 			ComputePlatform: pulumi.String("Lambda"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Server Application
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/codedeploy"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := codedeploy.NewApplication(ctx, "example", &codedeploy.ApplicationArgs{
+// 			ComputePlatform: pulumi.String("Server"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Application struct {
 	pulumi.CustomResourceState
 

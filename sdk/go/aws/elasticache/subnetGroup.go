@@ -15,6 +15,54 @@ import (
 // > **NOTE:** ElastiCache Subnet Groups are only for use when working with an
 // ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
 // ElastiCache Security Group resource.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.0.0.0/16"),
+// 			Tags: map[string]interface{}{
+// 				"Name": "tf-test",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
+// 			AvailabilityZone: pulumi.String("us-west-2a"),
+// 			CidrBlock:        pulumi.String("10.0.0.0/24"),
+// 			Tags: map[string]interface{}{
+// 				"Name": "tf-test",
+// 			},
+// 			VpcId: fooVpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		bar, err := elasticache.NewSubnetGroup(ctx, "bar", &elasticache.SubnetGroupArgs{
+// 			SubnetIds: pulumi.StringArray{
+// 				fooSubnet.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 

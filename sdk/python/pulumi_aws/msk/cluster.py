@@ -78,17 +78,17 @@ class Cluster(pulumi.CustomResource):
 
       * `brokerLogs` (`dict`) - Configuration block for Broker Logs settings for logging info. See below.
         * `cloudwatchLogs` (`dict`)
-          * `enabled` (`bool`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+          * `enabled` (`bool`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
           * `log_group` (`str`) - Name of the Cloudwatch Log Group to deliver logs to.
 
         * `firehose` (`dict`)
           * `deliveryStream` (`str`) - Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-          * `enabled` (`bool`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+          * `enabled` (`bool`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
 
         * `s3` (`dict`)
-          * `bucket` (`str`) - Name of the S3 bucket to deliver logs to. 
-          * `enabled` (`bool`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
-          * `prefix` (`str`) - Prefix to append to the folder name. 
+          * `bucket` (`str`) - Name of the S3 bucket to deliver logs to.
+          * `enabled` (`bool`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+          * `prefix` (`str`) - Prefix to append to the folder name.
     """
     number_of_broker_nodes: pulumi.Output[float]
     """
@@ -100,10 +100,10 @@ class Cluster(pulumi.CustomResource):
 
       * `prometheus` (`dict`) - Configuration block for Prometheus settings for open monitoring. See below.
         * `jmxExporter` (`dict`) - Configuration block for JMX Exporter. See below.
-          * `enabledInBroker` (`bool`) - Indicates whether you want to enable or disable the JMX Exporter. 
+          * `enabledInBroker` (`bool`) - Indicates whether you want to enable or disable the JMX Exporter.
 
         * `nodeExporter` (`dict`) - Configuration block for Node Exporter. See below.
-          * `enabledInBroker` (`bool`) - Indicates whether you want to enable or disable the JMX Exporter. 
+          * `enabledInBroker` (`bool`) - Indicates whether you want to enable or disable the JMX Exporter.
     """
     tags: pulumi.Output[dict]
     """
@@ -262,26 +262,26 @@ class Cluster(pulumi.CustomResource):
 
           * `brokerLogs` (`pulumi.Input[dict]`) - Configuration block for Broker Logs settings for logging info. See below.
             * `cloudwatchLogs` (`pulumi.Input[dict]`)
-              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
               * `log_group` (`pulumi.Input[str]`) - Name of the Cloudwatch Log Group to deliver logs to.
 
             * `firehose` (`pulumi.Input[dict]`)
               * `deliveryStream` (`pulumi.Input[str]`) - Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
 
             * `s3` (`pulumi.Input[dict]`)
-              * `bucket` (`pulumi.Input[str]`) - Name of the S3 bucket to deliver logs to. 
-              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
-              * `prefix` (`pulumi.Input[str]`) - Prefix to append to the folder name. 
+              * `bucket` (`pulumi.Input[str]`) - Name of the S3 bucket to deliver logs to.
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+              * `prefix` (`pulumi.Input[str]`) - Prefix to append to the folder name.
 
         The **open_monitoring** object supports the following:
 
           * `prometheus` (`pulumi.Input[dict]`) - Configuration block for Prometheus settings for open monitoring. See below.
             * `jmxExporter` (`pulumi.Input[dict]`) - Configuration block for JMX Exporter. See below.
-              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter. 
+              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter.
 
             * `nodeExporter` (`pulumi.Input[dict]`) - Configuration block for Node Exporter. See below.
-              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter. 
+              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -386,26 +386,26 @@ class Cluster(pulumi.CustomResource):
 
           * `brokerLogs` (`pulumi.Input[dict]`) - Configuration block for Broker Logs settings for logging info. See below.
             * `cloudwatchLogs` (`pulumi.Input[dict]`)
-              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
               * `log_group` (`pulumi.Input[str]`) - Name of the Cloudwatch Log Group to deliver logs to.
 
             * `firehose` (`pulumi.Input[dict]`)
               * `deliveryStream` (`pulumi.Input[str]`) - Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
 
             * `s3` (`pulumi.Input[dict]`)
-              * `bucket` (`pulumi.Input[str]`) - Name of the S3 bucket to deliver logs to. 
-              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
-              * `prefix` (`pulumi.Input[str]`) - Prefix to append to the folder name. 
+              * `bucket` (`pulumi.Input[str]`) - Name of the S3 bucket to deliver logs to.
+              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+              * `prefix` (`pulumi.Input[str]`) - Prefix to append to the folder name.
 
         The **open_monitoring** object supports the following:
 
           * `prometheus` (`pulumi.Input[dict]`) - Configuration block for Prometheus settings for open monitoring. See below.
             * `jmxExporter` (`pulumi.Input[dict]`) - Configuration block for JMX Exporter. See below.
-              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter. 
+              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter.
 
             * `nodeExporter` (`pulumi.Input[dict]`) - Configuration block for Node Exporter. See below.
-              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter. 
+              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

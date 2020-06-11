@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Eks.Outputs
     public sealed class GetClusterVpcConfigResult
     {
         /// <summary>
-        /// The cluster security group that was created by Amazon EKS for the cluster. 
+        /// The cluster security group that was created by Amazon EKS for the cluster.
         /// </summary>
         public readonly string ClusterSecurityGroupId;
         /// <summary>

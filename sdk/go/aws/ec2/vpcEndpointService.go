@@ -18,6 +18,63 @@ import (
 // and a VPC Endpoint Service resource with an `allowedPrincipals` attribute. Do not use the same principal ARN in both
 // a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
 // and will overwrite the association.
+//
+// ## Example Usage
+//
+// ### Basic
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
+// 			AcceptanceRequired: pulumi.Bool(false),
+// 			NetworkLoadBalancerArns: pulumi.StringArray{
+// 				pulumi.String(aws_lb.Example.Arn),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Basic w/ Tags
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
+// 			AcceptanceRequired: pulumi.Bool(false),
+// 			NetworkLoadBalancerArns: pulumi.StringArray{
+// 				pulumi.String(aws_lb.Example.Arn),
+// 			},
+// 			Tags: map[string]interface{}{
+// 				"Environment": "test",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VpcEndpointService struct {
 	pulumi.CustomResourceState
 

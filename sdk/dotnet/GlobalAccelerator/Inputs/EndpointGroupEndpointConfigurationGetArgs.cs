@@ -19,7 +19,7 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
         public Input<string>? EndpointId { get; set; }
 
         /// <summary>
-        /// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
+        /// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         /// </summary>
         [Input("weight")]
         public Input<int>? Weight { get; set; }

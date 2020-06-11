@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     name: "example.com.",
  *     privateZone: false,
  * }, { async: true }));
- * const certValidation = new aws.route53.Record("certValidation", {
+ * const certValidation = new aws.route53.Record("cert_validation", {
  *     name: certCertificate.domainValidationOptions[0].resourceRecordName,
  *     records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
  *     ttl: 60,
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     certificateArn: certCertificate.arn,
  *     validationRecordFqdns: [certValidation.fqdn],
  * });
- * const frontEnd = new aws.lb.Listener("frontEnd", {
+ * const frontEnd = new aws.lb.Listener("front_end", {
  *     // [...]
  *     certificateArn: certCertificateValidation.certificateArn,
  * });
@@ -70,21 +70,21 @@ import * as utilities from "../utilities";
  *     name: "example.org.",
  *     privateZone: false,
  * }, { async: true }));
- * const certValidation = new aws.route53.Record("certValidation", {
+ * const certValidation = new aws.route53.Record("cert_validation", {
  *     name: certCertificate.domainValidationOptions[0].resourceRecordName,
  *     records: [certCertificate.domainValidationOptions[0].resourceRecordValue],
  *     ttl: 60,
  *     type: certCertificate.domainValidationOptions[0].resourceRecordType,
  *     zoneId: zone.zoneId!,
  * });
- * const certValidationAlt1 = new aws.route53.Record("certValidationAlt1", {
+ * const certValidationAlt1 = new aws.route53.Record("cert_validation_alt1", {
  *     name: certCertificate.domainValidationOptions[1].resourceRecordName,
  *     records: [certCertificate.domainValidationOptions[1].resourceRecordValue],
  *     ttl: 60,
  *     type: certCertificate.domainValidationOptions[1].resourceRecordType,
  *     zoneId: zone.zoneId!,
  * });
- * const certValidationAlt2 = new aws.route53.Record("certValidationAlt2", {
+ * const certValidationAlt2 = new aws.route53.Record("cert_validation_alt2", {
  *     name: certCertificate.domainValidationOptions[2].resourceRecordName,
  *     records: [certCertificate.domainValidationOptions[2].resourceRecordValue],
  *     ttl: 60,
@@ -99,7 +99,7 @@ import * as utilities from "../utilities";
  *         certValidationAlt2.fqdn,
  *     ],
  * });
- * const frontEnd = new aws.lb.Listener("frontEnd", {
+ * const frontEnd = new aws.lb.Listener("front_end", {
  *     // [...]
  *     certificateArn: certCertificateValidation.certificateArn,
  * });

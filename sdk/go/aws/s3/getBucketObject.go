@@ -11,6 +11,40 @@ import (
 // _optionally_ (see below) content of an object stored inside S3 bucket.
 //
 // > **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		bootstrapScript, err := s3.LookupBucketObject(ctx, &s3.LookupBucketObjectArgs{
+// 			Bucket: "ourcorp-deploy-config",
+// 			Key:    "ec2-bootstrap-script.sh",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		example, err := ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
+// 			Ami:          pulumi.String("ami-2757f631"),
+// 			InstanceType: pulumi.String("t2.micro"),
+// 			UserData:     pulumi.String(bootstrapScript.Body),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupBucketObject(ctx *pulumi.Context, args *LookupBucketObjectArgs, opts ...pulumi.InvokeOption) (*LookupBucketObjectResult, error) {
 	var rv LookupBucketObjectResult
 	err := ctx.Invoke("aws:s3/getBucketObject:getBucketObject", args, &rv, opts...)

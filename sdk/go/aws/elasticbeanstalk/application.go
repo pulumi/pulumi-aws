@@ -15,6 +15,36 @@ import (
 //
 // This resource creates an application that has one configuration template named
 // `default`, and no application versions
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/elasticbeanstalk"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+// 			AppversionLifecycle: &elasticbeanstalk.ApplicationAppversionLifecycleArgs{
+// 				DeleteSourceFromS3: pulumi.Bool(true),
+// 				MaxCount:           pulumi.Int(128),
+// 				ServiceRole:        pulumi.String(aws_iam_role.Beanstalk_service.Arn),
+// 			},
+// 			Description: pulumi.String("tf-test-desc"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Application struct {
 	pulumi.CustomResourceState
 

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 import {Topic} from "./index";
 
 /**
- *   Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to.
+ * Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to.
  * This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests
  * to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case will
  * probably be SQS queues.
@@ -28,7 +28,7 @@ import {Topic} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("userUpdatesSqsTarget", {
+ * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("user_updates_sqs_target", {
  *     endpoint: "arn:aws:sqs:us-west-2:432981146916:queue-too",
  *     protocol: "sqs",
  *     topic: "arn:aws:sns:us-west-2:432981146916:user-updates-topic",

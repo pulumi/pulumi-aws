@@ -970,7 +970,7 @@ export namespace apigateway {
          */
         cacheTtlInSeconds?: pulumi.Input<number>;
         /**
-         * Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+         * Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
          */
         cachingEnabled?: pulumi.Input<boolean>;
         /**
@@ -7504,7 +7504,7 @@ export namespace efs {
          */
         creationInfo?: pulumi.Input<inputs.efs.AccessPointRootDirectoryCreationInfo>;
         /**
-         * Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`. 
+         * Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creationInfo`.
          */
         path?: pulumi.Input<string>;
     }
@@ -9240,7 +9240,7 @@ export namespace gamelift {
          */
         gameSessionActivationTimeoutSeconds?: pulumi.Input<number>;
         /**
-         * Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously. 
+         * Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
          */
         maxConcurrentGameSessionActivations?: pulumi.Input<number>;
         /**
@@ -9322,7 +9322,7 @@ export namespace globalaccelerator {
          */
         endpointId?: pulumi.Input<string>;
         /**
-         * The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
+         * The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
          */
         weight?: pulumi.Input<number>;
     }
@@ -9476,7 +9476,7 @@ export namespace glue {
          */
         delimiter?: pulumi.Input<string>;
         /**
-         * Specifies whether to trim column values. 
+         * Specifies whether to trim column values.
          */
         disableValueTrimming?: pulumi.Input<boolean>;
         /**
@@ -10039,7 +10039,7 @@ export namespace iot {
          */
         inputName: pulumi.Input<string>;
         /**
-         * Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector. 
+         * Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
          */
         messageId?: pulumi.Input<string>;
         /**
@@ -10072,7 +10072,7 @@ export namespace iot {
 
     export interface TopicRuleRepublish {
         /**
-         * The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0. 
+         * The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
          */
         qos?: pulumi.Input<number>;
         /**
@@ -12128,7 +12128,7 @@ export namespace msk {
 
     export interface ClusterLoggingInfoBrokerLogsCloudwatchLogs {
         /**
-         * Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+         * Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -12143,22 +12143,22 @@ export namespace msk {
          */
         deliveryStream?: pulumi.Input<string>;
         /**
-         * Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+         * Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
          */
         enabled: pulumi.Input<boolean>;
     }
 
     export interface ClusterLoggingInfoBrokerLogsS3 {
         /**
-         * Name of the S3 bucket to deliver logs to. 
+         * Name of the S3 bucket to deliver logs to.
          */
         bucket?: pulumi.Input<string>;
         /**
-         * Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+         * Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
          */
         enabled: pulumi.Input<boolean>;
         /**
-         * Prefix to append to the folder name. 
+         * Prefix to append to the folder name.
          */
         prefix?: pulumi.Input<string>;
     }
@@ -12183,14 +12183,14 @@ export namespace msk {
 
     export interface ClusterOpenMonitoringPrometheusJmxExporter {
         /**
-         * Indicates whether you want to enable or disable the JMX Exporter. 
+         * Indicates whether you want to enable or disable the JMX Exporter.
          */
         enabledInBroker: pulumi.Input<boolean>;
     }
 
     export interface ClusterOpenMonitoringPrometheusNodeExporter {
         /**
-         * Indicates whether you want to enable or disable the JMX Exporter. 
+         * Indicates whether you want to enable or disable the JMX Exporter.
          */
         enabledInBroker: pulumi.Input<boolean>;
     }
@@ -12719,7 +12719,7 @@ export namespace pinpoint {
          */
         lambdaFunctionName?: pulumi.Input<string>;
         /**
-         * What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.  
+         * What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
          */
         mode?: pulumi.Input<string>;
         /**
@@ -12730,7 +12730,7 @@ export namespace pinpoint {
 
     export interface AppLimits {
         /**
-         * The maximum number of messages that the campaign can send daily. 
+         * The maximum number of messages that the campaign can send daily.
          */
         daily?: pulumi.Input<number>;
         /**
@@ -13015,7 +13015,7 @@ export namespace resourcegroups {
          */
         query: pulumi.Input<string>;
         /**
-         * The type of the resource query. Defaults to `TAG_FILTERS_1_0`. 
+         * The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
          */
         type?: pulumi.Input<string>;
     }
@@ -13221,7 +13221,7 @@ export namespace s3 {
 
     export interface BucketGrant {
         /**
-         * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+         * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
          */
         id?: pulumi.Input<string>;
         /**

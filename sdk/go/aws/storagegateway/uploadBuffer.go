@@ -13,6 +13,32 @@ import (
 // Manages an AWS Storage Gateway upload buffer.
 //
 // > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/storagegateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := storagegateway.NewUploadBuffer(ctx, "example", &storagegateway.UploadBufferArgs{
+// 			DiskId:     pulumi.String(data.Aws_storagegateway_local_disk.Example.Id),
+// 			GatewayArn: pulumi.String(aws_storagegateway_gateway.Example.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type UploadBuffer struct {
 	pulumi.CustomResourceState
 

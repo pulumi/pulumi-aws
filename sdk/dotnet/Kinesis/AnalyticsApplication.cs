@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Kinesis
     ///                     {
     ///                         new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordColumnArgs
     ///                         {
-    ///                             Mapping = "$$.test",
+    ///                             Mapping = "$.test",
     ///                             Name = "test",
     ///                             SqlType = "VARCHAR(8)",
     ///                         },
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Kinesis
     ///                         {
     ///                             Json = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs
     ///                             {
-    ///                                 RecordRowPath = "$$",
+    ///                                 RecordRowPath = "$",
     ///                             },
     ///                         },
     ///                     },

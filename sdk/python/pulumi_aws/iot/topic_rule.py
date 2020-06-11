@@ -174,7 +174,7 @@ class TopicRule(pulumi.CustomResource):
         The **iot_events** object supports the following:
 
           * `inputName` (`pulumi.Input[str]`) - The name of the AWS IoT Events input.
-          * `messageId` (`pulumi.Input[str]`) - Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector. 
+          * `messageId` (`pulumi.Input[str]`) - Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
 
         The **kinesis** object supports the following:
@@ -189,7 +189,7 @@ class TopicRule(pulumi.CustomResource):
 
         The **republish** object supports the following:
 
-          * `qos` (`pulumi.Input[float]`) - The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0. 
+          * `qos` (`pulumi.Input[float]`) - The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
           * `topic` (`pulumi.Input[str]`) - The name of the MQTT topic the message should be republished to.
 
@@ -343,7 +343,7 @@ class TopicRule(pulumi.CustomResource):
         The **iot_events** object supports the following:
 
           * `inputName` (`pulumi.Input[str]`) - The name of the AWS IoT Events input.
-          * `messageId` (`pulumi.Input[str]`) - Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector. 
+          * `messageId` (`pulumi.Input[str]`) - Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
 
         The **kinesis** object supports the following:
@@ -358,7 +358,7 @@ class TopicRule(pulumi.CustomResource):
 
         The **republish** object supports the following:
 
-          * `qos` (`pulumi.Input[float]`) - The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0. 
+          * `qos` (`pulumi.Input[float]`) - The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
           * `topic` (`pulumi.Input[str]`) - The name of the MQTT topic the message should be republished to.
 

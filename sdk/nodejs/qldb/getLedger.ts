@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = pulumi.output(aws.qldb.getLedger({
- *     name: "anExampleLedger",
+ *     name: "an_example_ledger",
  * }, { async: true }));
  * ```
  */
@@ -54,7 +54,7 @@ export interface GetLedgerResult {
      */
     readonly arn: string;
     /**
-     * Deletion protection on the QLDB Ledger instance. Set to `true` by default. 
+     * Deletion protection on the QLDB Ledger instance. Set to `true` by default.
      */
     readonly deletionProtection: boolean;
     /**

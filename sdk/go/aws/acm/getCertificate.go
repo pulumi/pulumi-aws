@@ -10,6 +10,33 @@ import (
 // Use this data source to get the ARN of a certificate in AWS Certificate
 // Manager (ACM), you can reference
 // it by domain without having to hard code the ARNs as input.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
+// 			Domain: "tf.example.com",
+// 			KeyTypes: []string{
+// 				"RSA_4096",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("aws:acm/getCertificate:getCertificate", args, &rv, opts...)

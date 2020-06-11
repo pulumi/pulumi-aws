@@ -13,6 +13,37 @@ import (
 // Manages an AWS DataSync EFS Location.
 //
 // > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/datasync"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := datasync.NewEfsLocation(ctx, "example", &datasync.EfsLocationArgs{
+// 			Ec2Config: &datasync.EfsLocationEc2ConfigArgs{
+// 				SecurityGroupArns: pulumi.StringArray{
+// 					pulumi.String(aws_security_group.Example.Arn),
+// 				},
+// 				SubnetArn: pulumi.String(aws_subnet.Example.Arn),
+// 			},
+// 			EfsFileSystemArn: pulumi.String(aws_efs_mount_target.Example.File_system_arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type EfsLocation struct {
 	pulumi.CustomResourceState
 

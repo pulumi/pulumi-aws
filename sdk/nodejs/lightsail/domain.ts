@@ -13,13 +13,15 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
  *
- * ## Example Usage, creating a new domain
+ * ## Example Usage
+ *
+ * ### Creating A New Domain
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const domainTest = new aws.lightsail.Domain("domainTest", {
+ * const domainTest = new aws.lightsail.Domain("domain_test", {
  *     domainName: "mydomain.com",
  * });
  * ```

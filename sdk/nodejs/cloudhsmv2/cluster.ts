@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const available = pulumi.output(aws.getAvailabilityZones({ async: true }));
- * const cloudhsmV2Vpc = new aws.ec2.Vpc("cloudhsmV2Vpc", {
+ * const cloudhsmV2Vpc = new aws.ec2.Vpc("cloudhsm_v2_vpc", {
  *     cidrBlock: "10.0.0.0/16",
  *     tags: {
  *         Name: "example-aws_cloudhsm_v2_cluster",
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *         vpcId: cloudhsmV2Vpc.id,
  *     }));
  * }
- * const cloudhsmV2Cluster = new aws.cloudhsmv2.Cluster("cloudhsmV2Cluster", {
+ * const cloudhsmV2Cluster = new aws.cloudhsmv2.Cluster("cloudhsm_v2_cluster", {
  *     hsmType: "hsm1.medium",
  *     subnetIds: cloudhsmV2Subnets.map(v => v.id),
  *     tags: {

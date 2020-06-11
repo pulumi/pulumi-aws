@@ -11,6 +11,39 @@ import (
 // exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
 //
 //  > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		subnetId, err := cloudformation.LookupExport(ctx, &cloudformation.LookupExportArgs{
+// 			Name: "mySubnetIdExportName",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		web, err := ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
+// 			Ami:          pulumi.String("ami-abb07bcb"),
+// 			InstanceType: pulumi.String("t1.micro"),
+// 			SubnetId:     pulumi.String(subnetId.Value),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetExport(ctx *pulumi.Context, args *GetExportArgs, opts ...pulumi.InvokeOption) (*GetExportResult, error) {
 	var rv GetExportResult
 	err := ctx.Invoke("aws:cloudformation/getExport:getExport", args, &rv, opts...)

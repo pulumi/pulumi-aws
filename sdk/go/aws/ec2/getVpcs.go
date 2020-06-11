@@ -10,6 +10,33 @@ import (
 // This resource can be useful for getting back a list of VPC Ids for a region.
 //
 // The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		fooVpcs, err := ec2.LookupVpcs(ctx, &ec2.LookupVpcsArgs{
+// 			Tags: map[string]interface{}{
+// 				"service": "production",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("foo", fooVpcs.Ids)
+// 		return nil
+// 	})
+// }
+// ```
 func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption) (*GetVpcsResult, error) {
 	var rv GetVpcsResult
 	err := ctx.Invoke("aws:ec2/getVpcs:getVpcs", args, &rv, opts...)

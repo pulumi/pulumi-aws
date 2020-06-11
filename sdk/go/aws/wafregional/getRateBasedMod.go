@@ -8,6 +8,30 @@ import (
 )
 
 // `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := wafregional.LookupRateBasedMod(ctx, &wafregional.LookupRateBasedModArgs{
+// 			Name: "tfWAFRegionalRateBasedRule",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetRateBasedMod(ctx *pulumi.Context, args *GetRateBasedModArgs, opts ...pulumi.InvokeOption) (*GetRateBasedModResult, error) {
 	var rv GetRateBasedModResult
 	err := ctx.Invoke("aws:wafregional/getRateBasedMod:getRateBasedMod", args, &rv, opts...)

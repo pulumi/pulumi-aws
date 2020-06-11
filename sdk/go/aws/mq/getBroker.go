@@ -8,6 +8,36 @@ import (
 )
 
 // Provides information about a MQ Broker.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		byId, err := mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
+// 			BrokerId: brokerId,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		byName, err := mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
+// 			BrokerName: brokerName,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupBroker(ctx *pulumi.Context, args *LookupBrokerArgs, opts ...pulumi.InvokeOption) (*LookupBrokerResult, error) {
 	var rv LookupBrokerResult
 	err := ctx.Invoke("aws:mq/getBroker:getBroker", args, &rv, opts...)

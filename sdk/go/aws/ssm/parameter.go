@@ -11,6 +11,32 @@ import (
 )
 
 // Provides an SSM Parameter resource.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		foo, err := ssm.NewParameter(ctx, "foo", &ssm.ParameterArgs{
+// 			Type:  pulumi.String("String"),
+// 			Value: pulumi.String("bar"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Parameter struct {
 	pulumi.CustomResourceState
 

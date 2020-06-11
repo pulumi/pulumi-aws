@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new GitLab Lightsail Instance
- * const gitlabTest = new aws.lightsail.Instance("gitlabTest", {
+ * const gitlabTest = new aws.lightsail.Instance("gitlab_test", {
  *     availabilityZone: "us-east-1b",
  *     blueprintId: "string",
  *     bundleId: "string",
- *     keyPairName: "someKeyName",
+ *     keyPairName: "some_key_name",
  *     tags: {
  *         foo: "bar",
  *     },

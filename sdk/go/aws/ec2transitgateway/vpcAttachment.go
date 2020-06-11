@@ -11,6 +11,35 @@ import (
 )
 
 // Manages an EC2 Transit Gateway VPC Attachment. For examples of custom route table association and propagation, see the EC2 Transit Gateway Networking Examples Guide.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2transitgateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ec2transitgateway.NewVpcAttachment(ctx, "example", &ec2transitgateway.VpcAttachmentArgs{
+// 			SubnetIds: pulumi.StringArray{
+// 				pulumi.String(aws_subnet.Example.Id),
+// 			},
+// 			TransitGatewayId: pulumi.String(aws_ec2_transit_gateway.Example.Id),
+// 			VpcId:            pulumi.String(aws_vpc.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VpcAttachment struct {
 	pulumi.CustomResourceState
 

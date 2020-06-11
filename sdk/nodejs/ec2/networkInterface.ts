@@ -79,7 +79,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly privateIps!: pulumi.Output<string[]>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
      */
     public readonly privateIpsCount!: pulumi.Output<number>;
     /**
@@ -179,7 +179,7 @@ export interface NetworkInterfaceState {
      */
     readonly privateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
      */
     readonly privateIpsCount?: pulumi.Input<number>;
     /**
@@ -218,7 +218,7 @@ export interface NetworkInterfaceArgs {
      */
     readonly privateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default. 
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
      */
     readonly privateIpsCount?: pulumi.Input<number>;
     /**

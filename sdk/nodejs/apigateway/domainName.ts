@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  *     }],
  *     name: exampleDomainName.domainName,
  *     type: "A",
- *     zoneId: aws_route53_zone_example.id, // See aws.route53.Zone for how to create this
+ *     zoneId: aws_route53_zone_example.id, // See aws_route53_zone for how to create this
  * });
  * ```
  *

@@ -20,18 +20,18 @@ import * as utilities from "../utilities";
  * const alternate = new aws.Provider("alternate", {
  *     profile: "profile1",
  * });
- * const senderShare = new aws.ram.ResourceShare("senderShare", {
+ * const senderShare = new aws.ram.ResourceShare("sender_share", {
  *     allowExternalPrincipals: true,
  *     tags: {
  *         Name: "tf-test-resource-share",
  *     },
  * }, { provider: alternate });
  * const receiver = pulumi.output(aws.getCallerIdentity({ async: true }));
- * const senderInvite = new aws.ram.PrincipalAssociation("senderInvite", {
+ * const senderInvite = new aws.ram.PrincipalAssociation("sender_invite", {
  *     principal: receiver.accountId,
  *     resourceShareArn: senderShare.arn,
  * }, { provider: alternate });
- * const receiverAccept = new aws.ram.ResourceShareAccepter("receiverAccept", {
+ * const receiverAccept = new aws.ram.ResourceShareAccepter("receiver_accept", {
  *     shareArn: senderInvite.resourceShareArn,
  * });
  * ```

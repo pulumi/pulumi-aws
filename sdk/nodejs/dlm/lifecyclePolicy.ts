@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dlmLifecycleRole = new aws.iam.Role("dlmLifecycleRole", {
+ * const dlmLifecycleRole = new aws.iam.Role("dlm_lifecycle_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const dlmLifecycle = new aws.iam.RolePolicy("dlmLifecycle", {
+ * const dlmLifecycle = new aws.iam.RolePolicy("dlm_lifecycle", {
  *     policy: `{
  *    "Version": "2012-10-17",
  *    "Statement": [

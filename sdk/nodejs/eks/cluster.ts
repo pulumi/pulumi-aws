@@ -161,7 +161,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+     * The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -279,7 +279,7 @@ export interface ClusterState {
      */
     readonly roleArn?: pulumi.Input<string>;
     /**
-     * The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`. 
+     * The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      */
     readonly status?: pulumi.Input<string>;
     /**

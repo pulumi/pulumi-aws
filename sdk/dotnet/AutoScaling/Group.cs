@@ -109,7 +109,7 @@ namespace Pulumi.Aws.AutoScaling
     ///             LaunchTemplate = new Aws.AutoScaling.Inputs.GroupLaunchTemplateArgs
     ///             {
     ///                 Id = foobar.Id,
-    ///                 Version = "$$Latest",
+    ///                 Version = "$Latest",
     ///             },
     ///             MaxSize = 1,
     ///             MinSize = 1,

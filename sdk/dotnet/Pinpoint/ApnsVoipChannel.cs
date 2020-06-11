@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string?> TeamId { get; private set; } = null!;
 
         /// <summary>
-        /// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+        /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
         /// </summary>
         [Output("tokenKey")]
         public Output<string?> TokenKey { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? TeamId { get; set; }
 
         /// <summary>
-        /// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+        /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
         /// </summary>
         [Input("tokenKey")]
         public Input<string>? TokenKey { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? TeamId { get; set; }
 
         /// <summary>
-        /// The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+        /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
         /// </summary>
         [Input("tokenKey")]
         public Input<string>? TokenKey { get; set; }

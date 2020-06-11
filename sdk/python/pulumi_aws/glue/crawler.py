@@ -12,7 +12,7 @@ from .. import utilities, tables
 class Crawler(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
-    The ARN of the crawler 
+    The ARN of the crawler
     """
     catalog_targets: pulumi.Output[list]
     classifiers: pulumi.Output[list]
@@ -253,7 +253,7 @@ class Crawler(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the crawler 
+        :param pulumi.Input[str] arn: The ARN of the crawler
         :param pulumi.Input[list] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information.
         :param pulumi.Input[str] database_name: Glue database where results are written.

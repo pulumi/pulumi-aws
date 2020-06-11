@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Pinpoint.Inputs
         public Input<string>? LambdaFunctionName { get; set; }
 
         /// <summary>
-        /// What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.  
+        /// What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }

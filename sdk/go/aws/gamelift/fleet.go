@@ -11,6 +11,41 @@ import (
 )
 
 // Provides a Gamelift Fleet resource.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/gamelift"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := gamelift.NewFleet(ctx, "example", &gamelift.FleetArgs{
+// 			BuildId:         pulumi.String(aws_gamelift_build.Example.Id),
+// 			Ec2InstanceType: pulumi.String("t2.micro"),
+// 			FleetType:       pulumi.String("ON_DEMAND"),
+// 			RuntimeConfiguration: &gamelift.FleetRuntimeConfigurationArgs{
+// 				ServerProcess: []map[string]interface{}{
+// 					map[string]interface{}{
+// 						"concurrentExecutions": 1,
+// 						"launchPath":           "C:\\game\\GomokuServer.exe",
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Fleet struct {
 	pulumi.CustomResourceState
 

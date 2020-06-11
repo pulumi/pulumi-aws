@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *         cidrBlocks: ["0.0.0.0/0"],
  *     }],
  *     tags: {
- *         Name: "allowTls",
+ *         Name: "allow_tls",
  *     },
  * });
  * ```
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
+ * const myEndpoint = new aws.ec2.VpcEndpoint("my_endpoint", {});
  * ```
  */
 export class SecurityGroup extends pulumi.CustomResource {

@@ -8,6 +8,31 @@ import (
 )
 
 // Retrieves the summary of a WAFv2 Regex Pattern Set.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := wafv2.LookupRegexPatternSet(ctx, &wafv2.LookupRegexPatternSetArgs{
+// 			Name:  "some-regex-pattern-set",
+// 			Scope: "REGIONAL",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupRegexPatternSet(ctx *pulumi.Context, args *LookupRegexPatternSetArgs, opts ...pulumi.InvokeOption) (*LookupRegexPatternSetResult, error) {
 	var rv LookupRegexPatternSetResult
 	err := ctx.Invoke("aws:wafv2/getRegexPatternSet:getRegexPatternSet", args, &rv, opts...)

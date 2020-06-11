@@ -23,14 +23,14 @@ class App(pulumi.CustomResource):
     The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
 
       * `lambdaFunctionName` (`str`) - Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
-      * `mode` (`str`) - What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.  
+      * `mode` (`str`) - What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
       * `webUrl` (`str`) - Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
     """
     limits: pulumi.Output[dict]
     """
     The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
 
-      * `daily` (`float`) - The maximum number of messages that the campaign can send daily. 
+      * `daily` (`float`) - The maximum number of messages that the campaign can send daily.
       * `maximumDuration` (`float`) - The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
       * `messages_per_second` (`float`) - The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
       * `total` (`float`) - The maximum total number of messages that the campaign can send.
@@ -89,12 +89,12 @@ class App(pulumi.CustomResource):
         The **campaign_hook** object supports the following:
 
           * `lambdaFunctionName` (`pulumi.Input[str]`) - Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
-          * `mode` (`pulumi.Input[str]`) - What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.  
+          * `mode` (`pulumi.Input[str]`) - What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
           * `webUrl` (`pulumi.Input[str]`) - Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
 
         The **limits** object supports the following:
 
-          * `daily` (`pulumi.Input[float]`) - The maximum number of messages that the campaign can send daily. 
+          * `daily` (`pulumi.Input[float]`) - The maximum number of messages that the campaign can send daily.
           * `maximumDuration` (`pulumi.Input[float]`) - The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
           * `messages_per_second` (`pulumi.Input[float]`) - The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
           * `total` (`pulumi.Input[float]`) - The maximum total number of messages that the campaign can send.
@@ -156,12 +156,12 @@ class App(pulumi.CustomResource):
         The **campaign_hook** object supports the following:
 
           * `lambdaFunctionName` (`pulumi.Input[str]`) - Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
-          * `mode` (`pulumi.Input[str]`) - What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.  
+          * `mode` (`pulumi.Input[str]`) - What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
           * `webUrl` (`pulumi.Input[str]`) - Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
 
         The **limits** object supports the following:
 
-          * `daily` (`pulumi.Input[float]`) - The maximum number of messages that the campaign can send daily. 
+          * `daily` (`pulumi.Input[float]`) - The maximum number of messages that the campaign can send daily.
           * `maximumDuration` (`pulumi.Input[float]`) - The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
           * `messages_per_second` (`pulumi.Input[float]`) - The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
           * `total` (`pulumi.Input[float]`) - The maximum total number of messages that the campaign can send.

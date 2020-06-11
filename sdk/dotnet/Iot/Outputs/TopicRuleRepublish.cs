@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Iot.Outputs
     public sealed class TopicRuleRepublish
     {
         /// <summary>
-        /// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0. 
+        /// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
         /// </summary>
         public readonly int? Qos;
         /// <summary>

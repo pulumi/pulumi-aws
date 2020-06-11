@@ -11,6 +11,89 @@ import (
 )
 
 // Provides an SSM Maintenance Window Target resource
+//
+// ## Instance Target Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		window, err := ssm.NewMaintenanceWindow(ctx, "window", &ssm.MaintenanceWindowArgs{
+// 			Cutoff:   pulumi.Int(1),
+// 			Duration: pulumi.Int(3),
+// 			Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		target1, err := ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
+// 			Description:  pulumi.String("This is a maintenance window target"),
+// 			ResourceType: pulumi.String("INSTANCE"),
+// 			Targets: ssm.MaintenanceWindowTargetTargetArray{
+// 				&ssm.MaintenanceWindowTargetTargetArgs{
+// 					Key: pulumi.String("tag:Name"),
+// 					Values: pulumi.StringArray{
+// 						pulumi.String("acceptance_test"),
+// 					},
+// 				},
+// 			},
+// 			WindowId: window.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Resource Group Target Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		window, err := ssm.NewMaintenanceWindow(ctx, "window", &ssm.MaintenanceWindowArgs{
+// 			Cutoff:   pulumi.Int(1),
+// 			Duration: pulumi.Int(3),
+// 			Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		target1, err := ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
+// 			Description:  pulumi.String("This is a maintenance window target"),
+// 			ResourceType: pulumi.String("RESOURCE_GROUP"),
+// 			Targets: ssm.MaintenanceWindowTargetTargetArray{
+// 				&ssm.MaintenanceWindowTargetTargetArgs{
+// 					Key: pulumi.String("resource-groups:ResourceTypeFilters"),
+// 					Values: pulumi.StringArray{
+// 						pulumi.String("AWS::EC2::INSTANCE"),
+// 						pulumi.String("AWS::EC2::VPC"),
+// 					},
+// 				},
+// 			},
+// 			WindowId: window.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type MaintenanceWindowTarget struct {
 	pulumi.CustomResourceState
 
