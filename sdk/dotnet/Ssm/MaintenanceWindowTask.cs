@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ssm
     ///             {
     ///                 AutomationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs
     ///                 {
-    ///                     DocumentVersion = "$$LATEST",
+    ///                     DocumentVersion = "$LATEST",
     ///                     Parameter = 
     ///                     {
     ///                         

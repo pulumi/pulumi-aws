@@ -8,6 +8,38 @@ import (
 )
 
 // Retrieve information about a Service Quota.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		byQuotaCode, err := servicequotas.LookupServiceQuota(ctx, &servicequotas.LookupServiceQuotaArgs{
+// 			QuotaCode:   "L-F678F1CE",
+// 			ServiceCode: "vpc",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		byQuotaName, err := servicequotas.LookupServiceQuota(ctx, &servicequotas.LookupServiceQuotaArgs{
+// 			QuotaName:   "VPCs per Region",
+// 			ServiceCode: "vpc",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupServiceQuota(ctx *pulumi.Context, args *LookupServiceQuotaArgs, opts ...pulumi.InvokeOption) (*LookupServiceQuotaResult, error) {
 	var rv LookupServiceQuotaResult
 	err := ctx.Invoke("aws:servicequotas/getServiceQuota:getServiceQuota", args, &rv, opts...)

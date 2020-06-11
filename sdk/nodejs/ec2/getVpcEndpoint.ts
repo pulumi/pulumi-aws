@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     serviceName: "com.amazonaws.us-west-2.s3",
  *     vpcId: id,
  * }, { async: true }));
- * const privateS3 = new aws.ec2.VpcEndpointRouteTableAssociation("privateS3", {
+ * const privateS3 = new aws.ec2.VpcEndpointRouteTableAssociation("private_s3", {
  *     routeTableId: aws_route_table_private.id,
  *     vpcEndpointId: s3.id!,
  * });

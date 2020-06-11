@@ -13,6 +13,86 @@ import (
 // Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the `elb.Attachment` resource.
 //
 // > **Note:** `alb.TargetGroupAttachment` is known as `lb.TargetGroupAttachment`. The functionality is identical.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testTargetGroup, err := lb.NewTargetGroup(ctx, "testTargetGroup", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testInstance, err := ec2.NewInstance(ctx, "testInstance", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testTargetGroupAttachment, err := lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
+// 			Port:           pulumi.Int(80),
+// 			TargetGroupArn: testTargetGroup.Arn,
+// 			TargetId:       testInstance.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Usage with lambda
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lambda"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testTargetGroup, err := lb.NewTargetGroup(ctx, "testTargetGroup", &lb.TargetGroupArgs{
+// 			TargetType: pulumi.String("lambda"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testFunction, err := lambda.NewFunction(ctx, "testFunction", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		withLb, err := lambda.NewPermission(ctx, "withLb", &lambda.PermissionArgs{
+// 			Action:    pulumi.String("lambda:InvokeFunction"),
+// 			Function:  testFunction.Arn,
+// 			Principal: pulumi.String("elasticloadbalancing.amazonaws.com"),
+// 			SourceArn: testTargetGroup.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testTargetGroupAttachment, err := lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
+// 			TargetGroupArn: testTargetGroup.Arn,
+// 			TargetId:       testFunction.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 

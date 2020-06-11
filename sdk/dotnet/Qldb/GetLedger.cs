@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Qldb
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Deletion protection on the QLDB Ledger instance. Set to `true` by default. 
+        /// Deletion protection on the QLDB Ledger instance. Set to `true` by default.
         /// </summary>
         public readonly bool DeletionProtection;
         /// <summary>

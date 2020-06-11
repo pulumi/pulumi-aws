@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = pulumi.output(aws.backup.getVault({
- *     name: "exampleBackupVault",
+ *     name: "example_backup_vault",
  * }, { async: true }));
  * ```
  */

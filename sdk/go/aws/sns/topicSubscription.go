@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-//   Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to.
+// Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to.
 // This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests
 // to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case will
 // probably be SQS queues.
@@ -22,6 +22,33 @@ import (
 // > **NOTE:** If SNS topic and SQS queue are in different AWS accounts but the same region it is important for the "sns.TopicSubscription" to use the AWS provider of the account with the SQS queue. If "sns.TopicSubscription" is using a Provider with a different account than the SQS queue, the provider creates the subscriptions but does not keep state and tries to re-create the subscription at every apply.
 //
 // > **NOTE:** If SNS topic and SQS queue are in different AWS accounts and different AWS regions it is important to recognize that the subscription needs to be initiated from the account with the SQS queue but in the region of the SNS topic.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/sns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		userUpdatesSqsTarget, err := sns.NewTopicSubscription(ctx, "userUpdatesSqsTarget", &sns.TopicSubscriptionArgs{
+// 			Endpoint: pulumi.String("arn:aws:sqs:us-west-2:432981146916:queue-too"),
+// 			Protocol: pulumi.String("sqs"),
+// 			Topic:    pulumi.String("arn:aws:sns:us-west-2:432981146916:user-updates-topic"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type TopicSubscription struct {
 	pulumi.CustomResourceState
 

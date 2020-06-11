@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Msk.Inputs
     public sealed class ClusterOpenMonitoringPrometheusJmxExporterGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether you want to enable or disable the JMX Exporter. 
+        /// Indicates whether you want to enable or disable the JMX Exporter.
         /// </summary>
         [Input("enabledInBroker", required: true)]
         public Input<bool> EnabledInBroker { get; set; } = null!;

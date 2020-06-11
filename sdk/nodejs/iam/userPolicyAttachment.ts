@@ -25,7 +25,7 @@ import {User} from "./index";
  *     description: "A test policy",
  *     policy: "", // insert policy here
  * });
- * const testAttach = new aws.iam.UserPolicyAttachment("test-attach", {
+ * const test_attach = new aws.iam.UserPolicyAttachment("test-attach", {
  *     policyArn: policy.arn,
  *     user: user.name,
  * });

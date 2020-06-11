@@ -15,6 +15,35 @@ import (
 // Associates an S3 resource with Amazon Macie for monitoring and data classification.
 //
 // > **NOTE:** Before using Amazon Macie for the first time it must be enabled manually. Instructions are [here](https://docs.aws.amazon.com/macie/latest/userguide/macie-setting-up.html#macie-setting-up-enable).
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/macie"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := macie.NewS3BucketAssociation(ctx, "example", &macie.S3BucketAssociationArgs{
+// 			BucketName: pulumi.String("tf-macie-example"),
+// 			ClassificationType: &macie.S3BucketAssociationClassificationTypeArgs{
+// 				OneTime: pulumi.String("FULL"),
+// 			},
+// 			Prefix: pulumi.String("data"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type S3BucketAssociation struct {
 	pulumi.CustomResourceState
 

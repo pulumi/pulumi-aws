@@ -8,6 +8,62 @@ import (
 )
 
 // `ram.ResourceShare` Retrieve information about a RAM Resource Share.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ram.LookupResourceShare(ctx, &ram.LookupResourceShareArgs{
+// 			Name:          "example",
+// 			ResourceOwner: "SELF",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Search by filters
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tagFilter, err := ram.LookupResourceShare(ctx, &ram.LookupResourceShareArgs{
+// 			Filters: ram.getResourceShareFilterArray{
+// 				&ram.LookupResourceShareFilter{
+// 					Name: "NameOfTag",
+// 					Values: []string{
+// 						"exampleNameTagValue",
+// 					},
+// 				},
+// 			},
+// 			Name:          "MyResourceName",
+// 			ResourceOwner: "SELF",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupResourceShare(ctx *pulumi.Context, args *LookupResourceShareArgs, opts ...pulumi.InvokeOption) (*LookupResourceShareResult, error) {
 	var rv LookupResourceShareResult
 	err := ctx.Invoke("aws:ram/getResourceShare:getResourceShare", args, &rv, opts...)

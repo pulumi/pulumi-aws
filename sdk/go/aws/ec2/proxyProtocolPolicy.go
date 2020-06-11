@@ -11,6 +11,58 @@ import (
 )
 
 // Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/elb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-east-1a"),
+// 			},
+// 			Listeners: elb.LoadBalancerListenerArray{
+// 				&elb.LoadBalancerListenerArgs{
+// 					InstancePort:     pulumi.Int(25),
+// 					InstanceProtocol: pulumi.String("tcp"),
+// 					LbPort:           pulumi.Int(25),
+// 					LbProtocol:       pulumi.String("tcp"),
+// 				},
+// 				&elb.LoadBalancerListenerArgs{
+// 					InstancePort:     pulumi.Int(587),
+// 					InstanceProtocol: pulumi.String("tcp"),
+// 					LbPort:           pulumi.Int(587),
+// 					LbProtocol:       pulumi.String("tcp"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		smtp, err := ec2.NewProxyProtocolPolicy(ctx, "smtp", &ec2.ProxyProtocolPolicyArgs{
+// 			InstancePorts: pulumi.StringArray{
+// 				pulumi.String("25"),
+// 				pulumi.String("587"),
+// 			},
+// 			LoadBalancer: lb.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ProxyProtocolPolicy struct {
 	pulumi.CustomResourceState
 

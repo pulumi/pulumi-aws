@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             Description = "a sample description",
     ///             FunctionName = testLambda.Name,
-    ///             FunctionVersion = "$$LATEST",
+    ///             FunctionVersion = "$LATEST",
     ///         });
     ///         var allowCloudwatch = new Aws.Lambda.Permission("allowCloudwatch", new Aws.Lambda.PermissionArgs
     ///         {

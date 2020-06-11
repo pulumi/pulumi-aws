@@ -18,7 +18,7 @@ namespace Pulumi.Aws.GameLift.Outputs
         /// </summary>
         public readonly int? GameSessionActivationTimeoutSeconds;
         /// <summary>
-        /// Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously. 
+        /// Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
         /// </summary>
         public readonly int? MaxConcurrentGameSessionActivations;
         /// <summary>

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sns
 {
     /// <summary>
-    ///   Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to.
+    /// Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to.
     /// This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests
     /// to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case will
     /// probably be SQS queues.

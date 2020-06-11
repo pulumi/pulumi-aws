@@ -56,7 +56,7 @@ namespace Pulumi.Aws.ApiGateway
     ///             RequestTemplates = 
     ///             {
     ///                 { "application/xml", @"{
-    ///    ""body"" : $$input.json('$$')
+    ///    ""body"" : $input.json('$')
     /// }
     /// 
     /// " },
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.ApiGateway
     ///             RequestTemplates = 
     ///             {
     ///                 { "application/json", "" },
-    ///                 { "application/xml", @"#set($$inputRoot = $$input.path('$$'))
+    ///                 { "application/xml", @"#set($inputRoot = $input.path('$'))
     /// { }
     /// " },
     ///             },

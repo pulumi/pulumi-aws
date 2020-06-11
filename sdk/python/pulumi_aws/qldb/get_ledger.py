@@ -24,7 +24,7 @@ class GetLedgerResult:
             raise TypeError("Expected argument 'deletion_protection' to be a bool")
         __self__.deletion_protection = deletion_protection
         """
-        Deletion protection on the QLDB Ledger instance. Set to `true` by default. 
+        Deletion protection on the QLDB Ledger instance. Set to `true` by default.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")

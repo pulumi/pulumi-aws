@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRole = new aws.iam.Role("testRole", {
+ * const testRole = new aws.iam.Role("test_role", {
  *     assumeRolePolicy: `  {
  *     "Version": "2012-10-17",
  *     "Statement": {
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *   }
  * `,
  * });
- * const testAttach = new aws.iam.RolePolicyAttachment("testAttach", {
+ * const testAttach = new aws.iam.RolePolicyAttachment("test_attach", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
  *     role: testRole.name,
  * });

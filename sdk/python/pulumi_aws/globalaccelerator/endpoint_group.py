@@ -15,7 +15,7 @@ class EndpointGroup(pulumi.CustomResource):
     The list of endpoint objects. Fields documented below.
 
       * `endpoint_id` (`str`) - An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-      * `weight` (`float`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
+      * `weight` (`float`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
     """
     endpoint_group_region: pulumi.Output[str]
     """
@@ -85,7 +85,7 @@ class EndpointGroup(pulumi.CustomResource):
         The **endpoint_configurations** object supports the following:
 
           * `endpoint_id` (`pulumi.Input[str]`) - An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-          * `weight` (`pulumi.Input[float]`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
+          * `weight` (`pulumi.Input[float]`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -143,7 +143,7 @@ class EndpointGroup(pulumi.CustomResource):
         The **endpoint_configurations** object supports the following:
 
           * `endpoint_id` (`pulumi.Input[str]`) - An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-          * `weight` (`pulumi.Input[float]`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. 
+          * `weight` (`pulumi.Input[float]`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

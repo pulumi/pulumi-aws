@@ -9,6 +9,46 @@ import (
 
 // The VPC Peering Connection data source provides details about
 // a specific VPC peering connection.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		pc, err := ec2.LookupVpcPeeringConnection(ctx, &ec2.LookupVpcPeeringConnectionArgs{
+// 			PeerCidrBlock: "10.0.1.0/22",
+// 			VpcId:         aws_vpc.Foo.Id,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		rt, err := ec2.NewRouteTable(ctx, "rt", &ec2.RouteTableArgs{
+// 			VpcId: pulumi.String(aws_vpc.Foo.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		route, err := ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
+// 			DestinationCidrBlock:   pulumi.String(pc.PeerCidrBlock),
+// 			RouteTableId:           rt.ID(),
+// 			VpcPeeringConnectionId: pulumi.String(pc.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupVpcPeeringConnection(ctx *pulumi.Context, args *LookupVpcPeeringConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpcPeeringConnectionResult, error) {
 	var rv LookupVpcPeeringConnectionResult
 	err := ctx.Invoke("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args, &rv, opts...)

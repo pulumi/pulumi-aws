@@ -8,6 +8,32 @@ import (
 )
 
 // Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		centos, err := ssm.LookupPatchBaseline(ctx, &ssm.LookupPatchBaselineArgs{
+// 			NamePrefix:      "AWS-",
+// 			OperatingSystem: "CENTOS",
+// 			Owner:           "AWS",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupPatchBaseline(ctx *pulumi.Context, args *LookupPatchBaselineArgs, opts ...pulumi.InvokeOption) (*LookupPatchBaselineResult, error) {
 	var rv LookupPatchBaselineResult
 	err := ctx.Invoke("aws:ssm/getPatchBaseline:getPatchBaseline", args, &rv, opts...)

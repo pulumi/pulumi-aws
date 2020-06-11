@@ -45,7 +45,7 @@ class AwaitableGetRegionsResult(GetRegionsResult):
 
 def get_regions(all_regions=None,filters=None,opts=None):
     """
-    Provides information about AWS Regions. Can be used to filter regions i.e. by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `.getRegion` data source.
+    Provides information about AWS Regions. Can be used to filter regions i.e. by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `getRegion` data source.
 
     ## Example Usage
 

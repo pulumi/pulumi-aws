@@ -102,7 +102,7 @@ namespace Pulumi.Aws.CodePipeline
     ///             {
     ///                 new Aws.CodePipeline.Inputs.WebhookFilterArgs
     ///                 {
-    ///                     JsonPath = "$$.ref",
+    ///                     JsonPath = "$.ref",
     ///                     MatchEquals = "refs/heads/{Branch}",
     ///                 },
     ///             },

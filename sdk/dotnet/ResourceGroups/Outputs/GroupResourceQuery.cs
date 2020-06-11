@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ResourceGroups.Outputs
         /// </summary>
         public readonly string Query;
         /// <summary>
-        /// The type of the resource query. Defaults to `TAG_FILTERS_1_0`. 
+        /// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
         /// </summary>
         public readonly string? Type;
 

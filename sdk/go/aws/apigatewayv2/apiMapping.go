@@ -12,6 +12,33 @@ import (
 
 // Manages an Amazon API Gateway Version 2 API mapping.
 // More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
+//
+// ## Example Usage
+//
+// ### Basic
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/apigatewayv2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := apigatewayv2.NewApiMapping(ctx, "example", &apigatewayv2.ApiMappingArgs{
+// 			ApiId:      pulumi.String(aws_apigatewayv2_api.Example.Id),
+// 			DomainName: pulumi.String(aws_apigatewayv2_domain_name.Example.Id),
+// 			Stage:      pulumi.String(aws_apigatewayv2_stage.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ApiMapping struct {
 	pulumi.CustomResourceState
 

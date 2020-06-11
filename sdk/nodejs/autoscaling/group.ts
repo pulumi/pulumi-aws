@@ -150,7 +150,7 @@ import {Metric, MetricsGranularity} from "./index";
  *     launchConfiguration: aws_launch_configuration_foobar.name,
  *     maxSize: 5,
  *     minSize: 2,
- *     tagsCollection: [{"key": "interpolation1", "value": "value3", "propagateAtLaunch": true}, {"key": "interpolation2", "value": "value4", "propagateAtLaunch": true}].concat(extraTags),
+ *     tagsCollection: [{"key": "interpolation1", "value": "value3", "propagate_at_launch": true}, {"key": "interpolation2", "value": "value4", "propagate_at_launch": true}].concat(extraTags),
  *     vpcZoneIdentifiers: [
  *         aws_subnet_example1.id,
  *         aws_subnet_example2.id,

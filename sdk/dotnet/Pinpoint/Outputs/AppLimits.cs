@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Pinpoint.Outputs
     public sealed class AppLimits
     {
         /// <summary>
-        /// The maximum number of messages that the campaign can send daily. 
+        /// The maximum number of messages that the campaign can send daily.
         /// </summary>
         public readonly int? Daily;
         /// <summary>

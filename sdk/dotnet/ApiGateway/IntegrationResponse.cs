@@ -64,10 +64,10 @@ namespace Pulumi.Aws.ApiGateway
     ///             ResourceId = myDemoResource.Id,
     ///             ResponseTemplates = 
     ///             {
-    ///                 { "application/xml", @"#set($$inputRoot = $$input.path('$$'))
+    ///                 { "application/xml", @"#set($inputRoot = $input.path('$'))
     /// &lt;?xml version=""1.0"" encoding=""UTF-8""?&gt;
     /// &lt;message&gt;
-    ///     $$inputRoot.body
+    ///     $inputRoot.body
     /// &lt;/message&gt;
     /// 
     /// " },

@@ -114,7 +114,7 @@ namespace Pulumi.Aws.ApiGateway
     ///             Type = "A",
     ///             ZoneId = aws_route53_zone.Example.Id,
     ///         });
-    ///         // See aws.route53.Zone for how to create this
+    ///         // See aws_route53_zone for how to create this
     ///     }
     /// 
     /// }

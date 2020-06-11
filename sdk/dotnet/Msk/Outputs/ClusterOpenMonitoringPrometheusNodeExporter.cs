@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ClusterOpenMonitoringPrometheusNodeExporter
     {
         /// <summary>
-        /// Indicates whether you want to enable or disable the JMX Exporter. 
+        /// Indicates whether you want to enable or disable the JMX Exporter.
         /// </summary>
         public readonly bool EnabledInBroker;
 

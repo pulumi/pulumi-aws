@@ -11,6 +11,91 @@ import (
 )
 
 // Provides a CloudWatch Metric Alarm resource.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		foobar, err := cloudwatch.NewMetricAlarm(ctx, "foobar", &cloudwatch.MetricAlarmArgs{
+// 			AlarmDescription:        pulumi.String("This metric monitors ec2 cpu utilization"),
+// 			ComparisonOperator:      pulumi.String("GreaterThanOrEqualToThreshold"),
+// 			EvaluationPeriods:       pulumi.Int(2),
+// 			InsufficientDataActions: []interface{}{},
+// 			MetricName:              pulumi.String("CPUUtilization"),
+// 			Namespace:               pulumi.String("AWS/EC2"),
+// 			Period:                  pulumi.Int(120),
+// 			Statistic:               pulumi.String("Average"),
+// 			Threshold:               pulumi.Float64(80),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Example in Conjunction with Scaling Policies
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		batPolicy, err := autoscaling.NewPolicy(ctx, "batPolicy", &autoscaling.PolicyArgs{
+// 			AdjustmentType:       pulumi.String("ChangeInCapacity"),
+// 			AutoscalingGroupName: pulumi.String(aws_autoscaling_group.Bar.Name),
+// 			Cooldown:             pulumi.Int(300),
+// 			ScalingAdjustment:    pulumi.Int(4),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		batMetricAlarm, err := cloudwatch.NewMetricAlarm(ctx, "batMetricAlarm", &cloudwatch.MetricAlarmArgs{
+// 			AlarmActions: pulumi.StringArray{
+// 				batPolicy.Arn,
+// 			},
+// 			AlarmDescription:   pulumi.String("This metric monitors ec2 cpu utilization"),
+// 			ComparisonOperator: pulumi.String("GreaterThanOrEqualToThreshold"),
+// 			Dimensions: map[string]interface{}{
+// 				"AutoScalingGroupName": aws_autoscaling_group.Bar.Name,
+// 			},
+// 			EvaluationPeriods: pulumi.Int(2),
+// 			MetricName:        pulumi.String("CPUUtilization"),
+// 			Namespace:         pulumi.String("AWS/EC2"),
+// 			Period:            pulumi.Int(120),
+// 			Statistic:         pulumi.String("Average"),
+// 			Threshold:         pulumi.Float64(80),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
+//
+//
+// > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
+// You must choose one or the other
 type MetricAlarm struct {
 	pulumi.CustomResourceState
 

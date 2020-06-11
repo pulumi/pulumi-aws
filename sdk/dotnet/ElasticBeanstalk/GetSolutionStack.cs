@@ -29,7 +29,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         ///         var multiDocker = Output.Create(Aws.ElasticBeanstalk.GetSolutionStack.InvokeAsync(new Aws.ElasticBeanstalk.GetSolutionStackArgs
         ///         {
         ///             MostRecent = true,
-        ///             NameRegex = "^64bit Amazon Linux (.*) Multi-container Docker (.*)$$",
+        ///             NameRegex = "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
         ///         }));
         ///     }
         /// 

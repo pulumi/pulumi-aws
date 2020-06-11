@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Msk.Inputs
     public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs. 
+        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

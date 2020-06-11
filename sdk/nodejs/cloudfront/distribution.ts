@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const s3OriginId = "myS3Origin";
- * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
+ * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
  *     aliases: [
  *         "mysite.example.com",
  *         "yoursite.example.com",

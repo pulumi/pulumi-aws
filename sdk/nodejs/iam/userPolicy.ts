@@ -20,7 +20,7 @@ import {PolicyDocument} from "./index";
  * const lbUser = new aws.iam.User("lb", {
  *     path: "/system/",
  * });
- * const lbRo = new aws.iam.UserPolicy("lbRo", {
+ * const lbRo = new aws.iam.UserPolicy("lb_ro", {
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [

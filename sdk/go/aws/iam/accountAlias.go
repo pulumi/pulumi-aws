@@ -13,6 +13,31 @@ import (
 // > **Note:** There is only a single account alias per AWS account.
 //
 // Manages the account alias for the AWS Account.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		alias, err := iam.NewAccountAlias(ctx, "alias", &iam.AccountAliasArgs{
+// 			AccountAlias: pulumi.String("my-account-alias"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type AccountAlias struct {
 	pulumi.CustomResourceState
 

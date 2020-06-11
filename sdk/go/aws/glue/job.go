@@ -13,6 +13,43 @@ import (
 // Provides a Glue Job resource.
 //
 // > Glue functionality, such as monitoring and logging of jobs, is typically managed with the `defaultArguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
+//
+// ## Example Usage
+//
+// ### Enabling CloudWatch Logs and Metrics
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
+// 			RetentionInDays: pulumi.Int(14),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleJob, err := glue.NewJob(ctx, "exampleJob", &glue.JobArgs{
+// 			DefaultArguments: map[string]interface{}{
+// 				"--continuous-log-logGroup":          exampleLogGroup.Name,
+// 				"--enable-continuous-cloudwatch-log": "true",
+// 				"--enable-continuous-log-filter":     "true",
+// 				"--enable-metrics":                   "",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Job struct {
 	pulumi.CustomResourceState
 

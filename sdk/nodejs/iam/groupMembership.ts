@@ -23,8 +23,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const group = new aws.iam.Group("group", {});
- * const userOne = new aws.iam.User("userOne", {});
- * const userTwo = new aws.iam.User("userTwo", {});
+ * const userOne = new aws.iam.User("user_one", {});
+ * const userTwo = new aws.iam.User("user_two", {});
  * const team = new aws.iam.GroupMembership("team", {
  *     group: group.name,
  *     users: [

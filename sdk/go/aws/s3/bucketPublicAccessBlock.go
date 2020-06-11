@@ -11,6 +11,37 @@ import (
 )
 
 // Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleBucketPublicAccessBlock, err := s3.NewBucketPublicAccessBlock(ctx, "exampleBucketPublicAccessBlock", &s3.BucketPublicAccessBlockArgs{
+// 			BlockPublicAcls:   pulumi.Bool(true),
+// 			BlockPublicPolicy: pulumi.Bool(true),
+// 			Bucket:            exampleBucket.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type BucketPublicAccessBlock struct {
 	pulumi.CustomResourceState
 

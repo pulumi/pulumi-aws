@@ -11,6 +11,104 @@ import (
 )
 
 // Provides a WAF Web ACL Resource
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/waf"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		ipset, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
+// 			IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
+// 				&waf.IpSetIpSetDescriptorArgs{
+// 					Type:  pulumi.String("IPV4"),
+// 					Value: pulumi.String("192.0.7.0/24"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		wafrule, err := waf.NewRule(ctx, "wafrule", &waf.RuleArgs{
+// 			MetricName: pulumi.String("tfWAFRule"),
+// 			Predicates: waf.RulePredicateArray{
+// 				&waf.RulePredicateArgs{
+// 					DataId:  ipset.ID(),
+// 					Negated: pulumi.Bool(false),
+// 					Type:    pulumi.String("IPMatch"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		wafAcl, err := waf.NewWebAcl(ctx, "wafAcl", &waf.WebAclArgs{
+// 			DefaultAction: &waf.WebAclDefaultActionArgs{
+// 				Type: pulumi.String("ALLOW"),
+// 			},
+// 			MetricName: pulumi.String("tfWebACL"),
+// 			Rules: waf.WebAclRuleArray{
+// 				&waf.WebAclRuleArgs{
+// 					Action: &waf.WebAclRuleActionArgs{
+// 						Type: pulumi.String("BLOCK"),
+// 					},
+// 					Priority: pulumi.Int(1),
+// 					RuleId:   wafrule.ID(),
+// 					Type:     pulumi.String("REGULAR"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Logging
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/waf"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := waf.NewWebAcl(ctx, "example", &waf.WebAclArgs{
+// 			LoggingConfiguration: &waf.WebAclLoggingConfigurationArgs{
+// 				LogDestination: pulumi.String(aws_kinesis_firehose_delivery_stream.Example.Arn),
+// 				RedactedFields: &waf.WebAclLoggingConfigurationRedactedFieldsArgs{
+// 					FieldToMatch: []interface{}{
+// 						map[string]interface{}{
+// 							"type": "URI",
+// 						},
+// 						map[string]interface{}{
+// 							"data": "referer",
+// 							"type": "HEADER",
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type WebAcl struct {
 	pulumi.CustomResourceState
 

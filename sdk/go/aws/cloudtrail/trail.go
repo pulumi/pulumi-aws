@@ -15,6 +15,80 @@ import (
 // > *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
 //
 // > *NOTE:* For an organization trail, this resource must be in the master account of the organization.
+//
+// ## Example Usage
+//
+// ### Logging All Lambda Function Invocations
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudtrail"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
+// 			EventSelectors: cloudtrail.TrailEventSelectorArray{
+// 				&cloudtrail.TrailEventSelectorArgs{
+// 					DataResource: []map[string]interface{}{
+// 						map[string]interface{}{
+// 							"type": "AWS::Lambda::Function",
+// 							"values": pulumi.StringArray{
+// 								pulumi.String("arn:aws:lambda"),
+// 							},
+// 						},
+// 					},
+// 					IncludeManagementEvents: pulumi.Bool(true),
+// 					ReadWriteType:           pulumi.String("All"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Logging All S3 Bucket Object Events
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudtrail"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
+// 			EventSelectors: cloudtrail.TrailEventSelectorArray{
+// 				&cloudtrail.TrailEventSelectorArgs{
+// 					DataResource: []map[string]interface{}{
+// 						map[string]interface{}{
+// 							"type": "AWS::S3::Object",
+// 							"values": pulumi.StringArray{
+// 								pulumi.String("arn:aws:s3:::"),
+// 							},
+// 						},
+// 					},
+// 					IncludeManagementEvents: pulumi.Bool(true),
+// 					ReadWriteType:           pulumi.String("All"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Trail struct {
 	pulumi.CustomResourceState
 

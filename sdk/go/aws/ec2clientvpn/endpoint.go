@@ -12,6 +12,44 @@ import (
 
 // Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
 // [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2clientvpn"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ec2clientvpn.NewEndpoint(ctx, "example", &ec2clientvpn.EndpointArgs{
+// 			AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
+// 				&ec2clientvpn.EndpointAuthenticationOptionArgs{
+// 					RootCertificateChainArn: pulumi.String(aws_acm_certificate.Root_cert.Arn),
+// 					Type:                    pulumi.String("certificate-authentication"),
+// 				},
+// 			},
+// 			ClientCidrBlock: pulumi.String("10.0.0.0/16"),
+// 			ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
+// 				CloudwatchLogGroup:  pulumi.String(aws_cloudwatch_log_group.Lg.Name),
+// 				CloudwatchLogStream: pulumi.String(aws_cloudwatch_log_stream.Ls.Name),
+// 				Enabled:             pulumi.Bool(true),
+// 			},
+// 			Description:          pulumi.String("clientvpn-example"),
+// 			ServerCertificateArn: pulumi.String(aws_acm_certificate.Cert.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Endpoint struct {
 	pulumi.CustomResourceState
 

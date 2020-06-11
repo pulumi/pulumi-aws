@@ -46,7 +46,7 @@ class Model(pulumi.CustomResource):
             api_id=aws_apigatewayv2_api["example"]["id"],
             content_type="application/json",
             schema=\"\"\"{
-          "$$schema": "http://json-schema.org/draft-04/schema#",
+          "$schema": "http://json-schema.org/draft-04/schema#",
           "title": "ExampleModel",
           "type": "object",
           "properties": {

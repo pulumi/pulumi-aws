@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as fs from "fs";
  *
  * const app = new aws.pinpoint.App("app", {});
- * const apnsSandbox = new aws.pinpoint.ApnsSandboxChannel("apnsSandbox", {
+ * const apnsSandbox = new aws.pinpoint.ApnsSandboxChannel("apns_sandbox", {
  *     applicationId: app.applicationId,
  *     certificate: fs.readFileSync("./certificate.pem", "utf-8"),
  *     privateKey: fs.readFileSync("./private_key.key", "utf-8"),
@@ -86,7 +86,7 @@ export class ApnsSandboxChannel extends pulumi.CustomResource {
      */
     public readonly teamId!: pulumi.Output<string | undefined>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
     public readonly tokenKey!: pulumi.Output<string | undefined>;
     /**
@@ -177,7 +177,7 @@ export interface ApnsSandboxChannelState {
      */
     readonly teamId?: pulumi.Input<string>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
     readonly tokenKey?: pulumi.Input<string>;
     /**
@@ -222,7 +222,7 @@ export interface ApnsSandboxChannelArgs {
      */
     readonly teamId?: pulumi.Input<string>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      */
     readonly tokenKey?: pulumi.Input<string>;
     /**

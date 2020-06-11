@@ -43,7 +43,6 @@ class SpotFleetRequest(pulumi.CustomResource):
     """
     instance_pools_to_use_count: pulumi.Output[float]
     """
-
     The number of Spot pools across which to allocate your target Spot capacity.
     Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
     the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -314,8 +313,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[str] instance_interruption_behaviour: Indicates whether a Spot
                instance stops or terminates when it is interrupted. Default is
                `terminate`.
-        :param pulumi.Input[float] instance_pools_to_use_count: 
-               The number of Spot pools across which to allocate your target Spot capacity.
+        :param pulumi.Input[float] instance_pools_to_use_count: The number of Spot pools across which to allocate your target Spot capacity.
                Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
                the cheapest Spot pools and evenly allocates your target Spot capacity across
                the number of Spot pools that you specify.
@@ -467,8 +465,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[str] instance_interruption_behaviour: Indicates whether a Spot
                instance stops or terminates when it is interrupted. Default is
                `terminate`.
-        :param pulumi.Input[float] instance_pools_to_use_count: 
-               The number of Spot pools across which to allocate your target Spot capacity.
+        :param pulumi.Input[float] instance_pools_to_use_count: The number of Spot pools across which to allocate your target Spot capacity.
                Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
                the cheapest Spot pools and evenly allocates your target Spot capacity across
                the number of Spot pools that you specify.

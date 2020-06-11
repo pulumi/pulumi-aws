@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const codepipelineBucket = new aws.s3.Bucket("codepipelineBucket", {
+ * const codepipelineBucket = new aws.s3.Bucket("codepipeline_bucket", {
  *     acl: "private",
  * });
- * const codepipelineRole = new aws.iam.Role("codepipelineRole", {
+ * const codepipelineRole = new aws.iam.Role("codepipeline_role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const codepipelinePolicy = new aws.iam.RolePolicy("codepipelinePolicy", {
+ * const codepipelinePolicy = new aws.iam.RolePolicy("codepipeline_policy", {
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  *                     Repo: "test",
  *                 },
  *                 name: "Source",
- *                 outputArtifacts: ["sourceOutput"],
+ *                 outputArtifacts: ["source_output"],
  *                 owner: "ThirdParty",
  *                 provider: "GitHub",
  *                 version: "1",
@@ -103,9 +103,9 @@ import * as utilities from "../utilities";
  *                 configuration: {
  *                     ProjectName: "test",
  *                 },
- *                 inputArtifacts: ["sourceOutput"],
+ *                 inputArtifacts: ["source_output"],
  *                 name: "Build",
- *                 outputArtifacts: ["buildOutput"],
+ *                 outputArtifacts: ["build_output"],
  *                 owner: "AWS",
  *                 provider: "CodeBuild",
  *                 version: "1",
@@ -122,7 +122,7 @@ import * as utilities from "../utilities";
  *                     StackName: "MyStack",
  *                     TemplatePath: "build_output::sam-templated.yaml",
  *                 },
- *                 inputArtifacts: ["buildOutput"],
+ *                 inputArtifacts: ["build_output"],
  *                 name: "Deploy",
  *                 owner: "AWS",
  *                 provider: "CloudFormation",

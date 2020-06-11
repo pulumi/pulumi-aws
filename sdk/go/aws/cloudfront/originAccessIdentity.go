@@ -15,6 +15,66 @@ import (
 // [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For more information on generating
 // origin access identities, see
 // [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudfront"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		originAccessIdentity, err := cloudfront.NewOriginAccessIdentity(ctx, "originAccessIdentity", &cloudfront.OriginAccessIdentityArgs{
+// 			Comment: pulumi.String("Some comment"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Using With CloudFront
+//
+// Normally, when referencing an origin access identity in CloudFront, you need to
+// prefix the ID with the `origin-access-identity/cloudfront/` special path.
+// The `cloudfrontAccessIdentityPath` allows this to be circumvented.
+// The below snippet demonstrates use with the `s3OriginConfig` structure for the
+// [`cloudfront.Distribution`][3] resource:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Updating your bucket policy
+//
+// Note that the AWS API may translate the `s3CanonicalUserId` `CanonicalUser`
+// principal into an `AWS` IAM ARN principal when supplied in an
+// [`s3.Bucket`][4] bucket policy, causing spurious diffs. If
+// you see this behaviour, use the `iamArn` instead:
+//
+//
+// [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
+// [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+// [3]: https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html
+// [4]: https://www.terraform.io/docs/providers/aws/r/s3_bucket.html
 type OriginAccessIdentity struct {
 	pulumi.CustomResourceState
 

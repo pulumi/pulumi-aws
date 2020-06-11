@@ -94,15 +94,15 @@ class Function(pulumi.CustomResource):
             "method": "GET",
             "resourcePath": "/",
             "params":{
-                "headers": $$utils.http.copyheaders($$ctx.request.headers)
+                "headers": $utils.http.copyheaders($ctx.request.headers)
             }
         }
 
         \"\"\",
-            response_mapping_template=\"\"\"#if($$ctx.result.statusCode == 200)
-            $$ctx.result.body
+            response_mapping_template=\"\"\"#if($ctx.result.statusCode == 200)
+            $ctx.result.body
         #else
-            $$utils.appendError($$ctx.result.body, $$ctx.result.statusCode)
+            $utils.appendError($ctx.result.body, $ctx.result.statusCode)
         #end
 
         \"\"\")

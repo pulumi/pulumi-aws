@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCurReportDefinition = new aws.cur.ReportDefinition("exampleCurReportDefinition", {
+ * const exampleCurReportDefinition = new aws.cur.ReportDefinition("example_cur_report_definition", {
  *     additionalArtifacts: [
  *         "REDSHIFT",
  *         "QUICKSIGHT",

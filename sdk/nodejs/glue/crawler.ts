@@ -112,7 +112,7 @@ export class Crawler extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the crawler 
+     * The ARN of the crawler
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly catalogTargets!: pulumi.Output<outputs.glue.CrawlerCatalogTarget[] | undefined>;
@@ -242,7 +242,7 @@ export class Crawler extends pulumi.CustomResource {
  */
 export interface CrawlerState {
     /**
-     * The ARN of the crawler 
+     * The ARN of the crawler
      */
     readonly arn?: pulumi.Input<string>;
     readonly catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTarget>[]>;

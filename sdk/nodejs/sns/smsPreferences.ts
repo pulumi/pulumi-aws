@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const updateSmsPrefs = new aws.sns.SmsPreferences("updateSmsPrefs", {});
+ * const updateSmsPrefs = new aws.sns.SmsPreferences("update_sms_prefs", {});
  * ```
  */
 export class SmsPreferences extends pulumi.CustomResource {

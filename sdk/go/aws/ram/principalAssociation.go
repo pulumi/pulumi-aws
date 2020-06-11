@@ -21,6 +21,62 @@ import (
 //
 // - Organization and Organizational Unit principals cannot be used.
 // - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `ram.ResourceShareAccepter` resource to accept these invitations.
+//
+// ## Example Usage
+//
+// ### AWS Account ID
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ram"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceShare, err := ram.NewResourceShare(ctx, "exampleResourceShare", &ram.ResourceShareArgs{
+// 			AllowExternalPrincipals: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePrincipalAssociation, err := ram.NewPrincipalAssociation(ctx, "examplePrincipalAssociation", &ram.PrincipalAssociationArgs{
+// 			Principal:        pulumi.String("111111111111"),
+// 			ResourceShareArn: exampleResourceShare.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### AWS Organization
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ram"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ram.NewPrincipalAssociation(ctx, "example", &ram.PrincipalAssociationArgs{
+// 			Principal:        pulumi.String(aws_organizations_organization.Example.Arn),
+// 			ResourceShareArn: pulumi.String(aws_ram_resource_share.Example.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type PrincipalAssociation struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,49 @@ import (
 )
 
 // Provides a WAF Rule Resource
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/waf"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		ipset, err := waf.NewIpSet(ctx, "ipset", &waf.IpSetArgs{
+// 			IpSetDescriptors: waf.IpSetIpSetDescriptorArray{
+// 				&waf.IpSetIpSetDescriptorArgs{
+// 					Type:  pulumi.String("IPV4"),
+// 					Value: pulumi.String("192.0.7.0/24"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		wafrule, err := waf.NewRule(ctx, "wafrule", &waf.RuleArgs{
+// 			MetricName: pulumi.String("tfWAFRule"),
+// 			Predicates: waf.RulePredicateArray{
+// 				&waf.RulePredicateArgs{
+// 					DataId:  ipset.ID(),
+// 					Negated: pulumi.Bool(false),
+// 					Type:    pulumi.String("IPMatch"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Rule struct {
 	pulumi.CustomResourceState
 

@@ -40,7 +40,7 @@ class AccessPoint(pulumi.CustomResource):
         * `ownerUid` (`float`) - Specifies the POSIX user ID to apply to the `root_directory`.
         * `permissions` (`str`) - Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
 
-      * `path` (`str`) - Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`. 
+      * `path` (`str`) - Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
     """
     tags: pulumi.Output[dict]
     """
@@ -82,7 +82,7 @@ class AccessPoint(pulumi.CustomResource):
             * `ownerUid` (`pulumi.Input[float]`) - Specifies the POSIX user ID to apply to the `root_directory`.
             * `permissions` (`pulumi.Input[str]`) - Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
 
-          * `path` (`pulumi.Input[str]`) - Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`. 
+          * `path` (`pulumi.Input[str]`) - Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -145,7 +145,7 @@ class AccessPoint(pulumi.CustomResource):
             * `ownerUid` (`pulumi.Input[float]`) - Specifies the POSIX user ID to apply to the `root_directory`.
             * `permissions` (`pulumi.Input[str]`) - Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
 
-          * `path` (`pulumi.Input[str]`) - Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`. 
+          * `path` (`pulumi.Input[str]`) - Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

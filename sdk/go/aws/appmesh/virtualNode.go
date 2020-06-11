@@ -22,6 +22,204 @@ import (
 // setting `virtualServiceName` to the name of the service.
 //
 // The state associated with existing resources will automatically be migrated.
+//
+// ## Example Usage
+//
+// ### Basic
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		serviceb1, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
+// 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
+// 			Spec: &appmesh.VirtualNodeSpecArgs{
+// 				Backend: []map[string]interface{}{
+// 					map[string]interface{}{
+// 						"virtualService": map[string]interface{}{
+// 							"virtualServiceName": "servicea.simpleapp.local",
+// 						},
+// 					},
+// 				},
+// 				Listener: &appmesh.VirtualNodeSpecListenerArgs{
+// 					PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
+// 						Port:     pulumi.Int(8080),
+// 						Protocol: pulumi.String("http"),
+// 					},
+// 				},
+// 				ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
+// 					Dns: &appmesh.VirtualNodeSpecServiceDiscoveryDnsArgs{
+// 						Hostname: pulumi.String("serviceb.simpleapp.local"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### AWS Cloud Map Service Discovery
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/servicediscovery"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := servicediscovery.NewHttpNamespace(ctx, "example", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		serviceb1, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
+// 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
+// 			Spec: &appmesh.VirtualNodeSpecArgs{
+// 				Backend: []map[string]interface{}{
+// 					map[string]interface{}{
+// 						"virtualService": map[string]interface{}{
+// 							"virtualServiceName": "servicea.simpleapp.local",
+// 						},
+// 					},
+// 				},
+// 				Listener: &appmesh.VirtualNodeSpecListenerArgs{
+// 					PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
+// 						Port:     pulumi.Int(8080),
+// 						Protocol: pulumi.String("http"),
+// 					},
+// 				},
+// 				ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
+// 					AwsCloudMap: &appmesh.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs{
+// 						Attributes: map[string]interface{}{
+// 							"stack": "blue",
+// 						},
+// 						NamespaceName: example.Name,
+// 						ServiceName:   pulumi.String("serviceb1"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Listener Health Check
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		serviceb1, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
+// 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
+// 			Spec: &appmesh.VirtualNodeSpecArgs{
+// 				Backend: []map[string]interface{}{
+// 					map[string]interface{}{
+// 						"virtualService": map[string]interface{}{
+// 							"virtualServiceName": "servicea.simpleapp.local",
+// 						},
+// 					},
+// 				},
+// 				Listener: &appmesh.VirtualNodeSpecListenerArgs{
+// 					HealthCheck: &appmesh.VirtualNodeSpecListenerHealthCheckArgs{
+// 						HealthyThreshold:   pulumi.Int(2),
+// 						IntervalMillis:     pulumi.Int(5000),
+// 						Path:               pulumi.String("/ping"),
+// 						Protocol:           pulumi.String("http"),
+// 						TimeoutMillis:      pulumi.Int(2000),
+// 						UnhealthyThreshold: pulumi.Int(2),
+// 					},
+// 					PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
+// 						Port:     pulumi.Int(8080),
+// 						Protocol: pulumi.String("http"),
+// 					},
+// 				},
+// 				ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
+// 					Dns: &appmesh.VirtualNodeSpecServiceDiscoveryDnsArgs{
+// 						Hostname: pulumi.String("serviceb.simpleapp.local"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Logging
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		serviceb1, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
+// 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
+// 			Spec: &appmesh.VirtualNodeSpecArgs{
+// 				Backend: []map[string]interface{}{
+// 					map[string]interface{}{
+// 						"virtualService": map[string]interface{}{
+// 							"virtualServiceName": "servicea.simpleapp.local",
+// 						},
+// 					},
+// 				},
+// 				Listener: &appmesh.VirtualNodeSpecListenerArgs{
+// 					PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
+// 						Port:     pulumi.Int(8080),
+// 						Protocol: pulumi.String("http"),
+// 					},
+// 				},
+// 				Logging: &appmesh.VirtualNodeSpecLoggingArgs{
+// 					AccessLog: &appmesh.VirtualNodeSpecLoggingAccessLogArgs{
+// 						File: &appmesh.VirtualNodeSpecLoggingAccessLogFileArgs{
+// 							Path: pulumi.String("/dev/stdout"),
+// 						},
+// 					},
+// 				},
+// 				ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
+// 					Dns: &appmesh.VirtualNodeSpecServiceDiscoveryDnsArgs{
+// 						Hostname: pulumi.String("serviceb.simpleapp.local"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VirtualNode struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,34 @@ import (
 )
 
 // Manages the accepter's side of an EC2 Transit Gateway Peering Attachment.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ec2.NewTransitGatewayPeeringAttachmentAccepter(ctx, "example", &ec2.TransitGatewayPeeringAttachmentAccepterArgs{
+// 			Tags: map[string]interface{}{
+// 				"Name": "Example cross-account attachment",
+// 			},
+// 			TransitGatewayAttachmentId: pulumi.String(aws_ec2_transit_gateway_peering_attachment.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type TransitGatewayPeeringAttachmentAccepter struct {
 	pulumi.CustomResourceState
 

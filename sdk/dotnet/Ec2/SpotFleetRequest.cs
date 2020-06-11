@@ -158,7 +158,6 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> InstanceInterruptionBehaviour { get; private set; } = null!;
 
         /// <summary>
-        /// 
         /// The number of Spot pools across which to allocate your target Spot capacity.
         /// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
         /// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -339,7 +338,6 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceInterruptionBehaviour { get; set; }
 
         /// <summary>
-        /// 
         /// The number of Spot pools across which to allocate your target Spot capacity.
         /// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
         /// the cheapest Spot pools and evenly allocates your target Spot capacity across
@@ -508,7 +506,6 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceInterruptionBehaviour { get; set; }
 
         /// <summary>
-        /// 
         /// The number of Spot pools across which to allocate your target Spot capacity.
         /// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
         /// the cheapest Spot pools and evenly allocates your target Spot capacity across

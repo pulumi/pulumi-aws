@@ -21,6 +21,39 @@ import (
 // `applyImmediately` flag to instruct the service to apply the change
 // immediately. Using `applyImmediately` can result in a brief downtime as
 // servers reboots.
+//
+// ## Example Usage
+//
+// ### Redis Cluster Mode Enabled
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		baz, err := elasticache.NewReplicationGroup(ctx, "baz", &elasticache.ReplicationGroupArgs{
+// 			AutomaticFailoverEnabled: pulumi.Bool(true),
+// 			ClusterMode: &elasticache.ReplicationGroupClusterModeArgs{
+// 				NumNodeGroups:        pulumi.Int(2),
+// 				ReplicasPerNodeGroup: pulumi.Int(1),
+// 			},
+// 			NodeType:                    pulumi.String("cache.t2.small"),
+// 			ParameterGroupName:          pulumi.String("default.redis3.2.cluster.on"),
+// 			Port:                        pulumi.Int(6379),
+// 			ReplicationGroupDescription: pulumi.String("test description"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ReplicationGroup struct {
 	pulumi.CustomResourceState
 

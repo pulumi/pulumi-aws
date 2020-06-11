@@ -43,7 +43,7 @@ class ApnsVoipChannel(pulumi.CustomResource):
     """
     token_key: pulumi.Output[str]
     """
-    The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+    The `.p8` file that you download from your Apple developer account when you create an authentication key.
     """
     token_key_id: pulumi.Output[str]
     """
@@ -83,7 +83,7 @@ class ApnsVoipChannel(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         :param pulumi.Input[str] private_key: The Certificate Private Key file (ie. `.key` file).
         :param pulumi.Input[str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-        :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+        :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
         :param pulumi.Input[str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
         """
         if __name__ is not None:
@@ -139,7 +139,7 @@ class ApnsVoipChannel(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         :param pulumi.Input[str] private_key: The Certificate Private Key file (ie. `.key` file).
         :param pulumi.Input[str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
-        :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key. 
+        :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
         :param pulumi.Input[str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

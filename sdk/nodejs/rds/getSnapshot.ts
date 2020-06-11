@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * const prod = new aws.rds.Instance("prod", {
  *     allocatedStorage: 10,
- *     dbSubnetGroupName: "myDatabaseSubnetGroup",
+ *     dbSubnetGroupName: "my_database_subnet_group",
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
  *     instanceClass: "db.t2.micro",

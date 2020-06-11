@@ -103,7 +103,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const importantBucket = pulumi.output(aws.s3.getBucket({
+ * const important_bucket = pulumi.output(aws.s3.getBucket({
  *     bucket: "important-bucket",
  * }, { async: true }));
  * const example = new aws.cloudtrail.Trail("example", {

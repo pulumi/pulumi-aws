@@ -7,6 +7,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleEventCategories, err := rds.LookupEventCategories(ctx, &rds.LookupEventCategoriesArgs{
+// 			SourceType: "db-snapshot",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("example", exampleEventCategories.EventCategories)
+// 		return nil
+// 	})
+// }
+// ```
 func GetEventCategories(ctx *pulumi.Context, args *GetEventCategoriesArgs, opts ...pulumi.InvokeOption) (*GetEventCategoriesResult, error) {
 	var rv GetEventCategoriesResult
 	err := ctx.Invoke("aws:rds/getEventCategories:getEventCategories", args, &rv, opts...)

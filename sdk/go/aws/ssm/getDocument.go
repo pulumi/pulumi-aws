@@ -8,6 +8,32 @@ import (
 )
 
 // Gets the contents of the specified Systems Manager document.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		foo, err := ssm.LookupDocument(ctx, &ssm.LookupDocumentArgs{
+// 			DocumentFormat: "YAML",
+// 			Name:           "AWS-GatherSoftwareInventory",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("content", foo.Content)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupDocument(ctx *pulumi.Context, args *LookupDocumentArgs, opts ...pulumi.InvokeOption) (*LookupDocumentResult, error) {
 	var rv LookupDocumentResult
 	err := ctx.Invoke("aws:ssm/getDocument:getDocument", args, &rv, opts...)

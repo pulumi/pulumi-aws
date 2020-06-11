@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *         type: "IPMatch",
  *     }],
  * }, { dependsOn: [ipset] });
- * const wafAcl = new aws.waf.WebAcl("wafAcl", {
+ * const wafAcl = new aws.waf.WebAcl("waf_acl", {
  *     defaultAction: {
  *         type: "ALLOW",
  *     },

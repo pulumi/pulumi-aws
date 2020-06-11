@@ -17,7 +17,7 @@ import {Function} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const iamForLambda = new aws.iam.Role("iamForLambda", {
+ * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -33,18 +33,18 @@ import {Function} from "./index";
  * }
  * `,
  * });
- * const testLambda = new aws.lambda.Function("testLambda", {
+ * const testLambda = new aws.lambda.Function("test_lambda", {
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
  *     handler: "exports.handler",
  *     role: iamForLambda.arn,
  *     runtime: "nodejs8.10",
  * });
- * const testAlias = new aws.lambda.Alias("testAlias", {
+ * const testAlias = new aws.lambda.Alias("test_alias", {
  *     description: "a sample description",
  *     functionName: testLambda.functionName,
  *     functionVersion: "$LATEST",
  * });
- * const allowCloudwatch = new aws.lambda.Permission("allowCloudwatch", {
+ * const allowCloudwatch = new aws.lambda.Permission("allow_cloudwatch", {
  *     action: "lambda:InvokeFunction",
  *     function: testLambda.functionName,
  *     principal: "events.amazonaws.com",
@@ -82,7 +82,7 @@ import {Function} from "./index";
  *     role: defaultRole.arn,
  *     runtime: "python2.7",
  * });
- * const withSns = new aws.lambda.Permission("withSns", {
+ * const withSns = new aws.lambda.Permission("with_sns", {
  *     action: "lambda:InvokeFunction",
  *     function: func.functionName,
  *     principal: "sns.amazonaws.com",
@@ -104,7 +104,7 @@ import {Function} from "./index";
  * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
  *     description: "This is my API for demonstration purposes",
  * });
- * const lambdaPermission = new aws.lambda.Permission("lambdaPermission", {
+ * const lambdaPermission = new aws.lambda.Permission("lambda_permission", {
  *     action: "lambda:InvokeFunction",
  *     function: "MyDemoFunction",
  *     principal: "apigateway.amazonaws.com",

@@ -14,6 +14,237 @@ import (
 //
 // > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
 //
+// ## Example Usage
+//
+// ### Forward Action
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		frontEndLoadBalancer, err := lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		frontEndTargetGroup, err := lb.NewTargetGroup(ctx, "frontEndTargetGroup", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		frontEndListener, err := lb.NewListener(ctx, "frontEndListener", &lb.ListenerArgs{
+// 			CertificateArn: pulumi.String("arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4"),
+// 			DefaultActions: lb.ListenerDefaultActionArray{
+// 				&lb.ListenerDefaultActionArgs{
+// 					TargetGroupArn: frontEndTargetGroup.Arn,
+// 					Type:           pulumi.String("forward"),
+// 				},
+// 			},
+// 			LoadBalancerArn: frontEndLoadBalancer.Arn,
+// 			Port:            pulumi.Int(443),
+// 			Protocol:        pulumi.String("HTTPS"),
+// 			SslPolicy:       pulumi.String("ELBSecurityPolicy-2016-08"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Redirect Action
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		frontEndLoadBalancer, err := lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		frontEndListener, err := lb.NewListener(ctx, "frontEndListener", &lb.ListenerArgs{
+// 			DefaultActions: lb.ListenerDefaultActionArray{
+// 				&lb.ListenerDefaultActionArgs{
+// 					Redirect: &lb.ListenerDefaultActionRedirectArgs{
+// 						Port:       pulumi.String("443"),
+// 						Protocol:   pulumi.String("HTTPS"),
+// 						StatusCode: pulumi.String("HTTP_301"),
+// 					},
+// 					Type: pulumi.String("redirect"),
+// 				},
+// 			},
+// 			LoadBalancerArn: frontEndLoadBalancer.Arn,
+// 			Port:            pulumi.Int(80),
+// 			Protocol:        pulumi.String("HTTP"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Fixed-response Action
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		frontEndLoadBalancer, err := lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		frontEndListener, err := lb.NewListener(ctx, "frontEndListener", &lb.ListenerArgs{
+// 			DefaultActions: lb.ListenerDefaultActionArray{
+// 				&lb.ListenerDefaultActionArgs{
+// 					FixedResponse: &lb.ListenerDefaultActionFixedResponseArgs{
+// 						ContentType: pulumi.String("text/plain"),
+// 						MessageBody: pulumi.String("Fixed response content"),
+// 						StatusCode:  pulumi.String("200"),
+// 					},
+// 					Type: pulumi.String("fixed-response"),
+// 				},
+// 			},
+// 			LoadBalancerArn: frontEndLoadBalancer.Arn,
+// 			Port:            pulumi.Int(80),
+// 			Protocol:        pulumi.String("HTTP"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Authenticate-cognito Action
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cognito"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		frontEndLoadBalancer, err := lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		frontEndTargetGroup, err := lb.NewTargetGroup(ctx, "frontEndTargetGroup", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		pool, err := cognito.NewUserPool(ctx, "pool", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		client, err := cognito.NewUserPoolClient(ctx, "client", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		domain, err := cognito.NewUserPoolDomain(ctx, "domain", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		frontEndListener, err := lb.NewListener(ctx, "frontEndListener", &lb.ListenerArgs{
+// 			DefaultActions: lb.ListenerDefaultActionArray{
+// 				&lb.ListenerDefaultActionArgs{
+// 					AuthenticateCognito: &lb.ListenerDefaultActionAuthenticateCognitoArgs{
+// 						UserPoolArn:      pool.Arn,
+// 						UserPoolClientId: client.ID(),
+// 						UserPoolDomain:   domain.Domain,
+// 					},
+// 					Type: pulumi.String("authenticate-cognito"),
+// 				},
+// 				&lb.ListenerDefaultActionArgs{
+// 					TargetGroupArn: frontEndTargetGroup.Arn,
+// 					Type:           pulumi.String("forward"),
+// 				},
+// 			},
+// 			LoadBalancerArn: frontEndLoadBalancer.Arn,
+// 			Port:            pulumi.Int(80),
+// 			Protocol:        pulumi.String("HTTP"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Authenticate-oidc Action
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		frontEndLoadBalancer, err := lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		frontEndTargetGroup, err := lb.NewTargetGroup(ctx, "frontEndTargetGroup", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		frontEndListener, err := lb.NewListener(ctx, "frontEndListener", &lb.ListenerArgs{
+// 			DefaultActions: lb.ListenerDefaultActionArray{
+// 				&lb.ListenerDefaultActionArgs{
+// 					AuthenticateOidc: &lb.ListenerDefaultActionAuthenticateOidcArgs{
+// 						AuthorizationEndpoint: pulumi.String("https://example.com/authorization_endpoint"),
+// 						ClientId:              pulumi.String("client_id"),
+// 						ClientSecret:          pulumi.String("client_secret"),
+// 						Issuer:                pulumi.String("https://example.com"),
+// 						TokenEndpoint:         pulumi.String("https://example.com/token_endpoint"),
+// 						UserInfoEndpoint:      pulumi.String("https://example.com/user_info_endpoint"),
+// 					},
+// 					Type: pulumi.String("authenticate-oidc"),
+// 				},
+// 				&lb.ListenerDefaultActionArgs{
+// 					TargetGroupArn: frontEndTargetGroup.Arn,
+// 					Type:           pulumi.String("forward"),
+// 				},
+// 			},
+// 			LoadBalancerArn: frontEndLoadBalancer.Arn,
+// 			Port:            pulumi.Int(80),
+// 			Protocol:        pulumi.String("HTTP"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // Deprecated: aws.applicationloadbalancing.Listener has been deprecated in favor of aws.alb.Listener
 type Listener struct {
 	pulumi.CustomResourceState

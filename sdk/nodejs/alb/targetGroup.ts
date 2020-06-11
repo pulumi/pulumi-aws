@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
  * });
- * const ipExample = new aws.lb.TargetGroup("ip-example", {
+ * const ip_example = new aws.lb.TargetGroup("ip-example", {
  *     port: 80,
  *     protocol: "HTTP",
  *     targetType: "ip",
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lambdaExample = new aws.lb.TargetGroup("lambda-example", {
+ * const lambda_example = new aws.lb.TargetGroup("lambda-example", {
  *     targetType: "lambda",
  * });
  * ```

@@ -105,7 +105,7 @@ import * as utilities from "../utilities";
  *         location: exampleBucket.bucket,
  *         type: "S3",
  *     },
- *     description: "testCodebuildProject",
+ *     description: "test_codebuild_project",
  *     environment: {
  *         computeType: "BUILD_GENERAL1_SMALL",
  *         environmentVariables: [
@@ -158,7 +158,7 @@ import * as utilities from "../utilities";
  *         vpcId: aws_vpc_example.id,
  *     },
  * });
- * const projectWithCache = new aws.codebuild.Project("project-with-cache", {
+ * const project_with_cache = new aws.codebuild.Project("project-with-cache", {
  *     artifacts: {
  *         type: "NO_ARTIFACTS",
  *     },
@@ -170,7 +170,7 @@ import * as utilities from "../utilities";
  *         ],
  *         type: "LOCAL",
  *     },
- *     description: "testCodebuildProjectCache",
+ *     description: "test_codebuild_project_cache",
  *     environment: {
  *         computeType: "BUILD_GENERAL1_SMALL",
  *         environmentVariables: [{

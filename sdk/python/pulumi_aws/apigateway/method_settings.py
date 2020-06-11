@@ -24,7 +24,7 @@ class MethodSettings(pulumi.CustomResource):
 
       * `cacheDataEncrypted` (`bool`) - Specifies whether the cached responses are encrypted.
       * `cacheTtlInSeconds` (`float`) - Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
-      * `cachingEnabled` (`bool`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+      * `cachingEnabled` (`bool`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
       * `dataTraceEnabled` (`bool`) - Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
       * `loggingLevel` (`str`) - Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
       * `metricsEnabled` (`bool`) - Specifies whether Amazon CloudWatch metrics are enabled for this method.
@@ -78,7 +78,7 @@ class MethodSettings(pulumi.CustomResource):
             http_method=test_method.http_method,
             request_templates={
                 "application/xml": \"\"\"{
-           "body" : $$input.json('$$')
+           "body" : $input.json('$')
         }
 
         \"\"\",
@@ -100,7 +100,7 @@ class MethodSettings(pulumi.CustomResource):
 
           * `cacheDataEncrypted` (`pulumi.Input[bool]`) - Specifies whether the cached responses are encrypted.
           * `cacheTtlInSeconds` (`pulumi.Input[float]`) - Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
-          * `cachingEnabled` (`pulumi.Input[bool]`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+          * `cachingEnabled` (`pulumi.Input[bool]`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
           * `dataTraceEnabled` (`pulumi.Input[bool]`) - Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
           * `loggingLevel` (`pulumi.Input[str]`) - Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
           * `metricsEnabled` (`pulumi.Input[bool]`) - Specifies whether Amazon CloudWatch metrics are enabled for this method.
@@ -162,7 +162,7 @@ class MethodSettings(pulumi.CustomResource):
 
           * `cacheDataEncrypted` (`pulumi.Input[bool]`) - Specifies whether the cached responses are encrypted.
           * `cacheTtlInSeconds` (`pulumi.Input[float]`) - Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
-          * `cachingEnabled` (`pulumi.Input[bool]`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached. 
+          * `cachingEnabled` (`pulumi.Input[bool]`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
           * `dataTraceEnabled` (`pulumi.Input[bool]`) - Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
           * `loggingLevel` (`pulumi.Input[str]`) - Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
           * `metricsEnabled` (`pulumi.Input[bool]`) - Specifies whether Amazon CloudWatch metrics are enabled for this method.

@@ -50,7 +50,7 @@ class SecurityConfiguration(pulumi.CustomResource):
                 "jobBookmarksEncryptionMode": "DISABLED",
             },
             "s3Encryption": {
-                "kms_key_arn": data["kms.Key"]["example"]["arn"],
+                "kms_key_arn": data["aws_kms_key"]["example"]["arn"],
                 "s3EncryptionMode": "SSE-KMS",
             },
         })

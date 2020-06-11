@@ -99,8 +99,8 @@ class Resolver(pulumi.CustomResource):
             api_id=test_graph_ql_api.id,
             caching_config={
                 "cachingKeys": [
-                    "$$context.identity.sub",
-                    "$$context.arguments.id",
+                    "$context.identity.sub",
+                    "$context.arguments.id",
                 ],
                 "ttl": 60,
             },
@@ -111,15 +111,15 @@ class Resolver(pulumi.CustomResource):
             "method": "GET",
             "resourcePath": "/",
             "params":{
-                "headers": $$utils.http.copyheaders($$ctx.request.headers)
+                "headers": $utils.http.copyheaders($ctx.request.headers)
             }
         }
 
         \"\"\",
-            response_template=\"\"\"#if($$ctx.result.statusCode == 200)
-            $$ctx.result.body
+            response_template=\"\"\"#if($ctx.result.statusCode == 200)
+            $ctx.result.body
         #else
-            $$utils.appendError($$ctx.result.body, $$ctx.result.statusCode)
+            $utils.appendError($ctx.result.body, $ctx.result.statusCode)
         #end
 
         \"\"\",
@@ -137,7 +137,7 @@ class Resolver(pulumi.CustomResource):
                 ],
             },
             request_template="{}",
-            response_template="$$util.toJson($$ctx.result)",
+            response_template="$util.toJson($ctx.result)",
             type="Mutation")
         ```
 

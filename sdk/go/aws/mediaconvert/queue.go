@@ -10,6 +10,29 @@ import (
 )
 
 // Provides an AWS Elemental MediaConvert Queue.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/mediaconvert"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		test, err := mediaconvert.NewQueue(ctx, "test", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Queue struct {
 	pulumi.CustomResourceState
 

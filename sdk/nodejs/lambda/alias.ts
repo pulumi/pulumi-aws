@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testAlias = new aws.lambda.Alias("testAlias", {
+ * const testAlias = new aws.lambda.Alias("test_alias", {
  *     description: "a sample description",
  *     functionName: aws_lambda_function_lambda_function_test.arn,
  *     functionVersion: "1",

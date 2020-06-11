@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? Delimiter;
         /// <summary>
-        /// Specifies whether to trim column values. 
+        /// Specifies whether to trim column values.
         /// </summary>
         public readonly bool? DisableValueTrimming;
         /// <summary>

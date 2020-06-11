@@ -14,6 +14,33 @@ import (
 // > **NOTE on Patch Baselines:** The `approvedPatches` and `approvalRule` are
 // both marked as optional fields, but the Patch Baseline requires that at least one
 // of them is specified.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		production, err := ssm.NewPatchBaseline(ctx, "production", &ssm.PatchBaselineArgs{
+// 			ApprovedPatches: pulumi.StringArray{
+// 				pulumi.String("KB123456"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type PatchBaseline struct {
 	pulumi.CustomResourceState
 

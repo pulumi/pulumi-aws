@@ -22,7 +22,7 @@ import {NotificationType} from "./index";
  * const example = new aws.sns.Topic("example", {});
  * const bar = new aws.autoscaling.Group("bar", {});
  * const foo = new aws.autoscaling.Group("foo", {});
- * const exampleNotifications = new aws.autoscaling.Notification("exampleNotifications", {
+ * const exampleNotifications = new aws.autoscaling.Notification("example_notifications", {
  *     groupNames: [
  *         bar.name,
  *         foo.name,

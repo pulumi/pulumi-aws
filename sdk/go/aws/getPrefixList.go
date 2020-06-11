@@ -7,13 +7,60 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// `.getPrefixList` provides details about a specific prefix list (PL)
+// `getPrefixList` provides details about a specific prefix list (PL)
 // in the current region.
 //
 // This can be used both to validate a prefix list given in a variable
 // and to obtain the CIDR blocks (IP address ranges) for the associated
 // AWS service. The latter may be useful e.g. for adding network ACL
 // rules.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		privateS3VpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "privateS3VpcEndpoint", &ec2.VpcEndpointArgs{
+// 			ServiceName: pulumi.String("com.amazonaws.us-west-2.s3"),
+// 			VpcId:       pulumi.String(aws_vpc.Foo.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		bar, err := ec2.NewNetworkAcl(ctx, "bar", &ec2.NetworkAclArgs{
+// 			VpcId: pulumi.String(aws_vpc.Foo.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		privateS3NetworkAclRule, err := ec2.NewNetworkAclRule(ctx, "privateS3NetworkAclRule", &ec2.NetworkAclRuleArgs{
+// 			CidrBlock: privateS3PrefixList.ApplyT(func(privateS3PrefixList index.LookupPrefixListResult) (string, error) {
+// 				return privateS3PrefixList.CidrBlocks[0], nil
+// 			}).(pulumi.StringOutput),
+// 			Egress:       pulumi.Bool(false),
+// 			FromPort:     pulumi.Int(443),
+// 			NetworkAclId: bar.ID(),
+// 			Protocol:     pulumi.String("tcp"),
+// 			RuleAction:   pulumi.String("allow"),
+// 			RuleNumber:   pulumi.Int(200),
+// 			ToPort:       pulumi.Int(443),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.InvokeOption) (*GetPrefixListResult, error) {
 	var rv GetPrefixListResult
 	err := ctx.Invoke("aws:index/getPrefixList:getPrefixList", args, &rv, opts...)

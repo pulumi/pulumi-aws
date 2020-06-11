@@ -72,7 +72,7 @@ class Fleet(pulumi.CustomResource):
     Instructions for launching server processes on each instance in the fleet. See below.
 
       * `gameSessionActivationTimeoutSeconds` (`float`) - Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
-      * `maxConcurrentGameSessionActivations` (`float`) - Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously. 
+      * `maxConcurrentGameSessionActivations` (`float`) - Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
       * `serverProcesses` (`list`) - Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
         * `concurrentExecutions` (`float`) - Number of server processes using this configuration to run concurrently on an instance.
         * `launchPath` (`str`) - Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
@@ -137,7 +137,7 @@ class Fleet(pulumi.CustomResource):
         The **runtime_configuration** object supports the following:
 
           * `gameSessionActivationTimeoutSeconds` (`pulumi.Input[float]`) - Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
-          * `maxConcurrentGameSessionActivations` (`pulumi.Input[float]`) - Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously. 
+          * `maxConcurrentGameSessionActivations` (`pulumi.Input[float]`) - Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
           * `serverProcesses` (`pulumi.Input[list]`) - Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
             * `concurrentExecutions` (`pulumi.Input[float]`) - Number of server processes using this configuration to run concurrently on an instance.
             * `launchPath` (`pulumi.Input[str]`) - Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
@@ -224,7 +224,7 @@ class Fleet(pulumi.CustomResource):
         The **runtime_configuration** object supports the following:
 
           * `gameSessionActivationTimeoutSeconds` (`pulumi.Input[float]`) - Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
-          * `maxConcurrentGameSessionActivations` (`pulumi.Input[float]`) - Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously. 
+          * `maxConcurrentGameSessionActivations` (`pulumi.Input[float]`) - Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
           * `serverProcesses` (`pulumi.Input[list]`) - Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
             * `concurrentExecutions` (`pulumi.Input[float]`) - Number of server processes using this configuration to run concurrently on an instance.
             * `launchPath` (`pulumi.Input[str]`) - Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.

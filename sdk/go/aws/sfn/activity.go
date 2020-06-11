@@ -10,6 +10,29 @@ import (
 )
 
 // Provides a Step Function Activity resource
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/sfn"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		sfnActivity, err := sfn.NewActivity(ctx, "sfnActivity", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Activity struct {
 	pulumi.CustomResourceState
 

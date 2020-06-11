@@ -11,6 +11,136 @@ import (
 )
 
 // Provides an AWS App Mesh route resource.
+//
+// ## Example Usage
+//
+// ### HTTP Routing
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		serviceb, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+// 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
+// 			Spec: &appmesh.RouteSpecArgs{
+// 				HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
+// 					Action: &appmesh.RouteSpecHttpRouteActionArgs{
+// 						WeightedTarget: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"virtualNode": aws_appmesh_virtual_node.Serviceb1.Name,
+// 								"weight":      90,
+// 							},
+// 							map[string]interface{}{
+// 								"virtualNode": aws_appmesh_virtual_node.Serviceb2.Name,
+// 								"weight":      10,
+// 							},
+// 						},
+// 					},
+// 					Match: &appmesh.RouteSpecHttpRouteMatchArgs{
+// 						Prefix: pulumi.String("/"),
+// 					},
+// 				},
+// 			},
+// 			VirtualRouterName: pulumi.String(aws_appmesh_virtual_router.Serviceb.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### HTTP Header Routing
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		serviceb, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+// 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
+// 			Spec: &appmesh.RouteSpecArgs{
+// 				HttpRoute: &appmesh.RouteSpecHttpRouteArgs{
+// 					Action: &appmesh.RouteSpecHttpRouteActionArgs{
+// 						WeightedTarget: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"virtualNode": aws_appmesh_virtual_node.Serviceb.Name,
+// 								"weight":      100,
+// 							},
+// 						},
+// 					},
+// 					Match: &appmesh.RouteSpecHttpRouteMatchArgs{
+// 						Header: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"match": map[string]interface{}{
+// 									"prefix": "123",
+// 								},
+// 								"name": "clientRequestId",
+// 							},
+// 						},
+// 						Method: pulumi.String("POST"),
+// 						Prefix: pulumi.String("/"),
+// 						Scheme: pulumi.String("https"),
+// 					},
+// 				},
+// 			},
+// 			VirtualRouterName: pulumi.String(aws_appmesh_virtual_router.Serviceb.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### TCP Routing
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/appmesh"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		serviceb, err := appmesh.NewRoute(ctx, "serviceb", &appmesh.RouteArgs{
+// 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
+// 			Spec: &appmesh.RouteSpecArgs{
+// 				TcpRoute: &appmesh.RouteSpecTcpRouteArgs{
+// 					Action: &appmesh.RouteSpecTcpRouteActionArgs{
+// 						WeightedTarget: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"virtualNode": aws_appmesh_virtual_node.Serviceb1.Name,
+// 								"weight":      100,
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 			VirtualRouterName: pulumi.String(aws_appmesh_virtual_router.Serviceb.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Route struct {
 	pulumi.CustomResourceState
 

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Iot.Outputs
         /// </summary>
         public readonly string InputName;
         /// <summary>
-        /// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector. 
+        /// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
         /// </summary>
         public readonly string? MessageId;
         /// <summary>

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ResourceGroups.Inputs
         public Input<string> Query { get; set; } = null!;
 
         /// <summary>
-        /// The type of the resource query. Defaults to `TAG_FILTERS_1_0`. 
+        /// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

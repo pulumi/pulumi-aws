@@ -66,15 +66,15 @@ namespace Pulumi.Aws.AppSync
     ///     ""method"": ""GET"",
     ///     ""resourcePath"": ""/"",
     ///     ""params"":{
-    ///         ""headers"": $$utils.http.copyheaders($$ctx.request.headers)
+    ///         ""headers"": $utils.http.copyheaders($ctx.request.headers)
     ///     }
     /// }
     /// 
     /// ",
-    ///             ResponseMappingTemplate = @"#if($$ctx.result.statusCode == 200)
-    ///     $$ctx.result.body
+    ///             ResponseMappingTemplate = @"#if($ctx.result.statusCode == 200)
+    ///     $ctx.result.body
     /// #else
-    ///     $$utils.appendError($$ctx.result.body, $$ctx.result.statusCode)
+    ///     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
     /// #end
     /// 
     /// ",

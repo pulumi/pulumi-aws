@@ -11,6 +11,85 @@ import (
 //
 // This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
 // Distribution.
+//
+// ## Example Usage
+//
+// ### Route53 Record
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		selected, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+// 			Bucket: "bucket.test.com",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testZone, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
+// 			Name: "test.com.",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		example, err := route53.NewRecord(ctx, "example", &route53.RecordArgs{
+// 			Aliases: route53.RecordAliasArray{
+// 				&route53.RecordAliasArgs{
+// 					Name:   pulumi.String(selected.WebsiteDomain),
+// 					ZoneId: pulumi.String(selected.HostedZoneId),
+// 				},
+// 			},
+// 			Name:   pulumi.String("bucket"),
+// 			Type:   pulumi.String("A"),
+// 			ZoneId: pulumi.String(testZone.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### CloudFront Origin
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudfront"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		selected, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+// 			Bucket: "a-test-bucket",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		test, err := cloudfront.NewDistribution(ctx, "test", &cloudfront.DistributionArgs{
+// 			Origins: cloudfront.DistributionOriginArray{
+// 				&cloudfront.DistributionOriginArgs{
+// 					DomainName: pulumi.String(selected.BucketDomainName),
+// 					OriginId:   pulumi.String("s3-selected-bucket"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.InvokeOption) (*LookupBucketResult, error) {
 	var rv LookupBucketResult
 	err := ctx.Invoke("aws:s3/getBucket:getBucket", args, &rv, opts...)

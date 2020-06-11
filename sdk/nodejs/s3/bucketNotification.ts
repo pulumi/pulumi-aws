@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
+ * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
  *     topics: [{
  *         events: ["s3:ObjectCreated:*"],
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
+ * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
  *     queues: [{
  *         events: ["s3:ObjectCreated:*"],
@@ -208,7 +208,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
+ * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
  *     queues: [
  *         {

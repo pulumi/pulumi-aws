@@ -18,6 +18,59 @@ import (
 // a VPC Endpoint resource with `routeTableIds` and `subnetIds` attributes.
 // Do not use the same resource ID in both a VPC Endpoint resource and a VPC Endpoint Association resource.
 // Doing so will cause a conflict of associations and will overwrite the association.
+//
+// ## Example Usage
+//
+// ### Basic
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		s3, err := ec2.NewVpcEndpoint(ctx, "s3", &ec2.VpcEndpointArgs{
+// 			ServiceName: pulumi.String("com.amazonaws.us-west-2.s3"),
+// 			VpcId:       pulumi.String(aws_vpc.Main.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Basic w/ Tags
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		s3, err := ec2.NewVpcEndpoint(ctx, "s3", &ec2.VpcEndpointArgs{
+// 			ServiceName: pulumi.String("com.amazonaws.us-west-2.s3"),
+// 			Tags: map[string]interface{}{
+// 				"Environment": "test",
+// 			},
+// 			VpcId: pulumi.String(aws_vpc.Main.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
 

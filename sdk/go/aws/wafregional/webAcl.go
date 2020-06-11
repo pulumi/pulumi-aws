@@ -11,6 +11,140 @@ import (
 )
 
 // Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
+//
+// ## Example Usage
+//
+// ### Regular Rule
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/wafregional"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
+// 			IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
+// 				&wafregional.IpSetIpSetDescriptorArgs{
+// 					Type:  pulumi.String("IPV4"),
+// 					Value: pulumi.String("192.0.7.0/24"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		wafrule, err := wafregional.NewRule(ctx, "wafrule", &wafregional.RuleArgs{
+// 			MetricName: pulumi.String("tfWAFRule"),
+// 			Predicates: wafregional.RulePredicateArray{
+// 				&wafregional.RulePredicateArgs{
+// 					DataId:  ipset.ID(),
+// 					Negated: pulumi.Bool(false),
+// 					Type:    pulumi.String("IPMatch"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		wafacl, err := wafregional.NewWebAcl(ctx, "wafacl", &wafregional.WebAclArgs{
+// 			DefaultAction: &wafregional.WebAclDefaultActionArgs{
+// 				Type: pulumi.String("ALLOW"),
+// 			},
+// 			MetricName: pulumi.String("tfWebACL"),
+// 			Rules: wafregional.WebAclRuleArray{
+// 				&wafregional.WebAclRuleArgs{
+// 					Action: &wafregional.WebAclRuleActionArgs{
+// 						Type: pulumi.String("BLOCK"),
+// 					},
+// 					Priority: pulumi.Int(1),
+// 					RuleId:   wafrule.ID(),
+// 					Type:     pulumi.String("REGULAR"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Group Rule
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/wafregional"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := wafregional.NewWebAcl(ctx, "example", &wafregional.WebAclArgs{
+// 			DefaultAction: &wafregional.WebAclDefaultActionArgs{
+// 				Type: pulumi.String("ALLOW"),
+// 			},
+// 			MetricName: pulumi.String("example"),
+// 			Rules: wafregional.WebAclRuleArray{
+// 				&wafregional.WebAclRuleArgs{
+// 					OverrideAction: &wafregional.WebAclRuleOverrideActionArgs{
+// 						Type: pulumi.String("NONE"),
+// 					},
+// 					Priority: pulumi.Int(1),
+// 					RuleId:   pulumi.String(aws_wafregional_rule_group.Example.Id),
+// 					Type:     pulumi.String("GROUP"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Logging
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/wafregional"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := wafregional.NewWebAcl(ctx, "example", &wafregional.WebAclArgs{
+// 			LoggingConfiguration: &wafregional.WebAclLoggingConfigurationArgs{
+// 				LogDestination: pulumi.String(aws_kinesis_firehose_delivery_stream.Example.Arn),
+// 				RedactedFields: &wafregional.WebAclLoggingConfigurationRedactedFieldsArgs{
+// 					FieldToMatch: []interface{}{
+// 						map[string]interface{}{
+// 							"type": "URI",
+// 						},
+// 						map[string]interface{}{
+// 							"data": "referer",
+// 							"type": "HEADER",
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type WebAcl struct {
 	pulumi.CustomResourceState
 

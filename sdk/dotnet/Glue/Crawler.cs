@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Glue
     public partial class Crawler : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the crawler 
+        /// The ARN of the crawler
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -410,7 +410,7 @@ namespace Pulumi.Aws.Glue
     public sealed class CrawlerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the crawler 
+        /// The ARN of the crawler
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

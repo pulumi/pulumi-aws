@@ -59,7 +59,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      */
     public readonly clientIdLists!: pulumi.Output<string[]>;
     /**
-     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
     public readonly thumbprintLists!: pulumi.Output<string[]>;
     /**
@@ -123,7 +123,7 @@ export interface OpenIdConnectProviderState {
      */
     readonly clientIdLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
     readonly thumbprintLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -141,7 +141,7 @@ export interface OpenIdConnectProviderArgs {
      */
     readonly clientIdLists: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). 
+     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
     readonly thumbprintLists: pulumi.Input<pulumi.Input<string>[]>;
     /**

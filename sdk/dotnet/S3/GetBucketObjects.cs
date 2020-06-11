@@ -17,36 +17,6 @@ namespace Pulumi.Aws.S3
         /// The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
         /// 
         /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example retrieves a list of all object keys in an S3 bucket and creates corresponding object data sources:
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var myObjects = Output.Create(Aws.S3.GetBucketObjects.InvokeAsync(new Aws.S3.GetBucketObjectsArgs
-        ///         {
-        ///             Bucket = "ourcorp",
-        ///         }));
-        ///         var objectInfo = Output.Tuple(myObjects.Apply(myObjects =&gt; myObjects.Keys).Length, myObjects, myObjects.Apply(myObjects =&gt; myObjects.Keys)[__index]).Apply(values =&gt;
-        ///         {
-        ///             var length = values.Item1;
-        ///             var myObjects = values.Item2;
-        ///             var keys = values.Item3;
-        ///             return "TODO: ForExpression";
-        ///         });
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// 
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBucketObjectsResult> InvokeAsync(GetBucketObjectsArgs args, InvokeOptions? options = null)

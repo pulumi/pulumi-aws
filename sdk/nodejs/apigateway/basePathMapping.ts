@@ -21,7 +21,7 @@ import {RestApi} from "./index";
  * import * as fs from "fs";
  *
  * const exampleDeployment = new aws.apigateway.Deployment("example", {
- *     // See aws.apigateway.RestApi docs for how to create this
+ *     // See aws_api_gateway_rest_api docs for how to create this
  *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
  *     stageName: "live",
  * });

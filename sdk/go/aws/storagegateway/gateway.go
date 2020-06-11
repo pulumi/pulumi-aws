@@ -13,6 +13,86 @@ import (
 // Manages an AWS Storage Gateway file, tape, or volume gateway in the provider region.
 //
 // > NOTE: The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
+//
+// ## Example Usage
+//
+// ### File Gateway
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/storagegateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
+// 			GatewayIpAddress: pulumi.String("1.2.3.4"),
+// 			GatewayName:      pulumi.String("example"),
+// 			GatewayTimezone:  pulumi.String("GMT"),
+// 			GatewayType:      pulumi.String("FILE_S3"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Volume Gateway (Cached)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/storagegateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
+// 			GatewayIpAddress: pulumi.String("1.2.3.4"),
+// 			GatewayName:      pulumi.String("example"),
+// 			GatewayTimezone:  pulumi.String("GMT"),
+// 			GatewayType:      pulumi.String("CACHED"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Volume Gateway (Stored)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/storagegateway"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
+// 			GatewayIpAddress: pulumi.String("1.2.3.4"),
+// 			GatewayName:      pulumi.String("example"),
+// 			GatewayTimezone:  pulumi.String("GMT"),
+// 			GatewayType:      pulumi.String("STORED"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Gateway struct {
 	pulumi.CustomResourceState
 

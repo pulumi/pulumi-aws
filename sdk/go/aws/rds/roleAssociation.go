@@ -16,6 +16,33 @@ import (
 // * [Importing Amazon S3 Data into an RDS PostgreSQL DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
 //
 // > To manage the RDS DB Instance IAM Role for [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html), see the `rds.Instance` resource `monitoringRoleArn` argument instead.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := rds.NewRoleAssociation(ctx, "example", &rds.RoleAssociationArgs{
+// 			DbInstanceIdentifier: pulumi.String(aws_db_instance.Example.Id),
+// 			FeatureName:          pulumi.String("S3_INTEGRATION"),
+// 			RoleArn:              pulumi.String(aws_iam_role.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type RoleAssociation struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,34 @@ import (
 )
 
 // Provides a DAX Cluster resource.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/dax"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		bar, err := dax.NewCluster(ctx, "bar", &dax.ClusterArgs{
+// 			ClusterName:       pulumi.String("cluster-example"),
+// 			IamRoleArn:        pulumi.String(data.Aws_iam_role.Example.Arn),
+// 			NodeType:          pulumi.String("dax.r4.large"),
+// 			ReplicationFactor: pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

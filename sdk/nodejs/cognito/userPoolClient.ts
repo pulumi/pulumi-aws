@@ -82,7 +82,7 @@ import * as utilities from "../utilities";
  * const testUserPoolClient = new aws.cognito.UserPoolClient("test", {
  *     analyticsConfiguration: {
  *         applicationId: testApp.applicationId,
- *         externalId: "someId",
+ *         externalId: "some_id",
  *         roleArn: testRole.arn,
  *         userDataShared: true,
  *     },

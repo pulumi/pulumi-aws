@@ -29,7 +29,9 @@ class ListenerPolicy(pulumi.CustomResource):
         Attaches a load balancer policy to an ELB Listener.
 
 
-        ## Example Usage for Custom Policy
+        ## Example Usage
+
+        ### Custom Policy
 
         ```python
         import pulumi
@@ -67,9 +69,7 @@ class ListenerPolicy(pulumi.CustomResource):
             policy_names=[wu_tang_ssl.policy_name])
         ```
 
-        This example shows how to customize the TLS settings of an HTTPS listener.
-
-        ## Example Usage for AWS Predefined Security Policy
+        ### AWS Predefined Security Policy
 
         ```python
         import pulumi
@@ -101,7 +101,6 @@ class ListenerPolicy(pulumi.CustomResource):
             policy_names=[wu_tang_ssl_tls_1_1.policy_name])
         ```
 
-        This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

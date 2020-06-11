@@ -29,7 +29,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///             ApiId = aws_apigatewayv2_api.Example.Id,
     ///             ContentType = "application/json",
     ///             Schema = @"{
-    ///   ""$$schema"": ""http://json-schema.org/draft-04/schema#"",
+    ///   ""$schema"": ""http://json-schema.org/draft-04/schema#"",
     ///   ""title"": ""ExampleModel"",
     ///   ""type"": ""object"",
     ///   ""properties"": {

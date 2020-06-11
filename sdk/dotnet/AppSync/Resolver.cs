@@ -64,8 +64,8 @@ namespace Pulumi.Aws.AppSync
     ///             {
     ///                 CachingKeys = 
     ///                 {
-    ///                     "$$context.identity.sub",
-    ///                     "$$context.arguments.id",
+    ///                     "$context.identity.sub",
+    ///                     "$context.arguments.id",
     ///                 },
     ///                 Ttl = 60,
     ///             },
@@ -76,15 +76,15 @@ namespace Pulumi.Aws.AppSync
     ///     ""method"": ""GET"",
     ///     ""resourcePath"": ""/"",
     ///     ""params"":{
-    ///         ""headers"": $$utils.http.copyheaders($$ctx.request.headers)
+    ///         ""headers"": $utils.http.copyheaders($ctx.request.headers)
     ///     }
     /// }
     /// 
     /// ",
-    ///             ResponseTemplate = @"#if($$ctx.result.statusCode == 200)
-    ///     $$ctx.result.body
+    ///             ResponseTemplate = @"#if($ctx.result.statusCode == 200)
+    ///     $ctx.result.body
     /// #else
-    ///     $$utils.appendError($$ctx.result.body, $$ctx.result.statusCode)
+    ///     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
     /// #end
     /// 
     /// ",
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.AppSync
     ///                 },
     ///             },
     ///             RequestTemplate = "{}",
-    ///             ResponseTemplate = "$$util.toJson($$ctx.result)",
+    ///             ResponseTemplate = "$util.toJson($ctx.result)",
     ///             Type = "Mutation",
     ///         });
     ///     }

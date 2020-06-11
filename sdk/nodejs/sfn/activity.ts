@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const sfnActivity = new aws.sfn.Activity("sfnActivity", {});
+ * const sfnActivity = new aws.sfn.Activity("sfn_activity", {});
  * ```
  */
 export class Activity extends pulumi.CustomResource {

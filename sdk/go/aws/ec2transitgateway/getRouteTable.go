@@ -8,6 +8,65 @@ import (
 )
 
 // Get information on an EC2 Transit Gateway Route Table.
+//
+// ## Example Usage
+//
+// ### By Filter
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ec2transitgateway.LookupRouteTable(ctx, &ec2transitgateway.LookupRouteTableArgs{
+// 			Filters: ec2transitgateway.getRouteTableFilterArray{
+// 				&ec2transitgateway.LookupRouteTableFilter{
+// 					Name: "default-association-route-table",
+// 					Values: []string{
+// 						"true",
+// 					},
+// 				},
+// 				&ec2transitgateway.LookupRouteTableFilter{
+// 					Name: "transit-gateway-id",
+// 					Values: []string{
+// 						"tgw-12345678",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### By Identifier
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ec2transitgateway.LookupRouteTable(ctx, &ec2transitgateway.LookupRouteTableArgs{
+// 			Id: "tgw-rtb-12345678",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupRouteTableResult, error) {
 	var rv LookupRouteTableResult
 	err := ctx.Invoke("aws:ec2transitgateway/getRouteTable:getRouteTable", args, &rv, opts...)

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.Bucket("example", {});
- * const exampleEntireBucket = new aws.s3.BucketMetric("example-entire-bucket", {
+ * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {
  *     bucket: example.bucket,
  * });
  * ```
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.Bucket("example", {});
- * const exampleFiltered = new aws.s3.BucketMetric("example-filtered", {
+ * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
  *     bucket: example.bucket,
  *     filter: {
  *         prefix: "documents/",

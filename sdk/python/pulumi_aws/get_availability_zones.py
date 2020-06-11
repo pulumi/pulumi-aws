@@ -72,7 +72,7 @@ def get_availability_zones(all_availability_zones=None,blacklisted_names=None,bl
     Availability Zones which can be accessed by an AWS account within the region
     configured in the provider.
 
-    This is different from the `.getAvailabilityZone` (singular) data source,
+    This is different from the `getAvailabilityZone` (singular) data source,
     which provides some details about a specific availability zone.
 
     > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.

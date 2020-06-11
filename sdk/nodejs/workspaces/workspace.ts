@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * const valueWindows10 = pulumi.output(aws.workspaces.getBundle({
  *     bundleId: "wsb-bh8rsxt14", // Value with Windows 10 (English)
  * }, { async: true }));
- * const jhonDoe = new aws.workspaces.Workspace("jhon.doe", {
+ * const jhon_doe = new aws.workspaces.Workspace("jhon.doe", {
  *     bundleId: valueWindows10.id,
  *     directoryId: main.id,
  *     rootVolumeEncryptionEnabled: true,

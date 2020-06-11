@@ -169,7 +169,7 @@ class DomainName(pulumi.CustomResource):
             name=example_domain_name.domain_name,
             type="A",
             zone_id=aws_route53_zone["example"]["id"])
-        # See route53.Zone for how to create this
+        # See aws_route53_zone for how to create this
         ```
 
         ### Regional (ACM Certificate)

@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Inspector
         ///     public MyStack()
         ///     {
         ///         var rules = Output.Create(Aws.Inspector.GetRulesPackages.InvokeAsync());
-        ///         // e.g. Use in aws.inspector.AssessmentTemplate
+        ///         // e.g. Use in aws_inspector_assessment_template
         ///         var @group = new Aws.Inspector.ResourceGroup("group", new Aws.Inspector.ResourceGroupArgs
         ///         {
         ///             Tags = 

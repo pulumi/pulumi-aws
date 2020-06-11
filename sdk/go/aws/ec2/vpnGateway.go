@@ -10,6 +10,34 @@ import (
 )
 
 // Provides a resource to create a VPC VPN Gateway.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		vpnGw, err := ec2.NewVpnGateway(ctx, "vpnGw", &ec2.VpnGatewayArgs{
+// 			Tags: map[string]interface{}{
+// 				"Name": "main",
+// 			},
+// 			VpcId: pulumi.String(aws_vpc.Main.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VpnGateway struct {
 	pulumi.CustomResourceState
 

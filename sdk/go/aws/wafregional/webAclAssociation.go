@@ -13,6 +13,140 @@ import (
 // Manages an association with WAF Regional Web ACL.
 //
 // > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
+//
+// ## Application Load Balancer Association Example
+//
+//
+// ## API Gateway Association Example
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/wafregional"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
+// 			IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
+// 				&wafregional.IpSetIpSetDescriptorArgs{
+// 					Type:  pulumi.String("IPV4"),
+// 					Value: pulumi.String("192.0.7.0/24"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooRule, err := wafregional.NewRule(ctx, "fooRule", &wafregional.RuleArgs{
+// 			MetricName: pulumi.String("tfWAFRule"),
+// 			Predicates: wafregional.RulePredicateArray{
+// 				&wafregional.RulePredicateArgs{
+// 					DataId:  ipset.ID(),
+// 					Negated: pulumi.Bool(false),
+// 					Type:    pulumi.String("IPMatch"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooWebAcl, err := wafregional.NewWebAcl(ctx, "fooWebAcl", &wafregional.WebAclArgs{
+// 			DefaultAction: &wafregional.WebAclDefaultActionArgs{
+// 				Type: pulumi.String("ALLOW"),
+// 			},
+// 			MetricName: pulumi.String("foo"),
+// 			Rules: wafregional.WebAclRuleArray{
+// 				&wafregional.WebAclRuleArgs{
+// 					Action: &wafregional.WebAclRuleActionArgs{
+// 						Type: pulumi.String("BLOCK"),
+// 					},
+// 					Priority: pulumi.Int(1),
+// 					RuleId:   fooRule.ID(),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testRestApi, err := apigateway.NewRestApi(ctx, "testRestApi", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testResource, err := apigateway.NewResource(ctx, "testResource", &apigateway.ResourceArgs{
+// 			ParentId: testRestApi.RootResourceId,
+// 			PathPart: pulumi.String("test"),
+// 			RestApi:  testRestApi.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testMethod, err := apigateway.NewMethod(ctx, "testMethod", &apigateway.MethodArgs{
+// 			Authorization: pulumi.String("NONE"),
+// 			HttpMethod:    pulumi.String("GET"),
+// 			ResourceId:    testResource.ID(),
+// 			RestApi:       testRestApi.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testMethodResponse, err := apigateway.NewMethodResponse(ctx, "testMethodResponse", &apigateway.MethodResponseArgs{
+// 			HttpMethod: testMethod.HttpMethod,
+// 			ResourceId: testResource.ID(),
+// 			RestApi:    testRestApi.ID(),
+// 			StatusCode: pulumi.String("400"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testIntegration, err := apigateway.NewIntegration(ctx, "testIntegration", &apigateway.IntegrationArgs{
+// 			HttpMethod:            testMethod.HttpMethod,
+// 			IntegrationHttpMethod: pulumi.String("GET"),
+// 			ResourceId:            testResource.ID(),
+// 			RestApi:               testRestApi.ID(),
+// 			Type:                  pulumi.String("HTTP"),
+// 			Uri:                   pulumi.String("http://www.example.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testIntegrationResponse, err := apigateway.NewIntegrationResponse(ctx, "testIntegrationResponse", &apigateway.IntegrationResponseArgs{
+// 			HttpMethod: testIntegration.HttpMethod,
+// 			ResourceId: testResource.ID(),
+// 			RestApi:    testRestApi.ID(),
+// 			StatusCode: testMethodResponse.StatusCode,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testDeployment, err := apigateway.NewDeployment(ctx, "testDeployment", &apigateway.DeploymentArgs{
+// 			RestApi: testRestApi.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testStage, err := apigateway.NewStage(ctx, "testStage", &apigateway.StageArgs{
+// 			Deployment: testDeployment.ID(),
+// 			RestApi:    testRestApi.ID(),
+// 			StageName:  pulumi.String("test"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		association, err := wafregional.NewWebAclAssociation(ctx, "association", &wafregional.WebAclAssociationArgs{
+// 			ResourceArn: testStage.Arn,
+// 			WebAclId:    fooWebAcl.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type WebAclAssociation struct {
 	pulumi.CustomResourceState
 

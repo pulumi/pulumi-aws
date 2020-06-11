@@ -113,7 +113,7 @@ import {Topic} from "../sns";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const xxAnomalyDetection = new aws.cloudwatch.MetricAlarm("xxAnomalyDetection", {
+ * const xxAnomalyDetection = new aws.cloudwatch.MetricAlarm("xx_anomaly_detection", {
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  *     comparisonOperator: "GreaterThanUpperThreshold",
  *     evaluationPeriods: 2,

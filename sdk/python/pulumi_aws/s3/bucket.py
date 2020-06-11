@@ -56,7 +56,7 @@ class Bucket(pulumi.CustomResource):
     """
     An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
 
-      * `id` (`str`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+      * `id` (`str`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
       * `permissions` (`list`) - List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
       * `type` (`str`) - - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
       * `uri` (`str`) - Uri address to grant for. Used only when `type` is `Group`.
@@ -518,7 +518,7 @@ class Bucket(pulumi.CustomResource):
 
         The **grants** object supports the following:
 
-          * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+          * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
           * `permissions` (`pulumi.Input[list]`) - List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
           * `type` (`pulumi.Input[str]`) - - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
           * `uri` (`pulumi.Input[str]`) - Uri address to grant for. Used only when `type` is `Group`.
@@ -704,7 +704,7 @@ class Bucket(pulumi.CustomResource):
 
         The **grants** object supports the following:
 
-          * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.  
+          * `id` (`pulumi.Input[str]`) - Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
           * `permissions` (`pulumi.Input[list]`) - List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
           * `type` (`pulumi.Input[str]`) - - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
           * `uri` (`pulumi.Input[str]`) - Uri address to grant for. Used only when `type` is `Group`.

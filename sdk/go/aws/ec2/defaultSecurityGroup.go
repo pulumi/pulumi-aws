@@ -35,6 +35,19 @@ import (
 // For more information about Default Security Groups, see the AWS Documentation on
 // [Default Security Groups][aws-default-security-groups].
 //
+// ## Basic Example Usage, with default rules
+//
+// The following config gives the Default Security Group the same rules that AWS
+// provides by default, but pulls the resource under management by this provider. This means that
+// any ingress or egress rules added or changed will be detected as drift.
+//
+//
+// ## Example config to deny all Egress traffic, allowing Ingress
+//
+// The following denies all Egress traffic by omitting any `egress` rules, while
+// including the default `ingress` rule to allow all traffic.
+//
+//
 // ## Usage
 //
 // With the exceptions mentioned above, `ec2.DefaultSecurityGroup` should

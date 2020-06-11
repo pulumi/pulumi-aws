@@ -11,6 +11,34 @@ import (
 )
 
 // Provides a SageMaker Endpoint resource.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/sagemaker"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		endpoint, err := sagemaker.NewEndpoint(ctx, "endpoint", &sagemaker.EndpointArgs{
+// 			EndpointConfigName: pulumi.String(aws_sagemaker_endpoint_configuration.Ec.Name),
+// 			Tags: map[string]interface{}{
+// 				"Name": "foo",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Endpoint struct {
 	pulumi.CustomResourceState
 

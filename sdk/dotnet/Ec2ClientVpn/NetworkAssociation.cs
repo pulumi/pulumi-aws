@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC in which the target network (subnet) is located. 
+        /// The ID of the VPC in which the target network (subnet) is located.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? SubnetId { get; set; }
 
         /// <summary>
-        /// The ID of the VPC in which the target network (subnet) is located. 
+        /// The ID of the VPC in which the target network (subnet) is located.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

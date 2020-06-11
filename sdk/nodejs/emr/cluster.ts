@@ -159,7 +159,7 @@ import * as utilities from "../utilities";
  *     mapPublicIpOnLaunch: true,
  * });
  * const exampleCluster = new aws.emr.Cluster("example", {
- *     // coreInstanceGroup must be configured
+ *     // core_instance_group must be configured
  *     coreInstanceGroup: {},
  *     ec2Attributes: {
  *         subnetId: exampleSubnet.id,
@@ -190,14 +190,14 @@ import * as utilities from "../utilities";
  *     cidrBlock: "168.31.0.0/16",
  *     enableDnsHostnames: true,
  *     tags: {
- *         name: "emrTest",
+ *         name: "emr_test",
  *     },
  * });
  * const mainSubnet = new aws.ec2.Subnet("mainSubnet", {
  *     vpcId: mainVpc.id,
  *     cidrBlock: "168.31.0.0/20",
  *     tags: {
- *         name: "emrTest",
+ *         name: "emr_test",
  *     },
  * });
  * // IAM role for EMR Service
@@ -245,7 +245,7 @@ import * as utilities from "../utilities";
  *     coreInstanceCount: 1,
  *     tags: {
  *         role: "rolename",
- *         dns_zone: "envZone",
+ *         dns_zone: "env_zone",
  *         env: "env",
  *         name: "name-env",
  *     },
@@ -302,7 +302,7 @@ import * as utilities from "../utilities";
  *         cidrBlocks: ["0.0.0.0/0"],
  *     }],
  *     tags: {
- *         name: "emrTest",
+ *         name: "emr_test",
  *     },
  * });
  * const gw = new aws.ec2.InternetGateway("gw", {vpcId: mainVpc.id});

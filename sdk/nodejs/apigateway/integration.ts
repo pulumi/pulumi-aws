@@ -108,7 +108,7 @@ import {RestApi} from "./index";
  *     uri: lambda.invokeArn,
  * });
  * // Lambda
- * const apigwLambda = new aws.lambda.Permission("apigwLambda", {
+ * const apigwLambda = new aws.lambda.Permission("apigw_lambda", {
  *     action: "lambda:InvokeFunction",
  *     function: lambda.functionName,
  *     principal: "apigateway.amazonaws.com",

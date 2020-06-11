@@ -8,6 +8,37 @@ import (
 )
 
 // Provides information about a Launch Template.
+//
+// ## Example Usage
+//
+// ### Filter
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		test, err := ec2.LookupLaunchTemplate(ctx, &ec2.LookupLaunchTemplateArgs{
+// 			Filters: ec2.getLaunchTemplateFilterArray{
+// 				&ec2.LookupLaunchTemplateFilter{
+// 					Name: "launch-template-name",
+// 					Values: []string{
+// 						"some-template",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupLaunchTemplate(ctx *pulumi.Context, args *LookupLaunchTemplateArgs, opts ...pulumi.InvokeOption) (*LookupLaunchTemplateResult, error) {
 	var rv LookupLaunchTemplateResult
 	err := ctx.Invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", args, &rv, opts...)

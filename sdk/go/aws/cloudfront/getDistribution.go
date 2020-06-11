@@ -8,6 +8,30 @@ import (
 )
 
 // Use this data source to retrieve information about a CloudFront distribution.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		test, err := cloudfront.LookupDistribution(ctx, &cloudfront.LookupDistributionArgs{
+// 			Id: "EDFDVBD632BHDS5",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupDistribution(ctx *pulumi.Context, args *LookupDistributionArgs, opts ...pulumi.InvokeOption) (*LookupDistributionResult, error) {
 	var rv LookupDistributionResult
 	err := ctx.Invoke("aws:cloudfront/getDistribution:getDistribution", args, &rv, opts...)

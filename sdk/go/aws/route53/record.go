@@ -11,6 +11,102 @@ import (
 )
 
 // Provides a Route53 record resource.
+//
+// ## Example Usage
+//
+// ### Alias record
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/elb"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		main, err := elb.NewLoadBalancer(ctx, "main", &elb.LoadBalancerArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-east-1c"),
+// 			},
+// 			Listeners: elb.LoadBalancerListenerArray{
+// 				&elb.LoadBalancerListenerArgs{
+// 					InstancePort:     pulumi.Int(80),
+// 					InstanceProtocol: pulumi.String("http"),
+// 					LbPort:           pulumi.Int(80),
+// 					LbProtocol:       pulumi.String("http"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		www, err := route53.NewRecord(ctx, "www", &route53.RecordArgs{
+// 			Aliases: route53.RecordAliasArray{
+// 				&route53.RecordAliasArgs{
+// 					EvaluateTargetHealth: pulumi.Bool(true),
+// 					Name:                 main.DnsName,
+// 					ZoneId:               main.ZoneId,
+// 				},
+// 			},
+// 			Name:   pulumi.String("example.com"),
+// 			Type:   pulumi.String("A"),
+// 			ZoneId: pulumi.String(aws_route53_zone.Primary.Zone_id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### NS and SOA Record Management
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleZone, err := route53.NewZone(ctx, "exampleZone", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleRecord, err := route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
+// 			AllowOverwrite: pulumi.Bool(true),
+// 			Name:           pulumi.String("test.example.com"),
+// 			Records: pulumi.StringArray{
+// 				exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
+// 					return nameServers[0], nil
+// 				}).(pulumi.StringOutput),
+// 				exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
+// 					return nameServers[1], nil
+// 				}).(pulumi.StringOutput),
+// 				exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
+// 					return nameServers[2], nil
+// 				}).(pulumi.StringOutput),
+// 				exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
+// 					return nameServers[3], nil
+// 				}).(pulumi.StringOutput),
+// 			},
+// 			Ttl:    pulumi.Int(30),
+// 			Type:   pulumi.String("NS"),
+// 			ZoneId: exampleZone.ZoneId,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Record struct {
 	pulumi.CustomResourceState
 

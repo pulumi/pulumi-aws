@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Pinpoint.Inputs
     public sealed class AppLimitsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of messages that the campaign can send daily. 
+        /// The maximum number of messages that the campaign can send daily.
         /// </summary>
         [Input("daily")]
         public Input<int>? Daily { get; set; }

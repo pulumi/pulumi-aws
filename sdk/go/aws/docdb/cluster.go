@@ -20,6 +20,37 @@ import (
 //
 // > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots.
 // > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/docdb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		docdb, err := docdb.NewCluster(ctx, "docdb", &docdb.ClusterArgs{
+// 			BackupRetentionPeriod: pulumi.Int(5),
+// 			ClusterIdentifier:     pulumi.String("my-docdb-cluster"),
+// 			Engine:                pulumi.String("docdb"),
+// 			MasterPassword:        pulumi.String("mustbeeightchars"),
+// 			MasterUsername:        pulumi.String("foo"),
+// 			PreferredBackupWindow: pulumi.String("07:00-09:00"),
+// 			SkipFinalSnapshot:     pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

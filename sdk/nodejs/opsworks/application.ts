@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as fs from "fs";
  *
- * const fooApp = new aws.opsworks.Application("foo-app", {
+ * const foo_app = new aws.opsworks.Application("foo-app", {
  *     appSources: [{
  *         revision: "master",
  *         type: "git",

@@ -11,6 +11,9 @@ import (
 )
 
 // Gives an external source (like a CloudWatch Event Rule, SNS, or S3) permission to access the Lambda function.
+//
+//
+// ## Usage with SNS
 type Permission struct {
 	pulumi.CustomResourceState
 

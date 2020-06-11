@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     resourceType: "INSTANCE",
  *     targets: [{
  *         key: "tag:Name",
- *         values: ["acceptanceTest"],
+ *         values: ["acceptance_test"],
  *     }],
  *     windowId: window.id,
  * });

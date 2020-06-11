@@ -288,7 +288,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     "processors": [{
                         "parameters": [{
                             "parameterName": "LambdaArn",
-                            "parameterValue": lambda_processor.arn.apply(lambda arn: f"{arn}:$$LATEST"),
+                            "parameterValue": lambda_processor.arn.apply(lambda arn: f"{arn}:$LATEST"),
                         }],
                         "type": "Lambda",
                     }],
@@ -385,7 +385,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     "processors": [{
                         "parameters": [{
                             "parameterName": "LambdaArn",
-                            "parameterValue": f"{aws_lambda_function['lambda_processor']['arn']}:$$LATEST",
+                            "parameterValue": f"{aws_lambda_function['lambda_processor']['arn']}:$LATEST",
                         }],
                         "type": "Lambda",
                     }],

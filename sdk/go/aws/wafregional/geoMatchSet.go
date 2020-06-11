@@ -10,6 +10,40 @@ import (
 )
 
 // Provides a WAF Regional Geo Match Set Resource
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/wafregional"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		geoMatchSet, err := wafregional.NewGeoMatchSet(ctx, "geoMatchSet", &wafregional.GeoMatchSetArgs{
+// 			GeoMatchConstraints: wafregional.GeoMatchSetGeoMatchConstraintArray{
+// 				&wafregional.GeoMatchSetGeoMatchConstraintArgs{
+// 					Type:  pulumi.String("Country"),
+// 					Value: pulumi.String("US"),
+// 				},
+// 				&wafregional.GeoMatchSetGeoMatchConstraintArgs{
+// 					Type:  pulumi.String("Country"),
+// 					Value: pulumi.String("CA"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type GeoMatchSet struct {
 	pulumi.CustomResourceState
 

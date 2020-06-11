@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Pinpoint.Outputs
         /// </summary>
         public readonly string? LambdaFunctionName;
         /// <summary>
-        /// What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.  
+        /// What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
         /// </summary>
         public readonly string? Mode;
         /// <summary>

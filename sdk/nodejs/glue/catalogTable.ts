@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws.glue.CatalogTable", {
+ * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
  *     databaseName: "MyCatalogDatabase",
  *     name: "MyCatalogTable",
  * });
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws.glue.CatalogTable", {
+ * const awsGlueCatalogTable = new aws.glue.CatalogTable("aws_glue_catalog_table", {
  *     databaseName: "MyCatalogDatabase",
  *     name: "MyCatalogTable",
  *     parameters: {
@@ -39,26 +39,26 @@ import * as utilities from "../utilities";
  *     storageDescriptor: {
  *         columns: [
  *             {
- *                 name: "myString",
+ *                 name: "my_string",
  *                 type: "string",
  *             },
  *             {
- *                 name: "myDouble",
+ *                 name: "my_double",
  *                 type: "double",
  *             },
  *             {
  *                 comment: "",
- *                 name: "myDate",
+ *                 name: "my_date",
  *                 type: "date",
  *             },
  *             {
  *                 comment: "",
- *                 name: "myBigint",
+ *                 name: "my_bigint",
  *                 type: "bigint",
  *             },
  *             {
  *                 comment: "",
- *                 name: "myStruct",
+ *                 name: "my_struct",
  *                 type: "struct<my_nested_string:string>",
  *             },
  *         ],

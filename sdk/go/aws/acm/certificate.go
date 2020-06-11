@@ -26,6 +26,35 @@ import (
 //
 // It's recommended to specify `createBeforeDestroy = true` in a [lifecycle](https://www.terraform.io/docs/configuration/resources.html#lifecycle) block to replace a certificate
 // which is currently in use (eg, by `lb.Listener`).
+//
+// ## Example Usage
+//
+// ### Certificate creation
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/acm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cert, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
+// 			DomainName: pulumi.String("example.com"),
+// 			Tags: map[string]interface{}{
+// 				"Environment": "test",
+// 			},
+// 			ValidationMethod: pulumi.String("DNS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Certificate struct {
 	pulumi.CustomResourceState
 

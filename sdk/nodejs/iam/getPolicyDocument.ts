@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  *                 type: "Service",
  *             },
  *             {
- *                 identifiers: [varTrustedRoleArn],
+ *                 identifiers: [var_trusted_role_arn],
  *                 type: "AWS",
  *             },
  *             {
