@@ -68,7 +68,6 @@ def get_parameter(name=None,with_decryption=None,opts=None):
     ```
 
 
-
     :param str name: The name of the parameter.
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
     """

@@ -74,7 +74,6 @@ class Configuration(pulumi.CustomResource):
             engine_version="5.15.0")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data: The broker configuration in XML format.

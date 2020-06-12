@@ -75,7 +75,6 @@ class RecorderStatus(pulumi.CustomResource):
             role=role.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] is_enabled: Whether the configuration recorder should be enabled or disabled.

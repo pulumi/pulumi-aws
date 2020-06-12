@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// 
         /// {{% example %}}
         /// ### By Filter
         /// 
@@ -54,7 +53,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
@@ -75,7 +73,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

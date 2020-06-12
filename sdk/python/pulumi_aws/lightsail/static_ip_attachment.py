@@ -47,7 +47,6 @@ class StaticIpAttachment(pulumi.CustomResource):
             static_ip_name=test_static_ip.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_name: The name of the Lightsail instance to attach the IP to

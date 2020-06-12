@@ -91,7 +91,6 @@ def get_service_account(region=None,opts=None):
     ```
 
 
-
     :param str region: Name of the region whose AWS ELB account ID is desired.
            Defaults to the region from the AWS provider configuration.
     """

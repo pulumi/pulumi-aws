@@ -57,7 +57,6 @@ class PolicyAttachment(pulumi.CustomResource):
             target_id=aws_organizations_organizational_unit["example"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_id: The unique identifier (ID) of the policy that you want to attach to the target.

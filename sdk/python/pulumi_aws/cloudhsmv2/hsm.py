@@ -56,7 +56,6 @@ class Hsm(pulumi.CustomResource):
             subnet_id=cluster.subnet_ids[0])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.

@@ -52,7 +52,6 @@ class Application(pulumi.CustomResource):
         example = aws.codedeploy.Application("example", compute_platform="Server")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.

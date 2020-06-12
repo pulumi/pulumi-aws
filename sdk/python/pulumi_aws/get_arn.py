@@ -85,7 +85,6 @@ def get_arn(arn=None,opts=None):
     ```
 
 
-
     :param str arn: The ARN to parse.
     """
     __args__ = dict()

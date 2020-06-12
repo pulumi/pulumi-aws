@@ -130,7 +130,6 @@ def get_load_balancer(name=None,tags=None,opts=None):
     ```
 
 
-
     :param str name: The unique name of the load balancer.
     """
     __args__ = dict()

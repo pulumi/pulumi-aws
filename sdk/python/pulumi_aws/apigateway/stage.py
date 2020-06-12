@@ -137,7 +137,6 @@ class Stage(pulumi.CustomResource):
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=7)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] access_log_settings: Enables access logs for the API stage. Detailed below.

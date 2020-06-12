@@ -83,7 +83,6 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
             vlan=4094)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.

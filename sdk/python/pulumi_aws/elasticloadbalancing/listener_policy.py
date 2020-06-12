@@ -101,7 +101,6 @@ class ListenerPolicy(pulumi.CustomResource):
             policy_names=[wu_tang_ssl_tls_1_1.policy_name])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.

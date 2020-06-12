@@ -108,7 +108,6 @@ class Budget(pulumi.CustomResource):
             time_unit="MONTHLY")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.

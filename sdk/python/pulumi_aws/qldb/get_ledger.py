@@ -62,7 +62,6 @@ def get_ledger(name=None,opts=None):
     ```
 
 
-
     :param str name: The friendly name of the ledger to match.
     """
     __args__ = dict()

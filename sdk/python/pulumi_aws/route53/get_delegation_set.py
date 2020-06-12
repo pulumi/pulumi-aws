@@ -51,7 +51,6 @@ def get_delegation_set(id=None,opts=None):
     ```
 
 
-
     :param str id: The Hosted Zone id of the desired delegation set.
     """
     __args__ = dict()

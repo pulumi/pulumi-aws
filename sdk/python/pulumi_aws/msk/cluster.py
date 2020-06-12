@@ -218,7 +218,6 @@ class Cluster(pulumi.CustomResource):
         pulumi.export("bootstrapBrokersTls", example.bootstrap_brokers_tls)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.

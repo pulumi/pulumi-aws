@@ -69,7 +69,6 @@ def get_resource(path=None,rest_api_id=None,opts=None):
     ```
 
 
-
     :param str path: The full path of the resource.  If no path is found, an error will be returned.
     :param str rest_api_id: The REST API id that owns the resource. If no REST API is found, an error will be returned.
     """

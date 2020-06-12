@@ -51,7 +51,6 @@ class LogService(pulumi.CustomResource):
             log_group_name=example_log_group.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] directory_id: The id of directory.

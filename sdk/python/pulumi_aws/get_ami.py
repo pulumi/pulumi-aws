@@ -277,7 +277,6 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
     ```
 
 
-
     :param list executable_users: Limit search to users with *explicit* launch permission on
            the image. Valid items are the numeric account ID or `self`.
     :param list filters: One or more name/value pairs to filter off of. There are

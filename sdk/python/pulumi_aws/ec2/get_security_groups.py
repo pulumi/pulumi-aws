@@ -71,7 +71,6 @@ def get_security_groups(filters=None,tags=None,opts=None):
     ```
 
 
-
     :param list filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-security-groups in the AWS CLI reference][1].

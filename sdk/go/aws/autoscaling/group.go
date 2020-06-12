@@ -195,7 +195,7 @@ type Group struct {
 	// The name of the placement group into which you'll launch your instances, if any.
 	PlacementGroup pulumi.StringPtrOutput `pulumi:"placementGroup"`
 	// Allows setting instance protection. The
-	// autoscaling group will not select instances with this setting for terminination
+	// autoscaling group will not select instances with this setting for termination
 	// during scale in events.
 	ProtectFromScaleIn pulumi.BoolPtrOutput `pulumi:"protectFromScaleIn"`
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
@@ -322,7 +322,7 @@ type groupState struct {
 	// The name of the placement group into which you'll launch your instances, if any.
 	PlacementGroup *string `pulumi:"placementGroup"`
 	// Allows setting instance protection. The
-	// autoscaling group will not select instances with this setting for terminination
+	// autoscaling group will not select instances with this setting for termination
 	// during scale in events.
 	ProtectFromScaleIn *bool `pulumi:"protectFromScaleIn"`
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
@@ -416,7 +416,7 @@ type GroupState struct {
 	// The name of the placement group into which you'll launch your instances, if any.
 	PlacementGroup pulumi.StringPtrInput
 	// Allows setting instance protection. The
-	// autoscaling group will not select instances with this setting for terminination
+	// autoscaling group will not select instances with this setting for termination
 	// during scale in events.
 	ProtectFromScaleIn pulumi.BoolPtrInput
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
@@ -512,7 +512,7 @@ type groupArgs struct {
 	// The name of the placement group into which you'll launch your instances, if any.
 	PlacementGroup interface{} `pulumi:"placementGroup"`
 	// Allows setting instance protection. The
-	// autoscaling group will not select instances with this setting for terminination
+	// autoscaling group will not select instances with this setting for termination
 	// during scale in events.
 	ProtectFromScaleIn *bool `pulumi:"protectFromScaleIn"`
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
@@ -605,7 +605,7 @@ type GroupArgs struct {
 	// The name of the placement group into which you'll launch your instances, if any.
 	PlacementGroup pulumi.Input
 	// Allows setting instance protection. The
-	// autoscaling group will not select instances with this setting for terminination
+	// autoscaling group will not select instances with this setting for termination
 	// during scale in events.
 	ProtectFromScaleIn pulumi.BoolPtrInput
 	// The ARN of the service-linked role that the ASG will use to call other AWS services

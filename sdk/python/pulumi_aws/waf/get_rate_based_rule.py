@@ -48,7 +48,6 @@ def get_rate_based_rule(name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the WAF rate based rule.
     """
     __args__ = dict()

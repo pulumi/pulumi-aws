@@ -51,7 +51,6 @@ class DocumentationPart(pulumi.CustomResource):
             rest_api_id=example_rest_api.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] location: The location of the targeted API entity of the to-be-created documentation part. See below.

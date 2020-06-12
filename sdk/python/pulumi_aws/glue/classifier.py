@@ -108,7 +108,6 @@ class Classifier(pulumi.CustomResource):
         })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] csv_classifier: A classifier for Csv content. Defined below.

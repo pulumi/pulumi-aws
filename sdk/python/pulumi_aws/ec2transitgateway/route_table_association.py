@@ -43,7 +43,6 @@ class RouteTableAssociation(pulumi.CustomResource):
             transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.

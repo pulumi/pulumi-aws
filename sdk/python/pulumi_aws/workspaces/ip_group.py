@@ -41,7 +41,6 @@ class IpGroup(pulumi.CustomResource):
         contractors = aws.workspaces.IpGroup("contractors", description="Contractors IP access control group")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description.

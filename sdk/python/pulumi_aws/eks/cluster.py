@@ -132,7 +132,6 @@ class Cluster(pulumi.CustomResource):
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=7)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] enabled_cluster_log_types: A list of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)

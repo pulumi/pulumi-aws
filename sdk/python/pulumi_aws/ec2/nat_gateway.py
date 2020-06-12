@@ -51,7 +51,6 @@ class NatGateway(pulumi.CustomResource):
             subnet_id=aws_subnet["example"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway.

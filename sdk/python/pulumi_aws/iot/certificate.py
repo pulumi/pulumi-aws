@@ -64,7 +64,6 @@ class Certificate(pulumi.CustomResource):
         cert = aws.iot.Certificate("cert", active=True)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Boolean flag to indicate if the certificate should be active

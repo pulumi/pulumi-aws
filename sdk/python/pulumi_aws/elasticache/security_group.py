@@ -44,7 +44,6 @@ class SecurityGroup(pulumi.CustomResource):
         bar_elasticache_security_group_security_group = aws.elasticache.SecurityGroup("barElasticache/securityGroupSecurityGroup", security_group_names=[bar_security_group.name])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: description for the cache security group. Defaults to "Managed by Pulumi".

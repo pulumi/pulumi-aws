@@ -56,7 +56,6 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
             block_public_policy=True)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.

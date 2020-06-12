@@ -58,7 +58,6 @@ class UserPolicy(pulumi.CustomResource):
         lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.

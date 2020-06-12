@@ -97,7 +97,6 @@ class Vpc(pulumi.CustomResource):
         main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR

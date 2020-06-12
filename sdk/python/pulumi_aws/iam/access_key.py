@@ -90,7 +90,6 @@ class AccessKey(pulumi.CustomResource):
         pulumi.export("secret", lb_access_key.encrypted_secret)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a

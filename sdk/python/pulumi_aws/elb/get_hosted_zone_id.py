@@ -58,7 +58,6 @@ def get_hosted_zone_id(region=None,opts=None):
     ```
 
 
-
     :param str region: Name of the region whose AWS ELB HostedZoneId is desired.
            Defaults to the region from the AWS provider configuration.
     """

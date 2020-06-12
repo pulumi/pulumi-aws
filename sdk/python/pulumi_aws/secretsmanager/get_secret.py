@@ -113,7 +113,6 @@ def get_secret(arn=None,name=None,opts=None):
     ```
 
 
-
     :param str arn: The Amazon Resource Name (ARN) of the secret to retrieve.
     :param str name: The name of the secret to retrieve.
     """

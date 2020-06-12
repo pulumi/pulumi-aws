@@ -61,7 +61,6 @@ namespace Pulumi.Aws.RedShift
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

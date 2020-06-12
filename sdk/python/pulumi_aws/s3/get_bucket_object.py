@@ -211,7 +211,6 @@ def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,
     ```
 
 
-
     :param str bucket: The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
     :param str key: The full path to the object inside the bucket
     :param dict tags: A map of tags assigned to the object.

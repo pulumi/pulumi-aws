@@ -64,7 +64,6 @@ def get_direct_connect_gateway_attachment(dx_gateway_id=None,filters=None,tags=N
     ```
 
 
-
     :param str dx_gateway_id: Identifier of the Direct Connect Gateway.
     :param list filters: Configuration block(s) for filtering. Detailed below.
     :param dict tags: A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.

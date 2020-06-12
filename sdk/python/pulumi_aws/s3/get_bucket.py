@@ -122,7 +122,6 @@ def get_bucket(bucket=None,opts=None):
     ```
 
 
-
     :param str bucket: The name of the bucket
     """
     __args__ = dict()

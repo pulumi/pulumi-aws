@@ -31,7 +31,6 @@ class StandardsSubscription(pulumi.CustomResource):
         pci321 = aws.securityhub.StandardsSubscription("pci321", standards_arn="arn:aws:securityhub:us-east-1::standards/pci-dss/v/3.2.1")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] standards_arn: The ARN of a standard - see below.

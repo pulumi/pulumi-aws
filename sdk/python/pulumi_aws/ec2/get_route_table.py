@@ -102,7 +102,6 @@ def get_route_table(filters=None,gateway_id=None,route_table_id=None,subnet_id=N
     ```
 
 
-
     :param list filters: Custom filter block as described below.
     :param str gateway_id: The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
     :param str route_table_id: The id of the specific Route Table to retrieve.

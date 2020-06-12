@@ -79,7 +79,6 @@ def get_document(document_format=None,document_version=None,name=None,opts=None)
     ```
 
 
-
     :param str document_format: Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
     :param str document_version: The document version for which you want information.
     :param str name: The name of the Systems Manager document.

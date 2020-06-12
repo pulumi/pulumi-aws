@@ -113,7 +113,6 @@ def get_role(name=None,tags=None,opts=None):
     ```
 
 
-
     :param str name: The friendly IAM role name to match.
     :param dict tags: The tags attached to the role.
     """

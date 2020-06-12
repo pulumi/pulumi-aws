@@ -69,7 +69,6 @@ class LogResourcePolicy(pulumi.CustomResource):
             policy_name="route53-query-logging-policy")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.

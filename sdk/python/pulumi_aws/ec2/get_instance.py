@@ -309,7 +309,6 @@ def get_instance(filters=None,get_password_data=None,get_user_data=None,instance
     ```
 
 
-
     :param list filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].

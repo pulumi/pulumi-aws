@@ -47,7 +47,6 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             network_interface_id=aws_instance["test"]["primary_network_interface_id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the traffic mirror session.

@@ -73,7 +73,6 @@ def get_coip_pool(filters=None,local_gateway_route_table_id=None,pool_id=None,ta
     ```
 
 
-
     :param str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
     :param str pool_id: The id of the specific COIP Pool to retrieve.
     :param dict tags: A mapping of tags, each pair of which must exactly match

@@ -352,7 +352,7 @@ export class Group extends pulumi.CustomResource {
     public readonly placementGroup!: pulumi.Output<string | undefined>;
     /**
      * Allows setting instance protection. The
-     * autoscaling group will not select instances with this setting for terminination
+     * autoscaling group will not select instances with this setting for termination
      * during scale in events.
      */
     public readonly protectFromScaleIn!: pulumi.Output<boolean | undefined>;
@@ -604,7 +604,7 @@ export interface GroupState {
     readonly placementGroup?: pulumi.Input<string | PlacementGroup>;
     /**
      * Allows setting instance protection. The
-     * autoscaling group will not select instances with this setting for terminination
+     * autoscaling group will not select instances with this setting for termination
      * during scale in events.
      */
     readonly protectFromScaleIn?: pulumi.Input<boolean>;
@@ -759,7 +759,7 @@ export interface GroupArgs {
     readonly placementGroup?: pulumi.Input<string | PlacementGroup>;
     /**
      * Allows setting instance protection. The
-     * autoscaling group will not select instances with this setting for terminination
+     * autoscaling group will not select instances with this setting for termination
      * during scale in events.
      */
     readonly protectFromScaleIn?: pulumi.Input<boolean>;

@@ -161,7 +161,6 @@ def get_network_interface(filters=None,id=None,tags=None,opts=None):
     ```
 
 
-
     :param list filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
     :param str id: The identifier for the network interface.
     :param dict tags: Any tags assigned to the network interface.

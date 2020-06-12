@@ -63,7 +63,6 @@ class NamedQuery(pulumi.CustomResource):
             workgroup=test_workgroup.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database: The database to which the query belongs.

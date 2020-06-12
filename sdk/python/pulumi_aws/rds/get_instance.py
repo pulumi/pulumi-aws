@@ -311,7 +311,6 @@ def get_instance(db_instance_identifier=None,tags=None,opts=None):
     ```
 
 
-
     :param str db_instance_identifier: The name of the RDS instance
     """
     __args__ = dict()

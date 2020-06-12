@@ -23,9 +23,6 @@ namespace Pulumi.Aws
         /// 
         /// This is different from the `aws.getAvailabilityZones` (plural) data source,
         /// which provides a list of the available zones.
-        /// 
-        /// {{% examples %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAvailabilityZoneResult> InvokeAsync(GetAvailabilityZoneArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args ?? new GetAvailabilityZoneArgs(), options.WithVersion());

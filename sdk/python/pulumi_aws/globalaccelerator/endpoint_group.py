@@ -69,7 +69,6 @@ class EndpointGroup(pulumi.CustomResource):
             listener_arn=aws_globalaccelerator_listener["example"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] endpoint_configurations: The list of endpoint objects. Fields documented below.

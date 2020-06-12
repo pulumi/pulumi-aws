@@ -48,7 +48,6 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
             network_interface_id=aws_network_interface["test"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] device_index: Network interface index (int).

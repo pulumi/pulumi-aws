@@ -39,7 +39,6 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
             thing=example.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.

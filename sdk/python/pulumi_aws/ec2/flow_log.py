@@ -127,7 +127,6 @@ class FlowLog(pulumi.CustomResource):
             vpc_id=aws_vpc["example"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to

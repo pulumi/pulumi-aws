@@ -31,7 +31,6 @@ namespace Pulumi.Aws.GuardDuty
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Kms
     {
         /// <summary>
         /// Decrypt multiple secrets from data encrypted with the AWS KMS service.
-        /// 
-        /// {{% examples %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecretsResult> InvokeAsync(GetSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("aws:kms/getSecrets:getSecrets", args ?? new GetSecretsArgs(), options.WithVersion());

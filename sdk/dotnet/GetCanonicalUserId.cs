@@ -35,7 +35,6 @@ namespace Pulumi.Aws
         ///     public Output&lt;string&gt; CanonicalUserId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

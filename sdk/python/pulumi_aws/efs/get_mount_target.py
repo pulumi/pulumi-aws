@@ -101,7 +101,6 @@ def get_mount_target(mount_target_id=None,opts=None):
     ```
 
 
-
     :param str mount_target_id: ID of the mount target that you want to have described
     """
     __args__ = dict()

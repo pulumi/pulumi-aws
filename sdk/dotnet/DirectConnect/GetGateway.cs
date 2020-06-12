@@ -34,7 +34,6 @@ namespace Pulumi.Aws.DirectConnect
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

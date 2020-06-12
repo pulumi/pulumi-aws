@@ -64,7 +64,6 @@ class TableItem(pulumi.CustomResource):
             table_name=example_table.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hash_key: Hash key to use for lookups and identification of the item

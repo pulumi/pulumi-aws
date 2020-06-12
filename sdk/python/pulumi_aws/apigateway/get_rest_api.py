@@ -121,7 +121,6 @@ def get_rest_api(name=None,tags=None,opts=None):
     ```
 
 
-
     :param str name: The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
     :param dict tags: Key-value map of resource tags.
     """

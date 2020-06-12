@@ -71,7 +71,6 @@ class Accelerator(pulumi.CustomResource):
             ip_address_type="IPV4")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] attributes: The attributes of the accelerator. Fields documented below.

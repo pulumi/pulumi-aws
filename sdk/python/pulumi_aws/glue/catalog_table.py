@@ -160,7 +160,6 @@ class CatalogTable(pulumi.CustomResource):
             table_type="EXTERNAL_TABLE")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.

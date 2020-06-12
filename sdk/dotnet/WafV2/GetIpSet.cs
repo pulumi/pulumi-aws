@@ -35,7 +35,6 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

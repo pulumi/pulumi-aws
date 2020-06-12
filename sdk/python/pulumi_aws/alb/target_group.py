@@ -137,7 +137,6 @@ class TargetGroup(pulumi.CustomResource):
         lambda_example = aws.lb.TargetGroup("lambda-example", target_type="lambda")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.

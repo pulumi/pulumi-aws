@@ -154,7 +154,6 @@ class Trigger(pulumi.CustomResource):
             type="CONDITIONAL")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] actions: List of actions initiated by this trigger when it fires. Defined below.

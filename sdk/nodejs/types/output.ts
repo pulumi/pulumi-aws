@@ -1317,8 +1317,17 @@ export namespace appautoscaling {
     }
 
     export interface PolicyStepScalingPolicyConfigurationStepAdjustment {
+        /**
+         * The lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+         */
         metricIntervalLowerBound?: string;
+        /**
+         * The upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+         */
         metricIntervalUpperBound?: string;
+        /**
+         * The number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+         */
         scalingAdjustment: number;
     }
 
@@ -2638,7 +2647,7 @@ export namespace autoscaling {
         /**
          * Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
          */
-        instancesDistribution?: outputs.autoscaling.GroupMixedInstancesPolicyInstancesDistribution;
+        instancesDistribution: outputs.autoscaling.GroupMixedInstancesPolicyInstancesDistribution;
         /**
          * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
          */
@@ -2649,19 +2658,19 @@ export namespace autoscaling {
         /**
          * Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
          */
-        onDemandAllocationStrategy?: string;
+        onDemandAllocationStrategy: string;
         /**
          * Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
          */
-        onDemandBaseCapacity?: number;
+        onDemandBaseCapacity: number;
         /**
          * Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
          */
-        onDemandPercentageAboveBaseCapacity?: number;
+        onDemandPercentageAboveBaseCapacity: number;
         /**
          * How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
          */
-        spotAllocationStrategy?: string;
+        spotAllocationStrategy: string;
         /**
          * Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
          */

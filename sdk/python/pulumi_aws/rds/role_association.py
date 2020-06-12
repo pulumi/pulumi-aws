@@ -45,7 +45,6 @@ class RoleAssociation(pulumi.CustomResource):
             role_arn=aws_iam_role["example"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_instance_identifier: DB Instance Identifier to associate with the IAM Role.

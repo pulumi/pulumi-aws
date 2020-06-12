@@ -37,7 +37,6 @@ class Gateway(pulumi.CustomResource):
         example = aws.directconnect.Gateway("example", amazon_side_asn="64512")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] amazon_side_asn: The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.

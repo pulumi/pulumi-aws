@@ -99,7 +99,6 @@ class Subnet(pulumi.CustomResource):
             vpc_id=secondary_cidr.vpc_id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] assign_ipv6_address_on_creation: Specify true to indicate

@@ -14,7 +14,6 @@ import (
 //
 // > *NOTE:* If policies are attached to the role via the `iam.PolicyAttachment` resource and you are modifying the role `name` or `path`, the `forceDetachPolicies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `iam.RolePolicyAttachment` resource (recommended) does not have this requirement.
 //
-//
 // ## Example of Using Data Source for Assume Role Policy
 type Role struct {
 	pulumi.CustomResourceState

@@ -75,7 +75,6 @@ class PatchBaseline(pulumi.CustomResource):
         production = aws.ssm.PatchBaseline("production", approved_patches=["KB123456"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] approval_rules: A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.

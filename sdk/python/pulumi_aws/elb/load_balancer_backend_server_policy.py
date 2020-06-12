@@ -69,7 +69,6 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             policy_names=[wu_tang_root_ca_backend_auth_policy.policy_name])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] instance_port: The instance port to apply the policy to.

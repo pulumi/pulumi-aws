@@ -112,7 +112,6 @@ class Snapshot(pulumi.CustomResource):
             db_snapshot_identifier="testsnapshot1234")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.

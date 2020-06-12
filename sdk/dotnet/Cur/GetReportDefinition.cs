@@ -38,7 +38,6 @@ namespace Pulumi.Aws.Cur
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

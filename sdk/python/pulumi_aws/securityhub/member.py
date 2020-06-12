@@ -49,7 +49,6 @@ class Member(pulumi.CustomResource):
             invite=True)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The ID of the member AWS account.

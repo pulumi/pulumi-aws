@@ -34,7 +34,6 @@ namespace Pulumi.Aws.WafRegional
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

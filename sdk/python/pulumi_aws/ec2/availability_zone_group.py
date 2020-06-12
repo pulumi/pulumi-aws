@@ -37,7 +37,6 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
             opt_in_status="opted-in")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_name: Name of the Availability Zone Group.

@@ -48,7 +48,6 @@ def get_rule(name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the WAF Regional rule.
     """
     __args__ = dict()

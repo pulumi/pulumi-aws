@@ -56,7 +56,6 @@ namespace Pulumi.Aws.Rds
         ///     public Output&lt;string&gt; Example { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -35,7 +35,6 @@ namespace Pulumi.Aws.Ram
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// ## Search by filters

@@ -94,7 +94,6 @@ class Endpoint(pulumi.CustomResource):
             server_certificate_arn=aws_acm_certificate["cert"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] authentication_options: Information about the authentication method to be used to authenticate clients.

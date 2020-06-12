@@ -78,7 +78,6 @@ class NetworkInterface(pulumi.CustomResource):
             subnet_id=aws_subnet["public_a"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] attachments: Block to define the attachment of the ENI. Documented below.

@@ -124,7 +124,6 @@ def get_file_system(creation_token=None,file_system_id=None,tags=None,opts=None)
     ```
 
 
-
     :param str creation_token: Restricts the list to the file system with this creation token.
     :param str file_system_id: The ID that identifies the file system (e.g. fs-ccfc0d65).
     """

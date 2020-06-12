@@ -91,7 +91,6 @@ def get_nat_gateway(filters=None,id=None,state=None,subnet_id=None,tags=None,vpc
     ```
 
 
-
     :param list filters: Custom filter block as described below.
     :param str id: The id of the specific Nat Gateway to retrieve.
     :param str state: The state of the NAT gateway (pending | failed | available | deleting | deleted ).

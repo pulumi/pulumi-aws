@@ -40,7 +40,6 @@ namespace Pulumi.Aws.ServiceQuotas
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

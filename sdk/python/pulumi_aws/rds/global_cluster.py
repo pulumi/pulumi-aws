@@ -71,7 +71,6 @@ class GlobalCluster(pulumi.CustomResource):
         secondary_cluster_instance = aws.rds.ClusterInstance("secondaryClusterInstance", cluster_identifier=secondary_cluster.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation.

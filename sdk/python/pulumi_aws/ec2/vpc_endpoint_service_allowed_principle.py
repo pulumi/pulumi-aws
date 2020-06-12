@@ -42,7 +42,6 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
             vpc_endpoint_service_id=aws_vpc_endpoint_service["foo"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] principal_arn: The ARN of the principal to allow permissions.

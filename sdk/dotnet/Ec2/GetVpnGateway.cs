@@ -48,7 +48,6 @@ namespace Pulumi.Aws.Ec2
         ///     public Output&lt;string&gt; VpnGatewayId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

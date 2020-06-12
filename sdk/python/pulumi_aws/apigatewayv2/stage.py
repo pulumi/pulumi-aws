@@ -108,7 +108,6 @@ class Stage(pulumi.CustomResource):
         example = aws.apigatewayv2.Stage("example", api_id=aws_apigatewayv2_api["example"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] access_log_settings: Settings for logging access in this stage.

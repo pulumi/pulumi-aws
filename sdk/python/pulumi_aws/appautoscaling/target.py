@@ -98,7 +98,6 @@ class Target(pulumi.CustomResource):
             service_namespace="rds")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] max_capacity: The max capacity of the scalable target.

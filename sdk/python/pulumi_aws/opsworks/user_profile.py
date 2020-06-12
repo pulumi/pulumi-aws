@@ -43,7 +43,6 @@ class UserProfile(pulumi.CustomResource):
             user_arn=aws_iam_user["user"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_self_management: Whether users can specify their own SSH public key through the My Settings page

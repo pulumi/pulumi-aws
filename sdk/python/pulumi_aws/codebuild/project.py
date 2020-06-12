@@ -353,7 +353,6 @@ class Project(pulumi.CustomResource):
             })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] artifacts: Information about the project's build output artifacts. Artifact blocks are documented below.

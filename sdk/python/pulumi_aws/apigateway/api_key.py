@@ -59,7 +59,6 @@ class ApiKey(pulumi.CustomResource):
         my_demo_api_key = aws.apigateway.ApiKey("myDemoApiKey")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The API key description. Defaults to "Managed by Pulumi".

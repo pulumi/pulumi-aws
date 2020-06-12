@@ -86,7 +86,6 @@ def get_cluster(cluster_id=None,cluster_state=None,opts=None):
     ```
 
 
-
     :param str cluster_id: The id of Cloud HSM v2 cluster.
     :param str cluster_state: The state of the cluster to be found.
     """

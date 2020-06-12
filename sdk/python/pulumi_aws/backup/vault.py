@@ -45,7 +45,6 @@ class Vault(pulumi.CustomResource):
         example = aws.backup.Vault("example", kms_key_arn=aws_kms_key["example"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kms_key_arn: The server-side encryption key that is used to protect your backups.

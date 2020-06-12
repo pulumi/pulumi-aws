@@ -36,7 +36,6 @@ namespace Pulumi.Aws.Sns
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -56,7 +56,6 @@ class Route(pulumi.CustomResource):
             transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches this route (default to `false`).

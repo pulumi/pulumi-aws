@@ -197,7 +197,6 @@ class ReplicationGroup(pulumi.CustomResource):
             replication_group_description="test description")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.

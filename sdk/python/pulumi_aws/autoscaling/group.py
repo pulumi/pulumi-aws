@@ -145,7 +145,7 @@ class Group(pulumi.CustomResource):
     protect_from_scale_in: pulumi.Output[bool]
     """
     Allows setting instance protection. The
-    autoscaling group will not select instances with this setting for terminination
+    autoscaling group will not select instances with this setting for termination
     during scale in events.
     """
     service_linked_role_arn: pulumi.Output[str]
@@ -411,7 +411,7 @@ class Group(pulumi.CustomResource):
                prefix. Conflicts with `name`.
         :param pulumi.Input[dict] placement_group: The name of the placement group into which you'll launch your instances, if any.
         :param pulumi.Input[bool] protect_from_scale_in: Allows setting instance protection. The
-               autoscaling group will not select instances with this setting for terminination
+               autoscaling group will not select instances with this setting for termination
                during scale in events.
         :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[list] suspended_processes: A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
@@ -582,7 +582,7 @@ class Group(pulumi.CustomResource):
                prefix. Conflicts with `name`.
         :param pulumi.Input[dict] placement_group: The name of the placement group into which you'll launch your instances, if any.
         :param pulumi.Input[bool] protect_from_scale_in: Allows setting instance protection. The
-               autoscaling group will not select instances with this setting for terminination
+               autoscaling group will not select instances with this setting for termination
                during scale in events.
         :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[list] suspended_processes: A list of processes to suspend for the AutoScaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.

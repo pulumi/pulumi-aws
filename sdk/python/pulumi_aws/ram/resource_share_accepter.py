@@ -70,7 +70,6 @@ class ResourceShareAccepter(pulumi.CustomResource):
         receiver_accept = aws.ram.ResourceShareAccepter("receiverAccept", share_arn=sender_invite.resource_share_arn)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] share_arn: The ARN of the resource share.

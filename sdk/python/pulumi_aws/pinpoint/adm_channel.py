@@ -49,7 +49,6 @@ class AdmChannel(pulumi.CustomResource):
             enabled=True)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The application ID.

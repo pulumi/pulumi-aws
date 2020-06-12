@@ -286,7 +286,6 @@ class DeploymentGroup(pulumi.CustomResource):
             service_role_arn=aws_iam_role["example"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] alarm_configuration: Configuration block of alarms associated with the deployment group (documented below).

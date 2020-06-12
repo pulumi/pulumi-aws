@@ -76,7 +76,6 @@ def get_patch_baseline(default_baseline=None,name_prefix=None,operating_system=N
     ```
 
 
-
     :param bool default_baseline: Filters the results against the baselines default_baseline field.
     :param str name_prefix: Filter results by the baseline name prefix.
     :param str operating_system: The specified OS for the baseline.

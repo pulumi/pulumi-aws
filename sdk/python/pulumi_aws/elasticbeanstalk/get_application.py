@@ -68,7 +68,6 @@ def get_application(name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the application
     """
     __args__ = dict()

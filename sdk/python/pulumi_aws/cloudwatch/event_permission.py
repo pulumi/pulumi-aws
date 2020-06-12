@@ -63,7 +63,6 @@ class EventPermission(pulumi.CustomResource):
             statement_id="OrganizationAccess")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.

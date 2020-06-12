@@ -88,7 +88,6 @@ class SslNegotiationPolicy(pulumi.CustomResource):
             load_balancer=lb.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] attributes: An SSL Negotiation policy attribute. Each has two properties:

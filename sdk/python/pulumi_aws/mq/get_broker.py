@@ -124,7 +124,6 @@ def get_broker(broker_id=None,broker_name=None,logs=None,tags=None,opts=None):
     ```
 
 
-
     :param str broker_id: The unique id of the mq broker.
     :param str broker_name: The unique name of the mq broker.
 

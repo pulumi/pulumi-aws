@@ -57,7 +57,6 @@ class AssessmentTemplate(pulumi.CustomResource):
             target_arn=aws_inspector_assessment_target["example"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] duration: The duration of the inspector run.

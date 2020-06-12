@@ -69,7 +69,6 @@ class UserPoolDomain(pulumi.CustomResource):
             user_pool_id=example.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.

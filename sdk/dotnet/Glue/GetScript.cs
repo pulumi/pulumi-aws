@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Glue
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// 
         /// {{% example %}}
         /// ### Generate Python Script
         /// 
@@ -150,7 +149,6 @@ namespace Pulumi.Aws.Glue
         ///     public Output&lt;string&gt; PythonScript { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Generate Scala Code
@@ -285,7 +283,6 @@ namespace Pulumi.Aws.Glue
         ///     public Output&lt;string&gt; ScalaCode { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

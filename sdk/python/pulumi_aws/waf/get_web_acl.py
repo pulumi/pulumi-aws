@@ -48,7 +48,6 @@ def get_web_acl(name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the WAF Web ACL.
     """
     __args__ = dict()

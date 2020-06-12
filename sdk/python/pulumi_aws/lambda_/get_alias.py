@@ -81,7 +81,6 @@ def get_alias(function_name=None,name=None,opts=None):
     ```
 
 
-
     :param str function_name: Name of the aliased Lambda function.
     :param str name: Name of the Lambda alias.
     """

@@ -41,7 +41,6 @@ namespace Pulumi.Aws
         ///     public Output&lt;string&gt; CallerUser { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -108,7 +108,6 @@ def get_distribution(id=None,tags=None,opts=None):
     ```
 
 
-
     :param str id: The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
     """
     __args__ = dict()

@@ -74,7 +74,6 @@ def get_selection(plan_id=None,selection_id=None,opts=None):
     ```
 
 
-
     :param str plan_id: The backup plan ID associated with the selection of resources.
     :param str selection_id: The backup selection ID.
     """

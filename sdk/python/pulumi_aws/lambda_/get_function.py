@@ -198,7 +198,6 @@ def get_function(function_name=None,qualifier=None,tags=None,opts=None):
     ```
 
 
-
     :param str function_name: Name of the lambda function.
     :param str qualifier: Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
     """

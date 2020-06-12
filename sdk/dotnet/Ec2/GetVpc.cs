@@ -17,9 +17,6 @@ namespace Pulumi.Aws.Ec2
         /// This resource can prove useful when a module accepts a vpc id as
         /// an input variable and needs to, for example, determine the CIDR block of that
         /// VPC.
-        /// 
-        /// {{% examples %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcResult> InvokeAsync(GetVpcArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcResult>("aws:ec2/getVpc:getVpc", args ?? new GetVpcArgs(), options.WithVersion());

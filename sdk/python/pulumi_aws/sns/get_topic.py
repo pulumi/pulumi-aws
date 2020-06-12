@@ -57,7 +57,6 @@ def get_topic(name=None,opts=None):
     ```
 
 
-
     :param str name: The friendly name of the topic to match.
     """
     __args__ = dict()

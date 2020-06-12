@@ -77,7 +77,6 @@ class Activation(pulumi.CustomResource):
             registration_limit="5")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the resource that you want to register.

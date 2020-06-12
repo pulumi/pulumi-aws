@@ -51,7 +51,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

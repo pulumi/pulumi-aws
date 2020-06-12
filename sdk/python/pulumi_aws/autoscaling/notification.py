@@ -54,7 +54,6 @@ class Notification(pulumi.CustomResource):
             topic_arn=example.arn)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] group_names: A list of AutoScaling Group Names

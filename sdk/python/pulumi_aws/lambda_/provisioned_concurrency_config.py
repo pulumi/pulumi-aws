@@ -52,7 +52,6 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
             qualifier=aws_lambda_function["example"]["version"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.

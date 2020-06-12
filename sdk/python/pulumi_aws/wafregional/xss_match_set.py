@@ -52,7 +52,6 @@ class XssMatchSet(pulumi.CustomResource):
         ])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the set

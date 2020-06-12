@@ -35,7 +35,6 @@ namespace Pulumi.Aws.Backup
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

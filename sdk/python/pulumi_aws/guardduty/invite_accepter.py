@@ -42,7 +42,6 @@ class InviteAccepter(pulumi.CustomResource):
             master_account_id=master.account_id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] detector_id: The detector ID of the member GuardDuty account.

@@ -83,7 +83,6 @@ def get_configuration(name=None,opts=None):
     ```
 
 
-
     :param str name: Name of the configuration.
     """
     __args__ = dict()

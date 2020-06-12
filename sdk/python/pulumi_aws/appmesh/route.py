@@ -168,7 +168,6 @@ class Route(pulumi.CustomResource):
             virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] mesh_name: The name of the service mesh in which to create the route.

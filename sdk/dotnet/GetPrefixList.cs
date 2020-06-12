@@ -60,7 +60,6 @@ namespace Pulumi.Aws
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter
@@ -91,7 +90,6 @@ namespace Pulumi.Aws
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

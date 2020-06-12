@@ -166,7 +166,6 @@ class LoadBalancer(pulumi.CustomResource):
             ])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] access_logs: An Access Logs block. Access Logs documented below.

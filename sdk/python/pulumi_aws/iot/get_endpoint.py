@@ -49,8 +49,6 @@ def get_endpoint(endpoint_type=None,opts=None):
     Returns a unique endpoint specific to the AWS account making the call.
 
 
-
-
     :param str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Job`.
     """
     __args__ = dict()

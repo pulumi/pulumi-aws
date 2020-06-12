@@ -57,7 +57,6 @@ class Workflow(pulumi.CustomResource):
             workflow_name=example.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.

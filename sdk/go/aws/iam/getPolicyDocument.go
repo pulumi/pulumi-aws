@@ -41,6 +41,7 @@ import (
 // Showing how you can use this as an assume role policy as well as showing how you can specify multiple principal blocks with different types.
 //
 //
+//
 // ## Example with Source and Override
 //
 // Showing how you can use `sourceJson` and `overrideJson`

@@ -46,7 +46,6 @@ class VpnConnectionRoute(pulumi.CustomResource):
             vpn_connection_id=main.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.

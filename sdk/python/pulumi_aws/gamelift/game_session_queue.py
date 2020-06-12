@@ -66,7 +66,6 @@ class GameSessionQueue(pulumi.CustomResource):
             timeout_in_seconds=60)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.

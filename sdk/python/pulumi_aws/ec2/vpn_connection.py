@@ -147,7 +147,6 @@ class VpnConnection(pulumi.CustomResource):
             vpn_gateway_id=vpn_gateway.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.

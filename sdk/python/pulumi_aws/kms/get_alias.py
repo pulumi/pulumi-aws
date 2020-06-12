@@ -71,7 +71,6 @@ def get_alias(name=None,opts=None):
     ```
 
 
-
     :param str name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
     """
     __args__ = dict()

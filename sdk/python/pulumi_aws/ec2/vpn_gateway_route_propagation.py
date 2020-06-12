@@ -39,7 +39,6 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
             vpn_gateway_id=aws_vpn_gateway["example"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] route_table_id: The id of the `ec2.RouteTable` to propagate routes into.

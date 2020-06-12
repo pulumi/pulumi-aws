@@ -34,7 +34,6 @@ namespace Pulumi.Aws.Msk
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

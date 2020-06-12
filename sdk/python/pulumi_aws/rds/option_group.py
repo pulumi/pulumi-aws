@@ -94,7 +94,6 @@ class OptionGroup(pulumi.CustomResource):
             option_group_description="Option Group")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] engine_name: Specifies the name of the engine that this option group should be associated with.

@@ -66,7 +66,6 @@ namespace Pulumi.Aws.CloudTrail
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

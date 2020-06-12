@@ -196,7 +196,6 @@ class Service(pulumi.CustomResource):
             task_definition=aws_ecs_task_definition["bar"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.

@@ -130,7 +130,6 @@ class RailsAppLayer(pulumi.CustomResource):
         app = aws.opsworks.RailsAppLayer("app", stack_id=aws_opsworks_stack["main"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_server: Keyword for the app server to use. Defaults to "apache_passenger".

@@ -46,7 +46,6 @@ class DomainIdentityVerification(pulumi.CustomResource):
         example_verification = aws.ses.DomainIdentityVerification("exampleVerification", domain=example.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: The domain name of the SES domain identity to verify.

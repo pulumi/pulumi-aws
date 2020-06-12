@@ -47,7 +47,6 @@ class Database(pulumi.CustomResource):
             name="database_name")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Name of s3 bucket to save the results of the query execution.

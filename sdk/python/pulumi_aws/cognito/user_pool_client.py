@@ -163,7 +163,6 @@ class UserPoolClient(pulumi.CustomResource):
             user_pool_id=test_user_pool.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).

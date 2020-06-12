@@ -56,7 +56,6 @@ def get_organizational_units(parent_id=None,opts=None):
     ```
 
 
-
     :param str parent_id: The parent ID of the organizational unit.
     """
     __args__ = dict()

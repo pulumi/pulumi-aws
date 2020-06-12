@@ -91,7 +91,6 @@ def get_access_point(access_point_id=None,tags=None,opts=None):
     ```
 
 
-
     :param str access_point_id: The ID that identifies the file system.
     :param dict tags: Key-value mapping of resource tags.
     """

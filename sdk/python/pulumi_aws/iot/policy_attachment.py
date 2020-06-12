@@ -52,7 +52,6 @@ class PolicyAttachment(pulumi.CustomResource):
             target=cert.arn)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] policy: The name of the policy to attach.

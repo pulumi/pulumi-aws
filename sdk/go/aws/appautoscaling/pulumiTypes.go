@@ -222,9 +222,12 @@ func (o PolicyStepScalingPolicyConfigurationPtrOutput) StepAdjustments() PolicyS
 }
 
 type PolicyStepScalingPolicyConfigurationStepAdjustment struct {
+	// The lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
 	MetricIntervalLowerBound *string `pulumi:"metricIntervalLowerBound"`
+	// The upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
 	MetricIntervalUpperBound *string `pulumi:"metricIntervalUpperBound"`
-	ScalingAdjustment        int     `pulumi:"scalingAdjustment"`
+	// The number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+	ScalingAdjustment int `pulumi:"scalingAdjustment"`
 }
 
 // PolicyStepScalingPolicyConfigurationStepAdjustmentInput is an input type that accepts PolicyStepScalingPolicyConfigurationStepAdjustmentArgs and PolicyStepScalingPolicyConfigurationStepAdjustmentOutput values.
@@ -240,9 +243,12 @@ type PolicyStepScalingPolicyConfigurationStepAdjustmentInput interface {
 }
 
 type PolicyStepScalingPolicyConfigurationStepAdjustmentArgs struct {
+	// The lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
 	MetricIntervalLowerBound pulumi.StringPtrInput `pulumi:"metricIntervalLowerBound"`
+	// The upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
 	MetricIntervalUpperBound pulumi.StringPtrInput `pulumi:"metricIntervalUpperBound"`
-	ScalingAdjustment        pulumi.IntInput       `pulumi:"scalingAdjustment"`
+	// The number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+	ScalingAdjustment pulumi.IntInput `pulumi:"scalingAdjustment"`
 }
 
 func (PolicyStepScalingPolicyConfigurationStepAdjustmentArgs) ElementType() reflect.Type {
@@ -297,14 +303,17 @@ func (o PolicyStepScalingPolicyConfigurationStepAdjustmentOutput) ToPolicyStepSc
 	return o
 }
 
+// The lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
 func (o PolicyStepScalingPolicyConfigurationStepAdjustmentOutput) MetricIntervalLowerBound() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStepScalingPolicyConfigurationStepAdjustment) *string { return v.MetricIntervalLowerBound }).(pulumi.StringPtrOutput)
 }
 
+// The upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
 func (o PolicyStepScalingPolicyConfigurationStepAdjustmentOutput) MetricIntervalUpperBound() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStepScalingPolicyConfigurationStepAdjustment) *string { return v.MetricIntervalUpperBound }).(pulumi.StringPtrOutput)
 }
 
+// The number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
 func (o PolicyStepScalingPolicyConfigurationStepAdjustmentOutput) ScalingAdjustment() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyStepScalingPolicyConfigurationStepAdjustment) int { return v.ScalingAdjustment }).(pulumi.IntOutput)
 }

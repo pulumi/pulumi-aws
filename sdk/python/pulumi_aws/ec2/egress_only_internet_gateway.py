@@ -43,7 +43,6 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
             vpc_id=example_vpc.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.

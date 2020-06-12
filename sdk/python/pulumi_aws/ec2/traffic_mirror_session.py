@@ -66,7 +66,6 @@ class TrafficMirrorSession(pulumi.CustomResource):
             traffic_mirror_target_id=target.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the traffic mirror session.

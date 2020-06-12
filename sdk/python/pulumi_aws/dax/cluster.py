@@ -126,7 +126,6 @@ class Cluster(pulumi.CustomResource):
             replication_factor=1)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] availability_zones: List of Availability Zones in which the

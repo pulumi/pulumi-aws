@@ -47,7 +47,6 @@ class Agent(pulumi.CustomResource):
         example = aws.datasync.Agent("example", ip_address="1.2.3.4")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] activation_key: DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.

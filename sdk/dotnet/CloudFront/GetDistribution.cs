@@ -34,7 +34,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

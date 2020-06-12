@@ -126,7 +126,6 @@ def get_stack(name=None,tags=None,opts=None):
     ```
 
 
-
     :param str name: The name of the stack
     :param dict tags: A map of tags associated with this stack.
     """

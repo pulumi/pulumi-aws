@@ -95,7 +95,6 @@ class UsagePlan(pulumi.CustomResource):
             })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] api_stages: The associated API stages of the usage plan.

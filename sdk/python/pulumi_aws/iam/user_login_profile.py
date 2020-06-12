@@ -57,7 +57,6 @@ class UserLoginProfile(pulumi.CustomResource):
         pulumi.export("password", example_user_login_profile.encrypted_password)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] password_length: The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.

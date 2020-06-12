@@ -39,7 +39,6 @@ class Detector(pulumi.CustomResource):
         my_detector = aws.guardduty.Detector("myDetector", enable=True)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.

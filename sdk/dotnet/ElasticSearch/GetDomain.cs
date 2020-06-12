@@ -34,7 +34,6 @@ namespace Pulumi.Aws.ElasticSearch
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

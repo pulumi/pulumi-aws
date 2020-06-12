@@ -42,7 +42,6 @@ class GroupPolicyAttachment(pulumi.CustomResource):
             policy_arn=policy.arn)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] group: The group the policy should be applied to

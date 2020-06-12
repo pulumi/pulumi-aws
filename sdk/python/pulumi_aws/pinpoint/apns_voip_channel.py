@@ -70,7 +70,6 @@ class ApnsVoipChannel(pulumi.CustomResource):
             private_key=(lambda path: open(path).read())("./private_key.key"))
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The application ID.

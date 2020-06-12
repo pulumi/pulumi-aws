@@ -60,7 +60,6 @@ class Member(pulumi.CustomResource):
             invitation_message="please accept guardduty invitation")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: AWS account ID for member account.

@@ -64,7 +64,6 @@ class TopicPolicy(pulumi.CustomResource):
             policy=sns_topic_policy.json)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the SNS topic

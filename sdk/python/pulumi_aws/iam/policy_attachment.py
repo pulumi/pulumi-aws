@@ -86,7 +86,6 @@ class PolicyAttachment(pulumi.CustomResource):
             users=[user.name])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] groups: The group(s) the policy should be applied to

@@ -81,7 +81,6 @@ def get_user(user_name=None,opts=None):
     ```
 
 
-
     :param str user_name: The friendly IAM user name to match.
     """
     __args__ = dict()

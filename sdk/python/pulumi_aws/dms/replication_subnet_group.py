@@ -53,7 +53,6 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
             })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.

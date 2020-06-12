@@ -71,7 +71,6 @@ class LocationSmb(pulumi.CustomResource):
             user="Guest")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.

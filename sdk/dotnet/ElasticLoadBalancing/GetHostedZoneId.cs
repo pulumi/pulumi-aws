@@ -48,7 +48,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

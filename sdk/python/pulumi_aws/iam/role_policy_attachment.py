@@ -68,7 +68,6 @@ class RolePolicyAttachment(pulumi.CustomResource):
             role=role.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply

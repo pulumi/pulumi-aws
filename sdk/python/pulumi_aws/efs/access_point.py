@@ -61,7 +61,6 @@ class AccessPoint(pulumi.CustomResource):
         test = aws.efs.AccessPoint("test", file_system_id=aws_efs_file_system["foo"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] file_system_id: The ID of the file system for which the access point is intended.

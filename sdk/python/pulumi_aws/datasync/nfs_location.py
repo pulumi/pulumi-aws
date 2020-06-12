@@ -55,7 +55,6 @@ class NfsLocation(pulumi.CustomResource):
             subdirectory="/exported/path")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] on_prem_config: Configuration block containing information for connecting to the NFS File System.

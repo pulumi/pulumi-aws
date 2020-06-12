@@ -55,7 +55,6 @@ class BasePathMapping(pulumi.CustomResource):
             stage_name=example_deployment.stage_name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.

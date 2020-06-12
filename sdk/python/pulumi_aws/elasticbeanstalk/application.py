@@ -53,7 +53,6 @@ class Application(pulumi.CustomResource):
             description="tf-test-desc")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Short description of the application

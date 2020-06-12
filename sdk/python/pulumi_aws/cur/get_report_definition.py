@@ -108,7 +108,6 @@ def get_report_definition(report_name=None,opts=None):
     ```
 
 
-
     :param str report_name: The name of the report definition to match.
     """
     __args__ = dict()

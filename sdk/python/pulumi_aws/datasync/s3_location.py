@@ -53,7 +53,6 @@ class S3Location(pulumi.CustomResource):
             subdirectory="/example/prefix")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.

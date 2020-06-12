@@ -64,7 +64,6 @@ class ResourceServer(pulumi.CustomResource):
             user_pool_id=pool.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identifier: An identifier for the resource server.

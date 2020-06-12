@@ -36,7 +36,6 @@ class DefaultKmsKey(pulumi.CustomResource):
         example = aws.ebs.DefaultKmsKey("example", key_arn=aws_kms_key["example"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.

@@ -59,7 +59,6 @@ class QueryLog(pulumi.CustomResource):
             zone_id=example_com_zone.zone_id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.

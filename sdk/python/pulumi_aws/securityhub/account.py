@@ -27,7 +27,6 @@ class Account(pulumi.CustomResource):
         example = aws.securityhub.Account("example")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """

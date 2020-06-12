@@ -55,7 +55,6 @@ class S3BucketAssociation(pulumi.CustomResource):
             prefix="data")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket_name: The name of the S3 bucket that you want to associate with Amazon Macie.

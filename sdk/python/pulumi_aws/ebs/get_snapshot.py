@@ -152,7 +152,6 @@ def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_id
     ```
 
 
-
     :param list filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-snapshots in the AWS CLI reference][1].

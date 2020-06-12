@@ -48,8 +48,6 @@ def get_local_gateway_route_tables(filters=None,tags=None,opts=None):
     Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
 
 
-
-
     :param list filters: Custom filter block as described below.
     :param dict tags: A mapping of tags, each pair of which must exactly match
            a pair on the desired local gateway route table.

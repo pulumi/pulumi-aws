@@ -39,7 +39,6 @@ class Domain(pulumi.CustomResource):
         domain_test = aws.lightsail.Domain("domainTest", domain_name="mydomain.com")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The name of the Lightsail domain to manage

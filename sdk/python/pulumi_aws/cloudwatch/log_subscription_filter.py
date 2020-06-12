@@ -54,7 +54,6 @@ class LogSubscriptionFilter(pulumi.CustomResource):
             role_arn=aws_iam_role["iam_for_lambda"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_arn: The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.

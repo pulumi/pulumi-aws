@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Retrieve information about an EKS Cluster.
-        /// 
-        /// {{% examples %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:eks/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithVersion());

@@ -86,7 +86,6 @@ def get_vpc_link(name=None,tags=None,opts=None):
     ```
 
 
-
     :param str name: The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. 
            If multiple API Gateway VPC Links are found with this name, an error will be returned.
     :param dict tags: Key-value map of resource tags

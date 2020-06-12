@@ -94,7 +94,6 @@ def get_route_table(filters=None,id=None,tags=None,opts=None):
     ```
 
 
-
     :param list filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway Route Table.
     :param dict tags: Key-value tags for the EC2 Transit Gateway Route Table

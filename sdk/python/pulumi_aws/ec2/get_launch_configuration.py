@@ -170,7 +170,6 @@ def get_launch_configuration(name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the launch configuration.
     """
     __args__ = dict()

@@ -96,7 +96,6 @@ def get_instances(filters=None,instance_state_names=None,instance_tags=None,opts
     ```
 
 
-
     :param list filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
