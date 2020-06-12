@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add Go examples
+* Upgrade to v2.66.0 of the AWS Terraform Provider
 
 ## 2.8.0 (2020-06-05)
 * Upgrade to v2.65.0 of the AWS Terraform Provider
