@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.9.0 (2020-06-12)
 * Upgrade to v2.66.0 of the AWS Terraform Provider
 
 ## 2.8.0 (2020-06-05)
