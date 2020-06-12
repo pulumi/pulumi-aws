@@ -383,7 +383,7 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Allows setting instance protection. The
-        /// autoscaling group will not select instances with this setting for terminination
+        /// autoscaling group will not select instances with this setting for termination
         /// during scale in events.
         /// </summary>
         [Output("protectFromScaleIn")]
@@ -662,7 +662,7 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Allows setting instance protection. The
-        /// autoscaling group will not select instances with this setting for terminination
+        /// autoscaling group will not select instances with this setting for termination
         /// during scale in events.
         /// </summary>
         [Input("protectFromScaleIn")]
@@ -944,7 +944,7 @@ namespace Pulumi.Aws.AutoScaling
 
         /// <summary>
         /// Allows setting instance protection. The
-        /// autoscaling group will not select instances with this setting for terminination
+        /// autoscaling group will not select instances with this setting for termination
         /// during scale in events.
         /// </summary>
         [Input("protectFromScaleIn")]
