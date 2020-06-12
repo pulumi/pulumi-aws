@@ -237,7 +237,6 @@ class ListenerRule(pulumi.CustomResource):
             listener_arn=front_end_listener.arn)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] actions: An Action block. Action blocks are documented below.

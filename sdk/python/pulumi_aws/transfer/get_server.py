@@ -91,7 +91,6 @@ def get_server(server_id=None,opts=None):
     ```
 
 
-
     :param str server_id: ID for an SFTP server.
     """
     __args__ = dict()

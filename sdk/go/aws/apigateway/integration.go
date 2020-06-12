@@ -12,7 +12,6 @@ import (
 
 // Provides an HTTP Method Integration for an API Gateway Integration.
 //
-//
 // ## VPC Link
 type Integration struct {
 	pulumi.CustomResourceState

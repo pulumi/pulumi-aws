@@ -117,7 +117,6 @@ def get_layer_version(compatible_runtime=None,layer_name=None,version=None,opts=
     ```
 
 
-
     :param str compatible_runtime: Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
     :param str layer_name: Name of the lambda layer.
     :param float version: Specific layer version. Conflicts with `compatible_runtime`. If omitted, the latest available layer version will be used.

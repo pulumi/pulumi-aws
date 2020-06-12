@@ -35,7 +35,6 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

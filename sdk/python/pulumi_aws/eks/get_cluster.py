@@ -121,8 +121,6 @@ def get_cluster(name=None,tags=None,opts=None):
     Retrieve information about an EKS Cluster.
 
 
-
-
     :param str name: The name of the cluster
     :param dict tags: Key-value map of resource tags.
     """

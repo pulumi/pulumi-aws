@@ -16,7 +16,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// 
         /// {{% example %}}
         /// ### ARN
         /// 
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Name
@@ -57,7 +55,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

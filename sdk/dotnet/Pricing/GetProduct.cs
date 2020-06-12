@@ -103,7 +103,6 @@ namespace Pulumi.Aws.Pricing
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

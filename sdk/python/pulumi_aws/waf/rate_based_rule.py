@@ -72,7 +72,6 @@ class RateBasedRule(pulumi.CustomResource):
             rate_limit=100)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.

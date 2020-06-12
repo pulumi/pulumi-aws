@@ -74,7 +74,6 @@ class ServerCertificate(pulumi.CustomResource):
             private_key=(lambda path: open(path).read())("test-key.pem"))
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the server certificate.

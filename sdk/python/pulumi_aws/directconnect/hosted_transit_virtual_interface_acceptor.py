@@ -61,7 +61,6 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
             virtual_interface_id=creator.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.

@@ -96,7 +96,6 @@ def get_job_queue(name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the job queue.
     """
     __args__ = dict()

@@ -47,7 +47,6 @@ class RdsDbInstance(pulumi.CustomResource):
             stack_id=aws_opsworks_stack["my_stack"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_password: A db password

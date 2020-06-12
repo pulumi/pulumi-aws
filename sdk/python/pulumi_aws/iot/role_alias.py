@@ -55,7 +55,6 @@ class RoleAlias(pulumi.CustomResource):
             role_arn=role.arn)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The name of the role alias.

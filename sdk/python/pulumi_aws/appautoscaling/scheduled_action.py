@@ -101,7 +101,6 @@ class ScheduledAction(pulumi.CustomResource):
             service_namespace=ecs_target.service_namespace)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_time: The date and time for the scheduled action to end. Specify the following format: 2006-01-02T15:04:05Z

@@ -68,7 +68,6 @@ class Task(pulumi.CustomResource):
             source_location_arn=aws_datasync_location_nfs["source"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.

@@ -98,7 +98,6 @@ def get_compute_environment(compute_environment_name=None,opts=None):
     ```
 
 
-
     :param str compute_environment_name: The name of the Batch Compute Environment
     """
     __args__ = dict()

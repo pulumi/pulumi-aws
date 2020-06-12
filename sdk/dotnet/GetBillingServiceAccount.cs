@@ -72,8 +72,6 @@ namespace Pulumi.Aws
         /// 
         /// }
         /// ```
-        /// 
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

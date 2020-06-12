@@ -60,7 +60,6 @@ def get_solution_stack(most_recent=None,name_regex=None,opts=None):
     ```
 
 
-
     :param bool most_recent: If more than one result is returned, use the most
            recent solution stack.
     :param str name_regex: A regex string to apply to the solution stack list returned

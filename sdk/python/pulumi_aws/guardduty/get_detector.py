@@ -62,7 +62,6 @@ def get_detector(id=None,opts=None):
     ```
 
 
-
     :param str id: The ID of the detector.
     """
     __args__ = dict()

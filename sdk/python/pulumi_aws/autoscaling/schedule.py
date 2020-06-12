@@ -80,7 +80,6 @@ class Schedule(pulumi.CustomResource):
             start_time="2016-12-11T18:00:00Z")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: The name or Amazon Resource Name (ARN) of the Auto Scaling group.

@@ -183,7 +183,6 @@ def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifi
     ```
 
 
-
     :param str db_cluster_identifier: Returns the list of snapshots created by the specific db_cluster
     :param str db_cluster_snapshot_identifier: Returns information on a specific snapshot_id.
     :param bool include_public: Set this value to true to include manual DB Cluster Snapshots that are public and can be

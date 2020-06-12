@@ -42,7 +42,6 @@ class PlacementGroup(pulumi.CustomResource):
         web = aws.ec2.PlacementGroup("web", strategy="cluster")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the placement group.

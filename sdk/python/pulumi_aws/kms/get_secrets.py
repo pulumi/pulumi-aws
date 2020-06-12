@@ -44,8 +44,6 @@ def get_secrets(secrets=None,opts=None):
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
 
 
-
-
     :param list secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
 
     The **secrets** object supports the following:

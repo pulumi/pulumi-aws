@@ -107,7 +107,6 @@ def get_key(grant_tokens=None,key_id=None,opts=None):
     ```
 
 
-
     :param list grant_tokens: List of grant tokens
     :param str key_id: Key identifier which can be one of the following format:
            * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`

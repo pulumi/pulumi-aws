@@ -73,7 +73,6 @@ def get_local_gateway_route_table(filters=None,local_gateway_id=None,local_gatew
     ```
 
 
-
     :param str local_gateway_id: The id of the specific local gateway route table to retrieve.
     :param str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
     :param str outpost_arn: The arn of the Outpost the local gateway route table is associated with.

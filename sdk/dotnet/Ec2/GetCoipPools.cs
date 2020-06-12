@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
-        /// 
-        /// {{% examples %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCoipPoolsResult> InvokeAsync(GetCoipPoolsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCoipPoolsResult>("aws:ec2/getCoipPools:getCoipPools", args ?? new GetCoipPoolsArgs(), options.WithVersion());

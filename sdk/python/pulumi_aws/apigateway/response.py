@@ -55,7 +55,6 @@ class Response(pulumi.CustomResource):
             status_code="401")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] response_parameters: A map specifying the parameters (paths, query strings and headers) of the Gateway Response.

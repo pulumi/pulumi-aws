@@ -51,7 +51,6 @@ class DomainPolicy(pulumi.CustomResource):
             domain_name=example.domain_name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] access_policies: IAM policy document specifying the access policies for the domain

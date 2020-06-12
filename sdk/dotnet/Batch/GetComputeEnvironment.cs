@@ -35,7 +35,6 @@ namespace Pulumi.Aws.Batch
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -71,7 +71,6 @@ def get_queue(name=None,tags=None,opts=None):
     ```
 
 
-
     :param str name: The name of the queue to match.
     :param dict tags: A map of tags for the resource.
     """

@@ -49,7 +49,6 @@ class PublicKey(pulumi.CustomResource):
             encoded_key=(lambda path: open(path).read())("public_key.pem"))
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: An optional comment about the public key.

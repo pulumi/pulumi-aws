@@ -80,7 +80,6 @@ def get_policy(arn=None,opts=None):
     ```
 
 
-
     :param str arn: ARN of the IAM policy.
     """
     __args__ = dict()

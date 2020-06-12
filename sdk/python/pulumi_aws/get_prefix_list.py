@@ -97,7 +97,6 @@ def get_prefix_list(filters=None,name=None,prefix_list_id=None,opts=None):
     ```
 
 
-
     :param list filters: Configuration block(s) for filtering. Detailed below.
     :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
     :param str prefix_list_id: The ID of the prefix list to select.

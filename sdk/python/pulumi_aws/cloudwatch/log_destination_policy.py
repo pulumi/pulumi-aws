@@ -47,7 +47,6 @@ class LogDestinationPolicy(pulumi.CustomResource):
             destination_name=test_destination.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.

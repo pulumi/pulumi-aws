@@ -38,7 +38,6 @@ class Analyzer(pulumi.CustomResource):
         example = aws.accessanalyzer.Analyzer("example", analyzer_name="example")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analyzer_name: Name of the Analyzer.

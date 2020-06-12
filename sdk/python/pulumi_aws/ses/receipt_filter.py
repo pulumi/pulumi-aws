@@ -39,7 +39,6 @@ class ReceiptFilter(pulumi.CustomResource):
             policy="Block")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: The IP address or address range to filter, in CIDR notation

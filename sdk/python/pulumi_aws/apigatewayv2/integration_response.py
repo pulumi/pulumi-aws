@@ -53,7 +53,6 @@ class IntegrationResponse(pulumi.CustomResource):
             integration_response_key="/200/")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API identifier.

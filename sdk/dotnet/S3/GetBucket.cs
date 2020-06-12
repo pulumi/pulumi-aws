@@ -19,7 +19,6 @@ namespace Pulumi.Aws.S3
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// 
         /// {{% example %}}
         /// ### Route53 Record
         /// 
@@ -57,7 +56,6 @@ namespace Pulumi.Aws.S3
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### CloudFront Origin
@@ -89,7 +87,6 @@ namespace Pulumi.Aws.S3
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

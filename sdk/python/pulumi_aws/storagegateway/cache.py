@@ -37,7 +37,6 @@ class Cache(pulumi.CustomResource):
             gateway_arn=aws_storagegateway_gateway["example"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.

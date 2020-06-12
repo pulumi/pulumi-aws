@@ -118,7 +118,6 @@ class CachesIscsiVolume(pulumi.CustomResource):
             volume_size_in_bytes=aws_storagegateway_cached_iscsi_volume["existing"]["volume_size_in_bytes"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.

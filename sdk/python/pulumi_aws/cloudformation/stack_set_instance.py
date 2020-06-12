@@ -85,7 +85,6 @@ class StackSetInstance(pulumi.CustomResource):
             role=a_ws_cloud_formation_stack_set_execution_role.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.

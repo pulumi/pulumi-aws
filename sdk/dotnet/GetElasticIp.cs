@@ -16,7 +16,6 @@ namespace Pulumi.Aws
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// 
         /// {{% example %}}
         /// ### Search By Allocation ID (VPC only)
         /// 
@@ -36,7 +35,6 @@ namespace Pulumi.Aws
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Search By Filters (EC2-Classic or VPC)
@@ -67,7 +65,6 @@ namespace Pulumi.Aws
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Search By Public IP (EC2-Classic or VPC)
@@ -88,7 +85,6 @@ namespace Pulumi.Aws
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Search By Tags (EC2-Classic or VPC)
@@ -112,7 +108,6 @@ namespace Pulumi.Aws
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

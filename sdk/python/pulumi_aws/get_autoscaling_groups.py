@@ -81,7 +81,6 @@ def get_autoscaling_groups(filters=None,opts=None):
     ```
 
 
-
     :param list filters: A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
 
     The **filters** object supports the following:

@@ -40,7 +40,6 @@ namespace Pulumi.Aws.Acm
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

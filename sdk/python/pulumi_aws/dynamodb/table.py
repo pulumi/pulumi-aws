@@ -212,7 +212,6 @@ class Table(pulumi.CustomResource):
             stream_view_type="NEW_AND_OLD_IMAGES")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] attributes: List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:

@@ -53,7 +53,6 @@ class VpcLink(pulumi.CustomResource):
             target_arn=example_load_balancer.arn)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the VPC link.

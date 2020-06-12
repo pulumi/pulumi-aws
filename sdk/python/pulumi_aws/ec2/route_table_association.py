@@ -40,7 +40,6 @@ class RouteTableAssociation(pulumi.CustomResource):
             route_table_id=aws_route_table["bar"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.

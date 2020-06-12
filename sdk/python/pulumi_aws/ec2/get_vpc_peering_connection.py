@@ -110,7 +110,6 @@ def get_vpc_peering_connection(cidr_block=None,filters=None,id=None,owner_id=Non
     ```
 
 
-
     :param str cidr_block: The CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
     :param list filters: Custom filter block as described below.
     :param str id: The ID of the specific VPC Peering Connection to retrieve.

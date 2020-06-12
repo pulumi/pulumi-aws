@@ -91,7 +91,6 @@ def get_cluster(cluster_name=None,opts=None):
     ```
 
 
-
     :param str cluster_name: The name of the ECS Cluster
     """
     __args__ = dict()

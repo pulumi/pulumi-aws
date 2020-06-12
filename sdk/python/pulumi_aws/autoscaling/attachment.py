@@ -47,7 +47,6 @@ class Attachment(pulumi.CustomResource):
             elb=aws_elb["bar"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alb_target_group_arn: The ARN of an ALB Target Group.

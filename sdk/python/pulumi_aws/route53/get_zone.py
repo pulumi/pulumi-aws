@@ -115,7 +115,6 @@ def get_zone(name=None,private_zone=None,resource_record_set_count=None,tags=Non
     ```
 
 
-
     :param str name: The Hosted Zone name of the desired Hosted Zone.
     :param bool private_zone: Used with `name` field to get a private Hosted Zone.
     :param float resource_record_set_count: The number of Record Set in the Hosted Zone.

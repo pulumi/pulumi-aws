@@ -46,7 +46,6 @@ class Certificate(pulumi.CustomResource):
             certificate_pem="...")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_id: The certificate identifier.

@@ -43,7 +43,6 @@ class StaticIp(pulumi.CustomResource):
         test = aws.lightsail.StaticIp("test")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name for the allocated static IP

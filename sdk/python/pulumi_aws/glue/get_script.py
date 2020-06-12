@@ -245,7 +245,6 @@ def get_script(dag_edges=None,dag_nodes=None,language=None,opts=None):
     ```
 
 
-
     :param list dag_edges: A list of the edges in the DAG. Defined below.
     :param list dag_nodes: A list of the nodes in the DAG. Defined below.
     :param str language: The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.

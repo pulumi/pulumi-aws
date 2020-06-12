@@ -126,7 +126,6 @@ class JavaAppLayer(pulumi.CustomResource):
         app = aws.opsworks.JavaAppLayer("app", stack_id=aws_opsworks_stack["main"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_server: Keyword for the application container to use. Defaults to "tomcat".

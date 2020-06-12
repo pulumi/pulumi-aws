@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// The ECS task definition data source allows access to details of
         /// a specific AWS ECS task definition.
-        /// 
-        /// 
-        /// {{% examples %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTaskDefinitionResult> InvokeAsync(GetTaskDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTaskDefinitionResult>("aws:ecs/getTaskDefinition:getTaskDefinition", args ?? new GetTaskDefinitionArgs(), options.WithVersion());

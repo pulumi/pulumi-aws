@@ -33,7 +33,6 @@ class MemberAccountAssociation(pulumi.CustomResource):
         example = aws.macie.MemberAccountAssociation("example", member_account_id="123456789012")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] member_account_id: The ID of the AWS account that you want to associate with Amazon Macie as a member account.

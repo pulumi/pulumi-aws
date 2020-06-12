@@ -52,7 +52,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

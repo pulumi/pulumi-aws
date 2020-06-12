@@ -128,7 +128,6 @@ class ReceiptRule(pulumi.CustomResource):
             scan_enabled=True)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] add_header_actions: A list of Add Header Action blocks. Documented below.

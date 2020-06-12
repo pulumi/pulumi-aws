@@ -72,7 +72,6 @@ def get_local_gateway(filters=None,id=None,state=None,tags=None,opts=None):
     ```
 
 
-
     :param list filters: Custom filter block as described below.
     :param str id: The id of the specific Local Gateway to retrieve.
     :param str state: The current state of the desired Local Gateway.

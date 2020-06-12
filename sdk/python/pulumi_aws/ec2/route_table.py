@@ -88,7 +88,6 @@ class RouteTable(pulumi.CustomResource):
             vpc_id=aws_vpc["default"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] propagating_vgws: A list of virtual gateways for propagation.

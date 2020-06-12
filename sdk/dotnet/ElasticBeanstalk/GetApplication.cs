@@ -40,7 +40,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         ///     public Output&lt;string&gt; Description { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

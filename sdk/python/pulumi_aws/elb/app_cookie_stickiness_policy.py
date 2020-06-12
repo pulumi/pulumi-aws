@@ -55,7 +55,6 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
             load_balancer=lb.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cookie_name: The application cookie whose lifetime the ELB's cookie should follow.

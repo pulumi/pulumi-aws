@@ -59,7 +59,6 @@ def get_activity(arn=None,name=None,opts=None):
     ```
 
 
-
     :param str arn: The Amazon Resource Name (ARN) that identifies the activity.
     :param str name: The name that identifies the activity.
     """

@@ -59,7 +59,6 @@ def get_regions(all_regions=None,filters=None,opts=None):
     ```
 
 
-
     :param bool all_regions: If true the source will query all regions regardless of availability.
     :param list filters: Configuration block(s) to use as filters. Detailed below.
 

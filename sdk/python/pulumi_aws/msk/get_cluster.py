@@ -97,7 +97,6 @@ def get_cluster(cluster_name=None,tags=None,opts=None):
     ```
 
 
-
     :param str cluster_name: Name of the cluster.
     :param dict tags: Map of key-value pairs assigned to the cluster.
     """

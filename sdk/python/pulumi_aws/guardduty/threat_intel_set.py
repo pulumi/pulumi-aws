@@ -60,7 +60,6 @@ class ThreatIntelSet(pulumi.CustomResource):
             location=pulumi.Output.all(my_threat_intel_set_bucket_object.bucket, my_threat_intel_set_bucket_object.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"))
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] activate: Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.

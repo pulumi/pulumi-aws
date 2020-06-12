@@ -80,7 +80,6 @@ def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=None,opts
     ```
 
 
-
     :param list filters: Custom filter block as described below.
     :param str id: The id of the specific security group to retrieve.
     :param str name: The name of the field to filter by, as defined by

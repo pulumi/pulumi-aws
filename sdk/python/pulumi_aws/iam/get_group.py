@@ -78,7 +78,6 @@ def get_group(group_name=None,opts=None):
     ```
 
 
-
     :param str group_name: The friendly IAM group name to match.
     """
     __args__ = dict()

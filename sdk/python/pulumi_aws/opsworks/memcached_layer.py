@@ -110,7 +110,6 @@ class MemcachedLayer(pulumi.CustomResource):
         cache = aws.opsworks.MemcachedLayer("cache", stack_id=aws_opsworks_stack["main"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] allocated_memory: Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.

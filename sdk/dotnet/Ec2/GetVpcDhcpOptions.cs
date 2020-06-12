@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// 
         /// {{% example %}}
         /// ### Lookup by DHCP Options ID
         /// 
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Lookup by Filter
@@ -75,7 +73,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

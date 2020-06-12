@@ -164,7 +164,6 @@ def get_group(name=None,opts=None):
     ```
 
 
-
     :param str name: Specify the exact name of the desired autoscaling group.
     """
     __args__ = dict()

@@ -120,7 +120,6 @@ class DeploymentConfig(pulumi.CustomResource):
             service_role_arn=aws_iam_role["foo_role"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.

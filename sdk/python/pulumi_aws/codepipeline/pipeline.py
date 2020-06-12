@@ -181,7 +181,6 @@ class Pipeline(pulumi.CustomResource):
             ])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] artifact_store: One or more artifact_store blocks. Artifact stores are documented below.

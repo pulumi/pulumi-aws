@@ -128,7 +128,6 @@ def get_replication_group(replication_group_id=None,opts=None):
     ```
 
 
-
     :param str replication_group_id: The identifier for the replication group.
     """
     __args__ = dict()

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// 
         /// {{% example %}}
         /// ### Retrieve Current Secret Version
         /// 
@@ -38,7 +37,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Retrieve Specific Secret Version
@@ -60,7 +58,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// 
         /// {{% example %}}
         /// ### By Transit Gateway and Direct Connect Gateway Identifiers
         /// 
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

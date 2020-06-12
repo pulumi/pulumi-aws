@@ -49,7 +49,6 @@ class Alias(pulumi.CustomResource):
         alias = aws.kms.Alias("alias", target_key_id=key.key_id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)

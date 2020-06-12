@@ -34,7 +34,6 @@ namespace Pulumi.Aws.DynamoDB
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

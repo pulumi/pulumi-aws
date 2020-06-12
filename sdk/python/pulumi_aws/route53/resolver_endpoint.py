@@ -77,7 +77,6 @@ class ResolverEndpoint(pulumi.CustomResource):
             })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] direction: The direction of DNS queries to or from the Route 53 Resolver endpoint.

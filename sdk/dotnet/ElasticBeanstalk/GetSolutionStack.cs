@@ -35,7 +35,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

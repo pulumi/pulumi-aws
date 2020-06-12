@@ -88,7 +88,6 @@ class FargateProfile(pulumi.CustomResource):
             role=example.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.

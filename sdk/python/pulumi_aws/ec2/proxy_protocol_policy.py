@@ -56,7 +56,6 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
             load_balancer=lb.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] instance_ports: List of instance ports to which the policy

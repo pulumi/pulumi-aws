@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Iot
     {
         /// <summary>
         /// Returns a unique endpoint specific to the AWS account making the call.
-        /// 
-        /// {{% examples %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("aws:iot/getEndpoint:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());

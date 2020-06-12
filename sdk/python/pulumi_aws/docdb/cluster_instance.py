@@ -144,7 +144,6 @@ class ClusterInstance(pulumi.CustomResource):
                 instance_class="db.r5.large"))
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications

@@ -120,7 +120,6 @@ def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
     ```
 
 
-
     :param str name: The name of the DynamoDB table.
 
     The **server_side_encryption** object supports the following:

@@ -211,7 +211,6 @@ class AnalyticsApplication(pulumi.CustomResource):
         })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.

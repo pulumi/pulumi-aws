@@ -110,7 +110,6 @@ def get_container_definition(container_name=None,task_definition=None,opts=None)
     ```
 
 
-
     :param str container_name: The name of the container definition
     :param str task_definition: The ARN of the task definition which contains the container
     """

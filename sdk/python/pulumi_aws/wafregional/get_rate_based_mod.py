@@ -48,7 +48,6 @@ def get_rate_based_mod(name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the WAF Regional rate based rule.
     """
     __args__ = dict()

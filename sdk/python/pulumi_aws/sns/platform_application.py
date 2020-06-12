@@ -87,7 +87,6 @@ class PlatformApplication(pulumi.CustomResource):
             platform_credential="<GCM API KEY>")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_delivery_failure_topic_arn: SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.

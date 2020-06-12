@@ -44,7 +44,6 @@ class ApiKey(pulumi.CustomResource):
             expires="2018-05-03T04:00:00Z")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The ID of the associated AppSync API

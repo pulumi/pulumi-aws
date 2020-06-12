@@ -49,7 +49,6 @@ class DomainDkim(pulumi.CustomResource):
                 zone_id="ABCDEFGHIJ123"))
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain: Verified domain name to generate DKIM tokens for.

@@ -109,7 +109,6 @@ def get_availability_zones(all_availability_zones=None,blacklisted_names=None,bl
     ```
 
 
-
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
     :param list blacklisted_names: List of blacklisted Availability Zone names.
     :param list blacklisted_zone_ids: List of blacklisted Availability Zone IDs.

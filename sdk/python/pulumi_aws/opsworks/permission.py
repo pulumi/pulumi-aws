@@ -50,7 +50,6 @@ class Permission(pulumi.CustomResource):
             user_arn=aws_iam_user["user"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_ssh: Whether the user is allowed to use SSH to communicate with the instance

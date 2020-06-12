@@ -38,7 +38,6 @@ class LogStream(pulumi.CustomResource):
         foo = aws.cloudwatch.LogStream("foo", log_group_name=yada.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.

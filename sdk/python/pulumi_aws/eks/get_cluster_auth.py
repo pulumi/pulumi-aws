@@ -49,8 +49,6 @@ def get_cluster_auth(name=None,opts=None):
     server configured.
 
 
-
-
     :param str name: The name of the cluster
     """
     __args__ = dict()

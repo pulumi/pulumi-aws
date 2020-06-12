@@ -37,7 +37,6 @@ class DelegationSet(pulumi.CustomResource):
         secondary = aws.route53.Zone("secondary", delegation_set_id=main.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] reference_name: This is a reference name used in Caller Reference

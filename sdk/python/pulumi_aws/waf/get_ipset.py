@@ -48,7 +48,6 @@ def get_ipset(name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the WAF IP set.
     """
     __args__ = dict()

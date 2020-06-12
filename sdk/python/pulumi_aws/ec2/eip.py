@@ -84,7 +84,6 @@ class Eip(pulumi.CustomResource):
             vpc=True)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] associate_with_private_ip: A user specified primary or secondary private IP address to

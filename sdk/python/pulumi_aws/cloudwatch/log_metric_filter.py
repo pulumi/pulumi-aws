@@ -56,7 +56,6 @@ class LogMetricFilter(pulumi.CustomResource):
             pattern="")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_group_name: The name of the log group to associate the metric filter with.

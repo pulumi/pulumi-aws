@@ -56,7 +56,6 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
             load_balancer=lb.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] cookie_expiration_period: The time period after which

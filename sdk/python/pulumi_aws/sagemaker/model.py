@@ -84,7 +84,6 @@ class Model(pulumi.CustomResource):
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.

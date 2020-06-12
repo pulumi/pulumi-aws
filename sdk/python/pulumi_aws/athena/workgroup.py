@@ -73,7 +73,6 @@ class Workgroup(pulumi.CustomResource):
         })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] configuration: Configuration block with various settings for the workgroup. Documented below.

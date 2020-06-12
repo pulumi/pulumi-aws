@@ -78,7 +78,6 @@ class AccountPasswordPolicy(pulumi.CustomResource):
             require_uppercase_characters=True)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_users_to_change_password: Whether to allow users to change their own password

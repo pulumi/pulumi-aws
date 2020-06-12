@@ -108,7 +108,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         # ... other configuration ...
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] destination_config: Configuration block with destination configuration. See below for details.

@@ -59,7 +59,6 @@ class Listener(pulumi.CustomResource):
             protocol="TCP")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of your accelerator.

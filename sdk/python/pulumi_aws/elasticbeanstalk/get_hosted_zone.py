@@ -51,7 +51,6 @@ def get_hosted_zone(region=None,opts=None):
     ```
 
 
-
     :param str region: The region you'd like the zone for. By default, fetches the current region.
     """
     __args__ = dict()

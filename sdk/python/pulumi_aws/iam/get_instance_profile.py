@@ -93,7 +93,6 @@ def get_instance_profile(name=None,opts=None):
     ```
 
 
-
     :param str name: The friendly IAM instance profile name to match.
     """
     __args__ = dict()

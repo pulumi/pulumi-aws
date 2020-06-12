@@ -64,7 +64,6 @@ def get_user_pools(name=None,opts=None):
     ```
 
 
-
     :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
     """
     __args__ = dict()

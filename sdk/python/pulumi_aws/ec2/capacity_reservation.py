@@ -73,7 +73,6 @@ class CapacityReservation(pulumi.CustomResource):
             instance_type="t2.micro")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create the Capacity Reservation.

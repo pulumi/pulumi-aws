@@ -78,7 +78,6 @@ class ApplicationVersion(pulumi.CustomResource):
             key=default_bucket_object.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] application: Name of the Beanstalk Application the version is associated with.

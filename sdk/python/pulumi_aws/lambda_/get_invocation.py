@@ -64,8 +64,6 @@ def get_invocation(function_name=None,input=None,qualifier=None,opts=None):
     invocation type.
 
 
-
-
     :param str function_name: The name of the lambda function.
     :param str input: A string in JSON format that is passed as payload to the lambda function.
     :param str qualifier: The qualifier (a.k.a version) of the lambda function. Defaults

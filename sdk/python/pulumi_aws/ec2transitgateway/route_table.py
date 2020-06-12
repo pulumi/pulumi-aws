@@ -41,7 +41,6 @@ class RouteTable(pulumi.CustomResource):
         example = aws.ec2transitgateway.RouteTable("example", transit_gateway_id=aws_ec2_transit_gateway["example"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] tags: Key-value tags for the EC2 Transit Gateway Route Table.

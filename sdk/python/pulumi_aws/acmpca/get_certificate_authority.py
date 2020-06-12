@@ -123,7 +123,6 @@ def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,
     ```
 
 
-
     :param str arn: Amazon Resource Name (ARN) of the certificate authority.
     :param list revocation_configurations: Nested attribute containing revocation configuration.
            * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.

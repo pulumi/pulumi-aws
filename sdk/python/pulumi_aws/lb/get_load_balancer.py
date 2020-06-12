@@ -126,7 +126,6 @@ def get_load_balancer(arn=None,name=None,tags=None,opts=None):
     ```
 
 
-
     :param str arn: The full ARN of the load balancer.
     :param str name: The unique name of the load balancer.
     """

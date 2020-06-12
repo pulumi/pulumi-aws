@@ -94,6 +94,7 @@ import (
 // ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
 //
 //
+//
 // > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
 // You must choose one or the other
 type MetricAlarm struct {

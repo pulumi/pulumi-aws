@@ -129,7 +129,6 @@ class ReplicationInstance(pulumi.CustomResource):
             vpc_security_group_ids=["sg-12345678"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.

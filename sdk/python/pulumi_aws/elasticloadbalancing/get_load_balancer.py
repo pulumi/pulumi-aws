@@ -131,7 +131,6 @@ def get_load_balancer(name=None,tags=None,opts=None):
     ```
 
 
-
     :param str name: The unique name of the load balancer.
     """
     pulumi.log.warn("get_load_balancer is deprecated: aws.elasticloadbalancing.getLoadBalancer has been deprecated in favor of aws.elb.getLoadBalancer")

@@ -23,7 +23,6 @@ namespace Pulumi.Aws
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// 
         /// {{% example %}}
         /// ### By State
         /// 
@@ -53,7 +52,6 @@ namespace Pulumi.Aws
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Filter
@@ -117,7 +115,6 @@ namespace Pulumi.Aws
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

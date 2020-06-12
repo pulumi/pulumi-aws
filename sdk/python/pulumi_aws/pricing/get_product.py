@@ -90,7 +90,6 @@ def get_product(filters=None,service_code=None,opts=None):
     ```
 
 
-
     :param list filters: A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
     :param str service_code: The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
 

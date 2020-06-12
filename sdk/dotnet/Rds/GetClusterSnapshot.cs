@@ -16,9 +16,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// &gt; **NOTE:** This data source does not apply to snapshots created on DB Instances. 
         /// See the `aws.rds.Snapshot` data source for DB Instance snapshots.
-        /// 
-        /// {{% examples %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterSnapshotResult> InvokeAsync(GetClusterSnapshotArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterSnapshotResult>("aws:rds/getClusterSnapshot:getClusterSnapshot", args ?? new GetClusterSnapshotArgs(), options.WithVersion());

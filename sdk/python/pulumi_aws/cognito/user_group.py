@@ -73,7 +73,6 @@ class UserGroup(pulumi.CustomResource):
             user_pool_id=main_user_pool.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the user group.

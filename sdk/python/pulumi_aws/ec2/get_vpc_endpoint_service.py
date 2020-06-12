@@ -154,7 +154,6 @@ def get_vpc_endpoint_service(filters=None,service=None,service_name=None,tags=No
     ```
 
 
-
     :param list filters: Configuration block(s) for filtering. Detailed below.
     :param str service: The common name of an AWS service (e.g. `s3`).
     :param str service_name: The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).

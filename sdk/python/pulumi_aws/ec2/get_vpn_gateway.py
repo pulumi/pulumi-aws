@@ -70,7 +70,6 @@ def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=
     ```
 
 
-
     :param str amazon_side_asn: The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
     :param str attached_vpc_id: The ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param str availability_zone: The Availability Zone of the specific VPN Gateway to retrieve.

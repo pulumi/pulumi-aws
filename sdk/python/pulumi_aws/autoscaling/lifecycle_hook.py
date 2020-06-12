@@ -89,7 +89,6 @@ class LifecycleHook(pulumi.CustomResource):
             role_arn="arn:aws:iam::123456789012:role/S3Access")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: The name of the Auto Scaling group to which you want to assign the lifecycle hook

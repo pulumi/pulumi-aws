@@ -62,7 +62,6 @@ def get_local_gateways(filters=None,tags=None,opts=None):
     ```
 
 
-
     :param list filters: Custom filter block as described below.
     :param dict tags: A mapping of tags, each pair of which must exactly match
            a pair on the desired local_gateways.

@@ -70,7 +70,6 @@ def get_region(endpoint=None,name=None,opts=None):
     ```
 
 
-
     :param str endpoint: The EC2 endpoint of the region to select.
     :param str name: The full name of the region to select.
     """

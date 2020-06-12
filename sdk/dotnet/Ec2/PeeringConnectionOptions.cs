@@ -92,7 +92,6 @@ namespace Pulumi.Aws.Ec2
     ///             EnableDnsSupport = true,
     ///         });
     ///         var peerCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         // Requester's side of the connection.
     ///         var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peerVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
     ///         {
     ///             AutoAccept = false,
@@ -104,7 +103,6 @@ namespace Pulumi.Aws.Ec2
     ///             },
     ///             VpcId = main.Id,
     ///         });
-    ///         // Accepter's side of the connection.
     ///         var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", new Aws.Ec2.VpcPeeringConnectionAccepterArgs
     ///         {
     ///             AutoAccept = true,

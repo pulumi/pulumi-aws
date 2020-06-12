@@ -89,7 +89,6 @@ def get_peering_attachment(filters=None,id=None,tags=None,opts=None):
     ```
 
 
-
     :param list filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway Peering Attachment.
     :param dict tags: A mapping of tags, each pair of which must exactly match

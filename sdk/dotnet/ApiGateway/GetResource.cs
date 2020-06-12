@@ -40,7 +40,6 @@ namespace Pulumi.Aws.ApiGateway
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

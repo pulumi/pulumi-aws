@@ -203,7 +203,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             window_id=aws_ssm_maintenance_window["example"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the maintenance window task.

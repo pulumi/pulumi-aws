@@ -133,7 +133,6 @@ class Certificate(pulumi.CustomResource):
             private_key=example_private_key.private_key_pem)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_authority_arn: ARN of an ACMPCA

@@ -43,7 +43,6 @@ namespace Pulumi.Aws.CloudFormation
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

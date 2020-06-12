@@ -61,7 +61,6 @@ class EnvironmentEC2(pulumi.CustomResource):
         example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.

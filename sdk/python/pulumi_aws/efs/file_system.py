@@ -83,7 +83,6 @@ class FileSystem(pulumi.CustomResource):
         })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] creation_token: A unique name (a maximum of 64 characters are allowed)

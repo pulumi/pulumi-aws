@@ -36,7 +36,6 @@ class PatchGroup(pulumi.CustomResource):
             patch_group="patch-group-name")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.

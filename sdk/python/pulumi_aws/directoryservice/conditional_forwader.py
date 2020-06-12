@@ -43,7 +43,6 @@ class ConditionalForwader(pulumi.CustomResource):
             remote_domain_name="example.com")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] directory_id: The id of directory.

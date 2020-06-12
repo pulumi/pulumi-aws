@@ -126,7 +126,6 @@ class Ami(pulumi.CustomResource):
             virtualization_type="hvm")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".

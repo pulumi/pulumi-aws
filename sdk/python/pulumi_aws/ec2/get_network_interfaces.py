@@ -58,7 +58,6 @@ def get_network_interfaces(filters=None,tags=None,opts=None):
     ```
 
 
-
     :param list filters: Custom filter block as described below.
     :param dict tags: A map of tags, each pair of which must exactly match
            a pair on the desired network interfaces.

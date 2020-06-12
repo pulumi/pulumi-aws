@@ -81,7 +81,6 @@ def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,ta
     ```
 
 
-
     :param str domain: The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
     :param list key_types: A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
     :param bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.

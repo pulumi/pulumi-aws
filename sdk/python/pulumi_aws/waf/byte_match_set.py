@@ -65,7 +65,6 @@ class ByteMatchSet(pulumi.CustomResource):
         }])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] byte_match_tuples: Specifies the bytes (typically a string that corresponds

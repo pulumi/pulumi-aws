@@ -179,7 +179,6 @@ class Record(pulumi.CustomResource):
             zone_id=example_zone.zone_id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] aliases: An alias block. Conflicts with `ttl` & `records`.

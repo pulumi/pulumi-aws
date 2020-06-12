@@ -62,7 +62,6 @@ class ZoneAssociation(pulumi.CustomResource):
             zone_id=example.zone_id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] vpc_id: The VPC to associate with the private hosted zone.

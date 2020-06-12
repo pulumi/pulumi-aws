@@ -53,7 +53,6 @@ class SubnetGroup(pulumi.CustomResource):
         bar = aws.elasticache.SubnetGroup("bar", subnet_ids=[foo_subnet.id])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description for the cache subnet group. Defaults to "Managed by Pulumi".

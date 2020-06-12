@@ -34,7 +34,6 @@ namespace Pulumi.Aws.Acmpca
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -118,7 +118,6 @@ def get_target_group(arn=None,name=None,tags=None,opts=None):
     ```
 
 
-
     :param str arn: The full ARN of the target group.
     :param str name: The unique name of the target group.
     """

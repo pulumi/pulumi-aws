@@ -41,7 +41,6 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
             vpc_endpoint_id=aws_vpc_endpoint["ec2"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.

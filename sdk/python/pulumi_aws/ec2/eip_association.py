@@ -74,7 +74,6 @@ class EipAssociation(pulumi.CustomResource):
             instance_id=web.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_id: The allocation ID. This is required for EC2-VPC.

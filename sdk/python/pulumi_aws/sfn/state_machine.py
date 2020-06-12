@@ -63,7 +63,6 @@ class StateMachine(pulumi.CustomResource):
             role_arn=aws_iam_role["iam_for_sfn"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] definition: The Amazon States Language definition of the state machine.

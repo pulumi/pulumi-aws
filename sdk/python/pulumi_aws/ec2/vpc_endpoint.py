@@ -158,7 +158,6 @@ class VpcEndpoint(pulumi.CustomResource):
             zone_id=internal.zone_id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).

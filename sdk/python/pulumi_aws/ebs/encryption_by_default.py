@@ -31,7 +31,6 @@ class EncryptionByDefault(pulumi.CustomResource):
         example = aws.ebs.EncryptionByDefault("example", enabled=True)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.

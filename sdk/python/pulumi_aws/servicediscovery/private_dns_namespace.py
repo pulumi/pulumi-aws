@@ -48,7 +48,6 @@ class PrivateDnsNamespace(pulumi.CustomResource):
             vpc=example_vpc.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.

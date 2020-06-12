@@ -49,7 +49,6 @@ class ClientCertificate(pulumi.CustomResource):
         demo = aws.apigateway.ClientCertificate("demo", description="My client certificate")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the client certificate.

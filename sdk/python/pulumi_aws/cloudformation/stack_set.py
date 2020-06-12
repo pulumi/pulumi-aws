@@ -116,7 +116,6 @@ class StackSet(pulumi.CustomResource):
             role=a_ws_cloud_formation_stack_set_administration_role.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account.

@@ -150,7 +150,6 @@ def get_vpc_endpoint(filters=None,id=None,service_name=None,state=None,tags=None
     ```
 
 
-
     :param list filters: Custom filter block as described below.
     :param str id: The ID of the specific VPC Endpoint to retrieve.
     :param str service_name: The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).

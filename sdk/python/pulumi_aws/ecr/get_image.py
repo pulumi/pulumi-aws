@@ -82,7 +82,6 @@ def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=
     ```
 
 
-
     :param str image_digest: The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
     :param str image_tag: The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
     :param str registry_id: The ID of the Registry where the repository resides.

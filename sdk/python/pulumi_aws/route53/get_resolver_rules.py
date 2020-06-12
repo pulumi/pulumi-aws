@@ -69,7 +69,6 @@ def get_resolver_rules(owner_id=None,resolver_endpoint_id=None,rule_type=None,sh
     ```
 
 
-
     :param str owner_id: When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
     :param str resolver_endpoint_id: The ID of the outbound resolver endpoint for the desired resolver rules.
     :param str rule_type: The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.

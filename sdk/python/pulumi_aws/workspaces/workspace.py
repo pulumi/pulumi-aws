@@ -67,8 +67,6 @@ class Workspace(pulumi.CustomResource):
         > **NOTE:** During deletion of an `workspaces.Workspace` resource, the service role `workspaces_DefaultRole` must be attached to the
         policy `arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess`, or it will leak the ENI that the Workspaces service creates for the Workspace.
 
-
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bundle_id: The ID of the bundle for the WorkSpace.

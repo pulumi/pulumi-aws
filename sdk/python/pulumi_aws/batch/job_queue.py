@@ -55,7 +55,6 @@ class JobQueue(pulumi.CustomResource):
             state="ENABLED")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] compute_environments: Specifies the set of compute environments

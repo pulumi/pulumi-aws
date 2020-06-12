@@ -71,7 +71,6 @@ class Parameter(pulumi.CustomResource):
             value="bar")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value.

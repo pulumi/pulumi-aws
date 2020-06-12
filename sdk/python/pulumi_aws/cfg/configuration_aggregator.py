@@ -86,7 +86,6 @@ class ConfigurationAggregator(pulumi.CustomResource):
             role=organization_role.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] account_aggregation_source: The account(s) to aggregate config data from as documented below.

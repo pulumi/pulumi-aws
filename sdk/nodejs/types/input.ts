@@ -1218,8 +1218,17 @@ export namespace appautoscaling {
     }
 
     export interface PolicyStepScalingPolicyConfigurationStepAdjustment {
+        /**
+         * The lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+         */
         metricIntervalLowerBound?: pulumi.Input<string>;
+        /**
+         * The upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+         */
         metricIntervalUpperBound?: pulumi.Input<string>;
+        /**
+         * The number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+         */
         scalingAdjustment: pulumi.Input<number>;
     }
 

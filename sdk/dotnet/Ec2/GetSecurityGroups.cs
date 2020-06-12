@@ -74,7 +74,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

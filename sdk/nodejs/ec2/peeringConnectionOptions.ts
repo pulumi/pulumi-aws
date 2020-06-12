@@ -66,7 +66,6 @@ import * as utilities from "../utilities";
  *     enableDnsSupport: true,
  * }, { provider: accepter });
  * const peerCallerIdentity = pulumi.output(aws.getCallerIdentity({ provider: accepter, async: true }));
- * // Requester's side of the connection.
  * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peer", {
  *     autoAccept: false,
  *     peerOwnerId: peerCallerIdentity.accountId,
@@ -76,7 +75,6 @@ import * as utilities from "../utilities";
  *     },
  *     vpcId: main.id,
  * }, { provider: requester });
- * // Accepter's side of the connection.
  * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peer", {
  *     autoAccept: true,
  *     tags: {

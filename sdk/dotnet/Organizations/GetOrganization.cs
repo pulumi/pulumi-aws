@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// 
         /// {{% example %}}
         /// ### List all account IDs for the organization
         /// 
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.Organizations
         ///     public Output&lt;string&gt; AccountIds { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### SNS topic that can be interacted by the organization only
@@ -110,7 +108,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

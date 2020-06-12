@@ -156,7 +156,6 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
     ```
 
 
-
     :param str cluster_identifier: The cluster identifier of the RDS cluster.
     """
     __args__ = dict()

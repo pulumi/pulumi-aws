@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// 
         /// {{% example %}}
         /// ### AWS Service
         /// 
@@ -48,7 +47,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Non-AWS Service
@@ -69,7 +67,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter
@@ -100,7 +97,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

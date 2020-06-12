@@ -76,7 +76,6 @@ def get_repository(repository_name=None,opts=None):
     ```
 
 
-
     :param str repository_name: The name for the repository. This needs to be less than 100 characters.
     """
     __args__ = dict()

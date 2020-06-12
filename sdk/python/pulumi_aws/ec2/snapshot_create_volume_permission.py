@@ -39,7 +39,6 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
             snapshot_id=example_snapshot.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions

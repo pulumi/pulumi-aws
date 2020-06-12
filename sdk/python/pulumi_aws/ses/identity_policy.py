@@ -51,7 +51,6 @@ class IdentityPolicy(pulumi.CustomResource):
             policy=example_policy_document.json)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.

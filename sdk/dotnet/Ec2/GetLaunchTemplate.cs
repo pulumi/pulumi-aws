@@ -34,7 +34,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Filter
@@ -65,7 +64,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

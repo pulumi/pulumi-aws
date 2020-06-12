@@ -42,7 +42,6 @@ namespace Pulumi.Aws.Ec2
         ///     public Output&lt;string&gt; Foo { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

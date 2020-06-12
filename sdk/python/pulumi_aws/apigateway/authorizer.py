@@ -60,8 +60,6 @@ class Authorizer(pulumi.CustomResource):
         """
         Provides an API Gateway Authorizer.
 
-
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorizer_credentials: The credentials required for the authorizer.

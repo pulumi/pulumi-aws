@@ -90,7 +90,6 @@ def get_bundle(bundle_id=None,opts=None):
     ```
 
 
-
     :param str bundle_id: The ID of the bundle.
     """
     __args__ = dict()

@@ -29,7 +29,6 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
         main = aws.ses.ActiveReceiptRuleSet("main", rule_set_name="primary-rules")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] rule_set_name: The name of the rule set

@@ -94,7 +94,6 @@ def get_resolver_rule(domain_name=None,name=None,resolver_endpoint_id=None,resol
     ```
 
 
-
     :param str domain_name: The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
     :param str name: The friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
     :param str resolver_endpoint_id: The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.

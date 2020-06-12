@@ -39,7 +39,6 @@ class ResolverRuleAssociation(pulumi.CustomResource):
             vpc_id=aws_vpc["foo"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: A name for the association that you're creating between a resolver rule and a VPC.

@@ -98,8 +98,6 @@ def get_availability_zone(all_availability_zones=None,filters=None,name=None,sta
     which provides a list of the available zones.
 
 
-
-
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
     :param list filters: Configuration block(s) for filtering. Detailed below.
     :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).

@@ -69,7 +69,6 @@ class VolumeAttachment(pulumi.CustomResource):
             volume_id=example.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name to expose to the instance (for

@@ -24,8 +24,6 @@ class Association(pulumi.CustomResource):
 
         > **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `ec2.LaunchTemplate`.
 
-
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] license_configuration_arn: ARN of the license configuration.

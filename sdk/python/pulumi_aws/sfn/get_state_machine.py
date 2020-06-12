@@ -85,7 +85,6 @@ def get_state_machine(name=None,opts=None):
     ```
 
 
-
     :param str name: The friendly name of the state machine to match.
     """
     __args__ = dict()

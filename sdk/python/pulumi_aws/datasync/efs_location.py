@@ -56,7 +56,6 @@ class EfsLocation(pulumi.CustomResource):
             efs_file_system_arn=aws_efs_mount_target["example"]["file_system_arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] ec2_config: Configuration block containing EC2 configurations for connecting to the EFS File System.

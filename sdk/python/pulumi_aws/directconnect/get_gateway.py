@@ -62,7 +62,6 @@ def get_gateway(name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the gateway to retrieve.
     """
     __args__ = dict()

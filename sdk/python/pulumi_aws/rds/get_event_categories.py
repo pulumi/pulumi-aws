@@ -54,7 +54,6 @@ def get_event_categories(source_type=None,opts=None):
     ```
 
 
-
     :param str source_type: The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
     """
     __args__ = dict()

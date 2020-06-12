@@ -101,7 +101,6 @@ def get_ip_ranges(regions=None,services=None,url=None,opts=None):
     ```
 
 
-
     :param list regions: Filter IP ranges by regions (or include all regions, if
            omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
            (e.g. `eu-central-1`)

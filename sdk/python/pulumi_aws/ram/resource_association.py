@@ -37,7 +37,6 @@ class ResourceAssociation(pulumi.CustomResource):
             resource_share_arn=aws_ram_resource_share["example"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.

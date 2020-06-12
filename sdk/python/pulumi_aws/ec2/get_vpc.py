@@ -125,8 +125,6 @@ def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=No
     VPC.
 
 
-
-
     :param str cidr_block: The cidr block of the desired VPC.
     :param bool default: Boolean constraint on whether the desired VPC is
            the default VPC for the region.

@@ -43,7 +43,6 @@ class LogDestination(pulumi.CustomResource):
             target_arn=aws_kinesis_stream["kinesis_for_cloudwatch"]["arn"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: A name for the log destination

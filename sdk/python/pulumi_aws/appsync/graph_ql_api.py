@@ -192,7 +192,6 @@ class GraphQLApi(pulumi.CustomResource):
         })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.

@@ -76,7 +76,6 @@ def get_vault(name=None,tags=None,opts=None):
     ```
 
 
-
     :param str name: The name of the backup vault.
     :param dict tags: Metadata that you can assign to help organize the resources that you create.
     """

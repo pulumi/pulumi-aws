@@ -42,10 +42,12 @@ import (
 // any ACL rules added or changed will be detected as drift.
 //
 //
+//
 // ## Example config to deny all Egress traffic, allowing Ingress
 //
 // The following denies all Egress traffic by omitting any `egress` rules, while
 // including the default `ingress` rule to allow all traffic.
+//
 //
 //
 // ## Example config to deny all traffic to any Subnet in the Default Network ACL

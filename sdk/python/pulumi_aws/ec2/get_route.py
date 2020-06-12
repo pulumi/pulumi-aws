@@ -93,7 +93,6 @@ def get_route(destination_cidr_block=None,destination_ipv6_cidr_block=None,egres
     ```
 
 
-
     :param str destination_cidr_block: The CIDR block of the Route belonging to the Route Table.
     :param str destination_ipv6_cidr_block: The IPv6 CIDR block of the Route belonging to the Route Table.
     :param str egress_only_gateway_id: The Egress Only Gateway ID of the Route belonging to the Route Table.

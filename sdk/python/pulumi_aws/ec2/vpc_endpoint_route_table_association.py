@@ -35,7 +35,6 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
             vpc_endpoint_id=aws_vpc_endpoint["example"]["id"])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] route_table_id: Identifier of the EC2 Route Table to be associated with the VPC Endpoint.

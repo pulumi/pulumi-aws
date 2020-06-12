@@ -61,7 +61,6 @@ class RuleGroup(pulumi.CustomResource):
             metric_name="example")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] activated_rules: A list of activated rules, see below

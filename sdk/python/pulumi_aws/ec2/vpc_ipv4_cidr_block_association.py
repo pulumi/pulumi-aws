@@ -39,7 +39,6 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
             vpc_id=main.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr_block: The additional IPv4 CIDR block to associate with the VPC.

@@ -84,7 +84,6 @@ def get_customer_gateway(filters=None,id=None,tags=None,opts=None):
     ```
 
 
-
     :param list filters: One or more [name-value pairs][dcg-filters] to filter by.
     :param str id: The ID of the gateway.
     :param dict tags: Map of key-value pairs assigned to the gateway.

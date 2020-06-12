@@ -134,7 +134,6 @@ class Application(pulumi.CustomResource):
             type="rails")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] app_sources: SCM configuration of the app as described below.

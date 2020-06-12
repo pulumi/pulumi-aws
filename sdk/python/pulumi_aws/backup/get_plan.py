@@ -76,7 +76,6 @@ def get_plan(plan_id=None,tags=None,opts=None):
     ```
 
 
-
     :param str plan_id: The backup plan ID.
     :param dict tags: Metadata that you can assign to help organize the plans you create.
     """
