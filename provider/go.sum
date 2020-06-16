@@ -129,8 +129,8 @@ github.com/aws/aws-sdk-go v1.19.45/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpi
 github.com/aws/aws-sdk-go v1.25.3/go.mod h1:KmX6BPdI08NWTb3/sm4ZGu5ShLoqVDhKgpiN924inxo=
 github.com/aws/aws-sdk-go v1.29.27/go.mod h1:1KvfttTE3SPKMpo8g2c6jL3ZKfXtFvKscTgahTma5Xg=
 github.com/aws/aws-sdk-go v1.30.7/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
-github.com/aws/aws-sdk-go v1.31.2 h1:REYLkyG1EGES8SJS0QsUwvWix9oQwUbJ8HLgMxUHpKo=
-github.com/aws/aws-sdk-go v1.31.2/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
+github.com/aws/aws-sdk-go v1.32.3 h1:E3OciOGVlJrv1gQ2T7/Oou+I9nGPB2j978THQjvZBf0=
+github.com/aws/aws-sdk-go v1.32.3/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
 github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f/go.mod h1:AuiFmCCPBSrqvVMvuqFuk0qogytodnVFVSN5CeJB8Gc=
 github.com/beevik/etree v1.1.0 h1:T0xke/WvNtMoCqgzPhkX2r4rjY3GDZFi+FjpRZY2Jbs=
 github.com/beevik/etree v1.1.0/go.mod h1:r8Aw8JqVegEf0w2fDnATrX9VpkMcyFeM0FhwO62wh+A=
@@ -731,8 +731,8 @@ github.com/pulumi/pulumi/sdk/v2 v2.3.1-0.20200610172153-45a901d3e77c h1:jrm4Mqhv
 github.com/pulumi/pulumi/sdk/v2 v2.3.1-0.20200610172153-45a901d3e77c/go.mod h1:llk6tmXss8kJrt3vEXAkwiwgZOuINEFmKIfMveVIwO8=
 github.com/pulumi/pulumi/sdk/v2 v2.4.0 h1:1ef6JbCWG3RWCKNpeeFBezzI6HBdMPpdeZQAd+IGKvw=
 github.com/pulumi/pulumi/sdk/v2 v2.4.0/go.mod h1:llk6tmXss8kJrt3vEXAkwiwgZOuINEFmKIfMveVIwO8=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20200612094215-78a73179aba6 h1:AOmtOfxwp67RkzhfJJYp8Z4zDMF+hEEJ6G+EerVjtsg=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20200612094215-78a73179aba6/go.mod h1:qu2Yl7WdzjH6gyX9SrG8vuSgqNlNRlP7hmCPXnPvFRc=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20200616201417-ed844a7bd9d5 h1:YiAN2oZQa1vReu/esKnQVJYcvC1sPJ94OOmK9rJ5UTM=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20200616201417-ed844a7bd9d5/go.mod h1:V9Zo0BlcOaNrdb7xctxnYiuulv2a1DvfBbOJ4CcbpRk=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200610210702-8e5d1a569c4a h1:CUbap8oEhlXRiqVBcAGiW63iXuDY7iIwQLM4r7y8lw8=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200610210702-8e5d1a569c4a/go.mod h1:lE39suxXfTqjNHg8PxtPUdek3wnTTdnoYXVpQdFGmEo=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=

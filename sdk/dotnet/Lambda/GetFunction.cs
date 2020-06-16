@@ -91,6 +91,10 @@ namespace Pulumi.Aws.Lambda
         /// The Lambda environment's configuration settings.
         /// </summary>
         public readonly Outputs.GetFunctionEnvironmentResult Environment;
+        /// <summary>
+        /// The Lambda EFS configuration settings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFunctionFileSystemConfigResult> FileSystemConfigs;
         public readonly string FunctionName;
         /// <summary>
         /// The function entrypoint in your code.
@@ -173,6 +177,8 @@ namespace Pulumi.Aws.Lambda
 
             Outputs.GetFunctionEnvironmentResult environment,
 
+            ImmutableArray<Outputs.GetFunctionFileSystemConfigResult> fileSystemConfigs,
+
             string functionName,
 
             string handler,
@@ -217,6 +223,7 @@ namespace Pulumi.Aws.Lambda
             DeadLetterConfig = deadLetterConfig;
             Description = description;
             Environment = environment;
+            FileSystemConfigs = fileSystemConfigs;
             FunctionName = functionName;
             Handler = handler;
             Id = id;

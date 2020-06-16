@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Lambda
     public partial class Function : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) identifying your Lambda Function.
+        /// The ARN of the EFS Access Profile that provides access to the file system.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -138,6 +138,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("environment")]
         public Output<Outputs.FunctionEnvironment?> Environment { get; private set; } = null!;
+
+        /// <summary>
+        /// Nested block to configure the function's *EFS config*. See details below.
+        /// </summary>
+        [Output("fileSystemConfigs")]
+        public Output<ImmutableArray<Outputs.FunctionFileSystemConfig>> FileSystemConfigs { get; private set; } = null!;
 
         /// <summary>
         /// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
@@ -339,6 +345,18 @@ namespace Pulumi.Aws.Lambda
         [Input("environment")]
         public Input<Inputs.FunctionEnvironmentArgs>? Environment { get; set; }
 
+        [Input("fileSystemConfigs")]
+        private InputList<Inputs.FunctionFileSystemConfigArgs>? _fileSystemConfigs;
+
+        /// <summary>
+        /// Nested block to configure the function's *EFS config*. See details below.
+        /// </summary>
+        public InputList<Inputs.FunctionFileSystemConfigArgs> FileSystemConfigs
+        {
+            get => _fileSystemConfigs ?? (_fileSystemConfigs = new InputList<Inputs.FunctionFileSystemConfigArgs>());
+            set => _fileSystemConfigs = value;
+        }
+
         /// <summary>
         /// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         /// </summary>
@@ -458,7 +476,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class FunctionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) identifying your Lambda Function.
+        /// The ARN of the EFS Access Profile that provides access to the file system.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -486,6 +504,18 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("environment")]
         public Input<Inputs.FunctionEnvironmentGetArgs>? Environment { get; set; }
+
+        [Input("fileSystemConfigs")]
+        private InputList<Inputs.FunctionFileSystemConfigGetArgs>? _fileSystemConfigs;
+
+        /// <summary>
+        /// Nested block to configure the function's *EFS config*. See details below.
+        /// </summary>
+        public InputList<Inputs.FunctionFileSystemConfigGetArgs> FileSystemConfigs
+        {
+            get => _fileSystemConfigs ?? (_fileSystemConfigs = new InputList<Inputs.FunctionFileSystemConfigGetArgs>());
+            set => _fileSystemConfigs = value;
+        }
 
         /// <summary>
         /// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.

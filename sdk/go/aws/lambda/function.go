@@ -62,7 +62,7 @@ import (
 type Function struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) identifying your Lambda Function.
+	// The ARN of the EFS Access Profile that provides access to the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Code pulumi.ArchiveOutput `pulumi:"code"`
@@ -72,6 +72,8 @@ type Function struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Lambda environment's configuration settings. Fields documented below.
 	Environment FunctionEnvironmentPtrOutput `pulumi:"environment"`
+	// Nested block to configure the function's *EFS config*. See details below.
+	FileSystemConfigs FunctionFileSystemConfigArrayOutput `pulumi:"fileSystemConfigs"`
 	// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
 	Handler pulumi.StringOutput `pulumi:"handler"`
 	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
@@ -155,7 +157,7 @@ func GetFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Function resources.
 type functionState struct {
-	// The Amazon Resource Name (ARN) identifying your Lambda Function.
+	// The ARN of the EFS Access Profile that provides access to the file system.
 	Arn *string `pulumi:"arn"`
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Code pulumi.Archive `pulumi:"code"`
@@ -165,6 +167,8 @@ type functionState struct {
 	Description *string `pulumi:"description"`
 	// The Lambda environment's configuration settings. Fields documented below.
 	Environment *FunctionEnvironment `pulumi:"environment"`
+	// Nested block to configure the function's *EFS config*. See details below.
+	FileSystemConfigs []FunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
 	// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
 	Handler *string `pulumi:"handler"`
 	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
@@ -212,7 +216,7 @@ type functionState struct {
 }
 
 type FunctionState struct {
-	// The Amazon Resource Name (ARN) identifying your Lambda Function.
+	// The ARN of the EFS Access Profile that provides access to the file system.
 	Arn pulumi.StringPtrInput
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Code pulumi.ArchiveInput
@@ -222,6 +226,8 @@ type FunctionState struct {
 	Description pulumi.StringPtrInput
 	// The Lambda environment's configuration settings. Fields documented below.
 	Environment FunctionEnvironmentPtrInput
+	// Nested block to configure the function's *EFS config*. See details below.
+	FileSystemConfigs FunctionFileSystemConfigArrayInput
 	// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
 	Handler pulumi.StringPtrInput
 	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
@@ -281,6 +287,8 @@ type functionArgs struct {
 	Description *string `pulumi:"description"`
 	// The Lambda environment's configuration settings. Fields documented below.
 	Environment *FunctionEnvironment `pulumi:"environment"`
+	// Nested block to configure the function's *EFS config*. See details below.
+	FileSystemConfigs []FunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
 	// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
 	Handler string `pulumi:"handler"`
 	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and this provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
@@ -326,6 +334,8 @@ type FunctionArgs struct {
 	Description pulumi.StringPtrInput
 	// The Lambda environment's configuration settings. Fields documented below.
 	Environment FunctionEnvironmentPtrInput
+	// Nested block to configure the function's *EFS config*. See details below.
+	FileSystemConfigs FunctionFileSystemConfigArrayInput
 	// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
 	Handler pulumi.StringInput
 	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and this provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.

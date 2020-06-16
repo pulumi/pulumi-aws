@@ -12592,6 +12592,17 @@ export namespace lambda {
         destination: string;
     }
 
+    export interface FunctionFileSystemConfig {
+        /**
+         * The ARN of the EFS Access Profile that provides access to the file system.
+         */
+        arn: string;
+        /**
+         * The path where the function can access the file system, starting with `/mnt/`.
+         */
+        localMountPath: string;
+    }
+
     export interface FunctionTracingConfig {
         /**
          * Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
@@ -12621,6 +12632,14 @@ export namespace lambda {
 
     export interface GetFunctionEnvironment {
         variables: {[key: string]: string};
+    }
+
+    export interface GetFunctionFileSystemConfig {
+        /**
+         * Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
+         */
+        arn: string;
+        localMountPath: string;
     }
 
     export interface GetFunctionTracingConfig {

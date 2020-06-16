@@ -13,7 +13,7 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, arn=None, dead_letter_config=None, description=None, environment=None, function_name=None, handler=None, id=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def __init__(__self__, arn=None, dead_letter_config=None, description=None, environment=None, file_system_configs=None, function_name=None, handler=None, id=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -37,6 +37,12 @@ class GetFunctionResult:
         __self__.environment = environment
         """
         The Lambda environment's configuration settings.
+        """
+        if file_system_configs and not isinstance(file_system_configs, list):
+            raise TypeError("Expected argument 'file_system_configs' to be a list")
+        __self__.file_system_configs = file_system_configs
+        """
+        The Lambda EFS configuration settings.
         """
         if function_name and not isinstance(function_name, str):
             raise TypeError("Expected argument 'function_name' to be a str")
@@ -159,6 +165,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             dead_letter_config=self.dead_letter_config,
             description=self.description,
             environment=self.environment,
+            file_system_configs=self.file_system_configs,
             function_name=self.function_name,
             handler=self.handler,
             id=self.id,
@@ -218,6 +225,7 @@ def get_function(function_name=None,qualifier=None,tags=None,opts=None):
         dead_letter_config=__ret__.get('deadLetterConfig'),
         description=__ret__.get('description'),
         environment=__ret__.get('environment'),
+        file_system_configs=__ret__.get('fileSystemConfigs'),
         function_name=__ret__.get('functionName'),
         handler=__ret__.get('handler'),
         id=__ret__.get('id'),

@@ -75,6 +75,10 @@ export interface GetFunctionResult {
      * The Lambda environment's configuration settings.
      */
     readonly environment: outputs.lambda.GetFunctionEnvironment;
+    /**
+     * The Lambda EFS configuration settings.
+     */
+    readonly fileSystemConfigs: outputs.lambda.GetFunctionFileSystemConfig[];
     readonly functionName: string;
     /**
      * The function entrypoint in your code.
