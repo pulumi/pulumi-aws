@@ -6,20 +6,13 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
-	"path"
-	"path/filepath"
 	"testing"
 	"time"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
-
-
 
 func createEditDir(dir string) integration.EditDir {
 	return integration.EditDir{Dir: dir, ExtraRuntimeValidation: nil}
@@ -56,7 +49,6 @@ func getBaseOptions() integration.ProgramTestOptions {
 		Quick:                true,
 	}
 }
-
 
 func validateAPITest(isValid func(body string)) func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
