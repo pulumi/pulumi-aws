@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Adding support for EFS configuration in AWS Lambda Functions
+_(none)_
 
 ---
+
+## 2.9.1 (2020-06-16)
+* Adding support for EFS configuration in AWS Lambda Functions
 
 ## 2.9.0 (2020-06-12)
 * Upgrade to v2.66.0 of the AWS Terraform Provider
