@@ -12,7 +12,7 @@ from .. import utilities, tables
 class Function(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
-    The Amazon Resource Name (ARN) identifying your Lambda Function.
+    The ARN of the EFS Access Profile that provides access to the file system.
     """
     code: pulumi.Output[pulumi.Archive]
     """
@@ -36,6 +36,13 @@ class Function(pulumi.CustomResource):
     The Lambda environment's configuration settings. Fields documented below.
 
       * `variables` (`dict`) - A map that defines environment variables for the Lambda function.
+    """
+    file_system_configs: pulumi.Output[list]
+    """
+    Nested block to configure the function's *EFS config*. See details below.
+
+      * `arn` (`str`) - The ARN of the EFS Access Profile that provides access to the file system.
+      * `localMountPath` (`str`) - The path where the function can access the file system, starting with `/mnt/`.
     """
     handler: pulumi.Output[str]
     """
@@ -127,7 +134,7 @@ class Function(pulumi.CustomResource):
       * `subnet_ids` (`list`) - A list of subnet IDs associated with the Lambda function.
       * `vpc_id` (`str`)
     """
-    def __init__(__self__, resource_name, opts=None, code=None, dead_letter_config=None, description=None, environment=None, handler=None, kms_key_arn=None, layers=None, memory_size=None, name=None, publish=None, reserved_concurrent_executions=None, role=None, runtime=None, s3_bucket=None, s3_key=None, s3_object_version=None, source_code_hash=None, tags=None, timeout=None, tracing_config=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, code=None, dead_letter_config=None, description=None, environment=None, file_system_configs=None, handler=None, kms_key_arn=None, layers=None, memory_size=None, name=None, publish=None, reserved_concurrent_executions=None, role=None, runtime=None, s3_bucket=None, s3_key=None, s3_object_version=None, source_code_hash=None, tags=None, timeout=None, tracing_config=None, vpc_config=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS, enabling serverless backend solutions. The Lambda Function itself includes source code and runtime configuration.
 
@@ -201,6 +208,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[dict] dead_letter_config: Nested block to configure the function's *dead letter queue*. See details below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
         :param pulumi.Input[dict] environment: The Lambda environment's configuration settings. Fields documented below.
+        :param pulumi.Input[list] file_system_configs: Nested block to configure the function's *EFS config*. See details below.
         :param pulumi.Input[str] handler: The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and this provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         :param pulumi.Input[list] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
@@ -228,6 +236,11 @@ class Function(pulumi.CustomResource):
         The **environment** object supports the following:
 
           * `variables` (`pulumi.Input[dict]`) - A map that defines environment variables for the Lambda function.
+
+        The **file_system_configs** object supports the following:
+
+          * `arn` (`pulumi.Input[str]`) - The ARN of the EFS Access Profile that provides access to the file system.
+          * `localMountPath` (`pulumi.Input[str]`) - The path where the function can access the file system, starting with `/mnt/`.
 
         The **tracing_config** object supports the following:
 
@@ -264,6 +277,7 @@ class Function(pulumi.CustomResource):
             __props__['dead_letter_config'] = dead_letter_config
             __props__['description'] = description
             __props__['environment'] = environment
+            __props__['file_system_configs'] = file_system_configs
             if handler is None:
                 raise TypeError("Missing required property 'handler'")
             __props__['handler'] = handler
@@ -300,7 +314,7 @@ class Function(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, code=None, dead_letter_config=None, description=None, environment=None, handler=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, name=None, publish=None, qualified_arn=None, reserved_concurrent_executions=None, role=None, runtime=None, s3_bucket=None, s3_key=None, s3_object_version=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def get(resource_name, id, opts=None, arn=None, code=None, dead_letter_config=None, description=None, environment=None, file_system_configs=None, handler=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, name=None, publish=None, qualified_arn=None, reserved_concurrent_executions=None, role=None, runtime=None, s3_bucket=None, s3_key=None, s3_object_version=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
         """
         Get an existing Function resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -308,11 +322,12 @@ class Function(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) identifying your Lambda Function.
+        :param pulumi.Input[str] arn: The ARN of the EFS Access Profile that provides access to the file system.
         :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
         :param pulumi.Input[dict] dead_letter_config: Nested block to configure the function's *dead letter queue*. See details below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
         :param pulumi.Input[dict] environment: The Lambda environment's configuration settings. Fields documented below.
+        :param pulumi.Input[list] file_system_configs: Nested block to configure the function's *EFS config*. See details below.
         :param pulumi.Input[str] handler: The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         :param pulumi.Input[str] invoke_arn: The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and this provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
@@ -347,6 +362,11 @@ class Function(pulumi.CustomResource):
 
           * `variables` (`pulumi.Input[dict]`) - A map that defines environment variables for the Lambda function.
 
+        The **file_system_configs** object supports the following:
+
+          * `arn` (`pulumi.Input[str]`) - The ARN of the EFS Access Profile that provides access to the file system.
+          * `localMountPath` (`pulumi.Input[str]`) - The path where the function can access the file system, starting with `/mnt/`.
+
         The **tracing_config** object supports the following:
 
           * `mode` (`pulumi.Input[str]`) - Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
@@ -370,6 +390,7 @@ class Function(pulumi.CustomResource):
         __props__["dead_letter_config"] = dead_letter_config
         __props__["description"] = description
         __props__["environment"] = environment
+        __props__["file_system_configs"] = file_system_configs
         __props__["handler"] = handler
         __props__["invoke_arn"] = invoke_arn
         __props__["kms_key_arn"] = kms_key_arn

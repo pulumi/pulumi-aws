@@ -145,7 +145,7 @@ export class Function extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) identifying your Lambda Function.
+     * The ARN of the EFS Access Profile that provides access to the file system.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -164,6 +164,10 @@ export class Function extends pulumi.CustomResource {
      * The Lambda environment's configuration settings. Fields documented below.
      */
     public readonly environment!: pulumi.Output<outputs.lambda.FunctionEnvironment | undefined>;
+    /**
+     * Nested block to configure the function's *EFS config*. See details below.
+     */
+    public readonly fileSystemConfigs!: pulumi.Output<outputs.lambda.FunctionFileSystemConfig[] | undefined>;
     /**
      * The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      */
@@ -268,6 +272,7 @@ export class Function extends pulumi.CustomResource {
             inputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["environment"] = state ? state.environment : undefined;
+            inputs["fileSystemConfigs"] = state ? state.fileSystemConfigs : undefined;
             inputs["handler"] = state ? state.handler : undefined;
             inputs["invokeArn"] = state ? state.invokeArn : undefined;
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
@@ -305,6 +310,7 @@ export class Function extends pulumi.CustomResource {
             inputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["environment"] = args ? args.environment : undefined;
+            inputs["fileSystemConfigs"] = args ? args.fileSystemConfigs : undefined;
             inputs["handler"] = args ? args.handler : undefined;
             inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             inputs["layers"] = args ? args.layers : undefined;
@@ -345,7 +351,7 @@ export class Function extends pulumi.CustomResource {
  */
 export interface FunctionState {
     /**
-     * The Amazon Resource Name (ARN) identifying your Lambda Function.
+     * The ARN of the EFS Access Profile that provides access to the file system.
      */
     readonly arn?: pulumi.Input<string>;
     /**
@@ -364,6 +370,10 @@ export interface FunctionState {
      * The Lambda environment's configuration settings. Fields documented below.
      */
     readonly environment?: pulumi.Input<inputs.lambda.FunctionEnvironment>;
+    /**
+     * Nested block to configure the function's *EFS config*. See details below.
+     */
+    readonly fileSystemConfigs?: pulumi.Input<pulumi.Input<inputs.lambda.FunctionFileSystemConfig>[]>;
     /**
      * The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      */
@@ -472,6 +482,10 @@ export interface FunctionArgs {
      * The Lambda environment's configuration settings. Fields documented below.
      */
     readonly environment?: pulumi.Input<inputs.lambda.FunctionEnvironment>;
+    /**
+     * Nested block to configure the function's *EFS config*. See details below.
+     */
+    readonly fileSystemConfigs?: pulumi.Input<pulumi.Input<inputs.lambda.FunctionFileSystemConfig>[]>;
     /**
      * The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      */

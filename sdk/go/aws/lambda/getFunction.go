@@ -59,8 +59,10 @@ type LookupFunctionResult struct {
 	// Description of what your Lambda Function does.
 	Description string `pulumi:"description"`
 	// The Lambda environment's configuration settings.
-	Environment  GetFunctionEnvironment `pulumi:"environment"`
-	FunctionName string                 `pulumi:"functionName"`
+	Environment GetFunctionEnvironment `pulumi:"environment"`
+	// The Lambda EFS configuration settings.
+	FileSystemConfigs []GetFunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
+	FunctionName      string                        `pulumi:"functionName"`
 	// The function entrypoint in your code.
 	Handler string `pulumi:"handler"`
 	// The provider-assigned unique ID for this managed resource.

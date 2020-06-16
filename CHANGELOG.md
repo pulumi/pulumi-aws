@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Adding support for EFS configuration in AWS Lambda Functions
 
 ---
 

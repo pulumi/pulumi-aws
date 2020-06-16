@@ -11346,6 +11346,17 @@ export namespace lambda {
         destination: pulumi.Input<string>;
     }
 
+    export interface FunctionFileSystemConfig {
+        /**
+         * The ARN of the EFS Access Profile that provides access to the file system.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The path where the function can access the file system, starting with `/mnt/`.
+         */
+        localMountPath: pulumi.Input<string>;
+    }
+
     export interface FunctionTracingConfig {
         /**
          * Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace

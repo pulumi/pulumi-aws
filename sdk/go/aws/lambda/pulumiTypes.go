@@ -1119,6 +1119,114 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Destinatio
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionFileSystemConfig struct {
+	// The ARN of the EFS Access Profile that provides access to the file system.
+	Arn string `pulumi:"arn"`
+	// The path where the function can access the file system, starting with `/mnt/`.
+	LocalMountPath string `pulumi:"localMountPath"`
+}
+
+// FunctionFileSystemConfigInput is an input type that accepts FunctionFileSystemConfigArgs and FunctionFileSystemConfigOutput values.
+// You can construct a concrete instance of `FunctionFileSystemConfigInput` via:
+//
+// 		 FunctionFileSystemConfigArgs{...}
+//
+type FunctionFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToFunctionFileSystemConfigOutput() FunctionFileSystemConfigOutput
+	ToFunctionFileSystemConfigOutputWithContext(context.Context) FunctionFileSystemConfigOutput
+}
+
+type FunctionFileSystemConfigArgs struct {
+	// The ARN of the EFS Access Profile that provides access to the file system.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The path where the function can access the file system, starting with `/mnt/`.
+	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
+}
+
+func (FunctionFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (i FunctionFileSystemConfigArgs) ToFunctionFileSystemConfigOutput() FunctionFileSystemConfigOutput {
+	return i.ToFunctionFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionFileSystemConfigArgs) ToFunctionFileSystemConfigOutputWithContext(ctx context.Context) FunctionFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigOutput)
+}
+
+// FunctionFileSystemConfigArrayInput is an input type that accepts FunctionFileSystemConfigArray and FunctionFileSystemConfigArrayOutput values.
+// You can construct a concrete instance of `FunctionFileSystemConfigArrayInput` via:
+//
+// 		 FunctionFileSystemConfigArray{ FunctionFileSystemConfigArgs{...} }
+//
+type FunctionFileSystemConfigArrayInput interface {
+	pulumi.Input
+
+	ToFunctionFileSystemConfigArrayOutput() FunctionFileSystemConfigArrayOutput
+	ToFunctionFileSystemConfigArrayOutputWithContext(context.Context) FunctionFileSystemConfigArrayOutput
+}
+
+type FunctionFileSystemConfigArray []FunctionFileSystemConfigInput
+
+func (FunctionFileSystemConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (i FunctionFileSystemConfigArray) ToFunctionFileSystemConfigArrayOutput() FunctionFileSystemConfigArrayOutput {
+	return i.ToFunctionFileSystemConfigArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionFileSystemConfigArray) ToFunctionFileSystemConfigArrayOutputWithContext(ctx context.Context) FunctionFileSystemConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigArrayOutput)
+}
+
+type FunctionFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigOutput() FunctionFileSystemConfigOutput {
+	return o
+}
+
+func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigOutputWithContext(ctx context.Context) FunctionFileSystemConfigOutput {
+	return o
+}
+
+// The ARN of the EFS Access Profile that provides access to the file system.
+func (o FunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The path where the function can access the file system, starting with `/mnt/`.
+func (o FunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.LocalMountPath }).(pulumi.StringOutput)
+}
+
+type FunctionFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionFileSystemConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (o FunctionFileSystemConfigArrayOutput) ToFunctionFileSystemConfigArrayOutput() FunctionFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o FunctionFileSystemConfigArrayOutput) ToFunctionFileSystemConfigArrayOutputWithContext(ctx context.Context) FunctionFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o FunctionFileSystemConfigArrayOutput) Index(i pulumi.IntInput) FunctionFileSystemConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionFileSystemConfig {
+		return vs[0].([]FunctionFileSystemConfig)[vs[1].(int)]
+	}).(FunctionFileSystemConfigOutput)
+}
+
 type FunctionTracingConfig struct {
 	// Can be either `PassThrough` or `Active`. If PassThrough, Lambda will only trace
 	// the request from an upstream service if it contains a tracing header with
@@ -1535,6 +1643,111 @@ func (o GetFunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
 
+type GetFunctionFileSystemConfig struct {
+	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
+	Arn            string `pulumi:"arn"`
+	LocalMountPath string `pulumi:"localMountPath"`
+}
+
+// GetFunctionFileSystemConfigInput is an input type that accepts GetFunctionFileSystemConfigArgs and GetFunctionFileSystemConfigOutput values.
+// You can construct a concrete instance of `GetFunctionFileSystemConfigInput` via:
+//
+// 		 GetFunctionFileSystemConfigArgs{...}
+//
+type GetFunctionFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToGetFunctionFileSystemConfigOutput() GetFunctionFileSystemConfigOutput
+	ToGetFunctionFileSystemConfigOutputWithContext(context.Context) GetFunctionFileSystemConfigOutput
+}
+
+type GetFunctionFileSystemConfigArgs struct {
+	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
+	Arn            pulumi.StringInput `pulumi:"arn"`
+	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
+}
+
+func (GetFunctionFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (i GetFunctionFileSystemConfigArgs) ToGetFunctionFileSystemConfigOutput() GetFunctionFileSystemConfigOutput {
+	return i.ToGetFunctionFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i GetFunctionFileSystemConfigArgs) ToGetFunctionFileSystemConfigOutputWithContext(ctx context.Context) GetFunctionFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionFileSystemConfigOutput)
+}
+
+// GetFunctionFileSystemConfigArrayInput is an input type that accepts GetFunctionFileSystemConfigArray and GetFunctionFileSystemConfigArrayOutput values.
+// You can construct a concrete instance of `GetFunctionFileSystemConfigArrayInput` via:
+//
+// 		 GetFunctionFileSystemConfigArray{ GetFunctionFileSystemConfigArgs{...} }
+//
+type GetFunctionFileSystemConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionFileSystemConfigArrayOutput() GetFunctionFileSystemConfigArrayOutput
+	ToGetFunctionFileSystemConfigArrayOutputWithContext(context.Context) GetFunctionFileSystemConfigArrayOutput
+}
+
+type GetFunctionFileSystemConfigArray []GetFunctionFileSystemConfigInput
+
+func (GetFunctionFileSystemConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (i GetFunctionFileSystemConfigArray) ToGetFunctionFileSystemConfigArrayOutput() GetFunctionFileSystemConfigArrayOutput {
+	return i.ToGetFunctionFileSystemConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionFileSystemConfigArray) ToGetFunctionFileSystemConfigArrayOutputWithContext(ctx context.Context) GetFunctionFileSystemConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionFileSystemConfigArrayOutput)
+}
+
+type GetFunctionFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (o GetFunctionFileSystemConfigOutput) ToGetFunctionFileSystemConfigOutput() GetFunctionFileSystemConfigOutput {
+	return o
+}
+
+func (o GetFunctionFileSystemConfigOutput) ToGetFunctionFileSystemConfigOutputWithContext(ctx context.Context) GetFunctionFileSystemConfigOutput {
+	return o
+}
+
+// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
+func (o GetFunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GetFunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionFileSystemConfig) string { return v.LocalMountPath }).(pulumi.StringOutput)
+}
+
+type GetFunctionFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionFileSystemConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionFileSystemConfig)(nil)).Elem()
+}
+
+func (o GetFunctionFileSystemConfigArrayOutput) ToGetFunctionFileSystemConfigArrayOutput() GetFunctionFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionFileSystemConfigArrayOutput) ToGetFunctionFileSystemConfigArrayOutputWithContext(ctx context.Context) GetFunctionFileSystemConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionFileSystemConfigArrayOutput) Index(i pulumi.IntInput) GetFunctionFileSystemConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionFileSystemConfig {
+		return vs[0].([]GetFunctionFileSystemConfig)[vs[1].(int)]
+	}).(GetFunctionFileSystemConfigOutput)
+}
+
 type GetFunctionTracingConfig struct {
 	Mode string `pulumi:"mode"`
 }
@@ -1664,12 +1877,16 @@ func init() {
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigDestinationConfigOnSuccessOutput{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput{})
+	pulumi.RegisterOutputType(FunctionFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(FunctionFileSystemConfigArrayOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetFunctionDeadLetterConfigOutput{})
 	pulumi.RegisterOutputType(GetFunctionEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetFunctionFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(GetFunctionFileSystemConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionTracingConfigOutput{})
 	pulumi.RegisterOutputType(GetFunctionVpcConfigOutput{})
 }
