@@ -1,0 +1,34 @@
+archives:
+- id: archive
+  name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'
+before:
+  hooks:
+  - make -f Makefile.github tfgen
+blobs:
+- bucket: get.pulumi.com
+  folder: releases/plugins/
+  ids:
+  - archive
+  provider: s3
+  region: us-west-2
+builds:
+- binary: pulumi-resource-aws
+  dir: provider
+  env:
+  - CGO_ENABLED=0
+  - GO111MODULE=on
+  goarch:
+  - amd64
+  goos:
+  - darwin
+  - windows
+  - linux
+  ldflags:
+  - -X github.com/pulumi/pulumi-aws/provider/v2/pkg/version.Version={{.Tag}}
+  main: ./cmd/pulumi-resource-aws/
+changelog:
+  skip: true
+release:
+  disable: true
+snapshot:
+  name_template: '{{ .Tag }}-SNAPSHOT'
