@@ -67,7 +67,7 @@ type ClusterSnapshot struct {
 	// Specifies whether the DB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -133,7 +133,7 @@ type clusterSnapshotState struct {
 	// Specifies whether the DB cluster snapshot is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the DB cluster.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -166,7 +166,7 @@ type ClusterSnapshotState struct {
 	// Specifies whether the DB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
 	// A map of tags to assign to the DB cluster.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId pulumi.StringPtrInput
 }
@@ -181,7 +181,7 @@ type clusterSnapshotArgs struct {
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier string `pulumi:"dbClusterSnapshotIdentifier"`
 	// A map of tags to assign to the DB cluster.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterSnapshot resource.
@@ -191,7 +191,7 @@ type ClusterSnapshotArgs struct {
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringInput
 	// A map of tags to assign to the DB cluster.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterSnapshotArgs) ElementType() reflect.Type {

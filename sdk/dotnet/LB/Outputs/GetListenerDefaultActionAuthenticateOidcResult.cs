@@ -13,7 +13,7 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerDefaultActionAuthenticateOidcResult
     {
-        public readonly ImmutableDictionary<string, object> AuthenticationRequestExtraParams;
+        public readonly ImmutableDictionary<string, string> AuthenticationRequestExtraParams;
         public readonly string AuthorizationEndpoint;
         public readonly string ClientId;
         public readonly string ClientSecret;
@@ -27,7 +27,7 @@ namespace Pulumi.Aws.LB.Outputs
 
         [OutputConstructor]
         private GetListenerDefaultActionAuthenticateOidcResult(
-            ImmutableDictionary<string, object> authenticationRequestExtraParams,
+            ImmutableDictionary<string, string> authenticationRequestExtraParams,
 
             string authorizationEndpoint,
 

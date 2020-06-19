@@ -41,7 +41,7 @@ type GetAmiArgs struct {
 	// Any tags assigned to the image.
 	// * `tags.#.key` - The key name of the tag.
 	// * `tags.#.value` - The value of the tag.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getAmi.
@@ -120,11 +120,11 @@ type GetAmiResult struct {
 	// Describes a state change. Fields are `UNSET` if not available.
 	// * `state_reason.code` - The reason code for the state change.
 	// * `state_reason.message` - The message for the state change.
-	StateReason map[string]interface{} `pulumi:"stateReason"`
+	StateReason map[string]string `pulumi:"stateReason"`
 	// Any tags assigned to the image.
 	// * `tags.#.key` - The key name of the tag.
 	// * `tags.#.value` - The value of the tag.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of virtualization of the AMI (ie: `hvm` or
 	// `paravirtual`).
 	VirtualizationType string `pulumi:"virtualizationType"`

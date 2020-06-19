@@ -51,14 +51,14 @@ namespace Pulumi.Aws.CloudWatch
         public string Name { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetLogGroupResult(
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.CloudWatch
 
             int retentionInDays,
 
-            ImmutableDictionary<string, object> tags)
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             CreationTime = creationTime;

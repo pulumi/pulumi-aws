@@ -55,7 +55,7 @@ export interface GetVpcsArgs {
      * A map of tags, each pair of which must exactly match
      * a pair on the desired vpcs.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -71,5 +71,5 @@ export interface GetVpcsResult {
      * A list of all the VPC Ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

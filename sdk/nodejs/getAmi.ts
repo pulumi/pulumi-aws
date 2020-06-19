@@ -95,7 +95,7 @@ export interface GetAmiArgs {
      * * `tags.#.key` - The key name of the tag.
      * * `tags.#.value` - The value of the tag.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -222,13 +222,13 @@ export interface GetAmiResult {
      * * `state_reason.code` - The reason code for the state change.
      * * `state_reason.message` - The message for the state change.
      */
-    readonly stateReason: {[key: string]: any};
+    readonly stateReason: {[key: string]: string};
     /**
      * Any tags assigned to the image.
      * * `tags.#.key` - The key name of the tag.
      * * `tags.#.value` - The value of the tag.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The type of virtualization of the AMI (ie: `hvm` or
      * `paravirtual`).

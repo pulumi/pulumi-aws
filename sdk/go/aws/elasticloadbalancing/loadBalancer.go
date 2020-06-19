@@ -77,7 +77,7 @@ type LoadBalancer struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
@@ -156,7 +156,7 @@ type loadBalancerState struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId *string `pulumi:"zoneId"`
 }
@@ -205,7 +205,7 @@ type LoadBalancerState struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId pulumi.StringPtrInput
 }
@@ -250,7 +250,7 @@ type loadBalancerArgs struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
@@ -290,7 +290,7 @@ type LoadBalancerArgs struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (LoadBalancerArgs) ElementType() reflect.Type {

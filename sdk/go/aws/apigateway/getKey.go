@@ -47,7 +47,7 @@ type GetKeyArgs struct {
 	// The ID of the API Key to look up.
 	Id string `pulumi:"id"`
 	// A map of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getKey.
@@ -65,7 +65,7 @@ type GetKeyResult struct {
 	// Set to the name of the API Key.
 	Name string `pulumi:"name"`
 	// A map of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Set to the value of the API Key.
 	Value string `pulumi:"value"`
 }

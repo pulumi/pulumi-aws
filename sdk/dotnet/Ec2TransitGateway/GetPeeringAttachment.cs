@@ -94,15 +94,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public string? Id { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// A mapping of tags, each pair of which must exactly match
         /// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Identifier of the peer EC2 Transit Gateway
         /// </summary>
         public readonly string PeerTransitGatewayId;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Identifier of the local EC2 Transit Gateway
         /// </summary>
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string peerTransitGatewayId,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string transitGatewayId)
         {

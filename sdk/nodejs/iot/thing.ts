@@ -57,7 +57,7 @@ export class Thing extends pulumi.CustomResource {
     /**
      * Map of attributes of the thing.
      */
-    public readonly attributes!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The default client ID.
      */
@@ -124,7 +124,7 @@ export interface ThingState {
     /**
      * Map of attributes of the thing.
      */
-    readonly attributes?: pulumi.Input<{[key: string]: any}>;
+    readonly attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The default client ID.
      */
@@ -150,7 +150,7 @@ export interface ThingArgs {
     /**
      * Map of attributes of the thing.
      */
-    readonly attributes?: pulumi.Input<{[key: string]: any}>;
+    readonly attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the thing.
      */

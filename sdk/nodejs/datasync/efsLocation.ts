@@ -79,7 +79,7 @@ export class EfsLocation extends pulumi.CustomResource {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly uri!: pulumi.Output<string>;
 
     /**
@@ -149,7 +149,7 @@ export interface EfsLocationState {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly uri?: pulumi.Input<string>;
 }
 
@@ -172,5 +172,5 @@ export interface EfsLocationArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

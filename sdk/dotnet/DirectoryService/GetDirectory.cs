@@ -51,14 +51,14 @@ namespace Pulumi.Aws.DirectoryService
         public string DirectoryId { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// A map of tags assigned to the directory/connector.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.DirectoryService
         /// <summary>
         /// A map of tags assigned to the directory/connector.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
         /// </summary>
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.DirectoryService
 
             string size,
 
-            ImmutableDictionary<string, object>? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string type,
 

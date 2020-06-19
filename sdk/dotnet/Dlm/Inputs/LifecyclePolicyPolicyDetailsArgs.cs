@@ -37,14 +37,14 @@ namespace Pulumi.Aws.Dlm.Inputs
         }
 
         [Input("targetTags", required: true)]
-        private InputMap<object>? _targetTags;
+        private InputMap<string>? _targetTags;
 
         /// <summary>
         /// A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
         /// </summary>
-        public InputMap<object> TargetTags
+        public InputMap<string> TargetTags
         {
-            get => _targetTags ?? (_targetTags = new InputMap<object>());
+            get => _targetTags ?? (_targetTags = new InputMap<string>());
             set => _targetTags = value;
         }
 

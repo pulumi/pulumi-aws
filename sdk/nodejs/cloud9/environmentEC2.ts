@@ -79,7 +79,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
     /**
      * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the environment (e.g. `ssh` or `ec2`)
      */
@@ -167,7 +167,7 @@ export interface EnvironmentEC2State {
     /**
      * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the environment (e.g. `ssh` or `ec2`)
      */
@@ -205,5 +205,5 @@ export interface EnvironmentEC2Args {
     /**
      * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -57,7 +57,7 @@ type VpcLink struct {
 	// Subnet IDs for the VPC Link.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the VPC Link.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewVpcLink registers a new resource with the given unique name, arguments, and options.
@@ -103,7 +103,7 @@ type vpcLinkState struct {
 	// Subnet IDs for the VPC Link.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the VPC Link.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type VpcLinkState struct {
@@ -116,7 +116,7 @@ type VpcLinkState struct {
 	// Subnet IDs for the VPC Link.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the VPC Link.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VpcLinkState) ElementType() reflect.Type {
@@ -131,7 +131,7 @@ type vpcLinkArgs struct {
 	// Subnet IDs for the VPC Link.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the VPC Link.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcLink resource.
@@ -143,7 +143,7 @@ type VpcLinkArgs struct {
 	// Subnet IDs for the VPC Link.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the VPC Link.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VpcLinkArgs) ElementType() reflect.Type {

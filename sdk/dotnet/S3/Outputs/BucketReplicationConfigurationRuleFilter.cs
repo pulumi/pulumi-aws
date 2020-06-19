@@ -21,13 +21,13 @@ namespace Pulumi.Aws.S3.Outputs
         /// A map of tags that identifies subset of objects to which the rule applies.
         /// The rule applies only to objects having all the tags in its tagset.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private BucketReplicationConfigurationRuleFilter(
             string? prefix,
 
-            ImmutableDictionary<string, object>? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Prefix = prefix;
             Tags = tags;

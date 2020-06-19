@@ -53,7 +53,7 @@ export interface GetNetworkInterfaceArgs {
     /**
      * Any tags assigned to the network interface.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -122,7 +122,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * Any tags assigned to the network interface.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The ID of the VPC.
      */

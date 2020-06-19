@@ -27,7 +27,7 @@ type Pipeline struct {
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayOutput `pulumi:"stages"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +78,7 @@ type pipelineState struct {
 	// A stage block. Stages are documented below.
 	Stages []PipelineStage `pulumi:"stages"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type PipelineState struct {
@@ -93,7 +93,7 @@ type PipelineState struct {
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (PipelineState) ElementType() reflect.Type {
@@ -110,7 +110,7 @@ type pipelineArgs struct {
 	// A stage block. Stages are documented below.
 	Stages []PipelineStage `pulumi:"stages"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
@@ -124,7 +124,7 @@ type PipelineArgs struct {
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {

@@ -84,7 +84,7 @@ type OptionGroup struct {
 	// A list of Options to apply.
 	Options OptionGroupOptionArrayOutput `pulumi:"options"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewOptionGroup registers a new resource with the given unique name, arguments, and options.
@@ -139,7 +139,7 @@ type optionGroupState struct {
 	// A list of Options to apply.
 	Options []OptionGroupOption `pulumi:"options"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type OptionGroupState struct {
@@ -158,7 +158,7 @@ type OptionGroupState struct {
 	// A list of Options to apply.
 	Options OptionGroupOptionArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (OptionGroupState) ElementType() reflect.Type {
@@ -179,7 +179,7 @@ type optionGroupArgs struct {
 	// A list of Options to apply.
 	Options []OptionGroupOption `pulumi:"options"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OptionGroup resource.
@@ -197,7 +197,7 @@ type OptionGroupArgs struct {
 	// A list of Options to apply.
 	Options OptionGroupOptionArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (OptionGroupArgs) ElementType() reflect.Type {

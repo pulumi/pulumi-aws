@@ -59,10 +59,10 @@ namespace Pulumi.Aws.Lambda
         public string? Qualifier { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly Outputs.GetFunctionEnvironmentResult Environment;
         /// <summary>
-        /// The Lambda EFS configuration settings.
+        /// The connection settings for an Amazon EFS file system.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionFileSystemConfigResult> FileSystemConfigs;
         public readonly string FunctionName;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Lambda
         /// The size in bytes of the function .zip file.
         /// </summary>
         public readonly int SourceCodeSize;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The function execution time at which Lambda should terminate the function.
         /// </summary>
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Lambda
 
             int sourceCodeSize,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             int timeout,
 

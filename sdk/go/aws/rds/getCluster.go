@@ -44,8 +44,8 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
 	// The cluster identifier of the RDS cluster.
-	ClusterIdentifier string                 `pulumi:"clusterIdentifier"`
-	Tags              map[string]interface{} `pulumi:"tags"`
+	ClusterIdentifier string            `pulumi:"clusterIdentifier"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
@@ -69,15 +69,15 @@ type LookupClusterResult struct {
 	IamDatabaseAuthenticationEnabled bool     `pulumi:"iamDatabaseAuthenticationEnabled"`
 	IamRoles                         []string `pulumi:"iamRoles"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                          string                 `pulumi:"id"`
-	KmsKeyId                    string                 `pulumi:"kmsKeyId"`
-	MasterUsername              string                 `pulumi:"masterUsername"`
-	Port                        int                    `pulumi:"port"`
-	PreferredBackupWindow       string                 `pulumi:"preferredBackupWindow"`
-	PreferredMaintenanceWindow  string                 `pulumi:"preferredMaintenanceWindow"`
-	ReaderEndpoint              string                 `pulumi:"readerEndpoint"`
-	ReplicationSourceIdentifier string                 `pulumi:"replicationSourceIdentifier"`
-	StorageEncrypted            bool                   `pulumi:"storageEncrypted"`
-	Tags                        map[string]interface{} `pulumi:"tags"`
-	VpcSecurityGroupIds         []string               `pulumi:"vpcSecurityGroupIds"`
+	Id                          string            `pulumi:"id"`
+	KmsKeyId                    string            `pulumi:"kmsKeyId"`
+	MasterUsername              string            `pulumi:"masterUsername"`
+	Port                        int               `pulumi:"port"`
+	PreferredBackupWindow       string            `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow  string            `pulumi:"preferredMaintenanceWindow"`
+	ReaderEndpoint              string            `pulumi:"readerEndpoint"`
+	ReplicationSourceIdentifier string            `pulumi:"replicationSourceIdentifier"`
+	StorageEncrypted            bool              `pulumi:"storageEncrypted"`
+	Tags                        map[string]string `pulumi:"tags"`
+	VpcSecurityGroupIds         []string          `pulumi:"vpcSecurityGroupIds"`
 }

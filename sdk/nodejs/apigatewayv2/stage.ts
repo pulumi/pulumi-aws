@@ -112,7 +112,7 @@ export class Stage extends pulumi.CustomResource {
     /**
      * A map of tags to assign to the stage.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Stage resource with the given unique name, arguments, and options.
@@ -236,7 +236,7 @@ export interface StageState {
     /**
      * A map of tags to assign to the stage.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -288,5 +288,5 @@ export interface StageArgs {
     /**
      * A map of tags to assign to the stage.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

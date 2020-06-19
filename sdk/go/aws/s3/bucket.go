@@ -307,7 +307,7 @@ type Bucket struct {
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
 	ServerSideEncryptionConfiguration BucketServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	// A mapping of tags to assign to the bucket.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
 	Versioning BucketVersioningOutput `pulumi:"versioning"`
 	// A website object (documented below).
@@ -388,7 +388,7 @@ type bucketState struct {
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
 	ServerSideEncryptionConfiguration *BucketServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	// A mapping of tags to assign to the bucket.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
 	Versioning *BucketVersioning `pulumi:"versioning"`
 	// A website object (documented below).
@@ -442,7 +442,7 @@ type BucketState struct {
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
 	ServerSideEncryptionConfiguration BucketServerSideEncryptionConfigurationPtrInput
 	// A mapping of tags to assign to the bucket.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
 	Versioning BucketVersioningPtrInput
 	// A website object (documented below).
@@ -496,7 +496,7 @@ type bucketArgs struct {
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
 	ServerSideEncryptionConfiguration *BucketServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	// A mapping of tags to assign to the bucket.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
 	Versioning *BucketVersioning `pulumi:"versioning"`
 	// A website object (documented below).
@@ -547,7 +547,7 @@ type BucketArgs struct {
 	// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
 	ServerSideEncryptionConfiguration BucketServerSideEncryptionConfigurationPtrInput
 	// A mapping of tags to assign to the bucket.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
 	Versioning BucketVersioningPtrInput
 	// A website object (documented below).

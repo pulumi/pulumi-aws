@@ -217,7 +217,7 @@ type Directory struct {
 	// The size of the directory (`Small` or `Large` are accepted values).
 	Size pulumi.StringOutput `pulumi:"size"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// VPC related information about the directory. Fields documented below.
@@ -280,7 +280,7 @@ type directoryState struct {
 	// The size of the directory (`Small` or `Large` are accepted values).
 	Size *string `pulumi:"size"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type *string `pulumi:"type"`
 	// VPC related information about the directory. Fields documented below.
@@ -313,7 +313,7 @@ type DirectoryState struct {
 	// The size of the directory (`Small` or `Large` are accepted values).
 	Size pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type pulumi.StringPtrInput
 	// VPC related information about the directory. Fields documented below.
@@ -344,7 +344,7 @@ type directoryArgs struct {
 	// The size of the directory (`Small` or `Large` are accepted values).
 	Size *string `pulumi:"size"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type *string `pulumi:"type"`
 	// VPC related information about the directory. Fields documented below.
@@ -372,7 +372,7 @@ type DirectoryArgs struct {
 	// The size of the directory (`Small` or `Large` are accepted values).
 	Size pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
 	Type pulumi.StringPtrInput
 	// VPC related information about the directory. Fields documented below.

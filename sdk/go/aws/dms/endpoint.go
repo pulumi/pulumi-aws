@@ -92,7 +92,7 @@ type Endpoint struct {
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode pulumi.StringOutput `pulumi:"sslMode"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The user name to be used to login to the endpoint database.
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
@@ -171,7 +171,7 @@ type endpointState struct {
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode *string `pulumi:"sslMode"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The user name to be used to login to the endpoint database.
 	Username *string `pulumi:"username"`
 }
@@ -214,7 +214,7 @@ type EndpointState struct {
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The user name to be used to login to the endpoint database.
 	Username pulumi.StringPtrInput
 }
@@ -259,7 +259,7 @@ type endpointArgs struct {
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode *string `pulumi:"sslMode"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The user name to be used to login to the endpoint database.
 	Username *string `pulumi:"username"`
 }
@@ -301,7 +301,7 @@ type EndpointArgs struct {
 	// The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
 	SslMode pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The user name to be used to login to the endpoint database.
 	Username pulumi.StringPtrInput
 }

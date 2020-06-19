@@ -6802,7 +6802,7 @@ type LaunchTemplateTagSpecification struct {
 	// The type of resource to tag. Valid values are `instance` and `volume`.
 	ResourceType *string `pulumi:"resourceType"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // LaunchTemplateTagSpecificationInput is an input type that accepts LaunchTemplateTagSpecificationArgs and LaunchTemplateTagSpecificationOutput values.
@@ -6821,7 +6821,7 @@ type LaunchTemplateTagSpecificationArgs struct {
 	// The type of resource to tag. Valid values are `instance` and `volume`.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput `pulumi:"tags"`
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LaunchTemplateTagSpecificationArgs) ElementType() reflect.Type {
@@ -6882,8 +6882,8 @@ func (o LaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOut
 }
 
 // A map of tags to assign to the resource.
-func (o LaunchTemplateTagSpecificationOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v LaunchTemplateTagSpecification) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+func (o LaunchTemplateTagSpecificationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LaunchTemplateTagSpecification) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type LaunchTemplateTagSpecificationArrayOutput struct{ *pulumi.OutputState }
@@ -8309,9 +8309,9 @@ type SpotFleetRequestLaunchSpecification struct {
 	// The subnet in which to launch the requested instance.
 	SubnetId *string `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
-	Tags                map[string]interface{} `pulumi:"tags"`
-	UserData            *string                `pulumi:"userData"`
-	VpcSecurityGroupIds []string               `pulumi:"vpcSecurityGroupIds"`
+	Tags                map[string]string `pulumi:"tags"`
+	UserData            *string           `pulumi:"userData"`
+	VpcSecurityGroupIds []string          `pulumi:"vpcSecurityGroupIds"`
 	// The capacity added to the fleet by a fulfilled request.
 	WeightedCapacity *string `pulumi:"weightedCapacity"`
 }
@@ -8350,7 +8350,7 @@ type SpotFleetRequestLaunchSpecificationArgs struct {
 	// The subnet in which to launch the requested instance.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
-	Tags                pulumi.MapInput         `pulumi:"tags"`
+	Tags                pulumi.StringMapInput   `pulumi:"tags"`
 	UserData            pulumi.StringPtrInput   `pulumi:"userData"`
 	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
 	// The capacity added to the fleet by a fulfilled request.
@@ -8484,8 +8484,8 @@ func (o SpotFleetRequestLaunchSpecificationOutput) SubnetId() pulumi.StringPtrOu
 }
 
 // A map of tags to assign to the resource.
-func (o SpotFleetRequestLaunchSpecificationOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+func (o SpotFleetRequestLaunchSpecificationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchSpecification) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o SpotFleetRequestLaunchSpecificationOutput) UserData() pulumi.StringPtrOutput {
@@ -15134,7 +15134,7 @@ func (o GetLaunchTemplatePlacementArrayOutput) Index(i pulumi.IntInput) GetLaunc
 type GetLaunchTemplateTagSpecification struct {
 	ResourceType string `pulumi:"resourceType"`
 	// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // GetLaunchTemplateTagSpecificationInput is an input type that accepts GetLaunchTemplateTagSpecificationArgs and GetLaunchTemplateTagSpecificationOutput values.
@@ -15152,7 +15152,7 @@ type GetLaunchTemplateTagSpecificationInput interface {
 type GetLaunchTemplateTagSpecificationArgs struct {
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 	// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
-	Tags pulumi.MapInput `pulumi:"tags"`
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetLaunchTemplateTagSpecificationArgs) ElementType() reflect.Type {
@@ -15212,8 +15212,8 @@ func (o GetLaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringOut
 }
 
 // A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
-func (o GetLaunchTemplateTagSpecificationOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v GetLaunchTemplateTagSpecification) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+func (o GetLaunchTemplateTagSpecificationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetLaunchTemplateTagSpecification) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type GetLaunchTemplateTagSpecificationArrayOutput struct{ *pulumi.OutputState }
@@ -15576,6 +15576,330 @@ func (o GetLocalGatewayRouteTablesFilterArrayOutput) Index(i pulumi.IntInput) Ge
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewayRouteTablesFilter {
 		return vs[0].([]GetLocalGatewayRouteTablesFilter)[vs[1].(int)]
 	}).(GetLocalGatewayRouteTablesFilterOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewayVirtualInterfaceFilterInput is an input type that accepts GetLocalGatewayVirtualInterfaceFilterArgs and GetLocalGatewayVirtualInterfaceFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewayVirtualInterfaceFilterInput` via:
+//
+// 		 GetLocalGatewayVirtualInterfaceFilterArgs{...}
+//
+type GetLocalGatewayVirtualInterfaceFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayVirtualInterfaceFilterOutput() GetLocalGatewayVirtualInterfaceFilterOutput
+	ToGetLocalGatewayVirtualInterfaceFilterOutputWithContext(context.Context) GetLocalGatewayVirtualInterfaceFilterOutput
+}
+
+type GetLocalGatewayVirtualInterfaceFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewayVirtualInterfaceFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayVirtualInterfaceFilterArgs) ToGetLocalGatewayVirtualInterfaceFilterOutput() GetLocalGatewayVirtualInterfaceFilterOutput {
+	return i.ToGetLocalGatewayVirtualInterfaceFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayVirtualInterfaceFilterArgs) ToGetLocalGatewayVirtualInterfaceFilterOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayVirtualInterfaceFilterOutput)
+}
+
+// GetLocalGatewayVirtualInterfaceFilterArrayInput is an input type that accepts GetLocalGatewayVirtualInterfaceFilterArray and GetLocalGatewayVirtualInterfaceFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewayVirtualInterfaceFilterArrayInput` via:
+//
+// 		 GetLocalGatewayVirtualInterfaceFilterArray{ GetLocalGatewayVirtualInterfaceFilterArgs{...} }
+//
+type GetLocalGatewayVirtualInterfaceFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayVirtualInterfaceFilterArrayOutput() GetLocalGatewayVirtualInterfaceFilterArrayOutput
+	ToGetLocalGatewayVirtualInterfaceFilterArrayOutputWithContext(context.Context) GetLocalGatewayVirtualInterfaceFilterArrayOutput
+}
+
+type GetLocalGatewayVirtualInterfaceFilterArray []GetLocalGatewayVirtualInterfaceFilterInput
+
+func (GetLocalGatewayVirtualInterfaceFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayVirtualInterfaceFilterArray) ToGetLocalGatewayVirtualInterfaceFilterArrayOutput() GetLocalGatewayVirtualInterfaceFilterArrayOutput {
+	return i.ToGetLocalGatewayVirtualInterfaceFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayVirtualInterfaceFilterArray) ToGetLocalGatewayVirtualInterfaceFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayVirtualInterfaceFilterArrayOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayVirtualInterfaceFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayVirtualInterfaceFilterOutput) ToGetLocalGatewayVirtualInterfaceFilterOutput() GetLocalGatewayVirtualInterfaceFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceFilterOutput) ToGetLocalGatewayVirtualInterfaceFilterOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetLocalGatewayVirtualInterfaceFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetLocalGatewayVirtualInterfaceFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayVirtualInterfaceFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayVirtualInterfaceFilterArrayOutput) ToGetLocalGatewayVirtualInterfaceFilterArrayOutput() GetLocalGatewayVirtualInterfaceFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceFilterArrayOutput) ToGetLocalGatewayVirtualInterfaceFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewayVirtualInterfaceFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewayVirtualInterfaceFilter {
+		return vs[0].([]GetLocalGatewayVirtualInterfaceFilter)[vs[1].(int)]
+	}).(GetLocalGatewayVirtualInterfaceFilterOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceGroupFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewayVirtualInterfaceGroupFilterInput is an input type that accepts GetLocalGatewayVirtualInterfaceGroupFilterArgs and GetLocalGatewayVirtualInterfaceGroupFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewayVirtualInterfaceGroupFilterInput` via:
+//
+// 		 GetLocalGatewayVirtualInterfaceGroupFilterArgs{...}
+//
+type GetLocalGatewayVirtualInterfaceGroupFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayVirtualInterfaceGroupFilterOutput() GetLocalGatewayVirtualInterfaceGroupFilterOutput
+	ToGetLocalGatewayVirtualInterfaceGroupFilterOutputWithContext(context.Context) GetLocalGatewayVirtualInterfaceGroupFilterOutput
+}
+
+type GetLocalGatewayVirtualInterfaceGroupFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewayVirtualInterfaceGroupFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceGroupFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupFilterArgs) ToGetLocalGatewayVirtualInterfaceGroupFilterOutput() GetLocalGatewayVirtualInterfaceGroupFilterOutput {
+	return i.ToGetLocalGatewayVirtualInterfaceGroupFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupFilterArgs) ToGetLocalGatewayVirtualInterfaceGroupFilterOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayVirtualInterfaceGroupFilterOutput)
+}
+
+// GetLocalGatewayVirtualInterfaceGroupFilterArrayInput is an input type that accepts GetLocalGatewayVirtualInterfaceGroupFilterArray and GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewayVirtualInterfaceGroupFilterArrayInput` via:
+//
+// 		 GetLocalGatewayVirtualInterfaceGroupFilterArray{ GetLocalGatewayVirtualInterfaceGroupFilterArgs{...} }
+//
+type GetLocalGatewayVirtualInterfaceGroupFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutput() GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput
+	ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutputWithContext(context.Context) GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput
+}
+
+type GetLocalGatewayVirtualInterfaceGroupFilterArray []GetLocalGatewayVirtualInterfaceGroupFilterInput
+
+func (GetLocalGatewayVirtualInterfaceGroupFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayVirtualInterfaceGroupFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupFilterArray) ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutput() GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput {
+	return i.ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupFilterArray) ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceGroupFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayVirtualInterfaceGroupFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceGroupFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupFilterOutput) ToGetLocalGatewayVirtualInterfaceGroupFilterOutput() GetLocalGatewayVirtualInterfaceGroupFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupFilterOutput) ToGetLocalGatewayVirtualInterfaceGroupFilterOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetLocalGatewayVirtualInterfaceGroupFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetLocalGatewayVirtualInterfaceGroupFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayVirtualInterfaceGroupFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput) ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutput() GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput) ToGetLocalGatewayVirtualInterfaceGroupFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewayVirtualInterfaceGroupFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewayVirtualInterfaceGroupFilter {
+		return vs[0].([]GetLocalGatewayVirtualInterfaceGroupFilter)[vs[1].(int)]
+	}).(GetLocalGatewayVirtualInterfaceGroupFilterOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceGroupsFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetLocalGatewayVirtualInterfaceGroupsFilterInput is an input type that accepts GetLocalGatewayVirtualInterfaceGroupsFilterArgs and GetLocalGatewayVirtualInterfaceGroupsFilterOutput values.
+// You can construct a concrete instance of `GetLocalGatewayVirtualInterfaceGroupsFilterInput` via:
+//
+// 		 GetLocalGatewayVirtualInterfaceGroupsFilterArgs{...}
+//
+type GetLocalGatewayVirtualInterfaceGroupsFilterInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayVirtualInterfaceGroupsFilterOutput() GetLocalGatewayVirtualInterfaceGroupsFilterOutput
+	ToGetLocalGatewayVirtualInterfaceGroupsFilterOutputWithContext(context.Context) GetLocalGatewayVirtualInterfaceGroupsFilterOutput
+}
+
+type GetLocalGatewayVirtualInterfaceGroupsFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetLocalGatewayVirtualInterfaceGroupsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceGroupsFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupsFilterArgs) ToGetLocalGatewayVirtualInterfaceGroupsFilterOutput() GetLocalGatewayVirtualInterfaceGroupsFilterOutput {
+	return i.ToGetLocalGatewayVirtualInterfaceGroupsFilterOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupsFilterArgs) ToGetLocalGatewayVirtualInterfaceGroupsFilterOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayVirtualInterfaceGroupsFilterOutput)
+}
+
+// GetLocalGatewayVirtualInterfaceGroupsFilterArrayInput is an input type that accepts GetLocalGatewayVirtualInterfaceGroupsFilterArray and GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput values.
+// You can construct a concrete instance of `GetLocalGatewayVirtualInterfaceGroupsFilterArrayInput` via:
+//
+// 		 GetLocalGatewayVirtualInterfaceGroupsFilterArray{ GetLocalGatewayVirtualInterfaceGroupsFilterArgs{...} }
+//
+type GetLocalGatewayVirtualInterfaceGroupsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput() GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput
+	ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutputWithContext(context.Context) GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput
+}
+
+type GetLocalGatewayVirtualInterfaceGroupsFilterArray []GetLocalGatewayVirtualInterfaceGroupsFilterInput
+
+func (GetLocalGatewayVirtualInterfaceGroupsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayVirtualInterfaceGroupsFilter)(nil)).Elem()
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupsFilterArray) ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput() GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput {
+	return i.ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocalGatewayVirtualInterfaceGroupsFilterArray) ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceGroupsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayVirtualInterfaceGroupsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceGroupsFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterOutput) ToGetLocalGatewayVirtualInterfaceGroupsFilterOutput() GetLocalGatewayVirtualInterfaceGroupsFilterOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterOutput) ToGetLocalGatewayVirtualInterfaceGroupsFilterOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupsFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocalGatewayVirtualInterfaceGroupsFilter)(nil)).Elem()
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput) ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput() GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput) ToGetLocalGatewayVirtualInterfaceGroupsFilterArrayOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGatewayVirtualInterfaceGroupsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocalGatewayVirtualInterfaceGroupsFilter {
+		return vs[0].([]GetLocalGatewayVirtualInterfaceGroupsFilter)[vs[1].(int)]
+	}).(GetLocalGatewayVirtualInterfaceGroupsFilterOutput)
 }
 
 type GetLocalGatewaysFilter struct {
@@ -18596,6 +18920,12 @@ func init() {
 	pulumi.RegisterOutputType(GetLocalGatewayRouteTableFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetLocalGatewayRouteTablesFilterOutput{})
 	pulumi.RegisterOutputType(GetLocalGatewayRouteTablesFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceGroupFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceGroupFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceGroupsFilterOutput{})
+	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetLocalGatewaysFilterOutput{})
 	pulumi.RegisterOutputType(GetLocalGatewaysFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterOutput{})

@@ -72,7 +72,7 @@ type VirtualRouter struct {
 	// The virtual router specification to apply.
 	Spec VirtualRouterSpecOutput `pulumi:"spec"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewVirtualRouter registers a new resource with the given unique name, arguments, and options.
@@ -122,7 +122,7 @@ type virtualRouterState struct {
 	// The virtual router specification to apply.
 	Spec *VirtualRouterSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type VirtualRouterState struct {
@@ -139,7 +139,7 @@ type VirtualRouterState struct {
 	// The virtual router specification to apply.
 	Spec VirtualRouterSpecPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VirtualRouterState) ElementType() reflect.Type {
@@ -154,7 +154,7 @@ type virtualRouterArgs struct {
 	// The virtual router specification to apply.
 	Spec VirtualRouterSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualRouter resource.
@@ -166,7 +166,7 @@ type VirtualRouterArgs struct {
 	// The virtual router specification to apply.
 	Spec VirtualRouterSpecInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VirtualRouterArgs) ElementType() reflect.Type {

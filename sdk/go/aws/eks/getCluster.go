@@ -22,7 +22,7 @@ type LookupClusterArgs struct {
 	// The name of the cluster
 	Name string `pulumi:"name"`
 	// Key-value map of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
@@ -49,7 +49,7 @@ type LookupClusterResult struct {
 	// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
 	Status string `pulumi:"status"`
 	// Key-value map of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The Kubernetes server version for the cluster.
 	Version string `pulumi:"version"`
 	// Nested list containing VPC configuration for the cluster.

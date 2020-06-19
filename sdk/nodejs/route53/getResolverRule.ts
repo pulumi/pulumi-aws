@@ -69,7 +69,7 @@ export interface GetResolverRuleArgs {
     /**
      * A map of tags assigned to the resolver rule.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetResolverRuleResult {
     /**
      * A map of tags assigned to the resolver rule.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

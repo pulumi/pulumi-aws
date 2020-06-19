@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class TrafficMirrorTarget(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the traffic mirror target.
+    """
     description: pulumi.Output[str]
     """
     A description of the traffic mirror session.
@@ -75,6 +79,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             __props__['network_interface_id'] = network_interface_id
             __props__['network_load_balancer_arn'] = network_load_balancer_arn
             __props__['tags'] = tags
+            __props__['arn'] = None
         super(TrafficMirrorTarget, __self__).__init__(
             'aws:ec2/trafficMirrorTarget:TrafficMirrorTarget',
             resource_name,
@@ -82,7 +87,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, network_interface_id=None, network_load_balancer_arn=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, description=None, network_interface_id=None, network_load_balancer_arn=None, tags=None):
         """
         Get an existing TrafficMirrorTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -90,6 +95,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the traffic mirror target.
         :param pulumi.Input[str] description: A description of the traffic mirror session.
         :param pulumi.Input[str] network_interface_id: The network interface ID that is associated with the target.
         :param pulumi.Input[str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
@@ -99,6 +105,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["description"] = description
         __props__["network_interface_id"] = network_interface_id
         __props__["network_load_balancer_arn"] = network_load_balancer_arn

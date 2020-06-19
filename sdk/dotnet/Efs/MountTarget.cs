@@ -47,7 +47,19 @@ namespace Pulumi.Aws.Efs
     public partial class MountTarget : Pulumi.CustomResource
     {
         /// <summary>
-        /// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        /// The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+        /// </summary>
+        [Output("availabilityZoneId")]
+        public Output<string> AvailabilityZoneId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Availability Zone (AZ) that the mount target resides in.
+        /// </summary>
+        [Output("availabilityZoneName")]
+        public Output<string> AvailabilityZoneName { get; private set; } = null!;
+
+        /// <summary>
+        /// The DNS name for the EFS file system.
         /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
@@ -72,10 +84,22 @@ namespace Pulumi.Aws.Efs
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
+        /// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        /// </summary>
+        [Output("mountTargetDnsName")]
+        public Output<string> MountTargetDnsName { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the network interface that Amazon EFS created when it created the mount target.
         /// </summary>
         [Output("networkInterfaceId")]
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
+
+        /// <summary>
+        /// AWS account ID that owns the resource.
+        /// </summary>
+        [Output("ownerId")]
+        public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// A list of up to 5 VPC security group IDs (that must
@@ -176,7 +200,19 @@ namespace Pulumi.Aws.Efs
     public sealed class MountTargetState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        /// The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+        /// </summary>
+        [Input("availabilityZoneId")]
+        public Input<string>? AvailabilityZoneId { get; set; }
+
+        /// <summary>
+        /// The name of the Availability Zone (AZ) that the mount target resides in.
+        /// </summary>
+        [Input("availabilityZoneName")]
+        public Input<string>? AvailabilityZoneName { get; set; }
+
+        /// <summary>
+        /// The DNS name for the EFS file system.
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
@@ -201,10 +237,22 @@ namespace Pulumi.Aws.Efs
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
+        /// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        /// </summary>
+        [Input("mountTargetDnsName")]
+        public Input<string>? MountTargetDnsName { get; set; }
+
+        /// <summary>
         /// The ID of the network interface that Amazon EFS created when it created the mount target.
         /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
+
+        /// <summary>
+        /// AWS account ID that owns the resource.
+        /// </summary>
+        [Input("ownerId")]
+        public Input<string>? OwnerId { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;

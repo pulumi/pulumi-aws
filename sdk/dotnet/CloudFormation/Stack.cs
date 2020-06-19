@@ -103,13 +103,13 @@ namespace Pulumi.Aws.CloudFormation
         /// A map of outputs from the stack.
         /// </summary>
         [Output("outputs")]
-        public Output<ImmutableDictionary<string, object>> Outputs { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Outputs { get; private set; } = null!;
 
         /// <summary>
         /// A map of Parameter structures that specify input parameters for the stack.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, object>> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Structure containing the stack policy body.
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.CloudFormation
         /// A list of tags to associate with this stack.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Structure containing the template body (max size: 51,200 bytes).
@@ -247,14 +247,14 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? OnFailure { get; set; }
 
         [Input("parameters")]
-        private InputMap<object>? _parameters;
+        private InputMap<string>? _parameters;
 
         /// <summary>
         /// A map of Parameter structures that specify input parameters for the stack.
         /// </summary>
-        public InputMap<object> Parameters
+        public InputMap<string> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<object>());
+            get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
@@ -273,14 +273,14 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? PolicyUrl { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A list of tags to associate with this stack.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -361,26 +361,26 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? OnFailure { get; set; }
 
         [Input("outputs")]
-        private InputMap<object>? _outputs;
+        private InputMap<string>? _outputs;
 
         /// <summary>
         /// A map of outputs from the stack.
         /// </summary>
-        public InputMap<object> Outputs
+        public InputMap<string> Outputs
         {
-            get => _outputs ?? (_outputs = new InputMap<object>());
+            get => _outputs ?? (_outputs = new InputMap<string>());
             set => _outputs = value;
         }
 
         [Input("parameters")]
-        private InputMap<object>? _parameters;
+        private InputMap<string>? _parameters;
 
         /// <summary>
         /// A map of Parameter structures that specify input parameters for the stack.
         /// </summary>
-        public InputMap<object> Parameters
+        public InputMap<string> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<object>());
+            get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
@@ -399,14 +399,14 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? PolicyUrl { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A list of tags to associate with this stack.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

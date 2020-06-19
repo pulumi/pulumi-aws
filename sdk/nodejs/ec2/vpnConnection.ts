@@ -104,7 +104,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * Tags to apply to the connection.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
      */
@@ -279,7 +279,7 @@ export interface VpnConnectionState {
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
      */
@@ -370,7 +370,7 @@ export interface VpnConnectionArgs {
     /**
      * Tags to apply to the connection.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway.
      */

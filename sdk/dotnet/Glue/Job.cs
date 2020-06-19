@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Glue
         /// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         /// </summary>
         [Output("defaultArguments")]
-        public Output<ImmutableDictionary<string, object>?> DefaultArguments { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> DefaultArguments { get; private set; } = null!;
 
         /// <summary>
         /// Description of the job.
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Glue
         /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The job timeout in minutes. The default is 2880 minutes (48 hours).
@@ -276,14 +276,14 @@ namespace Pulumi.Aws.Glue
         }
 
         [Input("defaultArguments")]
-        private InputMap<object>? _defaultArguments;
+        private InputMap<string>? _defaultArguments;
 
         /// <summary>
         /// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         /// </summary>
-        public InputMap<object> DefaultArguments
+        public InputMap<string> DefaultArguments
         {
-            get => _defaultArguments ?? (_defaultArguments = new InputMap<object>());
+            get => _defaultArguments ?? (_defaultArguments = new InputMap<string>());
             set => _defaultArguments = value;
         }
 
@@ -348,14 +348,14 @@ namespace Pulumi.Aws.Glue
         public Input<string>? SecurityConfiguration { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -409,14 +409,14 @@ namespace Pulumi.Aws.Glue
         }
 
         [Input("defaultArguments")]
-        private InputMap<object>? _defaultArguments;
+        private InputMap<string>? _defaultArguments;
 
         /// <summary>
         /// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         /// </summary>
-        public InputMap<object> DefaultArguments
+        public InputMap<string> DefaultArguments
         {
-            get => _defaultArguments ?? (_defaultArguments = new InputMap<object>());
+            get => _defaultArguments ?? (_defaultArguments = new InputMap<string>());
             set => _defaultArguments = value;
         }
 
@@ -481,14 +481,14 @@ namespace Pulumi.Aws.Glue
         public Input<string>? SecurityConfiguration { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Key-value map of resource tags
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

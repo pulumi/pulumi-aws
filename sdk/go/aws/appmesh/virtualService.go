@@ -89,7 +89,7 @@ type VirtualService struct {
 	// The virtual service specification to apply.
 	Spec VirtualServiceSpecOutput `pulumi:"spec"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewVirtualService registers a new resource with the given unique name, arguments, and options.
@@ -139,7 +139,7 @@ type virtualServiceState struct {
 	// The virtual service specification to apply.
 	Spec *VirtualServiceSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type VirtualServiceState struct {
@@ -156,7 +156,7 @@ type VirtualServiceState struct {
 	// The virtual service specification to apply.
 	Spec VirtualServiceSpecPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VirtualServiceState) ElementType() reflect.Type {
@@ -171,7 +171,7 @@ type virtualServiceArgs struct {
 	// The virtual service specification to apply.
 	Spec VirtualServiceSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualService resource.
@@ -183,7 +183,7 @@ type VirtualServiceArgs struct {
 	// The virtual service specification to apply.
 	Spec VirtualServiceSpecInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VirtualServiceArgs) ElementType() reflect.Type {

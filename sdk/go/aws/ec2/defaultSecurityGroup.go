@@ -82,7 +82,7 @@ type DefaultSecurityGroup struct {
 	OwnerId             pulumi.StringOutput  `pulumi:"ownerId"`
 	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The VPC ID. **Note that changing
 	// the `vpcId` will _not_ restore any default security group rules that were
 	// modified, added, or removed.** It will be left in its current state
@@ -132,7 +132,7 @@ type defaultSecurityGroupState struct {
 	OwnerId             *string `pulumi:"ownerId"`
 	RevokeRulesOnDelete *bool   `pulumi:"revokeRulesOnDelete"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID. **Note that changing
 	// the `vpcId` will _not_ restore any default security group rules that were
 	// modified, added, or removed.** It will be left in its current state
@@ -155,7 +155,7 @@ type DefaultSecurityGroupState struct {
 	OwnerId             pulumi.StringPtrInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The VPC ID. **Note that changing
 	// the `vpcId` will _not_ restore any default security group rules that were
 	// modified, added, or removed.** It will be left in its current state
@@ -175,7 +175,7 @@ type defaultSecurityGroupArgs struct {
 	Ingress             []DefaultSecurityGroupIngress `pulumi:"ingress"`
 	RevokeRulesOnDelete *bool                         `pulumi:"revokeRulesOnDelete"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID. **Note that changing
 	// the `vpcId` will _not_ restore any default security group rules that were
 	// modified, added, or removed.** It will be left in its current state
@@ -192,7 +192,7 @@ type DefaultSecurityGroupArgs struct {
 	Ingress             DefaultSecurityGroupIngressArrayInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The VPC ID. **Note that changing
 	// the `vpcId` will _not_ restore any default security group rules that were
 	// modified, added, or removed.** It will be left in its current state

@@ -31,7 +31,7 @@ type Preset struct {
 	// Video parameters object (documented below)
 	Video PresetVideoPtrOutput `pulumi:"video"`
 	// Codec options for the video parameters
-	VideoCodecOptions pulumi.MapOutput `pulumi:"videoCodecOptions"`
+	VideoCodecOptions pulumi.StringMapOutput `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks PresetVideoWatermarkArrayOutput `pulumi:"videoWatermarks"`
 }
@@ -84,7 +84,7 @@ type presetState struct {
 	// Video parameters object (documented below)
 	Video *PresetVideo `pulumi:"video"`
 	// Codec options for the video parameters
-	VideoCodecOptions map[string]interface{} `pulumi:"videoCodecOptions"`
+	VideoCodecOptions map[string]string `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks []PresetVideoWatermark `pulumi:"videoWatermarks"`
 }
@@ -107,7 +107,7 @@ type PresetState struct {
 	// Video parameters object (documented below)
 	Video PresetVideoPtrInput
 	// Codec options for the video parameters
-	VideoCodecOptions pulumi.MapInput
+	VideoCodecOptions pulumi.StringMapInput
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks PresetVideoWatermarkArrayInput
 }
@@ -133,7 +133,7 @@ type presetArgs struct {
 	// Video parameters object (documented below)
 	Video *PresetVideo `pulumi:"video"`
 	// Codec options for the video parameters
-	VideoCodecOptions map[string]interface{} `pulumi:"videoCodecOptions"`
+	VideoCodecOptions map[string]string `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks []PresetVideoWatermark `pulumi:"videoWatermarks"`
 }
@@ -156,7 +156,7 @@ type PresetArgs struct {
 	// Video parameters object (documented below)
 	Video PresetVideoPtrInput
 	// Codec options for the video parameters
-	VideoCodecOptions pulumi.MapInput
+	VideoCodecOptions pulumi.StringMapInput
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks PresetVideoWatermarkArrayInput
 }

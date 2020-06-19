@@ -66,7 +66,7 @@ type LookupVolumeArgs struct {
 	// recent Volume.
 	MostRecent *bool `pulumi:"mostRecent"`
 	// A map of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVolume.
@@ -94,7 +94,7 @@ type LookupVolumeResult struct {
 	// The snapshotId the EBS volume is based off.
 	SnapshotId string `pulumi:"snapshotId"`
 	// A map of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The volume ID (e.g. vol-59fcb34e).
 	VolumeId string `pulumi:"volumeId"`
 	// The type of EBS volume.

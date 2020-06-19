@@ -62,7 +62,7 @@ import (
 type Function struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the EFS Access Profile that provides access to the file system.
+	// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Code pulumi.ArchiveOutput `pulumi:"code"`
@@ -72,8 +72,8 @@ type Function struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Lambda environment's configuration settings. Fields documented below.
 	Environment FunctionEnvironmentPtrOutput `pulumi:"environment"`
-	// Nested block to configure the function's *EFS config*. See details below.
-	FileSystemConfigs FunctionFileSystemConfigArrayOutput `pulumi:"fileSystemConfigs"`
+	// The connection settings for an EFS file system. Fields documented below. Before creating or updating Lambda functions with `fileSystemConfig`, EFS mount targets much be in available lifecycle state. Use `dependsOn` to explicitly declare this dependency. See [Using Amazon EFS with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/services-efs.html).
+	FileSystemConfig FunctionFileSystemConfigPtrOutput `pulumi:"fileSystemConfig"`
 	// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
 	Handler pulumi.StringOutput `pulumi:"handler"`
 	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
@@ -110,7 +110,7 @@ type Function struct {
 	// The size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
 	// A mapping of tags to assign to the object.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	Timeout       pulumi.IntPtrOutput         `pulumi:"timeout"`
 	TracingConfig FunctionTracingConfigOutput `pulumi:"tracingConfig"`
@@ -157,7 +157,7 @@ func GetFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Function resources.
 type functionState struct {
-	// The ARN of the EFS Access Profile that provides access to the file system.
+	// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn *string `pulumi:"arn"`
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Code pulumi.Archive `pulumi:"code"`
@@ -167,8 +167,8 @@ type functionState struct {
 	Description *string `pulumi:"description"`
 	// The Lambda environment's configuration settings. Fields documented below.
 	Environment *FunctionEnvironment `pulumi:"environment"`
-	// Nested block to configure the function's *EFS config*. See details below.
-	FileSystemConfigs []FunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
+	// The connection settings for an EFS file system. Fields documented below. Before creating or updating Lambda functions with `fileSystemConfig`, EFS mount targets much be in available lifecycle state. Use `dependsOn` to explicitly declare this dependency. See [Using Amazon EFS with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/services-efs.html).
+	FileSystemConfig *FunctionFileSystemConfig `pulumi:"fileSystemConfig"`
 	// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
 	Handler *string `pulumi:"handler"`
 	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
@@ -205,7 +205,7 @@ type functionState struct {
 	// The size in bytes of the function .zip file.
 	SourceCodeSize *int `pulumi:"sourceCodeSize"`
 	// A mapping of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	Timeout       *int                   `pulumi:"timeout"`
 	TracingConfig *FunctionTracingConfig `pulumi:"tracingConfig"`
@@ -216,7 +216,7 @@ type functionState struct {
 }
 
 type FunctionState struct {
-	// The ARN of the EFS Access Profile that provides access to the file system.
+	// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn pulumi.StringPtrInput
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Code pulumi.ArchiveInput
@@ -226,8 +226,8 @@ type FunctionState struct {
 	Description pulumi.StringPtrInput
 	// The Lambda environment's configuration settings. Fields documented below.
 	Environment FunctionEnvironmentPtrInput
-	// Nested block to configure the function's *EFS config*. See details below.
-	FileSystemConfigs FunctionFileSystemConfigArrayInput
+	// The connection settings for an EFS file system. Fields documented below. Before creating or updating Lambda functions with `fileSystemConfig`, EFS mount targets much be in available lifecycle state. Use `dependsOn` to explicitly declare this dependency. See [Using Amazon EFS with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/services-efs.html).
+	FileSystemConfig FunctionFileSystemConfigPtrInput
 	// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
 	Handler pulumi.StringPtrInput
 	// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
@@ -264,7 +264,7 @@ type FunctionState struct {
 	// The size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntPtrInput
 	// A mapping of tags to assign to the object.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	Timeout       pulumi.IntPtrInput
 	TracingConfig FunctionTracingConfigPtrInput
@@ -287,8 +287,8 @@ type functionArgs struct {
 	Description *string `pulumi:"description"`
 	// The Lambda environment's configuration settings. Fields documented below.
 	Environment *FunctionEnvironment `pulumi:"environment"`
-	// Nested block to configure the function's *EFS config*. See details below.
-	FileSystemConfigs []FunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
+	// The connection settings for an EFS file system. Fields documented below. Before creating or updating Lambda functions with `fileSystemConfig`, EFS mount targets much be in available lifecycle state. Use `dependsOn` to explicitly declare this dependency. See [Using Amazon EFS with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/services-efs.html).
+	FileSystemConfig *FunctionFileSystemConfig `pulumi:"fileSystemConfig"`
 	// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
 	Handler string `pulumi:"handler"`
 	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and this provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
@@ -316,7 +316,7 @@ type functionArgs struct {
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// A mapping of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	Timeout       *int                   `pulumi:"timeout"`
 	TracingConfig *FunctionTracingConfig `pulumi:"tracingConfig"`
@@ -334,8 +334,8 @@ type FunctionArgs struct {
 	Description pulumi.StringPtrInput
 	// The Lambda environment's configuration settings. Fields documented below.
 	Environment FunctionEnvironmentPtrInput
-	// Nested block to configure the function's *EFS config*. See details below.
-	FileSystemConfigs FunctionFileSystemConfigArrayInput
+	// The connection settings for an EFS file system. Fields documented below. Before creating or updating Lambda functions with `fileSystemConfig`, EFS mount targets much be in available lifecycle state. Use `dependsOn` to explicitly declare this dependency. See [Using Amazon EFS with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/services-efs.html).
+	FileSystemConfig FunctionFileSystemConfigPtrInput
 	// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
 	Handler pulumi.StringInput
 	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and this provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
@@ -363,7 +363,7 @@ type FunctionArgs struct {
 	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` (this provider 0.11.12 and later) or `base64sha256(file("file.zip"))` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda function source archive.
 	SourceCodeHash pulumi.StringPtrInput
 	// A mapping of tags to assign to the object.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 	Timeout       pulumi.IntPtrInput
 	TracingConfig FunctionTracingConfigPtrInput

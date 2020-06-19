@@ -62,7 +62,7 @@ type Volume struct {
 	// A snapshot to base the EBS volume off of.
 	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -117,7 +117,7 @@ type volumeState struct {
 	// A snapshot to base the EBS volume off of.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type *string `pulumi:"type"`
 }
@@ -142,7 +142,7 @@ type VolumeState struct {
 	// A snapshot to base the EBS volume off of.
 	SnapshotId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type pulumi.StringPtrInput
 }
@@ -169,7 +169,7 @@ type volumeArgs struct {
 	// A snapshot to base the EBS volume off of.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type *string `pulumi:"type"`
 }
@@ -193,7 +193,7 @@ type VolumeArgs struct {
 	// A snapshot to base the EBS volume off of.
 	SnapshotId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
 	Type pulumi.StringPtrInput
 }

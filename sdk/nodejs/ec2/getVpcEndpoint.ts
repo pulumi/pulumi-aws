@@ -72,7 +72,7 @@ export interface GetVpcEndpointArgs {
      * A map of tags, each pair of which must exactly match
      * a pair on the specific VPC Endpoint to retrieve.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The ID of the VPC in which the specific VPC Endpoint is used.
      */
@@ -131,7 +131,7 @@ export interface GetVpcEndpointResult {
      * One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
      */
     readonly subnetIds: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The VPC Endpoint type, `Gateway` or `Interface`.
      */

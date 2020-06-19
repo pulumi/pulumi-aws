@@ -105,14 +105,14 @@ namespace Pulumi.Aws.S3
         public string? Range { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// A map of tags assigned to the object.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// A map of metadata stored with the object in S3
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Metadata;
+        public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>
         /// Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
         /// </summary>
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// A map of tags assigned to the object.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The latest version ID of the object returned.
         /// </summary>
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.S3
 
             string lastModified,
 
-            ImmutableDictionary<string, object> metadata,
+            ImmutableDictionary<string, string> metadata,
 
             string objectLockLegalHoldStatus,
 
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.S3
 
             string storageClass,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string versionId,
 

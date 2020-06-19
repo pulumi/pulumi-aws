@@ -290,7 +290,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     /**
      * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */
@@ -401,7 +401,7 @@ export interface FirehoseDeliveryStreamState {
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */
@@ -458,7 +458,7 @@ export interface FirehoseDeliveryStreamArgs {
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */

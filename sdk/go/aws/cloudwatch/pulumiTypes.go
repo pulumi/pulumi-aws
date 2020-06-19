@@ -772,7 +772,7 @@ func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) Subnets() pulumi.Stri
 
 type EventTargetInputTransformer struct {
 	// Key value pairs specified in the form of JSONPath (for example, time = $.time)
-	InputPaths map[string]interface{} `pulumi:"inputPaths"`
+	InputPaths map[string]string `pulumi:"inputPaths"`
 	// Structure containing the template body.
 	InputTemplate string `pulumi:"inputTemplate"`
 }
@@ -791,7 +791,7 @@ type EventTargetInputTransformerInput interface {
 
 type EventTargetInputTransformerArgs struct {
 	// Key value pairs specified in the form of JSONPath (for example, time = $.time)
-	InputPaths pulumi.MapInput `pulumi:"inputPaths"`
+	InputPaths pulumi.StringMapInput `pulumi:"inputPaths"`
 	// Structure containing the template body.
 	InputTemplate pulumi.StringInput `pulumi:"inputTemplate"`
 }
@@ -875,8 +875,8 @@ func (o EventTargetInputTransformerOutput) ToEventTargetInputTransformerPtrOutpu
 }
 
 // Key value pairs specified in the form of JSONPath (for example, time = $.time)
-func (o EventTargetInputTransformerOutput) InputPaths() pulumi.MapOutput {
-	return o.ApplyT(func(v EventTargetInputTransformer) map[string]interface{} { return v.InputPaths }).(pulumi.MapOutput)
+func (o EventTargetInputTransformerOutput) InputPaths() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EventTargetInputTransformer) map[string]string { return v.InputPaths }).(pulumi.StringMapOutput)
 }
 
 // Structure containing the template body.
@@ -903,13 +903,13 @@ func (o EventTargetInputTransformerPtrOutput) Elem() EventTargetInputTransformer
 }
 
 // Key value pairs specified in the form of JSONPath (for example, time = $.time)
-func (o EventTargetInputTransformerPtrOutput) InputPaths() pulumi.MapOutput {
-	return o.ApplyT(func(v *EventTargetInputTransformer) map[string]interface{} {
+func (o EventTargetInputTransformerPtrOutput) InputPaths() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventTargetInputTransformer) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.InputPaths
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Structure containing the template body.
@@ -1623,7 +1623,7 @@ func (o MetricAlarmMetricQueryArrayOutput) Index(i pulumi.IntInput) MetricAlarmM
 
 type MetricAlarmMetricQueryMetric struct {
 	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-	Dimensions map[string]interface{} `pulumi:"dimensions"`
+	Dimensions map[string]string `pulumi:"dimensions"`
 	// The name for this metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	MetricName string `pulumi:"metricName"`
@@ -1653,7 +1653,7 @@ type MetricAlarmMetricQueryMetricInput interface {
 
 type MetricAlarmMetricQueryMetricArgs struct {
 	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-	Dimensions pulumi.MapInput `pulumi:"dimensions"`
+	Dimensions pulumi.StringMapInput `pulumi:"dimensions"`
 	// The name for this metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	MetricName pulumi.StringInput `pulumi:"metricName"`
@@ -1748,8 +1748,8 @@ func (o MetricAlarmMetricQueryMetricOutput) ToMetricAlarmMetricQueryMetricPtrOut
 }
 
 // The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-func (o MetricAlarmMetricQueryMetricOutput) Dimensions() pulumi.MapOutput {
-	return o.ApplyT(func(v MetricAlarmMetricQueryMetric) map[string]interface{} { return v.Dimensions }).(pulumi.MapOutput)
+func (o MetricAlarmMetricQueryMetricOutput) Dimensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MetricAlarmMetricQueryMetric) map[string]string { return v.Dimensions }).(pulumi.StringMapOutput)
 }
 
 // The name for this metric.
@@ -1799,13 +1799,13 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) Elem() MetricAlarmMetricQueryMetr
 }
 
 // The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-func (o MetricAlarmMetricQueryMetricPtrOutput) Dimensions() pulumi.MapOutput {
-	return o.ApplyT(func(v *MetricAlarmMetricQueryMetric) map[string]interface{} {
+func (o MetricAlarmMetricQueryMetricPtrOutput) Dimensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MetricAlarmMetricQueryMetric) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Dimensions
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The name for this metric.

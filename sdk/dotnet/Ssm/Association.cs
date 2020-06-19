@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Ssm
         /// A block of arbitrary string parameters to pass to the SSM document.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, object>> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// A cron expression when the association will be applied to the target(s).
@@ -224,14 +224,14 @@ namespace Pulumi.Aws.Ssm
         public Input<Inputs.AssociationOutputLocationArgs>? OutputLocation { get; set; }
 
         [Input("parameters")]
-        private InputMap<object>? _parameters;
+        private InputMap<string>? _parameters;
 
         /// <summary>
         /// A block of arbitrary string parameters to pass to the SSM document.
         /// </summary>
-        public InputMap<object> Parameters
+        public InputMap<string> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<object>());
+            get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
@@ -321,14 +321,14 @@ namespace Pulumi.Aws.Ssm
         public Input<Inputs.AssociationOutputLocationGetArgs>? OutputLocation { get; set; }
 
         [Input("parameters")]
-        private InputMap<object>? _parameters;
+        private InputMap<string>? _parameters;
 
         /// <summary>
         /// A block of arbitrary string parameters to pass to the SSM document.
         /// </summary>
-        public InputMap<object> Parameters
+        public InputMap<string> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<object>());
+            get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 

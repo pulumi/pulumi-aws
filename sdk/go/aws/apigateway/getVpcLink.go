@@ -50,7 +50,7 @@ type LookupVpcLinkArgs struct {
 	// If multiple API Gateway VPC Links are found with this name, an error will be returned.
 	Name string `pulumi:"name"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcLink.
@@ -65,7 +65,7 @@ type LookupVpcLinkResult struct {
 	// The status message of the VPC link.
 	StatusMessage string `pulumi:"statusMessage"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArns []string `pulumi:"targetArns"`
 }

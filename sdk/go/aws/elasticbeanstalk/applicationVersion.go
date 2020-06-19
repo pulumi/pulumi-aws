@@ -40,7 +40,7 @@ type ApplicationVersion struct {
 	// A unique name for the this Application Version.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of tags for the Elastic Beanstalk Application Version.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewApplicationVersion registers a new resource with the given unique name, arguments, and options.
@@ -96,7 +96,7 @@ type applicationVersionState struct {
 	// A unique name for the this Application Version.
 	Name *string `pulumi:"name"`
 	// Key-value map of tags for the Elastic Beanstalk Application Version.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ApplicationVersionState struct {
@@ -116,7 +116,7 @@ type ApplicationVersionState struct {
 	// A unique name for the this Application Version.
 	Name pulumi.StringPtrInput
 	// Key-value map of tags for the Elastic Beanstalk Application Version.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ApplicationVersionState) ElementType() reflect.Type {
@@ -138,7 +138,7 @@ type applicationVersionArgs struct {
 	// A unique name for the this Application Version.
 	Name *string `pulumi:"name"`
 	// Key-value map of tags for the Elastic Beanstalk Application Version.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ApplicationVersion resource.
@@ -157,7 +157,7 @@ type ApplicationVersionArgs struct {
 	// A unique name for the this Application Version.
 	Name pulumi.StringPtrInput
 	// Key-value map of tags for the Elastic Beanstalk Application Version.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ApplicationVersionArgs) ElementType() reflect.Type {

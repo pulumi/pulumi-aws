@@ -11,8 +11,6 @@ import (
 )
 
 // Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
-//
-// > **NOTE:** The AWS API does not currently support deleting ECS cluster capacity providers. Removing this resource will only remove the state for it.
 type CapacityProvider struct {
 	pulumi.CustomResourceState
 
@@ -23,7 +21,7 @@ type CapacityProvider struct {
 	// The name of the capacity provider.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of resource tags.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewCapacityProvider registers a new resource with the given unique name, arguments, and options.
@@ -64,7 +62,7 @@ type capacityProviderState struct {
 	// The name of the capacity provider.
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type CapacityProviderState struct {
@@ -75,7 +73,7 @@ type CapacityProviderState struct {
 	// The name of the capacity provider.
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (CapacityProviderState) ElementType() reflect.Type {
@@ -88,7 +86,7 @@ type capacityProviderArgs struct {
 	// The name of the capacity provider.
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CapacityProvider resource.
@@ -98,7 +96,7 @@ type CapacityProviderArgs struct {
 	// The name of the capacity provider.
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (CapacityProviderArgs) ElementType() reflect.Type {

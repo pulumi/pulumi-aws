@@ -52,9 +52,9 @@ type LookupBrokerArgs struct {
 	// The unique id of the mq broker.
 	BrokerId *string `pulumi:"brokerId"`
 	// The unique name of the mq broker.
-	BrokerName *string                `pulumi:"brokerName"`
-	Logs       *GetBrokerLogs         `pulumi:"logs"`
-	Tags       map[string]interface{} `pulumi:"tags"`
+	BrokerName *string           `pulumi:"brokerName"`
+	Logs       *GetBrokerLogs    `pulumi:"logs"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getBroker.
@@ -77,6 +77,6 @@ type LookupBrokerResult struct {
 	PubliclyAccessible         bool                                `pulumi:"publiclyAccessible"`
 	SecurityGroups             []string                            `pulumi:"securityGroups"`
 	SubnetIds                  []string                            `pulumi:"subnetIds"`
-	Tags                       map[string]interface{}              `pulumi:"tags"`
+	Tags                       map[string]string                   `pulumi:"tags"`
 	Users                      []GetBrokerUser                     `pulumi:"users"`
 }

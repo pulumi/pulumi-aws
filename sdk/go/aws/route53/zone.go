@@ -75,7 +75,7 @@ type Zone struct {
 	// Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
 	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
 	// A mapping of tags to assign to the zone.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs ZoneVpcArrayOutput `pulumi:"vpcs"`
 	// The Hosted Zone ID. This can be referenced by zone records.
@@ -125,7 +125,7 @@ type zoneState struct {
 	// Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
 	NameServers []string `pulumi:"nameServers"`
 	// A mapping of tags to assign to the zone.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs []ZoneVpc `pulumi:"vpcs"`
 	// The Hosted Zone ID. This can be referenced by zone records.
@@ -145,7 +145,7 @@ type ZoneState struct {
 	// Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
 	NameServers pulumi.StringArrayInput
 	// A mapping of tags to assign to the zone.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs ZoneVpcArrayInput
 	// The Hosted Zone ID. This can be referenced by zone records.
@@ -166,7 +166,7 @@ type zoneArgs struct {
 	// This is the name of the hosted zone.
 	Name *string `pulumi:"name"`
 	// A mapping of tags to assign to the zone.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs []ZoneVpc `pulumi:"vpcs"`
 }
@@ -182,7 +182,7 @@ type ZoneArgs struct {
 	// This is the name of the hosted zone.
 	Name pulumi.StringPtrInput
 	// A mapping of tags to assign to the zone.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
 	Vpcs ZoneVpcArrayInput
 }

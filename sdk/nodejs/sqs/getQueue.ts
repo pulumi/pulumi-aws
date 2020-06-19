@@ -49,7 +49,7 @@ export interface GetQueueArgs {
     /**
      * A map of tags for the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -68,7 +68,7 @@ export interface GetQueueResult {
     /**
      * A map of tags for the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The URL of the queue.
      */

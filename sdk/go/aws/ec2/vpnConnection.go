@@ -113,7 +113,7 @@ type VpnConnection struct {
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolOutput `pulumi:"staticRoutesOnly"`
 	// Tags to apply to the connection.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// The ID of the EC2 Transit Gateway.
@@ -195,7 +195,7 @@ type vpnConnectionState struct {
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
 	// Tags to apply to the connection.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// The ID of the EC2 Transit Gateway.
@@ -244,7 +244,7 @@ type VpnConnectionState struct {
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolPtrInput
 	// Tags to apply to the connection.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// The ID of the EC2 Transit Gateway.
@@ -294,7 +294,7 @@ type vpnConnectionArgs struct {
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
 	// Tags to apply to the connection.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// The CIDR block of the inside IP addresses for the first VPN tunnel.
@@ -318,7 +318,7 @@ type VpnConnectionArgs struct {
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolPtrInput
 	// Tags to apply to the connection.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
 	// The CIDR block of the inside IP addresses for the first VPN tunnel.

@@ -77,7 +77,7 @@ type LookupTransitGatewayArgs struct {
 	// Identifier of the EC2 Transit Gateway.
 	Id *string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getTransitGateway.
@@ -106,7 +106,7 @@ type LookupTransitGatewayResult struct {
 	// Identifier of the default propagation route table.
 	PropagationDefaultRouteTableId string `pulumi:"propagationDefaultRouteTableId"`
 	// Key-value tags for the EC2 Transit Gateway
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Whether VPN Equal Cost Multipath Protocol support is enabled.
 	VpnEcmpSupport string `pulumi:"vpnEcmpSupport"`
 }

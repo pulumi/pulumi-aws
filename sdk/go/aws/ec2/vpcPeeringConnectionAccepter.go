@@ -38,7 +38,7 @@ type VpcPeeringConnectionAccepter struct {
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester VpcPeeringConnectionAccepterRequesterOutput `pulumi:"requester"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of the accepter VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The VPC Peering Connection ID to manage.
@@ -93,7 +93,7 @@ type vpcPeeringConnectionAccepterState struct {
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester *VpcPeeringConnectionAccepterRequester `pulumi:"requester"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the accepter VPC.
 	VpcId *string `pulumi:"vpcId"`
 	// The VPC Peering Connection ID to manage.
@@ -118,7 +118,7 @@ type VpcPeeringConnectionAccepterState struct {
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester VpcPeeringConnectionAccepterRequesterPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The ID of the accepter VPC.
 	VpcId pulumi.StringPtrInput
 	// The VPC Peering Connection ID to manage.
@@ -139,7 +139,7 @@ type vpcPeeringConnectionAccepterArgs struct {
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester *VpcPeeringConnectionAccepterRequester `pulumi:"requester"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC Peering Connection ID to manage.
 	VpcPeeringConnectionId string `pulumi:"vpcPeeringConnectionId"`
 }
@@ -155,7 +155,7 @@ type VpcPeeringConnectionAccepterArgs struct {
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester VpcPeeringConnectionAccepterRequesterPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The VPC Peering Connection ID to manage.
 	VpcPeeringConnectionId pulumi.StringInput
 }

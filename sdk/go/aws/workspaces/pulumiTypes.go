@@ -537,7 +537,7 @@ func (o WorkspaceWorkspacePropertiesPtrOutput) UserVolumeSizeGib() pulumi.IntPtr
 }
 
 type GetBundleComputeType struct {
-	// The name of the compute type.
+	// The name of the bundle. You cannot combine this parameter with `bundleId`.
 	Name string `pulumi:"name"`
 }
 
@@ -554,7 +554,7 @@ type GetBundleComputeTypeInput interface {
 }
 
 type GetBundleComputeTypeArgs struct {
-	// The name of the compute type.
+	// The name of the bundle. You cannot combine this parameter with `bundleId`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -610,7 +610,7 @@ func (o GetBundleComputeTypeOutput) ToGetBundleComputeTypeOutputWithContext(ctx 
 	return o
 }
 
-// The name of the compute type.
+// The name of the bundle. You cannot combine this parameter with `bundleId`.
 func (o GetBundleComputeTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBundleComputeType) string { return v.Name }).(pulumi.StringOutput)
 }

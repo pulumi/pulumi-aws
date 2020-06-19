@@ -47,7 +47,7 @@ export interface GetDirectoryArgs {
     /**
      * A map of tags assigned to the directory/connector.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -103,7 +103,7 @@ export interface GetDirectoryResult {
     /**
      * A map of tags assigned to the directory/connector.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
      */

@@ -103,7 +103,7 @@ class TaskDefinition(pulumi.CustomResource):
         * `labels` (`dict`) - A map of custom metadata to add to your Docker volume.
         * `scope` (`str`) - The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
 
-      * `efsVolumeConfiguration` (`dict`) - Used to configure a EFS volume. Can be used only with an EC2 type task.
+      * `efsVolumeConfiguration` (`dict`) - Used to configure a EFS volume.
         * `file_system_id` (`str`) - The ID of the EFS File System.
         * `root_directory` (`str`) - The path to mount on the host
 
@@ -190,7 +190,7 @@ class TaskDefinition(pulumi.CustomResource):
             * `labels` (`pulumi.Input[dict]`) - A map of custom metadata to add to your Docker volume.
             * `scope` (`pulumi.Input[str]`) - The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
 
-          * `efsVolumeConfiguration` (`pulumi.Input[dict]`) - Used to configure a EFS volume. Can be used only with an EC2 type task.
+          * `efsVolumeConfiguration` (`pulumi.Input[dict]`) - Used to configure a EFS volume.
             * `file_system_id` (`pulumi.Input[str]`) - The ID of the EFS File System.
             * `root_directory` (`pulumi.Input[str]`) - The path to mount on the host
 
@@ -302,7 +302,7 @@ class TaskDefinition(pulumi.CustomResource):
             * `labels` (`pulumi.Input[dict]`) - A map of custom metadata to add to your Docker volume.
             * `scope` (`pulumi.Input[str]`) - The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
 
-          * `efsVolumeConfiguration` (`pulumi.Input[dict]`) - Used to configure a EFS volume. Can be used only with an EC2 type task.
+          * `efsVolumeConfiguration` (`pulumi.Input[dict]`) - Used to configure a EFS volume.
             * `file_system_id` (`pulumi.Input[str]`) - The ID of the EFS File System.
             * `root_directory` (`pulumi.Input[str]`) - The path to mount on the host
 

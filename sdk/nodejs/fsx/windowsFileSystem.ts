@@ -138,7 +138,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     /**
      * A map of tags to assign to the file system.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
      */
@@ -286,7 +286,7 @@ export interface WindowsFileSystemState {
     /**
      * A map of tags to assign to the file system.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
      */
@@ -348,7 +348,7 @@ export interface WindowsFileSystemArgs {
     /**
      * A map of tags to assign to the file system.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
      */

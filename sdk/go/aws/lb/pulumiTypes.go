@@ -165,7 +165,7 @@ func (o ListenerDefaultActionArrayOutput) Index(i pulumi.IntInput) ListenerDefau
 
 type ListenerDefaultActionAuthenticateCognito struct {
 	// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-	AuthenticationRequestExtraParams map[string]interface{} `pulumi:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 	OnUnauthenticatedRequest *string `pulumi:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP.
@@ -196,7 +196,7 @@ type ListenerDefaultActionAuthenticateCognitoInput interface {
 
 type ListenerDefaultActionAuthenticateCognitoArgs struct {
 	// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-	AuthenticationRequestExtraParams pulumi.MapInput `pulumi:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 	OnUnauthenticatedRequest pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP.
@@ -292,10 +292,10 @@ func (o ListenerDefaultActionAuthenticateCognitoOutput) ToListenerDefaultActionA
 }
 
 // The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-func (o ListenerDefaultActionAuthenticateCognitoOutput) AuthenticationRequestExtraParams() pulumi.MapOutput {
-	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) map[string]interface{} {
+func (o ListenerDefaultActionAuthenticateCognitoOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) map[string]string {
 		return v.AuthenticationRequestExtraParams
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
@@ -352,13 +352,13 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) Elem() ListenerDefaul
 }
 
 // The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) AuthenticationRequestExtraParams() pulumi.MapOutput {
-	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) map[string]interface{} {
+func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.AuthenticationRequestExtraParams
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
@@ -433,7 +433,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) UserPoolDomain() pulu
 
 type ListenerDefaultActionAuthenticateOidc struct {
 	// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-	AuthenticationRequestExtraParams map[string]interface{} `pulumi:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
 	// The authorization endpoint of the IdP.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
 	// The OAuth 2.0 client identifier.
@@ -470,7 +470,7 @@ type ListenerDefaultActionAuthenticateOidcInput interface {
 
 type ListenerDefaultActionAuthenticateOidcArgs struct {
 	// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-	AuthenticationRequestExtraParams pulumi.MapInput `pulumi:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
 	// The authorization endpoint of the IdP.
 	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
 	// The OAuth 2.0 client identifier.
@@ -572,10 +572,10 @@ func (o ListenerDefaultActionAuthenticateOidcOutput) ToListenerDefaultActionAuth
 }
 
 // The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-func (o ListenerDefaultActionAuthenticateOidcOutput) AuthenticationRequestExtraParams() pulumi.MapOutput {
-	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) map[string]interface{} {
+func (o ListenerDefaultActionAuthenticateOidcOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) map[string]string {
 		return v.AuthenticationRequestExtraParams
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The authorization endpoint of the IdP.
@@ -647,13 +647,13 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) Elem() ListenerDefaultAc
 }
 
 // The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-func (o ListenerDefaultActionAuthenticateOidcPtrOutput) AuthenticationRequestExtraParams() pulumi.MapOutput {
-	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) map[string]interface{} {
+func (o ListenerDefaultActionAuthenticateOidcPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.AuthenticationRequestExtraParams
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The authorization endpoint of the IdP.
@@ -1728,7 +1728,7 @@ func (o ListenerRuleActionArrayOutput) Index(i pulumi.IntInput) ListenerRuleActi
 
 type ListenerRuleActionAuthenticateCognito struct {
 	// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-	AuthenticationRequestExtraParams map[string]interface{} `pulumi:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 	OnUnauthenticatedRequest *string `pulumi:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP.
@@ -1759,7 +1759,7 @@ type ListenerRuleActionAuthenticateCognitoInput interface {
 
 type ListenerRuleActionAuthenticateCognitoArgs struct {
 	// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-	AuthenticationRequestExtraParams pulumi.MapInput `pulumi:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
 	OnUnauthenticatedRequest pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
 	// The set of user claims to be requested from the IdP.
@@ -1855,10 +1855,10 @@ func (o ListenerRuleActionAuthenticateCognitoOutput) ToListenerRuleActionAuthent
 }
 
 // The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-func (o ListenerRuleActionAuthenticateCognitoOutput) AuthenticationRequestExtraParams() pulumi.MapOutput {
-	return o.ApplyT(func(v ListenerRuleActionAuthenticateCognito) map[string]interface{} {
+func (o ListenerRuleActionAuthenticateCognitoOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListenerRuleActionAuthenticateCognito) map[string]string {
 		return v.AuthenticationRequestExtraParams
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
@@ -1915,13 +1915,13 @@ func (o ListenerRuleActionAuthenticateCognitoPtrOutput) Elem() ListenerRuleActio
 }
 
 // The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-func (o ListenerRuleActionAuthenticateCognitoPtrOutput) AuthenticationRequestExtraParams() pulumi.MapOutput {
-	return o.ApplyT(func(v *ListenerRuleActionAuthenticateCognito) map[string]interface{} {
+func (o ListenerRuleActionAuthenticateCognitoPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ListenerRuleActionAuthenticateCognito) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.AuthenticationRequestExtraParams
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
@@ -1996,7 +1996,7 @@ func (o ListenerRuleActionAuthenticateCognitoPtrOutput) UserPoolDomain() pulumi.
 
 type ListenerRuleActionAuthenticateOidc struct {
 	// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-	AuthenticationRequestExtraParams map[string]interface{} `pulumi:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
 	// The authorization endpoint of the IdP.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
 	// The OAuth 2.0 client identifier.
@@ -2033,7 +2033,7 @@ type ListenerRuleActionAuthenticateOidcInput interface {
 
 type ListenerRuleActionAuthenticateOidcArgs struct {
 	// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-	AuthenticationRequestExtraParams pulumi.MapInput `pulumi:"authenticationRequestExtraParams"`
+	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
 	// The authorization endpoint of the IdP.
 	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
 	// The OAuth 2.0 client identifier.
@@ -2135,10 +2135,10 @@ func (o ListenerRuleActionAuthenticateOidcOutput) ToListenerRuleActionAuthentica
 }
 
 // The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-func (o ListenerRuleActionAuthenticateOidcOutput) AuthenticationRequestExtraParams() pulumi.MapOutput {
-	return o.ApplyT(func(v ListenerRuleActionAuthenticateOidc) map[string]interface{} {
+func (o ListenerRuleActionAuthenticateOidcOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ListenerRuleActionAuthenticateOidc) map[string]string {
 		return v.AuthenticationRequestExtraParams
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The authorization endpoint of the IdP.
@@ -2210,13 +2210,13 @@ func (o ListenerRuleActionAuthenticateOidcPtrOutput) Elem() ListenerRuleActionAu
 }
 
 // The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-func (o ListenerRuleActionAuthenticateOidcPtrOutput) AuthenticationRequestExtraParams() pulumi.MapOutput {
-	return o.ApplyT(func(v *ListenerRuleActionAuthenticateOidc) map[string]interface{} {
+func (o ListenerRuleActionAuthenticateOidcPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ListenerRuleActionAuthenticateOidc) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.AuthenticationRequestExtraParams
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The authorization endpoint of the IdP.
@@ -4968,14 +4968,14 @@ func (o GetListenerDefaultActionArrayOutput) Index(i pulumi.IntInput) GetListene
 }
 
 type GetListenerDefaultActionAuthenticateCognito struct {
-	AuthenticationRequestExtraParams map[string]interface{} `pulumi:"authenticationRequestExtraParams"`
-	OnUnauthenticatedRequest         string                 `pulumi:"onUnauthenticatedRequest"`
-	Scope                            string                 `pulumi:"scope"`
-	SessionCookieName                string                 `pulumi:"sessionCookieName"`
-	SessionTimeout                   int                    `pulumi:"sessionTimeout"`
-	UserPoolArn                      string                 `pulumi:"userPoolArn"`
-	UserPoolClientId                 string                 `pulumi:"userPoolClientId"`
-	UserPoolDomain                   string                 `pulumi:"userPoolDomain"`
+	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
+	OnUnauthenticatedRequest         string            `pulumi:"onUnauthenticatedRequest"`
+	Scope                            string            `pulumi:"scope"`
+	SessionCookieName                string            `pulumi:"sessionCookieName"`
+	SessionTimeout                   int               `pulumi:"sessionTimeout"`
+	UserPoolArn                      string            `pulumi:"userPoolArn"`
+	UserPoolClientId                 string            `pulumi:"userPoolClientId"`
+	UserPoolDomain                   string            `pulumi:"userPoolDomain"`
 }
 
 // GetListenerDefaultActionAuthenticateCognitoInput is an input type that accepts GetListenerDefaultActionAuthenticateCognitoArgs and GetListenerDefaultActionAuthenticateCognitoOutput values.
@@ -4991,14 +4991,14 @@ type GetListenerDefaultActionAuthenticateCognitoInput interface {
 }
 
 type GetListenerDefaultActionAuthenticateCognitoArgs struct {
-	AuthenticationRequestExtraParams pulumi.MapInput    `pulumi:"authenticationRequestExtraParams"`
-	OnUnauthenticatedRequest         pulumi.StringInput `pulumi:"onUnauthenticatedRequest"`
-	Scope                            pulumi.StringInput `pulumi:"scope"`
-	SessionCookieName                pulumi.StringInput `pulumi:"sessionCookieName"`
-	SessionTimeout                   pulumi.IntInput    `pulumi:"sessionTimeout"`
-	UserPoolArn                      pulumi.StringInput `pulumi:"userPoolArn"`
-	UserPoolClientId                 pulumi.StringInput `pulumi:"userPoolClientId"`
-	UserPoolDomain                   pulumi.StringInput `pulumi:"userPoolDomain"`
+	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
+	OnUnauthenticatedRequest         pulumi.StringInput    `pulumi:"onUnauthenticatedRequest"`
+	Scope                            pulumi.StringInput    `pulumi:"scope"`
+	SessionCookieName                pulumi.StringInput    `pulumi:"sessionCookieName"`
+	SessionTimeout                   pulumi.IntInput       `pulumi:"sessionTimeout"`
+	UserPoolArn                      pulumi.StringInput    `pulumi:"userPoolArn"`
+	UserPoolClientId                 pulumi.StringInput    `pulumi:"userPoolClientId"`
+	UserPoolDomain                   pulumi.StringInput    `pulumi:"userPoolDomain"`
 }
 
 func (GetListenerDefaultActionAuthenticateCognitoArgs) ElementType() reflect.Type {
@@ -5053,10 +5053,10 @@ func (o GetListenerDefaultActionAuthenticateCognitoOutput) ToGetListenerDefaultA
 	return o
 }
 
-func (o GetListenerDefaultActionAuthenticateCognitoOutput) AuthenticationRequestExtraParams() pulumi.MapOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) map[string]interface{} {
+func (o GetListenerDefaultActionAuthenticateCognitoOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateCognito) map[string]string {
 		return v.AuthenticationRequestExtraParams
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o GetListenerDefaultActionAuthenticateCognitoOutput) OnUnauthenticatedRequest() pulumi.StringOutput {
@@ -5108,17 +5108,17 @@ func (o GetListenerDefaultActionAuthenticateCognitoArrayOutput) Index(i pulumi.I
 }
 
 type GetListenerDefaultActionAuthenticateOidc struct {
-	AuthenticationRequestExtraParams map[string]interface{} `pulumi:"authenticationRequestExtraParams"`
-	AuthorizationEndpoint            string                 `pulumi:"authorizationEndpoint"`
-	ClientId                         string                 `pulumi:"clientId"`
-	ClientSecret                     string                 `pulumi:"clientSecret"`
-	Issuer                           string                 `pulumi:"issuer"`
-	OnUnauthenticatedRequest         string                 `pulumi:"onUnauthenticatedRequest"`
-	Scope                            string                 `pulumi:"scope"`
-	SessionCookieName                string                 `pulumi:"sessionCookieName"`
-	SessionTimeout                   int                    `pulumi:"sessionTimeout"`
-	TokenEndpoint                    string                 `pulumi:"tokenEndpoint"`
-	UserInfoEndpoint                 string                 `pulumi:"userInfoEndpoint"`
+	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
+	AuthorizationEndpoint            string            `pulumi:"authorizationEndpoint"`
+	ClientId                         string            `pulumi:"clientId"`
+	ClientSecret                     string            `pulumi:"clientSecret"`
+	Issuer                           string            `pulumi:"issuer"`
+	OnUnauthenticatedRequest         string            `pulumi:"onUnauthenticatedRequest"`
+	Scope                            string            `pulumi:"scope"`
+	SessionCookieName                string            `pulumi:"sessionCookieName"`
+	SessionTimeout                   int               `pulumi:"sessionTimeout"`
+	TokenEndpoint                    string            `pulumi:"tokenEndpoint"`
+	UserInfoEndpoint                 string            `pulumi:"userInfoEndpoint"`
 }
 
 // GetListenerDefaultActionAuthenticateOidcInput is an input type that accepts GetListenerDefaultActionAuthenticateOidcArgs and GetListenerDefaultActionAuthenticateOidcOutput values.
@@ -5134,17 +5134,17 @@ type GetListenerDefaultActionAuthenticateOidcInput interface {
 }
 
 type GetListenerDefaultActionAuthenticateOidcArgs struct {
-	AuthenticationRequestExtraParams pulumi.MapInput    `pulumi:"authenticationRequestExtraParams"`
-	AuthorizationEndpoint            pulumi.StringInput `pulumi:"authorizationEndpoint"`
-	ClientId                         pulumi.StringInput `pulumi:"clientId"`
-	ClientSecret                     pulumi.StringInput `pulumi:"clientSecret"`
-	Issuer                           pulumi.StringInput `pulumi:"issuer"`
-	OnUnauthenticatedRequest         pulumi.StringInput `pulumi:"onUnauthenticatedRequest"`
-	Scope                            pulumi.StringInput `pulumi:"scope"`
-	SessionCookieName                pulumi.StringInput `pulumi:"sessionCookieName"`
-	SessionTimeout                   pulumi.IntInput    `pulumi:"sessionTimeout"`
-	TokenEndpoint                    pulumi.StringInput `pulumi:"tokenEndpoint"`
-	UserInfoEndpoint                 pulumi.StringInput `pulumi:"userInfoEndpoint"`
+	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
+	AuthorizationEndpoint            pulumi.StringInput    `pulumi:"authorizationEndpoint"`
+	ClientId                         pulumi.StringInput    `pulumi:"clientId"`
+	ClientSecret                     pulumi.StringInput    `pulumi:"clientSecret"`
+	Issuer                           pulumi.StringInput    `pulumi:"issuer"`
+	OnUnauthenticatedRequest         pulumi.StringInput    `pulumi:"onUnauthenticatedRequest"`
+	Scope                            pulumi.StringInput    `pulumi:"scope"`
+	SessionCookieName                pulumi.StringInput    `pulumi:"sessionCookieName"`
+	SessionTimeout                   pulumi.IntInput       `pulumi:"sessionTimeout"`
+	TokenEndpoint                    pulumi.StringInput    `pulumi:"tokenEndpoint"`
+	UserInfoEndpoint                 pulumi.StringInput    `pulumi:"userInfoEndpoint"`
 }
 
 func (GetListenerDefaultActionAuthenticateOidcArgs) ElementType() reflect.Type {
@@ -5199,10 +5199,10 @@ func (o GetListenerDefaultActionAuthenticateOidcOutput) ToGetListenerDefaultActi
 	return o
 }
 
-func (o GetListenerDefaultActionAuthenticateOidcOutput) AuthenticationRequestExtraParams() pulumi.MapOutput {
-	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) map[string]interface{} {
+func (o GetListenerDefaultActionAuthenticateOidcOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetListenerDefaultActionAuthenticateOidc) map[string]string {
 		return v.AuthenticationRequestExtraParams
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o GetListenerDefaultActionAuthenticateOidcOutput) AuthorizationEndpoint() pulumi.StringOutput {

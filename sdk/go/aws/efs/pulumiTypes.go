@@ -15,7 +15,7 @@ type AccessPointPosixUser struct {
 	Gid int `pulumi:"gid"`
 	// Secondary POSIX group IDs used for all file system operations using this access point.
 	SecondaryGids []int `pulumi:"secondaryGids"`
-	// he POSIX user ID used for all file system operations using this access point.
+	// The POSIX user ID used for all file system operations using this access point.
 	Uid int `pulumi:"uid"`
 }
 
@@ -36,7 +36,7 @@ type AccessPointPosixUserArgs struct {
 	Gid pulumi.IntInput `pulumi:"gid"`
 	// Secondary POSIX group IDs used for all file system operations using this access point.
 	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
-	// he POSIX user ID used for all file system operations using this access point.
+	// The POSIX user ID used for all file system operations using this access point.
 	Uid pulumi.IntInput `pulumi:"uid"`
 }
 
@@ -128,7 +128,7 @@ func (o AccessPointPosixUserOutput) SecondaryGids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v AccessPointPosixUser) []int { return v.SecondaryGids }).(pulumi.IntArrayOutput)
 }
 
-// he POSIX user ID used for all file system operations using this access point.
+// The POSIX user ID used for all file system operations using this access point.
 func (o AccessPointPosixUserOutput) Uid() pulumi.IntOutput {
 	return o.ApplyT(func(v AccessPointPosixUser) int { return v.Uid }).(pulumi.IntOutput)
 }
@@ -171,7 +171,7 @@ func (o AccessPointPosixUserPtrOutput) SecondaryGids() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// he POSIX user ID used for all file system operations using this access point.
+// The POSIX user ID used for all file system operations using this access point.
 func (o AccessPointPosixUserPtrOutput) Uid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccessPointPosixUser) *int {
 		if v == nil {

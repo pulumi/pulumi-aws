@@ -64,7 +64,7 @@ type Job struct {
 	// The list of connections used for this job.
 	Connections pulumi.StringArrayOutput `pulumi:"connections"`
 	// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
-	DefaultArguments pulumi.MapOutput `pulumi:"defaultArguments"`
+	DefaultArguments pulumi.StringMapOutput `pulumi:"defaultArguments"`
 	// Description of the job.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Execution property of the job. Defined below.
@@ -86,7 +86,7 @@ type Job struct {
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
@@ -138,7 +138,7 @@ type jobState struct {
 	// The list of connections used for this job.
 	Connections []string `pulumi:"connections"`
 	// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
-	DefaultArguments map[string]interface{} `pulumi:"defaultArguments"`
+	DefaultArguments map[string]string `pulumi:"defaultArguments"`
 	// Description of the job.
 	Description *string `pulumi:"description"`
 	// Execution property of the job. Defined below.
@@ -160,7 +160,7 @@ type jobState struct {
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout *int `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
@@ -179,7 +179,7 @@ type JobState struct {
 	// The list of connections used for this job.
 	Connections pulumi.StringArrayInput
 	// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
-	DefaultArguments pulumi.MapInput
+	DefaultArguments pulumi.StringMapInput
 	// Description of the job.
 	Description pulumi.StringPtrInput
 	// Execution property of the job. Defined below.
@@ -201,7 +201,7 @@ type JobState struct {
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrInput
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
@@ -222,7 +222,7 @@ type jobArgs struct {
 	// The list of connections used for this job.
 	Connections []string `pulumi:"connections"`
 	// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
-	DefaultArguments map[string]interface{} `pulumi:"defaultArguments"`
+	DefaultArguments map[string]string `pulumi:"defaultArguments"`
 	// Description of the job.
 	Description *string `pulumi:"description"`
 	// Execution property of the job. Defined below.
@@ -244,7 +244,7 @@ type jobArgs struct {
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout *int `pulumi:"timeout"`
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
@@ -262,7 +262,7 @@ type JobArgs struct {
 	// The list of connections used for this job.
 	Connections pulumi.StringArrayInput
 	// The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
-	DefaultArguments pulumi.MapInput
+	DefaultArguments pulumi.StringMapInput
 	// Description of the job.
 	Description pulumi.StringPtrInput
 	// Execution property of the job. Defined below.
@@ -284,7 +284,7 @@ type JobArgs struct {
 	// The name of the Security Configuration to be associated with the job.
 	SecurityConfiguration pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The job timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrInput
 	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.

@@ -56,8 +56,8 @@ type EfsLocation struct {
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags pulumi.MapOutput    `pulumi:"tags"`
-	Uri  pulumi.StringOutput `pulumi:"uri"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Uri  pulumi.StringOutput    `pulumi:"uri"`
 }
 
 // NewEfsLocation registers a new resource with the given unique name, arguments, and options.
@@ -103,8 +103,8 @@ type efsLocationState struct {
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags map[string]interface{} `pulumi:"tags"`
-	Uri  *string                `pulumi:"uri"`
+	Tags map[string]string `pulumi:"tags"`
+	Uri  *string           `pulumi:"uri"`
 }
 
 type EfsLocationState struct {
@@ -117,7 +117,7 @@ type EfsLocationState struct {
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	Uri  pulumi.StringPtrInput
 }
 
@@ -133,7 +133,7 @@ type efsLocationArgs struct {
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EfsLocation resource.
@@ -145,7 +145,7 @@ type EfsLocationArgs struct {
 	// Subdirectory to perform actions as source or destination. Default `/`.
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (EfsLocationArgs) ElementType() reflect.Type {

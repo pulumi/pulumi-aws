@@ -76,7 +76,7 @@ export class Budget extends pulumi.CustomResource {
     /**
      * Map of CostFilters key/value pairs to apply to the budget.
      */
-    public readonly costFilters!: pulumi.Output<{[key: string]: any}>;
+    public readonly costFilters!: pulumi.Output<{[key: string]: string}>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
      */
@@ -194,7 +194,7 @@ export interface BudgetState {
     /**
      * Map of CostFilters key/value pairs to apply to the budget.
      */
-    readonly costFilters?: pulumi.Input<{[key: string]: any}>;
+    readonly costFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
      */
@@ -248,7 +248,7 @@ export interface BudgetArgs {
     /**
      * Map of CostFilters key/value pairs to apply to the budget.
      */
-    readonly costFilters?: pulumi.Input<{[key: string]: any}>;
+    readonly costFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
      */

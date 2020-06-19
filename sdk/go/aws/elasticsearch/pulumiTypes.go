@@ -21,6 +21,12 @@ type DomainClusterConfig struct {
 	InstanceCount *int `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
 	InstanceType *string `pulumi:"instanceType"`
+	// The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
+	WarmCount *int `pulumi:"warmCount"`
+	// Indicates whether to enable warm storage.
+	WarmEnabled *bool `pulumi:"warmEnabled"`
+	// The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+	WarmType *string `pulumi:"warmType"`
 	// Configuration block containing zone awareness settings. Documented below.
 	ZoneAwarenessConfig *DomainClusterConfigZoneAwarenessConfig `pulumi:"zoneAwarenessConfig"`
 	// Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
@@ -50,6 +56,12 @@ type DomainClusterConfigArgs struct {
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
+	WarmCount pulumi.IntPtrInput `pulumi:"warmCount"`
+	// Indicates whether to enable warm storage.
+	WarmEnabled pulumi.BoolPtrInput `pulumi:"warmEnabled"`
+	// The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+	WarmType pulumi.StringPtrInput `pulumi:"warmType"`
 	// Configuration block containing zone awareness settings. Documented below.
 	ZoneAwarenessConfig DomainClusterConfigZoneAwarenessConfigPtrInput `pulumi:"zoneAwarenessConfig"`
 	// Indicates whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
@@ -159,6 +171,21 @@ func (o DomainClusterConfigOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
+func (o DomainClusterConfigOutput) WarmCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfig) *int { return v.WarmCount }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether to enable warm storage.
+func (o DomainClusterConfigOutput) WarmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.WarmEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+func (o DomainClusterConfigOutput) WarmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfig) *string { return v.WarmType }).(pulumi.StringPtrOutput)
+}
+
 // Configuration block containing zone awareness settings. Documented below.
 func (o DomainClusterConfigOutput) ZoneAwarenessConfig() DomainClusterConfigZoneAwarenessConfigPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *DomainClusterConfigZoneAwarenessConfig { return v.ZoneAwarenessConfig }).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
@@ -234,6 +261,36 @@ func (o DomainClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
+func (o DomainClusterConfigPtrOutput) WarmCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WarmCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether to enable warm storage.
+func (o DomainClusterConfigPtrOutput) WarmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.WarmEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+func (o DomainClusterConfigPtrOutput) WarmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WarmType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1661,6 +1718,12 @@ type GetDomainClusterConfig struct {
 	InstanceCount int `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
 	InstanceType string `pulumi:"instanceType"`
+	// The number of warm nodes in the cluster.
+	WarmCount int `pulumi:"warmCount"`
+	// Indicates warm storage is enabled.
+	WarmEnabled *bool `pulumi:"warmEnabled"`
+	// The instance type for the Elasticsearch cluster's warm nodes.
+	WarmType string `pulumi:"warmType"`
 	// Configuration block containing zone awareness settings.
 	ZoneAwarenessConfigs []GetDomainClusterConfigZoneAwarenessConfig `pulumi:"zoneAwarenessConfigs"`
 	// Indicates whether zone awareness is enabled.
@@ -1690,6 +1753,12 @@ type GetDomainClusterConfigArgs struct {
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
 	// Instance type of data nodes in the cluster.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The number of warm nodes in the cluster.
+	WarmCount pulumi.IntInput `pulumi:"warmCount"`
+	// Indicates warm storage is enabled.
+	WarmEnabled pulumi.BoolPtrInput `pulumi:"warmEnabled"`
+	// The instance type for the Elasticsearch cluster's warm nodes.
+	WarmType pulumi.StringInput `pulumi:"warmType"`
 	// Configuration block containing zone awareness settings.
 	ZoneAwarenessConfigs GetDomainClusterConfigZoneAwarenessConfigArrayInput `pulumi:"zoneAwarenessConfigs"`
 	// Indicates whether zone awareness is enabled.
@@ -1771,6 +1840,21 @@ func (o GetDomainClusterConfigOutput) InstanceCount() pulumi.IntOutput {
 // Instance type of data nodes in the cluster.
 func (o GetDomainClusterConfigOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The number of warm nodes in the cluster.
+func (o GetDomainClusterConfigOutput) WarmCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) int { return v.WarmCount }).(pulumi.IntOutput)
+}
+
+// Indicates warm storage is enabled.
+func (o GetDomainClusterConfigOutput) WarmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) *bool { return v.WarmEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The instance type for the Elasticsearch cluster's warm nodes.
+func (o GetDomainClusterConfigOutput) WarmType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) string { return v.WarmType }).(pulumi.StringOutput)
 }
 
 // Configuration block containing zone awareness settings.

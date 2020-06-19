@@ -3552,7 +3552,7 @@ func (o SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) S3Enc
 
 type TriggerAction struct {
 	// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-	Arguments map[string]interface{} `pulumi:"arguments"`
+	Arguments map[string]string `pulumi:"arguments"`
 	// The name of the crawler to be executed. Conflicts with `jobName`.
 	CrawlerName *string `pulumi:"crawlerName"`
 	// The name of a job to be executed. Conflicts with `crawlerName`.
@@ -3575,7 +3575,7 @@ type TriggerActionInput interface {
 
 type TriggerActionArgs struct {
 	// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-	Arguments pulumi.MapInput `pulumi:"arguments"`
+	Arguments pulumi.StringMapInput `pulumi:"arguments"`
 	// The name of the crawler to be executed. Conflicts with `jobName`.
 	CrawlerName pulumi.StringPtrInput `pulumi:"crawlerName"`
 	// The name of a job to be executed. Conflicts with `crawlerName`.
@@ -3637,8 +3637,8 @@ func (o TriggerActionOutput) ToTriggerActionOutputWithContext(ctx context.Contex
 }
 
 // Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-func (o TriggerActionOutput) Arguments() pulumi.MapOutput {
-	return o.ApplyT(func(v TriggerAction) map[string]interface{} { return v.Arguments }).(pulumi.MapOutput)
+func (o TriggerActionOutput) Arguments() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TriggerAction) map[string]string { return v.Arguments }).(pulumi.StringMapOutput)
 }
 
 // The name of the crawler to be executed. Conflicts with `jobName`.

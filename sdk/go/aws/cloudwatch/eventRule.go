@@ -33,7 +33,7 @@ type EventRule struct {
 	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewEventRule registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +84,7 @@ type eventRuleState struct {
 	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type EventRuleState struct {
@@ -108,7 +108,7 @@ type EventRuleState struct {
 	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
 	ScheduleExpression pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (EventRuleState) ElementType() reflect.Type {
@@ -134,7 +134,7 @@ type eventRuleArgs struct {
 	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventRule resource.
@@ -157,7 +157,7 @@ type EventRuleArgs struct {
 	// For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`.
 	ScheduleExpression pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (EventRuleArgs) ElementType() reflect.Type {

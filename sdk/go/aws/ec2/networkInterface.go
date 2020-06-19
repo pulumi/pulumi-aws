@@ -35,7 +35,7 @@ type NetworkInterface struct {
 	// Subnet ID to create the ENI in.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewNetworkInterface registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +90,7 @@ type networkInterfaceState struct {
 	// Subnet ID to create the ENI in.
 	SubnetId *string `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type NetworkInterfaceState struct {
@@ -115,7 +115,7 @@ type NetworkInterfaceState struct {
 	// Subnet ID to create the ENI in.
 	SubnetId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (NetworkInterfaceState) ElementType() reflect.Type {
@@ -139,7 +139,7 @@ type networkInterfaceArgs struct {
 	// Subnet ID to create the ENI in.
 	SubnetId string `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInterface resource.
@@ -160,7 +160,7 @@ type NetworkInterfaceArgs struct {
 	// Subnet ID to create the ENI in.
 	SubnetId pulumi.StringInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (NetworkInterfaceArgs) ElementType() reflect.Type {

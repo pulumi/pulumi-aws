@@ -72,7 +72,7 @@ export interface GetSecurityGroupArgs {
      * A map of tags, each pair of which must exactly match
      * a pair on the desired security group.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The id of the VPC that the desired security group belongs to.
      */
@@ -94,6 +94,6 @@ export interface GetSecurityGroupResult {
     readonly filters?: outputs.ec2.GetSecurityGroupFilter[];
     readonly id: string;
     readonly name: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }

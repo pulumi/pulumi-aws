@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private LaunchTemplateTagSpecification(
             string? resourceType,
 
-            ImmutableDictionary<string, object>? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             ResourceType = resourceType;
             Tags = tags;

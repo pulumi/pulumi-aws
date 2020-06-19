@@ -47,7 +47,7 @@ export interface GetDomainArgs {
     /**
      * The tags assigned to the domain.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -61,7 +61,7 @@ export interface GetDomainResult {
     /**
      * Key-value string pairs to specify advanced configuration options.
      */
-    readonly advancedOptions: {[key: string]: any};
+    readonly advancedOptions: {[key: string]: string};
     /**
      * The Amazon Resource Name (ARN) of the domain.
      */
@@ -128,7 +128,7 @@ export interface GetDomainResult {
     /**
      * The tags assigned to the domain.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * VPC Options for private Elasticsearch domains.
      */

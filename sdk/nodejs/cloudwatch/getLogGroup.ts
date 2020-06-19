@@ -47,7 +47,7 @@ export interface GetLogGroupArgs {
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -78,5 +78,5 @@ export interface GetLogGroupResult {
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

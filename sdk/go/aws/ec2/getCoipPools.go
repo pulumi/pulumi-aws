@@ -23,7 +23,7 @@ type GetCoipPoolsArgs struct {
 	Filters []GetCoipPoolsFilter `pulumi:"filters"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired aws_ec2_coip_pools.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCoipPools.
@@ -32,6 +32,6 @@ type GetCoipPoolsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of COIP Pool Identifiers
-	PoolIds []string               `pulumi:"poolIds"`
-	Tags    map[string]interface{} `pulumi:"tags"`
+	PoolIds []string          `pulumi:"poolIds"`
+	Tags    map[string]string `pulumi:"tags"`
 }

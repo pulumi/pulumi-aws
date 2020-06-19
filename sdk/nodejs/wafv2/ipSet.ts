@@ -86,7 +86,7 @@ export class IpSet extends pulumi.CustomResource {
     /**
      * An array of key:value pairs to associate with the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a IpSet resource with the given unique name, arguments, and options.
@@ -168,7 +168,7 @@ export interface IpSetState {
     /**
      * An array of key:value pairs to associate with the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -198,5 +198,5 @@ export interface IpSetArgs {
     /**
      * An array of key:value pairs to associate with the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

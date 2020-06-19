@@ -54,7 +54,7 @@ type VpcPeeringConnection struct {
 	// the peering connection (a maximum of one).
 	Requester VpcPeeringConnectionRequesterOutput `pulumi:"requester"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of the requester VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -114,7 +114,7 @@ type vpcPeeringConnectionState struct {
 	// the peering connection (a maximum of one).
 	Requester *VpcPeeringConnectionRequester `pulumi:"requester"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the requester VPC.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -141,7 +141,7 @@ type VpcPeeringConnectionState struct {
 	// the peering connection (a maximum of one).
 	Requester VpcPeeringConnectionRequesterPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The ID of the requester VPC.
 	VpcId pulumi.StringPtrInput
 }
@@ -170,7 +170,7 @@ type vpcPeeringConnectionArgs struct {
 	// the peering connection (a maximum of one).
 	Requester *VpcPeeringConnectionRequester `pulumi:"requester"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the requester VPC.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -196,7 +196,7 @@ type VpcPeeringConnectionArgs struct {
 	// the peering connection (a maximum of one).
 	Requester VpcPeeringConnectionRequesterPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The ID of the requester VPC.
 	VpcId pulumi.StringInput
 }

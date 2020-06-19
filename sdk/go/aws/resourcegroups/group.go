@@ -23,7 +23,7 @@ type Group struct {
 	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery GroupResourceQueryOutput `pulumi:"resourceQuery"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ type groupState struct {
 	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery *GroupResourceQuery `pulumi:"resourceQuery"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type GroupState struct {
@@ -79,7 +79,7 @@ type GroupState struct {
 	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery GroupResourceQueryPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -94,7 +94,7 @@ type groupArgs struct {
 	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery GroupResourceQuery `pulumi:"resourceQuery"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -106,7 +106,7 @@ type GroupArgs struct {
 	// A `resourceQuery` block. Resource queries are documented below.
 	ResourceQuery GroupResourceQueryInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {

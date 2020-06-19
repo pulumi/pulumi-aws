@@ -47,7 +47,7 @@ export interface GetAccessPointArgs {
     /**
      * Key-value mapping of resource tags.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -80,5 +80,5 @@ export interface GetAccessPointResult {
     /**
      * Key-value mapping of resource tags.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }

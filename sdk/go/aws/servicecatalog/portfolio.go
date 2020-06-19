@@ -48,7 +48,7 @@ type Portfolio struct {
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringPtrOutput `pulumi:"providerName"`
 	// Tags to apply to the connection.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewPortfolio registers a new resource with the given unique name, arguments, and options.
@@ -88,7 +88,7 @@ type portfolioState struct {
 	// Name of the person or organization who owns the portfolio.
 	ProviderName *string `pulumi:"providerName"`
 	// Tags to apply to the connection.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type PortfolioState struct {
@@ -101,7 +101,7 @@ type PortfolioState struct {
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringPtrInput
 	// Tags to apply to the connection.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (PortfolioState) ElementType() reflect.Type {
@@ -116,7 +116,7 @@ type portfolioArgs struct {
 	// Name of the person or organization who owns the portfolio.
 	ProviderName *string `pulumi:"providerName"`
 	// Tags to apply to the connection.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Portfolio resource.
@@ -128,7 +128,7 @@ type PortfolioArgs struct {
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringPtrInput
 	// Tags to apply to the connection.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (PortfolioArgs) ElementType() reflect.Type {

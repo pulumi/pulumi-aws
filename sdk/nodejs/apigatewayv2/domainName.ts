@@ -78,7 +78,7 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * A map of tags to assign to the domain name.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -145,7 +145,7 @@ export interface DomainNameState {
     /**
      * A map of tags to assign to the domain name.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -163,5 +163,5 @@ export interface DomainNameArgs {
     /**
      * A map of tags to assign to the domain name.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

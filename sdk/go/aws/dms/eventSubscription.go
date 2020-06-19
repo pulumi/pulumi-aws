@@ -27,7 +27,7 @@ type EventSubscription struct {
 	SourceIds pulumi.StringArrayOutput `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
-	Tags       pulumi.MapOutput       `pulumi:"tags"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewEventSubscription registers a new resource with the given unique name, arguments, and options.
@@ -76,8 +76,8 @@ type eventSubscriptionState struct {
 	// Ids of sources to listen to.
 	SourceIds []string `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType *string                `pulumi:"sourceType"`
-	Tags       map[string]interface{} `pulumi:"tags"`
+	SourceType *string           `pulumi:"sourceType"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 type EventSubscriptionState struct {
@@ -94,7 +94,7 @@ type EventSubscriptionState struct {
 	SourceIds pulumi.StringArrayInput
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringPtrInput
-	Tags       pulumi.MapInput
+	Tags       pulumi.StringMapInput
 }
 
 func (EventSubscriptionState) ElementType() reflect.Type {
@@ -113,8 +113,8 @@ type eventSubscriptionArgs struct {
 	// Ids of sources to listen to.
 	SourceIds []string `pulumi:"sourceIds"`
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
-	SourceType *string                `pulumi:"sourceType"`
-	Tags       map[string]interface{} `pulumi:"tags"`
+	SourceType *string           `pulumi:"sourceType"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventSubscription resource.
@@ -131,7 +131,7 @@ type EventSubscriptionArgs struct {
 	SourceIds pulumi.StringArrayInput
 	// Type of source for events. Valid values: `replication-instance` or `replication-task`
 	SourceType pulumi.StringPtrInput
-	Tags       pulumi.MapInput
+	Tags       pulumi.StringMapInput
 }
 
 func (EventSubscriptionArgs) ElementType() reflect.Type {

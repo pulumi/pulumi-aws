@@ -151,7 +151,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * A map of tags to assign to the User Pool.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features.
      */
@@ -332,7 +332,7 @@ export interface UserPoolState {
     /**
      * A map of tags to assign to the User Pool.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features.
      */
@@ -422,7 +422,7 @@ export interface UserPoolArgs {
     /**
      * A map of tags to assign to the User Pool.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features.
      */

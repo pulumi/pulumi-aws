@@ -72,7 +72,7 @@ type RateBasedRule struct {
 	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
 	RateLimit pulumi.IntOutput `pulumi:"rateLimit"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewRateBasedRule registers a new resource with the given unique name, arguments, and options.
@@ -125,7 +125,7 @@ type rateBasedRuleState struct {
 	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
 	RateLimit *int `pulumi:"rateLimit"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type RateBasedRuleState struct {
@@ -142,7 +142,7 @@ type RateBasedRuleState struct {
 	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
 	RateLimit pulumi.IntPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (RateBasedRuleState) ElementType() reflect.Type {
@@ -161,7 +161,7 @@ type rateBasedRuleArgs struct {
 	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
 	RateLimit int `pulumi:"rateLimit"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RateBasedRule resource.
@@ -177,7 +177,7 @@ type RateBasedRuleArgs struct {
 	// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
 	RateLimit pulumi.IntInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (RateBasedRuleArgs) ElementType() reflect.Type {

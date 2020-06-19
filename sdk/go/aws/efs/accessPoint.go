@@ -51,7 +51,7 @@ type AccessPoint struct {
 	// Specifies the directory on the Amazon EFS file system that the access point provides access to. See Root Directory below.
 	RootDirectory AccessPointRootDirectoryOutput `pulumi:"rootDirectory"`
 	// Key-value mapping of resource tags.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAccessPoint registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +97,7 @@ type accessPointState struct {
 	// Specifies the directory on the Amazon EFS file system that the access point provides access to. See Root Directory below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
 	// Key-value mapping of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AccessPointState struct {
@@ -113,7 +113,7 @@ type AccessPointState struct {
 	// Specifies the directory on the Amazon EFS file system that the access point provides access to. See Root Directory below.
 	RootDirectory AccessPointRootDirectoryPtrInput
 	// Key-value mapping of resource tags.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AccessPointState) ElementType() reflect.Type {
@@ -128,7 +128,7 @@ type accessPointArgs struct {
 	// Specifies the directory on the Amazon EFS file system that the access point provides access to. See Root Directory below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
 	// Key-value mapping of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessPoint resource.
@@ -140,7 +140,7 @@ type AccessPointArgs struct {
 	// Specifies the directory on the Amazon EFS file system that the access point provides access to. See Root Directory below.
 	RootDirectory AccessPointRootDirectoryPtrInput
 	// Key-value mapping of resource tags.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AccessPointArgs) ElementType() reflect.Type {

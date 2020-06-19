@@ -63,7 +63,7 @@ type LookupVpcEndpointArgs struct {
 	State *string `pulumi:"state"`
 	// A map of tags, each pair of which must exactly match
 	// a pair on the specific VPC Endpoint to retrieve.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the VPC in which the specific VPC Endpoint is used.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -95,8 +95,8 @@ type LookupVpcEndpointResult struct {
 	ServiceName      string   `pulumi:"serviceName"`
 	State            string   `pulumi:"state"`
 	// One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
-	SubnetIds []string               `pulumi:"subnetIds"`
-	Tags      map[string]interface{} `pulumi:"tags"`
+	SubnetIds []string          `pulumi:"subnetIds"`
+	Tags      map[string]string `pulumi:"tags"`
 	// The VPC Endpoint type, `Gateway` or `Interface`.
 	VpcEndpointType string `pulumi:"vpcEndpointType"`
 	VpcId           string `pulumi:"vpcId"`

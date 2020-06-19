@@ -46,7 +46,7 @@ type LookupRepositoryArgs struct {
 	// The name of the ECR Repository.
 	Name string `pulumi:"name"`
 	// A map of tags assigned to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getRepository.
@@ -61,5 +61,5 @@ type LookupRepositoryResult struct {
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl string `pulumi:"repositoryUrl"`
 	// A map of tags assigned to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

@@ -105,7 +105,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
     /**
      * Key-value map of tags for the Elastic Beanstalk Application Version.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ApplicationVersion resource with the given unique name, arguments, and options.
@@ -194,7 +194,7 @@ export interface ApplicationVersionState {
     /**
      * Key-value map of tags for the Elastic Beanstalk Application Version.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -229,5 +229,5 @@ export interface ApplicationVersionArgs {
     /**
      * Key-value map of tags for the Elastic Beanstalk Application Version.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

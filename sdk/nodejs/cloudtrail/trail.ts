@@ -219,7 +219,7 @@ export class Trail extends pulumi.CustomResource {
     /**
      * A map of tags to assign to the trail
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Trail resource with the given unique name, arguments, and options.
@@ -357,7 +357,7 @@ export interface TrailState {
     /**
      * A map of tags to assign to the trail
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -427,5 +427,5 @@ export interface TrailArgs {
     /**
      * A map of tags to assign to the trail
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

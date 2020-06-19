@@ -20,13 +20,13 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Set of object tags for filtering.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private AnalyticsConfigurationFilter(
             string? prefix,
 
-            ImmutableDictionary<string, object>? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Prefix = prefix;
             Tags = tags;

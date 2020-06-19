@@ -13,7 +13,13 @@ class GetVpcDhcpOptionsResult:
     """
     A collection of values returned by getVpcDhcpOptions.
     """
-    def __init__(__self__, dhcp_options_id=None, domain_name=None, domain_name_servers=None, filters=None, id=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, owner_id=None, tags=None):
+    def __init__(__self__, arn=None, dhcp_options_id=None, domain_name=None, domain_name_servers=None, filters=None, id=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, owner_id=None, tags=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        __self__.arn = arn
+        """
+        The ARN of the DHCP Options Set.
+        """
         if dhcp_options_id and not isinstance(dhcp_options_id, str):
             raise TypeError("Expected argument 'dhcp_options_id' to be a str")
         __self__.dhcp_options_id = dhcp_options_id
@@ -77,6 +83,7 @@ class AwaitableGetVpcDhcpOptionsResult(GetVpcDhcpOptionsResult):
         if False:
             yield self
         return GetVpcDhcpOptionsResult(
+            arn=self.arn,
             dhcp_options_id=self.dhcp_options_id,
             domain_name=self.domain_name,
             domain_name_servers=self.domain_name_servers,
@@ -144,6 +151,7 @@ def get_vpc_dhcp_options(dhcp_options_id=None,filters=None,tags=None,opts=None):
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions', __args__, opts=opts).value
 
     return AwaitableGetVpcDhcpOptionsResult(
+        arn=__ret__.get('arn'),
         dhcp_options_id=__ret__.get('dhcpOptionsId'),
         domain_name=__ret__.get('domainName'),
         domain_name_servers=__ret__.get('domainNameServers'),

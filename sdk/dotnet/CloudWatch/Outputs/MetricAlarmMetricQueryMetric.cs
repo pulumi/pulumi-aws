@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// <summary>
         /// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Dimensions;
+        public readonly ImmutableDictionary<string, string>? Dimensions;
         /// <summary>
         /// The name for this metric.
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
 
         [OutputConstructor]
         private MetricAlarmMetricQueryMetric(
-            ImmutableDictionary<string, object>? dimensions,
+            ImmutableDictionary<string, string>? dimensions,
 
             string metricName,
 

@@ -59,7 +59,7 @@ type App struct {
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime AppQuietTimePtrOutput `pulumi:"quietTime"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewApp registers a new resource with the given unique name, arguments, and options.
@@ -105,7 +105,7 @@ type appState struct {
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime *AppQuietTime `pulumi:"quietTime"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AppState struct {
@@ -124,7 +124,7 @@ type AppState struct {
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime AppQuietTimePtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AppState) ElementType() reflect.Type {
@@ -143,7 +143,7 @@ type appArgs struct {
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime *AppQuietTime `pulumi:"quietTime"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a App resource.
@@ -159,7 +159,7 @@ type AppArgs struct {
 	// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
 	QuietTime AppQuietTimePtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AppArgs) ElementType() reflect.Type {

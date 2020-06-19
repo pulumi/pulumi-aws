@@ -10,6 +10,123 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type GetEbsVolumesFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
+	// For example, if matching against the `size` filter, use:
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// EBS Volume IDs will be selected if any one of the given values match.
+	Values []string `pulumi:"values"`
+}
+
+// GetEbsVolumesFilterInput is an input type that accepts GetEbsVolumesFilterArgs and GetEbsVolumesFilterOutput values.
+// You can construct a concrete instance of `GetEbsVolumesFilterInput` via:
+//
+// 		 GetEbsVolumesFilterArgs{...}
+//
+type GetEbsVolumesFilterInput interface {
+	pulumi.Input
+
+	ToGetEbsVolumesFilterOutput() GetEbsVolumesFilterOutput
+	ToGetEbsVolumesFilterOutputWithContext(context.Context) GetEbsVolumesFilterOutput
+}
+
+type GetEbsVolumesFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
+	// For example, if matching against the `size` filter, use:
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// EBS Volume IDs will be selected if any one of the given values match.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetEbsVolumesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEbsVolumesFilter)(nil)).Elem()
+}
+
+func (i GetEbsVolumesFilterArgs) ToGetEbsVolumesFilterOutput() GetEbsVolumesFilterOutput {
+	return i.ToGetEbsVolumesFilterOutputWithContext(context.Background())
+}
+
+func (i GetEbsVolumesFilterArgs) ToGetEbsVolumesFilterOutputWithContext(ctx context.Context) GetEbsVolumesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEbsVolumesFilterOutput)
+}
+
+// GetEbsVolumesFilterArrayInput is an input type that accepts GetEbsVolumesFilterArray and GetEbsVolumesFilterArrayOutput values.
+// You can construct a concrete instance of `GetEbsVolumesFilterArrayInput` via:
+//
+// 		 GetEbsVolumesFilterArray{ GetEbsVolumesFilterArgs{...} }
+//
+type GetEbsVolumesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetEbsVolumesFilterArrayOutput() GetEbsVolumesFilterArrayOutput
+	ToGetEbsVolumesFilterArrayOutputWithContext(context.Context) GetEbsVolumesFilterArrayOutput
+}
+
+type GetEbsVolumesFilterArray []GetEbsVolumesFilterInput
+
+func (GetEbsVolumesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEbsVolumesFilter)(nil)).Elem()
+}
+
+func (i GetEbsVolumesFilterArray) ToGetEbsVolumesFilterArrayOutput() GetEbsVolumesFilterArrayOutput {
+	return i.ToGetEbsVolumesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetEbsVolumesFilterArray) ToGetEbsVolumesFilterArrayOutputWithContext(ctx context.Context) GetEbsVolumesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEbsVolumesFilterArrayOutput)
+}
+
+type GetEbsVolumesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetEbsVolumesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEbsVolumesFilter)(nil)).Elem()
+}
+
+func (o GetEbsVolumesFilterOutput) ToGetEbsVolumesFilterOutput() GetEbsVolumesFilterOutput {
+	return o
+}
+
+func (o GetEbsVolumesFilterOutput) ToGetEbsVolumesFilterOutputWithContext(ctx context.Context) GetEbsVolumesFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
+// For example, if matching against the `size` filter, use:
+func (o GetEbsVolumesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEbsVolumesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// EBS Volume IDs will be selected if any one of the given values match.
+func (o GetEbsVolumesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEbsVolumesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetEbsVolumesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEbsVolumesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEbsVolumesFilter)(nil)).Elem()
+}
+
+func (o GetEbsVolumesFilterArrayOutput) ToGetEbsVolumesFilterArrayOutput() GetEbsVolumesFilterArrayOutput {
+	return o
+}
+
+func (o GetEbsVolumesFilterArrayOutput) ToGetEbsVolumesFilterArrayOutputWithContext(ctx context.Context) GetEbsVolumesFilterArrayOutput {
+	return o
+}
+
+func (o GetEbsVolumesFilterArrayOutput) Index(i pulumi.IntInput) GetEbsVolumesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEbsVolumesFilter {
+		return vs[0].([]GetEbsVolumesFilter)[vs[1].(int)]
+	}).(GetEbsVolumesFilterOutput)
+}
+
 type GetSnapshotFilter struct {
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
@@ -317,6 +434,8 @@ func (o GetVolumeFilterArrayOutput) Index(i pulumi.IntInput) GetVolumeFilterOutp
 }
 
 func init() {
+	pulumi.RegisterOutputType(GetEbsVolumesFilterOutput{})
+	pulumi.RegisterOutputType(GetEbsVolumesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSnapshotFilterOutput{})
 	pulumi.RegisterOutputType(GetSnapshotFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSnapshotIdsFilterOutput{})

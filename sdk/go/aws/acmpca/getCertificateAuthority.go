@@ -53,7 +53,7 @@ type LookupCertificateAuthorityArgs struct {
 	// * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
 	RevocationConfigurations []GetCertificateAuthorityRevocationConfiguration `pulumi:"revocationConfigurations"`
 	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCertificateAuthority.
@@ -83,7 +83,7 @@ type LookupCertificateAuthorityResult struct {
 	// Status of the certificate authority.
 	Status string `pulumi:"status"`
 	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the certificate authority.
 	Type string `pulumi:"type"`
 }

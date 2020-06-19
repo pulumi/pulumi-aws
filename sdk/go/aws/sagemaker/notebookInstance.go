@@ -62,7 +62,7 @@ type NotebookInstance struct {
 	// The VPC subnet ID.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewNotebookInstance registers a new resource with the given unique name, arguments, and options.
@@ -118,7 +118,7 @@ type notebookInstanceState struct {
 	// The VPC subnet ID.
 	SubnetId *string `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type NotebookInstanceState struct {
@@ -141,7 +141,7 @@ type NotebookInstanceState struct {
 	// The VPC subnet ID.
 	SubnetId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (NotebookInstanceState) ElementType() reflect.Type {
@@ -166,7 +166,7 @@ type notebookInstanceArgs struct {
 	// The VPC subnet ID.
 	SubnetId *string `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NotebookInstance resource.
@@ -188,7 +188,7 @@ type NotebookInstanceArgs struct {
 	// The VPC subnet ID.
 	SubnetId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (NotebookInstanceArgs) ElementType() reflect.Type {

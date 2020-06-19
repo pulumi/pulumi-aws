@@ -27,7 +27,7 @@ type Vault struct {
 	// The notifications for the Vault. Fields documented below.
 	Notifications VaultNotificationArrayOutput `pulumi:"notifications"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewVault registers a new resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ type vaultState struct {
 	// The notifications for the Vault. Fields documented below.
 	Notifications []VaultNotification `pulumi:"notifications"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type VaultState struct {
@@ -86,7 +86,7 @@ type VaultState struct {
 	// The notifications for the Vault. Fields documented below.
 	Notifications VaultNotificationArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VaultState) ElementType() reflect.Type {
@@ -102,7 +102,7 @@ type vaultArgs struct {
 	// The notifications for the Vault. Fields documented below.
 	Notifications []VaultNotification `pulumi:"notifications"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Vault resource.
@@ -115,7 +115,7 @@ type VaultArgs struct {
 	// The notifications for the Vault. Fields documented below.
 	Notifications VaultNotificationArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VaultArgs) ElementType() reflect.Type {

@@ -14,6 +14,10 @@ class Detector(pulumi.CustomResource):
     """
     The AWS account ID of the GuardDuty detector
     """
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of the GuardDuty detector
+    """
     enable: pulumi.Output[bool]
     """
     Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
@@ -22,7 +26,11 @@ class Detector(pulumi.CustomResource):
     """
     Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty master account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty master accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and master accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
     """
-    def __init__(__self__, resource_name, opts=None, enable=None, finding_publishing_frequency=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value map of resource tags.
+    """
+    def __init__(__self__, resource_name, opts=None, enable=None, finding_publishing_frequency=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to manage a GuardDuty detector.
 
@@ -43,6 +51,7 @@ class Detector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         :param pulumi.Input[str] finding_publishing_frequency: Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty master account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty master accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and master accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,7 +72,9 @@ class Detector(pulumi.CustomResource):
 
             __props__['enable'] = enable
             __props__['finding_publishing_frequency'] = finding_publishing_frequency
+            __props__['tags'] = tags
             __props__['account_id'] = None
+            __props__['arn'] = None
         super(Detector, __self__).__init__(
             'aws:guardduty/detector:Detector',
             resource_name,
@@ -71,7 +82,7 @@ class Detector(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_id=None, enable=None, finding_publishing_frequency=None):
+    def get(resource_name, id, opts=None, account_id=None, arn=None, enable=None, finding_publishing_frequency=None, tags=None):
         """
         Get an existing Detector resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -80,16 +91,20 @@ class Detector(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The AWS account ID of the GuardDuty detector
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the GuardDuty detector
         :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         :param pulumi.Input[str] finding_publishing_frequency: Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty master account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty master accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and master accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
         __props__["account_id"] = account_id
+        __props__["arn"] = arn
         __props__["enable"] = enable
         __props__["finding_publishing_frequency"] = finding_publishing_frequency
+        __props__["tags"] = tags
         return Detector(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

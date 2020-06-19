@@ -56,7 +56,7 @@ type Task struct {
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn pulumi.StringOutput `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewTask registers a new resource with the given unique name, arguments, and options.
@@ -106,7 +106,7 @@ type taskState struct {
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn *string `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type TaskState struct {
@@ -123,7 +123,7 @@ type TaskState struct {
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Task.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (TaskState) ElementType() reflect.Type {
@@ -142,7 +142,7 @@ type taskArgs struct {
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Task resource.
@@ -158,7 +158,7 @@ type TaskArgs struct {
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn pulumi.StringInput
 	// Key-value pairs of resource tags to assign to the DataSync Task.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (TaskArgs) ElementType() reflect.Type {

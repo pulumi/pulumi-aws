@@ -17,13 +17,13 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetLaunchTemplateTagSpecificationResult(
             string resourceType,
 
-            ImmutableDictionary<string, object> tags)
+            ImmutableDictionary<string, string> tags)
         {
             ResourceType = resourceType;
             Tags = tags;

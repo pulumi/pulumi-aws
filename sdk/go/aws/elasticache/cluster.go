@@ -180,7 +180,7 @@ type Cluster struct {
 	// for the cache cluster.
 	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
 	// A map of tags to assign to the resource
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -289,7 +289,7 @@ type clusterState struct {
 	// for the cache cluster.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// A map of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ClusterState struct {
@@ -371,7 +371,7 @@ type ClusterState struct {
 	// for the cache cluster.
 	SubnetGroupName pulumi.StringPtrInput
 	// A map of tags to assign to the resource
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -449,7 +449,7 @@ type clusterArgs struct {
 	// for the cache cluster.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// A map of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -524,7 +524,7 @@ type ClusterArgs struct {
 	// for the cache cluster.
 	SubnetGroupName pulumi.StringPtrInput
 	// A map of tags to assign to the resource
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

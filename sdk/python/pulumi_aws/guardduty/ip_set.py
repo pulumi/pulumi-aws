@@ -14,6 +14,10 @@ class IPSet(pulumi.CustomResource):
     """
     Specifies whether GuardDuty is to start using the uploaded IPSet.
     """
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of the GuardDuty IPSet.
+    """
     detector_id: pulumi.Output[str]
     """
     The detector ID of the GuardDuty.
@@ -30,7 +34,11 @@ class IPSet(pulumi.CustomResource):
     """
     The friendly name to identify the IPSet.
     """
-    def __init__(__self__, resource_name, opts=None, activate=None, detector_id=None, format=None, location=None, name=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    Key-value map of resource tags.
+    """
+    def __init__(__self__, resource_name, opts=None, activate=None, detector_id=None, format=None, location=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a resource to manage a GuardDuty IPSet.
 
@@ -67,6 +75,7 @@ class IPSet(pulumi.CustomResource):
         :param pulumi.Input[str] format: The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
         :param pulumi.Input[str] location: The URI of the file that contains the IPSet.
         :param pulumi.Input[str] name: The friendly name to identify the IPSet.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -98,6 +107,8 @@ class IPSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['name'] = name
+            __props__['tags'] = tags
+            __props__['arn'] = None
         super(IPSet, __self__).__init__(
             'aws:guardduty/iPSet:IPSet',
             resource_name,
@@ -105,7 +116,7 @@ class IPSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, activate=None, detector_id=None, format=None, location=None, name=None):
+    def get(resource_name, id, opts=None, activate=None, arn=None, detector_id=None, format=None, location=None, name=None, tags=None):
         """
         Get an existing IPSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -114,20 +125,24 @@ class IPSet(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] activate: Specifies whether GuardDuty is to start using the uploaded IPSet.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the GuardDuty IPSet.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[str] format: The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
         :param pulumi.Input[str] location: The URI of the file that contains the IPSet.
         :param pulumi.Input[str] name: The friendly name to identify the IPSet.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
         __props__["activate"] = activate
+        __props__["arn"] = arn
         __props__["detector_id"] = detector_id
         __props__["format"] = format
         __props__["location"] = location
         __props__["name"] = name
+        __props__["tags"] = tags
         return IPSet(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -47,7 +47,7 @@ export interface GetPlanArgs {
     /**
      * Metadata that you can assign to help organize the plans you create.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -70,7 +70,7 @@ export interface GetPlanResult {
     /**
      * Metadata that you can assign to help organize the plans you create.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */

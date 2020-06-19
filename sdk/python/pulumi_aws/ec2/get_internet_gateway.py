@@ -13,7 +13,13 @@ class GetInternetGatewayResult:
     """
     A collection of values returned by getInternetGateway.
     """
-    def __init__(__self__, attachments=None, filters=None, id=None, internet_gateway_id=None, owner_id=None, tags=None):
+    def __init__(__self__, arn=None, attachments=None, filters=None, id=None, internet_gateway_id=None, owner_id=None, tags=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        __self__.arn = arn
+        """
+        The ARN of the Internet Gateway.
+        """
         if attachments and not isinstance(attachments, list):
             raise TypeError("Expected argument 'attachments' to be a list")
         __self__.attachments = attachments
@@ -44,6 +50,7 @@ class AwaitableGetInternetGatewayResult(GetInternetGatewayResult):
         if False:
             yield self
         return GetInternetGatewayResult(
+            arn=self.arn,
             attachments=self.attachments,
             filters=self.filters,
             id=self.id,
@@ -97,6 +104,7 @@ def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=No
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts).value
 
     return AwaitableGetInternetGatewayResult(
+        arn=__ret__.get('arn'),
         attachments=__ret__.get('attachments'),
         filters=__ret__.get('filters'),
         id=__ret__.get('id'),

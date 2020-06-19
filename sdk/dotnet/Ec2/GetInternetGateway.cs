@@ -75,15 +75,15 @@ namespace Pulumi.Aws.Ec2
         public string? InternetGatewayId { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// A map of tags, each pair of which must exactly match
         /// a pair on the desired Internet Gateway.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -96,6 +96,10 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetInternetGatewayResult
     {
+        /// <summary>
+        /// The ARN of the Internet Gateway.
+        /// </summary>
+        public readonly string Arn;
         public readonly ImmutableArray<Outputs.GetInternetGatewayAttachmentResult> Attachments;
         public readonly ImmutableArray<Outputs.GetInternetGatewayFilterResult> Filters;
         /// <summary>
@@ -107,10 +111,12 @@ namespace Pulumi.Aws.Ec2
         /// The ID of the AWS account that owns the internet gateway.
         /// </summary>
         public readonly string OwnerId;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetInternetGatewayResult(
+            string arn,
+
             ImmutableArray<Outputs.GetInternetGatewayAttachmentResult> attachments,
 
             ImmutableArray<Outputs.GetInternetGatewayFilterResult> filters,
@@ -121,8 +127,9 @@ namespace Pulumi.Aws.Ec2
 
             string ownerId,
 
-            ImmutableDictionary<string, object> tags)
+            ImmutableDictionary<string, string> tags)
         {
+            Arn = arn;
             Attachments = attachments;
             Filters = filters;
             Id = id;

@@ -125,7 +125,7 @@ export class Directory extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the WorkSpaces directory.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The identifier of the security group that is assigned to new WorkSpaces.
      */
@@ -237,7 +237,7 @@ export interface DirectoryState {
     /**
      * A map of tags assigned to the WorkSpaces directory.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The identifier of the security group that is assigned to new WorkSpaces.
      */
@@ -263,5 +263,5 @@ export interface DirectoryArgs {
     /**
      * A map of tags assigned to the WorkSpaces directory.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

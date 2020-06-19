@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
         /// <summary>
         /// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AuthenticationRequestExtraParams;
+        public readonly ImmutableDictionary<string, string>? AuthenticationRequestExtraParams;
         /// <summary>
         /// The authorization endpoint of the IdP.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
 
         [OutputConstructor]
         private ListenerRuleActionAuthenticateOidc(
-            ImmutableDictionary<string, object>? authenticationRequestExtraParams,
+            ImmutableDictionary<string, string>? authenticationRequestExtraParams,
 
             string authorizationEndpoint,
 

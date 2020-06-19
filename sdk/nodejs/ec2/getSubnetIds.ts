@@ -55,7 +55,7 @@ export interface GetSubnetIdsArgs {
      * A map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The VPC ID that you want to filter from.
      */
@@ -75,6 +75,6 @@ export interface GetSubnetIdsResult {
      * A set of all the subnet ids found. This data source will fail if none are found.
      */
     readonly ids: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }

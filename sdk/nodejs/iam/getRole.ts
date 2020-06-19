@@ -49,7 +49,7 @@ export interface GetRoleArgs {
     /**
      * The tags attached to the role.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -92,7 +92,7 @@ export interface GetRoleResult {
     /**
      * The tags attached to the role.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The stable and unique string identifying the role.
      */

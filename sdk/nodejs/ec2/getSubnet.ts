@@ -103,7 +103,7 @@ export interface GetSubnetArgs {
      * A map of tags, each pair of which must exactly match
      * a pair on the desired subnet.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The id of the VPC that the desired subnet belongs to.
      */
@@ -137,6 +137,6 @@ export interface GetSubnetResult {
      */
     readonly ownerId: string;
     readonly state: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }

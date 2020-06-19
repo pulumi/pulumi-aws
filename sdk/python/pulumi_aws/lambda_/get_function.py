@@ -42,7 +42,7 @@ class GetFunctionResult:
             raise TypeError("Expected argument 'file_system_configs' to be a list")
         __self__.file_system_configs = file_system_configs
         """
-        The Lambda EFS configuration settings.
+        The connection settings for an Amazon EFS file system.
         """
         if function_name and not isinstance(function_name, str):
             raise TypeError("Expected argument 'function_name' to be a str")

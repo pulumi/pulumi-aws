@@ -116,6 +116,7 @@ const (
 	neptuneMod                = "Neptune"               // Neptune
 	opsworksMod               = "OpsWorks"              // OpsWorks
 	organizationsMod          = "Organizations"         // Organizations
+	outpostsMod               = "Outposts"              // Outposts
 	pinpointMod               = "Pinpoint"              // Pinpoint
 	pricingMod                = "Pricing"               // Pricing
 	qldbMod                   = "Qldb"                  // QLDB
@@ -1098,6 +1099,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_peering_attachment_accepter": {
 				Tok: awsResource(ec2Mod, "TransitGatewayPeeringAttachmentAccepter"),
 			},
+			"aws_ec2_local_gateway_route": {Tok: awsResource(ec2Mod, "LocalGatewayRoute")},
+			"aws_ec2_local_gateway_route_table_vpc_association": {
+				Tok: awsResource(ec2Mod, "LocalGatewayRouteTableVpcAssociation"),
+			},
+			"aws_ec2_tag": {Tok: awsResource(ec2Mod, "Tag")},
 			// EC2 Client VPN
 			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},
 			"aws_ec2_client_vpn_network_association": {Tok: awsResource(ec2ClientVpnMod, "NetworkAssociation")},
@@ -1860,8 +1866,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
 			// Secrets Manager
-			"aws_secretsmanager_secret":         {Tok: awsResource(secretsmanagerMod, "Secret")},
-			"aws_secretsmanager_secret_version": {Tok: awsResource(secretsmanagerMod, "SecretVersion")},
+			"aws_secretsmanager_secret":          {Tok: awsResource(secretsmanagerMod, "Secret")},
+			"aws_secretsmanager_secret_version":  {Tok: awsResource(secretsmanagerMod, "SecretVersion")},
+			"aws_secretsmanager_secret_rotation": {Tok: awsResource(secretsmanagerMod, "SecretRotation")},
 			// Service Catalog
 			"aws_servicecatalog_portfolio": {Tok: awsResource(servicecatalogMod, "Portfolio")},
 			// Security Hub
@@ -2058,8 +2065,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_waf_xss_match_set":           {Tok: awsResource(wafMod, "XssMatchSet")},
 			"aws_waf_sql_injection_match_set": {Tok: awsResource(wafMod, "SqlInjectionMatchSet")},
 			// Web Application Firewall V2 (WAFv2)
-			"aws_wafv2_ip_set":            {Tok: awsResource(wafV2Mod, "IpSet")},
-			"aws_wafv2_regex_pattern_set": {Tok: awsResource(wafV2Mod, "RegexPatternSet")},
+			"aws_wafv2_ip_set":              {Tok: awsResource(wafV2Mod, "IpSet")},
+			"aws_wafv2_regex_pattern_set":   {Tok: awsResource(wafV2Mod, "RegexPatternSet")},
+			"aws_wafv2_web_acl_association": {Tok: awsResource(wafV2Mod, "WebAclAssociation")},
 			// Web Application Firewall (WAF) Regional
 			"aws_wafregional_byte_match_set": {
 				Tok: awsResource(wafregionalMod, "ByteMatchSet"),
@@ -2205,32 +2213,39 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_nat_gateway":                    {Tok: awsDataSource(ec2Mod, "getNatGateway")},
-			"aws_network_acls":                   {Tok: awsDataSource(ec2Mod, "getNetworkAcls")},
-			"aws_network_interface":              {Tok: awsDataSource(ec2Mod, "getNetworkInterface")},
-			"aws_network_interfaces":             {Tok: awsDataSource(ec2Mod, "getNetworkInterfaces")},
-			"aws_route":                          {Tok: awsDataSource(ec2Mod, "getRoute")},
-			"aws_route_table":                    {Tok: awsDataSource(ec2Mod, "getRouteTable")},
-			"aws_route_tables":                   {Tok: awsDataSource(ec2Mod, "getRouteTables")},
-			"aws_security_group":                 {Tok: awsDataSource(ec2Mod, "getSecurityGroup")},
-			"aws_security_groups":                {Tok: awsDataSource(ec2Mod, "getSecurityGroups")},
-			"aws_subnet":                         {Tok: awsDataSource(ec2Mod, "getSubnet")},
-			"aws_subnet_ids":                     {Tok: awsDataSource(ec2Mod, "getSubnetIds")},
-			"aws_vpc":                            {Tok: awsDataSource(ec2Mod, "getVpc")},
-			"aws_vpc_dhcp_options":               {Tok: awsDataSource(ec2Mod, "getVpcDhcpOptions")},
-			"aws_vpc_endpoint":                   {Tok: awsDataSource(ec2Mod, "getVpcEndpoint")},
-			"aws_vpc_endpoint_service":           {Tok: awsDataSource(ec2Mod, "getVpcEndpointService")},
-			"aws_vpc_peering_connection":         {Tok: awsDataSource(ec2Mod, "getVpcPeeringConnection")},
-			"aws_vpcs":                           {Tok: awsDataSource(ec2Mod, "getVpcs")},
-			"aws_vpn_gateway":                    {Tok: awsDataSource(ec2Mod, "getVpnGateway")},
-			"aws_ec2_instance_type_offering":     {Tok: awsDataSource(ec2Mod, "getInstanceTypeOffering")},
-			"aws_ec2_instance_type_offerings":    {Tok: awsDataSource(ec2Mod, "getInstanceTypeOfferings")},
-			"aws_ec2_coip_pool":                  {Tok: awsDataSource(ec2Mod, "getCoipPool")},
-			"aws_ec2_coip_pools":                 {Tok: awsDataSource(ec2Mod, "getCoipPools")},
-			"aws_ec2_local_gateway":              {Tok: awsDataSource(ec2Mod, "getLocalGateway")},
-			"aws_ec2_local_gateways":             {Tok: awsDataSource(ec2Mod, "getLocalGateways")},
-			"aws_ec2_local_gateway_route_table":  {Tok: awsDataSource(ec2Mod, "getLocalGatewayRouteTable")},
-			"aws_ec2_local_gateway_route_tables": {Tok: awsDataSource(ec2Mod, "getLocalGatewayRouteTables")},
+			"aws_nat_gateway":                         {Tok: awsDataSource(ec2Mod, "getNatGateway")},
+			"aws_network_acls":                        {Tok: awsDataSource(ec2Mod, "getNetworkAcls")},
+			"aws_network_interface":                   {Tok: awsDataSource(ec2Mod, "getNetworkInterface")},
+			"aws_network_interfaces":                  {Tok: awsDataSource(ec2Mod, "getNetworkInterfaces")},
+			"aws_route":                               {Tok: awsDataSource(ec2Mod, "getRoute")},
+			"aws_route_table":                         {Tok: awsDataSource(ec2Mod, "getRouteTable")},
+			"aws_route_tables":                        {Tok: awsDataSource(ec2Mod, "getRouteTables")},
+			"aws_security_group":                      {Tok: awsDataSource(ec2Mod, "getSecurityGroup")},
+			"aws_security_groups":                     {Tok: awsDataSource(ec2Mod, "getSecurityGroups")},
+			"aws_subnet":                              {Tok: awsDataSource(ec2Mod, "getSubnet")},
+			"aws_subnet_ids":                          {Tok: awsDataSource(ec2Mod, "getSubnetIds")},
+			"aws_vpc":                                 {Tok: awsDataSource(ec2Mod, "getVpc")},
+			"aws_vpc_dhcp_options":                    {Tok: awsDataSource(ec2Mod, "getVpcDhcpOptions")},
+			"aws_vpc_endpoint":                        {Tok: awsDataSource(ec2Mod, "getVpcEndpoint")},
+			"aws_vpc_endpoint_service":                {Tok: awsDataSource(ec2Mod, "getVpcEndpointService")},
+			"aws_vpc_peering_connection":              {Tok: awsDataSource(ec2Mod, "getVpcPeeringConnection")},
+			"aws_vpcs":                                {Tok: awsDataSource(ec2Mod, "getVpcs")},
+			"aws_vpn_gateway":                         {Tok: awsDataSource(ec2Mod, "getVpnGateway")},
+			"aws_ec2_instance_type_offering":          {Tok: awsDataSource(ec2Mod, "getInstanceTypeOffering")},
+			"aws_ec2_instance_type_offerings":         {Tok: awsDataSource(ec2Mod, "getInstanceTypeOfferings")},
+			"aws_ec2_coip_pool":                       {Tok: awsDataSource(ec2Mod, "getCoipPool")},
+			"aws_ec2_coip_pools":                      {Tok: awsDataSource(ec2Mod, "getCoipPools")},
+			"aws_ec2_local_gateway":                   {Tok: awsDataSource(ec2Mod, "getLocalGateway")},
+			"aws_ec2_local_gateways":                  {Tok: awsDataSource(ec2Mod, "getLocalGateways")},
+			"aws_ec2_local_gateway_route_table":       {Tok: awsDataSource(ec2Mod, "getLocalGatewayRouteTable")},
+			"aws_ec2_local_gateway_route_tables":      {Tok: awsDataSource(ec2Mod, "getLocalGatewayRouteTables")},
+			"aws_ec2_local_gateway_virtual_interface": {Tok: awsDataSource(ec2Mod, "getLocalGatewayVirtualInterface")},
+			"aws_ec2_local_gateway_virtual_interface_group": {
+				Tok: awsDataSource(ec2Mod, "getLocalGatewayVirtualInterfaceGroup"),
+			},
+			"aws_ec2_local_gateway_virtual_interface_groups": {
+				Tok: awsDataSource(ec2Mod, "getLocalGatewayVirtualInterfaceGroups"),
+			},
 			// EC2 Transit Gateway
 			"aws_ec2_transit_gateway": {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
 			"aws_ec2_transit_gateway_dx_gateway_attachment": {
@@ -2257,10 +2272,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ebs_snapshot":              {Tok: awsDataSource(ebsMod, "getSnapshot")},
 			"aws_ebs_snapshot_ids":          {Tok: awsDataSource(ebsMod, "getSnapshotIds")},
 			"aws_ebs_volume":                {Tok: awsDataSource(ebsMod, "getVolume")},
+			"aws_ebs_volumes":               {Tok: awsDataSource(ebsMod, "getEbsVolumes")},
 			// Elastic Container Registry
-			"aws_ecr_credentials": {Tok: awsDataSource(ecrMod, "getCredentials")},
-			"aws_ecr_image":       {Tok: awsDataSource(ecrMod, "getImage")},
-			"aws_ecr_repository":  {Tok: awsDataSource(ecrMod, "getRepository")},
+			"aws_ecr_credentials":         {Tok: awsDataSource(ecrMod, "getCredentials")},
+			"aws_ecr_image":               {Tok: awsDataSource(ecrMod, "getImage")},
+			"aws_ecr_repository":          {Tok: awsDataSource(ecrMod, "getRepository")},
+			"aws_ecr_authorization_token": {Tok: awsDataSource(ecrMod, "getAuthorizationToken")},
 			// Elastic Container Service
 			"aws_ecs_cluster":              {Tok: awsDataSource(ecsMod, "getCluster")},
 			"aws_ecs_container_definition": {Tok: awsDataSource(ecsMod, "getContainerDefinition")},
@@ -2375,8 +2392,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_s3_bucket_object":  {Tok: awsDataSource(s3Mod, "getBucketObject")},
 			"aws_s3_bucket_objects": {Tok: awsDataSource(s3Mod, "getBucketObjects")},
 			// Secrets Manager
-			"aws_secretsmanager_secret":         {Tok: awsDataSource(secretsmanagerMod, "getSecret")},
-			"aws_secretsmanager_secret_version": {Tok: awsDataSource(secretsmanagerMod, "getSecretVersion")},
+			"aws_secretsmanager_secret":          {Tok: awsDataSource(secretsmanagerMod, "getSecret")},
+			"aws_secretsmanager_secret_version":  {Tok: awsDataSource(secretsmanagerMod, "getSecretVersion")},
+			"aws_secretsmanager_secret_rotation": {Tok: awsDataSource(secretsmanagerMod, "getSecretRotation")},
 			// SNS
 			"aws_sns_topic": {Tok: awsDataSource(snsMod, "getTopic")},
 			// SQS
@@ -2431,6 +2449,14 @@ func Provider() tfbridge.ProviderInfo {
 			// WAF V2
 			"aws_wafv2_ip_set":            {Tok: awsDataSource(wafV2Mod, "getIpSet")},
 			"aws_wafv2_regex_pattern_set": {Tok: awsDataSource(wafV2Mod, "getRegexPatternSet")},
+			"aws_wafv2_web_acl":           {Tok: awsDataSource(wafV2Mod, "getWebAcl")},
+			// Outposts
+			"aws_outposts_outpost":                {Tok: awsDataSource(outpostsMod, "getOutpost")},
+			"aws_outposts_outposts":               {Tok: awsDataSource(outpostsMod, "getOutposts")},
+			"aws_outposts_outpost_instance_type":  {Tok: awsDataSource(outpostsMod, "getOutpostInstanceType")},
+			"aws_outposts_outpost_instance_types": {Tok: awsDataSource(outpostsMod, "getOutpostInstanceTypes")},
+			"aws_outposts_site":                   {Tok: awsDataSource(outpostsMod, "getSite")},
+			"aws_outposts_sites":                  {Tok: awsDataSource(outpostsMod, "getSites")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

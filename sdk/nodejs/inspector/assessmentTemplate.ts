@@ -74,7 +74,7 @@ export class AssessmentTemplate extends pulumi.CustomResource {
     /**
      * Key-value map of tags for the Inspector assessment template.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The assessment target ARN to attach the template to.
      */
@@ -150,7 +150,7 @@ export interface AssessmentTemplateState {
     /**
      * Key-value map of tags for the Inspector assessment template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The assessment target ARN to attach the template to.
      */
@@ -176,7 +176,7 @@ export interface AssessmentTemplateArgs {
     /**
      * Key-value map of tags for the Inspector assessment template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The assessment target ARN to attach the template to.
      */

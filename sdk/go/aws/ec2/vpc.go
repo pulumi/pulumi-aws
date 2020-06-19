@@ -78,7 +78,7 @@ type Vpc struct {
 	// The ID of the AWS account that owns the VPC.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewVpc registers a new resource with the given unique name, arguments, and options.
@@ -151,7 +151,7 @@ type vpcState struct {
 	// The ID of the AWS account that owns the VPC.
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type VpcState struct {
@@ -194,7 +194,7 @@ type VpcState struct {
 	// The ID of the AWS account that owns the VPC.
 	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VpcState) ElementType() reflect.Type {
@@ -222,7 +222,7 @@ type vpcArgs struct {
 	// A tenancy option for instances launched into the VPC
 	InstanceTenancy *string `pulumi:"instanceTenancy"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Vpc resource.
@@ -247,7 +247,7 @@ type VpcArgs struct {
 	// A tenancy option for instances launched into the VPC
 	InstanceTenancy pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VpcArgs) ElementType() reflect.Type {

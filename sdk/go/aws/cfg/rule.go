@@ -80,7 +80,7 @@ type Rule struct {
 	// the function to evaluate your AWS resources as documented below.
 	Source RuleSourceOutput `pulumi:"source"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewRule registers a new resource with the given unique name, arguments, and options.
@@ -133,7 +133,7 @@ type ruleState struct {
 	// the function to evaluate your AWS resources as documented below.
 	Source *RuleSource `pulumi:"source"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type RuleState struct {
@@ -156,7 +156,7 @@ type RuleState struct {
 	// the function to evaluate your AWS resources as documented below.
 	Source RuleSourcePtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (RuleState) ElementType() reflect.Type {
@@ -179,7 +179,7 @@ type ruleArgs struct {
 	// the function to evaluate your AWS resources as documented below.
 	Source RuleSource `pulumi:"source"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Rule resource.
@@ -199,7 +199,7 @@ type RuleArgs struct {
 	// the function to evaluate your AWS resources as documented below.
 	Source RuleSourceInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (RuleArgs) ElementType() reflect.Type {

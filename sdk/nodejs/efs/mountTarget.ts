@@ -58,7 +58,15 @@ export class MountTarget extends pulumi.CustomResource {
     }
 
     /**
-     * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     * The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+     */
+    public /*out*/ readonly availabilityZoneId!: pulumi.Output<string>;
+    /**
+     * The name of the Availability Zone (AZ) that the mount target resides in.
+     */
+    public /*out*/ readonly availabilityZoneName!: pulumi.Output<string>;
+    /**
+     * The DNS name for the EFS file system.
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
@@ -75,9 +83,17 @@ export class MountTarget extends pulumi.CustomResource {
      */
     public readonly ipAddress!: pulumi.Output<string>;
     /**
+     * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     */
+    public /*out*/ readonly mountTargetDnsName!: pulumi.Output<string>;
+    /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      */
     public /*out*/ readonly networkInterfaceId!: pulumi.Output<string>;
+    /**
+     * AWS account ID that owns the resource.
+     */
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * A list of up to 5 VPC security group IDs (that must
      * be for the same VPC as subnet specified) in effect for the mount target.
@@ -100,11 +116,15 @@ export class MountTarget extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as MountTargetState | undefined;
+            inputs["availabilityZoneId"] = state ? state.availabilityZoneId : undefined;
+            inputs["availabilityZoneName"] = state ? state.availabilityZoneName : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["fileSystemArn"] = state ? state.fileSystemArn : undefined;
             inputs["fileSystemId"] = state ? state.fileSystemId : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
+            inputs["mountTargetDnsName"] = state ? state.mountTargetDnsName : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
@@ -119,9 +139,13 @@ export class MountTarget extends pulumi.CustomResource {
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["securityGroups"] = args ? args.securityGroups : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
+            inputs["availabilityZoneId"] = undefined /*out*/;
+            inputs["availabilityZoneName"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
             inputs["fileSystemArn"] = undefined /*out*/;
+            inputs["mountTargetDnsName"] = undefined /*out*/;
             inputs["networkInterfaceId"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -139,7 +163,15 @@ export class MountTarget extends pulumi.CustomResource {
  */
 export interface MountTargetState {
     /**
-     * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     * The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+     */
+    readonly availabilityZoneId?: pulumi.Input<string>;
+    /**
+     * The name of the Availability Zone (AZ) that the mount target resides in.
+     */
+    readonly availabilityZoneName?: pulumi.Input<string>;
+    /**
+     * The DNS name for the EFS file system.
      */
     readonly dnsName?: pulumi.Input<string>;
     /**
@@ -156,9 +188,17 @@ export interface MountTargetState {
      */
     readonly ipAddress?: pulumi.Input<string>;
     /**
+     * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     */
+    readonly mountTargetDnsName?: pulumi.Input<string>;
+    /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      */
     readonly networkInterfaceId?: pulumi.Input<string>;
+    /**
+     * AWS account ID that owns the resource.
+     */
+    readonly ownerId?: pulumi.Input<string>;
     /**
      * A list of up to 5 VPC security group IDs (that must
      * be for the same VPC as subnet specified) in effect for the mount target.

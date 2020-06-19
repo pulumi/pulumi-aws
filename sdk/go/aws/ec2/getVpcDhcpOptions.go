@@ -83,11 +83,13 @@ type LookupVpcDhcpOptionsArgs struct {
 	// List of custom filters as described below.
 	Filters []GetVpcDhcpOptionsFilter `pulumi:"filters"`
 	// A map of tags assigned to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcDhcpOptions.
 type LookupVpcDhcpOptionsResult struct {
+	// The ARN of the DHCP Options Set.
+	Arn string `pulumi:"arn"`
 	// EC2 DHCP Options ID
 	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
 	// The suffix domain name to used when resolving non Fully Qualified Domain Names. e.g. the `search` value in the `/etc/resolv.conf` file.
@@ -106,5 +108,5 @@ type LookupVpcDhcpOptionsResult struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId string `pulumi:"ownerId"`
 	// A map of tags assigned to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

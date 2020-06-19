@@ -59,7 +59,7 @@ type LookupStackArgs struct {
 	// The name of the stack
 	Name string `pulumi:"name"`
 	// A map of tags associated with this stack.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getStack.
@@ -78,11 +78,11 @@ type LookupStackResult struct {
 	// A list of SNS topic ARNs to publish stack related events
 	NotificationArns []string `pulumi:"notificationArns"`
 	// A map of outputs from the stack.
-	Outputs map[string]interface{} `pulumi:"outputs"`
+	Outputs map[string]string `pulumi:"outputs"`
 	// A map of parameters that specify input parameters for the stack.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters map[string]string `pulumi:"parameters"`
 	// A map of tags associated with this stack.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Structure containing the template body.
 	TemplateBody string `pulumi:"templateBody"`
 	// The amount of time that can pass before the stack status becomes `CREATE_FAILED`

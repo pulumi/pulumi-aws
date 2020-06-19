@@ -53,7 +53,15 @@ export interface GetMountTargetArgs {
  */
 export interface GetMountTargetResult {
     /**
-     * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     * The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+     */
+    readonly availabilityZoneId: string;
+    /**
+     * The name of the Availability Zone (AZ) that the mount target resides in.
+     */
+    readonly availabilityZoneName: string;
+    /**
+     * The DNS name for the EFS file system.
      */
     readonly dnsName: string;
     /**
@@ -72,11 +80,19 @@ export interface GetMountTargetResult {
      * Address at which the file system may be mounted via the mount target.
      */
     readonly ipAddress: string;
+    /**
+     * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+     */
+    readonly mountTargetDnsName: string;
     readonly mountTargetId: string;
     /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      */
     readonly networkInterfaceId: string;
+    /**
+     * AWS account ID that owns the resource.
+     */
+    readonly ownerId: string;
     /**
      * List of VPC security group IDs attached to the mount target.
      */

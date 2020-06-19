@@ -34,7 +34,7 @@ type Association struct {
 	// An output location block. Output Location is documented below.
 	OutputLocation AssociationOutputLocationPtrOutput `pulumi:"outputLocation"`
 	// A block of arbitrary string parameters to pass to the SSM document.
-	Parameters pulumi.MapOutput `pulumi:"parameters"`
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// A cron expression when the association will be applied to the target(s).
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
@@ -90,7 +90,7 @@ type associationState struct {
 	// An output location block. Output Location is documented below.
 	OutputLocation *AssociationOutputLocation `pulumi:"outputLocation"`
 	// A block of arbitrary string parameters to pass to the SSM document.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters map[string]string `pulumi:"parameters"`
 	// A cron expression when the association will be applied to the target(s).
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
@@ -119,7 +119,7 @@ type AssociationState struct {
 	// An output location block. Output Location is documented below.
 	OutputLocation AssociationOutputLocationPtrInput
 	// A block of arbitrary string parameters to pass to the SSM document.
-	Parameters pulumi.MapInput
+	Parameters pulumi.StringMapInput
 	// A cron expression when the association will be applied to the target(s).
 	ScheduleExpression pulumi.StringPtrInput
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
@@ -150,7 +150,7 @@ type associationArgs struct {
 	// An output location block. Output Location is documented below.
 	OutputLocation *AssociationOutputLocation `pulumi:"outputLocation"`
 	// A block of arbitrary string parameters to pass to the SSM document.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters map[string]string `pulumi:"parameters"`
 	// A cron expression when the association will be applied to the target(s).
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
@@ -178,7 +178,7 @@ type AssociationArgs struct {
 	// An output location block. Output Location is documented below.
 	OutputLocation AssociationOutputLocationPtrInput
 	// A block of arbitrary string parameters to pass to the SSM document.
-	Parameters pulumi.MapInput
+	Parameters pulumi.StringMapInput
 	// A cron expression when the association will be applied to the target(s).
 	ScheduleExpression pulumi.StringPtrInput
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.

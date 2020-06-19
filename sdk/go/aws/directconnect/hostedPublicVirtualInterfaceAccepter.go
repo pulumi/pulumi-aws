@@ -18,7 +18,7 @@ type HostedPublicVirtualInterfaceAccepter struct {
 	// The ARN of the virtual interface.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringOutput `pulumi:"virtualInterfaceId"`
 }
@@ -57,7 +57,7 @@ type hostedPublicVirtualInterfaceAccepterState struct {
 	// The ARN of the virtual interface.
 	Arn *string `pulumi:"arn"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId *string `pulumi:"virtualInterfaceId"`
 }
@@ -66,7 +66,7 @@ type HostedPublicVirtualInterfaceAccepterState struct {
 	// The ARN of the virtual interface.
 	Arn pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringPtrInput
 }
@@ -77,7 +77,7 @@ func (HostedPublicVirtualInterfaceAccepterState) ElementType() reflect.Type {
 
 type hostedPublicVirtualInterfaceAccepterArgs struct {
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId string `pulumi:"virtualInterfaceId"`
 }
@@ -85,7 +85,7 @@ type hostedPublicVirtualInterfaceAccepterArgs struct {
 // The set of arguments for constructing a HostedPublicVirtualInterfaceAccepter resource.
 type HostedPublicVirtualInterfaceAccepterArgs struct {
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringInput
 }

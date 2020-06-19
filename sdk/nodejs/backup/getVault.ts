@@ -47,7 +47,7 @@ export interface GetVaultArgs {
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -74,5 +74,5 @@ export interface GetVaultResult {
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

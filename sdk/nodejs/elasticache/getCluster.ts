@@ -47,7 +47,7 @@ export interface GetClusterArgs {
     /**
      * The tags assigned to the resource
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -141,5 +141,5 @@ export interface GetClusterResult {
     /**
      * The tags assigned to the resource
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

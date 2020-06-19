@@ -62,7 +62,7 @@ export class IpGroup extends pulumi.CustomResource {
      * One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
      */
     public readonly rules!: pulumi.Output<outputs.workspaces.IpGroupRule[] | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a IpGroup resource with the given unique name, arguments, and options.
@@ -114,7 +114,7 @@ export interface IpGroupState {
      * One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.workspaces.IpGroupRule>[]>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -133,5 +133,5 @@ export interface IpGroupArgs {
      * One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
      */
     readonly rules?: pulumi.Input<pulumi.Input<inputs.workspaces.IpGroupRule>[]>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

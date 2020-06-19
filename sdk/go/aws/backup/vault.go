@@ -47,7 +47,7 @@ type Vault struct {
 	// The number of recovery points that are stored in a backup vault.
 	RecoveryPoints pulumi.IntOutput `pulumi:"recoveryPoints"`
 	// Metadata that you can assign to help organize the resources that you create.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewVault registers a new resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ type vaultState struct {
 	// The number of recovery points that are stored in a backup vault.
 	RecoveryPoints *int `pulumi:"recoveryPoints"`
 	// Metadata that you can assign to help organize the resources that you create.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type VaultState struct {
@@ -100,7 +100,7 @@ type VaultState struct {
 	// The number of recovery points that are stored in a backup vault.
 	RecoveryPoints pulumi.IntPtrInput
 	// Metadata that you can assign to help organize the resources that you create.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VaultState) ElementType() reflect.Type {
@@ -113,7 +113,7 @@ type vaultArgs struct {
 	// Name of the backup vault to create.
 	Name *string `pulumi:"name"`
 	// Metadata that you can assign to help organize the resources that you create.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Vault resource.
@@ -123,7 +123,7 @@ type VaultArgs struct {
 	// Name of the backup vault to create.
 	Name pulumi.StringPtrInput
 	// Metadata that you can assign to help organize the resources that you create.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VaultArgs) ElementType() reflect.Type {

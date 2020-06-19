@@ -32,7 +32,7 @@ type IdentityPool struct {
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapOutput `pulumi:"supportedLoginProviders"`
 	// A map of tags to assign to the Identity Pool.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewIdentityPool registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +84,7 @@ type identityPoolState struct {
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders map[string]string `pulumi:"supportedLoginProviders"`
 	// A map of tags to assign to the Identity Pool.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type IdentityPoolState struct {
@@ -106,7 +106,7 @@ type IdentityPoolState struct {
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapInput
 	// A map of tags to assign to the Identity Pool.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (IdentityPoolState) ElementType() reflect.Type {
@@ -130,7 +130,7 @@ type identityPoolArgs struct {
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders map[string]string `pulumi:"supportedLoginProviders"`
 	// A map of tags to assign to the Identity Pool.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IdentityPool resource.
@@ -151,7 +151,7 @@ type IdentityPoolArgs struct {
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapInput
 	// A map of tags to assign to the Identity Pool.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (IdentityPoolArgs) ElementType() reflect.Type {

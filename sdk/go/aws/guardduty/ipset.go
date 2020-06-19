@@ -18,6 +18,8 @@ type IPSet struct {
 
 	// Specifies whether GuardDuty is to start using the uploaded IPSet.
 	Activate pulumi.BoolOutput `pulumi:"activate"`
+	// Amazon Resource Name (ARN) of the GuardDuty IPSet.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
@@ -26,6 +28,8 @@ type IPSet struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The friendly name to identify the IPSet.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewIPSet registers a new resource with the given unique name, arguments, and options.
@@ -70,6 +74,8 @@ func GetIPSet(ctx *pulumi.Context,
 type ipsetState struct {
 	// Specifies whether GuardDuty is to start using the uploaded IPSet.
 	Activate *bool `pulumi:"activate"`
+	// Amazon Resource Name (ARN) of the GuardDuty IPSet.
+	Arn *string `pulumi:"arn"`
 	// The detector ID of the GuardDuty.
 	DetectorId *string `pulumi:"detectorId"`
 	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
@@ -78,11 +84,15 @@ type ipsetState struct {
 	Location *string `pulumi:"location"`
 	// The friendly name to identify the IPSet.
 	Name *string `pulumi:"name"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type IPSetState struct {
 	// Specifies whether GuardDuty is to start using the uploaded IPSet.
 	Activate pulumi.BoolPtrInput
+	// Amazon Resource Name (ARN) of the GuardDuty IPSet.
+	Arn pulumi.StringPtrInput
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringPtrInput
 	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
@@ -91,6 +101,8 @@ type IPSetState struct {
 	Location pulumi.StringPtrInput
 	// The friendly name to identify the IPSet.
 	Name pulumi.StringPtrInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 }
 
 func (IPSetState) ElementType() reflect.Type {
@@ -108,6 +120,8 @@ type ipsetArgs struct {
 	Location string `pulumi:"location"`
 	// The friendly name to identify the IPSet.
 	Name *string `pulumi:"name"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IPSet resource.
@@ -122,6 +136,8 @@ type IPSetArgs struct {
 	Location pulumi.StringInput
 	// The friendly name to identify the IPSet.
 	Name pulumi.StringPtrInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 }
 
 func (IPSetArgs) ElementType() reflect.Type {

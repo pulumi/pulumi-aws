@@ -131,7 +131,7 @@ type Trail struct {
 	// defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrOutput `pulumi:"snsTopicName"`
 	// A map of tags to assign to the trail
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewTrail registers a new resource with the given unique name, arguments, and options.
@@ -204,7 +204,7 @@ type trailState struct {
 	// defined for notification of log file delivery.
 	SnsTopicName *string `pulumi:"snsTopicName"`
 	// A map of tags to assign to the trail
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type TrailState struct {
@@ -247,7 +247,7 @@ type TrailState struct {
 	// defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrInput
 	// A map of tags to assign to the trail
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (TrailState) ElementType() reflect.Type {
@@ -290,7 +290,7 @@ type trailArgs struct {
 	// defined for notification of log file delivery.
 	SnsTopicName *string `pulumi:"snsTopicName"`
 	// A map of tags to assign to the trail
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Trail resource.
@@ -330,7 +330,7 @@ type TrailArgs struct {
 	// defined for notification of log file delivery.
 	SnsTopicName pulumi.StringPtrInput
 	// A map of tags to assign to the trail
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (TrailArgs) ElementType() reflect.Type {

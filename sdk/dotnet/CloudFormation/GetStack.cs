@@ -62,14 +62,14 @@ namespace Pulumi.Aws.CloudFormation
         public string Name { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// A map of tags associated with this stack.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -110,15 +110,15 @@ namespace Pulumi.Aws.CloudFormation
         /// <summary>
         /// A map of outputs from the stack.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Outputs;
+        public readonly ImmutableDictionary<string, string> Outputs;
         /// <summary>
         /// A map of parameters that specify input parameters for the stack.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Parameters;
+        public readonly ImmutableDictionary<string, string> Parameters;
         /// <summary>
         /// A map of tags associated with this stack.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Structure containing the template body.
         /// </summary>
@@ -144,11 +144,11 @@ namespace Pulumi.Aws.CloudFormation
 
             ImmutableArray<string> notificationArns,
 
-            ImmutableDictionary<string, object> outputs,
+            ImmutableDictionary<string, string> outputs,
 
-            ImmutableDictionary<string, object> parameters,
+            ImmutableDictionary<string, string> parameters,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string templateBody,
 

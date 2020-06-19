@@ -63,7 +63,7 @@ type RuleGroup struct {
 	// A friendly name of the rule group
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -106,7 +106,7 @@ type ruleGroupState struct {
 	// A friendly name of the rule group
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type RuleGroupState struct {
@@ -119,7 +119,7 @@ type RuleGroupState struct {
 	// A friendly name of the rule group
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (RuleGroupState) ElementType() reflect.Type {
@@ -134,7 +134,7 @@ type ruleGroupArgs struct {
 	// A friendly name of the rule group
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RuleGroup resource.
@@ -146,7 +146,7 @@ type RuleGroupArgs struct {
 	// A friendly name of the rule group
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (RuleGroupArgs) ElementType() reflect.Type {

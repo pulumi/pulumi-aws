@@ -87,7 +87,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
     /**
      * An array of key:value pairs to associate with the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RegexPatternSet resource with the given unique name, arguments, and options.
@@ -160,7 +160,7 @@ export interface RegexPatternSetState {
     /**
      * An array of key:value pairs to associate with the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -186,5 +186,5 @@ export interface RegexPatternSetArgs {
     /**
      * An array of key:value pairs to associate with the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

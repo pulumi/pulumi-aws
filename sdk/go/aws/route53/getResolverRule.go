@@ -55,7 +55,7 @@ type LookupResolverRuleArgs struct {
 	// The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolverRuleId`.
 	RuleType *string `pulumi:"ruleType"`
 	// A map of tags assigned to the resolver rule.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getResolverRule.
@@ -75,5 +75,5 @@ type LookupResolverRuleResult struct {
 	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
 	ShareStatus string `pulumi:"shareStatus"`
 	// A map of tags assigned to the resolver rule.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

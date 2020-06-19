@@ -47,49 +47,7 @@ import (
 //
 // ## Example in Conjunction with Scaling Policies
 //
-// ```go
-// package main
 //
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/autoscaling"
-// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		batPolicy, err := autoscaling.NewPolicy(ctx, "batPolicy", &autoscaling.PolicyArgs{
-// 			AdjustmentType:       pulumi.String("ChangeInCapacity"),
-// 			AutoscalingGroupName: pulumi.String(aws_autoscaling_group.Bar.Name),
-// 			Cooldown:             pulumi.Int(300),
-// 			ScalingAdjustment:    pulumi.Int(4),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		batMetricAlarm, err := cloudwatch.NewMetricAlarm(ctx, "batMetricAlarm", &cloudwatch.MetricAlarmArgs{
-// 			AlarmActions: pulumi.StringArray{
-// 				batPolicy.Arn,
-// 			},
-// 			AlarmDescription:   pulumi.String("This metric monitors ec2 cpu utilization"),
-// 			ComparisonOperator: pulumi.String("GreaterThanOrEqualToThreshold"),
-// 			Dimensions: map[string]interface{}{
-// 				"AutoScalingGroupName": aws_autoscaling_group.Bar.Name,
-// 			},
-// 			EvaluationPeriods: pulumi.Int(2),
-// 			MetricName:        pulumi.String("CPUUtilization"),
-// 			Namespace:         pulumi.String("AWS/EC2"),
-// 			Period:            pulumi.Int(120),
-// 			Statistic:         pulumi.String("Average"),
-// 			Threshold:         pulumi.Float64(80),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 //
 // ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
 //
@@ -113,7 +71,7 @@ type MetricAlarm struct {
 	// The number of datapoints that must be breaching to trigger the alarm.
 	DatapointsToAlarm pulumi.IntPtrOutput `pulumi:"datapointsToAlarm"`
 	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-	Dimensions pulumi.MapOutput `pulumi:"dimensions"`
+	Dimensions pulumi.StringMapOutput `pulumi:"dimensions"`
 	// Used only for alarms
 	// based on percentiles. If you specify `ignore`, the alarm state will not
 	// change during periods with too few data points to be statistically significant.
@@ -145,7 +103,7 @@ type MetricAlarm struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrOutput `pulumi:"statistic"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 	Threshold pulumi.Float64PtrOutput `pulumi:"threshold"`
 	// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
@@ -203,7 +161,7 @@ type metricAlarmState struct {
 	// The number of datapoints that must be breaching to trigger the alarm.
 	DatapointsToAlarm *int `pulumi:"datapointsToAlarm"`
 	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-	Dimensions map[string]interface{} `pulumi:"dimensions"`
+	Dimensions map[string]string `pulumi:"dimensions"`
 	// Used only for alarms
 	// based on percentiles. If you specify `ignore`, the alarm state will not
 	// change during periods with too few data points to be statistically significant.
@@ -235,7 +193,7 @@ type metricAlarmState struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic *string `pulumi:"statistic"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 	Threshold *float64 `pulumi:"threshold"`
 	// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
@@ -260,7 +218,7 @@ type MetricAlarmState struct {
 	// The number of datapoints that must be breaching to trigger the alarm.
 	DatapointsToAlarm pulumi.IntPtrInput
 	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-	Dimensions pulumi.MapInput
+	Dimensions pulumi.StringMapInput
 	// Used only for alarms
 	// based on percentiles. If you specify `ignore`, the alarm state will not
 	// change during periods with too few data points to be statistically significant.
@@ -292,7 +250,7 @@ type MetricAlarmState struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 	Threshold pulumi.Float64PtrInput
 	// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
@@ -319,7 +277,7 @@ type metricAlarmArgs struct {
 	// The number of datapoints that must be breaching to trigger the alarm.
 	DatapointsToAlarm *int `pulumi:"datapointsToAlarm"`
 	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-	Dimensions map[string]interface{} `pulumi:"dimensions"`
+	Dimensions map[string]string `pulumi:"dimensions"`
 	// Used only for alarms
 	// based on percentiles. If you specify `ignore`, the alarm state will not
 	// change during periods with too few data points to be statistically significant.
@@ -351,7 +309,7 @@ type metricAlarmArgs struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic *string `pulumi:"statistic"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 	Threshold *float64 `pulumi:"threshold"`
 	// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
@@ -375,7 +333,7 @@ type MetricAlarmArgs struct {
 	// The number of datapoints that must be breaching to trigger the alarm.
 	DatapointsToAlarm pulumi.IntPtrInput
 	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-	Dimensions pulumi.MapInput
+	Dimensions pulumi.StringMapInput
 	// Used only for alarms
 	// based on percentiles. If you specify `ignore`, the alarm state will not
 	// change during periods with too few data points to be statistically significant.
@@ -407,7 +365,7 @@ type MetricAlarmArgs struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 	Threshold pulumi.Float64PtrInput
 	// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.

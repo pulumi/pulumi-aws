@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Backup.Outputs
         /// <summary>
         /// Metadata that you can assign to help organize the resources that you create.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? RecoveryPointTags;
+        public readonly ImmutableDictionary<string, string>? RecoveryPointTags;
         /// <summary>
         /// An display name for a backup rule.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Backup.Outputs
 
             Outputs.PlanRuleLifecycle? lifecycle,
 
-            ImmutableDictionary<string, object>? recoveryPointTags,
+            ImmutableDictionary<string, string>? recoveryPointTags,
 
             string ruleName,
 

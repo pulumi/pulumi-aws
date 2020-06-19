@@ -82,7 +82,7 @@ type LookupVpcPeeringConnectionArgs struct {
 	Status *string `pulumi:"status"`
 	// A map of tags, each pair of which must exactly match
 	// a pair on the desired VPC Peering Connection.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the requester VPC of the specific VPC Peering Connection to retrieve.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -103,8 +103,8 @@ type LookupVpcPeeringConnectionResult struct {
 	Region        string                          `pulumi:"region"`
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
-	Requester map[string]bool        `pulumi:"requester"`
-	Status    string                 `pulumi:"status"`
-	Tags      map[string]interface{} `pulumi:"tags"`
-	VpcId     string                 `pulumi:"vpcId"`
+	Requester map[string]bool   `pulumi:"requester"`
+	Status    string            `pulumi:"status"`
+	Tags      map[string]string `pulumi:"tags"`
+	VpcId     string            `pulumi:"vpcId"`
 }

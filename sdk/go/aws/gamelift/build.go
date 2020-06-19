@@ -23,7 +23,7 @@ type Build struct {
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationOutput `pulumi:"storageLocation"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Version that is associated with this build.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
@@ -71,7 +71,7 @@ type buildState struct {
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation *BuildStorageLocation `pulumi:"storageLocation"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Version that is associated with this build.
 	Version *string `pulumi:"version"`
 }
@@ -86,7 +86,7 @@ type BuildState struct {
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Version that is associated with this build.
 	Version pulumi.StringPtrInput
 }
@@ -103,7 +103,7 @@ type buildArgs struct {
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocation `pulumi:"storageLocation"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Version that is associated with this build.
 	Version *string `pulumi:"version"`
 }
@@ -117,7 +117,7 @@ type BuildArgs struct {
 	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Version that is associated with this build.
 	Version pulumi.StringPtrInput
 }

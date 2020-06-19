@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// <summary>
         /// A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> TargetTags;
+        public readonly ImmutableDictionary<string, string> TargetTags;
 
         [OutputConstructor]
         private LifecyclePolicyPolicyDetails(
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Dlm.Outputs
 
             ImmutableArray<Outputs.LifecyclePolicyPolicyDetailsSchedule> schedules,
 
-            ImmutableDictionary<string, object> targetTags)
+            ImmutableDictionary<string, string> targetTags)
         {
             ResourceTypes = resourceTypes;
             Schedules = schedules;

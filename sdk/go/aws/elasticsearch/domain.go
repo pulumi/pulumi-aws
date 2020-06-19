@@ -53,7 +53,7 @@ type Domain struct {
 	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
-	AdvancedOptions pulumi.MapOutput `pulumi:"advancedOptions"`
+	AdvancedOptions pulumi.StringMapOutput `pulumi:"advancedOptions"`
 	// Amazon Resource Name (ARN) of the domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Cluster configuration of the domain, see below.
@@ -84,7 +84,7 @@ type Domain struct {
 	// Snapshot related options, see below.
 	SnapshotOptions DomainSnapshotOptionsPtrOutput `pulumi:"snapshotOptions"`
 	// A map of tags to assign to the resource
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions DomainVpcOptionsPtrOutput `pulumi:"vpcOptions"`
 }
@@ -123,7 +123,7 @@ type domainState struct {
 	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
-	AdvancedOptions map[string]interface{} `pulumi:"advancedOptions"`
+	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// Amazon Resource Name (ARN) of the domain.
 	Arn *string `pulumi:"arn"`
 	// Cluster configuration of the domain, see below.
@@ -154,7 +154,7 @@ type domainState struct {
 	// Snapshot related options, see below.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
 	// A map of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
 }
@@ -166,7 +166,7 @@ type DomainState struct {
 	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
-	AdvancedOptions pulumi.MapInput
+	AdvancedOptions pulumi.StringMapInput
 	// Amazon Resource Name (ARN) of the domain.
 	Arn pulumi.StringPtrInput
 	// Cluster configuration of the domain, see below.
@@ -197,7 +197,7 @@ type DomainState struct {
 	// Snapshot related options, see below.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
 	// A map of tags to assign to the resource
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions DomainVpcOptionsPtrInput
 }
@@ -213,7 +213,7 @@ type domainArgs struct {
 	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
-	AdvancedOptions map[string]interface{} `pulumi:"advancedOptions"`
+	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// Cluster configuration of the domain, see below.
 	ClusterConfig  *DomainClusterConfig  `pulumi:"clusterConfig"`
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
@@ -234,7 +234,7 @@ type domainArgs struct {
 	// Snapshot related options, see below.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
 	// A map of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
 }
@@ -247,7 +247,7 @@ type DomainArgs struct {
 	// Note that the values for these configuration options must be strings (wrapped in quotes) or they
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
-	AdvancedOptions pulumi.MapInput
+	AdvancedOptions pulumi.StringMapInput
 	// Cluster configuration of the domain, see below.
 	ClusterConfig  DomainClusterConfigPtrInput
 	CognitoOptions DomainCognitoOptionsPtrInput
@@ -268,7 +268,7 @@ type DomainArgs struct {
 	// Snapshot related options, see below.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
 	// A map of tags to assign to the resource
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
 	VpcOptions DomainVpcOptionsPtrInput
 }

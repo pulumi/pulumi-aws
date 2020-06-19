@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Inspector
         /// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -98,14 +98,14 @@ namespace Pulumi.Aws.Inspector
     public sealed class ResourceGroupArgs : Pulumi.ResourceArgs
     {
         [Input("tags", required: true)]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -123,14 +123,14 @@ namespace Pulumi.Aws.Inspector
         public Input<string>? Arn { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

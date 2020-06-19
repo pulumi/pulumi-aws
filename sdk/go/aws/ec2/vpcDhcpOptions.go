@@ -49,6 +49,8 @@ import (
 type VpcDhcpOptions struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the DHCP Options Set.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
@@ -62,7 +64,7 @@ type VpcDhcpOptions struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewVpcDhcpOptions registers a new resource with the given unique name, arguments, and options.
@@ -93,6 +95,8 @@ func GetVpcDhcpOptions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcDhcpOptions resources.
 type vpcDhcpOptionsState struct {
+	// The ARN of the DHCP Options Set.
+	Arn *string `pulumi:"arn"`
 	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
 	DomainName *string `pulumi:"domainName"`
 	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
@@ -106,10 +110,12 @@ type vpcDhcpOptionsState struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type VpcDhcpOptionsState struct {
+	// The ARN of the DHCP Options Set.
+	Arn pulumi.StringPtrInput
 	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
 	DomainName pulumi.StringPtrInput
 	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
@@ -123,7 +129,7 @@ type VpcDhcpOptionsState struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VpcDhcpOptionsState) ElementType() reflect.Type {
@@ -142,7 +148,7 @@ type vpcDhcpOptionsArgs struct {
 	// List of NTP servers to configure.
 	NtpServers []string `pulumi:"ntpServers"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcDhcpOptions resource.
@@ -158,7 +164,7 @@ type VpcDhcpOptionsArgs struct {
 	// List of NTP servers to configure.
 	NtpServers pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VpcDhcpOptionsArgs) ElementType() reflect.Type {

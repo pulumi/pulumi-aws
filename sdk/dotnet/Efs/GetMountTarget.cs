@@ -62,7 +62,15 @@ namespace Pulumi.Aws.Efs
     public sealed class GetMountTargetResult
     {
         /// <summary>
-        /// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        /// The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+        /// </summary>
+        public readonly string AvailabilityZoneId;
+        /// <summary>
+        /// The name of the Availability Zone (AZ) that the mount target resides in.
+        /// </summary>
+        public readonly string AvailabilityZoneName;
+        /// <summary>
+        /// The DNS name for the EFS file system.
         /// </summary>
         public readonly string DnsName;
         /// <summary>
@@ -81,11 +89,19 @@ namespace Pulumi.Aws.Efs
         /// Address at which the file system may be mounted via the mount target.
         /// </summary>
         public readonly string IpAddress;
+        /// <summary>
+        /// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        /// </summary>
+        public readonly string MountTargetDnsName;
         public readonly string MountTargetId;
         /// <summary>
         /// The ID of the network interface that Amazon EFS created when it created the mount target.
         /// </summary>
         public readonly string NetworkInterfaceId;
+        /// <summary>
+        /// AWS account ID that owns the resource.
+        /// </summary>
+        public readonly string OwnerId;
         /// <summary>
         /// List of VPC security group IDs attached to the mount target.
         /// </summary>
@@ -97,6 +113,10 @@ namespace Pulumi.Aws.Efs
 
         [OutputConstructor]
         private GetMountTargetResult(
+            string availabilityZoneId,
+
+            string availabilityZoneName,
+
             string dnsName,
 
             string fileSystemArn,
@@ -107,21 +127,29 @@ namespace Pulumi.Aws.Efs
 
             string ipAddress,
 
+            string mountTargetDnsName,
+
             string mountTargetId,
 
             string networkInterfaceId,
+
+            string ownerId,
 
             ImmutableArray<string> securityGroups,
 
             string subnetId)
         {
+            AvailabilityZoneId = availabilityZoneId;
+            AvailabilityZoneName = availabilityZoneName;
             DnsName = dnsName;
             FileSystemArn = fileSystemArn;
             FileSystemId = fileSystemId;
             Id = id;
             IpAddress = ipAddress;
+            MountTargetDnsName = mountTargetDnsName;
             MountTargetId = mountTargetId;
             NetworkInterfaceId = networkInterfaceId;
+            OwnerId = ownerId;
             SecurityGroups = securityGroups;
             SubnetId = subnetId;
         }

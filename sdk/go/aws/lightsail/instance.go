@@ -161,7 +161,7 @@ type Instance struct {
 	PublicIpAddress  pulumi.StringOutput  `pulumi:"publicIpAddress"`
 	RamSize          pulumi.Float64Output `pulumi:"ramSize"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// launch script to configure server with additional user data
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	Username pulumi.StringOutput    `pulumi:"username"`
@@ -233,7 +233,7 @@ type instanceState struct {
 	PublicIpAddress  *string  `pulumi:"publicIpAddress"`
 	RamSize          *float64 `pulumi:"ramSize"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// launch script to configure server with additional user data
 	UserData *string `pulumi:"userData"`
 	Username *string `pulumi:"username"`
@@ -269,7 +269,7 @@ type InstanceState struct {
 	PublicIpAddress  pulumi.StringPtrInput
 	RamSize          pulumi.Float64PtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// launch script to configure server with additional user data
 	UserData pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
@@ -294,7 +294,7 @@ type instanceArgs struct {
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// launch script to configure server with additional user data
 	UserData *string `pulumi:"userData"`
 }
@@ -315,7 +315,7 @@ type InstanceArgs struct {
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// launch script to configure server with additional user data
 	UserData pulumi.StringPtrInput
 }

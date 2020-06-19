@@ -46,7 +46,7 @@ type LookupPlanArgs struct {
 	// The backup plan ID.
 	PlanId string `pulumi:"planId"`
 	// Metadata that you can assign to help organize the plans you create.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getPlan.
@@ -59,7 +59,7 @@ type LookupPlanResult struct {
 	Name   string `pulumi:"name"`
 	PlanId string `pulumi:"planId"`
 	// Metadata that you can assign to help organize the plans you create.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 	Version string `pulumi:"version"`
 }

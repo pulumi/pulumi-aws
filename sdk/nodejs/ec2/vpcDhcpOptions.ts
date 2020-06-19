@@ -60,6 +60,10 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the DHCP Options Set.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      */
     public readonly domainName!: pulumi.Output<string | undefined>;
@@ -86,7 +90,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
     /**
      * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a VpcDhcpOptions resource with the given unique name, arguments, and options.
@@ -100,6 +104,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as VpcDhcpOptionsState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["domainNameServers"] = state ? state.domainNameServers : undefined;
             inputs["netbiosNameServers"] = state ? state.netbiosNameServers : undefined;
@@ -115,6 +120,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
             inputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
             inputs["ntpServers"] = args ? args.ntpServers : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
         if (!opts) {
@@ -132,6 +138,10 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcDhcpOptions resources.
  */
 export interface VpcDhcpOptionsState {
+    /**
+     * The ARN of the DHCP Options Set.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      */
@@ -159,7 +169,7 @@ export interface VpcDhcpOptionsState {
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -189,5 +199,5 @@ export interface VpcDhcpOptionsArgs {
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

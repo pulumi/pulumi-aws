@@ -39,11 +39,17 @@ type LookupSecretResult struct {
 	// The resource-based policy document that's attached to the secret.
 	Policy string `pulumi:"policy"`
 	// Whether rotation is enabled or not.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 	RotationEnabled bool `pulumi:"rotationEnabled"`
 	// Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 	RotationLambdaArn string `pulumi:"rotationLambdaArn"`
 	// Rotation rules if rotation is enabled.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
 	RotationRules []GetSecretRotationRule `pulumi:"rotationRules"`
 	// Tags of the secret.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

@@ -73,7 +73,7 @@ type Stage struct {
 	// A map that defines the stage variables for the stage.
 	StageVariables pulumi.StringMapOutput `pulumi:"stageVariables"`
 	// A map of tags to assign to the stage.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewStage registers a new resource with the given unique name, arguments, and options.
@@ -140,7 +140,7 @@ type stageState struct {
 	// A map that defines the stage variables for the stage.
 	StageVariables map[string]string `pulumi:"stageVariables"`
 	// A map of tags to assign to the stage.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type StageState struct {
@@ -177,7 +177,7 @@ type StageState struct {
 	// A map that defines the stage variables for the stage.
 	StageVariables pulumi.StringMapInput
 	// A map of tags to assign to the stage.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (StageState) ElementType() reflect.Type {
@@ -208,7 +208,7 @@ type stageArgs struct {
 	// A map that defines the stage variables for the stage.
 	StageVariables map[string]string `pulumi:"stageVariables"`
 	// A map of tags to assign to the stage.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Stage resource.
@@ -236,7 +236,7 @@ type StageArgs struct {
 	// A map that defines the stage variables for the stage.
 	StageVariables pulumi.StringMapInput
 	// A map of tags to assign to the stage.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (StageArgs) ElementType() reflect.Type {

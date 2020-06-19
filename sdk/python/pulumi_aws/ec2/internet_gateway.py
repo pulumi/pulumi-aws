@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class InternetGateway(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the Internet Gateway.
+    """
     owner_id: pulumi.Output[str]
     """
     The ID of the AWS account that owns the internet gateway.
@@ -65,6 +69,7 @@ class InternetGateway(pulumi.CustomResource):
 
             __props__['tags'] = tags
             __props__['vpc_id'] = vpc_id
+            __props__['arn'] = None
             __props__['owner_id'] = None
         super(InternetGateway, __self__).__init__(
             'aws:ec2/internetGateway:InternetGateway',
@@ -73,7 +78,7 @@ class InternetGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, owner_id=None, tags=None, vpc_id=None):
+    def get(resource_name, id, opts=None, arn=None, owner_id=None, tags=None, vpc_id=None):
         """
         Get an existing InternetGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -81,6 +86,7 @@ class InternetGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Internet Gateway.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the internet gateway.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.
@@ -89,6 +95,7 @@ class InternetGateway(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["owner_id"] = owner_id
         __props__["tags"] = tags
         __props__["vpc_id"] = vpc_id

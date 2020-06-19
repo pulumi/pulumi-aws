@@ -48,7 +48,7 @@ type ResourceShare struct {
 	// The name of the resource share.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource share.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewResourceShare registers a new resource with the given unique name, arguments, and options.
@@ -86,7 +86,7 @@ type resourceShareState struct {
 	// The name of the resource share.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource share.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ResourceShareState struct {
@@ -97,7 +97,7 @@ type ResourceShareState struct {
 	// The name of the resource share.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource share.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ResourceShareState) ElementType() reflect.Type {
@@ -110,7 +110,7 @@ type resourceShareArgs struct {
 	// The name of the resource share.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource share.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceShare resource.
@@ -120,7 +120,7 @@ type ResourceShareArgs struct {
 	// The name of the resource share.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource share.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ResourceShareArgs) ElementType() reflect.Type {

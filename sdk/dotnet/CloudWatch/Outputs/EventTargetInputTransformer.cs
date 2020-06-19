@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// <summary>
         /// Key value pairs specified in the form of JSONPath (for example, time = $.time)
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? InputPaths;
+        public readonly ImmutableDictionary<string, string>? InputPaths;
         /// <summary>
         /// Structure containing the template body.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
 
         [OutputConstructor]
         private EventTargetInputTransformer(
-            ImmutableDictionary<string, object>? inputPaths,
+            ImmutableDictionary<string, string>? inputPaths,
 
             string inputTemplate)
         {

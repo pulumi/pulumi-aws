@@ -58,7 +58,7 @@ type LinkAggregationGroup struct {
 	// The name of the LAG.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewLinkAggregationGroup registers a new resource with the given unique name, arguments, and options.
@@ -110,7 +110,7 @@ type linkAggregationGroupState struct {
 	// The name of the LAG.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type LinkAggregationGroupState struct {
@@ -129,7 +129,7 @@ type LinkAggregationGroupState struct {
 	// The name of the LAG.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (LinkAggregationGroupState) ElementType() reflect.Type {
@@ -146,7 +146,7 @@ type linkAggregationGroupArgs struct {
 	// The name of the LAG.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LinkAggregationGroup resource.
@@ -160,7 +160,7 @@ type LinkAggregationGroupArgs struct {
 	// The name of the LAG.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (LinkAggregationGroupArgs) ElementType() reflect.Type {

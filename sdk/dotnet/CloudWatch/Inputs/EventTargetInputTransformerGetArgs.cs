@@ -13,14 +13,14 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     public sealed class EventTargetInputTransformerGetArgs : Pulumi.ResourceArgs
     {
         [Input("inputPaths")]
-        private InputMap<object>? _inputPaths;
+        private InputMap<string>? _inputPaths;
 
         /// <summary>
         /// Key value pairs specified in the form of JSONPath (for example, time = $.time)
         /// </summary>
-        public InputMap<object> InputPaths
+        public InputMap<string> InputPaths
         {
-            get => _inputPaths ?? (_inputPaths = new InputMap<object>());
+            get => _inputPaths ?? (_inputPaths = new InputMap<string>());
             set => _inputPaths = value;
         }
 

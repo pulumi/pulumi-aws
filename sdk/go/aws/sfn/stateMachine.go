@@ -25,7 +25,7 @@ type StateMachine struct {
 	// The current status of the state machine. Either "ACTIVE" or "DELETING".
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewStateMachine registers a new resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ type stateMachineState struct {
 	// The current status of the state machine. Either "ACTIVE" or "DELETING".
 	Status *string `pulumi:"status"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type StateMachineState struct {
@@ -88,7 +88,7 @@ type StateMachineState struct {
 	// The current status of the state machine. Either "ACTIVE" or "DELETING".
 	Status pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (StateMachineState) ElementType() reflect.Type {
@@ -103,7 +103,7 @@ type stateMachineArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn string `pulumi:"roleArn"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StateMachine resource.
@@ -115,7 +115,7 @@ type StateMachineArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn pulumi.StringInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (StateMachineArgs) ElementType() reflect.Type {

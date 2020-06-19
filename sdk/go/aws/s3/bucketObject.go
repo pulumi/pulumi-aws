@@ -61,7 +61,7 @@ type BucketObject struct {
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass pulumi.StringOutput `pulumi:"storageClass"`
 	// A map of tags to assign to the object.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A unique version ID value for the object, if bucket versioning
 	// is enabled.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
@@ -147,7 +147,7 @@ type bucketObjectState struct {
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass *string `pulumi:"storageClass"`
 	// A map of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// A unique version ID value for the object, if bucket versioning
 	// is enabled.
 	VersionId *string `pulumi:"versionId"`
@@ -203,7 +203,7 @@ type BucketObjectState struct {
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass pulumi.StringPtrInput
 	// A map of tags to assign to the object.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// A unique version ID value for the object, if bucket versioning
 	// is enabled.
 	VersionId pulumi.StringPtrInput
@@ -263,7 +263,7 @@ type bucketObjectArgs struct {
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass *string `pulumi:"storageClass"`
 	// A map of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
@@ -317,7 +317,7 @@ type BucketObjectArgs struct {
 	// for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
 	StorageClass pulumi.StringPtrInput
 	// A map of tags to assign to the object.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	WebsiteRedirect pulumi.StringPtrInput
 }

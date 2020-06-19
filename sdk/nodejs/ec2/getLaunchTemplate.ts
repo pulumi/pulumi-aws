@@ -67,7 +67,7 @@ export interface GetLaunchTemplateArgs {
     /**
      * A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -187,7 +187,7 @@ export interface GetLaunchTemplateResult {
     /**
      * (Optional) A map of tags to assign to the launch template.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The Base64-encoded user data to provide when launching the instance.
      */

@@ -73,7 +73,7 @@ export class IdentityProvider extends pulumi.CustomResource {
     /**
      * The map of identity details, such as access token
      */
-    public readonly providerDetails!: pulumi.Output<{[key: string]: any}>;
+    public readonly providerDetails!: pulumi.Output<{[key: string]: string}>;
     /**
      * The provider name
      */
@@ -152,7 +152,7 @@ export interface IdentityProviderState {
     /**
      * The map of identity details, such as access token
      */
-    readonly providerDetails?: pulumi.Input<{[key: string]: any}>;
+    readonly providerDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The provider name
      */
@@ -182,7 +182,7 @@ export interface IdentityProviderArgs {
     /**
      * The map of identity details, such as access token
      */
-    readonly providerDetails: pulumi.Input<{[key: string]: any}>;
+    readonly providerDetails: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The provider name
      */

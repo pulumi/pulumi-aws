@@ -412,7 +412,7 @@ namespace Pulumi.Aws.AutoScaling
         /// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
         /// </summary>
         [Output("tagsCollection")]
-        public Output<ImmutableArray<ImmutableDictionary<string, object>>> TagsCollection { get; private set; } = null!;
+        public Output<ImmutableArray<ImmutableDictionary<string, string>>> TagsCollection { get; private set; } = null!;
 
         /// <summary>
         /// A list of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
@@ -700,14 +700,14 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         [Input("tagsCollection")]
-        private InputList<ImmutableDictionary<string, object>>? _tagsCollection;
+        private InputList<ImmutableDictionary<string, string>>? _tagsCollection;
 
         /// <summary>
         /// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> TagsCollection
+        public InputList<ImmutableDictionary<string, string>> TagsCollection
         {
-            get => _tagsCollection ?? (_tagsCollection = new InputList<ImmutableDictionary<string, object>>());
+            get => _tagsCollection ?? (_tagsCollection = new InputList<ImmutableDictionary<string, string>>());
             set => _tagsCollection = value;
         }
 
@@ -982,14 +982,14 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         [Input("tagsCollection")]
-        private InputList<ImmutableDictionary<string, object>>? _tagsCollection;
+        private InputList<ImmutableDictionary<string, string>>? _tagsCollection;
 
         /// <summary>
         /// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
         /// </summary>
-        public InputList<ImmutableDictionary<string, object>> TagsCollection
+        public InputList<ImmutableDictionary<string, string>> TagsCollection
         {
-            get => _tagsCollection ?? (_tagsCollection = new InputList<ImmutableDictionary<string, object>>());
+            get => _tagsCollection ?? (_tagsCollection = new InputList<ImmutableDictionary<string, string>>());
             set => _tagsCollection = value;
         }
 

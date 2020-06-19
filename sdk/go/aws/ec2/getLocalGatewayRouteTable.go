@@ -57,17 +57,17 @@ type GetLocalGatewayRouteTableArgs struct {
 	State *string `pulumi:"state"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLocalGatewayRouteTable.
 type GetLocalGatewayRouteTableResult struct {
 	Filters []GetLocalGatewayRouteTableFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                       string                 `pulumi:"id"`
-	LocalGatewayId           string                 `pulumi:"localGatewayId"`
-	LocalGatewayRouteTableId string                 `pulumi:"localGatewayRouteTableId"`
-	OutpostArn               string                 `pulumi:"outpostArn"`
-	State                    string                 `pulumi:"state"`
-	Tags                     map[string]interface{} `pulumi:"tags"`
+	Id                       string            `pulumi:"id"`
+	LocalGatewayId           string            `pulumi:"localGatewayId"`
+	LocalGatewayRouteTableId string            `pulumi:"localGatewayRouteTableId"`
+	OutpostArn               string            `pulumi:"outpostArn"`
+	State                    string            `pulumi:"state"`
+	Tags                     map[string]string `pulumi:"tags"`
 }

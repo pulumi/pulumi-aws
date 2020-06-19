@@ -106,6 +106,10 @@ export class CatalogTable extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the Glue Table.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
     public readonly catalogId!: pulumi.Output<string>;
@@ -166,6 +170,7 @@ export class CatalogTable extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as CatalogTableState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["catalogId"] = state ? state.catalogId : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -195,6 +200,7 @@ export class CatalogTable extends pulumi.CustomResource {
             inputs["tableType"] = args ? args.tableType : undefined;
             inputs["viewExpandedText"] = args ? args.viewExpandedText : undefined;
             inputs["viewOriginalText"] = args ? args.viewOriginalText : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -211,6 +217,10 @@ export class CatalogTable extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CatalogTable resources.
  */
 export interface CatalogTableState {
+    /**
+     * The ARN of the Glue Table.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */

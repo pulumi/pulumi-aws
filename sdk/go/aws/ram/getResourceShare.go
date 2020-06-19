@@ -82,7 +82,7 @@ type LookupResourceShareArgs struct {
 	// The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
 	ResourceOwner string `pulumi:"resourceOwner"`
 	// The Tags attached to the RAM share
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getResourceShare.
@@ -99,5 +99,5 @@ type LookupResourceShareResult struct {
 	// The Status of the RAM share.
 	Status string `pulumi:"status"`
 	// The Tags attached to the RAM share
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

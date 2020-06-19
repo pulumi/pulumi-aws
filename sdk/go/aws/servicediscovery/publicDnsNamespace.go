@@ -46,6 +46,8 @@ type PublicDnsNamespace struct {
 	HostedZone pulumi.StringOutput `pulumi:"hostedZone"`
 	// The name of the namespace.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A map of tags to assign to the namespace.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewPublicDnsNamespace registers a new resource with the given unique name, arguments, and options.
@@ -84,6 +86,8 @@ type publicDnsNamespaceState struct {
 	HostedZone *string `pulumi:"hostedZone"`
 	// The name of the namespace.
 	Name *string `pulumi:"name"`
+	// A map of tags to assign to the namespace.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type PublicDnsNamespaceState struct {
@@ -95,6 +99,8 @@ type PublicDnsNamespaceState struct {
 	HostedZone pulumi.StringPtrInput
 	// The name of the namespace.
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the namespace.
+	Tags pulumi.StringMapInput
 }
 
 func (PublicDnsNamespaceState) ElementType() reflect.Type {
@@ -106,6 +112,8 @@ type publicDnsNamespaceArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the namespace.
 	Name *string `pulumi:"name"`
+	// A map of tags to assign to the namespace.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PublicDnsNamespace resource.
@@ -114,6 +122,8 @@ type PublicDnsNamespaceArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the namespace.
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the namespace.
+	Tags pulumi.StringMapInput
 }
 
 func (PublicDnsNamespaceArgs) ElementType() reflect.Type {

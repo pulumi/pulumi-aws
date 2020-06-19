@@ -40,6 +40,12 @@ namespace Pulumi.Aws.Ec2
     public partial class InternetGateway : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the Internet Gateway.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the AWS account that owns the internet gateway.
         /// </summary>
         [Output("ownerId")]
@@ -49,7 +55,7 @@ namespace Pulumi.Aws.Ec2
         /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The VPC ID to create in.
@@ -104,14 +110,14 @@ namespace Pulumi.Aws.Ec2
     public sealed class InternetGatewayArgs : Pulumi.ResourceArgs
     {
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -129,20 +135,26 @@ namespace Pulumi.Aws.Ec2
     public sealed class InternetGatewayState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ARN of the Internet Gateway.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// The ID of the AWS account that owns the internet gateway.
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

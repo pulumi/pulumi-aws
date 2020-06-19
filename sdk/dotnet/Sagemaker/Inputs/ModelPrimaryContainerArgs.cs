@@ -19,15 +19,15 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? ContainerHostname { get; set; }
 
         [Input("environment")]
-        private InputMap<object>? _environment;
+        private InputMap<string>? _environment;
 
         /// <summary>
         /// Environment variables for the Docker container.
         /// A list of key value pairs.
         /// </summary>
-        public InputMap<object> Environment
+        public InputMap<string> Environment
         {
-            get => _environment ?? (_environment = new InputMap<object>());
+            get => _environment ?? (_environment = new InputMap<string>());
             set => _environment = value;
         }
 

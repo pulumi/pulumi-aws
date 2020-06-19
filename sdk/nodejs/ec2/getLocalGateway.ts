@@ -63,7 +63,7 @@ export interface GetLocalGatewayArgs {
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired Local Gateway.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -84,5 +84,5 @@ export interface GetLocalGatewayResult {
      * State of the local gateway.
      */
     readonly state: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

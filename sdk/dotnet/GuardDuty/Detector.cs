@@ -44,6 +44,12 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of the GuardDuty detector
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         /// </summary>
         [Output("enable")]
@@ -54,6 +60,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Output("findingPublishingFrequency")]
         public Output<string> FindingPublishingFrequency { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -113,6 +125,18 @@ namespace Pulumi.Aws.GuardDuty
         [Input("findingPublishingFrequency")]
         public Input<string>? FindingPublishingFrequency { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public DetectorArgs()
         {
         }
@@ -127,6 +151,12 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of the GuardDuty detector
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         /// </summary>
         [Input("enable")]
@@ -137,6 +167,18 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("findingPublishingFrequency")]
         public Input<string>? FindingPublishingFrequency { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public DetectorState()
         {

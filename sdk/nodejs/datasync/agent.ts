@@ -69,7 +69,7 @@ export class Agent extends pulumi.CustomResource {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Agent resource with the given unique name, arguments, and options.
@@ -130,7 +130,7 @@ export interface AgentState {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -152,5 +152,5 @@ export interface AgentArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

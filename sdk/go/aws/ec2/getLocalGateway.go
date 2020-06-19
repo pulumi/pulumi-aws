@@ -52,7 +52,7 @@ type GetLocalGatewayArgs struct {
 	State *string `pulumi:"state"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired Local Gateway.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLocalGateway.
@@ -64,6 +64,6 @@ type GetLocalGatewayResult struct {
 	// AWS account identifier that owns the Local Gateway.
 	OwnerId string `pulumi:"ownerId"`
 	// State of the local gateway.
-	State string                 `pulumi:"state"`
-	Tags  map[string]interface{} `pulumi:"tags"`
+	State string            `pulumi:"state"`
+	Tags  map[string]string `pulumi:"tags"`
 }

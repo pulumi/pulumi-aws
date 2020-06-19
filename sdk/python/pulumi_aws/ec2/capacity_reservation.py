@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class CapacityReservation(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the Capacity Reservation.
+    """
     availability_zone: pulumi.Output[str]
     """
     The Availability Zone in which to create the Capacity Reservation.
@@ -123,6 +127,7 @@ class CapacityReservation(pulumi.CustomResource):
             __props__['instance_type'] = instance_type
             __props__['tags'] = tags
             __props__['tenancy'] = tenancy
+            __props__['arn'] = None
         super(CapacityReservation, __self__).__init__(
             'aws:ec2/capacityReservation:CapacityReservation',
             resource_name,
@@ -130,7 +135,7 @@ class CapacityReservation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, availability_zone=None, ebs_optimized=None, end_date=None, end_date_type=None, ephemeral_storage=None, instance_count=None, instance_match_criteria=None, instance_platform=None, instance_type=None, tags=None, tenancy=None):
+    def get(resource_name, id, opts=None, arn=None, availability_zone=None, ebs_optimized=None, end_date=None, end_date_type=None, ephemeral_storage=None, instance_count=None, instance_match_criteria=None, instance_platform=None, instance_type=None, tags=None, tenancy=None):
         """
         Get an existing CapacityReservation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -138,6 +143,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Capacity Reservation.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether the Capacity Reservation supports EBS-optimized instances.
         :param pulumi.Input[str] end_date: The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -154,6 +160,7 @@ class CapacityReservation(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["availability_zone"] = availability_zone
         __props__["ebs_optimized"] = ebs_optimized
         __props__["end_date"] = end_date

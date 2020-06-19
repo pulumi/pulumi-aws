@@ -13,14 +13,14 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
     public sealed class ListenerRuleActionAuthenticateOidcGetArgs : Pulumi.ResourceArgs
     {
         [Input("authenticationRequestExtraParams")]
-        private InputMap<object>? _authenticationRequestExtraParams;
+        private InputMap<string>? _authenticationRequestExtraParams;
 
         /// <summary>
         /// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
         /// </summary>
-        public InputMap<object> AuthenticationRequestExtraParams
+        public InputMap<string> AuthenticationRequestExtraParams
         {
-            get => _authenticationRequestExtraParams ?? (_authenticationRequestExtraParams = new InputMap<object>());
+            get => _authenticationRequestExtraParams ?? (_authenticationRequestExtraParams = new InputMap<string>());
             set => _authenticationRequestExtraParams = value;
         }
 

@@ -47,7 +47,7 @@ type AggregateAuthorization struct {
 	// Region
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAggregateAuthorization registers a new resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ type aggregateAuthorizationState struct {
 	// Region
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AggregateAuthorizationState struct {
@@ -102,7 +102,7 @@ type AggregateAuthorizationState struct {
 	// Region
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AggregateAuthorizationState) ElementType() reflect.Type {
@@ -115,7 +115,7 @@ type aggregateAuthorizationArgs struct {
 	// Region
 	Region string `pulumi:"region"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AggregateAuthorization resource.
@@ -125,7 +125,7 @@ type AggregateAuthorizationArgs struct {
 	// Region
 	Region pulumi.StringInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AggregateAuthorizationArgs) ElementType() reflect.Type {

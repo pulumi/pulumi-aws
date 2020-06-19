@@ -53,8 +53,8 @@ type LookupTargetGroupArgs struct {
 	// The full ARN of the target group.
 	Arn *string `pulumi:"arn"`
 	// The unique name of the target group.
-	Name *string                `pulumi:"name"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getTargetGroup.
@@ -73,7 +73,7 @@ type LookupTargetGroupResult struct {
 	ProxyProtocolV2                bool                     `pulumi:"proxyProtocolV2"`
 	SlowStart                      int                      `pulumi:"slowStart"`
 	Stickiness                     GetTargetGroupStickiness `pulumi:"stickiness"`
-	Tags                           map[string]interface{}   `pulumi:"tags"`
+	Tags                           map[string]string        `pulumi:"tags"`
 	TargetType                     string                   `pulumi:"targetType"`
 	VpcId                          string                   `pulumi:"vpcId"`
 }

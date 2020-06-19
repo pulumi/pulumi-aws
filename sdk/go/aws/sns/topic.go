@@ -102,7 +102,7 @@ type Topic struct {
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate pulumi.IntPtrOutput `pulumi:"sqsSuccessFeedbackSampleRate"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewTopic registers a new resource with the given unique name, arguments, and options.
@@ -172,7 +172,7 @@ type topicState struct {
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate *int `pulumi:"sqsSuccessFeedbackSampleRate"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type TopicState struct {
@@ -215,7 +215,7 @@ type TopicState struct {
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate pulumi.IntPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (TopicState) ElementType() reflect.Type {
@@ -260,7 +260,7 @@ type topicArgs struct {
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate *int `pulumi:"sqsSuccessFeedbackSampleRate"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Topic resource.
@@ -302,7 +302,7 @@ type TopicArgs struct {
 	// Percentage of success to sample
 	SqsSuccessFeedbackSampleRate pulumi.IntPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (TopicArgs) ElementType() reflect.Type {

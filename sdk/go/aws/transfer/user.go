@@ -25,7 +25,7 @@ type User struct {
 	// The Server ID of the Transfer Server (e.g. `s-12345678`)
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The name used for log in to your SFTP server.
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
@@ -78,7 +78,7 @@ type userState struct {
 	// The Server ID of the Transfer Server (e.g. `s-12345678`)
 	ServerId *string `pulumi:"serverId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The name used for log in to your SFTP server.
 	UserName *string `pulumi:"userName"`
 }
@@ -95,7 +95,7 @@ type UserState struct {
 	// The Server ID of the Transfer Server (e.g. `s-12345678`)
 	ServerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The name used for log in to your SFTP server.
 	UserName pulumi.StringPtrInput
 }
@@ -114,7 +114,7 @@ type userArgs struct {
 	// The Server ID of the Transfer Server (e.g. `s-12345678`)
 	ServerId string `pulumi:"serverId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The name used for log in to your SFTP server.
 	UserName string `pulumi:"userName"`
 }
@@ -130,7 +130,7 @@ type UserArgs struct {
 	// The Server ID of the Transfer Server (e.g. `s-12345678`)
 	ServerId pulumi.StringInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The name used for log in to your SFTP server.
 	UserName pulumi.StringInput
 }

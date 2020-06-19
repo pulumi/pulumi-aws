@@ -55,6 +55,10 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the traffic mirror target.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A description of the traffic mirror session.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -69,7 +73,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
     /**
      * Key-value map of resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a TrafficMirrorTarget resource with the given unique name, arguments, and options.
@@ -83,6 +87,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TrafficMirrorTargetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["networkLoadBalancerArn"] = state ? state.networkLoadBalancerArn : undefined;
@@ -93,6 +98,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             inputs["networkLoadBalancerArn"] = args ? args.networkLoadBalancerArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -110,6 +116,10 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
  */
 export interface TrafficMirrorTargetState {
     /**
+     * The ARN of the traffic mirror target.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * A description of the traffic mirror session.
      */
     readonly description?: pulumi.Input<string>;
@@ -124,7 +134,7 @@ export interface TrafficMirrorTargetState {
     /**
      * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -146,5 +156,5 @@ export interface TrafficMirrorTargetArgs {
     /**
      * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -20,13 +20,13 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Object tags for filtering (up to 10).
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private BucketMetricFilter(
             string? prefix,
 
-            ImmutableDictionary<string, object>? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Prefix = prefix;
             Tags = tags;

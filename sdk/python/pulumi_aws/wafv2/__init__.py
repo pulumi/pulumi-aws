@@ -5,5 +5,7 @@
 # Export this package's modules as members:
 from .get_ip_set import *
 from .get_regex_pattern_set import *
+from .get_web_acl import *
 from .ip_set import *
 from .regex_pattern_set import *
+from .web_acl_association import *

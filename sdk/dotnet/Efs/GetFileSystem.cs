@@ -59,10 +59,10 @@ namespace Pulumi.Aws.Efs
         public string? FileSystemId { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Efs
         /// The current byte count used by the file system.
         /// </summary>
         public readonly int SizeInBytes;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Throughput mode for the file system.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Efs
 
             int sizeInBytes,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string throughputMode)
         {

@@ -37,14 +37,14 @@ namespace Pulumi.Aws.Backup.Inputs
         public Input<Inputs.PlanRuleLifecycleGetArgs>? Lifecycle { get; set; }
 
         [Input("recoveryPointTags")]
-        private InputMap<object>? _recoveryPointTags;
+        private InputMap<string>? _recoveryPointTags;
 
         /// <summary>
         /// Metadata that you can assign to help organize the resources that you create.
         /// </summary>
-        public InputMap<object> RecoveryPointTags
+        public InputMap<string> RecoveryPointTags
         {
-            get => _recoveryPointTags ?? (_recoveryPointTags = new InputMap<object>());
+            get => _recoveryPointTags ?? (_recoveryPointTags = new InputMap<string>());
             set => _recoveryPointTags = value;
         }
 

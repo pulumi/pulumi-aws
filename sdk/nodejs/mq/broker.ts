@@ -152,7 +152,7 @@ export class Broker extends pulumi.CustomResource {
     /**
      * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */
@@ -318,7 +318,7 @@ export interface BrokerState {
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */
@@ -389,7 +389,7 @@ export interface BrokerArgs {
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of all ActiveMQ usernames for the specified broker. See below.
      */

@@ -51,10 +51,10 @@ namespace Pulumi.Aws.Rds
         public string DbInstanceIdentifier { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Rds
         /// Specifies the storage type associated with DB instance.
         /// </summary>
         public readonly string StorageType;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The time zone of the DB instance.
         /// </summary>
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Rds
 
             string storageType,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string timezone,
 

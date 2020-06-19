@@ -76,7 +76,7 @@ type GetVpnAttachmentArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetVpnAttachmentFilter `pulumi:"filters"`
 	// A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// Identifier of the EC2 VPN Connection.
@@ -89,7 +89,7 @@ type GetVpnAttachmentResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway VPN Attachment
-	Tags             map[string]interface{} `pulumi:"tags"`
-	TransitGatewayId *string                `pulumi:"transitGatewayId"`
-	VpnConnectionId  *string                `pulumi:"vpnConnectionId"`
+	Tags             map[string]string `pulumi:"tags"`
+	TransitGatewayId *string           `pulumi:"transitGatewayId"`
+	VpnConnectionId  *string           `pulumi:"vpnConnectionId"`
 }

@@ -43,9 +43,9 @@ type Stage struct {
 	// The name of the stage
 	StageName pulumi.StringOutput `pulumi:"stageName"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map that defines the stage variables
-	Variables pulumi.MapOutput `pulumi:"variables"`
+	Variables pulumi.StringMapOutput `pulumi:"variables"`
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled pulumi.BoolPtrOutput `pulumi:"xrayTracingEnabled"`
 }
@@ -116,9 +116,9 @@ type stageState struct {
 	// The name of the stage
 	StageName *string `pulumi:"stageName"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// A map that defines the stage variables
-	Variables map[string]interface{} `pulumi:"variables"`
+	Variables map[string]string `pulumi:"variables"`
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled *bool `pulumi:"xrayTracingEnabled"`
 }
@@ -153,9 +153,9 @@ type StageState struct {
 	// The name of the stage
 	StageName pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// A map that defines the stage variables
-	Variables pulumi.MapInput
+	Variables pulumi.StringMapInput
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled pulumi.BoolPtrInput
 }
@@ -185,9 +185,9 @@ type stageArgs struct {
 	// The name of the stage
 	StageName string `pulumi:"stageName"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// A map that defines the stage variables
-	Variables map[string]interface{} `pulumi:"variables"`
+	Variables map[string]string `pulumi:"variables"`
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled *bool `pulumi:"xrayTracingEnabled"`
 }
@@ -214,9 +214,9 @@ type StageArgs struct {
 	// The name of the stage
 	StageName pulumi.StringInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// A map that defines the stage variables
-	Variables pulumi.MapInput
+	Variables pulumi.StringMapInput
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled pulumi.BoolPtrInput
 }

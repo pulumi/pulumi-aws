@@ -83,7 +83,7 @@ type SubnetGroup struct {
 	// An array of VPC subnet IDs.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -129,7 +129,7 @@ type subnetGroupState struct {
 	// An array of VPC subnet IDs.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type SubnetGroupState struct {
@@ -142,7 +142,7 @@ type SubnetGroupState struct {
 	// An array of VPC subnet IDs.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (SubnetGroupState) ElementType() reflect.Type {
@@ -157,7 +157,7 @@ type subnetGroupArgs struct {
 	// An array of VPC subnet IDs.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SubnetGroup resource.
@@ -169,7 +169,7 @@ type SubnetGroupArgs struct {
 	// An array of VPC subnet IDs.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (SubnetGroupArgs) ElementType() reflect.Type {

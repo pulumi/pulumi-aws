@@ -85,14 +85,14 @@ namespace Pulumi.Aws.Ec2
         public string? Id { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// Map of key-value pairs assigned to the gateway.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Map of key-value pairs assigned to the gateway.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// (Optional) The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Ec2
 
             string ipAddress,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string type)
         {

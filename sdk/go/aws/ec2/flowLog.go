@@ -48,6 +48,8 @@ import (
 type FlowLog struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Flow Log.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Elastic Network Interface ID to attach to
 	EniId pulumi.StringPtrOutput `pulumi:"eniId"`
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
@@ -70,7 +72,7 @@ type FlowLog struct {
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringOutput `pulumi:"trafficType"`
 	// VPC ID to attach to
@@ -108,6 +110,8 @@ func GetFlowLog(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FlowLog resources.
 type flowLogState struct {
+	// The ARN of the Flow Log.
+	Arn *string `pulumi:"arn"`
 	// Elastic Network Interface ID to attach to
 	EniId *string `pulumi:"eniId"`
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
@@ -130,7 +134,7 @@ type flowLogState struct {
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType *string `pulumi:"trafficType"`
 	// VPC ID to attach to
@@ -138,6 +142,8 @@ type flowLogState struct {
 }
 
 type FlowLogState struct {
+	// The ARN of the Flow Log.
+	Arn pulumi.StringPtrInput
 	// Elastic Network Interface ID to attach to
 	EniId pulumi.StringPtrInput
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
@@ -160,7 +166,7 @@ type FlowLogState struct {
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringPtrInput
 	// VPC ID to attach to
@@ -194,7 +200,7 @@ type flowLogArgs struct {
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType string `pulumi:"trafficType"`
 	// VPC ID to attach to
@@ -225,7 +231,7 @@ type FlowLogArgs struct {
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringInput
 	// VPC ID to attach to

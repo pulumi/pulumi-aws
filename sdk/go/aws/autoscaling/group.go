@@ -206,7 +206,7 @@ type Group struct {
 	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
 	Tags GroupTagArrayOutput `pulumi:"tags"`
 	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
-	TagsCollection pulumi.MapArrayOutput `pulumi:"tagsCollection"`
+	TagsCollection pulumi.StringMapArrayOutput `pulumi:"tagsCollection"`
 	// A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns pulumi.StringArrayOutput `pulumi:"targetGroupArns"`
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
@@ -333,7 +333,7 @@ type groupState struct {
 	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
 	Tags []GroupTag `pulumi:"tags"`
 	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
-	TagsCollection []map[string]interface{} `pulumi:"tagsCollection"`
+	TagsCollection []map[string]string `pulumi:"tagsCollection"`
 	// A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
@@ -427,7 +427,7 @@ type GroupState struct {
 	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
 	Tags GroupTagArrayInput
 	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
-	TagsCollection pulumi.MapArrayInput
+	TagsCollection pulumi.StringMapArrayInput
 	// A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns pulumi.StringArrayInput
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
@@ -523,7 +523,7 @@ type groupArgs struct {
 	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
 	Tags []GroupTag `pulumi:"tags"`
 	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
-	TagsCollection []map[string]interface{} `pulumi:"tagsCollection"`
+	TagsCollection []map[string]string `pulumi:"tagsCollection"`
 	// A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
@@ -616,7 +616,7 @@ type GroupArgs struct {
 	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
 	Tags GroupTagArrayInput
 	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
-	TagsCollection pulumi.MapArrayInput
+	TagsCollection pulumi.StringMapArrayInput
 	// A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
 	TargetGroupArns pulumi.StringArrayInput
 	// A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.

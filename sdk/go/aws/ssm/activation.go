@@ -31,7 +31,7 @@ type Activation struct {
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrOutput `pulumi:"registrationLimit"`
 	// A map of tags to assign to the object.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewActivation registers a new resource with the given unique name, arguments, and options.
@@ -82,7 +82,7 @@ type activationState struct {
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit *int `pulumi:"registrationLimit"`
 	// A map of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ActivationState struct {
@@ -103,7 +103,7 @@ type ActivationState struct {
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrInput
 	// A map of tags to assign to the object.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ActivationState) ElementType() reflect.Type {
@@ -122,7 +122,7 @@ type activationArgs struct {
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit *int `pulumi:"registrationLimit"`
 	// A map of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Activation resource.
@@ -138,7 +138,7 @@ type ActivationArgs struct {
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrInput
 	// A map of tags to assign to the object.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ActivationArgs) ElementType() reflect.Type {

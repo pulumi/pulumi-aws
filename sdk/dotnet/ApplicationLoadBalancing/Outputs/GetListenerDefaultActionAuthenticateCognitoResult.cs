@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
     [OutputType]
     public sealed class GetListenerDefaultActionAuthenticateCognitoResult
     {
-        public readonly ImmutableDictionary<string, object> AuthenticationRequestExtraParams;
+        public readonly ImmutableDictionary<string, string> AuthenticationRequestExtraParams;
         public readonly string OnUnauthenticatedRequest;
         public readonly string Scope;
         public readonly string SessionCookieName;
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
 
         [OutputConstructor]
         private GetListenerDefaultActionAuthenticateCognitoResult(
-            ImmutableDictionary<string, object> authenticationRequestExtraParams,
+            ImmutableDictionary<string, string> authenticationRequestExtraParams,
 
             string onUnauthenticatedRequest,
 

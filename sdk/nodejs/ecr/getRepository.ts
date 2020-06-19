@@ -47,7 +47,7 @@ export interface GetRepositoryArgs {
     /**
      * A map of tags assigned to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -74,5 +74,5 @@ export interface GetRepositoryResult {
     /**
      * A map of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

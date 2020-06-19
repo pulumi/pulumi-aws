@@ -49,7 +49,7 @@ type Channel struct {
 	// A single item list of HLS ingest information
 	HlsIngests ChannelHlsIngestArrayOutput `pulumi:"hlsIngests"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -95,7 +95,7 @@ type channelState struct {
 	// A single item list of HLS ingest information
 	HlsIngests []ChannelHlsIngest `pulumi:"hlsIngests"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ChannelState struct {
@@ -108,7 +108,7 @@ type ChannelState struct {
 	// A single item list of HLS ingest information
 	HlsIngests ChannelHlsIngestArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ChannelState) ElementType() reflect.Type {
@@ -121,7 +121,7 @@ type channelArgs struct {
 	// A description of the channel
 	Description *string `pulumi:"description"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Channel resource.
@@ -131,7 +131,7 @@ type ChannelArgs struct {
 	// A description of the channel
 	Description pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {

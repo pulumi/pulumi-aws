@@ -105,6 +105,10 @@ export class FlowLog extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the Flow Log.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Elastic Network Interface ID to attach to
      */
     public readonly eniId!: pulumi.Output<string | undefined>;
@@ -144,7 +148,7 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */
@@ -166,6 +170,7 @@ export class FlowLog extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as FlowLogState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["eniId"] = state ? state.eniId : undefined;
             inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
             inputs["logDestination"] = state ? state.logDestination : undefined;
@@ -193,6 +198,7 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["trafficType"] = args ? args.trafficType : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -209,6 +215,10 @@ export class FlowLog extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FlowLog resources.
  */
 export interface FlowLogState {
+    /**
+     * The ARN of the Flow Log.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Elastic Network Interface ID to attach to
      */
@@ -249,7 +259,7 @@ export interface FlowLogState {
     /**
      * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */
@@ -304,7 +314,7 @@ export interface FlowLogArgs {
     /**
      * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */

@@ -61,7 +61,7 @@ type PatchBaseline struct {
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayOutput `pulumi:"rejectedPatches"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewPatchBaseline registers a new resource with the given unique name, arguments, and options.
@@ -109,7 +109,7 @@ type patchBaselineState struct {
 	// A list of rejected patches.
 	RejectedPatches []string `pulumi:"rejectedPatches"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type PatchBaselineState struct {
@@ -130,7 +130,7 @@ type PatchBaselineState struct {
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (PatchBaselineState) ElementType() reflect.Type {
@@ -155,7 +155,7 @@ type patchBaselineArgs struct {
 	// A list of rejected patches.
 	RejectedPatches []string `pulumi:"rejectedPatches"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PatchBaseline resource.
@@ -177,7 +177,7 @@ type PatchBaselineArgs struct {
 	// A list of rejected patches.
 	RejectedPatches pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (PatchBaselineArgs) ElementType() reflect.Type {

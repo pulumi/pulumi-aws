@@ -63,7 +63,7 @@ export interface GetCoipPoolArgs {
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired COIP Pool.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -81,5 +81,5 @@ export interface GetCoipPoolResult {
      */
     readonly poolCidrs: string[];
     readonly poolId: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

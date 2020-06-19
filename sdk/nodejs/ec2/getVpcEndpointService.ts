@@ -94,7 +94,7 @@ export interface GetVpcEndpointServiceArgs {
     /**
      * A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -143,7 +143,7 @@ export interface GetVpcEndpointServiceResult {
     /**
      * A map of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * Whether or not the service supports endpoint policies - `true` or `false`.
      */

@@ -17,6 +17,9 @@ class GetBundleResult:
         if bundle_id and not isinstance(bundle_id, str):
             raise TypeError("Expected argument 'bundle_id' to be a str")
         __self__.bundle_id = bundle_id
+        """
+        The ID of the bundle.
+        """
         if compute_types and not isinstance(compute_types, list):
             raise TypeError("Expected argument 'compute_types' to be a list")
         __self__.compute_types = compute_types
@@ -74,7 +77,7 @@ class AwaitableGetBundleResult(GetBundleResult):
             root_storages=self.root_storages,
             user_storages=self.user_storages)
 
-def get_bundle(bundle_id=None,opts=None):
+def get_bundle(bundle_id=None,name=None,owner=None,opts=None):
     """
     Use this data source to get information about a WorkSpaces Bundle.
 
@@ -86,16 +89,21 @@ def get_bundle(bundle_id=None,opts=None):
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.workspaces.get_bundle(bundle_id="wsb-b0s22j3d7")
+    example = aws.workspaces.get_bundle(name="Value with Windows 10 and Office 2016",
+        owner="AMAZON")
     ```
 
 
     :param str bundle_id: The ID of the bundle.
+    :param str name: The name of the bundle. You cannot combine this parameter with `bundle_id`.
+    :param str owner: The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
     """
     __args__ = dict()
 
 
     __args__['bundleId'] = bundle_id
+    __args__['name'] = name
+    __args__['owner'] = owner
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

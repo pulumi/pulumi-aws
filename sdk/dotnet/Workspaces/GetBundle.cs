@@ -28,7 +28,8 @@ namespace Pulumi.Aws.Workspaces
         ///     {
         ///         var example = Output.Create(Aws.Workspaces.GetBundle.InvokeAsync(new Aws.Workspaces.GetBundleArgs
         ///         {
-        ///             BundleId = "wsb-b0s22j3d7",
+        ///             Name = "Value with Windows 10 and Office 2016",
+        ///             Owner = "AMAZON",
         ///         }));
         ///     }
         /// 
@@ -37,7 +38,7 @@ namespace Pulumi.Aws.Workspaces
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetBundleResult> InvokeAsync(GetBundleArgs args, InvokeOptions? options = null)
+        public static Task<GetBundleResult> InvokeAsync(GetBundleArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBundleResult>("aws:workspaces/getBundle:getBundle", args ?? new GetBundleArgs(), options.WithVersion());
     }
 
@@ -47,8 +48,20 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// The ID of the bundle.
         /// </summary>
-        [Input("bundleId", required: true)]
-        public string BundleId { get; set; } = null!;
+        [Input("bundleId")]
+        public string? BundleId { get; set; }
+
+        /// <summary>
+        /// The name of the bundle. You cannot combine this parameter with `bundle_id`.
+        /// </summary>
+        [Input("name")]
+        public string? Name { get; set; }
+
+        /// <summary>
+        /// The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+        /// </summary>
+        [Input("owner")]
+        public string? Owner { get; set; }
 
         public GetBundleArgs()
         {
@@ -59,7 +72,10 @@ namespace Pulumi.Aws.Workspaces
     [OutputType]
     public sealed class GetBundleResult
     {
-        public readonly string BundleId;
+        /// <summary>
+        /// The ID of the bundle.
+        /// </summary>
+        public readonly string? BundleId;
         /// <summary>
         /// The compute type. See supported fields below.
         /// </summary>
@@ -75,11 +91,11 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// The name of the compute type.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The owner of the bundle.
         /// </summary>
-        public readonly string Owner;
+        public readonly string? Owner;
         /// <summary>
         /// The root volume. See supported fields below.
         /// </summary>
@@ -91,7 +107,7 @@ namespace Pulumi.Aws.Workspaces
 
         [OutputConstructor]
         private GetBundleResult(
-            string bundleId,
+            string? bundleId,
 
             ImmutableArray<Outputs.GetBundleComputeTypeResult> computeTypes,
 
@@ -99,9 +115,9 @@ namespace Pulumi.Aws.Workspaces
 
             string id,
 
-            string name,
+            string? name,
 
-            string owner,
+            string? owner,
 
             ImmutableArray<Outputs.GetBundleRootStorageResult> rootStorages,
 

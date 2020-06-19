@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class KeyPair(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The key pair ARN.
+    """
     fingerprint: pulumi.Output[str]
     """
     The MD5 public key fingerprint as specified in section 4 of RFC 4716.
@@ -87,6 +91,7 @@ class KeyPair(pulumi.CustomResource):
                 raise TypeError("Missing required property 'public_key'")
             __props__['public_key'] = public_key
             __props__['tags'] = tags
+            __props__['arn'] = None
             __props__['fingerprint'] = None
             __props__['key_pair_id'] = None
         super(KeyPair, __self__).__init__(
@@ -96,7 +101,7 @@ class KeyPair(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, fingerprint=None, key_name=None, key_name_prefix=None, key_pair_id=None, public_key=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, fingerprint=None, key_name=None, key_name_prefix=None, key_pair_id=None, public_key=None, tags=None):
         """
         Get an existing KeyPair resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -104,6 +109,7 @@ class KeyPair(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The key pair ARN.
         :param pulumi.Input[str] fingerprint: The MD5 public key fingerprint as specified in section 4 of RFC 4716.
         :param pulumi.Input[str] key_name: The name for the key pair.
         :param pulumi.Input[str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
@@ -115,6 +121,7 @@ class KeyPair(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["fingerprint"] = fingerprint
         __props__["key_name"] = key_name
         __props__["key_name_prefix"] = key_name_prefix

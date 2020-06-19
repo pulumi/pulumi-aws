@@ -42,6 +42,8 @@ type HttpNamespace struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the http namespace.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A map of tags to assign to the namespace.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewHttpNamespace registers a new resource with the given unique name, arguments, and options.
@@ -78,6 +80,8 @@ type httpNamespaceState struct {
 	Description *string `pulumi:"description"`
 	// The name of the http namespace.
 	Name *string `pulumi:"name"`
+	// A map of tags to assign to the namespace.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type HttpNamespaceState struct {
@@ -87,6 +91,8 @@ type HttpNamespaceState struct {
 	Description pulumi.StringPtrInput
 	// The name of the http namespace.
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the namespace.
+	Tags pulumi.StringMapInput
 }
 
 func (HttpNamespaceState) ElementType() reflect.Type {
@@ -98,6 +104,8 @@ type httpNamespaceArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the http namespace.
 	Name *string `pulumi:"name"`
+	// A map of tags to assign to the namespace.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HttpNamespace resource.
@@ -106,6 +114,8 @@ type HttpNamespaceArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the http namespace.
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the namespace.
+	Tags pulumi.StringMapInput
 }
 
 func (HttpNamespaceArgs) ElementType() reflect.Type {

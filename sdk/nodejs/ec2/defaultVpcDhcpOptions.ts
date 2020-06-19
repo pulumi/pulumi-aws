@@ -59,6 +59,10 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
         return obj['__pulumiType'] === DefaultVpcDhcpOptions.__pulumiType;
     }
 
+    /**
+     * The ARN of the DHCP Options Set.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     public /*out*/ readonly domainNameServers!: pulumi.Output<string>;
     /**
@@ -77,7 +81,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
     /**
      * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DefaultVpcDhcpOptions resource with the given unique name, arguments, and options.
@@ -91,6 +95,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DefaultVpcDhcpOptionsState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["domainNameServers"] = state ? state.domainNameServers : undefined;
             inputs["netbiosNameServers"] = state ? state.netbiosNameServers : undefined;
@@ -103,6 +108,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             inputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
             inputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["domainNameServers"] = undefined /*out*/;
             inputs["ntpServers"] = undefined /*out*/;
@@ -123,6 +129,10 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultVpcDhcpOptions resources.
  */
 export interface DefaultVpcDhcpOptionsState {
+    /**
+     * The ARN of the DHCP Options Set.
+     */
+    readonly arn?: pulumi.Input<string>;
     readonly domainName?: pulumi.Input<string>;
     readonly domainNameServers?: pulumi.Input<string>;
     /**
@@ -141,7 +151,7 @@ export interface DefaultVpcDhcpOptionsState {
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -159,5 +169,5 @@ export interface DefaultVpcDhcpOptionsArgs {
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -75,7 +75,7 @@ export class NfsLocation extends pulumi.CustomResource {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly uri!: pulumi.Output<string>;
 
     /**
@@ -148,7 +148,7 @@ export interface NfsLocationState {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly uri?: pulumi.Input<string>;
 }
 
@@ -171,5 +171,5 @@ export interface NfsLocationArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -363,7 +363,7 @@ type AnalyticsConfigurationFilter struct {
 	// Object prefix for filtering.
 	Prefix *string `pulumi:"prefix"`
 	// Set of object tags for filtering.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // AnalyticsConfigurationFilterInput is an input type that accepts AnalyticsConfigurationFilterArgs and AnalyticsConfigurationFilterOutput values.
@@ -382,7 +382,7 @@ type AnalyticsConfigurationFilterArgs struct {
 	// Object prefix for filtering.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Set of object tags for filtering.
-	Tags pulumi.MapInput `pulumi:"tags"`
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (AnalyticsConfigurationFilterArgs) ElementType() reflect.Type {
@@ -469,8 +469,8 @@ func (o AnalyticsConfigurationFilterOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 // Set of object tags for filtering.
-func (o AnalyticsConfigurationFilterOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v AnalyticsConfigurationFilter) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+func (o AnalyticsConfigurationFilterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AnalyticsConfigurationFilter) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type AnalyticsConfigurationFilterPtrOutput struct{ *pulumi.OutputState }
@@ -502,13 +502,13 @@ func (o AnalyticsConfigurationFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 // Set of object tags for filtering.
-func (o AnalyticsConfigurationFilterPtrOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v *AnalyticsConfigurationFilter) map[string]interface{} {
+func (o AnalyticsConfigurationFilterPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AnalyticsConfigurationFilter) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Tags
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type AnalyticsConfigurationStorageClassAnalysis struct {
@@ -1418,7 +1418,7 @@ type BucketLifecycleRule struct {
 	// Object key prefix identifying one or more objects to which the rule applies.
 	Prefix *string `pulumi:"prefix"`
 	// Specifies object tags key and value.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Specifies a period in the object's transitions (documented below).
 	Transitions []BucketLifecycleRuleTransition `pulumi:"transitions"`
 }
@@ -1451,7 +1451,7 @@ type BucketLifecycleRuleArgs struct {
 	// Object key prefix identifying one or more objects to which the rule applies.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Specifies object tags key and value.
-	Tags pulumi.MapInput `pulumi:"tags"`
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Specifies a period in the object's transitions (documented below).
 	Transitions BucketLifecycleRuleTransitionArrayInput `pulumi:"transitions"`
 }
@@ -1548,8 +1548,8 @@ func (o BucketLifecycleRuleOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 // Specifies object tags key and value.
-func (o BucketLifecycleRuleOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v BucketLifecycleRule) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+func (o BucketLifecycleRuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v BucketLifecycleRule) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Specifies a period in the object's transitions (documented below).
@@ -2220,7 +2220,7 @@ type BucketMetricFilter struct {
 	// Object prefix for filtering (singular).
 	Prefix *string `pulumi:"prefix"`
 	// Object tags for filtering (up to 10).
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // BucketMetricFilterInput is an input type that accepts BucketMetricFilterArgs and BucketMetricFilterOutput values.
@@ -2239,7 +2239,7 @@ type BucketMetricFilterArgs struct {
 	// Object prefix for filtering (singular).
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Object tags for filtering (up to 10).
-	Tags pulumi.MapInput `pulumi:"tags"`
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (BucketMetricFilterArgs) ElementType() reflect.Type {
@@ -2326,8 +2326,8 @@ func (o BucketMetricFilterOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 // Object tags for filtering (up to 10).
-func (o BucketMetricFilterOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v BucketMetricFilter) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+func (o BucketMetricFilterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v BucketMetricFilter) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type BucketMetricFilterPtrOutput struct{ *pulumi.OutputState }
@@ -2359,13 +2359,13 @@ func (o BucketMetricFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 // Object tags for filtering (up to 10).
-func (o BucketMetricFilterPtrOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v *BucketMetricFilter) map[string]interface{} {
+func (o BucketMetricFilterPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BucketMetricFilter) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Tags
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type BucketNotificationLambdaFunction struct {
@@ -3776,7 +3776,7 @@ type BucketReplicationConfigurationRuleFilter struct {
 	Prefix *string `pulumi:"prefix"`
 	// A map of tags that identifies subset of objects to which the rule applies.
 	// The rule applies only to objects having all the tags in its tagset.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // BucketReplicationConfigurationRuleFilterInput is an input type that accepts BucketReplicationConfigurationRuleFilterArgs and BucketReplicationConfigurationRuleFilterOutput values.
@@ -3796,7 +3796,7 @@ type BucketReplicationConfigurationRuleFilterArgs struct {
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// A map of tags that identifies subset of objects to which the rule applies.
 	// The rule applies only to objects having all the tags in its tagset.
-	Tags pulumi.MapInput `pulumi:"tags"`
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (BucketReplicationConfigurationRuleFilterArgs) ElementType() reflect.Type {
@@ -3884,8 +3884,8 @@ func (o BucketReplicationConfigurationRuleFilterOutput) Prefix() pulumi.StringPt
 
 // A map of tags that identifies subset of objects to which the rule applies.
 // The rule applies only to objects having all the tags in its tagset.
-func (o BucketReplicationConfigurationRuleFilterOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v BucketReplicationConfigurationRuleFilter) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
+func (o BucketReplicationConfigurationRuleFilterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v BucketReplicationConfigurationRuleFilter) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type BucketReplicationConfigurationRuleFilterPtrOutput struct{ *pulumi.OutputState }
@@ -3918,13 +3918,13 @@ func (o BucketReplicationConfigurationRuleFilterPtrOutput) Prefix() pulumi.Strin
 
 // A map of tags that identifies subset of objects to which the rule applies.
 // The rule applies only to objects having all the tags in its tagset.
-func (o BucketReplicationConfigurationRuleFilterPtrOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v *BucketReplicationConfigurationRuleFilter) map[string]interface{} {
+func (o BucketReplicationConfigurationRuleFilterPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BucketReplicationConfigurationRuleFilter) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Tags
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type BucketReplicationConfigurationRuleSourceSelectionCriteria struct {

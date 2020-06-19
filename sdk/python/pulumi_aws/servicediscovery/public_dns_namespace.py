@@ -26,7 +26,11 @@ class PublicDnsNamespace(pulumi.CustomResource):
     """
     The name of the namespace.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, name=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A map of tags to assign to the namespace.
+    """
+    def __init__(__self__, resource_name, opts=None, description=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Service Discovery Public DNS Namespace resource.
 
@@ -45,6 +49,7 @@ class PublicDnsNamespace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
         :param pulumi.Input[str] name: The name of the namespace.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the namespace.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,6 +70,7 @@ class PublicDnsNamespace(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['name'] = name
+            __props__['tags'] = tags
             __props__['arn'] = None
             __props__['hosted_zone'] = None
         super(PublicDnsNamespace, __self__).__init__(
@@ -74,7 +80,7 @@ class PublicDnsNamespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, description=None, hosted_zone=None, name=None):
+    def get(resource_name, id, opts=None, arn=None, description=None, hosted_zone=None, name=None, tags=None):
         """
         Get an existing PublicDnsNamespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -86,6 +92,7 @@ class PublicDnsNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
         :param pulumi.Input[str] hosted_zone: The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
         :param pulumi.Input[str] name: The name of the namespace.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the namespace.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -95,6 +102,7 @@ class PublicDnsNamespace(pulumi.CustomResource):
         __props__["description"] = description
         __props__["hosted_zone"] = hosted_zone
         __props__["name"] = name
+        __props__["tags"] = tags
         return PublicDnsNamespace(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

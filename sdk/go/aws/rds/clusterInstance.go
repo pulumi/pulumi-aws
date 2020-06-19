@@ -93,7 +93,7 @@ type ClusterInstance struct {
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the instance.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolOutput `pulumi:"writer"`
 }
@@ -198,7 +198,7 @@ type clusterInstanceState struct {
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// A map of tags to assign to the instance.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer *bool `pulumi:"writer"`
 }
@@ -270,7 +270,7 @@ type ClusterInstanceState struct {
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
 	// A map of tags to assign to the instance.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolPtrInput
 }
@@ -334,7 +334,7 @@ type clusterInstanceArgs struct {
 	// details on controlling this property.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// A map of tags to assign to the instance.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterInstance resource.
@@ -393,7 +393,7 @@ type ClusterInstanceArgs struct {
 	// details on controlling this property.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// A map of tags to assign to the instance.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterInstanceArgs) ElementType() reflect.Type {

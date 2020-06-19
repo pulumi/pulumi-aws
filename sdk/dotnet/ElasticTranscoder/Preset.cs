@@ -68,7 +68,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     ///                 { "ColorSpaceConversionMode", "None" },
     ///                 { "InterlacedMode", "Progressive" },
     ///                 { "Level", "2.2" },
-    ///                 { "MaxReferenceFrames", 3 },
+    ///                 { "MaxReferenceFrames", "3" },
     ///                 { "Profile", "main" },
     ///             },
     ///             VideoWatermarks = 
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// Codec options for the video parameters
         /// </summary>
         [Output("videoCodecOptions")]
-        public Output<ImmutableDictionary<string, object>?> VideoCodecOptions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> VideoCodecOptions { get; private set; } = null!;
 
         /// <summary>
         /// Watermark parameters for the video parameters (documented below)
@@ -247,14 +247,14 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<Inputs.PresetVideoArgs>? Video { get; set; }
 
         [Input("videoCodecOptions")]
-        private InputMap<object>? _videoCodecOptions;
+        private InputMap<string>? _videoCodecOptions;
 
         /// <summary>
         /// Codec options for the video parameters
         /// </summary>
-        public InputMap<object> VideoCodecOptions
+        public InputMap<string> VideoCodecOptions
         {
-            get => _videoCodecOptions ?? (_videoCodecOptions = new InputMap<object>());
+            get => _videoCodecOptions ?? (_videoCodecOptions = new InputMap<string>());
             set => _videoCodecOptions = value;
         }
 
@@ -326,14 +326,14 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<Inputs.PresetVideoGetArgs>? Video { get; set; }
 
         [Input("videoCodecOptions")]
-        private InputMap<object>? _videoCodecOptions;
+        private InputMap<string>? _videoCodecOptions;
 
         /// <summary>
         /// Codec options for the video parameters
         /// </summary>
-        public InputMap<object> VideoCodecOptions
+        public InputMap<string> VideoCodecOptions
         {
-            get => _videoCodecOptions ?? (_videoCodecOptions = new InputMap<object>());
+            get => _videoCodecOptions ?? (_videoCodecOptions = new InputMap<string>());
             set => _videoCodecOptions = value;
         }
 

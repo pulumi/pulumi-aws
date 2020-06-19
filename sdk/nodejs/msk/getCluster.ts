@@ -47,7 +47,7 @@ export interface GetClusterArgs {
     /**
      * Map of key-value pairs assigned to the cluster.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -82,7 +82,7 @@ export interface GetClusterResult {
     /**
      * Map of key-value pairs assigned to the cluster.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
      */

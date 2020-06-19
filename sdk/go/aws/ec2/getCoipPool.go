@@ -54,7 +54,7 @@ type GetCoipPoolArgs struct {
 	PoolId *string `pulumi:"poolId"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired COIP Pool.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCoipPool.
@@ -64,7 +64,7 @@ type GetCoipPoolResult struct {
 	Id                       string `pulumi:"id"`
 	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
 	// Set of CIDR blocks in pool
-	PoolCidrs []string               `pulumi:"poolCidrs"`
-	PoolId    string                 `pulumi:"poolId"`
-	Tags      map[string]interface{} `pulumi:"tags"`
+	PoolCidrs []string          `pulumi:"poolCidrs"`
+	PoolId    string            `pulumi:"poolId"`
+	Tags      map[string]string `pulumi:"tags"`
 }

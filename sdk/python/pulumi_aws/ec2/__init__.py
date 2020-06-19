@@ -34,6 +34,9 @@ from .get_launch_template import *
 from .get_local_gateway import *
 from .get_local_gateway_route_table import *
 from .get_local_gateway_route_tables import *
+from .get_local_gateway_virtual_interface import *
+from .get_local_gateway_virtual_interface_group import *
+from .get_local_gateway_virtual_interface_groups import *
 from .get_local_gateways import *
 from .get_nat_gateway import *
 from .get_network_acls import *
@@ -58,6 +61,8 @@ from .internet_gateway import *
 from .key_pair import *
 from .launch_configuration import *
 from .launch_template import *
+from .local_gateway_route import *
+from .local_gateway_route_table_vpc_association import *
 from .main_route_table_association import *
 from .nat_gateway import *
 from .network_acl import *
@@ -78,6 +83,7 @@ from .spot_datafeed_subscription import *
 from .spot_fleet_request import *
 from .spot_instance_request import *
 from .subnet import *
+from .tag import *
 from .traffic_mirror_filter import *
 from .traffic_mirror_filter_rule import *
 from .traffic_mirror_session import *

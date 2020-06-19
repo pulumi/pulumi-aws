@@ -13,12 +13,24 @@ class GetMountTargetResult:
     """
     A collection of values returned by getMountTarget.
     """
-    def __init__(__self__, dns_name=None, file_system_arn=None, file_system_id=None, id=None, ip_address=None, mount_target_id=None, network_interface_id=None, security_groups=None, subnet_id=None):
+    def __init__(__self__, availability_zone_id=None, availability_zone_name=None, dns_name=None, file_system_arn=None, file_system_id=None, id=None, ip_address=None, mount_target_dns_name=None, mount_target_id=None, network_interface_id=None, owner_id=None, security_groups=None, subnet_id=None):
+        if availability_zone_id and not isinstance(availability_zone_id, str):
+            raise TypeError("Expected argument 'availability_zone_id' to be a str")
+        __self__.availability_zone_id = availability_zone_id
+        """
+        The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+        """
+        if availability_zone_name and not isinstance(availability_zone_name, str):
+            raise TypeError("Expected argument 'availability_zone_name' to be a str")
+        __self__.availability_zone_name = availability_zone_name
+        """
+        The name of the Availability Zone (AZ) that the mount target resides in.
+        """
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         __self__.dns_name = dns_name
         """
-        The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        The DNS name for the EFS file system.
         """
         if file_system_arn and not isinstance(file_system_arn, str):
             raise TypeError("Expected argument 'file_system_arn' to be a str")
@@ -44,6 +56,12 @@ class GetMountTargetResult:
         """
         Address at which the file system may be mounted via the mount target.
         """
+        if mount_target_dns_name and not isinstance(mount_target_dns_name, str):
+            raise TypeError("Expected argument 'mount_target_dns_name' to be a str")
+        __self__.mount_target_dns_name = mount_target_dns_name
+        """
+        The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        """
         if mount_target_id and not isinstance(mount_target_id, str):
             raise TypeError("Expected argument 'mount_target_id' to be a str")
         __self__.mount_target_id = mount_target_id
@@ -52,6 +70,12 @@ class GetMountTargetResult:
         __self__.network_interface_id = network_interface_id
         """
         The ID of the network interface that Amazon EFS created when it created the mount target.
+        """
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError("Expected argument 'owner_id' to be a str")
+        __self__.owner_id = owner_id
+        """
+        AWS account ID that owns the resource.
         """
         if security_groups and not isinstance(security_groups, list):
             raise TypeError("Expected argument 'security_groups' to be a list")
@@ -71,13 +95,17 @@ class AwaitableGetMountTargetResult(GetMountTargetResult):
         if False:
             yield self
         return GetMountTargetResult(
+            availability_zone_id=self.availability_zone_id,
+            availability_zone_name=self.availability_zone_name,
             dns_name=self.dns_name,
             file_system_arn=self.file_system_arn,
             file_system_id=self.file_system_id,
             id=self.id,
             ip_address=self.ip_address,
+            mount_target_dns_name=self.mount_target_dns_name,
             mount_target_id=self.mount_target_id,
             network_interface_id=self.network_interface_id,
+            owner_id=self.owner_id,
             security_groups=self.security_groups,
             subnet_id=self.subnet_id)
 
@@ -114,12 +142,16 @@ def get_mount_target(mount_target_id=None,opts=None):
     __ret__ = pulumi.runtime.invoke('aws:efs/getMountTarget:getMountTarget', __args__, opts=opts).value
 
     return AwaitableGetMountTargetResult(
+        availability_zone_id=__ret__.get('availabilityZoneId'),
+        availability_zone_name=__ret__.get('availabilityZoneName'),
         dns_name=__ret__.get('dnsName'),
         file_system_arn=__ret__.get('fileSystemArn'),
         file_system_id=__ret__.get('fileSystemId'),
         id=__ret__.get('id'),
         ip_address=__ret__.get('ipAddress'),
+        mount_target_dns_name=__ret__.get('mountTargetDnsName'),
         mount_target_id=__ret__.get('mountTargetId'),
         network_interface_id=__ret__.get('networkInterfaceId'),
+        owner_id=__ret__.get('ownerId'),
         security_groups=__ret__.get('securityGroups'),
         subnet_id=__ret__.get('subnetId'))

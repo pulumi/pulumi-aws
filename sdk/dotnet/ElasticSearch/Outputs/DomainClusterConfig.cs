@@ -34,6 +34,18 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
+        /// The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
+        /// </summary>
+        public readonly int? WarmCount;
+        /// <summary>
+        /// Indicates whether to enable warm storage.
+        /// </summary>
+        public readonly bool? WarmEnabled;
+        /// <summary>
+        /// The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
+        /// </summary>
+        public readonly string? WarmType;
+        /// <summary>
         /// Configuration block containing zone awareness settings. Documented below.
         /// </summary>
         public readonly Outputs.DomainClusterConfigZoneAwarenessConfig? ZoneAwarenessConfig;
@@ -54,6 +66,12 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
 
             string? instanceType,
 
+            int? warmCount,
+
+            bool? warmEnabled,
+
+            string? warmType,
+
             Outputs.DomainClusterConfigZoneAwarenessConfig? zoneAwarenessConfig,
 
             bool? zoneAwarenessEnabled)
@@ -63,6 +81,9 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
             DedicatedMasterType = dedicatedMasterType;
             InstanceCount = instanceCount;
             InstanceType = instanceType;
+            WarmCount = warmCount;
+            WarmEnabled = warmEnabled;
+            WarmType = warmType;
             ZoneAwarenessConfig = zoneAwarenessConfig;
             ZoneAwarenessEnabled = zoneAwarenessEnabled;
         }

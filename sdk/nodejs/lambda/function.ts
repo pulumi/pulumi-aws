@@ -65,6 +65,52 @@ import {ARN} from "..";
  * });
  * ```
  *
+ * ### Lambda File Systems
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // EFS file system
+ * const efsForLambda = new aws.efs.FileSystem("efsForLambda", {tags: {
+ *     Name: "efs_for_lambda",
+ * }});
+ * // Mount target connects the file system to the subnet
+ * const alpha = new aws.efs.MountTarget("alpha", {
+ *     fileSystemId: efsForLambda.id,
+ *     subnetId: aws_subnet.subnet_for_lambda.id,
+ *     securityGroups: [aws_security_group.sg_for_lambda.id],
+ * });
+ * // EFS access point used by lambda file system
+ * const accessPointForLambda = new aws.efs.AccessPoint("accessPointForLambda", {
+ *     fileSystemId: efsForLambda.id,
+ *     root_directory: {
+ *         path: "/lambda",
+ *         creation_info: {
+ *             ownerGid: 1000,
+ *             ownerUid: 1000,
+ *             permissions: "777",
+ *         },
+ *     },
+ *     posix_user: {
+ *         gid: 1000,
+ *         uid: 1000,
+ *     },
+ * });
+ * // A lambda function connected to an EFS file system
+ * // ... other configuration ...
+ * const example = new aws.lambda.Function("example", {
+ *     file_system_config: {
+ *         arn: accessPointForLambda.arn,
+ *         localMountPath: "/mnt/efs",
+ *     },
+ *     vpc_config: {
+ *         subnetIds: [aws_subnet.subnet_for_lambda.id],
+ *         securityGroupIds: [aws_security_group.sg_for_lambda.id],
+ *     },
+ * });
+ * ```
+ *
  * ### CloudWatch Logging and Permissions
  *
  * ```typescript
@@ -145,7 +191,7 @@ export class Function extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the EFS Access Profile that provides access to the file system.
+     * The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -165,9 +211,9 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly environment!: pulumi.Output<outputs.lambda.FunctionEnvironment | undefined>;
     /**
-     * Nested block to configure the function's *EFS config*. See details below.
+     * The connection settings for an EFS file system. Fields documented below. Before creating or updating Lambda functions with `fileSystemConfig`, EFS mount targets much be in available lifecycle state. Use `dependsOn` to explicitly declare this dependency. See [Using Amazon EFS with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/services-efs.html).
      */
-    public readonly fileSystemConfigs!: pulumi.Output<outputs.lambda.FunctionFileSystemConfig[] | undefined>;
+    public readonly fileSystemConfig!: pulumi.Output<outputs.lambda.FunctionFileSystemConfig | undefined>;
     /**
      * The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      */
@@ -240,7 +286,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the object.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      */
@@ -272,7 +318,7 @@ export class Function extends pulumi.CustomResource {
             inputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["environment"] = state ? state.environment : undefined;
-            inputs["fileSystemConfigs"] = state ? state.fileSystemConfigs : undefined;
+            inputs["fileSystemConfig"] = state ? state.fileSystemConfig : undefined;
             inputs["handler"] = state ? state.handler : undefined;
             inputs["invokeArn"] = state ? state.invokeArn : undefined;
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
@@ -310,7 +356,7 @@ export class Function extends pulumi.CustomResource {
             inputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["environment"] = args ? args.environment : undefined;
-            inputs["fileSystemConfigs"] = args ? args.fileSystemConfigs : undefined;
+            inputs["fileSystemConfig"] = args ? args.fileSystemConfig : undefined;
             inputs["handler"] = args ? args.handler : undefined;
             inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             inputs["layers"] = args ? args.layers : undefined;
@@ -351,7 +397,7 @@ export class Function extends pulumi.CustomResource {
  */
 export interface FunctionState {
     /**
-     * The ARN of the EFS Access Profile that provides access to the file system.
+     * The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
      */
     readonly arn?: pulumi.Input<string>;
     /**
@@ -371,9 +417,9 @@ export interface FunctionState {
      */
     readonly environment?: pulumi.Input<inputs.lambda.FunctionEnvironment>;
     /**
-     * Nested block to configure the function's *EFS config*. See details below.
+     * The connection settings for an EFS file system. Fields documented below. Before creating or updating Lambda functions with `fileSystemConfig`, EFS mount targets much be in available lifecycle state. Use `dependsOn` to explicitly declare this dependency. See [Using Amazon EFS with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/services-efs.html).
      */
-    readonly fileSystemConfigs?: pulumi.Input<pulumi.Input<inputs.lambda.FunctionFileSystemConfig>[]>;
+    readonly fileSystemConfig?: pulumi.Input<inputs.lambda.FunctionFileSystemConfig>;
     /**
      * The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      */
@@ -446,7 +492,7 @@ export interface FunctionState {
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      */
@@ -483,9 +529,9 @@ export interface FunctionArgs {
      */
     readonly environment?: pulumi.Input<inputs.lambda.FunctionEnvironment>;
     /**
-     * Nested block to configure the function's *EFS config*. See details below.
+     * The connection settings for an EFS file system. Fields documented below. Before creating or updating Lambda functions with `fileSystemConfig`, EFS mount targets much be in available lifecycle state. Use `dependsOn` to explicitly declare this dependency. See [Using Amazon EFS with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/services-efs.html).
      */
-    readonly fileSystemConfigs?: pulumi.Input<pulumi.Input<inputs.lambda.FunctionFileSystemConfig>[]>;
+    readonly fileSystemConfig?: pulumi.Input<inputs.lambda.FunctionFileSystemConfig>;
     /**
      * The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      */
@@ -541,7 +587,7 @@ export interface FunctionArgs {
     /**
      * A mapping of tags to assign to the object.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      */

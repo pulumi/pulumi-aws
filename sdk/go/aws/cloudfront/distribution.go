@@ -182,7 +182,7 @@ type Distribution struct {
 	// The key pair IDs that CloudFront is aware of for
 	// each trusted signer, if the distribution is set up to serve private content
 	// with signed URLs.
-	ActiveTrustedSigners pulumi.MapOutput `pulumi:"activeTrustedSigners"`
+	ActiveTrustedSigners pulumi.StringMapOutput `pulumi:"activeTrustedSigners"`
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
 	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
@@ -255,7 +255,7 @@ type Distribution struct {
 	// CloudFront system.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The SSL
 	// configuration for this distribution (maximum
 	// one).
@@ -318,7 +318,7 @@ type distributionState struct {
 	// The key pair IDs that CloudFront is aware of for
 	// each trusted signer, if the distribution is set up to serve private content
 	// with signed URLs.
-	ActiveTrustedSigners map[string]interface{} `pulumi:"activeTrustedSigners"`
+	ActiveTrustedSigners map[string]string `pulumi:"activeTrustedSigners"`
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
 	Aliases []string `pulumi:"aliases"`
@@ -391,7 +391,7 @@ type distributionState struct {
 	// CloudFront system.
 	Status *string `pulumi:"status"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The SSL
 	// configuration for this distribution (maximum
 	// one).
@@ -412,7 +412,7 @@ type DistributionState struct {
 	// The key pair IDs that CloudFront is aware of for
 	// each trusted signer, if the distribution is set up to serve private content
 	// with signed URLs.
-	ActiveTrustedSigners pulumi.MapInput
+	ActiveTrustedSigners pulumi.StringMapInput
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
 	Aliases pulumi.StringArrayInput
@@ -485,7 +485,7 @@ type DistributionState struct {
 	// CloudFront system.
 	Status pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The SSL
 	// configuration for this distribution (maximum
 	// one).
@@ -555,7 +555,7 @@ type distributionArgs struct {
 	// the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete *bool `pulumi:"retainOnDelete"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The SSL
 	// configuration for this distribution (maximum
 	// one).
@@ -622,7 +622,7 @@ type DistributionArgs struct {
 	// the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete pulumi.BoolPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The SSL
 	// configuration for this distribution (maximum
 	// one).

@@ -89,18 +89,24 @@ export interface GetSecretResult {
     readonly policy: string;
     /**
      * Whether rotation is enabled or not.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation data source instead
      */
     readonly rotationEnabled: boolean;
     /**
      * Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation data source instead
      */
     readonly rotationLambdaArn: string;
     /**
      * Rotation rules if rotation is enabled.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation data source instead
      */
     readonly rotationRules: outputs.secretsmanager.GetSecretRotationRule[];
     /**
      * Tags of the secret.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

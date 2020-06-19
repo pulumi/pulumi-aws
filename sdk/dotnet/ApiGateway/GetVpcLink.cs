@@ -55,14 +55,14 @@ namespace Pulumi.Aws.ApiGateway
         public string Name { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// Key-value map of resource tags
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Key-value map of resource tags
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
         /// </summary>
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.ApiGateway
 
             string statusMessage,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             ImmutableArray<string> targetArns)
         {

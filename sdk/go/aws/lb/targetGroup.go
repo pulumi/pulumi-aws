@@ -76,7 +76,7 @@ type TargetGroup struct {
 	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
 	Stickiness TargetGroupStickinessOutput `pulumi:"stickiness"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of target that you must specify when registering targets with this target group.
 	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
 	// The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -149,7 +149,7 @@ type targetGroupState struct {
 	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
 	Stickiness *TargetGroupStickiness `pulumi:"stickiness"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of target that you must specify when registering targets with this target group.
 	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
 	// The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -189,7 +189,7 @@ type TargetGroupState struct {
 	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
 	Stickiness TargetGroupStickinessPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The type of target that you must specify when registering targets with this target group.
 	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
 	// The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -229,7 +229,7 @@ type targetGroupArgs struct {
 	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
 	Stickiness *TargetGroupStickiness `pulumi:"stickiness"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of target that you must specify when registering targets with this target group.
 	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
 	// The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -266,7 +266,7 @@ type TargetGroupArgs struct {
 	// A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
 	Stickiness TargetGroupStickinessPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The type of target that you must specify when registering targets with this target group.
 	// The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
 	// The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.

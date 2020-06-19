@@ -29,7 +29,7 @@ class AccessPoint(pulumi.CustomResource):
 
       * `gid` (`float`) - The POSIX group ID used for all file system operations using this access point.
       * `secondaryGids` (`list`) - Secondary POSIX group IDs used for all file system operations using this access point.
-      * `uid` (`float`) - he POSIX user ID used for all file system operations using this access point.
+      * `uid` (`float`) - The POSIX user ID used for all file system operations using this access point.
     """
     root_directory: pulumi.Output[dict]
     """
@@ -72,7 +72,7 @@ class AccessPoint(pulumi.CustomResource):
 
           * `gid` (`pulumi.Input[float]`) - The POSIX group ID used for all file system operations using this access point.
           * `secondaryGids` (`pulumi.Input[list]`) - Secondary POSIX group IDs used for all file system operations using this access point.
-          * `uid` (`pulumi.Input[float]`) - he POSIX user ID used for all file system operations using this access point.
+          * `uid` (`pulumi.Input[float]`) - The POSIX user ID used for all file system operations using this access point.
 
         The **root_directory** object supports the following:
 
@@ -135,7 +135,7 @@ class AccessPoint(pulumi.CustomResource):
 
           * `gid` (`pulumi.Input[float]`) - The POSIX group ID used for all file system operations using this access point.
           * `secondaryGids` (`pulumi.Input[list]`) - Secondary POSIX group IDs used for all file system operations using this access point.
-          * `uid` (`pulumi.Input[float]`) - he POSIX user ID used for all file system operations using this access point.
+          * `uid` (`pulumi.Input[float]`) - The POSIX user ID used for all file system operations using this access point.
 
         The **root_directory** object supports the following:
 

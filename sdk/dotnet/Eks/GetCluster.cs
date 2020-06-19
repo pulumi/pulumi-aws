@@ -28,14 +28,14 @@ namespace Pulumi.Aws.Eks
         public string Name { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// Key-value map of resource tags.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Key-value map of resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The Kubernetes server version for the cluster.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Eks
 
             string status,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string version,
 

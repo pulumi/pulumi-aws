@@ -22,7 +22,7 @@ type GetNetworkAclsArgs struct {
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
 	// A map of tags, each pair of which must exactly match
 	// a pair on the desired network ACLs.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID that you want to filter from.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -33,7 +33,7 @@ type GetNetworkAclsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of all the network ACL ids found. This data source will fail if none are found.
-	Ids   []string               `pulumi:"ids"`
-	Tags  map[string]interface{} `pulumi:"tags"`
-	VpcId *string                `pulumi:"vpcId"`
+	Ids   []string          `pulumi:"ids"`
+	Tags  map[string]string `pulumi:"tags"`
+	VpcId *string           `pulumi:"vpcId"`
 }

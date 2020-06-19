@@ -37,14 +37,14 @@ namespace Pulumi.Aws.Dlm.Inputs
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleGetArgs> RetainRule { get; set; } = null!;
 
         [Input("tagsToAdd")]
-        private InputMap<object>? _tagsToAdd;
+        private InputMap<string>? _tagsToAdd;
 
         /// <summary>
         /// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
         /// </summary>
-        public InputMap<object> TagsToAdd
+        public InputMap<string> TagsToAdd
         {
-            get => _tagsToAdd ?? (_tagsToAdd = new InputMap<object>());
+            get => _tagsToAdd ?? (_tagsToAdd = new InputMap<string>());
             set => _tagsToAdd = value;
         }
 

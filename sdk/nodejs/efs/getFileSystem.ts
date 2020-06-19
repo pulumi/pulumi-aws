@@ -53,7 +53,7 @@ export interface GetFileSystemArgs {
      * The ID that identifies the file system (e.g. fs-ccfc0d65).
      */
     readonly fileSystemId?: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -99,7 +99,7 @@ export interface GetFileSystemResult {
      * The current byte count used by the file system.
      */
     readonly sizeInBytes: number;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * Throughput mode for the file system.
      */

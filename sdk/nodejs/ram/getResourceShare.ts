@@ -74,7 +74,7 @@ export interface GetResourceShareArgs {
     /**
      * The Tags attached to the RAM share
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetResourceShareResult {
     /**
      * The Tags attached to the RAM share
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

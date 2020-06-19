@@ -74,7 +74,7 @@ type Mesh struct {
 	// The service mesh specification to apply.
 	Spec MeshSpecPtrOutput `pulumi:"spec"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewMesh registers a new resource with the given unique name, arguments, and options.
@@ -116,7 +116,7 @@ type meshState struct {
 	// The service mesh specification to apply.
 	Spec *MeshSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type MeshState struct {
@@ -131,7 +131,7 @@ type MeshState struct {
 	// The service mesh specification to apply.
 	Spec MeshSpecPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (MeshState) ElementType() reflect.Type {
@@ -144,7 +144,7 @@ type meshArgs struct {
 	// The service mesh specification to apply.
 	Spec *MeshSpec `pulumi:"spec"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Mesh resource.
@@ -154,7 +154,7 @@ type MeshArgs struct {
 	// The service mesh specification to apply.
 	Spec MeshSpecPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (MeshArgs) ElementType() reflect.Type {

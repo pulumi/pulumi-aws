@@ -81,7 +81,7 @@ export interface GetSnapshotArgs {
     /**
      * A map of tags for the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -132,7 +132,7 @@ export interface GetSnapshotResult {
     /**
      * A map of tags for the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The volume ID (e.g. vol-59fcb34e).
      */

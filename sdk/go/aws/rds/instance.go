@@ -246,7 +246,7 @@ type Instance struct {
 	// specified, "gp2" if not.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
 	// creation. See [MSSQL User
@@ -474,7 +474,7 @@ type instanceState struct {
 	// specified, "gp2" if not.
 	StorageType *string `pulumi:"storageType"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
 	// creation. See [MSSQL User
@@ -672,7 +672,7 @@ type InstanceState struct {
 	// specified, "gp2" if not.
 	StorageType pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
 	// creation. See [MSSQL User
@@ -860,7 +860,7 @@ type instanceArgs struct {
 	// specified, "gp2" if not.
 	StorageType interface{} `pulumi:"storageType"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
 	// creation. See [MSSQL User
@@ -1045,7 +1045,7 @@ type InstanceArgs struct {
 	// specified, "gp2" if not.
 	StorageType pulumi.Input
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
 	// creation. See [MSSQL User

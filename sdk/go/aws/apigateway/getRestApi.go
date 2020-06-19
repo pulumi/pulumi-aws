@@ -49,7 +49,7 @@ type LookupRestApiArgs struct {
 	// The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
 	Name string `pulumi:"name"`
 	// Key-value map of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getRestApi.
@@ -76,5 +76,5 @@ type LookupRestApiResult struct {
 	// Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
 	RootResourceId string `pulumi:"rootResourceId"`
 	// Key-value map of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

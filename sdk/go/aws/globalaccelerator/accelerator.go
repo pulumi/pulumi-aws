@@ -61,7 +61,7 @@ type Accelerator struct {
 	// The name of the accelerator.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAccelerator registers a new resource with the given unique name, arguments, and options.
@@ -109,7 +109,7 @@ type acceleratorState struct {
 	// The name of the accelerator.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type AcceleratorState struct {
@@ -130,7 +130,7 @@ type AcceleratorState struct {
 	// The name of the accelerator.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AcceleratorState) ElementType() reflect.Type {
@@ -147,7 +147,7 @@ type acceleratorArgs struct {
 	// The name of the accelerator.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Accelerator resource.
@@ -161,7 +161,7 @@ type AcceleratorArgs struct {
 	// The name of the accelerator.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AcceleratorArgs) ElementType() reflect.Type {

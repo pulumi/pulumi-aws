@@ -49,7 +49,7 @@ export interface GetCoipPoolsArgs {
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired aws_ec2_coip_pools.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -65,5 +65,5 @@ export interface GetCoipPoolsResult {
      * Set of COIP Pool Identifiers
      */
     readonly poolIds: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

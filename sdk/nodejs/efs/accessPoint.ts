@@ -74,7 +74,7 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * Key-value mapping of resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -147,7 +147,7 @@ export interface AccessPointState {
     /**
      * Key-value mapping of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -169,5 +169,5 @@ export interface AccessPointArgs {
     /**
      * Key-value mapping of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

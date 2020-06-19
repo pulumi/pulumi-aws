@@ -53,8 +53,8 @@ type LookupLoadBalancerArgs struct {
 	// The full ARN of the load balancer.
 	Arn *string `pulumi:"arn"`
 	// The unique name of the load balancer.
-	Name *string                `pulumi:"name"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLoadBalancer.
@@ -75,7 +75,7 @@ type LookupLoadBalancerResult struct {
 	SecurityGroups   []string                       `pulumi:"securityGroups"`
 	SubnetMappings   []GetLoadBalancerSubnetMapping `pulumi:"subnetMappings"`
 	Subnets          []string                       `pulumi:"subnets"`
-	Tags             map[string]interface{}         `pulumi:"tags"`
+	Tags             map[string]string              `pulumi:"tags"`
 	VpcId            string                         `pulumi:"vpcId"`
 	ZoneId           string                         `pulumi:"zoneId"`
 }

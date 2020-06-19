@@ -46,7 +46,7 @@ type LookupLogGroupArgs struct {
 	// The name of the Cloudwatch log group
 	Name string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLogGroup.
@@ -63,5 +63,5 @@ type LookupLogGroupResult struct {
 	// The number of days log events retained in the specified log group.
 	RetentionInDays int `pulumi:"retentionInDays"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

@@ -51,10 +51,10 @@ namespace Pulumi.Aws.Rds
         public string ClusterIdentifier { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Rds
         public readonly string ReaderEndpoint;
         public readonly string ReplicationSourceIdentifier;
         public readonly bool StorageEncrypted;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Rds
 
             bool storageEncrypted,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {

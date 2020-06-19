@@ -34,15 +34,15 @@ namespace Pulumi.Aws.Ec2
         }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// A mapping of tags, each pair of which must exactly match
         /// a pair on the desired local gateway route table.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Ec2
         /// Set of Local Gateway Route Table identifiers
         /// </summary>
         public readonly ImmutableArray<string> Ids;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetLocalGatewayRouteTablesResult(
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> ids,
 
-            ImmutableDictionary<string, object> tags)
+            ImmutableDictionary<string, string> tags)
         {
             Filters = filters;
             Id = id;

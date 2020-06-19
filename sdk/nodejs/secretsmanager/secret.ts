@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the `aws.secretsmanager.SecretVersion` resource.
+ * Provides a resource to manage AWS Secrets Manager secret metadata. To manage secret rotation, see the `aws.secretsmanager.SecretRotation` resource. To manage a secret value, see the `aws.secretsmanager.SecretVersion` resource.
  *
  * ## Example Usage
  *
@@ -92,20 +92,26 @@ export class Secret extends pulumi.CustomResource {
     public readonly recoveryWindowInDays!: pulumi.Output<number | undefined>;
     /**
      * Specifies whether automatic rotation is enabled for this secret.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
     public /*out*/ readonly rotationEnabled!: pulumi.Output<boolean>;
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret.
+     * Specifies the ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
-    public readonly rotationLambdaArn!: pulumi.Output<string | undefined>;
+    public readonly rotationLambdaArn!: pulumi.Output<string>;
     /**
-     * A structure that defines the rotation configuration for this secret. Defined below.
+     * A structure that defines the rotation configuration for this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
-    public readonly rotationRules!: pulumi.Output<outputs.secretsmanager.SecretRotationRules | undefined>;
+    public readonly rotationRules!: pulumi.Output<outputs.secretsmanager.SecretRotationRules>;
     /**
      * Specifies a key-value map of user-defined tags that are attached to the secret.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Secret resource with the given unique name, arguments, and options.
@@ -189,20 +195,26 @@ export interface SecretState {
     readonly recoveryWindowInDays?: pulumi.Input<number>;
     /**
      * Specifies whether automatic rotation is enabled for this secret.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
     readonly rotationEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret.
+     * Specifies the ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
     readonly rotationLambdaArn?: pulumi.Input<string>;
     /**
-     * A structure that defines the rotation configuration for this secret. Defined below.
+     * A structure that defines the rotation configuration for this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
     readonly rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRules>;
     /**
      * Specifies a key-value map of user-defined tags that are attached to the secret.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -234,15 +246,19 @@ export interface SecretArgs {
      */
     readonly recoveryWindowInDays?: pulumi.Input<number>;
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret.
+     * Specifies the ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
     readonly rotationLambdaArn?: pulumi.Input<string>;
     /**
-     * A structure that defines the rotation configuration for this secret. Defined below.
+     * A structure that defines the rotation configuration for this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+     *
+     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
     readonly rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRules>;
     /**
      * Specifies a key-value map of user-defined tags that are attached to the secret.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -44,7 +44,7 @@ export interface GetDistributionArgs {
      * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
      */
     readonly id: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -91,5 +91,5 @@ export interface GetDistributionResult {
      * CloudFront system.
      */
     readonly status: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }

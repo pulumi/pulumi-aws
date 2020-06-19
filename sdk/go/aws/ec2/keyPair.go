@@ -47,6 +47,8 @@ import (
 type KeyPair struct {
 	pulumi.CustomResourceState
 
+	// The key pair ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
 	// The name for the key pair.
@@ -58,7 +60,7 @@ type KeyPair struct {
 	// The public key material.
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewKeyPair registers a new resource with the given unique name, arguments, and options.
@@ -92,6 +94,8 @@ func GetKeyPair(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyPair resources.
 type keyPairState struct {
+	// The key pair ARN.
+	Arn *string `pulumi:"arn"`
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint *string `pulumi:"fingerprint"`
 	// The name for the key pair.
@@ -103,10 +107,12 @@ type keyPairState struct {
 	// The public key material.
 	PublicKey *string `pulumi:"publicKey"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type KeyPairState struct {
+	// The key pair ARN.
+	Arn pulumi.StringPtrInput
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint pulumi.StringPtrInput
 	// The name for the key pair.
@@ -118,7 +124,7 @@ type KeyPairState struct {
 	// The public key material.
 	PublicKey pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (KeyPairState) ElementType() reflect.Type {
@@ -133,7 +139,7 @@ type keyPairArgs struct {
 	// The public key material.
 	PublicKey string `pulumi:"publicKey"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KeyPair resource.
@@ -145,7 +151,7 @@ type KeyPairArgs struct {
 	// The public key material.
 	PublicKey pulumi.StringInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (KeyPairArgs) ElementType() reflect.Type {

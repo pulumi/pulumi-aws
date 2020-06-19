@@ -33,7 +33,7 @@ type Configuration struct {
 	// The name of the configuration
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +90,7 @@ type configurationState struct {
 	// The name of the configuration
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ConfigurationState struct {
@@ -111,7 +111,7 @@ type ConfigurationState struct {
 	// The name of the configuration
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ConfigurationState) ElementType() reflect.Type {
@@ -132,7 +132,7 @@ type configurationArgs struct {
 	// The name of the configuration
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Configuration resource.
@@ -150,7 +150,7 @@ type ConfigurationArgs struct {
 	// The name of the configuration
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ConfigurationArgs) ElementType() reflect.Type {

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// <summary>
         /// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Arguments;
+        public readonly ImmutableDictionary<string, string>? Arguments;
         /// <summary>
         /// The name of the crawler to be executed. Conflicts with `job_name`.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Glue.Outputs
 
         [OutputConstructor]
         private TriggerAction(
-            ImmutableDictionary<string, object>? arguments,
+            ImmutableDictionary<string, string>? arguments,
 
             string? crawlerName,
 

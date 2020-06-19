@@ -51,14 +51,14 @@ namespace Pulumi.Aws.Efs
         public string AccessPointId { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// Key-value mapping of resource tags.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Efs
         /// <summary>
         /// Key-value mapping of resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetAccessPointResult(
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Efs
 
             ImmutableArray<Outputs.GetAccessPointRootDirectoryResult> rootDirectories,
 
-            ImmutableDictionary<string, object>? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             AccessPointId = accessPointId;
             Arn = arn;

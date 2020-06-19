@@ -70,9 +70,9 @@ type LookupInstanceArgs struct {
 	InstanceId *string `pulumi:"instanceId"`
 	// A map of tags, each pair of which must
 	// exactly match a pair on the desired Instance.
-	InstanceTags map[string]interface{} `pulumi:"instanceTags"`
+	InstanceTags map[string]string `pulumi:"instanceTags"`
 	// A mapping of tags assigned to the Instance.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getInstance.
@@ -105,8 +105,8 @@ type LookupInstanceResult struct {
 	Id         string  `pulumi:"id"`
 	InstanceId *string `pulumi:"instanceId"`
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-	InstanceState string                 `pulumi:"instanceState"`
-	InstanceTags  map[string]interface{} `pulumi:"instanceTags"`
+	InstanceState string            `pulumi:"instanceState"`
+	InstanceTags  map[string]string `pulumi:"instanceTags"`
 	// The type of the Instance.
 	InstanceType string `pulumi:"instanceType"`
 	// The key name of the Instance.
@@ -146,7 +146,7 @@ type LookupInstanceResult struct {
 	// The VPC subnet ID.
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags assigned to the Instance.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The tenancy of the instance: `dedicated`, `default`, `host`.
 	Tenancy string `pulumi:"tenancy"`
 	// SHA-1 hash of User Data supplied to the Instance.

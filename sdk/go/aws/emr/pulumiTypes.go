@@ -1742,7 +1742,7 @@ type ClusterStepHadoopJarStep struct {
 	// Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
 	MainClass *string `pulumi:"mainClass"`
 	// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties map[string]string `pulumi:"properties"`
 }
 
 // ClusterStepHadoopJarStepInput is an input type that accepts ClusterStepHadoopJarStepArgs and ClusterStepHadoopJarStepOutput values.
@@ -1765,7 +1765,7 @@ type ClusterStepHadoopJarStepArgs struct {
 	// Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
 	MainClass pulumi.StringPtrInput `pulumi:"mainClass"`
 	// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-	Properties pulumi.MapInput `pulumi:"properties"`
+	Properties pulumi.StringMapInput `pulumi:"properties"`
 }
 
 func (ClusterStepHadoopJarStepArgs) ElementType() reflect.Type {
@@ -1810,8 +1810,8 @@ func (o ClusterStepHadoopJarStepOutput) MainClass() pulumi.StringPtrOutput {
 }
 
 // Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-func (o ClusterStepHadoopJarStepOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterStepHadoopJarStep) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
+func (o ClusterStepHadoopJarStepOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterStepHadoopJarStep) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
 type InstanceGroupEbsConfig struct {

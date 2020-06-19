@@ -75,7 +75,7 @@ type LicenseConfiguration struct {
 	// Name of the license configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewLicenseConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -122,7 +122,7 @@ type licenseConfigurationState struct {
 	// Name of the license configuration.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type LicenseConfigurationState struct {
@@ -139,7 +139,7 @@ type LicenseConfigurationState struct {
 	// Name of the license configuration.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (LicenseConfigurationState) ElementType() reflect.Type {
@@ -160,7 +160,7 @@ type licenseConfigurationArgs struct {
 	// Name of the license configuration.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LicenseConfiguration resource.
@@ -178,7 +178,7 @@ type LicenseConfigurationArgs struct {
 	// Name of the license configuration.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (LicenseConfigurationArgs) ElementType() reflect.Type {

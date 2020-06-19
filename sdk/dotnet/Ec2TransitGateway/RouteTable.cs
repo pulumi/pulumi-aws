@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Key-value tags for the EC2 Transit Gateway Route Table.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway.
@@ -106,14 +106,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class RouteTableArgs : Pulumi.ResourceArgs
     {
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Route Table.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -143,14 +143,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<bool>? DefaultPropagationRouteTable { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Route Table.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

@@ -38,6 +38,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Cloudwatch;
         public readonly string? Cloudwatchevents;
         public readonly string? Cloudwatchlogs;
+        public readonly string? Codeartifact;
         public readonly string? Codebuild;
         public readonly string? Codecommit;
         public readonly string? Codedeploy;
@@ -110,6 +111,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Networkmanager;
         public readonly string? Opsworks;
         public readonly string? Organizations;
+        public readonly string? Outposts;
         public readonly string? Personalize;
         public readonly string? Pinpoint;
         public readonly string? Pricing;
@@ -203,6 +205,8 @@ namespace Pulumi.Aws.Outputs
             string? cloudwatchevents,
 
             string? cloudwatchlogs,
+
+            string? codeartifact,
 
             string? codebuild,
 
@@ -348,6 +352,8 @@ namespace Pulumi.Aws.Outputs
 
             string? organizations,
 
+            string? outposts,
+
             string? personalize,
 
             string? pinpoint,
@@ -455,6 +461,7 @@ namespace Pulumi.Aws.Outputs
             Cloudwatch = cloudwatch;
             Cloudwatchevents = cloudwatchevents;
             Cloudwatchlogs = cloudwatchlogs;
+            Codeartifact = codeartifact;
             Codebuild = codebuild;
             Codecommit = codecommit;
             Codedeploy = codedeploy;
@@ -527,6 +534,7 @@ namespace Pulumi.Aws.Outputs
             Networkmanager = networkmanager;
             Opsworks = opsworks;
             Organizations = organizations;
+            Outposts = outposts;
             Personalize = personalize;
             Pinpoint = pinpoint;
             Pricing = pricing;

@@ -37,14 +37,14 @@ namespace Pulumi.Aws.Emr.Inputs
         public Input<string>? MainClass { get; set; }
 
         [Input("properties")]
-        private InputMap<object>? _properties;
+        private InputMap<string>? _properties;
 
         /// <summary>
         /// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
         /// </summary>
-        public InputMap<object> Properties
+        public InputMap<string> Properties
         {
-            get => _properties ?? (_properties = new InputMap<object>());
+            get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
         }
 

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Emr.Outputs
         /// <summary>
         /// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Properties;
+        public readonly ImmutableDictionary<string, string>? Properties;
 
         [OutputConstructor]
         private ClusterStepHadoopJarStep(
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Emr.Outputs
 
             string? mainClass,
 
-            ImmutableDictionary<string, object>? properties)
+            ImmutableDictionary<string, string>? properties)
         {
             Args = args;
             Jar = jar;

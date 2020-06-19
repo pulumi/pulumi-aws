@@ -16,7 +16,7 @@ type LifecyclePolicyPolicyDetails struct {
 	// See the `schedule` configuration block.
 	Schedules []LifecyclePolicyPolicyDetailsSchedule `pulumi:"schedules"`
 	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
-	TargetTags map[string]interface{} `pulumi:"targetTags"`
+	TargetTags map[string]string `pulumi:"targetTags"`
 }
 
 // LifecyclePolicyPolicyDetailsInput is an input type that accepts LifecyclePolicyPolicyDetailsArgs and LifecyclePolicyPolicyDetailsOutput values.
@@ -37,7 +37,7 @@ type LifecyclePolicyPolicyDetailsArgs struct {
 	// See the `schedule` configuration block.
 	Schedules LifecyclePolicyPolicyDetailsScheduleArrayInput `pulumi:"schedules"`
 	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
-	TargetTags pulumi.MapInput `pulumi:"targetTags"`
+	TargetTags pulumi.StringMapInput `pulumi:"targetTags"`
 }
 
 func (LifecyclePolicyPolicyDetailsArgs) ElementType() reflect.Type {
@@ -129,8 +129,8 @@ func (o LifecyclePolicyPolicyDetailsOutput) Schedules() LifecyclePolicyPolicyDet
 }
 
 // A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
-func (o LifecyclePolicyPolicyDetailsOutput) TargetTags() pulumi.MapOutput {
-	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) map[string]interface{} { return v.TargetTags }).(pulumi.MapOutput)
+func (o LifecyclePolicyPolicyDetailsOutput) TargetTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) map[string]string { return v.TargetTags }).(pulumi.StringMapOutput)
 }
 
 type LifecyclePolicyPolicyDetailsPtrOutput struct{ *pulumi.OutputState }
@@ -172,13 +172,13 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) Schedules() LifecyclePolicyPolicy
 }
 
 // A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
-func (o LifecyclePolicyPolicyDetailsPtrOutput) TargetTags() pulumi.MapOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) map[string]interface{} {
+func (o LifecyclePolicyPolicyDetailsPtrOutput) TargetTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.TargetTags
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type LifecyclePolicyPolicyDetailsSchedule struct {
@@ -191,7 +191,7 @@ type LifecyclePolicyPolicyDetailsSchedule struct {
 	// See the `retainRule` block. Max of 1 per schedule.
 	RetainRule LifecyclePolicyPolicyDetailsScheduleRetainRule `pulumi:"retainRule"`
 	// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-	TagsToAdd map[string]interface{} `pulumi:"tagsToAdd"`
+	TagsToAdd map[string]string `pulumi:"tagsToAdd"`
 }
 
 // LifecyclePolicyPolicyDetailsScheduleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleArgs and LifecyclePolicyPolicyDetailsScheduleOutput values.
@@ -216,7 +216,7 @@ type LifecyclePolicyPolicyDetailsScheduleArgs struct {
 	// See the `retainRule` block. Max of 1 per schedule.
 	RetainRule LifecyclePolicyPolicyDetailsScheduleRetainRuleInput `pulumi:"retainRule"`
 	// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-	TagsToAdd pulumi.MapInput `pulumi:"tagsToAdd"`
+	TagsToAdd pulumi.StringMapInput `pulumi:"tagsToAdd"`
 }
 
 func (LifecyclePolicyPolicyDetailsScheduleArgs) ElementType() reflect.Type {
@@ -296,8 +296,8 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) RetainRule() LifecyclePolicy
 }
 
 // A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-func (o LifecyclePolicyPolicyDetailsScheduleOutput) TagsToAdd() pulumi.MapOutput {
-	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) map[string]interface{} { return v.TagsToAdd }).(pulumi.MapOutput)
+func (o LifecyclePolicyPolicyDetailsScheduleOutput) TagsToAdd() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) map[string]string { return v.TagsToAdd }).(pulumi.StringMapOutput)
 }
 
 type LifecyclePolicyPolicyDetailsScheduleArrayOutput struct{ *pulumi.OutputState }

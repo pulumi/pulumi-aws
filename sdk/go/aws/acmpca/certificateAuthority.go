@@ -124,7 +124,7 @@ type CertificateAuthority struct {
 	// Status of the certificate authority.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
@@ -185,7 +185,7 @@ type certificateAuthorityState struct {
 	// Status of the certificate authority.
 	Status *string `pulumi:"status"`
 	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type *string `pulumi:"type"`
 }
@@ -216,7 +216,7 @@ type CertificateAuthorityState struct {
 	// Status of the certificate authority.
 	Status pulumi.StringPtrInput
 	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrInput
 }
@@ -235,7 +235,7 @@ type certificateAuthorityArgs struct {
 	// Nested argument containing revocation configuration. Defined below.
 	RevocationConfiguration *CertificateAuthorityRevocationConfiguration `pulumi:"revocationConfiguration"`
 	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type *string `pulumi:"type"`
 }
@@ -251,7 +251,7 @@ type CertificateAuthorityArgs struct {
 	// Nested argument containing revocation configuration. Defined below.
 	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrInput
 	// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrInput
 }

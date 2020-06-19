@@ -78,7 +78,7 @@ type RouteTable struct {
 	// A list of route objects. Their keys are documented below.
 	Routes RouteTableRouteArrayOutput `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The VPC ID.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -121,7 +121,7 @@ type routeTableState struct {
 	// A list of route objects. Their keys are documented below.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -134,7 +134,7 @@ type RouteTableState struct {
 	// A list of route objects. Their keys are documented below.
 	Routes RouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringPtrInput
 }
@@ -149,7 +149,7 @@ type routeTableArgs struct {
 	// A list of route objects. Their keys are documented below.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -161,7 +161,7 @@ type RouteTableArgs struct {
 	// A list of route objects. Their keys are documented below.
 	Routes RouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringInput
 }

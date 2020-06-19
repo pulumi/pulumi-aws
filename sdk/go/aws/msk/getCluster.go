@@ -46,7 +46,7 @@ type LookupClusterArgs struct {
 	// Name of the cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// Map of key-value pairs assigned to the cluster.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
@@ -65,7 +65,7 @@ type LookupClusterResult struct {
 	// Number of broker nodes in the cluster.
 	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
 	// Map of key-value pairs assigned to the cluster.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
 	ZookeeperConnectString string `pulumi:"zookeeperConnectString"`
 }

@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Key-value tags for the EC2 Transit Gateway Peering Attachment.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway.
@@ -161,14 +161,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string> PeerTransitGatewayId { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Peering Attachment.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -204,14 +204,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? PeerTransitGatewayId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Peering Attachment.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

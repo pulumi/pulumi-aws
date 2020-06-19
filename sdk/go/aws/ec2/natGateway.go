@@ -51,7 +51,7 @@ type NatGateway struct {
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewNatGateway registers a new resource with the given unique name, arguments, and options.
@@ -99,7 +99,7 @@ type natGatewayState struct {
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId *string `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type NatGatewayState struct {
@@ -114,7 +114,7 @@ type NatGatewayState struct {
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (NatGatewayState) ElementType() reflect.Type {
@@ -127,7 +127,7 @@ type natGatewayArgs struct {
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId string `pulumi:"subnetId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NatGateway resource.
@@ -137,7 +137,7 @@ type NatGatewayArgs struct {
 	// The Subnet ID of the subnet in which to place the gateway.
 	SubnetId pulumi.StringInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (NatGatewayArgs) ElementType() reflect.Type {

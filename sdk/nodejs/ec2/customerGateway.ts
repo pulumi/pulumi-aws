@@ -64,7 +64,7 @@ export class CustomerGateway extends pulumi.CustomResource {
     /**
      * Tags to apply to the gateway.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".
@@ -129,7 +129,7 @@ export interface CustomerGatewayState {
     /**
      * Tags to apply to the gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".
@@ -152,7 +152,7 @@ export interface CustomerGatewayArgs {
     /**
      * Tags to apply to the gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".

@@ -44,7 +44,7 @@ type RouteTable struct {
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
 	DefaultPropagationRouteTable pulumi.BoolOutput `pulumi:"defaultPropagationRouteTable"`
 	// Key-value tags for the EC2 Transit Gateway Route Table.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
 }
@@ -85,7 +85,7 @@ type routeTableState struct {
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
 	DefaultPropagationRouteTable *bool `pulumi:"defaultPropagationRouteTable"`
 	// Key-value tags for the EC2 Transit Gateway Route Table.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 }
@@ -96,7 +96,7 @@ type RouteTableState struct {
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
 	DefaultPropagationRouteTable pulumi.BoolPtrInput
 	// Key-value tags for the EC2 Transit Gateway Route Table.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
 }
@@ -107,7 +107,7 @@ func (RouteTableState) ElementType() reflect.Type {
 
 type routeTableArgs struct {
 	// Key-value tags for the EC2 Transit Gateway Route Table.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
@@ -115,7 +115,7 @@ type routeTableArgs struct {
 // The set of arguments for constructing a RouteTable resource.
 type RouteTableArgs struct {
 	// Key-value tags for the EC2 Transit Gateway Route Table.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringInput
 }

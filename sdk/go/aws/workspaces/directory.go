@@ -37,7 +37,7 @@ type Directory struct {
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The identifier of the security group that is assigned to new WorkSpaces.
 	WorkspaceSecurityGroupId pulumi.StringOutput `pulumi:"workspaceSecurityGroupId"`
 }
@@ -96,7 +96,7 @@ type directoryState struct {
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The identifier of the security group that is assigned to new WorkSpaces.
 	WorkspaceSecurityGroupId *string `pulumi:"workspaceSecurityGroupId"`
 }
@@ -125,7 +125,7 @@ type DirectoryState struct {
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags assigned to the WorkSpaces directory.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The identifier of the security group that is assigned to new WorkSpaces.
 	WorkspaceSecurityGroupId pulumi.StringPtrInput
 }
@@ -142,7 +142,7 @@ type directoryArgs struct {
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags assigned to the WorkSpaces directory.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Directory resource.
@@ -154,7 +154,7 @@ type DirectoryArgs struct {
 	// The identifiers of the subnets where the directory resides.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags assigned to the WorkSpaces directory.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (DirectoryArgs) ElementType() reflect.Type {

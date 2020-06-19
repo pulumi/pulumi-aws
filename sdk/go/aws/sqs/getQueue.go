@@ -48,7 +48,7 @@ type LookupQueueArgs struct {
 	// The name of the queue to match.
 	Name string `pulumi:"name"`
 	// A map of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getQueue.
@@ -59,7 +59,7 @@ type LookupQueueResult struct {
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// A map of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The URL of the queue.
 	Url string `pulumi:"url"`
 }

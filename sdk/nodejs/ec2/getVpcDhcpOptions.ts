@@ -73,13 +73,17 @@ export interface GetVpcDhcpOptionsArgs {
     /**
      * A map of tags assigned to the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
  * A collection of values returned by getVpcDhcpOptions.
  */
 export interface GetVpcDhcpOptionsResult {
+    /**
+     * The ARN of the DHCP Options Set.
+     */
+    readonly arn: string;
     /**
      * EC2 DHCP Options ID
      */
@@ -116,5 +120,5 @@ export interface GetVpcDhcpOptionsResult {
     /**
      * A map of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

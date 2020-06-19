@@ -67,10 +67,10 @@ namespace Pulumi.Aws.Mq
         public Inputs.GetBrokerLogsArgs? Logs { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Mq
         public readonly bool PubliclyAccessible;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly ImmutableArray<string> SubnetIds;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly ImmutableArray<Outputs.GetBrokerUserResult> Users;
 
         [OutputConstructor]
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Mq
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             ImmutableArray<Outputs.GetBrokerUserResult> users)
         {

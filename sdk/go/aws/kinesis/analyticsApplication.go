@@ -41,7 +41,7 @@ type AnalyticsApplication struct {
 	// The Status of the application.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of tags for the Kinesis Analytics Application.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Version of the application.
 	Version pulumi.IntOutput `pulumi:"version"`
 }
@@ -99,7 +99,7 @@ type analyticsApplicationState struct {
 	// The Status of the application.
 	Status *string `pulumi:"status"`
 	// Key-value map of tags for the Kinesis Analytics Application.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The Version of the application.
 	Version *int `pulumi:"version"`
 }
@@ -130,7 +130,7 @@ type AnalyticsApplicationState struct {
 	// The Status of the application.
 	Status pulumi.StringPtrInput
 	// Key-value map of tags for the Kinesis Analytics Application.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The Version of the application.
 	Version pulumi.IntPtrInput
 }
@@ -157,7 +157,7 @@ type analyticsApplicationArgs struct {
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources *AnalyticsApplicationReferenceDataSources `pulumi:"referenceDataSources"`
 	// Key-value map of tags for the Kinesis Analytics Application.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AnalyticsApplication resource.
@@ -179,7 +179,7 @@ type AnalyticsApplicationArgs struct {
 	// See Reference Data Sources below for more details.
 	ReferenceDataSources AnalyticsApplicationReferenceDataSourcesPtrInput
 	// Key-value map of tags for the Kinesis Analytics Application.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AnalyticsApplicationArgs) ElementType() reflect.Type {

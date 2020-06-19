@@ -26,11 +26,15 @@ class PrivateDnsNamespace(pulumi.CustomResource):
     """
     The name of the namespace.
     """
+    tags: pulumi.Output[dict]
+    """
+    A map of tags to assign to the namespace.
+    """
     vpc: pulumi.Output[str]
     """
     The ID of VPC that you want to associate the namespace with.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, name=None, vpc=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, name=None, tags=None, vpc=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Service Discovery Private DNS Namespace resource.
 
@@ -52,6 +56,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
         :param pulumi.Input[str] name: The name of the namespace.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the namespace.
         :param pulumi.Input[str] vpc: The ID of VPC that you want to associate the namespace with.
         """
         if __name__ is not None:
@@ -73,6 +78,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['name'] = name
+            __props__['tags'] = tags
             if vpc is None:
                 raise TypeError("Missing required property 'vpc'")
             __props__['vpc'] = vpc
@@ -85,7 +91,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, description=None, hosted_zone=None, name=None, vpc=None):
+    def get(resource_name, id, opts=None, arn=None, description=None, hosted_zone=None, name=None, tags=None, vpc=None):
         """
         Get an existing PrivateDnsNamespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -97,6 +103,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
         :param pulumi.Input[str] hosted_zone: The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
         :param pulumi.Input[str] name: The name of the namespace.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the namespace.
         :param pulumi.Input[str] vpc: The ID of VPC that you want to associate the namespace with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -107,6 +114,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         __props__["description"] = description
         __props__["hosted_zone"] = hosted_zone
         __props__["name"] = name
+        __props__["tags"] = tags
         __props__["vpc"] = vpc
         return PrivateDnsNamespace(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

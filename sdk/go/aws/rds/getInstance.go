@@ -44,8 +44,8 @@ func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulum
 // A collection of arguments for invoking getInstance.
 type LookupInstanceArgs struct {
 	// The name of the RDS instance
-	DbInstanceIdentifier string                 `pulumi:"dbInstanceIdentifier"`
-	Tags                 map[string]interface{} `pulumi:"tags"`
+	DbInstanceIdentifier string            `pulumi:"dbInstanceIdentifier"`
+	Tags                 map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getInstance.
@@ -122,8 +122,8 @@ type LookupInstanceResult struct {
 	// Specifies whether the DB instance is encrypted.
 	StorageEncrypted bool `pulumi:"storageEncrypted"`
 	// Specifies the storage type associated with DB instance.
-	StorageType string                 `pulumi:"storageType"`
-	Tags        map[string]interface{} `pulumi:"tags"`
+	StorageType string            `pulumi:"storageType"`
+	Tags        map[string]string `pulumi:"tags"`
 	// The time zone of the DB instance.
 	Timezone string `pulumi:"timezone"`
 	// Provides a list of VPC security group elements that the DB instance belongs to.

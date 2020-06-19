@@ -84,15 +84,15 @@ namespace Pulumi.Aws.Ec2
         public string? Name { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// A map of tags, each pair of which must exactly match
         /// a pair on the desired security group.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetSecurityGroupFilterResult> Filters;
         public readonly string Id;
         public readonly string Name;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VpcId;
 
         [OutputConstructor]
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Ec2
 
             string name,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string vpcId)
         {

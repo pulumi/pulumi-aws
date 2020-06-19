@@ -63,7 +63,7 @@ type IdentityProvider struct {
 	// The list of identity providers.
 	IdpIdentifiers pulumi.StringArrayOutput `pulumi:"idpIdentifiers"`
 	// The map of identity details, such as access token
-	ProviderDetails pulumi.MapOutput `pulumi:"providerDetails"`
+	ProviderDetails pulumi.StringMapOutput `pulumi:"providerDetails"`
 	// The provider name
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
 	// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
@@ -117,7 +117,7 @@ type identityProviderState struct {
 	// The list of identity providers.
 	IdpIdentifiers []string `pulumi:"idpIdentifiers"`
 	// The map of identity details, such as access token
-	ProviderDetails map[string]interface{} `pulumi:"providerDetails"`
+	ProviderDetails map[string]string `pulumi:"providerDetails"`
 	// The provider name
 	ProviderName *string `pulumi:"providerName"`
 	// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
@@ -132,7 +132,7 @@ type IdentityProviderState struct {
 	// The list of identity providers.
 	IdpIdentifiers pulumi.StringArrayInput
 	// The map of identity details, such as access token
-	ProviderDetails pulumi.MapInput
+	ProviderDetails pulumi.StringMapInput
 	// The provider name
 	ProviderName pulumi.StringPtrInput
 	// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
@@ -151,7 +151,7 @@ type identityProviderArgs struct {
 	// The list of identity providers.
 	IdpIdentifiers []string `pulumi:"idpIdentifiers"`
 	// The map of identity details, such as access token
-	ProviderDetails map[string]interface{} `pulumi:"providerDetails"`
+	ProviderDetails map[string]string `pulumi:"providerDetails"`
 	// The provider name
 	ProviderName string `pulumi:"providerName"`
 	// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
@@ -167,7 +167,7 @@ type IdentityProviderArgs struct {
 	// The list of identity providers.
 	IdpIdentifiers pulumi.StringArrayInput
 	// The map of identity details, such as access token
-	ProviderDetails pulumi.MapInput
+	ProviderDetails pulumi.StringMapInput
 	// The provider name
 	ProviderName pulumi.StringInput
 	// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)

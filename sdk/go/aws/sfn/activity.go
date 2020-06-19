@@ -41,7 +41,7 @@ type Activity struct {
 	// The name of the activity to create.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewActivity registers a new resource with the given unique name, arguments, and options.
@@ -77,7 +77,7 @@ type activityState struct {
 	// The name of the activity to create.
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ActivityState struct {
@@ -86,7 +86,7 @@ type ActivityState struct {
 	// The name of the activity to create.
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ActivityState) ElementType() reflect.Type {
@@ -97,7 +97,7 @@ type activityArgs struct {
 	// The name of the activity to create.
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Activity resource.
@@ -105,7 +105,7 @@ type ActivityArgs struct {
 	// The name of the activity to create.
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ActivityArgs) ElementType() reflect.Type {

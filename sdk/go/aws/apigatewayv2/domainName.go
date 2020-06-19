@@ -57,7 +57,7 @@ type DomainName struct {
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfigurationOutput `pulumi:"domainNameConfiguration"`
 	// A map of tags to assign to the domain name.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
@@ -103,7 +103,7 @@ type domainNameState struct {
 	// The domain name configuration.
 	DomainNameConfiguration *DomainNameDomainNameConfiguration `pulumi:"domainNameConfiguration"`
 	// A map of tags to assign to the domain name.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type DomainNameState struct {
@@ -116,7 +116,7 @@ type DomainNameState struct {
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfigurationPtrInput
 	// A map of tags to assign to the domain name.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (DomainNameState) ElementType() reflect.Type {
@@ -129,7 +129,7 @@ type domainNameArgs struct {
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfiguration `pulumi:"domainNameConfiguration"`
 	// A map of tags to assign to the domain name.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainName resource.
@@ -139,7 +139,7 @@ type DomainNameArgs struct {
 	// The domain name configuration.
 	DomainNameConfiguration DomainNameDomainNameConfigurationInput
 	// A map of tags to assign to the domain name.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (DomainNameArgs) ElementType() reflect.Type {

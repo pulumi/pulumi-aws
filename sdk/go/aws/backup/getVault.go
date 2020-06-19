@@ -46,7 +46,7 @@ type LookupVaultArgs struct {
 	// The name of the backup vault.
 	Name string `pulumi:"name"`
 	// Metadata that you can assign to help organize the resources that you create.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVault.
@@ -61,5 +61,5 @@ type LookupVaultResult struct {
 	// The number of recovery points that are stored in a backup vault.
 	RecoveryPoints int `pulumi:"recoveryPoints"`
 	// Metadata that you can assign to help organize the resources that you create.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

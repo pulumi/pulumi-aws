@@ -57,6 +57,10 @@ export class KeyPair extends pulumi.CustomResource {
     }
 
     /**
+     * The key pair ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      */
     public /*out*/ readonly fingerprint!: pulumi.Output<string>;
@@ -79,7 +83,7 @@ export class KeyPair extends pulumi.CustomResource {
     /**
      * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a KeyPair resource with the given unique name, arguments, and options.
@@ -93,6 +97,7 @@ export class KeyPair extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as KeyPairState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["fingerprint"] = state ? state.fingerprint : undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["keyNamePrefix"] = state ? state.keyNamePrefix : undefined;
@@ -108,6 +113,7 @@ export class KeyPair extends pulumi.CustomResource {
             inputs["keyNamePrefix"] = args ? args.keyNamePrefix : undefined;
             inputs["publicKey"] = args ? args.publicKey : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["fingerprint"] = undefined /*out*/;
             inputs["keyPairId"] = undefined /*out*/;
         }
@@ -126,6 +132,10 @@ export class KeyPair extends pulumi.CustomResource {
  * Input properties used for looking up and filtering KeyPair resources.
  */
 export interface KeyPairState {
+    /**
+     * The key pair ARN.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      */
@@ -149,7 +159,7 @@ export interface KeyPairState {
     /**
      * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -171,5 +181,5 @@ export interface KeyPairArgs {
     /**
      * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

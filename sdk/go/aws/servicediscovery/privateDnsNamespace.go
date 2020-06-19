@@ -55,6 +55,8 @@ type PrivateDnsNamespace struct {
 	HostedZone pulumi.StringOutput `pulumi:"hostedZone"`
 	// The name of the namespace.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A map of tags to assign to the namespace.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of VPC that you want to associate the namespace with.
 	Vpc pulumi.StringOutput `pulumi:"vpc"`
 }
@@ -98,6 +100,8 @@ type privateDnsNamespaceState struct {
 	HostedZone *string `pulumi:"hostedZone"`
 	// The name of the namespace.
 	Name *string `pulumi:"name"`
+	// A map of tags to assign to the namespace.
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of VPC that you want to associate the namespace with.
 	Vpc *string `pulumi:"vpc"`
 }
@@ -111,6 +115,8 @@ type PrivateDnsNamespaceState struct {
 	HostedZone pulumi.StringPtrInput
 	// The name of the namespace.
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the namespace.
+	Tags pulumi.StringMapInput
 	// The ID of VPC that you want to associate the namespace with.
 	Vpc pulumi.StringPtrInput
 }
@@ -124,6 +130,8 @@ type privateDnsNamespaceArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the namespace.
 	Name *string `pulumi:"name"`
+	// A map of tags to assign to the namespace.
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of VPC that you want to associate the namespace with.
 	Vpc string `pulumi:"vpc"`
 }
@@ -134,6 +142,8 @@ type PrivateDnsNamespaceArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the namespace.
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the namespace.
+	Tags pulumi.StringMapInput
 	// The ID of VPC that you want to associate the namespace with.
 	Vpc pulumi.StringInput
 }

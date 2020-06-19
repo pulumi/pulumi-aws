@@ -65,6 +65,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A map of tags to assign to the namespace.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of VPC that you want to associate the namespace with.
         /// </summary>
         [Output("vpc")]
@@ -128,6 +134,18 @@ namespace Pulumi.Aws.ServiceDiscovery
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the namespace.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The ID of VPC that you want to associate the namespace with.
         /// </summary>
@@ -164,6 +182,18 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the namespace.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The ID of VPC that you want to associate the namespace with.

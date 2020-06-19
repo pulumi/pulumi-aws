@@ -99,7 +99,7 @@ type VpcEndpointService struct {
 	// The state of the VPC endpoint service.
 	State pulumi.StringOutput `pulumi:"state"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewVpcEndpointService registers a new resource with the given unique name, arguments, and options.
@@ -157,7 +157,7 @@ type vpcEndpointServiceState struct {
 	// The state of the VPC endpoint service.
 	State *string `pulumi:"state"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type VpcEndpointServiceState struct {
@@ -182,7 +182,7 @@ type VpcEndpointServiceState struct {
 	// The state of the VPC endpoint service.
 	State pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VpcEndpointServiceState) ElementType() reflect.Type {
@@ -197,7 +197,7 @@ type vpcEndpointServiceArgs struct {
 	// The ARNs of one or more Network Load Balancers for the endpoint service.
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcEndpointService resource.
@@ -209,7 +209,7 @@ type VpcEndpointServiceArgs struct {
 	// The ARNs of one or more Network Load Balancers for the endpoint service.
 	NetworkLoadBalancerArns pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (VpcEndpointServiceArgs) ElementType() reflect.Type {

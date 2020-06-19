@@ -23,7 +23,7 @@ type Webhook struct {
 	// The name of the webhook.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction pulumi.StringOutput `pulumi:"targetAction"`
 	// The name of the pipeline.
@@ -81,7 +81,7 @@ type webhookState struct {
 	// The name of the webhook.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction *string `pulumi:"targetAction"`
 	// The name of the pipeline.
@@ -100,7 +100,7 @@ type WebhookState struct {
 	// The name of the webhook.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction pulumi.StringPtrInput
 	// The name of the pipeline.
@@ -123,7 +123,7 @@ type webhookArgs struct {
 	// The name of the webhook.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction string `pulumi:"targetAction"`
 	// The name of the pipeline.
@@ -141,7 +141,7 @@ type WebhookArgs struct {
 	// The name of the webhook.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction pulumi.StringInput
 	// The name of the pipeline.

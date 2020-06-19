@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// <summary>
         /// Key-value pair tags to be applied to resources that are launched in the compute environment.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The type of compute environment. Valid items are `EC2` or `SPOT`.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Batch.Outputs
 
             ImmutableArray<string> subnets,
 
-            ImmutableDictionary<string, object>? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {

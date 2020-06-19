@@ -29,9 +29,9 @@ type Stack struct {
 	// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
 	OnFailure pulumi.StringPtrOutput `pulumi:"onFailure"`
 	// A map of outputs from the stack.
-	Outputs pulumi.MapOutput `pulumi:"outputs"`
+	Outputs pulumi.StringMapOutput `pulumi:"outputs"`
 	// A map of Parameter structures that specify input parameters for the stack.
-	Parameters pulumi.MapOutput `pulumi:"parameters"`
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// Structure containing the stack policy body.
 	// Conflicts w/ `policyUrl`.
 	PolicyBody pulumi.StringOutput `pulumi:"policyBody"`
@@ -39,7 +39,7 @@ type Stack struct {
 	// Conflicts w/ `policyBody`.
 	PolicyUrl pulumi.StringPtrOutput `pulumi:"policyUrl"`
 	// A list of tags to associate with this stack.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Structure containing the template body (max size: 51,200 bytes).
 	TemplateBody pulumi.StringOutput `pulumi:"templateBody"`
 	// Location of a file containing the template body (max size: 460,800 bytes).
@@ -92,9 +92,9 @@ type stackState struct {
 	// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
 	OnFailure *string `pulumi:"onFailure"`
 	// A map of outputs from the stack.
-	Outputs map[string]interface{} `pulumi:"outputs"`
+	Outputs map[string]string `pulumi:"outputs"`
 	// A map of Parameter structures that specify input parameters for the stack.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters map[string]string `pulumi:"parameters"`
 	// Structure containing the stack policy body.
 	// Conflicts w/ `policyUrl`.
 	PolicyBody *string `pulumi:"policyBody"`
@@ -102,7 +102,7 @@ type stackState struct {
 	// Conflicts w/ `policyBody`.
 	PolicyUrl *string `pulumi:"policyUrl"`
 	// A list of tags to associate with this stack.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Structure containing the template body (max size: 51,200 bytes).
 	TemplateBody *string `pulumi:"templateBody"`
 	// Location of a file containing the template body (max size: 460,800 bytes).
@@ -128,9 +128,9 @@ type StackState struct {
 	// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
 	OnFailure pulumi.StringPtrInput
 	// A map of outputs from the stack.
-	Outputs pulumi.MapInput
+	Outputs pulumi.StringMapInput
 	// A map of Parameter structures that specify input parameters for the stack.
-	Parameters pulumi.MapInput
+	Parameters pulumi.StringMapInput
 	// Structure containing the stack policy body.
 	// Conflicts w/ `policyUrl`.
 	PolicyBody pulumi.StringPtrInput
@@ -138,7 +138,7 @@ type StackState struct {
 	// Conflicts w/ `policyBody`.
 	PolicyUrl pulumi.StringPtrInput
 	// A list of tags to associate with this stack.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Structure containing the template body (max size: 51,200 bytes).
 	TemplateBody pulumi.StringPtrInput
 	// Location of a file containing the template body (max size: 460,800 bytes).
@@ -168,7 +168,7 @@ type stackArgs struct {
 	// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
 	OnFailure *string `pulumi:"onFailure"`
 	// A map of Parameter structures that specify input parameters for the stack.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters map[string]string `pulumi:"parameters"`
 	// Structure containing the stack policy body.
 	// Conflicts w/ `policyUrl`.
 	PolicyBody *string `pulumi:"policyBody"`
@@ -176,7 +176,7 @@ type stackArgs struct {
 	// Conflicts w/ `policyBody`.
 	PolicyUrl *string `pulumi:"policyUrl"`
 	// A list of tags to associate with this stack.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Structure containing the template body (max size: 51,200 bytes).
 	TemplateBody *string `pulumi:"templateBody"`
 	// Location of a file containing the template body (max size: 460,800 bytes).
@@ -203,7 +203,7 @@ type StackArgs struct {
 	// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disableRollback`.
 	OnFailure pulumi.StringPtrInput
 	// A map of Parameter structures that specify input parameters for the stack.
-	Parameters pulumi.MapInput
+	Parameters pulumi.StringMapInput
 	// Structure containing the stack policy body.
 	// Conflicts w/ `policyUrl`.
 	PolicyBody pulumi.StringPtrInput
@@ -211,7 +211,7 @@ type StackArgs struct {
 	// Conflicts w/ `policyBody`.
 	PolicyUrl pulumi.StringPtrInput
 	// A list of tags to associate with this stack.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Structure containing the template body (max size: 51,200 bytes).
 	TemplateBody pulumi.StringPtrInput
 	// Location of a file containing the template body (max size: 460,800 bytes).

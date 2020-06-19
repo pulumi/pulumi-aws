@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<Inputs.TaskDefinitionVolumeDockerVolumeConfigurationGetArgs>? DockerVolumeConfiguration { get; set; }
 
         /// <summary>
-        /// Used to configure a EFS volume. Can be used only with an EC2 type task.
+        /// Used to configure a EFS volume.
         /// </summary>
         [Input("efsVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionVolumeEfsVolumeConfigurationGetArgs>? EfsVolumeConfiguration { get; set; }

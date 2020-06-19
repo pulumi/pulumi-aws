@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Budgets
         /// Map of CostFilters key/value pairs to apply to the budget.
         /// </summary>
         [Output("costFilters")]
-        public Output<ImmutableDictionary<string, object>> CostFilters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> CostFilters { get; private set; } = null!;
 
         /// <summary>
         /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
@@ -189,14 +189,14 @@ namespace Pulumi.Aws.Budgets
         public Input<string> BudgetType { get; set; } = null!;
 
         [Input("costFilters")]
-        private InputMap<object>? _costFilters;
+        private InputMap<string>? _costFilters;
 
         /// <summary>
         /// Map of CostFilters key/value pairs to apply to the budget.
         /// </summary>
-        public InputMap<object> CostFilters
+        public InputMap<string> CostFilters
         {
-            get => _costFilters ?? (_costFilters = new InputMap<object>());
+            get => _costFilters ?? (_costFilters = new InputMap<string>());
             set => _costFilters = value;
         }
 
@@ -280,14 +280,14 @@ namespace Pulumi.Aws.Budgets
         public Input<string>? BudgetType { get; set; }
 
         [Input("costFilters")]
-        private InputMap<object>? _costFilters;
+        private InputMap<string>? _costFilters;
 
         /// <summary>
         /// Map of CostFilters key/value pairs to apply to the budget.
         /// </summary>
-        public InputMap<object> CostFilters
+        public InputMap<string> CostFilters
         {
-            get => _costFilters ?? (_costFilters = new InputMap<object>());
+            get => _costFilters ?? (_costFilters = new InputMap<string>());
             set => _costFilters = value;
         }
 

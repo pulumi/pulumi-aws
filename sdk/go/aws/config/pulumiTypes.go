@@ -104,6 +104,7 @@ type Endpoints struct {
 	Cloudwatch             *string `pulumi:"cloudwatch"`
 	Cloudwatchevents       *string `pulumi:"cloudwatchevents"`
 	Cloudwatchlogs         *string `pulumi:"cloudwatchlogs"`
+	Codeartifact           *string `pulumi:"codeartifact"`
 	Codebuild              *string `pulumi:"codebuild"`
 	Codecommit             *string `pulumi:"codecommit"`
 	Codedeploy             *string `pulumi:"codedeploy"`
@@ -177,6 +178,7 @@ type Endpoints struct {
 	Networkmanager     *string `pulumi:"networkmanager"`
 	Opsworks           *string `pulumi:"opsworks"`
 	Organizations      *string `pulumi:"organizations"`
+	Outposts           *string `pulumi:"outposts"`
 	Personalize        *string `pulumi:"personalize"`
 	Pinpoint           *string `pulumi:"pinpoint"`
 	Pricing            *string `pulumi:"pricing"`
@@ -259,6 +261,7 @@ type EndpointsArgs struct {
 	Cloudwatch             pulumi.StringPtrInput `pulumi:"cloudwatch"`
 	Cloudwatchevents       pulumi.StringPtrInput `pulumi:"cloudwatchevents"`
 	Cloudwatchlogs         pulumi.StringPtrInput `pulumi:"cloudwatchlogs"`
+	Codeartifact           pulumi.StringPtrInput `pulumi:"codeartifact"`
 	Codebuild              pulumi.StringPtrInput `pulumi:"codebuild"`
 	Codecommit             pulumi.StringPtrInput `pulumi:"codecommit"`
 	Codedeploy             pulumi.StringPtrInput `pulumi:"codedeploy"`
@@ -332,6 +335,7 @@ type EndpointsArgs struct {
 	Networkmanager     pulumi.StringPtrInput `pulumi:"networkmanager"`
 	Opsworks           pulumi.StringPtrInput `pulumi:"opsworks"`
 	Organizations      pulumi.StringPtrInput `pulumi:"organizations"`
+	Outposts           pulumi.StringPtrInput `pulumi:"outposts"`
 	Personalize        pulumi.StringPtrInput `pulumi:"personalize"`
 	Pinpoint           pulumi.StringPtrInput `pulumi:"pinpoint"`
 	Pricing            pulumi.StringPtrInput `pulumi:"pricing"`
@@ -526,6 +530,10 @@ func (o EndpointsOutput) Cloudwatchevents() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Cloudwatchlogs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchlogs }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Codeartifact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Codeartifact }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Codebuild() pulumi.StringPtrOutput {
@@ -815,6 +823,10 @@ func (o EndpointsOutput) Opsworks() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Organizations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Organizations }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Outposts() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Outposts }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Personalize() pulumi.StringPtrOutput {

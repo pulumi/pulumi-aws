@@ -262,7 +262,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// domain on every apply.
         /// </summary>
         [Output("advancedOptions")]
-        public Output<ImmutableDictionary<string, object>> AdvancedOptions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> AdvancedOptions { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the domain.
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// A map of tags to assign to the resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
@@ -412,7 +412,7 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<string>? AccessPolicies { get; set; }
 
         [Input("advancedOptions")]
-        private InputMap<object>? _advancedOptions;
+        private InputMap<string>? _advancedOptions;
 
         /// <summary>
         /// Key-value string pairs to specify advanced configuration options.
@@ -420,9 +420,9 @@ namespace Pulumi.Aws.ElasticSearch
         /// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
         /// domain on every apply.
         /// </summary>
-        public InputMap<object> AdvancedOptions
+        public InputMap<string> AdvancedOptions
         {
-            get => _advancedOptions ?? (_advancedOptions = new InputMap<object>());
+            get => _advancedOptions ?? (_advancedOptions = new InputMap<string>());
             set => _advancedOptions = value;
         }
 
@@ -490,14 +490,14 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<Inputs.DomainSnapshotOptionsArgs>? SnapshotOptions { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A map of tags to assign to the resource
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -521,7 +521,7 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<string>? AccessPolicies { get; set; }
 
         [Input("advancedOptions")]
-        private InputMap<object>? _advancedOptions;
+        private InputMap<string>? _advancedOptions;
 
         /// <summary>
         /// Key-value string pairs to specify advanced configuration options.
@@ -529,9 +529,9 @@ namespace Pulumi.Aws.ElasticSearch
         /// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
         /// domain on every apply.
         /// </summary>
-        public InputMap<object> AdvancedOptions
+        public InputMap<string> AdvancedOptions
         {
-            get => _advancedOptions ?? (_advancedOptions = new InputMap<object>());
+            get => _advancedOptions ?? (_advancedOptions = new InputMap<string>());
             set => _advancedOptions = value;
         }
 
@@ -625,14 +625,14 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<Inputs.DomainSnapshotOptionsGetArgs>? SnapshotOptions { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A map of tags to assign to the resource
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

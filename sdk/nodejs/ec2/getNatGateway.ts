@@ -68,7 +68,7 @@ export interface GetNatGatewayArgs {
      * A map of tags, each pair of which must exactly match
      * a pair on the desired Nat Gateway.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The id of the VPC that the Nat Gateway resides in.
      */
@@ -99,6 +99,6 @@ export interface GetNatGatewayResult {
     readonly publicIp: string;
     readonly state: string;
     readonly subnetId: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }

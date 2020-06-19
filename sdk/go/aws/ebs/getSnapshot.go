@@ -73,7 +73,7 @@ type LookupSnapshotArgs struct {
 	// Returns information on a specific snapshot_id.
 	SnapshotIds []string `pulumi:"snapshotIds"`
 	// A map of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSnapshot.
@@ -102,7 +102,7 @@ type LookupSnapshotResult struct {
 	// The snapshot state.
 	State string `pulumi:"state"`
 	// A map of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The volume ID (e.g. vol-59fcb34e).
 	VolumeId string `pulumi:"volumeId"`
 	// The size of the drive in GiBs.

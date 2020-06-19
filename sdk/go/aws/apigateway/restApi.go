@@ -92,7 +92,7 @@ type RestApi struct {
 	// The resource ID of the REST API's root
 	RootResourceId pulumi.StringOutput `pulumi:"rootResourceId"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewRestApi registers a new resource with the given unique name, arguments, and options.
@@ -150,7 +150,7 @@ type restApiState struct {
 	// The resource ID of the REST API's root
 	RootResourceId *string `pulumi:"rootResourceId"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type RestApiState struct {
@@ -181,7 +181,7 @@ type RestApiState struct {
 	// The resource ID of the REST API's root
 	RootResourceId pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (RestApiState) ElementType() reflect.Type {
@@ -206,7 +206,7 @@ type restApiArgs struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy *string `pulumi:"policy"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RestApi resource.
@@ -228,7 +228,7 @@ type RestApiArgs struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (RestApiArgs) ElementType() reflect.Type {

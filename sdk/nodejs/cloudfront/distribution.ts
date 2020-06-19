@@ -189,7 +189,7 @@ export class Distribution extends pulumi.CustomResource {
      * each trusted signer, if the distribution is set up to serve private content
      * with signed URLs.
      */
-    public /*out*/ readonly activeTrustedSigners!: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly activeTrustedSigners!: pulumi.Output<{[key: string]: string}>;
     /**
      * Extra CNAMEs (alternate domain names), if any, for
      * this distribution.
@@ -310,7 +310,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The SSL
      * configuration for this distribution (maximum
@@ -438,7 +438,7 @@ export interface DistributionState {
      * each trusted signer, if the distribution is set up to serve private content
      * with signed URLs.
      */
-    readonly activeTrustedSigners?: pulumi.Input<{[key: string]: any}>;
+    readonly activeTrustedSigners?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Extra CNAMEs (alternate domain names), if any, for
      * this distribution.
@@ -559,7 +559,7 @@ export interface DistributionState {
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The SSL
      * configuration for this distribution (maximum
@@ -666,7 +666,7 @@ export interface DistributionArgs {
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The SSL
      * configuration for this distribution (maximum

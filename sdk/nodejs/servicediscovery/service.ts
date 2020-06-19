@@ -97,6 +97,10 @@ export class Service extends pulumi.CustomResource {
      * The ID of the namespace to use for DNS configuration.
      */
     public readonly namespaceId!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the service.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -117,6 +121,7 @@ export class Service extends pulumi.CustomResource {
             inputs["healthCheckCustomConfig"] = state ? state.healthCheckCustomConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceId"] = state ? state.namespaceId : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -125,6 +130,7 @@ export class Service extends pulumi.CustomResource {
             inputs["healthCheckCustomConfig"] = args ? args.healthCheckCustomConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceId"] = args ? args.namespaceId : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -170,6 +176,10 @@ export interface ServiceState {
      * The ID of the namespace to use for DNS configuration.
      */
     readonly namespaceId?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the service.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -200,4 +210,8 @@ export interface ServiceArgs {
      * The ID of the namespace to use for DNS configuration.
      */
     readonly namespaceId?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the service.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

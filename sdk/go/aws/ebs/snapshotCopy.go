@@ -81,8 +81,8 @@ type SnapshotCopy struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringOutput `pulumi:"sourceSnapshotId"`
 	// A map of tags for the snapshot.
-	Tags     pulumi.MapOutput    `pulumi:"tags"`
-	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	VolumeId pulumi.StringOutput    `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
 	VolumeSize pulumi.IntOutput `pulumi:"volumeSize"`
 }
@@ -140,8 +140,8 @@ type snapshotCopyState struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId *string `pulumi:"sourceSnapshotId"`
 	// A map of tags for the snapshot.
-	Tags     map[string]interface{} `pulumi:"tags"`
-	VolumeId *string                `pulumi:"volumeId"`
+	Tags     map[string]string `pulumi:"tags"`
+	VolumeId *string           `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
 	VolumeSize *int `pulumi:"volumeSize"`
 }
@@ -166,7 +166,7 @@ type SnapshotCopyState struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringPtrInput
 	// A map of tags for the snapshot.
-	Tags     pulumi.MapInput
+	Tags     pulumi.StringMapInput
 	VolumeId pulumi.StringPtrInput
 	// The size of the drive in GiBs.
 	VolumeSize pulumi.IntPtrInput
@@ -188,7 +188,7 @@ type snapshotCopyArgs struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId string `pulumi:"sourceSnapshotId"`
 	// A map of tags for the snapshot.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SnapshotCopy resource.
@@ -204,7 +204,7 @@ type SnapshotCopyArgs struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringInput
 	// A map of tags for the snapshot.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (SnapshotCopyArgs) ElementType() reflect.Type {

@@ -51,14 +51,14 @@ namespace Pulumi.Aws.Msk
         public string ClusterName { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// Map of key-value pairs assigned to the cluster.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// Map of key-value pairs assigned to the cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
         /// </summary>
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Msk
 
             int numberOfBrokerNodes,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string zookeeperConnectString)
         {

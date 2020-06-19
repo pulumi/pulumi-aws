@@ -43,6 +43,24 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
+        /// The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
+        /// </summary>
+        [Input("warmCount")]
+        public Input<int>? WarmCount { get; set; }
+
+        /// <summary>
+        /// Indicates whether to enable warm storage.
+        /// </summary>
+        [Input("warmEnabled")]
+        public Input<bool>? WarmEnabled { get; set; }
+
+        /// <summary>
+        /// The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
+        /// </summary>
+        [Input("warmType")]
+        public Input<string>? WarmType { get; set; }
+
+        /// <summary>
         /// Configuration block containing zone awareness settings. Documented below.
         /// </summary>
         [Input("zoneAwarenessConfig")]

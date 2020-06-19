@@ -55,7 +55,7 @@ export interface GetLoadBalancerArgs {
      * The unique name of the load balancer.
      */
     readonly name: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -83,6 +83,6 @@ export interface GetLoadBalancerResult {
     readonly sourceSecurityGroup: string;
     readonly sourceSecurityGroupId: string;
     readonly subnets: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly zoneId: string;
 }

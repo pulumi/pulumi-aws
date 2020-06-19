@@ -106,6 +106,8 @@ import (
 type CatalogTable struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Glue Table.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
@@ -163,6 +165,8 @@ func GetCatalogTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CatalogTable resources.
 type catalogTableState struct {
+	// The ARN of the Glue Table.
+	Arn *string `pulumi:"arn"`
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
@@ -190,6 +194,8 @@ type catalogTableState struct {
 }
 
 type CatalogTableState struct {
+	// The ARN of the Glue Table.
+	Arn pulumi.StringPtrInput
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.

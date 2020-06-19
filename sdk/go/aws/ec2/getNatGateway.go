@@ -29,7 +29,7 @@ type LookupNatGatewayArgs struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A map of tags, each pair of which must exactly match
 	// a pair on the desired Nat Gateway.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The id of the VPC that the Nat Gateway resides in.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -45,9 +45,9 @@ type LookupNatGatewayResult struct {
 	// The private Ip address of the selected Nat Gateway.
 	PrivateIp string `pulumi:"privateIp"`
 	// The public Ip (EIP) address of the selected Nat Gateway.
-	PublicIp string                 `pulumi:"publicIp"`
-	State    string                 `pulumi:"state"`
-	SubnetId string                 `pulumi:"subnetId"`
-	Tags     map[string]interface{} `pulumi:"tags"`
-	VpcId    string                 `pulumi:"vpcId"`
+	PublicIp string            `pulumi:"publicIp"`
+	State    string            `pulumi:"state"`
+	SubnetId string            `pulumi:"subnetId"`
+	Tags     map[string]string `pulumi:"tags"`
+	VpcId    string            `pulumi:"vpcId"`
 }

@@ -50,7 +50,7 @@ type GetLocalGatewaysArgs struct {
 	Filters []GetLocalGatewaysFilter `pulumi:"filters"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the desired local_gateways.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLocalGateways.
@@ -59,6 +59,6 @@ type GetLocalGatewaysResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of all the Local Gateway identifiers
-	Ids  []string               `pulumi:"ids"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Ids  []string          `pulumi:"ids"`
+	Tags map[string]string `pulumi:"tags"`
 }

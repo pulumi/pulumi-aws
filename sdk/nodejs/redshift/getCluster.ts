@@ -66,7 +66,7 @@ export interface GetClusterArgs {
     /**
      * The tags associated to the cluster
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -185,7 +185,7 @@ export interface GetClusterResult {
     /**
      * The tags associated to the cluster
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The VPC Id associated with the cluster
      */

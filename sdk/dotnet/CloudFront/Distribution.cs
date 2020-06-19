@@ -206,7 +206,7 @@ namespace Pulumi.Aws.CloudFront
         /// with signed URLs.
         /// </summary>
         [Output("activeTrustedSigners")]
-        public Output<ImmutableDictionary<string, object>> ActiveTrustedSigners { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> ActiveTrustedSigners { get; private set; } = null!;
 
         /// <summary>
         /// Extra CNAMEs (alternate domain names), if any, for
@@ -375,7 +375,7 @@ namespace Pulumi.Aws.CloudFront
         /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The SSL
@@ -587,14 +587,14 @@ namespace Pulumi.Aws.CloudFront
         public Input<bool>? RetainOnDelete { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -632,16 +632,16 @@ namespace Pulumi.Aws.CloudFront
     public sealed class DistributionState : Pulumi.ResourceArgs
     {
         [Input("activeTrustedSigners")]
-        private InputMap<object>? _activeTrustedSigners;
+        private InputMap<string>? _activeTrustedSigners;
 
         /// <summary>
         /// The key pair IDs that CloudFront is aware of for
         /// each trusted signer, if the distribution is set up to serve private content
         /// with signed URLs.
         /// </summary>
-        public InputMap<object> ActiveTrustedSigners
+        public InputMap<string> ActiveTrustedSigners
         {
-            get => _activeTrustedSigners ?? (_activeTrustedSigners = new InputMap<object>());
+            get => _activeTrustedSigners ?? (_activeTrustedSigners = new InputMap<string>());
             set => _activeTrustedSigners = value;
         }
 
@@ -839,14 +839,14 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

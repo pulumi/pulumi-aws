@@ -96,7 +96,7 @@ export interface GetElasticIpArgs {
     /**
      * A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -159,5 +159,5 @@ export interface GetElasticIpResult {
     /**
      * Key-value map of tags associated with Elastic IP.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

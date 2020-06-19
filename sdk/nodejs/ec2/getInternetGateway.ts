@@ -60,13 +60,17 @@ export interface GetInternetGatewayArgs {
      * A map of tags, each pair of which must exactly match
      * a pair on the desired Internet Gateway.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
  * A collection of values returned by getInternetGateway.
  */
 export interface GetInternetGatewayResult {
+    /**
+     * The ARN of the Internet Gateway.
+     */
+    readonly arn: string;
     readonly attachments: outputs.ec2.GetInternetGatewayAttachment[];
     readonly filters?: outputs.ec2.GetInternetGatewayFilter[];
     /**
@@ -78,5 +82,5 @@ export interface GetInternetGatewayResult {
      * The ID of the AWS account that owns the internet gateway.
      */
     readonly ownerId: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

@@ -66,7 +66,7 @@ type Rule struct {
 	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayOutput `pulumi:"predicates"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewRule registers a new resource with the given unique name, arguments, and options.
@@ -109,7 +109,7 @@ type ruleState struct {
 	// The objects to include in a rule (documented below).
 	Predicates []RulePredicate `pulumi:"predicates"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type RuleState struct {
@@ -122,7 +122,7 @@ type RuleState struct {
 	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (RuleState) ElementType() reflect.Type {
@@ -137,7 +137,7 @@ type ruleArgs struct {
 	// The objects to include in a rule (documented below).
 	Predicates []RulePredicate `pulumi:"predicates"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Rule resource.
@@ -149,7 +149,7 @@ type RuleArgs struct {
 	// The objects to include in a rule (documented below).
 	Predicates RulePredicateArrayInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (RuleArgs) ElementType() reflect.Type {

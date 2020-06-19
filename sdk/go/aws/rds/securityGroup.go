@@ -26,7 +26,7 @@ type SecurityGroup struct {
 	// The name of the DB security group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewSecurityGroup registers a new resource with the given unique name, arguments, and options.
@@ -72,7 +72,7 @@ type securityGroupState struct {
 	// The name of the DB security group.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type SecurityGroupState struct {
@@ -85,7 +85,7 @@ type SecurityGroupState struct {
 	// The name of the DB security group.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (SecurityGroupState) ElementType() reflect.Type {
@@ -100,7 +100,7 @@ type securityGroupArgs struct {
 	// The name of the DB security group.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SecurityGroup resource.
@@ -112,7 +112,7 @@ type SecurityGroupArgs struct {
 	// The name of the DB security group.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (SecurityGroupArgs) ElementType() reflect.Type {

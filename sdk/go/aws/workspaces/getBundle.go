@@ -23,7 +23,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		example, err := workspaces.LookupBundle(ctx, &workspaces.LookupBundleArgs{
-// 			BundleId: "wsb-b0s22j3d7",
+// 			Name:  "Value with Windows 10 and Office 2016",
+// 			Owner: "AMAZON",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -44,12 +45,17 @@ func GetBundle(ctx *pulumi.Context, args *GetBundleArgs, opts ...pulumi.InvokeOp
 // A collection of arguments for invoking getBundle.
 type GetBundleArgs struct {
 	// The ID of the bundle.
-	BundleId string `pulumi:"bundleId"`
+	BundleId *string `pulumi:"bundleId"`
+	// The name of the bundle. You cannot combine this parameter with `bundleId`.
+	Name *string `pulumi:"name"`
+	// The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
+	Owner *string `pulumi:"owner"`
 }
 
 // A collection of values returned by getBundle.
 type GetBundleResult struct {
-	BundleId string `pulumi:"bundleId"`
+	// The ID of the bundle.
+	BundleId *string `pulumi:"bundleId"`
 	// The compute type. See supported fields below.
 	ComputeTypes []GetBundleComputeType `pulumi:"computeTypes"`
 	// The description of the bundle.
@@ -57,9 +63,9 @@ type GetBundleResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the compute type.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The owner of the bundle.
-	Owner string `pulumi:"owner"`
+	Owner *string `pulumi:"owner"`
 	// The root volume. See supported fields below.
 	RootStorages []GetBundleRootStorage `pulumi:"rootStorages"`
 	// The user storage. See supported fields below.

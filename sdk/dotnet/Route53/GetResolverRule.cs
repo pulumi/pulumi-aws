@@ -78,14 +78,14 @@ namespace Pulumi.Aws.Route53
         public string? RuleType { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// A map of tags assigned to the resolver rule.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Route53
         /// <summary>
         /// A map of tags assigned to the resolver rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetResolverRuleResult(
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Route53
 
             string shareStatus,
 
-            ImmutableDictionary<string, object> tags)
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             DomainName = domainName;

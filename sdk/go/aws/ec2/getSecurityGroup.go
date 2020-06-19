@@ -64,7 +64,7 @@ type LookupSecurityGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of tags, each pair of which must exactly match
 	// a pair on the desired security group.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The id of the VPC that the desired security group belongs to.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -78,6 +78,6 @@ type LookupSecurityGroupResult struct {
 	Filters     []GetSecurityGroupFilter `pulumi:"filters"`
 	Id          string                   `pulumi:"id"`
 	Name        string                   `pulumi:"name"`
-	Tags        map[string]interface{}   `pulumi:"tags"`
+	Tags        map[string]string        `pulumi:"tags"`
 	VpcId       string                   `pulumi:"vpcId"`
 }

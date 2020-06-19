@@ -1120,9 +1120,9 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Destinatio
 }
 
 type FunctionFileSystemConfig struct {
-	// The ARN of the EFS Access Profile that provides access to the file system.
+	// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn string `pulumi:"arn"`
-	// The path where the function can access the file system, starting with `/mnt/`.
+	// The path where the function can access the file system, starting with /mnt/.
 	LocalMountPath string `pulumi:"localMountPath"`
 }
 
@@ -1139,9 +1139,9 @@ type FunctionFileSystemConfigInput interface {
 }
 
 type FunctionFileSystemConfigArgs struct {
-	// The ARN of the EFS Access Profile that provides access to the file system.
+	// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The path where the function can access the file system, starting with `/mnt/`.
+	// The path where the function can access the file system, starting with /mnt/.
 	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
 }
 
@@ -1157,30 +1157,46 @@ func (i FunctionFileSystemConfigArgs) ToFunctionFileSystemConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigOutput)
 }
 
-// FunctionFileSystemConfigArrayInput is an input type that accepts FunctionFileSystemConfigArray and FunctionFileSystemConfigArrayOutput values.
-// You can construct a concrete instance of `FunctionFileSystemConfigArrayInput` via:
+func (i FunctionFileSystemConfigArgs) ToFunctionFileSystemConfigPtrOutput() FunctionFileSystemConfigPtrOutput {
+	return i.ToFunctionFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionFileSystemConfigArgs) ToFunctionFileSystemConfigPtrOutputWithContext(ctx context.Context) FunctionFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigOutput).ToFunctionFileSystemConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionFileSystemConfigPtrInput is an input type that accepts FunctionFileSystemConfigArgs, FunctionFileSystemConfigPtr and FunctionFileSystemConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionFileSystemConfigPtrInput` via:
 //
-// 		 FunctionFileSystemConfigArray{ FunctionFileSystemConfigArgs{...} }
+// 		 FunctionFileSystemConfigArgs{...}
 //
-type FunctionFileSystemConfigArrayInput interface {
+//  or:
+//
+// 		 nil
+//
+type FunctionFileSystemConfigPtrInput interface {
 	pulumi.Input
 
-	ToFunctionFileSystemConfigArrayOutput() FunctionFileSystemConfigArrayOutput
-	ToFunctionFileSystemConfigArrayOutputWithContext(context.Context) FunctionFileSystemConfigArrayOutput
+	ToFunctionFileSystemConfigPtrOutput() FunctionFileSystemConfigPtrOutput
+	ToFunctionFileSystemConfigPtrOutputWithContext(context.Context) FunctionFileSystemConfigPtrOutput
 }
 
-type FunctionFileSystemConfigArray []FunctionFileSystemConfigInput
+type functionFileSystemConfigPtrType FunctionFileSystemConfigArgs
 
-func (FunctionFileSystemConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FunctionFileSystemConfig)(nil)).Elem()
+func FunctionFileSystemConfigPtr(v *FunctionFileSystemConfigArgs) FunctionFileSystemConfigPtrInput {
+	return (*functionFileSystemConfigPtrType)(v)
 }
 
-func (i FunctionFileSystemConfigArray) ToFunctionFileSystemConfigArrayOutput() FunctionFileSystemConfigArrayOutput {
-	return i.ToFunctionFileSystemConfigArrayOutputWithContext(context.Background())
+func (*functionFileSystemConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionFileSystemConfig)(nil)).Elem()
 }
 
-func (i FunctionFileSystemConfigArray) ToFunctionFileSystemConfigArrayOutputWithContext(ctx context.Context) FunctionFileSystemConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigArrayOutput)
+func (i *functionFileSystemConfigPtrType) ToFunctionFileSystemConfigPtrOutput() FunctionFileSystemConfigPtrOutput {
+	return i.ToFunctionFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionFileSystemConfigPtrType) ToFunctionFileSystemConfigPtrOutputWithContext(ctx context.Context) FunctionFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigPtrOutput)
 }
 
 type FunctionFileSystemConfigOutput struct{ *pulumi.OutputState }
@@ -1197,34 +1213,62 @@ func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigOutputWithCont
 	return o
 }
 
-// The ARN of the EFS Access Profile that provides access to the file system.
+func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigPtrOutput() FunctionFileSystemConfigPtrOutput {
+	return o.ToFunctionFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigPtrOutputWithContext(ctx context.Context) FunctionFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v FunctionFileSystemConfig) *FunctionFileSystemConfig {
+		return &v
+	}).(FunctionFileSystemConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 func (o FunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The path where the function can access the file system, starting with `/mnt/`.
+// The path where the function can access the file system, starting with /mnt/.
 func (o FunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.LocalMountPath }).(pulumi.StringOutput)
 }
 
-type FunctionFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
+type FunctionFileSystemConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (FunctionFileSystemConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FunctionFileSystemConfig)(nil)).Elem()
+func (FunctionFileSystemConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionFileSystemConfig)(nil)).Elem()
 }
 
-func (o FunctionFileSystemConfigArrayOutput) ToFunctionFileSystemConfigArrayOutput() FunctionFileSystemConfigArrayOutput {
+func (o FunctionFileSystemConfigPtrOutput) ToFunctionFileSystemConfigPtrOutput() FunctionFileSystemConfigPtrOutput {
 	return o
 }
 
-func (o FunctionFileSystemConfigArrayOutput) ToFunctionFileSystemConfigArrayOutputWithContext(ctx context.Context) FunctionFileSystemConfigArrayOutput {
+func (o FunctionFileSystemConfigPtrOutput) ToFunctionFileSystemConfigPtrOutputWithContext(ctx context.Context) FunctionFileSystemConfigPtrOutput {
 	return o
 }
 
-func (o FunctionFileSystemConfigArrayOutput) Index(i pulumi.IntInput) FunctionFileSystemConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionFileSystemConfig {
-		return vs[0].([]FunctionFileSystemConfig)[vs[1].(int)]
-	}).(FunctionFileSystemConfigOutput)
+func (o FunctionFileSystemConfigPtrOutput) Elem() FunctionFileSystemConfigOutput {
+	return o.ApplyT(func(v *FunctionFileSystemConfig) FunctionFileSystemConfig { return *v }).(FunctionFileSystemConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+func (o FunctionFileSystemConfigPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path where the function can access the file system, starting with /mnt/.
+func (o FunctionFileSystemConfigPtrOutput) LocalMountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalMountPath
+	}).(pulumi.StringPtrOutput)
 }
 
 type FunctionTracingConfig struct {
@@ -1878,7 +1922,7 @@ func init() {
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigDestinationConfigOnSuccessOutput{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput{})
 	pulumi.RegisterOutputType(FunctionFileSystemConfigOutput{})
-	pulumi.RegisterOutputType(FunctionFileSystemConfigArrayOutput{})
+	pulumi.RegisterOutputType(FunctionFileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigOutput{})

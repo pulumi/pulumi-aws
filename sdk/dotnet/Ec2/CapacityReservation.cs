@@ -39,6 +39,12 @@ namespace Pulumi.Aws.Ec2
     public partial class CapacityReservation : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the Capacity Reservation.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The Availability Zone in which to create the Capacity Reservation.
         /// </summary>
         [Output("availabilityZone")]
@@ -96,7 +102,7 @@ namespace Pulumi.Aws.Ec2
         /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
@@ -205,14 +211,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string> InstanceType { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -229,6 +235,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class CapacityReservationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Capacity Reservation.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The Availability Zone in which to create the Capacity Reservation.
         /// </summary>
@@ -284,14 +296,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceType { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

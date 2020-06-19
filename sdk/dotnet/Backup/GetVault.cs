@@ -51,14 +51,14 @@ namespace Pulumi.Aws.Backup
         public string Name { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// Metadata that you can assign to help organize the resources that you create.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Backup
         /// <summary>
         /// Metadata that you can assign to help organize the resources that you create.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetVaultResult(
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Backup
 
             int recoveryPoints,
 
-            ImmutableDictionary<string, object> tags)
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             Id = id;

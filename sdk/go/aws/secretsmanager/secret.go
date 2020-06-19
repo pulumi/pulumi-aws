@@ -9,7 +9,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the `secretsmanager.SecretVersion` resource.
+// Provides a resource to manage AWS Secrets Manager secret metadata. To manage secret rotation, see the `secretsmanager.SecretRotation` resource. To manage a secret value, see the `secretsmanager.SecretVersion` resource.
 //
 // ## Example Usage
 //
@@ -51,13 +51,19 @@ type Secret struct {
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 	RecoveryWindowInDays pulumi.IntPtrOutput `pulumi:"recoveryWindowInDays"`
 	// Specifies whether automatic rotation is enabled for this secret.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationEnabled pulumi.BoolOutput `pulumi:"rotationEnabled"`
-	// Specifies the ARN of the Lambda function that can rotate the secret.
-	RotationLambdaArn pulumi.StringPtrOutput `pulumi:"rotationLambdaArn"`
-	// A structure that defines the rotation configuration for this secret. Defined below.
-	RotationRules SecretRotationRulesPtrOutput `pulumi:"rotationRules"`
+	// Specifies the ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
+	RotationLambdaArn pulumi.StringOutput `pulumi:"rotationLambdaArn"`
+	// A structure that defines the rotation configuration for this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
+	RotationRules SecretRotationRulesOutput `pulumi:"rotationRules"`
 	// Specifies a key-value map of user-defined tags that are attached to the secret.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewSecret registers a new resource with the given unique name, arguments, and options.
@@ -103,13 +109,19 @@ type secretState struct {
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 	RecoveryWindowInDays *int `pulumi:"recoveryWindowInDays"`
 	// Specifies whether automatic rotation is enabled for this secret.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationEnabled *bool `pulumi:"rotationEnabled"`
-	// Specifies the ARN of the Lambda function that can rotate the secret.
+	// Specifies the ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationLambdaArn *string `pulumi:"rotationLambdaArn"`
-	// A structure that defines the rotation configuration for this secret. Defined below.
+	// A structure that defines the rotation configuration for this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationRules *SecretRotationRules `pulumi:"rotationRules"`
 	// Specifies a key-value map of user-defined tags that are attached to the secret.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type SecretState struct {
@@ -128,13 +140,19 @@ type SecretState struct {
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 	RecoveryWindowInDays pulumi.IntPtrInput
 	// Specifies whether automatic rotation is enabled for this secret.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationEnabled pulumi.BoolPtrInput
-	// Specifies the ARN of the Lambda function that can rotate the secret.
+	// Specifies the ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationLambdaArn pulumi.StringPtrInput
-	// A structure that defines the rotation configuration for this secret. Defined below.
+	// A structure that defines the rotation configuration for this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationRules SecretRotationRulesPtrInput
 	// Specifies a key-value map of user-defined tags that are attached to the secret.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (SecretState) ElementType() reflect.Type {
@@ -154,12 +172,16 @@ type secretArgs struct {
 	Policy *string `pulumi:"policy"`
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 	RecoveryWindowInDays *int `pulumi:"recoveryWindowInDays"`
-	// Specifies the ARN of the Lambda function that can rotate the secret.
+	// Specifies the ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationLambdaArn *string `pulumi:"rotationLambdaArn"`
-	// A structure that defines the rotation configuration for this secret. Defined below.
+	// A structure that defines the rotation configuration for this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationRules *SecretRotationRules `pulumi:"rotationRules"`
 	// Specifies a key-value map of user-defined tags that are attached to the secret.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Secret resource.
@@ -176,12 +198,16 @@ type SecretArgs struct {
 	Policy pulumi.StringPtrInput
 	// Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
 	RecoveryWindowInDays pulumi.IntPtrInput
-	// Specifies the ARN of the Lambda function that can rotate the secret.
+	// Specifies the ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationLambdaArn pulumi.StringPtrInput
-	// A structure that defines the rotation configuration for this secret. Defined below.
+	// A structure that defines the rotation configuration for this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
+	//
+	// Deprecated: Use the aws_secretsmanager_secret_rotation resource instead
 	RotationRules SecretRotationRulesPtrInput
 	// Specifies a key-value map of user-defined tags that are attached to the secret.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (SecretArgs) ElementType() reflect.Type {

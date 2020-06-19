@@ -46,7 +46,7 @@ type LookupClusterArgs struct {
 	// Group identifier.
 	ClusterId string `pulumi:"clusterId"`
 	// The tags assigned to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
@@ -98,5 +98,5 @@ type LookupClusterResult struct {
 	// Name of the subnet group associated to the cache cluster.
 	SubnetGroupName string `pulumi:"subnetGroupName"`
 	// The tags assigned to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

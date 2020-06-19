@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class CatalogTable(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the Glue Table.
+    """
     catalog_id: pulumi.Output[str]
     """
     ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
@@ -242,6 +246,7 @@ class CatalogTable(pulumi.CustomResource):
             __props__['table_type'] = table_type
             __props__['view_expanded_text'] = view_expanded_text
             __props__['view_original_text'] = view_original_text
+            __props__['arn'] = None
         super(CatalogTable, __self__).__init__(
             'aws:glue/catalogTable:CatalogTable',
             resource_name,
@@ -249,7 +254,7 @@ class CatalogTable(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, catalog_id=None, database_name=None, description=None, name=None, owner=None, parameters=None, partition_keys=None, retention=None, storage_descriptor=None, table_type=None, view_expanded_text=None, view_original_text=None):
+    def get(resource_name, id, opts=None, arn=None, catalog_id=None, database_name=None, description=None, name=None, owner=None, parameters=None, partition_keys=None, retention=None, storage_descriptor=None, table_type=None, view_expanded_text=None, view_original_text=None):
         """
         Get an existing CatalogTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -257,6 +262,7 @@ class CatalogTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Glue Table.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input[str] description: Description of the table.
@@ -310,6 +316,7 @@ class CatalogTable(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["catalog_id"] = catalog_id
         __props__["database_name"] = database_name
         __props__["description"] = description

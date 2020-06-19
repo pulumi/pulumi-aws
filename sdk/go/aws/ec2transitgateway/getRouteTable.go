@@ -83,7 +83,7 @@ type LookupRouteTableArgs struct {
 	// Identifier of the EC2 Transit Gateway Route Table.
 	Id *string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway Route Table
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getRouteTable.
@@ -96,7 +96,7 @@ type LookupRouteTableResult struct {
 	// EC2 Transit Gateway Route Table identifier
 	Id *string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway Route Table
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// EC2 Transit Gateway identifier
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }

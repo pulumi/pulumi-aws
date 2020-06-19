@@ -72,7 +72,7 @@ type LookupCustomerGatewayArgs struct {
 	// The ID of the gateway.
 	Id *string `pulumi:"id"`
 	// Map of key-value pairs assigned to the gateway.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCustomerGateway.
@@ -84,7 +84,7 @@ type LookupCustomerGatewayResult struct {
 	// (Optional) The IP address of the gateway's Internet-routable external interface.
 	IpAddress string `pulumi:"ipAddress"`
 	// Map of key-value pairs assigned to the gateway.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// (Optional) The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
 	Type string `pulumi:"type"`
 }

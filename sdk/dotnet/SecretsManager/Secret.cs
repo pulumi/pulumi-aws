@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecretsManager
 {
     /// <summary>
-    /// Provides a resource to manage AWS Secrets Manager secret metadata. To manage a secret value, see the `aws.secretsmanager.SecretVersion` resource.
+    /// Provides a resource to manage AWS Secrets Manager secret metadata. To manage secret rotation, see the `aws.secretsmanager.SecretRotation` resource. To manage a secret value, see the `aws.secretsmanager.SecretVersion` resource.
     /// 
     /// ## Example Usage
     /// 
@@ -106,22 +106,22 @@ namespace Pulumi.Aws.SecretsManager
         public Output<bool> RotationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ARN of the Lambda function that can rotate the secret.
+        /// Specifies the ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         /// </summary>
         [Output("rotationLambdaArn")]
-        public Output<string?> RotationLambdaArn { get; private set; } = null!;
+        public Output<string> RotationLambdaArn { get; private set; } = null!;
 
         /// <summary>
-        /// A structure that defines the rotation configuration for this secret. Defined below.
+        /// A structure that defines the rotation configuration for this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         /// </summary>
         [Output("rotationRules")]
-        public Output<Outputs.SecretRotationRules?> RotationRules { get; private set; } = null!;
+        public Output<Outputs.SecretRotationRules> RotationRules { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a key-value map of user-defined tags that are attached to the secret.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -206,26 +206,26 @@ namespace Pulumi.Aws.SecretsManager
         public Input<int>? RecoveryWindowInDays { get; set; }
 
         /// <summary>
-        /// Specifies the ARN of the Lambda function that can rotate the secret.
+        /// Specifies the ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         /// </summary>
         [Input("rotationLambdaArn")]
         public Input<string>? RotationLambdaArn { get; set; }
 
         /// <summary>
-        /// A structure that defines the rotation configuration for this secret. Defined below.
+        /// A structure that defines the rotation configuration for this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         /// </summary>
         [Input("rotationRules")]
         public Input<Inputs.SecretRotationRulesArgs>? RotationRules { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Specifies a key-value map of user-defined tags that are attached to the secret.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -285,26 +285,26 @@ namespace Pulumi.Aws.SecretsManager
         public Input<bool>? RotationEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the ARN of the Lambda function that can rotate the secret.
+        /// Specifies the ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         /// </summary>
         [Input("rotationLambdaArn")]
         public Input<string>? RotationLambdaArn { get; set; }
 
         /// <summary>
-        /// A structure that defines the rotation configuration for this secret. Defined below.
+        /// A structure that defines the rotation configuration for this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         /// </summary>
         [Input("rotationRules")]
         public Input<Inputs.SecretRotationRulesGetArgs>? RotationRules { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Specifies a key-value map of user-defined tags that are attached to the secret.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

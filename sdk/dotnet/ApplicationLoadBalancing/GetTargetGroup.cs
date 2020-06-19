@@ -68,10 +68,10 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public string? Name { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         public readonly bool ProxyProtocolV2;
         public readonly int SlowStart;
         public readonly Outputs.GetTargetGroupStickinessResult Stickiness;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly string TargetType;
         public readonly string VpcId;
 
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
             Outputs.GetTargetGroupStickinessResult stickiness,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string targetType,
 

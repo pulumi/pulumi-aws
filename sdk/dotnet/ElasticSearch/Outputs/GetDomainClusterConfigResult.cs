@@ -34,6 +34,18 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
+        /// The number of warm nodes in the cluster.
+        /// </summary>
+        public readonly int WarmCount;
+        /// <summary>
+        /// Indicates warm storage is enabled.
+        /// </summary>
+        public readonly bool? WarmEnabled;
+        /// <summary>
+        /// The instance type for the Elasticsearch cluster's warm nodes.
+        /// </summary>
+        public readonly string WarmType;
+        /// <summary>
         /// Configuration block containing zone awareness settings.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainClusterConfigZoneAwarenessConfigResult> ZoneAwarenessConfigs;
@@ -54,6 +66,12 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
 
             string instanceType,
 
+            int warmCount,
+
+            bool? warmEnabled,
+
+            string warmType,
+
             ImmutableArray<Outputs.GetDomainClusterConfigZoneAwarenessConfigResult> zoneAwarenessConfigs,
 
             bool zoneAwarenessEnabled)
@@ -63,6 +81,9 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
             DedicatedMasterType = dedicatedMasterType;
             InstanceCount = instanceCount;
             InstanceType = instanceType;
+            WarmCount = warmCount;
+            WarmEnabled = warmEnabled;
+            WarmType = warmType;
             ZoneAwarenessConfigs = zoneAwarenessConfigs;
             ZoneAwarenessEnabled = zoneAwarenessEnabled;
         }

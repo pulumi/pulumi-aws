@@ -51,10 +51,10 @@ namespace Pulumi.Aws.CloudFront
         public string Id { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.CloudFront
         /// CloudFront system.
         /// </summary>
         public readonly string Status;
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetDistributionResult(
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.CloudFront
 
             string status,
 
-            ImmutableDictionary<string, object>? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             DomainName = domainName;

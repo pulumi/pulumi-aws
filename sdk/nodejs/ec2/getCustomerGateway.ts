@@ -66,7 +66,7 @@ export interface GetCustomerGatewayArgs {
     /**
      * Map of key-value pairs assigned to the gateway.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -86,7 +86,7 @@ export interface GetCustomerGatewayResult {
     /**
      * Map of key-value pairs assigned to the gateway.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * (Optional) The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
      */

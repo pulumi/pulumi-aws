@@ -82,7 +82,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
     /**
      * Key-value map of resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
@@ -149,7 +149,7 @@ export interface GameSessionQueueState {
     /**
      * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
@@ -175,7 +175,7 @@ export interface GameSessionQueueArgs {
     /**
      * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Maximum time a game session request can remain in the queue.
      */

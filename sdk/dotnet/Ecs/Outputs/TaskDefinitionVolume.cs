@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly Outputs.TaskDefinitionVolumeDockerVolumeConfiguration? DockerVolumeConfiguration;
         /// <summary>
-        /// Used to configure a EFS volume. Can be used only with an EC2 type task.
+        /// Used to configure a EFS volume.
         /// </summary>
         public readonly Outputs.TaskDefinitionVolumeEfsVolumeConfiguration? EfsVolumeConfiguration;
         /// <summary>

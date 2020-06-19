@@ -162,13 +162,13 @@ namespace Pulumi.Aws.ApiGateway
         /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A map that defines the stage variables
         /// </summary>
         [Output("variables")]
-        public Output<ImmutableDictionary<string, object>?> Variables { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Variables { get; private set; } = null!;
 
         /// <summary>
         /// Whether active tracing with X-ray is enabled. Defaults to `false`.
@@ -278,26 +278,26 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> StageName { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         [Input("variables")]
-        private InputMap<object>? _variables;
+        private InputMap<string>? _variables;
 
         /// <summary>
         /// A map that defines the stage variables
         /// </summary>
-        public InputMap<object> Variables
+        public InputMap<string> Variables
         {
-            get => _variables ?? (_variables = new InputMap<object>());
+            get => _variables ?? (_variables = new InputMap<string>());
             set => _variables = value;
         }
 
@@ -391,26 +391,26 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? StageName { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
         [Input("variables")]
-        private InputMap<object>? _variables;
+        private InputMap<string>? _variables;
 
         /// <summary>
         /// A map that defines the stage variables
         /// </summary>
-        public InputMap<object> Variables
+        public InputMap<string> Variables
         {
-            get => _variables ?? (_variables = new InputMap<object>());
+            get => _variables ?? (_variables = new InputMap<string>());
             set => _variables = value;
         }
 

@@ -43,7 +43,7 @@ type Cluster struct {
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The id of the VPC that the CloudHSM cluster resides in.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -102,7 +102,7 @@ type clusterState struct {
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The id of the VPC that the CloudHSM cluster resides in.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -128,7 +128,7 @@ type ClusterState struct {
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The id of the VPC that the CloudHSM cluster resides in.
 	VpcId pulumi.StringPtrInput
 }
@@ -145,7 +145,7 @@ type clusterArgs struct {
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -157,7 +157,7 @@ type ClusterArgs struct {
 	// The IDs of subnets in which cluster will operate.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

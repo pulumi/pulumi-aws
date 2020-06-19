@@ -59,7 +59,7 @@ type LookupCertificateArgs struct {
 	// are returned.
 	Statuses []string `pulumi:"statuses"`
 	// A mapping of tags for the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
 	Types []string `pulumi:"types"`
 }
@@ -75,6 +75,6 @@ type LookupCertificateResult struct {
 	MostRecent *bool    `pulumi:"mostRecent"`
 	Statuses   []string `pulumi:"statuses"`
 	// A mapping of tags for the resource.
-	Tags  map[string]interface{} `pulumi:"tags"`
-	Types []string               `pulumi:"types"`
+	Tags  map[string]string `pulumi:"tags"`
+	Types []string          `pulumi:"types"`
 }

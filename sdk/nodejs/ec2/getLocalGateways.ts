@@ -53,7 +53,7 @@ export interface GetLocalGatewaysArgs {
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired local_gateways.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -69,5 +69,5 @@ export interface GetLocalGatewaysResult {
      * Set of all the Local Gateway identifiers
      */
     readonly ids: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

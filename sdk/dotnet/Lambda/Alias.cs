@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     public MyStack()
     ///     {
-    ///         var testAlias = new Aws.Lambda.Alias("testAlias", new Aws.Lambda.AliasArgs
+    ///         var testLambdaAlias = new Aws.Lambda.Alias("testLambdaAlias", new Aws.Lambda.AliasArgs
     ///         {
     ///             Description = "a sample description",
     ///             FunctionName = aws_lambda_function.Lambda_function_test.Arn,

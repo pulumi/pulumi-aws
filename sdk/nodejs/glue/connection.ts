@@ -85,7 +85,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * A map of key-value pairs used as parameters for this connection.
      */
-    public readonly connectionProperties!: pulumi.Output<{[key: string]: any}>;
+    public readonly connectionProperties!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
      */
@@ -167,7 +167,7 @@ export interface ConnectionState {
     /**
      * A map of key-value pairs used as parameters for this connection.
      */
-    readonly connectionProperties?: pulumi.Input<{[key: string]: any}>;
+    readonly connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
      */
@@ -201,7 +201,7 @@ export interface ConnectionArgs {
     /**
      * A map of key-value pairs used as parameters for this connection.
      */
-    readonly connectionProperties: pulumi.Input<{[key: string]: any}>;
+    readonly connectionProperties: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
      */

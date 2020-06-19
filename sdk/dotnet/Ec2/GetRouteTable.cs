@@ -90,15 +90,15 @@ namespace Pulumi.Aws.Ec2
         public string? SubnetId { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// A map of tags, each pair of which must exactly match
         /// a pair on the desired Route Table.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Ec2
         /// The Subnet ID. Only set when associated with a Subnet.
         /// </summary>
         public readonly string SubnetId;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VpcId;
 
         [OutputConstructor]
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Ec2
 
             string subnetId,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string vpcId)
         {

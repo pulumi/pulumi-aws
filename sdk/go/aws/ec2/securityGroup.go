@@ -77,7 +77,7 @@ type SecurityGroup struct {
 	// Default `false`
 	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The VPC ID.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -140,7 +140,7 @@ type securityGroupState struct {
 	// Default `false`
 	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -173,7 +173,7 @@ type SecurityGroupState struct {
 	// Default `false`
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringPtrInput
 }
@@ -206,7 +206,7 @@ type securityGroupArgs struct {
 	// Default `false`
 	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -236,7 +236,7 @@ type SecurityGroupArgs struct {
 	// Default `false`
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The VPC ID.
 	VpcId pulumi.StringPtrInput
 }

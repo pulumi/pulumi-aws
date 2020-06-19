@@ -125,7 +125,7 @@ type ReplicationGroup struct {
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
 	// A map of tags to assign to the resource
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
 }
@@ -229,7 +229,7 @@ type replicationGroupState struct {
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// A map of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
@@ -303,7 +303,7 @@ type ReplicationGroupState struct {
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringPtrInput
 	// A map of tags to assign to the resource
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
@@ -375,7 +375,7 @@ type replicationGroupArgs struct {
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// A map of tags to assign to the resource
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
@@ -444,7 +444,7 @@ type ReplicationGroupArgs struct {
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringPtrInput
 	// A map of tags to assign to the resource
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }

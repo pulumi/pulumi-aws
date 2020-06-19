@@ -5,6 +5,7 @@
 export * from "./defaultKmsKey";
 export * from "./encryptionByDefault";
 export * from "./getDefaultKmsKey";
+export * from "./getEbsVolumes";
 export * from "./getEncryptionByDefault";
 export * from "./getSnapshot";
 export * from "./getSnapshotIds";

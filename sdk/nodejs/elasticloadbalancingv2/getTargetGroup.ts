@@ -63,7 +63,7 @@ export interface GetTargetGroupArgs {
      * The unique name of the target group.
      */
     readonly name?: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -86,7 +86,7 @@ export interface GetTargetGroupResult {
     readonly proxyProtocolV2: boolean;
     readonly slowStart: number;
     readonly stickiness: outputs.elasticloadbalancingv2.GetTargetGroupStickiness;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly targetType: string;
     readonly vpcId: string;
 }

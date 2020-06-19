@@ -83,7 +83,7 @@ export class EventSubscription extends pulumi.CustomResource {
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      */
     public readonly sourceType!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a EventSubscription resource with the given unique name, arguments, and options.
@@ -162,7 +162,7 @@ export interface EventSubscriptionState {
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      */
     readonly sourceType?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -193,5 +193,5 @@ export interface EventSubscriptionArgs {
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      */
     readonly sourceType?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

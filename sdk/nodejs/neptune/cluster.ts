@@ -177,7 +177,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A map of tags to assign to the Neptune cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of VPC security groups to associate with the Cluster
      */
@@ -388,7 +388,7 @@ export interface ClusterState {
     /**
      * A map of tags to assign to the Neptune cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of VPC security groups to associate with the Cluster
      */
@@ -490,7 +490,7 @@ export interface ClusterArgs {
     /**
      * A map of tags to assign to the Neptune cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of VPC security groups to associate with the Cluster
      */

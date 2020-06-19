@@ -58,7 +58,7 @@ type EndpointConfiguration struct {
 	// Fields are documented below.
 	ProductionVariants EndpointConfigurationProductionVariantArrayOutput `pulumi:"productionVariants"`
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewEndpointConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -101,7 +101,7 @@ type endpointConfigurationState struct {
 	// Fields are documented below.
 	ProductionVariants []EndpointConfigurationProductionVariant `pulumi:"productionVariants"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type EndpointConfigurationState struct {
@@ -114,7 +114,7 @@ type EndpointConfigurationState struct {
 	// Fields are documented below.
 	ProductionVariants EndpointConfigurationProductionVariantArrayInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (EndpointConfigurationState) ElementType() reflect.Type {
@@ -129,7 +129,7 @@ type endpointConfigurationArgs struct {
 	// Fields are documented below.
 	ProductionVariants []EndpointConfigurationProductionVariant `pulumi:"productionVariants"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EndpointConfiguration resource.
@@ -141,7 +141,7 @@ type EndpointConfigurationArgs struct {
 	// Fields are documented below.
 	ProductionVariants EndpointConfigurationProductionVariantArrayInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (EndpointConfigurationArgs) ElementType() reflect.Type {

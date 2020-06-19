@@ -44,8 +44,8 @@ func LookupDistribution(ctx *pulumi.Context, args *LookupDistributionArgs, opts 
 // A collection of arguments for invoking getDistribution.
 type LookupDistributionArgs struct {
 	// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-	Id   string                 `pulumi:"id"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Id   string            `pulumi:"id"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDistribution.
@@ -73,6 +73,6 @@ type LookupDistributionResult struct {
 	// The current status of the distribution. `Deployed` if the
 	// distribution's information is fully propagated throughout the Amazon
 	// CloudFront system.
-	Status string                 `pulumi:"status"`
-	Tags   map[string]interface{} `pulumi:"tags"`
+	Status string            `pulumi:"status"`
+	Tags   map[string]string `pulumi:"tags"`
 }

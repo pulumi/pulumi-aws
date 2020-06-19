@@ -77,7 +77,7 @@ type LookupVpcAttachmentArgs struct {
 	// Identifier of the EC2 Transit Gateway VPC Attachment.
 	Id *string `pulumi:"id"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcAttachment.
@@ -92,7 +92,7 @@ type LookupVpcAttachmentResult struct {
 	// Identifiers of EC2 Subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// EC2 Transit Gateway identifier
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 	// Identifier of EC2 VPC.

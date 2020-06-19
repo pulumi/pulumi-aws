@@ -18,7 +18,7 @@ type PlanRule struct {
 	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
 	Lifecycle *PlanRuleLifecycle `pulumi:"lifecycle"`
 	// Metadata that you can assign to help organize the resources that you create.
-	RecoveryPointTags map[string]interface{} `pulumi:"recoveryPointTags"`
+	RecoveryPointTags map[string]string `pulumi:"recoveryPointTags"`
 	// An display name for a backup rule.
 	RuleName string `pulumi:"ruleName"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
@@ -49,7 +49,7 @@ type PlanRuleArgs struct {
 	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
 	Lifecycle PlanRuleLifecyclePtrInput `pulumi:"lifecycle"`
 	// Metadata that you can assign to help organize the resources that you create.
-	RecoveryPointTags pulumi.MapInput `pulumi:"recoveryPointTags"`
+	RecoveryPointTags pulumi.StringMapInput `pulumi:"recoveryPointTags"`
 	// An display name for a backup rule.
 	RuleName pulumi.StringInput `pulumi:"ruleName"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
@@ -128,8 +128,8 @@ func (o PlanRuleOutput) Lifecycle() PlanRuleLifecyclePtrOutput {
 }
 
 // Metadata that you can assign to help organize the resources that you create.
-func (o PlanRuleOutput) RecoveryPointTags() pulumi.MapOutput {
-	return o.ApplyT(func(v PlanRule) map[string]interface{} { return v.RecoveryPointTags }).(pulumi.MapOutput)
+func (o PlanRuleOutput) RecoveryPointTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanRule) map[string]string { return v.RecoveryPointTags }).(pulumi.StringMapOutput)
 }
 
 // An display name for a backup rule.

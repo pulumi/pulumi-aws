@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Lambda
     public partial class Function : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the EFS Access Profile that provides access to the file system.
+        /// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -140,10 +140,10 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.FunctionEnvironment?> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// Nested block to configure the function's *EFS config*. See details below.
+        /// The connection settings for an EFS file system. Fields documented below. Before creating or updating Lambda functions with `file_system_config`, EFS mount targets much be in available lifecycle state. Use `depends_on` to explicitly declare this dependency. See [Using Amazon EFS with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/services-efs.html).
         /// </summary>
-        [Output("fileSystemConfigs")]
-        public Output<ImmutableArray<Outputs.FunctionFileSystemConfig>> FileSystemConfigs { get; private set; } = null!;
+        [Output("fileSystemConfig")]
+        public Output<Outputs.FunctionFileSystemConfig?> FileSystemConfig { get; private set; } = null!;
 
         /// <summary>
         /// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.Lambda
         /// A mapping of tags to assign to the object.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
@@ -345,17 +345,11 @@ namespace Pulumi.Aws.Lambda
         [Input("environment")]
         public Input<Inputs.FunctionEnvironmentArgs>? Environment { get; set; }
 
-        [Input("fileSystemConfigs")]
-        private InputList<Inputs.FunctionFileSystemConfigArgs>? _fileSystemConfigs;
-
         /// <summary>
-        /// Nested block to configure the function's *EFS config*. See details below.
+        /// The connection settings for an EFS file system. Fields documented below. Before creating or updating Lambda functions with `file_system_config`, EFS mount targets much be in available lifecycle state. Use `depends_on` to explicitly declare this dependency. See [Using Amazon EFS with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/services-efs.html).
         /// </summary>
-        public InputList<Inputs.FunctionFileSystemConfigArgs> FileSystemConfigs
-        {
-            get => _fileSystemConfigs ?? (_fileSystemConfigs = new InputList<Inputs.FunctionFileSystemConfigArgs>());
-            set => _fileSystemConfigs = value;
-        }
+        [Input("fileSystemConfig")]
+        public Input<Inputs.FunctionFileSystemConfigArgs>? FileSystemConfig { get; set; }
 
         /// <summary>
         /// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
@@ -442,14 +436,14 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? SourceCodeHash { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the object.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -476,7 +470,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class FunctionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the EFS Access Profile that provides access to the file system.
+        /// The Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -505,17 +499,11 @@ namespace Pulumi.Aws.Lambda
         [Input("environment")]
         public Input<Inputs.FunctionEnvironmentGetArgs>? Environment { get; set; }
 
-        [Input("fileSystemConfigs")]
-        private InputList<Inputs.FunctionFileSystemConfigGetArgs>? _fileSystemConfigs;
-
         /// <summary>
-        /// Nested block to configure the function's *EFS config*. See details below.
+        /// The connection settings for an EFS file system. Fields documented below. Before creating or updating Lambda functions with `file_system_config`, EFS mount targets much be in available lifecycle state. Use `depends_on` to explicitly declare this dependency. See [Using Amazon EFS with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/services-efs.html).
         /// </summary>
-        public InputList<Inputs.FunctionFileSystemConfigGetArgs> FileSystemConfigs
-        {
-            get => _fileSystemConfigs ?? (_fileSystemConfigs = new InputList<Inputs.FunctionFileSystemConfigGetArgs>());
-            set => _fileSystemConfigs = value;
-        }
+        [Input("fileSystemConfig")]
+        public Input<Inputs.FunctionFileSystemConfigGetArgs>? FileSystemConfig { get; set; }
 
         /// <summary>
         /// The function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
@@ -627,14 +615,14 @@ namespace Pulumi.Aws.Lambda
         public Input<int>? SourceCodeSize { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the object.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

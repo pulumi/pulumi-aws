@@ -43,7 +43,7 @@ type Thing struct {
 	// The ARN of the thing.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Map of attributes of the thing.
-	Attributes pulumi.MapOutput `pulumi:"attributes"`
+	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
 	// The default client ID.
 	DefaultClientId pulumi.StringOutput `pulumi:"defaultClientId"`
 	// The name of the thing.
@@ -85,7 +85,7 @@ type thingState struct {
 	// The ARN of the thing.
 	Arn *string `pulumi:"arn"`
 	// Map of attributes of the thing.
-	Attributes map[string]interface{} `pulumi:"attributes"`
+	Attributes map[string]string `pulumi:"attributes"`
 	// The default client ID.
 	DefaultClientId *string `pulumi:"defaultClientId"`
 	// The name of the thing.
@@ -100,7 +100,7 @@ type ThingState struct {
 	// The ARN of the thing.
 	Arn pulumi.StringPtrInput
 	// Map of attributes of the thing.
-	Attributes pulumi.MapInput
+	Attributes pulumi.StringMapInput
 	// The default client ID.
 	DefaultClientId pulumi.StringPtrInput
 	// The name of the thing.
@@ -117,7 +117,7 @@ func (ThingState) ElementType() reflect.Type {
 
 type thingArgs struct {
 	// Map of attributes of the thing.
-	Attributes map[string]interface{} `pulumi:"attributes"`
+	Attributes map[string]string `pulumi:"attributes"`
 	// The name of the thing.
 	Name *string `pulumi:"name"`
 	// The thing type name.
@@ -127,7 +127,7 @@ type thingArgs struct {
 // The set of arguments for constructing a Thing resource.
 type ThingArgs struct {
 	// Map of attributes of the thing.
-	Attributes pulumi.MapInput
+	Attributes pulumi.StringMapInput
 	// The name of the thing.
 	Name pulumi.StringPtrInput
 	// The thing type name.

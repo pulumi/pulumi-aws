@@ -130,6 +130,7 @@ namespace Pulumi.Aws
                 public string? Cloudwatch { get; set; } = null!;
                 public string? Cloudwatchevents { get; set; } = null!;
                 public string? Cloudwatchlogs { get; set; } = null!;
+                public string? Codeartifact { get; set; } = null!;
                 public string? Codebuild { get; set; } = null!;
                 public string? Codecommit { get; set; } = null!;
                 public string? Codedeploy { get; set; } = null!;
@@ -202,6 +203,7 @@ namespace Pulumi.Aws
                 public string? Networkmanager { get; set; } = null!;
                 public string? Opsworks { get; set; } = null!;
                 public string? Organizations { get; set; } = null!;
+                public string? Outposts { get; set; } = null!;
                 public string? Personalize { get; set; } = null!;
                 public string? Pinpoint { get; set; } = null!;
                 public string? Pricing { get; set; } = null!;

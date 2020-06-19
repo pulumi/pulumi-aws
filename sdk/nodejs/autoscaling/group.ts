@@ -372,7 +372,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * Set of maps containing resource tags. Conflicts with `tag`. Documented below.
      */
-    public readonly tagsCollection!: pulumi.Output<{[key: string]: any}[] | undefined>;
+    public readonly tagsCollection!: pulumi.Output<{[key: string]: string}[] | undefined>;
     /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
      */
@@ -624,7 +624,7 @@ export interface GroupState {
     /**
      * Set of maps containing resource tags. Conflicts with `tag`. Documented below.
      */
-    readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
     /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
      */
@@ -779,7 +779,7 @@ export interface GroupArgs {
     /**
      * Set of maps containing resource tags. Conflicts with `tag`. Documented below.
      */
-    readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    readonly tagsCollection?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
     /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
      */

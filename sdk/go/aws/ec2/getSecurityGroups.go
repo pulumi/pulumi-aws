@@ -53,7 +53,7 @@ type GetSecurityGroupsArgs struct {
 	Filters []GetSecurityGroupsFilter `pulumi:"filters"`
 	// A map of tags, each pair of which must exactly match for
 	// desired security groups.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSecurityGroups.
@@ -62,8 +62,8 @@ type GetSecurityGroupsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// IDs of the matches security groups.
-	Ids  []string               `pulumi:"ids"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Ids  []string          `pulumi:"ids"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs*
 	// unless the `vpc-id` filter is also used.
 	VpcIds []string `pulumi:"vpcIds"`

@@ -52,7 +52,7 @@ type GetVpcsArgs struct {
 	Filters []GetVpcsFilter `pulumi:"filters"`
 	// A map of tags, each pair of which must exactly match
 	// a pair on the desired vpcs.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcs.
@@ -61,6 +61,6 @@ type GetVpcsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of all the VPC Ids found. This data source will fail if none are found.
-	Ids  []string               `pulumi:"ids"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Ids  []string          `pulumi:"ids"`
+	Tags map[string]string `pulumi:"tags"`
 }

@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// <summary>
         /// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? TagsToAdd;
+        public readonly ImmutableDictionary<string, string>? TagsToAdd;
 
         [OutputConstructor]
         private LifecyclePolicyPolicyDetailsSchedule(
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Dlm.Outputs
 
             Outputs.LifecyclePolicyPolicyDetailsScheduleRetainRule retainRule,
 
-            ImmutableDictionary<string, object>? tagsToAdd)
+            ImmutableDictionary<string, string>? tagsToAdd)
         {
             CopyTags = copyTags;
             CreateRule = createRule;

@@ -52,14 +52,14 @@ namespace Pulumi.Aws.ApiGateway
         public string Id { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// A map of tags for the resource.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// A map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Set to the value of the API Key.
         /// </summary>
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.ApiGateway
 
             string name,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string value)
         {

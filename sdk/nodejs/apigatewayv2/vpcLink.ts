@@ -74,7 +74,7 @@ export class VpcLink extends pulumi.CustomResource {
     /**
      * A map of tags to assign to the VPC Link.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a VpcLink resource with the given unique name, arguments, and options.
@@ -141,7 +141,7 @@ export interface VpcLinkState {
     /**
      * A map of tags to assign to the VPC Link.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -163,5 +163,5 @@ export interface VpcLinkArgs {
     /**
      * A map of tags to assign to the VPC Link.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -68,7 +68,7 @@ export interface GetPeeringAttachmentArgs {
      * A mapping of tags, each pair of which must exactly match
      * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -89,7 +89,7 @@ export interface GetPeeringAttachmentResult {
      * Identifier of the peer EC2 Transit Gateway
      */
     readonly peerTransitGatewayId: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * Identifier of the local EC2 Transit Gateway
      */

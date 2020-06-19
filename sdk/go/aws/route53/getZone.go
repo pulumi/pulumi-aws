@@ -28,7 +28,7 @@ type LookupZoneArgs struct {
 	// The number of Record Set in the Hosted Zone.
 	ResourceRecordSetCount *int `pulumi:"resourceRecordSetCount"`
 	// Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
 	VpcId *string `pulumi:"vpcId"`
 	// The Hosted Zone id of the desired Hosted Zone.
@@ -52,8 +52,8 @@ type LookupZoneResult struct {
 	NameServers []string `pulumi:"nameServers"`
 	PrivateZone *bool    `pulumi:"privateZone"`
 	// The number of Record Set in the Hosted Zone.
-	ResourceRecordSetCount int                    `pulumi:"resourceRecordSetCount"`
-	Tags                   map[string]interface{} `pulumi:"tags"`
-	VpcId                  string                 `pulumi:"vpcId"`
-	ZoneId                 string                 `pulumi:"zoneId"`
+	ResourceRecordSetCount int               `pulumi:"resourceRecordSetCount"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VpcId                  string            `pulumi:"vpcId"`
+	ZoneId                 string            `pulumi:"zoneId"`
 }

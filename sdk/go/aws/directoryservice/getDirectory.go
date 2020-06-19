@@ -46,7 +46,7 @@ type LookupDirectoryArgs struct {
 	// The ID of the directory.
 	DirectoryId string `pulumi:"directoryId"`
 	// A map of tags assigned to the directory/connector.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDirectory.
@@ -76,7 +76,7 @@ type LookupDirectoryResult struct {
 	// (for `SimpleAD` and `ADConnector`) The size of the directory/connector (`Small` or `Large`).
 	Size string `pulumi:"size"`
 	// A map of tags assigned to the directory/connector.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
 	Type        string                   `pulumi:"type"`
 	VpcSettings []GetDirectoryVpcSetting `pulumi:"vpcSettings"`

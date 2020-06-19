@@ -78,7 +78,7 @@ type LookupPeeringAttachmentArgs struct {
 	Id *string `pulumi:"id"`
 	// A mapping of tags, each pair of which must exactly match
 	// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getPeeringAttachment.
@@ -90,8 +90,8 @@ type LookupPeeringAttachmentResult struct {
 	// Identifier of the peer AWS region
 	PeerRegion string `pulumi:"peerRegion"`
 	// Identifier of the peer EC2 Transit Gateway
-	PeerTransitGatewayId string                 `pulumi:"peerTransitGatewayId"`
-	Tags                 map[string]interface{} `pulumi:"tags"`
+	PeerTransitGatewayId string            `pulumi:"peerTransitGatewayId"`
+	Tags                 map[string]string `pulumi:"tags"`
 	// Identifier of the local EC2 Transit Gateway
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }

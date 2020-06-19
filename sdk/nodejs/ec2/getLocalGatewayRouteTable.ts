@@ -72,7 +72,7 @@ export interface GetLocalGatewayRouteTableArgs {
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -88,5 +88,5 @@ export interface GetLocalGatewayRouteTableResult {
     readonly localGatewayRouteTableId: string;
     readonly outpostArn: string;
     readonly state: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

@@ -48,7 +48,7 @@ export interface GetKeyArgs {
     /**
      * A map of tags for the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -82,7 +82,7 @@ export interface GetKeyResult {
     /**
      * A map of tags for the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * Set to the value of the API Key.
      */

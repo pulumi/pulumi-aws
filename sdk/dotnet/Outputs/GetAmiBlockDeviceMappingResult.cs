@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Outputs
     public sealed class GetAmiBlockDeviceMappingResult
     {
         public readonly string DeviceName;
-        public readonly ImmutableDictionary<string, object> Ebs;
+        public readonly ImmutableDictionary<string, string> Ebs;
         public readonly string NoDevice;
         public readonly string VirtualName;
 
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Outputs
         private GetAmiBlockDeviceMappingResult(
             string deviceName,
 
-            ImmutableDictionary<string, object> ebs,
+            ImmutableDictionary<string, string> ebs,
 
             string noDevice,
 

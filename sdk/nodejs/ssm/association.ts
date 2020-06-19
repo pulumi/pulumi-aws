@@ -96,7 +96,7 @@ export class Association extends pulumi.CustomResource {
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: any}>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string}>;
     /**
      * A cron expression when the association will be applied to the target(s).
      */
@@ -205,7 +205,7 @@ export interface AssociationState {
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A cron expression when the association will be applied to the target(s).
      */
@@ -259,7 +259,7 @@ export interface AssociationArgs {
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A cron expression when the association will be applied to the target(s).
      */

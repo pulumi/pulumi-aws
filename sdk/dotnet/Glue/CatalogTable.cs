@@ -109,6 +109,12 @@ namespace Pulumi.Aws.Glue
     public partial class CatalogTable : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the Glue Table.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         /// </summary>
         [Output("catalogId")]
@@ -317,6 +323,12 @@ namespace Pulumi.Aws.Glue
 
     public sealed class CatalogTableState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Glue Table.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         /// </summary>

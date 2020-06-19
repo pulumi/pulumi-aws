@@ -46,8 +46,8 @@ type LookupFunctionArgs struct {
 	// Name of the lambda function.
 	FunctionName string `pulumi:"functionName"`
 	// Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
-	Qualifier *string                `pulumi:"qualifier"`
-	Tags      map[string]interface{} `pulumi:"tags"`
+	Qualifier *string           `pulumi:"qualifier"`
+	Tags      map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getFunction.
@@ -60,7 +60,7 @@ type LookupFunctionResult struct {
 	Description string `pulumi:"description"`
 	// The Lambda environment's configuration settings.
 	Environment GetFunctionEnvironment `pulumi:"environment"`
-	// The Lambda EFS configuration settings.
+	// The connection settings for an Amazon EFS file system.
 	FileSystemConfigs []GetFunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
 	FunctionName      string                        `pulumi:"functionName"`
 	// The function entrypoint in your code.
@@ -89,8 +89,8 @@ type LookupFunctionResult struct {
 	// Base64-encoded representation of raw SHA-256 sum of the zip file.
 	SourceCodeHash string `pulumi:"sourceCodeHash"`
 	// The size in bytes of the function .zip file.
-	SourceCodeSize int                    `pulumi:"sourceCodeSize"`
-	Tags           map[string]interface{} `pulumi:"tags"`
+	SourceCodeSize int               `pulumi:"sourceCodeSize"`
+	Tags           map[string]string `pulumi:"tags"`
 	// The function execution time at which Lambda should terminate the function.
 	Timeout int `pulumi:"timeout"`
 	// Tracing settings of the function.

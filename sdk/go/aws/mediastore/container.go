@@ -43,7 +43,7 @@ type Container struct {
 	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewContainer registers a new resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ type containerState struct {
 	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ContainerState struct {
@@ -92,7 +92,7 @@ type ContainerState struct {
 	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ContainerState) ElementType() reflect.Type {
@@ -103,7 +103,7 @@ type containerArgs struct {
 	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Container resource.
@@ -111,7 +111,7 @@ type ContainerArgs struct {
 	// The name of the container. Must contain alphanumeric characters or underscores.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ContainerArgs) ElementType() reflect.Type {

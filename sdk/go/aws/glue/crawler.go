@@ -75,7 +75,7 @@ type Crawler struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrOutput `pulumi:"tablePrefix"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewCrawler registers a new resource with the given unique name, arguments, and options.
@@ -142,7 +142,7 @@ type crawlerState struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix *string `pulumi:"tablePrefix"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type CrawlerState struct {
@@ -176,7 +176,7 @@ type CrawlerState struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (CrawlerState) ElementType() reflect.Type {
@@ -212,7 +212,7 @@ type crawlerArgs struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix *string `pulumi:"tablePrefix"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Crawler resource.
@@ -245,7 +245,7 @@ type CrawlerArgs struct {
 	// The table prefix used for catalog tables that are created.
 	TablePrefix pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (CrawlerArgs) ElementType() reflect.Type {

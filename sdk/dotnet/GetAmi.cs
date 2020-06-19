@@ -138,16 +138,16 @@ namespace Pulumi.Aws
         }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// Any tags assigned to the image.
         /// * `tags.#.key` - The key name of the tag.
         /// * `tags.#.value` - The value of the tag.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -280,13 +280,13 @@ namespace Pulumi.Aws
         /// * `state_reason.code` - The reason code for the state change.
         /// * `state_reason.message` - The message for the state change.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> StateReason;
+        public readonly ImmutableDictionary<string, string> StateReason;
         /// <summary>
         /// Any tags assigned to the image.
         /// * `tags.#.key` - The key name of the tag.
         /// * `tags.#.value` - The value of the tag.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The type of virtualization of the AMI (ie: `hvm` or
         /// `paravirtual`).
@@ -349,9 +349,9 @@ namespace Pulumi.Aws
 
             string state,
 
-            ImmutableDictionary<string, object> stateReason,
+            ImmutableDictionary<string, string> stateReason,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string virtualizationType)
         {

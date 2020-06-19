@@ -77,7 +77,7 @@ type UserPool struct {
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrOutput `pulumi:"softwareTokenMfaConfiguration"`
 	// A map of tags to assign to the User Pool.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrOutput `pulumi:"userPoolAddOns"`
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -157,7 +157,7 @@ type userPoolState struct {
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
 	// A map of tags to assign to the User Pool.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -210,7 +210,7 @@ type UserPoolState struct {
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
 	// A map of tags to assign to the User Pool.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -259,7 +259,7 @@ type userPoolArgs struct {
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration *UserPoolSoftwareTokenMfaConfiguration `pulumi:"softwareTokenMfaConfiguration"`
 	// A map of tags to assign to the User Pool.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns *UserPoolUserPoolAddOns `pulumi:"userPoolAddOns"`
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
@@ -305,7 +305,7 @@ type UserPoolArgs struct {
 	// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
 	SoftwareTokenMfaConfiguration UserPoolSoftwareTokenMfaConfigurationPtrInput
 	// A map of tags to assign to the User Pool.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Configuration block for user pool add-ons to enable user pool advanced security mode features.
 	UserPoolAddOns UserPoolUserPoolAddOnsPtrInput
 	// Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.

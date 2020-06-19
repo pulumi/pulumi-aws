@@ -124,14 +124,14 @@ namespace Pulumi.Aws.Ebs
         }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// A map of tags for the resource.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// A map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The volume ID (e.g. vol-59fcb34e).
         /// </summary>
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.Ebs
 
             string state,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string volumeId,
 

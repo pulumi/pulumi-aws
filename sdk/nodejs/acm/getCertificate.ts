@@ -69,7 +69,7 @@ export interface GetCertificateArgs {
     /**
      * A mapping of tags for the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
      */
@@ -95,6 +95,6 @@ export interface GetCertificateResult {
     /**
      * A mapping of tags for the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly types?: string[];
 }

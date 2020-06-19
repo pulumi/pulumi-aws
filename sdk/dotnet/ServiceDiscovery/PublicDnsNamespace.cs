@@ -59,6 +59,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the namespace.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a PublicDnsNamespace resource with the given unique name, arguments, and options.
@@ -117,6 +123,18 @@ namespace Pulumi.Aws.ServiceDiscovery
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the namespace.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public PublicDnsNamespaceArgs()
         {
         }
@@ -147,6 +165,18 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the namespace.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public PublicDnsNamespaceState()
         {

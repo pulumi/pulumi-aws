@@ -44,7 +44,7 @@ export interface GetInstanceArgs {
      * The name of the RDS instance
      */
     readonly dbInstanceIdentifier: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -196,7 +196,7 @@ export interface GetInstanceResult {
      * Specifies the storage type associated with DB instance.
      */
     readonly storageType: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The time zone of the DB instance.
      */

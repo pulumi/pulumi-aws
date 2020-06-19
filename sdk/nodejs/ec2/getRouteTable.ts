@@ -77,7 +77,7 @@ export interface GetRouteTableArgs {
      * A map of tags, each pair of which must exactly match
      * a pair on the desired Route Table.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The id of the VPC that the desired Route Table belongs to.
      */
@@ -111,6 +111,6 @@ export interface GetRouteTableResult {
      * The Subnet ID. Only set when associated with a Subnet.
      */
     readonly subnetId: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }

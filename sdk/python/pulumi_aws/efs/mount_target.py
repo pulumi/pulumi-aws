@@ -10,9 +10,17 @@ from typing import Union
 from .. import utilities, tables
 
 class MountTarget(pulumi.CustomResource):
+    availability_zone_id: pulumi.Output[str]
+    """
+    The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+    """
+    availability_zone_name: pulumi.Output[str]
+    """
+    The name of the Availability Zone (AZ) that the mount target resides in.
+    """
     dns_name: pulumi.Output[str]
     """
-    The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+    The DNS name for the EFS file system.
     """
     file_system_arn: pulumi.Output[str]
     """
@@ -27,9 +35,17 @@ class MountTarget(pulumi.CustomResource):
     The address (within the address range of the specified subnet) at
     which the file system may be mounted via the mount target.
     """
+    mount_target_dns_name: pulumi.Output[str]
+    """
+    The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+    """
     network_interface_id: pulumi.Output[str]
     """
     The ID of the network interface that Amazon EFS created when it created the mount target.
+    """
+    owner_id: pulumi.Output[str]
+    """
+    AWS account ID that owns the resource.
     """
     security_groups: pulumi.Output[list]
     """
@@ -96,9 +112,13 @@ class MountTarget(pulumi.CustomResource):
             if subnet_id is None:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
+            __props__['availability_zone_id'] = None
+            __props__['availability_zone_name'] = None
             __props__['dns_name'] = None
             __props__['file_system_arn'] = None
+            __props__['mount_target_dns_name'] = None
             __props__['network_interface_id'] = None
+            __props__['owner_id'] = None
         super(MountTarget, __self__).__init__(
             'aws:efs/mountTarget:MountTarget',
             resource_name,
@@ -106,7 +126,7 @@ class MountTarget(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, dns_name=None, file_system_arn=None, file_system_id=None, ip_address=None, network_interface_id=None, security_groups=None, subnet_id=None):
+    def get(resource_name, id, opts=None, availability_zone_id=None, availability_zone_name=None, dns_name=None, file_system_arn=None, file_system_id=None, ip_address=None, mount_target_dns_name=None, network_interface_id=None, owner_id=None, security_groups=None, subnet_id=None):
         """
         Get an existing MountTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -114,12 +134,16 @@ class MountTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] dns_name: The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
+        :param pulumi.Input[str] availability_zone_id: The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+        :param pulumi.Input[str] availability_zone_name: The name of the Availability Zone (AZ) that the mount target resides in.
+        :param pulumi.Input[str] dns_name: The DNS name for the EFS file system.
         :param pulumi.Input[str] file_system_arn: Amazon Resource Name of the file system.
         :param pulumi.Input[str] file_system_id: The ID of the file system for which the mount target is intended.
         :param pulumi.Input[str] ip_address: The address (within the address range of the specified subnet) at
                which the file system may be mounted via the mount target.
+        :param pulumi.Input[str] mount_target_dns_name: The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         :param pulumi.Input[str] network_interface_id: The ID of the network interface that Amazon EFS created when it created the mount target.
+        :param pulumi.Input[str] owner_id: AWS account ID that owns the resource.
         :param pulumi.Input[list] security_groups: A list of up to 5 VPC security group IDs (that must
                be for the same VPC as subnet specified) in effect for the mount target.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to add the mount target in.
@@ -128,11 +152,15 @@ class MountTarget(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["availability_zone_id"] = availability_zone_id
+        __props__["availability_zone_name"] = availability_zone_name
         __props__["dns_name"] = dns_name
         __props__["file_system_arn"] = file_system_arn
         __props__["file_system_id"] = file_system_id
         __props__["ip_address"] = ip_address
+        __props__["mount_target_dns_name"] = mount_target_dns_name
         __props__["network_interface_id"] = network_interface_id
+        __props__["owner_id"] = owner_id
         __props__["security_groups"] = security_groups
         __props__["subnet_id"] = subnet_id
         return MountTarget(resource_name, opts=opts, __props__=__props__)

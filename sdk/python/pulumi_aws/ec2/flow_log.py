@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class FlowLog(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the Flow Log.
+    """
     eni_id: pulumi.Output[str]
     """
     Elastic Network Interface ID to attach to
@@ -177,6 +181,7 @@ class FlowLog(pulumi.CustomResource):
                 raise TypeError("Missing required property 'traffic_type'")
             __props__['traffic_type'] = traffic_type
             __props__['vpc_id'] = vpc_id
+            __props__['arn'] = None
         super(FlowLog, __self__).__init__(
             'aws:ec2/flowLog:FlowLog',
             resource_name,
@@ -184,7 +189,7 @@ class FlowLog(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, eni_id=None, iam_role_arn=None, log_destination=None, log_destination_type=None, log_format=None, log_group_name=None, max_aggregation_interval=None, subnet_id=None, tags=None, traffic_type=None, vpc_id=None):
+    def get(resource_name, id, opts=None, arn=None, eni_id=None, iam_role_arn=None, log_destination=None, log_destination_type=None, log_format=None, log_group_name=None, max_aggregation_interval=None, subnet_id=None, tags=None, traffic_type=None, vpc_id=None):
         """
         Get an existing FlowLog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -192,6 +197,7 @@ class FlowLog(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Flow Log.
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination.
@@ -211,6 +217,7 @@ class FlowLog(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["eni_id"] = eni_id
         __props__["iam_role_arn"] = iam_role_arn
         __props__["log_destination"] = log_destination

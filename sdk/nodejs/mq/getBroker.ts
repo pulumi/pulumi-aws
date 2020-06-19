@@ -59,7 +59,7 @@ export interface GetBrokerArgs {
      */
     readonly brokerName?: string;
     readonly logs?: inputs.mq.GetBrokerLogs;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -86,6 +86,6 @@ export interface GetBrokerResult {
     readonly publiclyAccessible: boolean;
     readonly securityGroups: string[];
     readonly subnetIds: string[];
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly users: outputs.mq.GetBrokerUser[];
 }

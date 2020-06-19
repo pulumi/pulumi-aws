@@ -61,7 +61,7 @@ type Workgroup struct {
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Key-value map of resource tags for the workgroup.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewWorkgroup registers a new resource with the given unique name, arguments, and options.
@@ -105,7 +105,7 @@ type workgroupState struct {
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
 	// Key-value map of resource tags for the workgroup.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type WorkgroupState struct {
@@ -122,7 +122,7 @@ type WorkgroupState struct {
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
 	// Key-value map of resource tags for the workgroup.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (WorkgroupState) ElementType() reflect.Type {
@@ -141,7 +141,7 @@ type workgroupArgs struct {
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
 	// Key-value map of resource tags for the workgroup.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workgroup resource.
@@ -157,7 +157,7 @@ type WorkgroupArgs struct {
 	// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
 	// Key-value map of resource tags for the workgroup.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (WorkgroupArgs) ElementType() reflect.Type {

@@ -94,7 +94,7 @@ export interface GetClusterSnapshotArgs {
     /**
      * A map of tags for the resource.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -162,7 +162,7 @@ export interface GetClusterSnapshotResult {
     /**
      * A map of tags for the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The VPC ID associated with the DB cluster snapshot.
      */

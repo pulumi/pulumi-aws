@@ -22,7 +22,11 @@ class HttpNamespace(pulumi.CustomResource):
     """
     The name of the http namespace.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, name=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A map of tags to assign to the namespace.
+    """
+    def __init__(__self__, resource_name, opts=None, description=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         ## Example Usage
 
@@ -39,6 +43,7 @@ class HttpNamespace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
         :param pulumi.Input[str] name: The name of the http namespace.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the namespace.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -59,6 +64,7 @@ class HttpNamespace(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['name'] = name
+            __props__['tags'] = tags
             __props__['arn'] = None
         super(HttpNamespace, __self__).__init__(
             'aws:servicediscovery/httpNamespace:HttpNamespace',
@@ -67,7 +73,7 @@ class HttpNamespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, description=None, name=None):
+    def get(resource_name, id, opts=None, arn=None, description=None, name=None, tags=None):
         """
         Get an existing HttpNamespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -78,6 +84,7 @@ class HttpNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN that Amazon Route 53 assigns to the namespace when you create it.
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
         :param pulumi.Input[str] name: The name of the http namespace.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the namespace.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -86,6 +93,7 @@ class HttpNamespace(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["description"] = description
         __props__["name"] = name
+        __props__["tags"] = tags
         return HttpNamespace(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

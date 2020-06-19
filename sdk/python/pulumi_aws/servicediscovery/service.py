@@ -51,7 +51,11 @@ class Service(pulumi.CustomResource):
     """
     The ID of the namespace to use for DNS configuration.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, dns_config=None, health_check_config=None, health_check_custom_config=None, name=None, namespace_id=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A map of tags to assign to the service.
+    """
+    def __init__(__self__, resource_name, opts=None, description=None, dns_config=None, health_check_config=None, health_check_custom_config=None, name=None, namespace_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Service Discovery Service resource.
 
@@ -92,6 +96,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] health_check_custom_config: A complex type that contains settings for ECS managed health checks.
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] namespace_id: The ID of the namespace to use for DNS configuration.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the service.
 
         The **dns_config** object supports the following:
 
@@ -135,6 +140,7 @@ class Service(pulumi.CustomResource):
             __props__['health_check_custom_config'] = health_check_custom_config
             __props__['name'] = name
             __props__['namespace_id'] = namespace_id
+            __props__['tags'] = tags
             __props__['arn'] = None
         super(Service, __self__).__init__(
             'aws:servicediscovery/service:Service',
@@ -143,7 +149,7 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, description=None, dns_config=None, health_check_config=None, health_check_custom_config=None, name=None, namespace_id=None):
+    def get(resource_name, id, opts=None, arn=None, description=None, dns_config=None, health_check_config=None, health_check_custom_config=None, name=None, namespace_id=None, tags=None):
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -158,6 +164,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] health_check_custom_config: A complex type that contains settings for ECS managed health checks.
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] namespace_id: The ID of the namespace to use for DNS configuration.
+        :param pulumi.Input[dict] tags: A map of tags to assign to the service.
 
         The **dns_config** object supports the following:
 
@@ -189,6 +196,7 @@ class Service(pulumi.CustomResource):
         __props__["health_check_custom_config"] = health_check_custom_config
         __props__["name"] = name
         __props__["namespace_id"] = namespace_id
+        __props__["tags"] = tags
         return Service(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

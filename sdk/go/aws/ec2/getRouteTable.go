@@ -66,7 +66,7 @@ type LookupRouteTableArgs struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A map of tags, each pair of which must exactly match
 	// a pair on the desired Route Table.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The id of the VPC that the desired Route Table belongs to.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -85,7 +85,7 @@ type LookupRouteTableResult struct {
 	RouteTableId string               `pulumi:"routeTableId"`
 	Routes       []GetRouteTableRoute `pulumi:"routes"`
 	// The Subnet ID. Only set when associated with a Subnet.
-	SubnetId string                 `pulumi:"subnetId"`
-	Tags     map[string]interface{} `pulumi:"tags"`
-	VpcId    string                 `pulumi:"vpcId"`
+	SubnetId string            `pulumi:"subnetId"`
+	Tags     map[string]string `pulumi:"tags"`
+	VpcId    string            `pulumi:"vpcId"`
 }

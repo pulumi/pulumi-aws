@@ -1973,7 +1973,7 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) Type() pulumi.StringPtrOutput
 type TaskDefinitionVolume struct {
 	// Used to configure a docker volume
 	DockerVolumeConfiguration *TaskDefinitionVolumeDockerVolumeConfiguration `pulumi:"dockerVolumeConfiguration"`
-	// Used to configure a EFS volume. Can be used only with an EC2 type task.
+	// Used to configure a EFS volume.
 	EfsVolumeConfiguration *TaskDefinitionVolumeEfsVolumeConfiguration `pulumi:"efsVolumeConfiguration"`
 	// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
 	HostPath *string `pulumi:"hostPath"`
@@ -1997,7 +1997,7 @@ type TaskDefinitionVolumeInput interface {
 type TaskDefinitionVolumeArgs struct {
 	// Used to configure a docker volume
 	DockerVolumeConfiguration TaskDefinitionVolumeDockerVolumeConfigurationPtrInput `pulumi:"dockerVolumeConfiguration"`
-	// Used to configure a EFS volume. Can be used only with an EC2 type task.
+	// Used to configure a EFS volume.
 	EfsVolumeConfiguration TaskDefinitionVolumeEfsVolumeConfigurationPtrInput `pulumi:"efsVolumeConfiguration"`
 	// The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
 	HostPath pulumi.StringPtrInput `pulumi:"hostPath"`
@@ -2065,7 +2065,7 @@ func (o TaskDefinitionVolumeOutput) DockerVolumeConfiguration() TaskDefinitionVo
 	}).(TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput)
 }
 
-// Used to configure a EFS volume. Can be used only with an EC2 type task.
+// Used to configure a EFS volume.
 func (o TaskDefinitionVolumeOutput) EfsVolumeConfiguration() TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionVolumeEfsVolumeConfiguration {
 		return v.EfsVolumeConfiguration

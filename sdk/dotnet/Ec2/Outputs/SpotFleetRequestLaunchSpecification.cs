@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string? UserData;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
         /// <summary>
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? subnetId,
 
-            ImmutableDictionary<string, object>? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string? userData,
 

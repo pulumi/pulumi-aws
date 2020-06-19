@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class VpcDhcpOptions(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the DHCP Options Set.
+    """
     domain_name: pulumi.Output[str]
     """
     the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
@@ -96,6 +100,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
             __props__['netbios_node_type'] = netbios_node_type
             __props__['ntp_servers'] = ntp_servers
             __props__['tags'] = tags
+            __props__['arn'] = None
             __props__['owner_id'] = None
         super(VpcDhcpOptions, __self__).__init__(
             'aws:ec2/vpcDhcpOptions:VpcDhcpOptions',
@@ -104,7 +109,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, domain_name=None, domain_name_servers=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, owner_id=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, domain_name=None, domain_name_servers=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, owner_id=None, tags=None):
         """
         Get an existing VpcDhcpOptions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -112,6 +117,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the DHCP Options Set.
         :param pulumi.Input[str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         :param pulumi.Input[list] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
         :param pulumi.Input[list] netbios_name_servers: List of NETBIOS name servers.
@@ -124,6 +130,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["domain_name"] = domain_name
         __props__["domain_name_servers"] = domain_name_servers
         __props__["netbios_name_servers"] = netbios_name_servers

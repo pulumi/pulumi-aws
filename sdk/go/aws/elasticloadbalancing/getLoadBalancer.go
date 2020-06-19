@@ -52,8 +52,8 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts 
 // A collection of arguments for invoking getLoadBalancer.
 type LookupLoadBalancerArgs struct {
 	// The unique name of the load balancer.
-	Name string                 `pulumi:"name"`
-	Tags map[string]interface{} `pulumi:"tags"`
+	Name string            `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLoadBalancer.
@@ -77,6 +77,6 @@ type LookupLoadBalancerResult struct {
 	SourceSecurityGroup   string                    `pulumi:"sourceSecurityGroup"`
 	SourceSecurityGroupId string                    `pulumi:"sourceSecurityGroupId"`
 	Subnets               []string                  `pulumi:"subnets"`
-	Tags                  map[string]interface{}    `pulumi:"tags"`
+	Tags                  map[string]string         `pulumi:"tags"`
 	ZoneId                string                    `pulumi:"zoneId"`
 }

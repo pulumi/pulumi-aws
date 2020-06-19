@@ -48,7 +48,7 @@ type TaskDefinition struct {
 	// The revision of the task in a particular family.
 	Revision pulumi.IntOutput `pulumi:"revision"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrOutput `pulumi:"taskRoleArn"`
 	// A set of volume blocks that containers in your task may use.
@@ -123,7 +123,7 @@ type taskDefinitionState struct {
 	// The revision of the task in a particular family.
 	Revision *int `pulumi:"revision"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
 	// A set of volume blocks that containers in your task may use.
@@ -165,7 +165,7 @@ type TaskDefinitionState struct {
 	// The revision of the task in a particular family.
 	Revision pulumi.IntPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrInput
 	// A set of volume blocks that containers in your task may use.
@@ -207,7 +207,7 @@ type taskDefinitionArgs struct {
 	// A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
 	// A set of volume blocks that containers in your task may use.
@@ -246,7 +246,7 @@ type TaskDefinitionArgs struct {
 	// A set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities pulumi.StringArrayInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrInput
 	// A set of volume blocks that containers in your task may use.

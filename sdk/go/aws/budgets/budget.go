@@ -63,7 +63,7 @@ type Budget struct {
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringOutput `pulumi:"budgetType"`
 	// Map of CostFilters key/value pairs to apply to the budget.
-	CostFilters pulumi.MapOutput `pulumi:"costFilters"`
+	CostFilters pulumi.StringMapOutput `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
 	CostTypes BudgetCostTypesOutput `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
@@ -132,7 +132,7 @@ type budgetState struct {
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType *string `pulumi:"budgetType"`
 	// Map of CostFilters key/value pairs to apply to the budget.
-	CostFilters map[string]interface{} `pulumi:"costFilters"`
+	CostFilters map[string]string `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
@@ -159,7 +159,7 @@ type BudgetState struct {
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringPtrInput
 	// Map of CostFilters key/value pairs to apply to the budget.
-	CostFilters pulumi.MapInput
+	CostFilters pulumi.StringMapInput
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
 	CostTypes BudgetCostTypesPtrInput
 	// The amount of cost or usage being measured for a budget.
@@ -190,7 +190,7 @@ type budgetArgs struct {
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType string `pulumi:"budgetType"`
 	// Map of CostFilters key/value pairs to apply to the budget.
-	CostFilters map[string]interface{} `pulumi:"costFilters"`
+	CostFilters map[string]string `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
@@ -218,7 +218,7 @@ type BudgetArgs struct {
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringInput
 	// Map of CostFilters key/value pairs to apply to the budget.
-	CostFilters pulumi.MapInput
+	CostFilters pulumi.StringMapInput
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
 	CostTypes BudgetCostTypesPtrInput
 	// The amount of cost or usage being measured for a budget.

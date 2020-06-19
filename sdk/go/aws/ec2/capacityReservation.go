@@ -14,6 +14,8 @@ import (
 type CapacityReservation struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Capacity Reservation.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Availability Zone in which to create the Capacity Reservation.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
@@ -33,7 +35,7 @@ type CapacityReservation struct {
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrOutput `pulumi:"tenancy"`
 }
@@ -78,6 +80,8 @@ func GetCapacityReservation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CapacityReservation resources.
 type capacityReservationState struct {
+	// The ARN of the Capacity Reservation.
+	Arn *string `pulumi:"arn"`
 	// The Availability Zone in which to create the Capacity Reservation.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
@@ -97,12 +101,14 @@ type capacityReservationState struct {
 	// The instance type for which to reserve capacity.
 	InstanceType *string `pulumi:"instanceType"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy *string `pulumi:"tenancy"`
 }
 
 type CapacityReservationState struct {
+	// The ARN of the Capacity Reservation.
+	Arn pulumi.StringPtrInput
 	// The Availability Zone in which to create the Capacity Reservation.
 	AvailabilityZone pulumi.StringPtrInput
 	// Indicates whether the Capacity Reservation supports EBS-optimized instances.
@@ -122,7 +128,7 @@ type CapacityReservationState struct {
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrInput
 }
@@ -151,7 +157,7 @@ type capacityReservationArgs struct {
 	// The instance type for which to reserve capacity.
 	InstanceType string `pulumi:"instanceType"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy *string `pulumi:"tenancy"`
 }
@@ -177,7 +183,7 @@ type CapacityReservationArgs struct {
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrInput
 }

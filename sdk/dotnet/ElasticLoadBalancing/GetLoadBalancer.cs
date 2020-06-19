@@ -60,10 +60,10 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         public string Name { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         public readonly string SourceSecurityGroup;
         public readonly string SourceSecurityGroupId;
         public readonly ImmutableArray<string> Subnets;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly string ZoneId;
 
         [OutputConstructor]
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
 
             ImmutableArray<string> subnets,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string zoneId)
         {

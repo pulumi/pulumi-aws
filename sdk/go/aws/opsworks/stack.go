@@ -58,7 +58,7 @@ type Stack struct {
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
 	StackEndpoint  pulumi.StringOutput `pulumi:"stackEndpoint"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Boolean value controlling whether the custom cookbook settings are
 	// enabled.
 	UseCustomCookbooks pulumi.BoolPtrOutput `pulumi:"useCustomCookbooks"`
@@ -150,7 +150,7 @@ type stackState struct {
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	StackEndpoint  *string `pulumi:"stackEndpoint"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Boolean value controlling whether the custom cookbook settings are
 	// enabled.
 	UseCustomCookbooks *bool `pulumi:"useCustomCookbooks"`
@@ -206,7 +206,7 @@ type StackState struct {
 	ServiceRoleArn pulumi.StringPtrInput
 	StackEndpoint  pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Boolean value controlling whether the custom cookbook settings are
 	// enabled.
 	UseCustomCookbooks pulumi.BoolPtrInput
@@ -264,7 +264,7 @@ type stackArgs struct {
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn string `pulumi:"serviceRoleArn"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Boolean value controlling whether the custom cookbook settings are
 	// enabled.
 	UseCustomCookbooks *bool `pulumi:"useCustomCookbooks"`
@@ -319,7 +319,7 @@ type StackArgs struct {
 	// The ARN of an IAM role that the OpsWorks service will act as.
 	ServiceRoleArn pulumi.StringInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Boolean value controlling whether the custom cookbook settings are
 	// enabled.
 	UseCustomCookbooks pulumi.BoolPtrInput

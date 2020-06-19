@@ -69,6 +69,12 @@ namespace Pulumi.Aws.GuardDuty
         public Output<bool> Activate { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of the GuardDuty IPSet.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The detector ID of the GuardDuty.
         /// </summary>
         [Output("detectorId")]
@@ -91,6 +97,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -168,6 +180,18 @@ namespace Pulumi.Aws.GuardDuty
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public IPSetArgs()
         {
         }
@@ -180,6 +204,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("activate")]
         public Input<bool>? Activate { get; set; }
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the GuardDuty IPSet.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// The detector ID of the GuardDuty.
@@ -204,6 +234,18 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public IPSetState()
         {

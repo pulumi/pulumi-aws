@@ -55,7 +55,7 @@ class Alias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_alias = aws.lambda_.Alias("testAlias",
+        test_lambda_alias = aws.lambda_.Alias("testLambdaAlias",
             description="a sample description",
             function_name=aws_lambda_function["lambda_function_test"]["arn"],
             function_version="1",

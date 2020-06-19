@@ -46,7 +46,7 @@ type LookupTableArgs struct {
 	// The name of the DynamoDB table.
 	Name                 string                        `pulumi:"name"`
 	ServerSideEncryption *GetTableServerSideEncryption `pulumi:"serverSideEncryption"`
-	Tags                 map[string]interface{}        `pulumi:"tags"`
+	Tags                 map[string]string             `pulumi:"tags"`
 }
 
 // A collection of values returned by getTable.
@@ -69,7 +69,7 @@ type LookupTableResult struct {
 	StreamEnabled         bool                          `pulumi:"streamEnabled"`
 	StreamLabel           string                        `pulumi:"streamLabel"`
 	StreamViewType        string                        `pulumi:"streamViewType"`
-	Tags                  map[string]interface{}        `pulumi:"tags"`
+	Tags                  map[string]string             `pulumi:"tags"`
 	Ttl                   GetTableTtl                   `pulumi:"ttl"`
 	WriteCapacity         int                           `pulumi:"writeCapacity"`
 }

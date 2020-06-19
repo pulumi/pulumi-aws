@@ -54,7 +54,7 @@ type ReplicationSubnetGroup struct {
 	// A list of the EC2 subnet IDs for the subnet group.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of the VPC the subnet group is in.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -104,7 +104,7 @@ type replicationSubnetGroupState struct {
 	// A list of the EC2 subnet IDs for the subnet group.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the VPC the subnet group is in.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -118,7 +118,7 @@ type ReplicationSubnetGroupState struct {
 	// A list of the EC2 subnet IDs for the subnet group.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The ID of the VPC the subnet group is in.
 	VpcId pulumi.StringPtrInput
 }
@@ -135,7 +135,7 @@ type replicationSubnetGroupArgs struct {
 	// A list of the EC2 subnet IDs for the subnet group.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReplicationSubnetGroup resource.
@@ -147,7 +147,7 @@ type ReplicationSubnetGroupArgs struct {
 	// A list of the EC2 subnet IDs for the subnet group.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ReplicationSubnetGroupArgs) ElementType() reflect.Type {

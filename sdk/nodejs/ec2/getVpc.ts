@@ -91,7 +91,7 @@ export interface GetVpcArgs {
      * A map of tags, each pair of which must exactly match
      * a pair on the desired VPC.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -144,5 +144,5 @@ export interface GetVpcResult {
      * The State of the association.
      */
     readonly state: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
 }

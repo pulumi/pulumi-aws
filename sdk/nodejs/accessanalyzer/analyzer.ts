@@ -56,7 +56,7 @@ export class Analyzer extends pulumi.CustomResource {
     /**
      * Key-value map of resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
      */
@@ -111,7 +111,7 @@ export interface AnalyzerState {
     /**
      * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
      */
@@ -129,7 +129,7 @@ export interface AnalyzerArgs {
     /**
      * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
      */

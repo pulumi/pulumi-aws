@@ -70,7 +70,7 @@ export interface GetZoneArgs {
     /**
      * Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
      */
@@ -115,7 +115,7 @@ export interface GetZoneResult {
      * The number of Record Set in the Hosted Zone.
      */
     readonly resourceRecordSetCount: number;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vpcId: string;
     readonly zoneId: string;
 }

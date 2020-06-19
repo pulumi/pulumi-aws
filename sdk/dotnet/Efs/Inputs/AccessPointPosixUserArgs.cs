@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Efs.Inputs
         }
 
         /// <summary>
-        /// he POSIX user ID used for all file system operations using this access point.
+        /// The POSIX user ID used for all file system operations using this access point.
         /// </summary>
         [Input("uid", required: true)]
         public Input<int> Uid { get; set; } = null!;

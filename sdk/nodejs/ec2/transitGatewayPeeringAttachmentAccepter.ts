@@ -63,7 +63,7 @@ export class TransitGatewayPeeringAttachmentAccepter extends pulumi.CustomResour
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the EC2 Transit Gateway Peering Attachment to manage.
      */
@@ -130,7 +130,7 @@ export interface TransitGatewayPeeringAttachmentAccepterState {
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway Peering Attachment to manage.
      */
@@ -148,7 +148,7 @@ export interface TransitGatewayPeeringAttachmentAccepterArgs {
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway Peering Attachment to manage.
      */

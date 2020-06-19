@@ -46,8 +46,8 @@ type LookupFileSystemArgs struct {
 	// Restricts the list to the file system with this creation token.
 	CreationToken *string `pulumi:"creationToken"`
 	// The ID that identifies the file system (e.g. fs-ccfc0d65).
-	FileSystemId *string                `pulumi:"fileSystemId"`
-	Tags         map[string]interface{} `pulumi:"tags"`
+	FileSystemId *string           `pulumi:"fileSystemId"`
+	Tags         map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getFileSystem.
@@ -72,8 +72,8 @@ type LookupFileSystemResult struct {
 	// * `tags` -A map of tags to assign to the file system.
 	ProvisionedThroughputInMibps float64 `pulumi:"provisionedThroughputInMibps"`
 	// The current byte count used by the file system.
-	SizeInBytes int                    `pulumi:"sizeInBytes"`
-	Tags        map[string]interface{} `pulumi:"tags"`
+	SizeInBytes int               `pulumi:"sizeInBytes"`
+	Tags        map[string]string `pulumi:"tags"`
 	// Throughput mode for the file system.
 	ThroughputMode string `pulumi:"throughputMode"`
 }

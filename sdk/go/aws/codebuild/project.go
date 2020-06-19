@@ -49,7 +49,7 @@ type Project struct {
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrOutput `pulumi:"sourceVersion"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig ProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
@@ -129,7 +129,7 @@ type projectState struct {
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
 }
@@ -170,7 +170,7 @@ type ProjectState struct {
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig ProjectVpcConfigPtrInput
 }
@@ -211,7 +211,7 @@ type projectArgs struct {
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
 }
@@ -249,7 +249,7 @@ type ProjectArgs struct {
 	// A version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
 	VpcConfig ProjectVpcConfigPtrInput
 }

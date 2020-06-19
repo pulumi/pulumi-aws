@@ -30,7 +30,7 @@ type Workspace struct {
 	// The operational state of the WorkSpace.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The tags for the WorkSpace.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 	UserName pulumi.StringOutput `pulumi:"userName"`
 	// Indicates whether the data stored on the user volume is encrypted.
@@ -91,7 +91,7 @@ type workspaceState struct {
 	// The operational state of the WorkSpace.
 	State *string `pulumi:"state"`
 	// The tags for the WorkSpace.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 	UserName *string `pulumi:"userName"`
 	// Indicates whether the data stored on the user volume is encrypted.
@@ -116,7 +116,7 @@ type WorkspaceState struct {
 	// The operational state of the WorkSpace.
 	State pulumi.StringPtrInput
 	// The tags for the WorkSpace.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 	UserName pulumi.StringPtrInput
 	// Indicates whether the data stored on the user volume is encrypted.
@@ -139,7 +139,7 @@ type workspaceArgs struct {
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled *bool `pulumi:"rootVolumeEncryptionEnabled"`
 	// The tags for the WorkSpace.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 	UserName string `pulumi:"userName"`
 	// Indicates whether the data stored on the user volume is encrypted.
@@ -159,7 +159,7 @@ type WorkspaceArgs struct {
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
 	// The tags for the WorkSpace.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 	UserName pulumi.StringInput
 	// Indicates whether the data stored on the user volume is encrypted.

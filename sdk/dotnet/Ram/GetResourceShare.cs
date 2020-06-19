@@ -100,14 +100,14 @@ namespace Pulumi.Aws.Ram
         public string ResourceOwner { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// The Tags attached to the RAM share
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Ram
         /// <summary>
         /// The Tags attached to the RAM share
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetResourceShareResult(
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Ram
 
             string status,
 
-            ImmutableDictionary<string, object> tags)
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             Filters = filters;

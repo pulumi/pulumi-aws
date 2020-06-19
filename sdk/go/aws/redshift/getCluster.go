@@ -22,7 +22,7 @@ type LookupClusterArgs struct {
 	// The cluster identifier
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The tags associated to the cluster
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
@@ -83,7 +83,7 @@ type LookupClusterResult struct {
 	// The folder inside the S3 bucket where the log files are stored
 	S3KeyPrefix string `pulumi:"s3KeyPrefix"`
 	// The tags associated to the cluster
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC Id associated with the cluster
 	VpcId string `pulumi:"vpcId"`
 	// The VPC security group Ids associated with the cluster

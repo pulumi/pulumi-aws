@@ -122,7 +122,7 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Tags of the secret.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetSecretResult(
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.SecretsManager
 
             ImmutableArray<Outputs.GetSecretRotationRuleResult> rotationRules,
 
-            ImmutableDictionary<string, object> tags)
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             Description = description;

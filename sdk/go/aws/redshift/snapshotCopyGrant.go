@@ -57,7 +57,7 @@ type SnapshotCopyGrant struct {
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName pulumi.StringOutput `pulumi:"snapshotCopyGrantName"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewSnapshotCopyGrant registers a new resource with the given unique name, arguments, and options.
@@ -98,7 +98,7 @@ type snapshotCopyGrantState struct {
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName *string `pulumi:"snapshotCopyGrantName"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type SnapshotCopyGrantState struct {
@@ -109,7 +109,7 @@ type SnapshotCopyGrantState struct {
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (SnapshotCopyGrantState) ElementType() reflect.Type {
@@ -122,7 +122,7 @@ type snapshotCopyGrantArgs struct {
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName string `pulumi:"snapshotCopyGrantName"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SnapshotCopyGrant resource.
@@ -132,7 +132,7 @@ type SnapshotCopyGrantArgs struct {
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName pulumi.StringInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (SnapshotCopyGrantArgs) ElementType() reflect.Type {

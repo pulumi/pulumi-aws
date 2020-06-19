@@ -45,7 +45,7 @@ type ResourceGroup struct {
 	// The resource group ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewResourceGroup registers a new resource with the given unique name, arguments, and options.
@@ -82,14 +82,14 @@ type resourceGroupState struct {
 	// The resource group ARN.
 	Arn *string `pulumi:"arn"`
 	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ResourceGroupState struct {
 	// The resource group ARN.
 	Arn pulumi.StringPtrInput
 	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ResourceGroupState) ElementType() reflect.Type {
@@ -98,13 +98,13 @@ func (ResourceGroupState) ElementType() reflect.Type {
 
 type resourceGroupArgs struct {
 	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceGroup resource.
 type ResourceGroupArgs struct {
 	// Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ResourceGroupArgs) ElementType() reflect.Type {

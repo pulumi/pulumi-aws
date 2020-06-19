@@ -52,7 +52,7 @@ export interface GetFunctionArgs {
      * Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
      */
     readonly qualifier?: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -76,7 +76,7 @@ export interface GetFunctionResult {
      */
     readonly environment: outputs.lambda.GetFunctionEnvironment;
     /**
-     * The Lambda EFS configuration settings.
+     * The connection settings for an Amazon EFS file system.
      */
     readonly fileSystemConfigs: outputs.lambda.GetFunctionFileSystemConfig[];
     readonly functionName: string;
@@ -133,7 +133,7 @@ export interface GetFunctionResult {
      * The size in bytes of the function .zip file.
      */
     readonly sourceCodeSize: number;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The function execution time at which Lambda should terminate the function.
      */

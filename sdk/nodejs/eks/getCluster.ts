@@ -52,7 +52,7 @@ export interface GetClusterArgs {
     /**
      * Key-value map of resource tags.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -103,7 +103,7 @@ export interface GetClusterResult {
     /**
      * Key-value map of resource tags.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The Kubernetes server version for the cluster.
      */

@@ -47,6 +47,12 @@ namespace Pulumi.Aws.Ec2
     /// </summary>
     public partial class DefaultVpcDhcpOptions : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the DHCP Options Set.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
@@ -78,7 +84,7 @@ namespace Pulumi.Aws.Ec2
         /// A map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -145,14 +151,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetbiosNodeType { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -163,6 +169,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultVpcDhcpOptionsState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the DHCP Options Set.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
@@ -197,14 +209,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

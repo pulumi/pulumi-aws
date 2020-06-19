@@ -62,7 +62,7 @@ type VpcLink struct {
 	// The name used to label and identify the VPC link.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
@@ -104,7 +104,7 @@ type vpcLinkState struct {
 	// The name used to label and identify the VPC link.
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn *string `pulumi:"targetArn"`
 }
@@ -116,7 +116,7 @@ type VpcLinkState struct {
 	// The name used to label and identify the VPC link.
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn pulumi.StringPtrInput
 }
@@ -131,7 +131,7 @@ type vpcLinkArgs struct {
 	// The name used to label and identify the VPC link.
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn string `pulumi:"targetArn"`
 }
@@ -143,7 +143,7 @@ type VpcLinkArgs struct {
 	// The name used to label and identify the VPC link.
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
 	TargetArn pulumi.StringInput
 }

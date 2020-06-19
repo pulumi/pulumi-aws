@@ -28,7 +28,7 @@ type User struct {
 	// The ARN of the policy that is used to set the permissions boundary for the user.
 	PermissionsBoundary pulumi.StringPtrOutput `pulumi:"permissionsBoundary"`
 	// Key-value mapping of tags for the IAM user
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The [unique ID][1] assigned by AWS.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
@@ -74,7 +74,7 @@ type userState struct {
 	// The ARN of the policy that is used to set the permissions boundary for the user.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
 	// Key-value mapping of tags for the IAM user
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The [unique ID][1] assigned by AWS.
 	UniqueId *string `pulumi:"uniqueId"`
 }
@@ -93,7 +93,7 @@ type UserState struct {
 	// The ARN of the policy that is used to set the permissions boundary for the user.
 	PermissionsBoundary pulumi.StringPtrInput
 	// Key-value mapping of tags for the IAM user
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The [unique ID][1] assigned by AWS.
 	UniqueId pulumi.StringPtrInput
 }
@@ -114,7 +114,7 @@ type userArgs struct {
 	// The ARN of the policy that is used to set the permissions boundary for the user.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
 	// Key-value mapping of tags for the IAM user
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -130,7 +130,7 @@ type UserArgs struct {
 	// The ARN of the policy that is used to set the permissions boundary for the user.
 	PermissionsBoundary pulumi.StringPtrInput
 	// Key-value mapping of tags for the IAM user
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

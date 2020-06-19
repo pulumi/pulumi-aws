@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// Environment variables for the Docker container.
         /// A list of key value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Environment;
+        public readonly ImmutableDictionary<string, string>? Environment;
         /// <summary>
         /// The registry path where the inference code image is stored in Amazon ECR.
         /// </summary>
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         private ModelContainer(
             string? containerHostname,
 
-            ImmutableDictionary<string, object>? environment,
+            ImmutableDictionary<string, string>? environment,
 
             string image,
 

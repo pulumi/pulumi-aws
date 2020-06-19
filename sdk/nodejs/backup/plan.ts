@@ -69,7 +69,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * Metadata that you can assign to help organize the plans you create.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */
@@ -133,7 +133,7 @@ export interface PlanState {
     /**
      * Metadata that you can assign to help organize the plans you create.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */
@@ -155,5 +155,5 @@ export interface PlanArgs {
     /**
      * Metadata that you can assign to help organize the plans you create.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

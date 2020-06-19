@@ -46,7 +46,7 @@ type LookupAccessPointArgs struct {
 	// The ID that identifies the file system.
 	AccessPointId string `pulumi:"accessPointId"`
 	// Key-value mapping of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getAccessPoint.
@@ -65,5 +65,5 @@ type LookupAccessPointResult struct {
 	PosixUsers      []GetAccessPointPosixUser     `pulumi:"posixUsers"`
 	RootDirectories []GetAccessPointRootDirectory `pulumi:"rootDirectories"`
 	// Key-value mapping of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

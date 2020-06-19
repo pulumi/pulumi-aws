@@ -108,7 +108,7 @@ export interface GetVpcPeeringConnectionArgs {
      * A map of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     /**
      * The ID of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
@@ -139,6 +139,6 @@ export interface GetVpcPeeringConnectionResult {
      */
     readonly requester: {[key: string]: boolean};
     readonly status: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }

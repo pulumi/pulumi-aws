@@ -71,7 +71,7 @@ type DefaultNetworkAcl struct {
 	// notes below on managing Subnets in the Default Network ACL
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of the associated VPC
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -120,7 +120,7 @@ type defaultNetworkAclState struct {
 	// notes below on managing Subnets in the Default Network ACL
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the associated VPC
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -139,7 +139,7 @@ type DefaultNetworkAclState struct {
 	// notes below on managing Subnets in the Default Network ACL
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The ID of the associated VPC
 	VpcId pulumi.StringPtrInput
 }
@@ -160,7 +160,7 @@ type defaultNetworkAclArgs struct {
 	// notes below on managing Subnets in the Default Network ACL
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DefaultNetworkAcl resource.
@@ -176,7 +176,7 @@ type DefaultNetworkAclArgs struct {
 	// notes below on managing Subnets in the Default Network ACL
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (DefaultNetworkAclArgs) ElementType() reflect.Type {

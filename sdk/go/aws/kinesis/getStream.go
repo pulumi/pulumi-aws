@@ -49,7 +49,7 @@ type LookupStreamArgs struct {
 	// The name of the Kinesis Stream.
 	Name string `pulumi:"name"`
 	// A map of tags to assigned to the stream.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getStream.
@@ -73,5 +73,5 @@ type LookupStreamResult struct {
 	// The current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
 	Status string `pulumi:"status"`
 	// A map of tags to assigned to the stream.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }

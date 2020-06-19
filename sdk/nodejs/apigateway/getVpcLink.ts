@@ -51,7 +51,7 @@ export interface GetVpcLinkArgs {
     /**
      * Key-value map of resource tags
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -78,7 +78,7 @@ export interface GetVpcLinkResult {
     /**
      * Key-value map of resource tags
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The list of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
      */

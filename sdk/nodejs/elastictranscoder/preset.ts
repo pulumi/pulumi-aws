@@ -134,7 +134,7 @@ export class Preset extends pulumi.CustomResource {
     /**
      * Codec options for the video parameters
      */
-    public readonly videoCodecOptions!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly videoCodecOptions!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Watermark parameters for the video parameters (documented below)
      */
@@ -228,7 +228,7 @@ export interface PresetState {
     /**
      * Codec options for the video parameters
      */
-    readonly videoCodecOptions?: pulumi.Input<{[key: string]: any}>;
+    readonly videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Watermark parameters for the video parameters (documented below)
      */
@@ -271,7 +271,7 @@ export interface PresetArgs {
     /**
      * Codec options for the video parameters
      */
-    readonly videoCodecOptions?: pulumi.Input<{[key: string]: any}>;
+    readonly videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Watermark parameters for the video parameters (documented below)
      */

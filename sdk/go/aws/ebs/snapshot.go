@@ -65,7 +65,7 @@ type Snapshot struct {
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the snapshot
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
@@ -116,7 +116,7 @@ type snapshotState struct {
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the snapshot
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId *string `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
@@ -137,7 +137,7 @@ type SnapshotState struct {
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the snapshot
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringPtrInput
 	// The size of the drive in GiBs.
@@ -152,7 +152,7 @@ type snapshotArgs struct {
 	// A description of what the snapshot is.
 	Description *string `pulumi:"description"`
 	// A map of tags to assign to the snapshot
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId string `pulumi:"volumeId"`
 }
@@ -162,7 +162,7 @@ type SnapshotArgs struct {
 	// A description of what the snapshot is.
 	Description pulumi.StringPtrInput
 	// A map of tags to assign to the snapshot
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringInput
 }

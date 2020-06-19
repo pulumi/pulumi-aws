@@ -159,7 +159,7 @@ type ModelContainer struct {
 	ContainerHostname *string `pulumi:"containerHostname"`
 	// Environment variables for the Docker container.
 	// A list of key value pairs.
-	Environment map[string]interface{} `pulumi:"environment"`
+	Environment map[string]string `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
 	Image string `pulumi:"image"`
 	// The URL for the S3 location where model artifacts are stored.
@@ -183,7 +183,7 @@ type ModelContainerArgs struct {
 	ContainerHostname pulumi.StringPtrInput `pulumi:"containerHostname"`
 	// Environment variables for the Docker container.
 	// A list of key value pairs.
-	Environment pulumi.MapInput `pulumi:"environment"`
+	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
 	Image pulumi.StringInput `pulumi:"image"`
 	// The URL for the S3 location where model artifacts are stored.
@@ -249,8 +249,8 @@ func (o ModelContainerOutput) ContainerHostname() pulumi.StringPtrOutput {
 
 // Environment variables for the Docker container.
 // A list of key value pairs.
-func (o ModelContainerOutput) Environment() pulumi.MapOutput {
-	return o.ApplyT(func(v ModelContainer) map[string]interface{} { return v.Environment }).(pulumi.MapOutput)
+func (o ModelContainerOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ModelContainer) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
 // The registry path where the inference code image is stored in Amazon ECR.
@@ -288,7 +288,7 @@ type ModelPrimaryContainer struct {
 	ContainerHostname *string `pulumi:"containerHostname"`
 	// Environment variables for the Docker container.
 	// A list of key value pairs.
-	Environment map[string]interface{} `pulumi:"environment"`
+	Environment map[string]string `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
 	Image string `pulumi:"image"`
 	// The URL for the S3 location where model artifacts are stored.
@@ -312,7 +312,7 @@ type ModelPrimaryContainerArgs struct {
 	ContainerHostname pulumi.StringPtrInput `pulumi:"containerHostname"`
 	// Environment variables for the Docker container.
 	// A list of key value pairs.
-	Environment pulumi.MapInput `pulumi:"environment"`
+	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
 	Image pulumi.StringInput `pulumi:"image"`
 	// The URL for the S3 location where model artifacts are stored.
@@ -404,8 +404,8 @@ func (o ModelPrimaryContainerOutput) ContainerHostname() pulumi.StringPtrOutput 
 
 // Environment variables for the Docker container.
 // A list of key value pairs.
-func (o ModelPrimaryContainerOutput) Environment() pulumi.MapOutput {
-	return o.ApplyT(func(v ModelPrimaryContainer) map[string]interface{} { return v.Environment }).(pulumi.MapOutput)
+func (o ModelPrimaryContainerOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ModelPrimaryContainer) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
 // The registry path where the inference code image is stored in Amazon ECR.
@@ -448,13 +448,13 @@ func (o ModelPrimaryContainerPtrOutput) ContainerHostname() pulumi.StringPtrOutp
 
 // Environment variables for the Docker container.
 // A list of key value pairs.
-func (o ModelPrimaryContainerPtrOutput) Environment() pulumi.MapOutput {
-	return o.ApplyT(func(v *ModelPrimaryContainer) map[string]interface{} {
+func (o ModelPrimaryContainerPtrOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainer) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Environment
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The registry path where the inference code image is stored in Amazon ECR.

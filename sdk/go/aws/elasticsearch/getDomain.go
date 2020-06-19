@@ -46,7 +46,7 @@ type LookupDomainArgs struct {
 	// Name of the domain.
 	DomainName string `pulumi:"domainName"`
 	// The tags assigned to the domain.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDomain.
@@ -54,7 +54,7 @@ type LookupDomainResult struct {
 	// The policy document attached to the domain.
 	AccessPolicies string `pulumi:"accessPolicies"`
 	// Key-value string pairs to specify advanced configuration options.
-	AdvancedOptions map[string]interface{} `pulumi:"advancedOptions"`
+	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// The Amazon Resource Name (ARN) of the domain.
 	Arn string `pulumi:"arn"`
 	// Cluster configuration of the domain.
@@ -89,7 +89,7 @@ type LookupDomainResult struct {
 	Processing      bool                      `pulumi:"processing"`
 	SnapshotOptions []GetDomainSnapshotOption `pulumi:"snapshotOptions"`
 	// The tags assigned to the domain.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// VPC Options for private Elasticsearch domains.
 	VpcOptions []GetDomainVpcOption `pulumi:"vpcOptions"`
 }

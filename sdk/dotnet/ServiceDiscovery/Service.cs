@@ -104,6 +104,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         [Output("namespaceId")]
         public Output<string> NamespaceId { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the service.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Service resource with the given unique name, arguments, and options.
@@ -186,6 +192,18 @@ namespace Pulumi.Aws.ServiceDiscovery
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the service.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public ServiceArgs()
         {
         }
@@ -234,6 +252,18 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the service.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public ServiceState()
         {

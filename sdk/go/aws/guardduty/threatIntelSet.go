@@ -18,6 +18,8 @@ type ThreatIntelSet struct {
 
 	// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
 	Activate pulumi.BoolOutput `pulumi:"activate"`
+	// Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
@@ -26,6 +28,8 @@ type ThreatIntelSet struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The friendly name to identify the ThreatIntelSet.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewThreatIntelSet registers a new resource with the given unique name, arguments, and options.
@@ -70,6 +74,8 @@ func GetThreatIntelSet(ctx *pulumi.Context,
 type threatIntelSetState struct {
 	// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
 	Activate *bool `pulumi:"activate"`
+	// Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+	Arn *string `pulumi:"arn"`
 	// The detector ID of the GuardDuty.
 	DetectorId *string `pulumi:"detectorId"`
 	// The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
@@ -78,11 +84,15 @@ type threatIntelSetState struct {
 	Location *string `pulumi:"location"`
 	// The friendly name to identify the ThreatIntelSet.
 	Name *string `pulumi:"name"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ThreatIntelSetState struct {
 	// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
 	Activate pulumi.BoolPtrInput
+	// Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+	Arn pulumi.StringPtrInput
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringPtrInput
 	// The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
@@ -91,6 +101,8 @@ type ThreatIntelSetState struct {
 	Location pulumi.StringPtrInput
 	// The friendly name to identify the ThreatIntelSet.
 	Name pulumi.StringPtrInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 }
 
 func (ThreatIntelSetState) ElementType() reflect.Type {
@@ -108,6 +120,8 @@ type threatIntelSetArgs struct {
 	Location string `pulumi:"location"`
 	// The friendly name to identify the ThreatIntelSet.
 	Name *string `pulumi:"name"`
+	// Key-value map of resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ThreatIntelSet resource.
@@ -122,6 +136,8 @@ type ThreatIntelSetArgs struct {
 	Location pulumi.StringInput
 	// The friendly name to identify the ThreatIntelSet.
 	Name pulumi.StringPtrInput
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput
 }
 
 func (ThreatIntelSetArgs) ElementType() reflect.Type {

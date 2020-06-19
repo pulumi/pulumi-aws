@@ -90,7 +90,7 @@ type Snapshot struct {
 	// Specifies the storage type associated with DB snapshot.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the storage type associated with DB snapshot.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -164,7 +164,7 @@ type snapshotState struct {
 	// Specifies the storage type associated with DB snapshot.
 	StorageType *string `pulumi:"storageType"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Specifies the storage type associated with DB snapshot.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -205,7 +205,7 @@ type SnapshotState struct {
 	// Specifies the storage type associated with DB snapshot.
 	StorageType pulumi.StringPtrInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Specifies the storage type associated with DB snapshot.
 	VpcId pulumi.StringPtrInput
 }
@@ -220,7 +220,7 @@ type snapshotArgs struct {
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier string `pulumi:"dbSnapshotIdentifier"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
@@ -230,7 +230,7 @@ type SnapshotArgs struct {
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier pulumi.StringInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (SnapshotArgs) ElementType() reflect.Type {

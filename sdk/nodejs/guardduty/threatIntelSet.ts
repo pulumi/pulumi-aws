@@ -70,6 +70,10 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      */
     public readonly activate!: pulumi.Output<boolean>;
     /**
+     * Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The detector ID of the GuardDuty.
      */
     public readonly detectorId!: pulumi.Output<string>;
@@ -85,6 +89,10 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      * The friendly name to identify the ThreatIntelSet.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ThreatIntelSet resource with the given unique name, arguments, and options.
@@ -99,10 +107,12 @@ export class ThreatIntelSet extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ThreatIntelSetState | undefined;
             inputs["activate"] = state ? state.activate : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["detectorId"] = state ? state.detectorId : undefined;
             inputs["format"] = state ? state.format : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ThreatIntelSetArgs | undefined;
             if (!args || args.activate === undefined) {
@@ -122,6 +132,8 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             inputs["format"] = args ? args.format : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -143,6 +155,10 @@ export interface ThreatIntelSetState {
      */
     readonly activate?: pulumi.Input<boolean>;
     /**
+     * Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The detector ID of the GuardDuty.
      */
     readonly detectorId?: pulumi.Input<string>;
@@ -158,6 +174,10 @@ export interface ThreatIntelSetState {
      * The friendly name to identify the ThreatIntelSet.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -184,4 +204,8 @@ export interface ThreatIntelSetArgs {
      * The friendly name to identify the ThreatIntelSet.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

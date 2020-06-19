@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Glue
         /// A map of key-value pairs used as parameters for this connection.
         /// </summary>
         [Output("connectionProperties")]
-        public Output<ImmutableDictionary<string, object>> ConnectionProperties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> ConnectionProperties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
@@ -174,14 +174,14 @@ namespace Pulumi.Aws.Glue
         public Input<string>? CatalogId { get; set; }
 
         [Input("connectionProperties", required: true)]
-        private InputMap<object>? _connectionProperties;
+        private InputMap<string>? _connectionProperties;
 
         /// <summary>
         /// A map of key-value pairs used as parameters for this connection.
         /// </summary>
-        public InputMap<object> ConnectionProperties
+        public InputMap<string> ConnectionProperties
         {
-            get => _connectionProperties ?? (_connectionProperties = new InputMap<object>());
+            get => _connectionProperties ?? (_connectionProperties = new InputMap<string>());
             set => _connectionProperties = value;
         }
 
@@ -241,14 +241,14 @@ namespace Pulumi.Aws.Glue
         public Input<string>? CatalogId { get; set; }
 
         [Input("connectionProperties")]
-        private InputMap<object>? _connectionProperties;
+        private InputMap<string>? _connectionProperties;
 
         /// <summary>
         /// A map of key-value pairs used as parameters for this connection.
         /// </summary>
-        public InputMap<object> ConnectionProperties
+        public InputMap<string> ConnectionProperties
         {
-            get => _connectionProperties ?? (_connectionProperties = new InputMap<object>());
+            get => _connectionProperties ?? (_connectionProperties = new InputMap<string>());
             set => _connectionProperties = value;
         }
 

@@ -87,6 +87,9 @@ namespace Pulumi.Aws.Inputs
         [Input("cloudwatchlogs")]
         public Input<string>? Cloudwatchlogs { get; set; }
 
+        [Input("codeartifact")]
+        public Input<string>? Codeartifact { get; set; }
+
         [Input("codebuild")]
         public Input<string>? Codebuild { get; set; }
 
@@ -302,6 +305,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("organizations")]
         public Input<string>? Organizations { get; set; }
+
+        [Input("outposts")]
+        public Input<string>? Outposts { get; set; }
 
         [Input("personalize")]
         public Input<string>? Personalize { get; set; }

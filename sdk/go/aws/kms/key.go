@@ -62,7 +62,7 @@ type Key struct {
 	// A valid policy JSON document.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// A map of tags to assign to the object.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.
@@ -116,7 +116,7 @@ type keyState struct {
 	// A valid policy JSON document.
 	Policy *string `pulumi:"policy"`
 	// A map of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type KeyState struct {
@@ -143,7 +143,7 @@ type KeyState struct {
 	// A valid policy JSON document.
 	Policy pulumi.StringPtrInput
 	// A map of tags to assign to the object.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (KeyState) ElementType() reflect.Type {
@@ -170,7 +170,7 @@ type keyArgs struct {
 	// A valid policy JSON document.
 	Policy *string `pulumi:"policy"`
 	// A map of tags to assign to the object.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Key resource.
@@ -194,7 +194,7 @@ type KeyArgs struct {
 	// A valid policy JSON document.
 	Policy pulumi.StringPtrInput
 	// A map of tags to assign to the object.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {

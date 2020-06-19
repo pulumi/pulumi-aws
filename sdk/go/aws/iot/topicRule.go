@@ -41,7 +41,7 @@ type TopicRule struct {
 	Sqs           TopicRuleSqsPtrOutput            `pulumi:"sqs"`
 	StepFunctions TopicRuleStepFunctionArrayOutput `pulumi:"stepFunctions"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewTopicRule registers a new resource with the given unique name, arguments, and options.
@@ -109,7 +109,7 @@ type topicRuleState struct {
 	Sqs           *TopicRuleSqs           `pulumi:"sqs"`
 	StepFunctions []TopicRuleStepFunction `pulumi:"stepFunctions"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type TopicRuleState struct {
@@ -141,7 +141,7 @@ type TopicRuleState struct {
 	Sqs           TopicRuleSqsPtrInput
 	StepFunctions TopicRuleStepFunctionArrayInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (TopicRuleState) ElementType() reflect.Type {
@@ -175,7 +175,7 @@ type topicRuleArgs struct {
 	Sqs           *TopicRuleSqs           `pulumi:"sqs"`
 	StepFunctions []TopicRuleStepFunction `pulumi:"stepFunctions"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TopicRule resource.
@@ -206,7 +206,7 @@ type TopicRuleArgs struct {
 	Sqs           TopicRuleSqsPtrInput
 	StepFunctions TopicRuleStepFunctionArrayInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (TopicRuleArgs) ElementType() reflect.Type {

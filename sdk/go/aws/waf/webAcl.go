@@ -125,7 +125,7 @@ type WebAcl struct {
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
 	// Key-value map of resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewWebAcl registers a new resource with the given unique name, arguments, and options.
@@ -175,7 +175,7 @@ type webAclState struct {
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules []WebAclRule `pulumi:"rules"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type WebAclState struct {
@@ -192,7 +192,7 @@ type WebAclState struct {
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules WebAclRuleArrayInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (WebAclState) ElementType() reflect.Type {
@@ -211,7 +211,7 @@ type webAclArgs struct {
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules []WebAclRule `pulumi:"rules"`
 	// Key-value map of resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a WebAcl resource.
@@ -227,7 +227,7 @@ type WebAclArgs struct {
 	// Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
 	Rules WebAclRuleArrayInput
 	// Key-value map of resource tags
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (WebAclArgs) ElementType() reflect.Type {

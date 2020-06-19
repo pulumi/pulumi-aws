@@ -49,7 +49,7 @@ type Endpoint struct {
 	// The name of the endpoint. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +90,7 @@ type endpointState struct {
 	// The name of the endpoint. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type EndpointState struct {
@@ -101,7 +101,7 @@ type EndpointState struct {
 	// The name of the endpoint. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (EndpointState) ElementType() reflect.Type {
@@ -114,7 +114,7 @@ type endpointArgs struct {
 	// The name of the endpoint. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
@@ -124,7 +124,7 @@ type EndpointArgs struct {
 	// The name of the endpoint. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {

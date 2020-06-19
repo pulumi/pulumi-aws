@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Efs.Outputs
         /// </summary>
         public readonly ImmutableArray<int> SecondaryGids;
         /// <summary>
-        /// he POSIX user ID used for all file system operations using this access point.
+        /// The POSIX user ID used for all file system operations using this access point.
         /// </summary>
         public readonly int Uid;
 

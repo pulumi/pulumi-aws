@@ -57,7 +57,7 @@ export interface GetCertificateAuthorityArgs {
     /**
      * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
      */
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -109,7 +109,7 @@ export interface GetCertificateAuthorityResult {
     /**
      * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The type of the certificate authority.
      */

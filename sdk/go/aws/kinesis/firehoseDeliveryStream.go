@@ -81,7 +81,7 @@ type FirehoseDeliveryStream struct {
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrOutput `pulumi:"serverSideEncryption"`
 	SplunkConfiguration  FirehoseDeliveryStreamSplunkConfigurationPtrOutput  `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
 }
@@ -143,7 +143,7 @@ type firehoseDeliveryStreamState struct {
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
 	SplunkConfiguration  *FirehoseDeliveryStreamSplunkConfiguration  `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId *string `pulumi:"versionId"`
 }
@@ -175,7 +175,7 @@ type FirehoseDeliveryStreamState struct {
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
 	SplunkConfiguration  FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId pulumi.StringPtrInput
 }
@@ -211,7 +211,7 @@ type firehoseDeliveryStreamArgs struct {
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
 	SplunkConfiguration  *FirehoseDeliveryStreamSplunkConfiguration  `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId *string `pulumi:"versionId"`
 }
@@ -244,7 +244,7 @@ type FirehoseDeliveryStreamArgs struct {
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
 	SplunkConfiguration  FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId pulumi.StringPtrInput
 }

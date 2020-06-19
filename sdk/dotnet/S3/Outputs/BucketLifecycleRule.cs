@@ -44,7 +44,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Specifies object tags key and value.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Specifies a period in the object's transitions (documented below).
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.S3.Outputs
 
             string? prefix,
 
-            ImmutableDictionary<string, object>? tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.BucketLifecycleRuleTransition> transitions)
         {

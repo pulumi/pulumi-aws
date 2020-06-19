@@ -131,7 +131,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     /**
      * Key-value map of tags for the Kinesis Analytics Application.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Version of the application.
      */
@@ -242,7 +242,7 @@ export interface AnalyticsApplicationState {
     /**
      * Key-value map of tags for the Kinesis Analytics Application.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Version of the application.
      */
@@ -286,5 +286,5 @@ export interface AnalyticsApplicationArgs {
     /**
      * Key-value map of tags for the Kinesis Analytics Application.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

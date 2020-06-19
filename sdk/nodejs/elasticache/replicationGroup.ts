@@ -214,7 +214,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * A map of tags to assign to the resource
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether to enable encryption in transit.
      */
@@ -439,7 +439,7 @@ export interface ReplicationGroupState {
     /**
      * A map of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to enable encryption in transit.
      */
@@ -564,7 +564,7 @@ export interface ReplicationGroupArgs {
     /**
      * A map of tags to assign to the resource
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to enable encryption in transit.
      */

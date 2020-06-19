@@ -47,7 +47,7 @@ type PlacementGroup struct {
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy pulumi.StringOutput `pulumi:"strategy"`
 	// Key-value map of resource tags.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewPlacementGroup registers a new resource with the given unique name, arguments, and options.
@@ -88,7 +88,7 @@ type placementGroupState struct {
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy *string `pulumi:"strategy"`
 	// Key-value map of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type PlacementGroupState struct {
@@ -99,7 +99,7 @@ type PlacementGroupState struct {
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy pulumi.StringPtrInput
 	// Key-value map of resource tags.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (PlacementGroupState) ElementType() reflect.Type {
@@ -112,7 +112,7 @@ type placementGroupArgs struct {
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy string `pulumi:"strategy"`
 	// Key-value map of resource tags.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PlacementGroup resource.
@@ -122,7 +122,7 @@ type PlacementGroupArgs struct {
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy pulumi.StringInput
 	// Key-value map of resource tags.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (PlacementGroupArgs) ElementType() reflect.Type {

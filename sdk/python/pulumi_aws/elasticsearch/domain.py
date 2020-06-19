@@ -34,6 +34,9 @@ class Domain(pulumi.CustomResource):
       * `dedicatedMasterType` (`str`) - Instance type of the dedicated master nodes in the cluster.
       * `instance_count` (`float`) - Number of instances in the cluster.
       * `instance_type` (`str`) - Instance type of data nodes in the cluster.
+      * `warmCount` (`float`) - The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
+      * `warmEnabled` (`bool`) - Indicates whether to enable warm storage.
+      * `warmType` (`str`) - The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
       * `zoneAwarenessConfig` (`dict`) - Configuration block containing zone awareness settings. Documented below.
         * `availabilityZoneCount` (`float`) - Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
 
@@ -302,6 +305,9 @@ class Domain(pulumi.CustomResource):
           * `dedicatedMasterType` (`pulumi.Input[str]`) - Instance type of the dedicated master nodes in the cluster.
           * `instance_count` (`pulumi.Input[float]`) - Number of instances in the cluster.
           * `instance_type` (`pulumi.Input[str]`) - Instance type of data nodes in the cluster.
+          * `warmCount` (`pulumi.Input[float]`) - The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
+          * `warmEnabled` (`pulumi.Input[bool]`) - Indicates whether to enable warm storage.
+          * `warmType` (`pulumi.Input[str]`) - The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
           * `zoneAwarenessConfig` (`pulumi.Input[dict]`) - Configuration block containing zone awareness settings. Documented below.
             * `availabilityZoneCount` (`pulumi.Input[float]`) - Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
 
@@ -435,6 +441,9 @@ class Domain(pulumi.CustomResource):
           * `dedicatedMasterType` (`pulumi.Input[str]`) - Instance type of the dedicated master nodes in the cluster.
           * `instance_count` (`pulumi.Input[float]`) - Number of instances in the cluster.
           * `instance_type` (`pulumi.Input[str]`) - Instance type of data nodes in the cluster.
+          * `warmCount` (`pulumi.Input[float]`) - The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
+          * `warmEnabled` (`pulumi.Input[bool]`) - Indicates whether to enable warm storage.
+          * `warmType` (`pulumi.Input[str]`) - The instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
           * `zoneAwarenessConfig` (`pulumi.Input[dict]`) - Configuration block containing zone awareness settings. Documented below.
             * `availabilityZoneCount` (`pulumi.Input[float]`) - Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
 

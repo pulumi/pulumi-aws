@@ -94,14 +94,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public string? Id { get; set; }
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Whether VPN Equal Cost Multipath Protocol support is enabled.
         /// </summary>
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string propagationDefaultRouteTableId,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             string vpnEcmpSupport)
         {

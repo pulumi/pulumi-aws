@@ -51,14 +51,14 @@ namespace Pulumi.Aws.ElasticSearch
         public string DomainName { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
+        private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// The tags assigned to the domain.
         /// </summary>
-        public Dictionary<string, object> Tags
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// <summary>
         /// Key-value string pairs to specify advanced configuration options.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> AdvancedOptions;
+        public readonly ImmutableDictionary<string, string> AdvancedOptions;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the domain.
         /// </summary>
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// <summary>
         /// The tags assigned to the domain.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// VPC Options for private Elasticsearch domains.
         /// </summary>
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.ElasticSearch
         private GetDomainResult(
             string accessPolicies,
 
-            ImmutableDictionary<string, object> advancedOptions,
+            ImmutableDictionary<string, string> advancedOptions,
 
             string arn,
 
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.ElasticSearch
 
             ImmutableArray<Outputs.GetDomainSnapshotOptionResult> snapshotOptions,
 
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
 
             ImmutableArray<Outputs.GetDomainVpcOptionResult> vpcOptions)
         {

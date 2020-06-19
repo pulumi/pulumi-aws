@@ -52,13 +52,17 @@ export class InternetGateway extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the Internet Gateway.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The ID of the AWS account that owns the internet gateway.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The VPC ID to create in.
      */
@@ -76,6 +80,7 @@ export class InternetGateway extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as InternetGatewayState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
@@ -83,6 +88,7 @@ export class InternetGateway extends pulumi.CustomResource {
             const args = argsOrState as InternetGatewayArgs | undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,13 +107,17 @@ export class InternetGateway extends pulumi.CustomResource {
  */
 export interface InternetGatewayState {
     /**
+     * The ARN of the Internet Gateway.
+     */
+    readonly arn?: pulumi.Input<string>;
+    /**
      * The ID of the AWS account that owns the internet gateway.
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID to create in.
      */
@@ -121,7 +131,7 @@ export interface InternetGatewayArgs {
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID to create in.
      */

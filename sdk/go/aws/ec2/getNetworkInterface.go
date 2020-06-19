@@ -48,7 +48,7 @@ type LookupNetworkInterfaceArgs struct {
 	// The identifier for the network interface.
 	Id *string `pulumi:"id"`
 	// Any tags assigned to the network interface.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getNetworkInterface.
@@ -85,7 +85,7 @@ type LookupNetworkInterfaceResult struct {
 	// The ID of the subnet.
 	SubnetId string `pulumi:"subnetId"`
 	// Any tags assigned to the network interface.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
 }

@@ -49,7 +49,7 @@ type CustomerGateway struct {
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -97,7 +97,7 @@ type customerGatewayState struct {
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
 	Type *string `pulumi:"type"`
@@ -109,7 +109,7 @@ type CustomerGatewayState struct {
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress pulumi.StringPtrInput
 	// Tags to apply to the gateway.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
 	Type pulumi.StringPtrInput
@@ -125,7 +125,7 @@ type customerGatewayArgs struct {
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress string `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
 	Type string `pulumi:"type"`
@@ -138,7 +138,7 @@ type CustomerGatewayArgs struct {
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress pulumi.StringInput
 	// Tags to apply to the gateway.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
 	Type pulumi.StringInput

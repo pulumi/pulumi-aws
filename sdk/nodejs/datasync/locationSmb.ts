@@ -87,7 +87,7 @@ export class LocationSmb extends pulumi.CustomResource {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly uri!: pulumi.Output<string>;
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
@@ -190,7 +190,7 @@ export interface LocationSmbState {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly uri?: pulumi.Input<string>;
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
@@ -229,7 +229,7 @@ export interface LocationSmbArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
      */

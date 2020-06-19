@@ -91,8 +91,8 @@ type LoadBalancer struct {
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// A map of tags to assign to the resource.
-	Tags  pulumi.MapOutput    `pulumi:"tags"`
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Tags  pulumi.StringMapOutput `pulumi:"tags"`
+	VpcId pulumi.StringOutput    `pulumi:"vpcId"`
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
@@ -172,8 +172,8 @@ type loadBalancerState struct {
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource.
-	Tags  map[string]interface{} `pulumi:"tags"`
-	VpcId *string                `pulumi:"vpcId"`
+	Tags  map[string]string `pulumi:"tags"`
+	VpcId *string           `pulumi:"vpcId"`
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	ZoneId *string `pulumi:"zoneId"`
 }
@@ -220,7 +220,7 @@ type LoadBalancerState struct {
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags  pulumi.MapInput
+	Tags  pulumi.StringMapInput
 	VpcId pulumi.StringPtrInput
 	// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	ZoneId pulumi.StringPtrInput
@@ -266,7 +266,7 @@ type loadBalancerArgs struct {
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource.
-	Tags map[string]interface{} `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
@@ -306,7 +306,7 @@ type LoadBalancerArgs struct {
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.MapInput
+	Tags pulumi.StringMapInput
 }
 
 func (LoadBalancerArgs) ElementType() reflect.Type {
