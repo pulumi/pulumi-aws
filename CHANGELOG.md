@@ -2,7 +2,25 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.67.0 of the AWS Terraform Provider
+  ** Please Note the following **
+  * The use of maps when specifying `tags` has changed to be a map that can only contain string values
+  * `apigateway.state.variables` has changed to be a map that can only contain string values
+  * `budgets.budget.costFilters`  has changed to be a map that can only contain string values
+  * `cloudformation.stack.parameters` has been changed to a map  that can only contain string values
+  * `cloudwatch.metricAlarm.dimensions`  has changed to be a map that can only contain string values
+  * `cognito.identityProvider.providerDetails`  has changed to be a map that can only contain string values
+  * `dml.lifecyclePolicy.targetTags`  has changed to be a map that can only contain string values
+  * `elastictranscoder.preset.videoCodecOptions`  has changed to be a map that can only contain string values
+  * `elasticsearch.domain.advancedOptions`  has changed to be a map that can only contain string values
+  * `glue.connection.connectionProperties`  has changed to be a map that can only contain string values
+  * `glue.job.defaultArguments`  has changed to be a map that can only contain string values
+  * `iot.thing.attributes`  has changed to be a map that can only contain string values
+  * `lb.listener.*.authenticationRequestExtraParams`  has changed to be a map that can only contain string values
+  * `lb.listenerRule.*.authenticationRequestExtraParams`  has changed to be a map that can only contain string values
+  * `sagemaker.model.*.environment`  has changed to be a map that can only contain string values
+  * `ec2.spotInstanceRequest.*.volumeTags`  has changed to be a map that can only contain string values
+  * `ssm.association.parameters`  has changed to be a map that can only contain string values
 
 ---
 
