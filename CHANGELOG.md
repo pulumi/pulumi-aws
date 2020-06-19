@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.67.0 of the AWS Terraform Provider
+  ** Please Note: **
+  The values for tags now need to be strings. Passing an int or a boolean may cause compilation errors
 
 ---
 
