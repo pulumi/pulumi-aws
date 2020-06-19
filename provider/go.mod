@@ -4,7 +4,7 @@ go 1.14
 
 require (
 	github.com/hashicorp/aws-sdk-go-base v0.4.0
-	github.com/hashicorp/terraform-plugin-sdk v1.13.1
+	github.com/hashicorp/terraform-plugin-sdk v1.14.0
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/pulumi-terraform-bridge/v2 v2.4.1-0.20200611172440-d3f6b9ed94d9
 	github.com/pulumi/pulumi/sdk/v2 v2.4.0
@@ -14,5 +14,5 @@ require (
 replace (
 	github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
-	github.com/terraform-providers/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20200616201417-ed844a7bd9d5
+	github.com/terraform-providers/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20200619081042-5755382a412a
 )
