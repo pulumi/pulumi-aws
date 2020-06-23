@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.10.0 (2020-06-23)
 * Upgrade to v2.67.0 of the AWS Terraform Provider
   ** Please Note the following **
   * The use of maps when specifying `tags` has changed to be a map that can only contain string values
@@ -21,8 +26,6 @@ CHANGELOG
   * `sagemaker.model.*.environment`  has changed to be a map that can only contain string values
   * `ec2.spotInstanceRequest.*.volumeTags`  has changed to be a map that can only contain string values
   * `ssm.association.parameters`  has changed to be a map that can only contain string values
-
----
 
 ## 2.9.1 (2020-06-16)
 * Adding support for EFS configuration in AWS Lambda Functions
