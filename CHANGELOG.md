@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Fixed TypeScript definitions to allow deep imports to improve build times (ie `import * as s3 from '@pulumi/aws/s3'`)
 
 ---
 
