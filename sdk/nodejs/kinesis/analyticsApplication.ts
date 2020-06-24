@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
+import {ARN} from "../arn";
 
 /**
  * Provides a Kinesis Analytics Application resource. Kinesis Analytics is a managed service that
