@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Ensure `autoscaling.Group.Tag` and `autoscaling.Group.Tags` do not panic due to their underlying types in the Terraform schema
 
 ---
 
