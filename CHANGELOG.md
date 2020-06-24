@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Ensure `autoscaling.Group.Tag` and `autoscaling.Group.Tags` do not panic due to their underlying types in the Terraform schema
+_(none)_
 
 ---
+
+## 2.10.1 (2020-06-24)
+* Ensure `autoscaling.Group.Tag` and `autoscaling.Group.Tags` do not panic due to their underlying types in the Terraform schema
 
 ## 2.10.0 (2020-06-23)
 * Upgrade to v2.67.0 of the AWS Terraform Provider
