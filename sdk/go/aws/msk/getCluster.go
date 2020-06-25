@@ -11,18 +11,17 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/msk"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := msk.LookupCluster(ctx, &msk.LookupClusterArgs{
+// 		_, err := msk.LookupCluster(ctx, &msk.LookupClusterArgs{
 // 			ClusterName: "example",
 // 		}, nil)
 // 		if err != nil {

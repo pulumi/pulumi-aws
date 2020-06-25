@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,6 +32,91 @@ import * as utilities from "../utilities";
  *     timePeriodEnd: "2087-06-15_00:00",
  *     timePeriodStart: "2017-07-01_00:00",
  *     timeUnit: "MONTHLY",
+ * });
+ * ```
+ *
+ * Create a budget for *$100*.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const cost = new aws.budgets.Budget("cost", {
+ *     // ...
+ *     budgetType: "COST",
+ *     limitAmount: "100",
+ *     limitUnit: "USD",
+ * });
+ * ```
+ *
+ * Create a budget for s3 with a limit of *3 GB* of storage.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const s3 = new aws.budgets.Budget("s3", {
+ *     // ...
+ *     budgetType: "USAGE",
+ *     limitAmount: "3",
+ *     limitUnit: "GB",
+ * });
+ * ```
+ *
+ * Create a Savings Plan Utilization Budget
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const savingsPlanUtilization = new aws.budgets.Budget("savings_plan_utilization", {
+ *     // ...
+ *     budgetType: "SAVINGS_PLANS_UTILIZATION",
+ *     costTypes: {
+ *         includeCredit: false,
+ *         includeDiscount: false,
+ *         includeOtherSubscription: false,
+ *         includeRecurring: false,
+ *         includeRefund: false,
+ *         includeSubscription: true,
+ *         includeSupport: false,
+ *         includeTax: false,
+ *         includeUpfront: false,
+ *         useBlended: false,
+ *     },
+ *     limitAmount: "100.0",
+ *     limitUnit: "PERCENTAGE",
+ * });
+ * ```
+ *
+ * Create a RI Utilization Budget
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const riUtilization = new aws.budgets.Budget("ri_utilization", {
+ *     // ...
+ *     budgetType: "RI_UTILIZATION",
+ *     // RI Utilization plans require a service cost filter to be set
+ *     costFilters: {
+ *         Service: "Amazon Relational Database Service",
+ *     },
+ *     //Cost types must be defined for RI budgets because the settings conflict with the defaults
+ *     costTypes: {
+ *         includeCredit: false,
+ *         includeDiscount: false,
+ *         includeOtherSubscription: false,
+ *         includeRecurring: false,
+ *         includeRefund: false,
+ *         includeSubscription: true,
+ *         includeSupport: false,
+ *         includeTax: false,
+ *         includeUpfront: false,
+ *         useBlended: false,
+ *     },
+ *     limitAmount: "100.0", // RI utilization must be 100
+ *     limitUnit: "PERCENTAGE",
  * });
  * ```
  */

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * Basic usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -49,7 +49,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ## Usage with prefix list IDs
  *
  * Prefix list IDs are managed by AWS internally. Prefix list IDs

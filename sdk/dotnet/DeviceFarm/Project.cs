@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DeviceFarm
 {
     /// <summary>
-    /// Provides a resource to manage AWS Device Farm Projects. 
+    /// Provides a resource to manage AWS Device Farm Projects.
     /// Please keep in mind that this feature is only supported on the "us-west-2" region.
     /// This resource will error if you try to create a project in another region.
     /// 
@@ -18,7 +18,6 @@ namespace Pulumi.Aws.DeviceFarm
     /// [Device Farm Projects][aws-get-project].
     /// 
     /// ## Basic Example Usage
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;

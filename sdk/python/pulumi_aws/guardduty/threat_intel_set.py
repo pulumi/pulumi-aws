@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ThreatIntelSet(pulumi.CustomResource):
     activate: pulumi.Output[bool]
     """
@@ -45,8 +46,6 @@ class ThreatIntelSet(pulumi.CustomResource):
         > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage ThreatIntelSets. ThreatIntelSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-threat-intel-set.html)
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -144,9 +143,9 @@ class ThreatIntelSet(pulumi.CustomResource):
         __props__["name"] = name
         __props__["tags"] = tags
         return ThreatIntelSet(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

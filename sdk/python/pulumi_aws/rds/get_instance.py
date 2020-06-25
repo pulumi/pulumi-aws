@@ -301,8 +301,6 @@ def get_instance(db_instance_identifier=None,tags=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

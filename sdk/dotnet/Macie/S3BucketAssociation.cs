@@ -18,8 +18,6 @@ namespace Pulumi.Aws.Macie
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Configuration(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -46,13 +47,11 @@ class Configuration(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, data=None, description=None, engine_type=None, engine_version=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides an MQ Configuration Resource. 
+        Provides an MQ Configuration Resource.
 
         For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -155,9 +154,9 @@ class Configuration(pulumi.CustomResource):
         __props__["name"] = name
         __props__["tags"] = tags
         return Configuration(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

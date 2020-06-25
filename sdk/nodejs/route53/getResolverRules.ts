@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example shows how to get Route53 Resolver rules based on tags.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

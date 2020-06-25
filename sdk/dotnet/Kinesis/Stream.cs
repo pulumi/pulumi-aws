@@ -17,8 +17,6 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

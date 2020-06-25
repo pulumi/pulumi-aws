@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Provides an AWS App Mesh virtual service resource.
  *
  * ## Example Usage
- *
  * ### Virtual Node Provider
  *
  * ```typescript
@@ -28,7 +27,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Virtual Router Provider
  *
  * ```typescript

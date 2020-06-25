@@ -52,12 +52,10 @@ class AwaitableGetResourceResult(GetResourceResult):
 
 def get_resource(path=None,rest_api_id=None,opts=None):
     """
-    Use this data source to get the id of a Resource in API Gateway. 
-    To fetch the Resource, you must provide the REST API id as well as the full path.  
+    Use this data source to get the id of a Resource in API Gateway.
+    To fetch the Resource, you must provide the REST API id as well as the full path.
 
     ## Example Usage
-
-
 
     ```python
     import pulumi

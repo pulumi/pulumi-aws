@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class SecurityGroup(pulumi.CustomResource):
     description: pulumi.Output[str]
     """
@@ -32,8 +33,6 @@ class SecurityGroup(pulumi.CustomResource):
         Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -115,9 +114,9 @@ class SecurityGroup(pulumi.CustomResource):
         __props__["ingress"] = ingress
         __props__["name"] = name
         return SecurityGroup(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

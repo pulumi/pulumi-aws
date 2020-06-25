@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
  *
  * ## Example Usage
- *
  * ### Extended S3 Destination
  *
  * ```typescript
@@ -78,7 +77,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### S3 Destination
  *
  * ```typescript
@@ -112,7 +110,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Redshift Destination
  *
  * ```typescript
@@ -155,7 +152,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Elasticsearch Destination
  *
  * ```typescript
@@ -190,7 +186,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Splunk Destination
  *
  * ```typescript

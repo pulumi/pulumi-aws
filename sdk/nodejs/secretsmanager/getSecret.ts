@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion`.
  *
  * ## Example Usage
- *
  * ### ARN
  *
  * ```typescript
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
  * }, { async: true }));
  * ```
- *
  * ### Name
  *
  * ```typescript

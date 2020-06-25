@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Subnet(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -70,7 +71,6 @@ class Subnet(pulumi.CustomResource):
         > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), subnets associated with Lambda Functions can take up to 45 minutes to successfully delete.
 
         ## Example Usage
-
         ### Basic Usage
 
         ```python
@@ -84,8 +84,10 @@ class Subnet(pulumi.CustomResource):
             },
             vpc_id=aws_vpc["main"]["id"])
         ```
-
         ### Subnets In Secondary VPC CIDR Blocks
+
+        When managing subnets in one of a VPC's secondary CIDR blocks created using a `ec2.VpcIpv4CidrBlockAssociation`
+        resource, it is recommended to reference that resource's `vpc_id` attribute to ensure correct dependency ordering.
 
         ```python
         import pulumi
@@ -199,9 +201,9 @@ class Subnet(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["vpc_id"] = vpc_id
         return Subnet(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

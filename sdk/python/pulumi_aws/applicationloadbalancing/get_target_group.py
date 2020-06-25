@@ -101,8 +101,6 @@ def get_target_group(arn=None,name=None,tags=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

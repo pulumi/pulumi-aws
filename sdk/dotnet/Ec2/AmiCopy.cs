@@ -24,8 +24,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

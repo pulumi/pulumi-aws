@@ -9,6 +9,28 @@ import (
 
 // The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
 // for the effective account in which this provider is working.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := aws.GetCanonicalUserId(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("canonicalUserId", current.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func GetCanonicalUserId(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCanonicalUserIdResult, error) {
 	var rv GetCanonicalUserIdResult
 	err := ctx.Invoke("aws:index/getCanonicalUserId:getCanonicalUserId", nil, &rv, opts...)

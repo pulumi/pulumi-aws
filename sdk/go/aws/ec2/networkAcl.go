@@ -21,8 +21,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,7 +31,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		main, err := ec2.NewNetworkAcl(ctx, "main", &ec2.NetworkAclArgs{
+// 		_, err = ec2.NewNetworkAcl(ctx, "main", &ec2.NetworkAclArgs{
 // 			Egress: ec2.NetworkAclEgressArray{
 // 				&ec2.NetworkAclEgressArgs{
 // 					Action:    pulumi.String("allow"),
@@ -54,8 +52,8 @@ import (
 // 					ToPort:    pulumi.Int(80),
 // 				},
 // 			},
-// 			Tags: map[string]interface{}{
-// 				"Name": "main",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("main"),
 // 			},
 // 			VpcId: pulumi.String(aws_vpc.Main.Id),
 // 		})

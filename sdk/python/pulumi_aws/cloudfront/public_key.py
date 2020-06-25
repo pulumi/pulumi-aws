@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class PublicKey(pulumi.CustomResource):
     caller_reference: pulumi.Output[str]
     """
@@ -38,7 +39,7 @@ class PublicKey(pulumi.CustomResource):
         """
         ## Example Usage
 
-
+        The following example below creates a CloudFront public key.
 
         ```python
         import pulumi
@@ -114,9 +115,9 @@ class PublicKey(pulumi.CustomResource):
         __props__["name"] = name
         __props__["name_prefix"] = name_prefix
         return PublicKey(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -13,7 +13,6 @@ import (
 // Provides a CodeDeploy deployment config for an application
 //
 // ## Example Usage
-//
 // ### Server Usage
 //
 // ```go
@@ -36,7 +35,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		fooDeploymentGroup, err := codedeploy.NewDeploymentGroup(ctx, "fooDeploymentGroup", &codedeploy.DeploymentGroupArgs{
+// 		_, err = codedeploy.NewDeploymentGroup(ctx, "fooDeploymentGroup", &codedeploy.DeploymentGroupArgs{
 // 			AlarmConfiguration: &codedeploy.DeploymentGroupAlarmConfigurationArgs{
 // 				Alarms: pulumi.StringArray{
 // 					pulumi.String("my-alarm-name"),
@@ -77,7 +76,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Lambda Usage
 //
 // ```go
@@ -104,7 +102,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		fooDeploymentGroup, err := codedeploy.NewDeploymentGroup(ctx, "fooDeploymentGroup", &codedeploy.DeploymentGroupArgs{
+// 		_, err = codedeploy.NewDeploymentGroup(ctx, "fooDeploymentGroup", &codedeploy.DeploymentGroupArgs{
 // 			AlarmConfiguration: &codedeploy.DeploymentGroupAlarmConfigurationArgs{
 // 				Alarms: pulumi.StringArray{
 // 					pulumi.String("my-alarm-name"),

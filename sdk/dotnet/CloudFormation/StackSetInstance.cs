@@ -18,8 +18,6 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -38,7 +36,6 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// }
     /// ```
-    /// 
     /// ### Example IAM Setup in Target Account
     /// 
     /// ```csharp

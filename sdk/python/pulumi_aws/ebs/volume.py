@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Volume(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -60,8 +61,6 @@ class Volume(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -73,6 +72,8 @@ class Volume(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
+
+        > **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,9 +161,9 @@ class Volume(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["type"] = type
         return Volume(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

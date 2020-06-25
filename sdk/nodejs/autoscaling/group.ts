@@ -16,8 +16,6 @@ import {Metric, MetricsGranularity} from "./index";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -66,7 +64,6 @@ import {Metric, MetricsGranularity} from "./index";
  *     delete: "15m",
  * } });
  * ```
- *
  * ### With Latest Version Of Launch Template
  *
  * ```typescript
@@ -89,7 +86,6 @@ import {Metric, MetricsGranularity} from "./index";
  *     minSize: 1,
  * });
  * ```
- *
  * ### Mixed Instances Policy
  *
  * ```typescript
@@ -125,7 +121,6 @@ import {Metric, MetricsGranularity} from "./index";
  *     },
  * });
  * ```
- *
  * ## Interpolated tags
  *
  * ```typescript

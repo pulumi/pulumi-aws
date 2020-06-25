@@ -17,8 +17,6 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

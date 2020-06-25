@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class FargateProfile(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -51,8 +52,6 @@ class FargateProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -65,7 +64,6 @@ class FargateProfile(pulumi.CustomResource):
                 "namespace": "example",
             }])
         ```
-
         ### Example IAM Role for EKS Fargate Profile
 
         ```python
@@ -175,9 +173,9 @@ class FargateProfile(pulumi.CustomResource):
         __props__["subnet_ids"] = subnet_ids
         __props__["tags"] = tags
         return FargateProfile(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

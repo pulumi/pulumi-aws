@@ -46,8 +46,7 @@ type ComputeEnvironmentComputeResources struct {
 // ComputeEnvironmentComputeResourcesInput is an input type that accepts ComputeEnvironmentComputeResourcesArgs and ComputeEnvironmentComputeResourcesOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentComputeResourcesInput` via:
 //
-// 		 ComputeEnvironmentComputeResourcesArgs{...}
-//
+//          ComputeEnvironmentComputeResourcesArgs{...}
 type ComputeEnvironmentComputeResourcesInput interface {
 	pulumi.Input
 
@@ -111,12 +110,11 @@ func (i ComputeEnvironmentComputeResourcesArgs) ToComputeEnvironmentComputeResou
 // ComputeEnvironmentComputeResourcesPtrInput is an input type that accepts ComputeEnvironmentComputeResourcesArgs, ComputeEnvironmentComputeResourcesPtr and ComputeEnvironmentComputeResourcesPtrOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentComputeResourcesPtrInput` via:
 //
-// 		 ComputeEnvironmentComputeResourcesArgs{...}
+//          ComputeEnvironmentComputeResourcesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ComputeEnvironmentComputeResourcesPtrInput interface {
 	pulumi.Input
 
@@ -423,8 +421,7 @@ type ComputeEnvironmentComputeResourcesLaunchTemplate struct {
 // ComputeEnvironmentComputeResourcesLaunchTemplateInput is an input type that accepts ComputeEnvironmentComputeResourcesLaunchTemplateArgs and ComputeEnvironmentComputeResourcesLaunchTemplateOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentComputeResourcesLaunchTemplateInput` via:
 //
-// 		 ComputeEnvironmentComputeResourcesLaunchTemplateArgs{...}
-//
+//          ComputeEnvironmentComputeResourcesLaunchTemplateArgs{...}
 type ComputeEnvironmentComputeResourcesLaunchTemplateInput interface {
 	pulumi.Input
 
@@ -464,12 +461,11 @@ func (i ComputeEnvironmentComputeResourcesLaunchTemplateArgs) ToComputeEnvironme
 // ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput is an input type that accepts ComputeEnvironmentComputeResourcesLaunchTemplateArgs, ComputeEnvironmentComputeResourcesLaunchTemplatePtr and ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput` via:
 //
-// 		 ComputeEnvironmentComputeResourcesLaunchTemplateArgs{...}
+//          ComputeEnvironmentComputeResourcesLaunchTemplateArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput interface {
 	pulumi.Input
 
@@ -592,8 +588,7 @@ type JobDefinitionRetryStrategy struct {
 // JobDefinitionRetryStrategyInput is an input type that accepts JobDefinitionRetryStrategyArgs and JobDefinitionRetryStrategyOutput values.
 // You can construct a concrete instance of `JobDefinitionRetryStrategyInput` via:
 //
-// 		 JobDefinitionRetryStrategyArgs{...}
-//
+//          JobDefinitionRetryStrategyArgs{...}
 type JobDefinitionRetryStrategyInput interface {
 	pulumi.Input
 
@@ -629,12 +624,11 @@ func (i JobDefinitionRetryStrategyArgs) ToJobDefinitionRetryStrategyPtrOutputWit
 // JobDefinitionRetryStrategyPtrInput is an input type that accepts JobDefinitionRetryStrategyArgs, JobDefinitionRetryStrategyPtr and JobDefinitionRetryStrategyPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionRetryStrategyPtrInput` via:
 //
-// 		 JobDefinitionRetryStrategyArgs{...}
+//          JobDefinitionRetryStrategyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type JobDefinitionRetryStrategyPtrInput interface {
 	pulumi.Input
 
@@ -725,8 +719,7 @@ type JobDefinitionTimeout struct {
 // JobDefinitionTimeoutInput is an input type that accepts JobDefinitionTimeoutArgs and JobDefinitionTimeoutOutput values.
 // You can construct a concrete instance of `JobDefinitionTimeoutInput` via:
 //
-// 		 JobDefinitionTimeoutArgs{...}
-//
+//          JobDefinitionTimeoutArgs{...}
 type JobDefinitionTimeoutInput interface {
 	pulumi.Input
 
@@ -762,12 +755,11 @@ func (i JobDefinitionTimeoutArgs) ToJobDefinitionTimeoutPtrOutputWithContext(ctx
 // JobDefinitionTimeoutPtrInput is an input type that accepts JobDefinitionTimeoutArgs, JobDefinitionTimeoutPtr and JobDefinitionTimeoutPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionTimeoutPtrInput` via:
 //
-// 		 JobDefinitionTimeoutArgs{...}
+//          JobDefinitionTimeoutArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type JobDefinitionTimeoutPtrInput interface {
 	pulumi.Input
 
@@ -858,8 +850,7 @@ type GetJobQueueComputeEnvironmentOrder struct {
 // GetJobQueueComputeEnvironmentOrderInput is an input type that accepts GetJobQueueComputeEnvironmentOrderArgs and GetJobQueueComputeEnvironmentOrderOutput values.
 // You can construct a concrete instance of `GetJobQueueComputeEnvironmentOrderInput` via:
 //
-// 		 GetJobQueueComputeEnvironmentOrderArgs{...}
-//
+//          GetJobQueueComputeEnvironmentOrderArgs{...}
 type GetJobQueueComputeEnvironmentOrderInput interface {
 	pulumi.Input
 
@@ -887,8 +878,7 @@ func (i GetJobQueueComputeEnvironmentOrderArgs) ToGetJobQueueComputeEnvironmentO
 // GetJobQueueComputeEnvironmentOrderArrayInput is an input type that accepts GetJobQueueComputeEnvironmentOrderArray and GetJobQueueComputeEnvironmentOrderArrayOutput values.
 // You can construct a concrete instance of `GetJobQueueComputeEnvironmentOrderArrayInput` via:
 //
-// 		 GetJobQueueComputeEnvironmentOrderArray{ GetJobQueueComputeEnvironmentOrderArgs{...} }
-//
+//          GetJobQueueComputeEnvironmentOrderArray{ GetJobQueueComputeEnvironmentOrderArgs{...} }
 type GetJobQueueComputeEnvironmentOrderArrayInput interface {
 	pulumi.Input
 

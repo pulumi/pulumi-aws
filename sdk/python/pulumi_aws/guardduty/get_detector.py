@@ -52,8 +52,6 @@ def get_detector(id=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

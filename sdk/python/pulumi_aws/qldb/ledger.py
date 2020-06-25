@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Ledger(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -33,8 +34,6 @@ class Ledger(pulumi.CustomResource):
         > **NOTE:** Deletion protection is enabled by default. To successfully delete this resource via this provider, `deletion_protection = false` must be applied before attempting deletion.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -99,9 +98,9 @@ class Ledger(pulumi.CustomResource):
         __props__["name"] = name
         __props__["tags"] = tags
         return Ledger(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -15,8 +15,9 @@ import (
 // > **NOTE:** Either the `activeDirectoryId` argument or `selfManagedActiveDirectory` configuration block must be specified.
 //
 // ## Example Usage
-//
 // ### Using AWS Directory Service
+//
+// Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
 //
 // ```go
 // package main
@@ -28,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
+// 		_, err = fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
 // 			ActiveDirectoryId:  pulumi.String(aws_directory_service_directory.Example.Id),
 // 			KmsKeyId:           pulumi.String(aws_kms_key.Example.Arn),
 // 			StorageCapacity:    pulumi.Int(300),
@@ -42,8 +43,9 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Using a Self-Managed Microsoft Active Directory
+//
+// Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
 //
 // ```go
 // package main
@@ -55,7 +57,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
+// 		_, err = fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
 // 			KmsKeyId: pulumi.String(aws_kms_key.Example.Arn),
 // 			SelfManagedActiveDirectory: &fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs{
 // 				DnsIps: pulumi.StringArray{

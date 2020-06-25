@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
  *
  * ## Example Usage
- *
  * ### Basic Table
  *
  * ```typescript
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     name: "MyCatalogTable",
  * });
  * ```
- *
  * ### Parquet Table for Athena
  *
  * ```typescript

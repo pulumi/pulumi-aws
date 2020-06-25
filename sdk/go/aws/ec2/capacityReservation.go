@@ -11,6 +11,32 @@ import (
 )
 
 // Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = ec2.NewCapacityReservation(ctx, "default", &ec2.CapacityReservationArgs{
+// 			AvailabilityZone: pulumi.String("eu-west-1a"),
+// 			InstanceCount:    pulumi.Int(1),
+// 			InstancePlatform: pulumi.String("Linux/UNIX"),
+// 			InstanceType:     pulumi.String("t2.micro"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type CapacityReservation struct {
 	pulumi.CustomResourceState
 

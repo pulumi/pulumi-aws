@@ -14,7 +14,7 @@ import (
 //
 // ## Example Usage
 //
-//
+// Basic usage:
 //
 // ```go
 // package main
@@ -26,11 +26,11 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		ni, err := sagemaker.NewNotebookInstance(ctx, "ni", &sagemaker.NotebookInstanceArgs{
+// 		_, err = sagemaker.NewNotebookInstance(ctx, "ni", &sagemaker.NotebookInstanceArgs{
 // 			InstanceType: pulumi.String("ml.t2.medium"),
 // 			RoleArn:      pulumi.String(aws_iam_role.Role.Arn),
-// 			Tags: map[string]interface{}{
-// 				"Name": "foo",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("foo"),
 // 			},
 // 		})
 // 		if err != nil {

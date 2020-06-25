@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class IdentityPolicy(pulumi.CustomResource):
     identity: pulumi.Output[str]
     """
@@ -27,8 +28,6 @@ class IdentityPolicy(pulumi.CustomResource):
         Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -108,9 +107,9 @@ class IdentityPolicy(pulumi.CustomResource):
         __props__["name"] = name
         __props__["policy"] = policy
         return IdentityPolicy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

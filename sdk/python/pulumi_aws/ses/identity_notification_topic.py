@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class IdentityNotificationTopic(pulumi.CustomResource):
     identity: pulumi.Output[str]
     """
@@ -31,8 +32,6 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         Resource for managing SES Identity Notification Topics
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -106,9 +105,9 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         __props__["notification_type"] = notification_type
         __props__["topic_arn"] = topic_arn
         return IdentityNotificationTopic(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

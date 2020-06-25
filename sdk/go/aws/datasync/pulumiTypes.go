@@ -20,8 +20,7 @@ type EfsLocationEc2Config struct {
 // EfsLocationEc2ConfigInput is an input type that accepts EfsLocationEc2ConfigArgs and EfsLocationEc2ConfigOutput values.
 // You can construct a concrete instance of `EfsLocationEc2ConfigInput` via:
 //
-// 		 EfsLocationEc2ConfigArgs{...}
-//
+//          EfsLocationEc2ConfigArgs{...}
 type EfsLocationEc2ConfigInput interface {
 	pulumi.Input
 
@@ -59,12 +58,11 @@ func (i EfsLocationEc2ConfigArgs) ToEfsLocationEc2ConfigPtrOutputWithContext(ctx
 // EfsLocationEc2ConfigPtrInput is an input type that accepts EfsLocationEc2ConfigArgs, EfsLocationEc2ConfigPtr and EfsLocationEc2ConfigPtrOutput values.
 // You can construct a concrete instance of `EfsLocationEc2ConfigPtrInput` via:
 //
-// 		 EfsLocationEc2ConfigArgs{...}
+//          EfsLocationEc2ConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EfsLocationEc2ConfigPtrInput interface {
 	pulumi.Input
 
@@ -170,8 +168,7 @@ type LocationSmbMountOptions struct {
 // LocationSmbMountOptionsInput is an input type that accepts LocationSmbMountOptionsArgs and LocationSmbMountOptionsOutput values.
 // You can construct a concrete instance of `LocationSmbMountOptionsInput` via:
 //
-// 		 LocationSmbMountOptionsArgs{...}
-//
+//          LocationSmbMountOptionsArgs{...}
 type LocationSmbMountOptionsInput interface {
 	pulumi.Input
 
@@ -207,12 +204,11 @@ func (i LocationSmbMountOptionsArgs) ToLocationSmbMountOptionsPtrOutputWithConte
 // LocationSmbMountOptionsPtrInput is an input type that accepts LocationSmbMountOptionsArgs, LocationSmbMountOptionsPtr and LocationSmbMountOptionsPtrOutput values.
 // You can construct a concrete instance of `LocationSmbMountOptionsPtrInput` via:
 //
-// 		 LocationSmbMountOptionsArgs{...}
+//          LocationSmbMountOptionsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type LocationSmbMountOptionsPtrInput interface {
 	pulumi.Input
 
@@ -303,8 +299,7 @@ type NfsLocationOnPremConfig struct {
 // NfsLocationOnPremConfigInput is an input type that accepts NfsLocationOnPremConfigArgs and NfsLocationOnPremConfigOutput values.
 // You can construct a concrete instance of `NfsLocationOnPremConfigInput` via:
 //
-// 		 NfsLocationOnPremConfigArgs{...}
-//
+//          NfsLocationOnPremConfigArgs{...}
 type NfsLocationOnPremConfigInput interface {
 	pulumi.Input
 
@@ -340,12 +335,11 @@ func (i NfsLocationOnPremConfigArgs) ToNfsLocationOnPremConfigPtrOutputWithConte
 // NfsLocationOnPremConfigPtrInput is an input type that accepts NfsLocationOnPremConfigArgs, NfsLocationOnPremConfigPtr and NfsLocationOnPremConfigPtrOutput values.
 // You can construct a concrete instance of `NfsLocationOnPremConfigPtrInput` via:
 //
-// 		 NfsLocationOnPremConfigArgs{...}
+//          NfsLocationOnPremConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type NfsLocationOnPremConfigPtrInput interface {
 	pulumi.Input
 
@@ -436,8 +430,7 @@ type S3LocationS3Config struct {
 // S3LocationS3ConfigInput is an input type that accepts S3LocationS3ConfigArgs and S3LocationS3ConfigOutput values.
 // You can construct a concrete instance of `S3LocationS3ConfigInput` via:
 //
-// 		 S3LocationS3ConfigArgs{...}
-//
+//          S3LocationS3ConfigArgs{...}
 type S3LocationS3ConfigInput interface {
 	pulumi.Input
 
@@ -473,12 +466,11 @@ func (i S3LocationS3ConfigArgs) ToS3LocationS3ConfigPtrOutputWithContext(ctx con
 // S3LocationS3ConfigPtrInput is an input type that accepts S3LocationS3ConfigArgs, S3LocationS3ConfigPtr and S3LocationS3ConfigPtrOutput values.
 // You can construct a concrete instance of `S3LocationS3ConfigPtrInput` via:
 //
-// 		 S3LocationS3ConfigArgs{...}
+//          S3LocationS3ConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type S3LocationS3ConfigPtrInput interface {
 	pulumi.Input
 
@@ -585,8 +577,7 @@ type TaskOptions struct {
 // TaskOptionsInput is an input type that accepts TaskOptionsArgs and TaskOptionsOutput values.
 // You can construct a concrete instance of `TaskOptionsInput` via:
 //
-// 		 TaskOptionsArgs{...}
-//
+//          TaskOptionsArgs{...}
 type TaskOptionsInput interface {
 	pulumi.Input
 
@@ -638,12 +629,11 @@ func (i TaskOptionsArgs) ToTaskOptionsPtrOutputWithContext(ctx context.Context) 
 // TaskOptionsPtrInput is an input type that accepts TaskOptionsArgs, TaskOptionsPtr and TaskOptionsPtrOutput values.
 // You can construct a concrete instance of `TaskOptionsPtrInput` via:
 //
-// 		 TaskOptionsArgs{...}
+//          TaskOptionsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type TaskOptionsPtrInput interface {
 	pulumi.Input
 

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * Basic usage:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -17,6 +17,21 @@ import * as utilities from "../utilities";
  *
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
+ * });
+ * ```
+ *
+ * Basic usage with tags:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const main = new aws.ec2.Vpc("main", {
+ *     cidrBlock: "10.0.0.0/16",
+ *     instanceTenancy: "dedicated",
+ *     tags: {
+ *         Name: "main",
+ *     },
  * });
  * ```
  */

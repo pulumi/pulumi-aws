@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -42,7 +40,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		foo, err := elb.NewAppCookieStickinessPolicy(ctx, "foo", &elb.AppCookieStickinessPolicyArgs{
+// 		_, err = elb.NewAppCookieStickinessPolicy(ctx, "foo", &elb.AppCookieStickinessPolicyArgs{
 // 			CookieName:   pulumi.String("MyAppCookie"),
 // 			LbPort:       pulumi.Int(80),
 // 			LoadBalancer: lb.Name,

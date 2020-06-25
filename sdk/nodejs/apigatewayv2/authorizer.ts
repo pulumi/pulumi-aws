@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
  *
  * ## Example Usage
- *
  * ### Basic WebSocket API
  *
  * ```typescript
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     identitySources: ["route.request.header.Auth"],
  * });
  * ```
- *
  * ### Basic HTTP API
  *
  * ```typescript

@@ -81,8 +81,6 @@ def get_access_point(access_point_id=None,tags=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

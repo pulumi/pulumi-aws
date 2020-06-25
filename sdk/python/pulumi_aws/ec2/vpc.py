@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Vpc(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -88,13 +89,27 @@ class Vpc(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        Basic usage:
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
+        ```
+
+        Basic usage with tags:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Vpc("main",
+            cidr_block="10.0.0.0/16",
+            instance_tenancy="dedicated",
+            tags={
+                "Name": "main",
+            })
         ```
 
         :param str resource_name: The name of the resource.
@@ -210,9 +225,9 @@ class Vpc(pulumi.CustomResource):
         __props__["owner_id"] = owner_id
         __props__["tags"] = tags
         return Vpc(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

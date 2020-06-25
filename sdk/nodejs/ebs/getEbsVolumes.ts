@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Model(pulumi.CustomResource):
     api_id: pulumi.Output[str]
     """
@@ -35,7 +36,6 @@ class Model(pulumi.CustomResource):
         Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
 
         ## Example Usage
-
         ### Basic
 
         ```python
@@ -124,9 +124,9 @@ class Model(pulumi.CustomResource):
         __props__["name"] = name
         __props__["schema"] = schema
         return Model(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

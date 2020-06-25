@@ -7,9 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Attaches a load balancer policy to an ELB Listener.
  *
- *
  * ## Example Usage
- *
  * ### Custom Policy
  *
  * ```typescript
@@ -51,6 +49,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * This example shows how to customize the TLS settings of an HTTPS listener.
  * ### AWS Predefined Security Policy
  *
  * ```typescript
@@ -85,6 +84,8 @@ import * as utilities from "../utilities";
  *     policyNames: [wu_tang_ssl_tls_1_1.policyName],
  * });
  * ```
+ *
+ * This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
  *
  * @deprecated aws.elasticloadbalancing.ListenerPolicy has been deprecated in favor of aws.elb.ListenerPolicy
  */

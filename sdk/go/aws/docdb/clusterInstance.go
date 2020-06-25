@@ -18,6 +18,8 @@ import (
 // meta-parameter to make multiple instances and join them all to the same DocDB
 // Cluster, or you may specify different Cluster Instance resources with various
 // `instanceClass` sizes.
+//
+// ## Example Usage
 type ClusterInstance struct {
 	pulumi.CustomResourceState
 

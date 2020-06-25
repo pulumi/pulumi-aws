@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ApnsVoipSandboxChannel(pulumi.CustomResource):
     application_id: pulumi.Output[str]
     """
@@ -56,8 +57,6 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -155,9 +154,9 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         __props__["token_key"] = token_key
         __props__["token_key_id"] = token_key_id
         return ApnsVoipSandboxChannel(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.AppAutoScaling
     /// Provides an Application AutoScaling Policy resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ### DynamoDB Table Autoscaling
     /// 
     /// ```csharp
@@ -51,7 +50,6 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// }
     /// ```
-    /// 
     /// ### ECS Service Autoscaling
     /// 
     /// ```csharp
@@ -95,7 +93,6 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// }
     /// ```
-    /// 
     /// ### Aurora Read Replica Autoscaling
     /// 
     /// ```csharp

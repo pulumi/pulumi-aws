@@ -10,6 +10,8 @@ from typing import Union
 from .. import utilities, tables
 
 warnings.warn("aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer", DeprecationWarning)
+
+
 class LoadBalancer(pulumi.CustomResource):
     access_logs: pulumi.Output[dict]
     """
@@ -121,6 +123,7 @@ class LoadBalancer(pulumi.CustomResource):
     The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
     """
     warnings.warn("aws.elasticloadbalancing.LoadBalancer has been deprecated in favor of aws.elb.LoadBalancer", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, access_logs=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, health_check=None, idle_timeout=None, instances=None, internal=None, listeners=None, name=None, name_prefix=None, security_groups=None, source_security_group=None, subnets=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an Elastic Load Balancer resource, also known as a "Classic
@@ -135,8 +138,6 @@ class LoadBalancer(pulumi.CustomResource):
         conflict and will overwrite attachments.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -185,7 +186,6 @@ class LoadBalancer(pulumi.CustomResource):
                 "Name": "foobar-elb",
             })
         ```
-
         ## Note on ECDSA Key Algorithm
 
         If the ARN of the `ssl_certificate_id` that is pointed to references a
@@ -382,9 +382,9 @@ class LoadBalancer(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["zone_id"] = zone_id
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

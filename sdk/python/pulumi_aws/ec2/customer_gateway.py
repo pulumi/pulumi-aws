@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class CustomerGateway(pulumi.CustomResource):
     bgp_asn: pulumi.Output[float]
     """
@@ -32,8 +33,6 @@ class CustomerGateway(pulumi.CustomResource):
         Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -113,9 +112,9 @@ class CustomerGateway(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["type"] = type
         return CustomerGateway(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -22,8 +22,7 @@ type LifecyclePolicyPolicyDetails struct {
 // LifecyclePolicyPolicyDetailsInput is an input type that accepts LifecyclePolicyPolicyDetailsArgs and LifecyclePolicyPolicyDetailsOutput values.
 // You can construct a concrete instance of `LifecyclePolicyPolicyDetailsInput` via:
 //
-// 		 LifecyclePolicyPolicyDetailsArgs{...}
-//
+//          LifecyclePolicyPolicyDetailsArgs{...}
 type LifecyclePolicyPolicyDetailsInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i LifecyclePolicyPolicyDetailsArgs) ToLifecyclePolicyPolicyDetailsPtrOutpu
 // LifecyclePolicyPolicyDetailsPtrInput is an input type that accepts LifecyclePolicyPolicyDetailsArgs, LifecyclePolicyPolicyDetailsPtr and LifecyclePolicyPolicyDetailsPtrOutput values.
 // You can construct a concrete instance of `LifecyclePolicyPolicyDetailsPtrInput` via:
 //
-// 		 LifecyclePolicyPolicyDetailsArgs{...}
+//          LifecyclePolicyPolicyDetailsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type LifecyclePolicyPolicyDetailsPtrInput interface {
 	pulumi.Input
 
@@ -197,8 +195,7 @@ type LifecyclePolicyPolicyDetailsSchedule struct {
 // LifecyclePolicyPolicyDetailsScheduleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleArgs and LifecyclePolicyPolicyDetailsScheduleOutput values.
 // You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleInput` via:
 //
-// 		 LifecyclePolicyPolicyDetailsScheduleArgs{...}
-//
+//          LifecyclePolicyPolicyDetailsScheduleArgs{...}
 type LifecyclePolicyPolicyDetailsScheduleInput interface {
 	pulumi.Input
 
@@ -234,8 +231,7 @@ func (i LifecyclePolicyPolicyDetailsScheduleArgs) ToLifecyclePolicyPolicyDetails
 // LifecyclePolicyPolicyDetailsScheduleArrayInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleArray and LifecyclePolicyPolicyDetailsScheduleArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleArrayInput` via:
 //
-// 		 LifecyclePolicyPolicyDetailsScheduleArray{ LifecyclePolicyPolicyDetailsScheduleArgs{...} }
-//
+//          LifecyclePolicyPolicyDetailsScheduleArray{ LifecyclePolicyPolicyDetailsScheduleArgs{...} }
 type LifecyclePolicyPolicyDetailsScheduleArrayInput interface {
 	pulumi.Input
 
@@ -332,8 +328,7 @@ type LifecyclePolicyPolicyDetailsScheduleCreateRule struct {
 // LifecyclePolicyPolicyDetailsScheduleCreateRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs and LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput values.
 // You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleCreateRuleInput` via:
 //
-// 		 LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{...}
-//
+//          LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{...}
 type LifecyclePolicyPolicyDetailsScheduleCreateRuleInput interface {
 	pulumi.Input
 
@@ -399,8 +394,7 @@ type LifecyclePolicyPolicyDetailsScheduleRetainRule struct {
 // LifecyclePolicyPolicyDetailsScheduleRetainRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs and LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput values.
 // You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleRetainRuleInput` via:
 //
-// 		 LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{...}
-//
+//          LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{...}
 type LifecyclePolicyPolicyDetailsScheduleRetainRuleInput interface {
 	pulumi.Input
 

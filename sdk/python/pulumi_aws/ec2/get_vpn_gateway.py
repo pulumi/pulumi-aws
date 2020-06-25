@@ -56,8 +56,6 @@ def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -15,7 +15,48 @@ import (
 // > **Note:** You must specify either `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
 //
 // ## Example Usage
+// ### With Latest Version Of Launch Template
 //
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		foobar, err := ec2.NewLaunchTemplate(ctx, "foobar", &ec2.LaunchTemplateArgs{
+// 			ImageId:      pulumi.String("ami-1a2b3c"),
+// 			InstanceType: pulumi.String("t2.micro"),
+// 			NamePrefix:   pulumi.String("foobar"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-east-1a"),
+// 			},
+// 			DesiredCapacity: pulumi.Int(1),
+// 			LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
+// 				Id:      foobar.ID(),
+// 				Version: pulumi.String(fmt.Sprintf("%v%v", "$", "Latest")),
+// 			},
+// 			MaxSize: pulumi.Int(1),
+// 			MinSize: pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Mixed Instances Policy
 //
 // ```go
@@ -37,7 +78,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleGroup, err := autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
+// 		_, err = autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
 // 			AvailabilityZones: pulumi.StringArray{
 // 				pulumi.String("us-east-1a"),
 // 			},
@@ -49,14 +90,14 @@ import (
 // 					LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
 // 						LaunchTemplateId: exampleLaunchTemplate.ID(),
 // 					},
-// 					Override: []map[string]interface{}{
-// 						map[string]interface{}{
-// 							"instanceType":     "c4.large",
-// 							"weightedCapacity": "3",
+// 					Override: pulumi.MapArray{
+// 						pulumi.Map{
+// 							"instanceType":     pulumi.String("c4.large"),
+// 							"weightedCapacity": pulumi.String("3"),
 // 						},
-// 						map[string]interface{}{
-// 							"instanceType":     "c3.large",
-// 							"weightedCapacity": "2",
+// 						pulumi.Map{
+// 							"instanceType":     pulumi.String("c3.large"),
+// 							"weightedCapacity": pulumi.String("2"),
 // 						},
 // 					},
 // 				},
@@ -69,7 +110,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Waiting for Capacity
 //
 // A newly-created ASG is initially empty and begins to scale to `minSize` (or

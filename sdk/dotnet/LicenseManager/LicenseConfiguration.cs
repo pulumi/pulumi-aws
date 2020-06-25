@@ -16,8 +16,6 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -45,7 +43,6 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// }
     /// ```
-    /// 
     /// ## Rules
     /// 
     /// License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:

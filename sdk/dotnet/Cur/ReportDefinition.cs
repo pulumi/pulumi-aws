@@ -18,8 +18,6 @@ namespace Pulumi.Aws.Cur
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -55,7 +53,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		office, err := ec2.NewVpnConnectionRoute(ctx, "office", &ec2.VpnConnectionRouteArgs{
+// 		_, err = ec2.NewVpnConnectionRoute(ctx, "office", &ec2.VpnConnectionRouteArgs{
 // 			DestinationCidrBlock: pulumi.String("192.168.10.0/24"),
 // 			VpnConnectionId:      main.ID(),
 // 		})

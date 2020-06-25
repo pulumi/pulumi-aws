@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class CachesIscsiVolume(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -76,6 +77,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
         ## Example Usage
 
+        > **NOTE:** These examples are referencing the `storagegateway.Cache` resource `gateway_arn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = ["aws_storagegateway_cache.example"]`) to ensure proper ordering.
         ### Create Empty Cached iSCSI Volume
 
         ```python
@@ -89,7 +91,6 @@ class CachesIscsiVolume(pulumi.CustomResource):
             volume_size_in_bytes=5368709120)
         # 5 GB
         ```
-
         ### Create Cached iSCSI Volume From Snapshot
 
         ```python
@@ -103,7 +104,6 @@ class CachesIscsiVolume(pulumi.CustomResource):
             target_name="example",
             volume_size_in_bytes=aws_ebs_snapshot["example"]["volume_size"] * 1024 * 1024 * 1024)
         ```
-
         ### Create Cached iSCSI Volume From Source Volume
 
         ```python
@@ -216,9 +216,9 @@ class CachesIscsiVolume(pulumi.CustomResource):
         __props__["volume_id"] = volume_id
         __props__["volume_size_in_bytes"] = volume_size_in_bytes
         return CachesIscsiVolume(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -13,8 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,7 +72,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
  * ### Blue Green Deployments with ECS
  *
  * ```typescript
@@ -127,7 +124,6 @@ import * as utilities from "../utilities";
  *     serviceRoleArn: aws_iam_role_example.arn,
  * });
  * ```
- *
  * ### Blue Green Deployments with Servers and Classic ELB
  *
  * ```typescript

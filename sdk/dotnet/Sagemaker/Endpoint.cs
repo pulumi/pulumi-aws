@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// Basic usage:
     /// 
     /// ```csharp
     /// using Pulumi;

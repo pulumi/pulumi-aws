@@ -13,8 +13,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -25,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		geoMatchSet, err := waf.NewGeoMatchSet(ctx, "geoMatchSet", &waf.GeoMatchSetArgs{
+// 		_, err = waf.NewGeoMatchSet(ctx, "geoMatchSet", &waf.GeoMatchSetArgs{
 // 			GeoMatchConstraints: waf.GeoMatchSetGeoMatchConstraintArray{
 // 				&waf.GeoMatchSetGeoMatchConstraintArgs{
 // 					Type:  pulumi.String("Country"),

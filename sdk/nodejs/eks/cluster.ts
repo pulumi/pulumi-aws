@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Manages an EKS Cluster.
  *
  * ## Example Usage
- *
  * ### Example IAM Role for EKS Cluster
  *
  * ```typescript
@@ -41,8 +40,11 @@ import * as utilities from "../utilities";
  *     role: example.name,
  * });
  * ```
- *
  * ### Enabling Control Plane Logging
+ *
+ * [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabledClusterLogTypes` argument. To manage the CloudWatch Log Group retention period, the `aws.cloudwatch.LogGroup` resource can be used.
+ *
+ * > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -61,8 +63,9 @@ import * as utilities from "../utilities";
  *     ],
  * }, { dependsOn: [exampleLogGroup] });
  * ```
- *
  * ### Enabling IAM Roles for Service Accounts
+ *
+ * Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -94,6 +97,8 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: exampleAssumeRolePolicy.json,
  * });
  * ```
+ *
+ * After adding inline IAM Policies (e.g. `aws.iam.RolePolicy` resource) or attaching IAM Policies (e.g. `aws.iam.Policy` resource and `aws.iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g. `kubernetesServiceAccount` resource) and recreate any pods.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

@@ -60,7 +60,8 @@ def get_region(endpoint=None,name=None,opts=None):
 
     ## Example Usage
 
-
+    The following example shows how the resource might be used to obtain
+    the name of the AWS region configured on the provider.
 
     ```python
     import pulumi

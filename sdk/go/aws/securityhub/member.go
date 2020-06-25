@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -26,11 +24,11 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+// 		_, err = securityhub.NewAccount(ctx, "exampleAccount", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleMember, err := securityhub.NewMember(ctx, "exampleMember", &securityhub.MemberArgs{
+// 		_, err = securityhub.NewMember(ctx, "exampleMember", &securityhub.MemberArgs{
 // 			AccountId: pulumi.String("123456789012"),
 // 			Email:     pulumi.String("example@example.com"),
 // 			Invite:    pulumi.Bool(true),

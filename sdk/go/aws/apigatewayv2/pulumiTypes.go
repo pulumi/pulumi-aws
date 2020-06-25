@@ -28,8 +28,7 @@ type ApiCorsConfiguration struct {
 // ApiCorsConfigurationInput is an input type that accepts ApiCorsConfigurationArgs and ApiCorsConfigurationOutput values.
 // You can construct a concrete instance of `ApiCorsConfigurationInput` via:
 //
-// 		 ApiCorsConfigurationArgs{...}
-//
+//          ApiCorsConfigurationArgs{...}
 type ApiCorsConfigurationInput interface {
 	pulumi.Input
 
@@ -75,12 +74,11 @@ func (i ApiCorsConfigurationArgs) ToApiCorsConfigurationPtrOutputWithContext(ctx
 // ApiCorsConfigurationPtrInput is an input type that accepts ApiCorsConfigurationArgs, ApiCorsConfigurationPtr and ApiCorsConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApiCorsConfigurationPtrInput` via:
 //
-// 		 ApiCorsConfigurationArgs{...}
+//          ApiCorsConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ApiCorsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -248,8 +246,7 @@ type AuthorizerJwtConfiguration struct {
 // AuthorizerJwtConfigurationInput is an input type that accepts AuthorizerJwtConfigurationArgs and AuthorizerJwtConfigurationOutput values.
 // You can construct a concrete instance of `AuthorizerJwtConfigurationInput` via:
 //
-// 		 AuthorizerJwtConfigurationArgs{...}
-//
+//          AuthorizerJwtConfigurationArgs{...}
 type AuthorizerJwtConfigurationInput interface {
 	pulumi.Input
 
@@ -287,12 +284,11 @@ func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationPtrOutputWit
 // AuthorizerJwtConfigurationPtrInput is an input type that accepts AuthorizerJwtConfigurationArgs, AuthorizerJwtConfigurationPtr and AuthorizerJwtConfigurationPtrOutput values.
 // You can construct a concrete instance of `AuthorizerJwtConfigurationPtrInput` via:
 //
-// 		 AuthorizerJwtConfigurationArgs{...}
+//          AuthorizerJwtConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AuthorizerJwtConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -407,8 +403,7 @@ type DomainNameDomainNameConfiguration struct {
 // DomainNameDomainNameConfigurationInput is an input type that accepts DomainNameDomainNameConfigurationArgs and DomainNameDomainNameConfigurationOutput values.
 // You can construct a concrete instance of `DomainNameDomainNameConfigurationInput` via:
 //
-// 		 DomainNameDomainNameConfigurationArgs{...}
-//
+//          DomainNameDomainNameConfigurationArgs{...}
 type DomainNameDomainNameConfigurationInput interface {
 	pulumi.Input
 
@@ -453,12 +448,11 @@ func (i DomainNameDomainNameConfigurationArgs) ToDomainNameDomainNameConfigurati
 // DomainNameDomainNameConfigurationPtrInput is an input type that accepts DomainNameDomainNameConfigurationArgs, DomainNameDomainNameConfigurationPtr and DomainNameDomainNameConfigurationPtrOutput values.
 // You can construct a concrete instance of `DomainNameDomainNameConfigurationPtrInput` via:
 //
-// 		 DomainNameDomainNameConfigurationArgs{...}
+//          DomainNameDomainNameConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DomainNameDomainNameConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -613,8 +607,7 @@ type StageAccessLogSettings struct {
 // StageAccessLogSettingsInput is an input type that accepts StageAccessLogSettingsArgs and StageAccessLogSettingsOutput values.
 // You can construct a concrete instance of `StageAccessLogSettingsInput` via:
 //
-// 		 StageAccessLogSettingsArgs{...}
-//
+//          StageAccessLogSettingsArgs{...}
 type StageAccessLogSettingsInput interface {
 	pulumi.Input
 
@@ -652,12 +645,11 @@ func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsPtrOutputWithContext
 // StageAccessLogSettingsPtrInput is an input type that accepts StageAccessLogSettingsArgs, StageAccessLogSettingsPtr and StageAccessLogSettingsPtrOutput values.
 // You can construct a concrete instance of `StageAccessLogSettingsPtrInput` via:
 //
-// 		 StageAccessLogSettingsArgs{...}
+//          StageAccessLogSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type StageAccessLogSettingsPtrInput interface {
 	pulumi.Input
 
@@ -773,8 +765,7 @@ type StageDefaultRouteSettings struct {
 // StageDefaultRouteSettingsInput is an input type that accepts StageDefaultRouteSettingsArgs and StageDefaultRouteSettingsOutput values.
 // You can construct a concrete instance of `StageDefaultRouteSettingsInput` via:
 //
-// 		 StageDefaultRouteSettingsArgs{...}
-//
+//          StageDefaultRouteSettingsArgs{...}
 type StageDefaultRouteSettingsInput interface {
 	pulumi.Input
 
@@ -820,12 +811,11 @@ func (i StageDefaultRouteSettingsArgs) ToStageDefaultRouteSettingsPtrOutputWithC
 // StageDefaultRouteSettingsPtrInput is an input type that accepts StageDefaultRouteSettingsArgs, StageDefaultRouteSettingsPtr and StageDefaultRouteSettingsPtrOutput values.
 // You can construct a concrete instance of `StageDefaultRouteSettingsPtrInput` via:
 //
-// 		 StageDefaultRouteSettingsArgs{...}
+//          StageDefaultRouteSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type StageDefaultRouteSettingsPtrInput interface {
 	pulumi.Input
 
@@ -992,8 +982,7 @@ type StageRouteSetting struct {
 // StageRouteSettingInput is an input type that accepts StageRouteSettingArgs and StageRouteSettingOutput values.
 // You can construct a concrete instance of `StageRouteSettingInput` via:
 //
-// 		 StageRouteSettingArgs{...}
-//
+//          StageRouteSettingArgs{...}
 type StageRouteSettingInput interface {
 	pulumi.Input
 
@@ -1033,8 +1022,7 @@ func (i StageRouteSettingArgs) ToStageRouteSettingOutputWithContext(ctx context.
 // StageRouteSettingArrayInput is an input type that accepts StageRouteSettingArray and StageRouteSettingArrayOutput values.
 // You can construct a concrete instance of `StageRouteSettingArrayInput` via:
 //
-// 		 StageRouteSettingArray{ StageRouteSettingArgs{...} }
-//
+//          StageRouteSettingArray{ StageRouteSettingArgs{...} }
 type StageRouteSettingArrayInput interface {
 	pulumi.Input
 

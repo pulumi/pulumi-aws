@@ -15,7 +15,8 @@ import (
 //
 // ## Example Usage
 //
-//
+// The following example shows how one might accept a Route Table id as a variable
+// and use this data source to obtain the data necessary to create a route.
 //
 // ```go
 // package main
@@ -27,13 +28,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := subnetId
 // 		selected, err := ec2.LookupRouteTable(ctx, &ec2.LookupRouteTableArgs{
-// 			SubnetId: subnetId,
+// 			SubnetId: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		route, err := ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
+// 		_, err = ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
 // 			DestinationCidrBlock:   pulumi.String("10.0.1.0/22"),
 // 			RouteTableId:           pulumi.String(selected.Id),
 // 			VpcPeeringConnectionId: pulumi.String("pcx-45ff3dc1"),

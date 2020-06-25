@@ -63,8 +63,6 @@ def get_selection(plan_id=None,selection_id=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

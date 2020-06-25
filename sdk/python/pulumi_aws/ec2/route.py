@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Route(pulumi.CustomResource):
     destination_cidr_block: pulumi.Output[str]
     """
@@ -66,8 +67,6 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -77,7 +76,6 @@ class Route(pulumi.CustomResource):
             destination_cidr_block="10.0.1.0/22",
             vpc_peering_connection_id="pcx-45ff3dc1")
         ```
-
         ## Example IPv6 Usage
 
         ```python
@@ -185,9 +183,9 @@ class Route(pulumi.CustomResource):
         __props__["transit_gateway_id"] = transit_gateway_id
         __props__["vpc_peering_connection_id"] = vpc_peering_connection_id
         return Route(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

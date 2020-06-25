@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -26,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := globalaccelerator.NewEndpointGroup(ctx, "example", &globalaccelerator.EndpointGroupArgs{
+// 		_, err = globalaccelerator.NewEndpointGroup(ctx, "example", &globalaccelerator.EndpointGroupArgs{
 // 			EndpointConfigurations: globalaccelerator.EndpointGroupEndpointConfigurationArray{
 // 				&globalaccelerator.EndpointGroupEndpointConfigurationArgs{
 // 					EndpointId: pulumi.String(aws_lb.Example.Arn),

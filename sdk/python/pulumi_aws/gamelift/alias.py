@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Alias(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -39,8 +40,6 @@ class Alias(pulumi.CustomResource):
         Provides a Gamelift Alias resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -128,9 +127,9 @@ class Alias(pulumi.CustomResource):
         __props__["routing_strategy"] = routing_strategy
         __props__["tags"] = tags
         return Alias(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

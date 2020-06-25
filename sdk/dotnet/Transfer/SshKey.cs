@@ -12,7 +12,6 @@ namespace Pulumi.Aws.Transfer
     /// <summary>
     /// Provides a AWS Transfer User SSH Key resource.
     /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

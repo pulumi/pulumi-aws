@@ -136,8 +136,6 @@ def get_vpc_endpoint(filters=None,id=None,service_name=None,state=None,tags=None
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

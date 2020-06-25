@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -37,6 +35,8 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// }
     /// ```
+    /// 
+    /// &gt; **NOTE**: One of `size` or `snapshot_id` is required when specifying an EBS volume
     /// </summary>
     public partial class Volume : Pulumi.CustomResource
     {

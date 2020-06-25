@@ -15,8 +15,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -27,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		web, err := ec2.NewPlacementGroup(ctx, "web", &ec2.PlacementGroupArgs{
+// 		_, err = ec2.NewPlacementGroup(ctx, "web", &ec2.PlacementGroupArgs{
 // 			Strategy: pulumi.String("cluster"),
 // 		})
 // 		if err != nil {

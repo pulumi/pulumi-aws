@@ -51,7 +51,7 @@ def get_vpcs(filters=None,tags=None,opts=None):
 
     ## Example Usage
 
-
+    The following shows outputing all VPC Ids.
 
     ```python
     import pulumi
@@ -60,6 +60,19 @@ def get_vpcs(filters=None,tags=None,opts=None):
     foo_vpcs = aws.ec2.get_vpcs(tags={
         "service": "production",
     })
+    pulumi.export("foo", foo_vpcs.ids)
+    ```
+
+    An example use case would be interpolate the `ec2.getVpcs` output into `count` of an ec2.FlowLog resource.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo_vpcs = aws.ec2.get_vpcs()
+    test_flow_log = []
+    for range in [{"value": i} for i in range(0, len(foo_vpcs.ids))]:
+        test_flow_log.append(aws.ec2.FlowLog(f"testFlowLog-{range['value']}", vpc_id=foo_vpcs.ids[range["value"]]))
     pulumi.export("foo", foo_vpcs.ids)
     ```
 

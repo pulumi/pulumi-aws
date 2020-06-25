@@ -13,7 +13,6 @@ namespace Pulumi.Aws.S3
     /// Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Add inventory configuration
     /// 
     /// ```csharp
@@ -51,7 +50,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// 
     /// ### Add inventory configuration with S3 bucket object prefix
     /// 
     /// ```csharp

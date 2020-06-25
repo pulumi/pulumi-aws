@@ -16,8 +16,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -28,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := datasync.NewNfsLocation(ctx, "example", &datasync.NfsLocationArgs{
+// 		_, err = datasync.NewNfsLocation(ctx, "example", &datasync.NfsLocationArgs{
 // 			OnPremConfig: &datasync.NfsLocationOnPremConfigArgs{
 // 				AgentArns: pulumi.StringArray{
 // 					pulumi.String(aws_datasync_agent.Example.Arn),

@@ -17,7 +17,6 @@ import (
 // by creating an `directconnect.GatewayAssociation` resource with the `proposalId` and `associatedGatewayOwnerAccountId` attributes set.
 //
 // ## Example Usage
-//
 // ### VPN Gateway Association
 //
 // ```go
@@ -49,7 +48,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleGatewayAssociation, err := directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
+// 		_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
 // 			AssociatedGatewayId: exampleVpnGateway.ID(),
 // 			DxGatewayId:         exampleGateway.ID(),
 // 		})
@@ -60,7 +59,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Transit Gateway Association
 //
 // ```go
@@ -84,7 +82,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleGatewayAssociation, err := directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
+// 		_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
 // 			AllowedPrefixes: pulumi.StringArray{
 // 				pulumi.String("10.255.255.0/30"),
 // 				pulumi.String("10.255.255.8/30"),
@@ -99,7 +97,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Allowed Prefixes
 //
 // ```go
@@ -131,7 +128,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleGatewayAssociation, err := directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
+// 		_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
 // 			AllowedPrefixes: pulumi.StringArray{
 // 				pulumi.String("210.52.109.0/24"),
 // 				pulumi.String("175.45.176.0/22"),
@@ -146,6 +143,8 @@ import (
 // 	})
 // }
 // ```
+//
+// A full example of how to create a VPN Gateway in one AWS account, create a Direct Connect Gateway in a second AWS account, and associate the VPN Gateway with the Direct Connect Gateway via the `directconnect.GatewayAssociationProposal` and `directconnect.GatewayAssociation` resources can be found in [the `./examples/dx-gateway-cross-account-vgw-association` directory within the Github Repository](https://github.com/providers/provider-aws/tree/master/examples/dx-gateway-cross-account-vgw-association).
 type GatewayAssociation struct {
 	pulumi.CustomResourceState
 

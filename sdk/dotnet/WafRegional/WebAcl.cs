@@ -13,7 +13,6 @@ namespace Pulumi.Aws.WafRegional
     /// Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Regular Rule
     /// 
     /// ```csharp
@@ -73,7 +72,6 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// }
     /// ```
-    /// 
     /// ### Group Rule
     /// 
     /// ```csharp
@@ -109,8 +107,9 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// }
     /// ```
-    /// 
     /// ### Logging
+    /// 
+    /// &gt; *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-`. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
     /// 
     /// ```csharp
     /// using Pulumi;

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Member(pulumi.CustomResource):
     account_id: pulumi.Output[str]
     """
@@ -35,8 +36,6 @@ class Member(pulumi.CustomResource):
         Provides a Security Hub member resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -112,9 +111,9 @@ class Member(pulumi.CustomResource):
         __props__["master_id"] = master_id
         __props__["member_status"] = member_status
         return Member(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

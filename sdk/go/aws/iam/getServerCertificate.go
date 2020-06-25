@@ -9,7 +9,7 @@ import (
 
 // Use this data source to lookup information about IAM Server Certificates.
 //
-//
+// ## Example Usage
 // ## Import
 //
 // The import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn.

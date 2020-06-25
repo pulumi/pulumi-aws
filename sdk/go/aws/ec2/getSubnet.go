@@ -15,7 +15,9 @@ import (
 //
 // ## Example Usage
 //
-//
+// The following example shows how one might accept a subnet id as a variable
+// and use this data source to obtain the data necessary to create a security
+// group that allows connections from hosts in that subnet.
 //
 // ```go
 // package main
@@ -27,13 +29,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := subnetId
 // 		selected, err := ec2.LookupSubnet(ctx, &ec2.LookupSubnetArgs{
-// 			Id: subnetId,
+// 			Id: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		subnet, err := ec2.NewSecurityGroup(ctx, "subnet", &ec2.SecurityGroupArgs{
+// 		_, err = ec2.NewSecurityGroup(ctx, "subnet", &ec2.SecurityGroupArgs{
 // 			Ingress: ec2.SecurityGroupIngressArray{
 // 				&ec2.SecurityGroupIngressArgs{
 // 					CidrBlocks: pulumi.StringArray{

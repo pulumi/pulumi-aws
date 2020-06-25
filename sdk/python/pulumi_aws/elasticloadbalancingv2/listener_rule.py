@@ -10,6 +10,8 @@ from typing import Union
 from .. import utilities, tables
 
 warnings.warn("aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule", DeprecationWarning)
+
+
 class ListenerRule(pulumi.CustomResource):
     actions: pulumi.Output[list]
     """
@@ -104,6 +106,7 @@ class ListenerRule(pulumi.CustomResource):
     The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
     """
     warnings.warn("aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, actions=None, conditions=None, listener_arn=None, priority=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Load Balancer Listener Rule resource.
@@ -111,8 +114,6 @@ class ListenerRule(pulumi.CustomResource):
         > **Note:** `alb.ListenerRule` is known as `lb.ListenerRule`. The functionality is identical.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -458,9 +459,9 @@ class ListenerRule(pulumi.CustomResource):
         __props__["listener_arn"] = listener_arn
         __props__["priority"] = priority
         return ListenerRule(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Waf
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -73,8 +71,9 @@ namespace Pulumi.Aws.Waf
     /// 
     /// }
     /// ```
-    /// 
     /// ### Logging
+    /// 
+    /// &gt; *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
     /// 
     /// ```csharp
     /// using Pulumi;

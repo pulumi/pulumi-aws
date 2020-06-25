@@ -16,8 +16,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -28,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := licensemanager.NewLicenseConfiguration(ctx, "example", &licensemanager.LicenseConfigurationArgs{
+// 		_, err = licensemanager.NewLicenseConfiguration(ctx, "example", &licensemanager.LicenseConfigurationArgs{
 // 			Description:           pulumi.String("Example"),
 // 			LicenseCount:          pulumi.Int(10),
 // 			LicenseCountHardLimit: pulumi.Bool(true),
@@ -36,8 +34,8 @@ import (
 // 			LicenseRules: pulumi.StringArray{
 // 				pulumi.String("#minimumSockets=2"),
 // 			},
-// 			Tags: map[string]interface{}{
-// 				"foo": "barr",
+// 			Tags: pulumi.Map{
+// 				"foo": pulumi.String("barr"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -47,7 +45,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Rules
 //
 // License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:

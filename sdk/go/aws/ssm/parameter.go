@@ -14,7 +14,7 @@ import (
 //
 // ## Example Usage
 //
-//
+// To store a basic string parameter:
 //
 // ```go
 // package main
@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		foo, err := ssm.NewParameter(ctx, "foo", &ssm.ParameterArgs{
+// 		_, err = ssm.NewParameter(ctx, "foo", &ssm.ParameterArgs{
 // 			Type:  pulumi.String("String"),
 // 			Value: pulumi.String("bar"),
 // 		})
@@ -37,6 +37,10 @@ import (
 // 	})
 // }
 // ```
+//
+// To store an encrypted string using the default SSM KMS key:
+//
+// > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 type Parameter struct {
 	pulumi.CustomResourceState
 

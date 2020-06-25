@@ -193,8 +193,6 @@ def get_function(function_name=None,qualifier=None,tags=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

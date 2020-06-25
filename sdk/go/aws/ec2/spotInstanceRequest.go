@@ -33,10 +33,7 @@ import (
 // documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 // for more information.
 //
-//
 // ## Example Usage
-//
-//
 //
 // ```go
 // package main
@@ -48,12 +45,12 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cheapWorker, err := ec2.NewSpotInstanceRequest(ctx, "cheapWorker", &ec2.SpotInstanceRequestArgs{
+// 		_, err = ec2.NewSpotInstanceRequest(ctx, "cheapWorker", &ec2.SpotInstanceRequestArgs{
 // 			Ami:          pulumi.String("ami-1234"),
 // 			InstanceType: pulumi.String("c4.xlarge"),
 // 			SpotPrice:    pulumi.String("0.03"),
-// 			Tags: map[string]interface{}{
-// 				"Name": "CheapWorker",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("CheapWorker"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -163,8 +160,8 @@ type SpotInstanceRequest struct {
 	// status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
 	// of the Spot Instance Request.
 	// * `spotRequestState` The current [request
-	// state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-	// of the Spot Instance Request.
+	//   state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+	//   of the Spot Instance Request.
 	SpotBidStatus pulumi.StringOutput `pulumi:"spotBidStatus"`
 	// The Instance ID (if any) that is currently fulfilling
 	// the Spot Instance request.
@@ -330,8 +327,8 @@ type spotInstanceRequestState struct {
 	// status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
 	// of the Spot Instance Request.
 	// * `spotRequestState` The current [request
-	// state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-	// of the Spot Instance Request.
+	//   state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+	//   of the Spot Instance Request.
 	SpotBidStatus *string `pulumi:"spotBidStatus"`
 	// The Instance ID (if any) that is currently fulfilling
 	// the Spot Instance request.
@@ -464,8 +461,8 @@ type SpotInstanceRequestState struct {
 	// status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
 	// of the Spot Instance Request.
 	// * `spotRequestState` The current [request
-	// state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-	// of the Spot Instance Request.
+	//   state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+	//   of the Spot Instance Request.
 	SpotBidStatus pulumi.StringPtrInput
 	// The Instance ID (if any) that is currently fulfilling
 	// the Spot Instance request.

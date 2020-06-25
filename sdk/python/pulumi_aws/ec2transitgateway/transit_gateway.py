@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class TransitGateway(pulumi.CustomResource):
     amazon_side_asn: pulumi.Output[float]
     """
@@ -63,8 +64,6 @@ class TransitGateway(pulumi.CustomResource):
         Manages an EC2 Transit Gateway.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -158,9 +157,9 @@ class TransitGateway(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["vpn_ecmp_support"] = vpn_ecmp_support
         return TransitGateway(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

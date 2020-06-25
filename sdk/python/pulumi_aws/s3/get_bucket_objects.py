@@ -85,7 +85,7 @@ def get_bucket_objects(bucket=None,delimiter=None,encoding_type=None,fetch_owner
 
     ## Example Usage
 
-
+    The following example retrieves a list of all object keys in an S3 bucket and creates corresponding object data sources:
 
     ```python
     import pulumi

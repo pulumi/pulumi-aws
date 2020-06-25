@@ -52,7 +52,7 @@ def get_ebs_volumes(filters=None,tags=None,opts=None):
 
     ## Example Usage
 
-
+    The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
 
     ```python
     import pulumi

@@ -11,13 +11,39 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
+ * Enabled AWS Regions:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = pulumi.output(aws.getRegions({ async: true }));
+ * ```
+ *
+ * All the regions regardless of the availability
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = pulumi.output(aws.getRegions({
+ *     allRegions: true,
+ * }, { async: true }));
+ * ```
+ *
+ * To see regions that are filtered by `"not-opted-in"`, the `allRegions` argument needs to be set to `true` or no results will be returned.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = pulumi.output(aws.getRegions({
+ *     allRegions: true,
+ *     filters: [{
+ *         name: "opt-in-status",
+ *         values: ["not-opted-in"],
+ *     }],
+ * }, { async: true }));
  * ```
  */
 export function getRegions(args?: GetRegionsArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionsResult> {

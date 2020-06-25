@@ -15,7 +15,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Forward Action
     /// 
     /// ```csharp
@@ -52,7 +51,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// 
     /// }
     /// ```
-    /// 
     /// ### Redirect Action
     /// 
     /// ```csharp
@@ -89,7 +87,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// 
     /// }
     /// ```
-    /// 
     /// ### Fixed-response Action
     /// 
     /// ```csharp
@@ -126,7 +123,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// 
     /// }
     /// ```
-    /// 
     /// ### Authenticate-cognito Action
     /// 
     /// ```csharp
@@ -180,7 +176,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// 
     /// }
     /// ```
-    /// 
     /// ### Authenticate-oidc Action
     /// 
     /// ```csharp

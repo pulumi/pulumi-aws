@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Provides a resource to manage a CloudWatch log resource policy.
  *
  * ## Example Usage
- *
  * ### Elasticsearch Log Publishing
  *
  * ```typescript
@@ -34,7 +33,6 @@ import * as utilities from "../utilities";
  *     policyName: "elasticsearch-log-publishing-policy",
  * });
  * ```
- *
  * ### Route53 Query Logging
  *
  * ```typescript

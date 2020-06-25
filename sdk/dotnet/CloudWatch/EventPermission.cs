@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CloudWatch
     /// Provides a resource to create a CloudWatch Events permission to support cross-account events in the current account default event bus.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Account Access
     /// 
     /// ```csharp
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
-    /// 
     /// ### Organization Access
     /// 
     /// ```csharp

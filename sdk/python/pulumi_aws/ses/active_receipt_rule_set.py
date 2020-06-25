@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ActiveReceiptRuleSet(pulumi.CustomResource):
     rule_set_name: pulumi.Output[str]
     """
@@ -19,8 +20,6 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
         Provides a resource to designate the active SES receipt rule set
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -76,9 +75,9 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
 
         __props__["rule_set_name"] = rule_set_name
         return ActiveReceiptRuleSet(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

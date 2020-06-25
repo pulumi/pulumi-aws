@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -65,7 +63,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// }
     /// ```
-    /// 
     /// ## Attributes
     /// 
     /// The following additional atttributes are provided:

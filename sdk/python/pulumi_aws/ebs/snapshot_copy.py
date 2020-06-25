@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class SnapshotCopy(pulumi.CustomResource):
     data_encryption_key_id: pulumi.Output[str]
     """
@@ -58,8 +59,6 @@ class SnapshotCopy(pulumi.CustomResource):
         Creates a Snapshot of a snapshot.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -169,9 +168,9 @@ class SnapshotCopy(pulumi.CustomResource):
         __props__["volume_id"] = volume_id
         __props__["volume_size"] = volume_size
         return SnapshotCopy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

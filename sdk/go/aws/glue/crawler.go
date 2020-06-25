@@ -13,7 +13,6 @@ import (
 // Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
 //
 // ## Example Usage
-//
 // ### DynamoDB Target
 //
 // ```go
@@ -26,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+// 		_, err = glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
 // 			DatabaseName: pulumi.String(aws_glue_catalog_database.Example.Name),
 // 			DynamodbTargets: glue.CrawlerDynamodbTargetArray{
 // 				&glue.CrawlerDynamodbTargetArgs{
@@ -34,6 +33,67 @@ import (
 // 				},
 // 			},
 // 			Role: pulumi.String(aws_iam_role.Example.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### JDBC Target
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+// 			DatabaseName: pulumi.String(aws_glue_catalog_database.Example.Name),
+// 			JdbcTargets: glue.CrawlerJdbcTargetArray{
+// 				&glue.CrawlerJdbcTargetArgs{
+// 					ConnectionName: pulumi.String(aws_glue_connection.Example.Name),
+// 					Path:           pulumi.String(fmt.Sprintf("%v%v", "database-name/", "%")),
+// 				},
+// 			},
+// 			Role: pulumi.String(aws_iam_role.Example.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### S3 Target
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+// 			DatabaseName: pulumi.String(aws_glue_catalog_database.Example.Name),
+// 			Role:         pulumi.String(aws_iam_role.Example.Arn),
+// 			S3Targets: glue.CrawlerS3TargetArray{
+// 				&glue.CrawlerS3TargetArgs{
+// 					Path: pulumi.String(fmt.Sprintf("%v%v", "s3://", aws_s3_bucket.Example.Bucket)),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

@@ -58,8 +58,6 @@ def get_ami_ids(executable_users=None,filters=None,name_regex=None,owners=None,s
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

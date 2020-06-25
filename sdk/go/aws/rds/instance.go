@@ -37,8 +37,7 @@ import (
 // about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
 //
 // ## Example Usage
-//
-// ### Storage Autoscaling
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -50,7 +49,39 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := rds.NewInstance(ctx, "example", &rds.InstanceArgs{
+// 		_, err = rds.NewInstance(ctx, "default", &rds.InstanceArgs{
+// 			AllocatedStorage:   pulumi.Int(20),
+// 			Engine:             pulumi.String("mysql"),
+// 			EngineVersion:      pulumi.String("5.7"),
+// 			InstanceClass:      pulumi.String("db.t2.micro"),
+// 			Name:               pulumi.String("mydb"),
+// 			ParameterGroupName: pulumi.String("default.mysql5.7"),
+// 			Password:           pulumi.String("foobarbaz"),
+// 			StorageType:        pulumi.String("gp2"),
+// 			Username:           pulumi.String("foo"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Storage Autoscaling
+//
+// To enable Storage Autoscaling with instances that support the feature, define the `maxAllocatedStorage` argument higher than the `allocatedStorage` argument. This provider will automatically hide differences with the `allocatedStorage` argument value if autoscaling occurs.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = rds.NewInstance(ctx, "example", &rds.InstanceArgs{
 // 			AllocatedStorage:    pulumi.Int(50),
 // 			MaxAllocatedStorage: pulumi.Int(100),
 // 		})

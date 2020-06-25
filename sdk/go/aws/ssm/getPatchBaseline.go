@@ -11,21 +11,53 @@ import (
 //
 // ## Example Usage
 //
-//
+// To retrieve a baseline provided by AWS:
 //
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ssm"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		centos, err := ssm.LookupPatchBaseline(ctx, &ssm.LookupPatchBaselineArgs{
-// 			NamePrefix:      "AWS-",
-// 			OperatingSystem: "CENTOS",
+// 		opt0 := "AWS-"
+// 		opt1 := "CENTOS"
+// 		_, err := ssm.LookupPatchBaseline(ctx, &ssm.LookupPatchBaselineArgs{
+// 			NamePrefix:      &opt0,
+// 			OperatingSystem: &opt1,
 // 			Owner:           "AWS",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// To retrieve a baseline on your account:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		opt1 := "MyCustomBaseline"
+// 		opt2 := "WINDOWS"
+// 		_, err := ssm.LookupPatchBaseline(ctx, &ssm.LookupPatchBaselineArgs{
+// 			DefaultBaseline: &opt0,
+// 			NamePrefix:      &opt1,
+// 			OperatingSystem: &opt2,
+// 			Owner:           "Self",
 // 		}, nil)
 // 		if err != nil {
 // 			return err

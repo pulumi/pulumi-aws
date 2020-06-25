@@ -18,8 +18,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,8 +31,8 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
 // 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 			Tags: map[string]interface{}{
-// 				"Name": "tf-test",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("tf-test"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -43,15 +41,15 @@ import (
 // 		fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			CidrBlock:        pulumi.String("10.0.0.0/24"),
-// 			Tags: map[string]interface{}{
-// 				"Name": "tf-test",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("tf-test"),
 // 			},
 // 			VpcId: fooVpc.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		bar, err := elasticache.NewSubnetGroup(ctx, "bar", &elasticache.SubnetGroupArgs{
+// 		_, err = elasticache.NewSubnetGroup(ctx, "bar", &elasticache.SubnetGroupArgs{
 // 			SubnetIds: pulumi.StringArray{
 // 				fooSubnet.ID(),
 // 			},

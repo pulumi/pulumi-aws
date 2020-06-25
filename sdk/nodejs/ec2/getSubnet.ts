@@ -15,7 +15,9 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example shows how one might accept a subnet id as a variable
+ * and use this data source to obtain the data necessary to create a security
+ * group that allows connections from hosts in that subnet.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

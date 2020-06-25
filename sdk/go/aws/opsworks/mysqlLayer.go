@@ -16,8 +16,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -28,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		db, err := opsworks.NewMysqlLayer(ctx, "db", &opsworks.MysqlLayerArgs{
+// 		_, err = opsworks.NewMysqlLayer(ctx, "db", &opsworks.MysqlLayerArgs{
 // 			StackId: pulumi.String(aws_opsworks_stack.Main.Id),
 // 		})
 // 		if err != nil {

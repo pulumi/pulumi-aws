@@ -18,8 +18,7 @@ type RegexPatternSetRegularExpression struct {
 // RegexPatternSetRegularExpressionInput is an input type that accepts RegexPatternSetRegularExpressionArgs and RegexPatternSetRegularExpressionOutput values.
 // You can construct a concrete instance of `RegexPatternSetRegularExpressionInput` via:
 //
-// 		 RegexPatternSetRegularExpressionArgs{...}
-//
+//          RegexPatternSetRegularExpressionArgs{...}
 type RegexPatternSetRegularExpressionInput interface {
 	pulumi.Input
 
@@ -47,8 +46,7 @@ func (i RegexPatternSetRegularExpressionArgs) ToRegexPatternSetRegularExpression
 // RegexPatternSetRegularExpressionArrayInput is an input type that accepts RegexPatternSetRegularExpressionArray and RegexPatternSetRegularExpressionArrayOutput values.
 // You can construct a concrete instance of `RegexPatternSetRegularExpressionArrayInput` via:
 //
-// 		 RegexPatternSetRegularExpressionArray{ RegexPatternSetRegularExpressionArgs{...} }
-//
+//          RegexPatternSetRegularExpressionArray{ RegexPatternSetRegularExpressionArgs{...} }
 type RegexPatternSetRegularExpressionArrayInput interface {
 	pulumi.Input
 
@@ -117,8 +115,7 @@ type GetRegexPatternSetRegularExpression struct {
 // GetRegexPatternSetRegularExpressionInput is an input type that accepts GetRegexPatternSetRegularExpressionArgs and GetRegexPatternSetRegularExpressionOutput values.
 // You can construct a concrete instance of `GetRegexPatternSetRegularExpressionInput` via:
 //
-// 		 GetRegexPatternSetRegularExpressionArgs{...}
-//
+//          GetRegexPatternSetRegularExpressionArgs{...}
 type GetRegexPatternSetRegularExpressionInput interface {
 	pulumi.Input
 
@@ -146,8 +143,7 @@ func (i GetRegexPatternSetRegularExpressionArgs) ToGetRegexPatternSetRegularExpr
 // GetRegexPatternSetRegularExpressionArrayInput is an input type that accepts GetRegexPatternSetRegularExpressionArray and GetRegexPatternSetRegularExpressionArrayOutput values.
 // You can construct a concrete instance of `GetRegexPatternSetRegularExpressionArrayInput` via:
 //
-// 		 GetRegexPatternSetRegularExpressionArray{ GetRegexPatternSetRegularExpressionArgs{...} }
-//
+//          GetRegexPatternSetRegularExpressionArray{ GetRegexPatternSetRegularExpressionArgs{...} }
 type GetRegexPatternSetRegularExpressionArrayInput interface {
 	pulumi.Input
 

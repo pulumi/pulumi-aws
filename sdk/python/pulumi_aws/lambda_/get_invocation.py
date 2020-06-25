@@ -40,6 +40,7 @@ class GetInvocationResult:
         if result_map is not None:
             warnings.warn("use `result` attribute with jsondecode() function", DeprecationWarning)
             pulumi.log.warn("result_map is deprecated: use `result` attribute with jsondecode() function")
+
         __self__.result_map = result_map
         """
         (**DEPRECATED**) This field is set only if result is a map of primitive types, where the map is string keys and string values.

@@ -13,8 +13,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -25,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		byteSet, err := waf.NewByteMatchSet(ctx, "byteSet", &waf.ByteMatchSetArgs{
+// 		_, err = waf.NewByteMatchSet(ctx, "byteSet", &waf.ByteMatchSetArgs{
 // 			ByteMatchTuples: waf.ByteMatchSetByteMatchTupleArray{
 // 				&waf.ByteMatchSetByteMatchTupleArgs{
 // 					FieldToMatch: &waf.ByteMatchSetByteMatchTupleFieldToMatchArgs{

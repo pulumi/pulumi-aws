@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following shows outputing all cidr blocks for every subnet id in a vpc.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,6 +26,30 @@ import * as utilities from "../utilities";
  *     id: __value,
  * })));
  * export const subnetCidrBlocks = exampleSubnet.map(s => s.cidrBlock);
+ * ```
+ *
+ * The following example retrieves a set of all subnets in a VPC with a custom
+ * tag of `Tier` set to a value of "Private" so that the `aws.ec2.Instance` resource
+ * can loop through the subnets, putting instances across availability zones.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const private = aws.ec2.getSubnetIds({
+ *     vpcId: _var.vpc_id,
+ *     tags: {
+ *         Tier: "Private",
+ *     },
+ * });
+ * const app: aws.ec2.Instance[];
+ * for (const range = {value: 0}; range.value < data.aws_subnet_ids.example.ids; range.value++) {
+ *     app.push(new aws.ec2.Instance(`app-${range.value}`, {
+ *         ami: _var.ami,
+ *         instanceType: "t2.micro",
+ *         subnetId: range.value,
+ *     }));
+ * }
  * ```
  */
 export function getSubnetIds(args: GetSubnetIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetIdsResult> {

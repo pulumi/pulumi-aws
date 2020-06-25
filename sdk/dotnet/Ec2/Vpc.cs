@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// Basic usage:
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -27,6 +27,30 @@ namespace Pulumi.Aws.Ec2
     ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
     ///         {
     ///             CidrBlock = "10.0.0.0/16",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Basic usage with tags:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///             InstanceTenancy = "dedicated",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "main" },
+    ///             },
     ///         });
     ///     }
     /// 

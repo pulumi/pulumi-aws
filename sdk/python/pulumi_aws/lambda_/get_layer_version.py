@@ -105,8 +105,6 @@ def get_layer_version(compatible_runtime=None,layer_name=None,version=None,opts=
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

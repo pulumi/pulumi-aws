@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

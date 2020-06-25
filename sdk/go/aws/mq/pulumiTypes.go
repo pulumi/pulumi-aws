@@ -20,8 +20,7 @@ type BrokerConfiguration struct {
 // BrokerConfigurationInput is an input type that accepts BrokerConfigurationArgs and BrokerConfigurationOutput values.
 // You can construct a concrete instance of `BrokerConfigurationInput` via:
 //
-// 		 BrokerConfigurationArgs{...}
-//
+//          BrokerConfigurationArgs{...}
 type BrokerConfigurationInput interface {
 	pulumi.Input
 
@@ -59,12 +58,11 @@ func (i BrokerConfigurationArgs) ToBrokerConfigurationPtrOutputWithContext(ctx c
 // BrokerConfigurationPtrInput is an input type that accepts BrokerConfigurationArgs, BrokerConfigurationPtr and BrokerConfigurationPtrOutput values.
 // You can construct a concrete instance of `BrokerConfigurationPtrInput` via:
 //
-// 		 BrokerConfigurationArgs{...}
+//          BrokerConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type BrokerConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -172,8 +170,7 @@ type BrokerEncryptionOptions struct {
 // BrokerEncryptionOptionsInput is an input type that accepts BrokerEncryptionOptionsArgs and BrokerEncryptionOptionsOutput values.
 // You can construct a concrete instance of `BrokerEncryptionOptionsInput` via:
 //
-// 		 BrokerEncryptionOptionsArgs{...}
-//
+//          BrokerEncryptionOptionsArgs{...}
 type BrokerEncryptionOptionsInput interface {
 	pulumi.Input
 
@@ -211,12 +208,11 @@ func (i BrokerEncryptionOptionsArgs) ToBrokerEncryptionOptionsPtrOutputWithConte
 // BrokerEncryptionOptionsPtrInput is an input type that accepts BrokerEncryptionOptionsArgs, BrokerEncryptionOptionsPtr and BrokerEncryptionOptionsPtrOutput values.
 // You can construct a concrete instance of `BrokerEncryptionOptionsPtrInput` via:
 //
-// 		 BrokerEncryptionOptionsArgs{...}
+//          BrokerEncryptionOptionsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type BrokerEncryptionOptionsPtrInput interface {
 	pulumi.Input
 
@@ -323,8 +319,7 @@ type BrokerInstance struct {
 // BrokerInstanceInput is an input type that accepts BrokerInstanceArgs and BrokerInstanceOutput values.
 // You can construct a concrete instance of `BrokerInstanceInput` via:
 //
-// 		 BrokerInstanceArgs{...}
-//
+//          BrokerInstanceArgs{...}
 type BrokerInstanceInput interface {
 	pulumi.Input
 
@@ -353,8 +348,7 @@ func (i BrokerInstanceArgs) ToBrokerInstanceOutputWithContext(ctx context.Contex
 // BrokerInstanceArrayInput is an input type that accepts BrokerInstanceArray and BrokerInstanceArrayOutput values.
 // You can construct a concrete instance of `BrokerInstanceArrayInput` via:
 //
-// 		 BrokerInstanceArray{ BrokerInstanceArgs{...} }
-//
+//          BrokerInstanceArray{ BrokerInstanceArgs{...} }
 type BrokerInstanceArrayInput interface {
 	pulumi.Input
 
@@ -432,8 +426,7 @@ type BrokerLogs struct {
 // BrokerLogsInput is an input type that accepts BrokerLogsArgs and BrokerLogsOutput values.
 // You can construct a concrete instance of `BrokerLogsInput` via:
 //
-// 		 BrokerLogsArgs{...}
-//
+//          BrokerLogsArgs{...}
 type BrokerLogsInput interface {
 	pulumi.Input
 
@@ -471,12 +464,11 @@ func (i BrokerLogsArgs) ToBrokerLogsPtrOutputWithContext(ctx context.Context) Br
 // BrokerLogsPtrInput is an input type that accepts BrokerLogsArgs, BrokerLogsPtr and BrokerLogsPtrOutput values.
 // You can construct a concrete instance of `BrokerLogsPtrInput` via:
 //
-// 		 BrokerLogsArgs{...}
+//          BrokerLogsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type BrokerLogsPtrInput interface {
 	pulumi.Input
 
@@ -586,8 +578,7 @@ type BrokerMaintenanceWindowStartTime struct {
 // BrokerMaintenanceWindowStartTimeInput is an input type that accepts BrokerMaintenanceWindowStartTimeArgs and BrokerMaintenanceWindowStartTimeOutput values.
 // You can construct a concrete instance of `BrokerMaintenanceWindowStartTimeInput` via:
 //
-// 		 BrokerMaintenanceWindowStartTimeArgs{...}
-//
+//          BrokerMaintenanceWindowStartTimeArgs{...}
 type BrokerMaintenanceWindowStartTimeInput interface {
 	pulumi.Input
 
@@ -627,12 +618,11 @@ func (i BrokerMaintenanceWindowStartTimeArgs) ToBrokerMaintenanceWindowStartTime
 // BrokerMaintenanceWindowStartTimePtrInput is an input type that accepts BrokerMaintenanceWindowStartTimeArgs, BrokerMaintenanceWindowStartTimePtr and BrokerMaintenanceWindowStartTimePtrOutput values.
 // You can construct a concrete instance of `BrokerMaintenanceWindowStartTimePtrInput` via:
 //
-// 		 BrokerMaintenanceWindowStartTimeArgs{...}
+//          BrokerMaintenanceWindowStartTimeArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type BrokerMaintenanceWindowStartTimePtrInput interface {
 	pulumi.Input
 
@@ -759,8 +749,7 @@ type BrokerUser struct {
 // BrokerUserInput is an input type that accepts BrokerUserArgs and BrokerUserOutput values.
 // You can construct a concrete instance of `BrokerUserInput` via:
 //
-// 		 BrokerUserArgs{...}
-//
+//          BrokerUserArgs{...}
 type BrokerUserInput interface {
 	pulumi.Input
 
@@ -794,8 +783,7 @@ func (i BrokerUserArgs) ToBrokerUserOutputWithContext(ctx context.Context) Broke
 // BrokerUserArrayInput is an input type that accepts BrokerUserArray and BrokerUserArrayOutput values.
 // You can construct a concrete instance of `BrokerUserArrayInput` via:
 //
-// 		 BrokerUserArray{ BrokerUserArgs{...} }
-//
+//          BrokerUserArray{ BrokerUserArgs{...} }
 type BrokerUserArrayInput interface {
 	pulumi.Input
 
@@ -879,8 +867,7 @@ type GetBrokerConfiguration struct {
 // GetBrokerConfigurationInput is an input type that accepts GetBrokerConfigurationArgs and GetBrokerConfigurationOutput values.
 // You can construct a concrete instance of `GetBrokerConfigurationInput` via:
 //
-// 		 GetBrokerConfigurationArgs{...}
-//
+//          GetBrokerConfigurationArgs{...}
 type GetBrokerConfigurationInput interface {
 	pulumi.Input
 
@@ -935,8 +922,7 @@ type GetBrokerEncryptionOption struct {
 // GetBrokerEncryptionOptionInput is an input type that accepts GetBrokerEncryptionOptionArgs and GetBrokerEncryptionOptionOutput values.
 // You can construct a concrete instance of `GetBrokerEncryptionOptionInput` via:
 //
-// 		 GetBrokerEncryptionOptionArgs{...}
-//
+//          GetBrokerEncryptionOptionArgs{...}
 type GetBrokerEncryptionOptionInput interface {
 	pulumi.Input
 
@@ -964,8 +950,7 @@ func (i GetBrokerEncryptionOptionArgs) ToGetBrokerEncryptionOptionOutputWithCont
 // GetBrokerEncryptionOptionArrayInput is an input type that accepts GetBrokerEncryptionOptionArray and GetBrokerEncryptionOptionArrayOutput values.
 // You can construct a concrete instance of `GetBrokerEncryptionOptionArrayInput` via:
 //
-// 		 GetBrokerEncryptionOptionArray{ GetBrokerEncryptionOptionArgs{...} }
-//
+//          GetBrokerEncryptionOptionArray{ GetBrokerEncryptionOptionArgs{...} }
 type GetBrokerEncryptionOptionArrayInput interface {
 	pulumi.Input
 
@@ -1038,8 +1023,7 @@ type GetBrokerInstance struct {
 // GetBrokerInstanceInput is an input type that accepts GetBrokerInstanceArgs and GetBrokerInstanceOutput values.
 // You can construct a concrete instance of `GetBrokerInstanceInput` via:
 //
-// 		 GetBrokerInstanceArgs{...}
-//
+//          GetBrokerInstanceArgs{...}
 type GetBrokerInstanceInput interface {
 	pulumi.Input
 
@@ -1068,8 +1052,7 @@ func (i GetBrokerInstanceArgs) ToGetBrokerInstanceOutputWithContext(ctx context.
 // GetBrokerInstanceArrayInput is an input type that accepts GetBrokerInstanceArray and GetBrokerInstanceArrayOutput values.
 // You can construct a concrete instance of `GetBrokerInstanceArrayInput` via:
 //
-// 		 GetBrokerInstanceArray{ GetBrokerInstanceArgs{...} }
-//
+//          GetBrokerInstanceArray{ GetBrokerInstanceArgs{...} }
 type GetBrokerInstanceArrayInput interface {
 	pulumi.Input
 
@@ -1145,8 +1128,7 @@ type GetBrokerLogs struct {
 // GetBrokerLogsInput is an input type that accepts GetBrokerLogsArgs and GetBrokerLogsOutput values.
 // You can construct a concrete instance of `GetBrokerLogsInput` via:
 //
-// 		 GetBrokerLogsArgs{...}
-//
+//          GetBrokerLogsArgs{...}
 type GetBrokerLogsInput interface {
 	pulumi.Input
 
@@ -1202,8 +1184,7 @@ type GetBrokerMaintenanceWindowStartTime struct {
 // GetBrokerMaintenanceWindowStartTimeInput is an input type that accepts GetBrokerMaintenanceWindowStartTimeArgs and GetBrokerMaintenanceWindowStartTimeOutput values.
 // You can construct a concrete instance of `GetBrokerMaintenanceWindowStartTimeInput` via:
 //
-// 		 GetBrokerMaintenanceWindowStartTimeArgs{...}
-//
+//          GetBrokerMaintenanceWindowStartTimeArgs{...}
 type GetBrokerMaintenanceWindowStartTimeInput interface {
 	pulumi.Input
 
@@ -1264,8 +1245,7 @@ type GetBrokerUser struct {
 // GetBrokerUserInput is an input type that accepts GetBrokerUserArgs and GetBrokerUserOutput values.
 // You can construct a concrete instance of `GetBrokerUserInput` via:
 //
-// 		 GetBrokerUserArgs{...}
-//
+//          GetBrokerUserArgs{...}
 type GetBrokerUserInput interface {
 	pulumi.Input
 
@@ -1294,8 +1274,7 @@ func (i GetBrokerUserArgs) ToGetBrokerUserOutputWithContext(ctx context.Context)
 // GetBrokerUserArrayInput is an input type that accepts GetBrokerUserArray and GetBrokerUserArrayOutput values.
 // You can construct a concrete instance of `GetBrokerUserArrayInput` via:
 //
-// 		 GetBrokerUserArray{ GetBrokerUserArgs{...} }
-//
+//          GetBrokerUserArray{ GetBrokerUserArgs{...} }
 type GetBrokerUserArrayInput interface {
 	pulumi.Input
 

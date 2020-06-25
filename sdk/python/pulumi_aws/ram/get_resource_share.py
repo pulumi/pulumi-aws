@@ -74,8 +74,6 @@ def get_resource_share(filters=None,name=None,resource_owner=None,tags=None,opts
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -83,7 +81,6 @@ def get_resource_share(filters=None,name=None,resource_owner=None,tags=None,opts
     example = aws.ram.get_resource_share(name="example",
         resource_owner="SELF")
     ```
-
     ## Search by filters
 
     ```python

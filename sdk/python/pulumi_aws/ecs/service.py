@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Service(pulumi.CustomResource):
     capacity_provider_strategies: pulumi.Output[list]
     """
@@ -145,8 +146,6 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -170,8 +169,9 @@ class Service(pulumi.CustomResource):
                 "expression": "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
             }])
         ```
-
         ### Ignoring Changes to Desired Count
+
+        You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 
         ```python
         import pulumi
@@ -183,7 +183,6 @@ class Service(pulumi.CustomResource):
                 "ignoreChanges": ["desiredCount"],
             })
         ```
-
         ### Daemon Scheduling Strategy
 
         ```python
@@ -425,9 +424,9 @@ class Service(pulumi.CustomResource):
         __props__["task_definition"] = task_definition
         __props__["wait_for_steady_state"] = wait_for_steady_state
         return Service(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class UserPoolClient(pulumi.CustomResource):
     allowed_oauth_flows: pulumi.Output[list]
     """
@@ -27,7 +28,7 @@ class UserPoolClient(pulumi.CustomResource):
     The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
 
       * `application_id` (`str`) - The application ID for an Amazon Pinpoint application.
-      * `externalId` (`str`) - An ID for the Analytics Configuration.
+      * `external_id` (`str`) - An ID for the Analytics Configuration.
       * `role_arn` (`str`) - The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
       * `userDataShared` (`bool`) - If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
     """
@@ -88,7 +89,6 @@ class UserPoolClient(pulumi.CustomResource):
         Provides a Cognito User Pool Client resource.
 
         ## Example Usage
-
         ### Create a basic user pool client
 
         ```python
@@ -98,7 +98,6 @@ class UserPoolClient(pulumi.CustomResource):
         pool = aws.cognito.UserPool("pool")
         client = aws.cognito.UserPoolClient("client", user_pool_id=pool.id)
         ```
-
         ### Create a user pool client with no SRP authentication
 
         ```python
@@ -111,7 +110,6 @@ class UserPoolClient(pulumi.CustomResource):
             generate_secret=True,
             user_pool_id=pool.id)
         ```
-
         ### Create a user pool client with pinpoint analytics
 
         ```python
@@ -156,7 +154,7 @@ class UserPoolClient(pulumi.CustomResource):
         test_user_pool_client = aws.cognito.UserPoolClient("testUserPoolClient",
             analytics_configuration={
                 "application_id": test_app.application_id,
-                "externalId": "some_id",
+                "external_id": "some_id",
                 "role_arn": test_role.arn,
                 "userDataShared": True,
             },
@@ -185,7 +183,7 @@ class UserPoolClient(pulumi.CustomResource):
         The **analytics_configuration** object supports the following:
 
           * `application_id` (`pulumi.Input[str]`) - The application ID for an Amazon Pinpoint application.
-          * `externalId` (`pulumi.Input[str]`) - An ID for the Analytics Configuration.
+          * `external_id` (`pulumi.Input[str]`) - An ID for the Analytics Configuration.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
           * `userDataShared` (`pulumi.Input[bool]`) - If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
@@ -261,7 +259,7 @@ class UserPoolClient(pulumi.CustomResource):
         The **analytics_configuration** object supports the following:
 
           * `application_id` (`pulumi.Input[str]`) - The application ID for an Amazon Pinpoint application.
-          * `externalId` (`pulumi.Input[str]`) - An ID for the Analytics Configuration.
+          * `external_id` (`pulumi.Input[str]`) - An ID for the Analytics Configuration.
           * `role_arn` (`pulumi.Input[str]`) - The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
           * `userDataShared` (`pulumi.Input[bool]`) - If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
@@ -287,9 +285,9 @@ class UserPoolClient(pulumi.CustomResource):
         __props__["user_pool_id"] = user_pool_id
         __props__["write_attributes"] = write_attributes
         return UserPoolClient(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

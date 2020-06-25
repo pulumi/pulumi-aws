@@ -18,8 +18,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

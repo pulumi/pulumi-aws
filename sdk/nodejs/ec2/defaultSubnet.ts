@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * Basic usage with tags:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

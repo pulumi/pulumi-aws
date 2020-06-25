@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Environment(pulumi.CustomResource):
     all_settings: pulumi.Output[list]
     """
@@ -140,8 +141,6 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -151,7 +150,6 @@ class Environment(pulumi.CustomResource):
             application=tftest.name,
             solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")
         ```
-
         ## Option Settings
 
         Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
@@ -370,9 +368,9 @@ class Environment(pulumi.CustomResource):
         __props__["version"] = version
         __props__["wait_for_ready_timeout"] = wait_for_ready_timeout
         return Environment(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

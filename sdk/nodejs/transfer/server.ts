@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a AWS Transfer Server resource.
  *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

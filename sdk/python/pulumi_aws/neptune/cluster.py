@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Cluster(pulumi.CustomResource):
     apply_immediately: pulumi.Output[bool]
     """
@@ -144,8 +145,6 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -159,6 +158,9 @@ class Cluster(pulumi.CustomResource):
             preferred_backup_window="07:00-09:00",
             skip_final_snapshot=True)
         ```
+
+        > **Note:** AWS Neptune does not support user name/password–based access control.
+        See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -315,9 +317,9 @@ class Cluster(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["vpc_security_group_ids"] = vpc_security_group_ids
         return Cluster(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

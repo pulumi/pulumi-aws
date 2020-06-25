@@ -49,13 +49,35 @@ def get_regions(all_regions=None,filters=None,opts=None):
 
     ## Example Usage
 
-
+    Enabled AWS Regions:
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.get_regions()
+    ```
+
+    All the regions regardless of the availability
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_regions(all_regions=True)
+    ```
+
+    To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_regions(all_regions=True,
+        filters=[{
+            "name": "opt-in-status",
+            "values": ["not-opted-in"],
+        }])
     ```
 
 

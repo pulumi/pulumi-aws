@@ -50,8 +50,6 @@ def get_product(filters=None,service_code=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -87,6 +85,23 @@ def get_product(filters=None,service_code=None,opts=None):
             },
         ],
         service_code="AmazonEC2")
+    ```
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.pricing.get_product(filters=[
+            {
+                "field": "instanceType",
+                "value": "ds1.xlarge",
+            },
+            {
+                "field": "location",
+                "value": "US East (N. Virginia)",
+            },
+        ],
+        service_code="AmazonRedshift")
     ```
 
 

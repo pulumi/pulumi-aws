@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Method(pulumi.CustomResource):
     api_key_required: pulumi.Output[bool]
     """
@@ -59,8 +60,6 @@ class Method(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -76,7 +75,6 @@ class Method(pulumi.CustomResource):
             resource_id=my_demo_resource.id,
             rest_api=my_demo_api.id)
         ```
-
         ## Usage with Cognito User Pool Authorizer
 
         ```python
@@ -201,9 +199,9 @@ class Method(pulumi.CustomResource):
         __props__["resource_id"] = resource_id
         __props__["rest_api"] = rest_api
         return Method(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -19,8 +19,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// }
     /// ```
-    /// 
     /// ## Option Settings
     /// 
     /// Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)

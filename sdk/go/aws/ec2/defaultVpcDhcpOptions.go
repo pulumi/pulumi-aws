@@ -19,6 +19,33 @@ import (
 // The `ec2.DefaultVpcDhcpOptions` behaves differently from normal resources, in that
 // this provider does not _create_ this resource, but instead "adopts" it
 // into management.
+//
+// ## Example Usage
+//
+// Basic usage with tags:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = ec2.NewDefaultVpcDhcpOptions(ctx, "default", &ec2.DefaultVpcDhcpOptionsArgs{
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("Default DHCP Option Set"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DefaultVpcDhcpOptions struct {
 	pulumi.CustomResourceState
 

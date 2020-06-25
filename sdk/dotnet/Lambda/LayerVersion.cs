@@ -16,8 +16,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -39,7 +37,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
-    /// 
     /// ## Specifying the Deployment Package
     /// 
     /// AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.

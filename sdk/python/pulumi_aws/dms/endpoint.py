@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Endpoint(pulumi.CustomResource):
     certificate_arn: pulumi.Output[str]
     """
@@ -124,8 +125,6 @@ class Endpoint(pulumi.CustomResource):
         > **Note:** All arguments including the password will be stored in the raw state as plain-text.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -350,9 +349,9 @@ class Endpoint(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["username"] = username
         return Endpoint(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

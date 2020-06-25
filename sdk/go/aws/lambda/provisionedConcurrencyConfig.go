@@ -13,7 +13,6 @@ import (
 // Manages a Lambda Provisioned Concurrency Configuration.
 //
 // ## Example Usage
-//
 // ### Alias Name
 //
 // ```go
@@ -26,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
+// 		_, err = lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
 // 			FunctionName:                    pulumi.String(aws_lambda_alias.Example.Function_name),
 // 			ProvisionedConcurrentExecutions: pulumi.Int(1),
 // 			Qualifier:                       pulumi.String(aws_lambda_alias.Example.Name),
@@ -38,7 +37,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Function Version
 //
 // ```go
@@ -51,7 +49,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
+// 		_, err = lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
 // 			FunctionName:                    pulumi.String(aws_lambda_function.Example.Function_name),
 // 			ProvisionedConcurrentExecutions: pulumi.Int(1),
 // 			Qualifier:                       pulumi.String(aws_lambda_function.Example.Version),

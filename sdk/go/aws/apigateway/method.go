@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -40,7 +38,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		myDemoMethod, err := apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
+// 		_, err = apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
 // 			Authorization: pulumi.String("NONE"),
 // 			HttpMethod:    pulumi.String("GET"),
 // 			ResourceId:    myDemoResource.ID(),
@@ -53,7 +51,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Usage with Cognito User Pool Authorizer
 //
 // ```go
@@ -61,12 +58,13 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cognito"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		thisUserPools, err := cognito.LookupUserPools(ctx, &cognito.LookupUserPoolsArgs{
+// 		thisUserPools, err := cognito.GetUserPools(ctx, &cognito.GetUserPoolsArgs{
 // 			Name: cognitoUserPoolName,
 // 		}, nil)
 // 		if err != nil {
@@ -85,19 +83,19 @@ import (
 // 			return err
 // 		}
 // 		thisAuthorizer, err := apigateway.NewAuthorizer(ctx, "thisAuthorizer", &apigateway.AuthorizerArgs{
-// 			ProviderArns: pulumi.StringArray(thisUserPools.Arns),
+// 			ProviderArns: toPulumiStringArray(thisUserPools.Arns),
 // 			RestApi:      thisRestApi.ID(),
 // 			Type:         pulumi.String("COGNITO_USER_POOLS"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		any, err := apigateway.NewMethod(ctx, "any", &apigateway.MethodArgs{
+// 		_, err = apigateway.NewMethod(ctx, "any", &apigateway.MethodArgs{
 // 			Authorization: pulumi.String("COGNITO_USER_POOLS"),
 // 			AuthorizerId:  thisAuthorizer.ID(),
 // 			HttpMethod:    pulumi.String("ANY"),
-// 			RequestParameters: map[string]interface{}{
-// 				"method.request.path.proxy": true,
+// 			RequestParameters: pulumi.Map{
+// 				"method.request.path.proxy": pulumi.Bool(true),
 // 			},
 // 			ResourceId: thisResource.ID(),
 // 			RestApi:    thisRestApi.ID(),
@@ -107,6 +105,13 @@ import (
 // 		}
 // 		return nil
 // 	})
+// }
+// func toPulumiStringArray(arr []string) pulumi.StringArray {
+// 	var pulumiArr pulumi.StringArray
+// 	for _, v := range arr {
+// 		pulumiArr = append(pulumiArr, pulumi.String(v))
+// 	}
+// 	return pulumiArr
 // }
 // ```
 type Method struct {

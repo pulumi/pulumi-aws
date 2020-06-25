@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class SmsPreferences(pulumi.CustomResource):
     default_sender_id: pulumi.Output[str]
     """
@@ -39,8 +40,6 @@ class SmsPreferences(pulumi.CustomResource):
         Provides a way to set SNS SMS preferences.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -114,9 +113,9 @@ class SmsPreferences(pulumi.CustomResource):
         __props__["monthly_spend_limit"] = monthly_spend_limit
         __props__["usage_report_s3_bucket"] = usage_report_s3_bucket
         return SmsPreferences(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

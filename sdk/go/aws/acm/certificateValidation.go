@@ -19,10 +19,10 @@ import (
 //
 // > **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
 //
-//
 // ## Example Usage
-//
 // ### Email Validation
+//
+// In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
 //
 // ```go
 // package main
@@ -41,7 +41,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		certCertificateValidation, err := acm.NewCertificateValidation(ctx, "certCertificateValidation", &acm.CertificateValidationArgs{
+// 		_, err = acm.NewCertificateValidation(ctx, "certCertificateValidation", &acm.CertificateValidationArgs{
 // 			CertificateArn: certCertificate.Arn,
 // 		})
 // 		if err != nil {

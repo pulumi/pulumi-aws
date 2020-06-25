@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class VpcEndpointConnectionNotification(pulumi.CustomResource):
     connection_events: pulumi.Output[list]
     """
@@ -40,8 +41,6 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         Connection notifications notify subscribers of VPC Endpoint events.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -139,9 +138,9 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         __props__["vpc_endpoint_id"] = vpc_endpoint_id
         __props__["vpc_endpoint_service_id"] = vpc_endpoint_service_id
         return VpcEndpointConnectionNotification(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

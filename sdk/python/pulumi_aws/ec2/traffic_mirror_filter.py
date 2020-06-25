@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class TrafficMirrorFilter(pulumi.CustomResource):
     description: pulumi.Output[str]
     """
@@ -24,12 +25,12 @@ class TrafficMirrorFilter(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, network_services=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides an Traffic mirror filter.  
+        Provides an Traffic mirror filter.\
         Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
 
         ## Example Usage
 
-
+        To create a basic traffic mirror filter
 
         ```python
         import pulumi
@@ -93,9 +94,9 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         __props__["network_services"] = network_services
         __props__["tags"] = tags
         return TrafficMirrorFilter(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

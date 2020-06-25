@@ -13,7 +13,6 @@ import (
 // Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
 //
 // ## Example Usage
-//
 // ### Basic Table
 //
 // ```go
@@ -26,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		awsGlueCatalogTable, err := glue.NewCatalogTable(ctx, "awsGlueCatalogTable", &glue.CatalogTableArgs{
+// 		_, err = glue.NewCatalogTable(ctx, "awsGlueCatalogTable", &glue.CatalogTableArgs{
 // 			DatabaseName: pulumi.String("MyCatalogDatabase"),
 // 			Name:         pulumi.String("MyCatalogTable"),
 // 		})
@@ -37,7 +36,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Parquet Table for Athena
 //
 // ```go
@@ -50,12 +48,12 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		awsGlueCatalogTable, err := glue.NewCatalogTable(ctx, "awsGlueCatalogTable", &glue.CatalogTableArgs{
+// 		_, err = glue.NewCatalogTable(ctx, "awsGlueCatalogTable", &glue.CatalogTableArgs{
 // 			DatabaseName: pulumi.String("MyCatalogDatabase"),
 // 			Name:         pulumi.String("MyCatalogTable"),
-// 			Parameters: map[string]interface{}{
-// 				"EXTERNAL":            "TRUE",
-// 				"parquet.compression": "SNAPPY",
+// 			Parameters: pulumi.Map{
+// 				"EXTERNAL":            pulumi.String("TRUE"),
+// 				"parquet.compression": pulumi.String("SNAPPY"),
 // 			},
 // 			StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
 // 				Columns: glue.CatalogTableStorageDescriptorColumnArray{
@@ -88,8 +86,8 @@ import (
 // 				OutputFormat: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat"),
 // 				SerDeInfo: &glue.CatalogTableStorageDescriptorSerDeInfoArgs{
 // 					Name: pulumi.String("my-stream"),
-// 					Parameters: map[string]interface{}{
-// 						"serialization.format": "1",
+// 					Parameters: pulumi.Map{
+// 						"serialization.format": pulumi.String("1"),
 // 					},
 // 					SerializationLibrary: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe"),
 // 				},

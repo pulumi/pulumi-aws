@@ -14,13 +14,15 @@ import (
 //
 // ## Example Usage
 //
-//
+// The following example retrieves a text object (which must have a `Content-Type`
+// value starting with `text/`) and uses it as the `userData` for an EC2 instance:
 //
 // ```go
 // package main
 //
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -33,10 +35,49 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		example, err := ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
+// 		_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
 // 			Ami:          pulumi.String("ami-2757f631"),
 // 			InstanceType: pulumi.String("t2.micro"),
 // 			UserData:     pulumi.String(bootstrapScript.Body),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// The following, more-complex example retrieves only the metadata for a zip
+// file stored in S3, which is then used to pass the most recent `versionId`
+// to AWS Lambda for use as a function implementation. More information about
+// Lambda functions is available in the documentation for
+// `lambda.Function`.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lambda"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		lambda, err := s3.LookupBucketObject(ctx, &s3.LookupBucketObjectArgs{
+// 			Bucket: "ourcorp-lambda-functions",
+// 			Key:    "hello-world.zip",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
+// 			Handler:         pulumi.String("exports.test"),
+// 			Role:            pulumi.String(aws_iam_role.Iam_for_lambda.Arn),
+// 			S3Bucket:        pulumi.String(lambda.Bucket),
+// 			S3Key:           pulumi.String(lambda.Key),
+// 			S3ObjectVersion: pulumi.String(lambda.VersionId),
 // 		})
 // 		if err != nil {
 // 			return err

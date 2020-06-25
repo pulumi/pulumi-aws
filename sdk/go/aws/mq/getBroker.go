@@ -11,25 +11,26 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/mq"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		byId, err := mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
-// 			BrokerId: brokerId,
+// 		opt0 := brokerId
+// 		_, err := mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
+// 			BrokerId: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		byName, err := mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
-// 			BrokerName: brokerName,
+// 		opt1 := brokerName
+// 		_, err := mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
+// 			BrokerName: &opt1,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

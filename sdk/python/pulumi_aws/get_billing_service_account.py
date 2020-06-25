@@ -41,8 +41,6 @@ def get_billing_service_account(opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

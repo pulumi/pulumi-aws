@@ -13,6 +13,43 @@ import (
 // Gives an external source (like a CloudWatch Event Rule, SNS, or S3) permission to access the Lambda function.
 //
 // ## Usage with SNS
+//
+// ## Specify Lambda permissions for API Gateway REST API
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+// 			Description: pulumi.String("This is my API for demonstration purposes"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lambda.NewPermission(ctx, "lambdaPermission", &lambda.PermissionArgs{
+// 			Action:    pulumi.String("lambda:InvokeFunction"),
+// 			Function:  pulumi.String("MyDemoFunction"),
+// 			Principal: pulumi.String("apigateway.amazonaws.com"),
+// 			SourceArn: myDemoAPI.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
+// 				return fmt.Sprintf("%v%v", executionArn, "/*/*/*"), nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Permission struct {
 	pulumi.CustomResourceState
 

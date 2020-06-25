@@ -13,8 +13,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -25,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		demo, err := apigateway.NewClientCertificate(ctx, "demo", &apigateway.ClientCertificateArgs{
+// 		_, err = apigateway.NewClientCertificate(ctx, "demo", &apigateway.ClientCertificateArgs{
 // 			Description: pulumi.String("My client certificate"),
 // 		})
 // 		if err != nil {

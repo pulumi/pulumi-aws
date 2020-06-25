@@ -12,7 +12,7 @@ namespace Pulumi.Aws.CloudFront
     /// <summary>
     /// ## Example Usage
     /// 
-    /// 
+    /// The following example below creates a CloudFront public key.
     /// 
     /// ```csharp
     /// using System.IO;

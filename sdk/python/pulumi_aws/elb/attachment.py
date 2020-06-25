@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Attachment(pulumi.CustomResource):
     elb: pulumi.Output[str]
     """
@@ -30,8 +31,6 @@ class Attachment(pulumi.CustomResource):
         conflict and will overwrite attachments.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -98,9 +97,9 @@ class Attachment(pulumi.CustomResource):
         __props__["elb"] = elb
         __props__["instance"] = instance
         return Attachment(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

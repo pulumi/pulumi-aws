@@ -9,14 +9,12 @@ import {RestApi} from "./index";
 /**
  * Provides an API Gateway REST Deployment.
  *
- * > **Note:** This resource depends on having at least one `aws.apigateway.Integration` created in the REST API, which 
- * itself has other dependencies. To avoid race conditions when all resources are being created together, you need to add 
- * implicit resource references via the `triggers` argument or explicit resource references using the 
+ * > **Note:** This resource depends on having at least one `aws.apigateway.Integration` created in the REST API, which
+ * itself has other dependencies. To avoid race conditions when all resources are being created together, you need to add
+ * implicit resource references via the `triggers` argument or explicit resource references using the
  * [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
  *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

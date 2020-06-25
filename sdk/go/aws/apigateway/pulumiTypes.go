@@ -20,8 +20,7 @@ type AccountThrottleSettings struct {
 // AccountThrottleSettingsInput is an input type that accepts AccountThrottleSettingsArgs and AccountThrottleSettingsOutput values.
 // You can construct a concrete instance of `AccountThrottleSettingsInput` via:
 //
-// 		 AccountThrottleSettingsArgs{...}
-//
+//          AccountThrottleSettingsArgs{...}
 type AccountThrottleSettingsInput interface {
 	pulumi.Input
 
@@ -59,12 +58,11 @@ func (i AccountThrottleSettingsArgs) ToAccountThrottleSettingsPtrOutputWithConte
 // AccountThrottleSettingsPtrInput is an input type that accepts AccountThrottleSettingsArgs, AccountThrottleSettingsPtr and AccountThrottleSettingsPtrOutput values.
 // You can construct a concrete instance of `AccountThrottleSettingsPtrInput` via:
 //
-// 		 AccountThrottleSettingsArgs{...}
+//          AccountThrottleSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountThrottleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -178,8 +176,7 @@ type DocumentationPartLocation struct {
 // DocumentationPartLocationInput is an input type that accepts DocumentationPartLocationArgs and DocumentationPartLocationOutput values.
 // You can construct a concrete instance of `DocumentationPartLocationInput` via:
 //
-// 		 DocumentationPartLocationArgs{...}
-//
+//          DocumentationPartLocationArgs{...}
 type DocumentationPartLocationInput interface {
 	pulumi.Input
 
@@ -223,12 +220,11 @@ func (i DocumentationPartLocationArgs) ToDocumentationPartLocationPtrOutputWithC
 // DocumentationPartLocationPtrInput is an input type that accepts DocumentationPartLocationArgs, DocumentationPartLocationPtr and DocumentationPartLocationPtrOutput values.
 // You can construct a concrete instance of `DocumentationPartLocationPtrInput` via:
 //
-// 		 DocumentationPartLocationArgs{...}
+//          DocumentationPartLocationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DocumentationPartLocationPtrInput interface {
 	pulumi.Input
 
@@ -379,8 +375,7 @@ type DomainNameEndpointConfiguration struct {
 // DomainNameEndpointConfigurationInput is an input type that accepts DomainNameEndpointConfigurationArgs and DomainNameEndpointConfigurationOutput values.
 // You can construct a concrete instance of `DomainNameEndpointConfigurationInput` via:
 //
-// 		 DomainNameEndpointConfigurationArgs{...}
-//
+//          DomainNameEndpointConfigurationArgs{...}
 type DomainNameEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -416,12 +411,11 @@ func (i DomainNameEndpointConfigurationArgs) ToDomainNameEndpointConfigurationPt
 // DomainNameEndpointConfigurationPtrInput is an input type that accepts DomainNameEndpointConfigurationArgs, DomainNameEndpointConfigurationPtr and DomainNameEndpointConfigurationPtrOutput values.
 // You can construct a concrete instance of `DomainNameEndpointConfigurationPtrInput` via:
 //
-// 		 DomainNameEndpointConfigurationArgs{...}
+//          DomainNameEndpointConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DomainNameEndpointConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -530,8 +524,7 @@ type MethodSettingsSettings struct {
 // MethodSettingsSettingsInput is an input type that accepts MethodSettingsSettingsArgs and MethodSettingsSettingsOutput values.
 // You can construct a concrete instance of `MethodSettingsSettingsInput` via:
 //
-// 		 MethodSettingsSettingsArgs{...}
-//
+//          MethodSettingsSettingsArgs{...}
 type MethodSettingsSettingsInput interface {
 	pulumi.Input
 
@@ -585,12 +578,11 @@ func (i MethodSettingsSettingsArgs) ToMethodSettingsSettingsPtrOutputWithContext
 // MethodSettingsSettingsPtrInput is an input type that accepts MethodSettingsSettingsArgs, MethodSettingsSettingsPtr and MethodSettingsSettingsPtrOutput values.
 // You can construct a concrete instance of `MethodSettingsSettingsPtrInput` via:
 //
-// 		 MethodSettingsSettingsArgs{...}
+//          MethodSettingsSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MethodSettingsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -818,8 +810,7 @@ type RestApiEndpointConfiguration struct {
 // RestApiEndpointConfigurationInput is an input type that accepts RestApiEndpointConfigurationArgs and RestApiEndpointConfigurationOutput values.
 // You can construct a concrete instance of `RestApiEndpointConfigurationInput` via:
 //
-// 		 RestApiEndpointConfigurationArgs{...}
-//
+//          RestApiEndpointConfigurationArgs{...}
 type RestApiEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -857,12 +848,11 @@ func (i RestApiEndpointConfigurationArgs) ToRestApiEndpointConfigurationPtrOutpu
 // RestApiEndpointConfigurationPtrInput is an input type that accepts RestApiEndpointConfigurationArgs, RestApiEndpointConfigurationPtr and RestApiEndpointConfigurationPtrOutput values.
 // You can construct a concrete instance of `RestApiEndpointConfigurationPtrInput` via:
 //
-// 		 RestApiEndpointConfigurationArgs{...}
+//          RestApiEndpointConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type RestApiEndpointConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -971,8 +961,7 @@ type StageAccessLogSettings struct {
 // StageAccessLogSettingsInput is an input type that accepts StageAccessLogSettingsArgs and StageAccessLogSettingsOutput values.
 // You can construct a concrete instance of `StageAccessLogSettingsInput` via:
 //
-// 		 StageAccessLogSettingsArgs{...}
-//
+//          StageAccessLogSettingsArgs{...}
 type StageAccessLogSettingsInput interface {
 	pulumi.Input
 
@@ -1011,12 +1000,11 @@ func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsPtrOutputWithContext
 // StageAccessLogSettingsPtrInput is an input type that accepts StageAccessLogSettingsArgs, StageAccessLogSettingsPtr and StageAccessLogSettingsPtrOutput values.
 // You can construct a concrete instance of `StageAccessLogSettingsPtrInput` via:
 //
-// 		 StageAccessLogSettingsArgs{...}
+//          StageAccessLogSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type StageAccessLogSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1126,8 +1114,7 @@ type UsagePlanApiStage struct {
 // UsagePlanApiStageInput is an input type that accepts UsagePlanApiStageArgs and UsagePlanApiStageOutput values.
 // You can construct a concrete instance of `UsagePlanApiStageInput` via:
 //
-// 		 UsagePlanApiStageArgs{...}
-//
+//          UsagePlanApiStageArgs{...}
 type UsagePlanApiStageInput interface {
 	pulumi.Input
 
@@ -1157,8 +1144,7 @@ func (i UsagePlanApiStageArgs) ToUsagePlanApiStageOutputWithContext(ctx context.
 // UsagePlanApiStageArrayInput is an input type that accepts UsagePlanApiStageArray and UsagePlanApiStageArrayOutput values.
 // You can construct a concrete instance of `UsagePlanApiStageArrayInput` via:
 //
-// 		 UsagePlanApiStageArray{ UsagePlanApiStageArgs{...} }
-//
+//          UsagePlanApiStageArray{ UsagePlanApiStageArgs{...} }
 type UsagePlanApiStageArrayInput interface {
 	pulumi.Input
 
@@ -1236,8 +1222,7 @@ type UsagePlanQuotaSettings struct {
 // UsagePlanQuotaSettingsInput is an input type that accepts UsagePlanQuotaSettingsArgs and UsagePlanQuotaSettingsOutput values.
 // You can construct a concrete instance of `UsagePlanQuotaSettingsInput` via:
 //
-// 		 UsagePlanQuotaSettingsArgs{...}
-//
+//          UsagePlanQuotaSettingsArgs{...}
 type UsagePlanQuotaSettingsInput interface {
 	pulumi.Input
 
@@ -1277,12 +1262,11 @@ func (i UsagePlanQuotaSettingsArgs) ToUsagePlanQuotaSettingsPtrOutputWithContext
 // UsagePlanQuotaSettingsPtrInput is an input type that accepts UsagePlanQuotaSettingsArgs, UsagePlanQuotaSettingsPtr and UsagePlanQuotaSettingsPtrOutput values.
 // You can construct a concrete instance of `UsagePlanQuotaSettingsPtrInput` via:
 //
-// 		 UsagePlanQuotaSettingsArgs{...}
+//          UsagePlanQuotaSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UsagePlanQuotaSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1405,8 +1389,7 @@ type UsagePlanThrottleSettings struct {
 // UsagePlanThrottleSettingsInput is an input type that accepts UsagePlanThrottleSettingsArgs and UsagePlanThrottleSettingsOutput values.
 // You can construct a concrete instance of `UsagePlanThrottleSettingsInput` via:
 //
-// 		 UsagePlanThrottleSettingsArgs{...}
-//
+//          UsagePlanThrottleSettingsArgs{...}
 type UsagePlanThrottleSettingsInput interface {
 	pulumi.Input
 
@@ -1444,12 +1427,11 @@ func (i UsagePlanThrottleSettingsArgs) ToUsagePlanThrottleSettingsPtrOutputWithC
 // UsagePlanThrottleSettingsPtrInput is an input type that accepts UsagePlanThrottleSettingsArgs, UsagePlanThrottleSettingsPtr and UsagePlanThrottleSettingsPtrOutput values.
 // You can construct a concrete instance of `UsagePlanThrottleSettingsPtrInput` via:
 //
-// 		 UsagePlanThrottleSettingsArgs{...}
+//          UsagePlanThrottleSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UsagePlanThrottleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1555,8 +1537,7 @@ type GetRestApiEndpointConfiguration struct {
 // GetRestApiEndpointConfigurationInput is an input type that accepts GetRestApiEndpointConfigurationArgs and GetRestApiEndpointConfigurationOutput values.
 // You can construct a concrete instance of `GetRestApiEndpointConfigurationInput` via:
 //
-// 		 GetRestApiEndpointConfigurationArgs{...}
-//
+//          GetRestApiEndpointConfigurationArgs{...}
 type GetRestApiEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -1584,8 +1565,7 @@ func (i GetRestApiEndpointConfigurationArgs) ToGetRestApiEndpointConfigurationOu
 // GetRestApiEndpointConfigurationArrayInput is an input type that accepts GetRestApiEndpointConfigurationArray and GetRestApiEndpointConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetRestApiEndpointConfigurationArrayInput` via:
 //
-// 		 GetRestApiEndpointConfigurationArray{ GetRestApiEndpointConfigurationArgs{...} }
-//
+//          GetRestApiEndpointConfigurationArray{ GetRestApiEndpointConfigurationArgs{...} }
 type GetRestApiEndpointConfigurationArrayInput interface {
 	pulumi.Input
 

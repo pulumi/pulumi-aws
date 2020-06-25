@@ -65,7 +65,8 @@ def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=None,opts
 
     ## Example Usage
 
-
+    The following example shows how one might accept a Security Group id as a variable
+    and use this data source to obtain the data necessary to create a subnet.
 
     ```python
     import pulumi

@@ -17,8 +17,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -34,8 +32,8 @@ import (
 // 			Ami:              pulumi.String("ami-21f78e11"),
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			InstanceType:     pulumi.String("t1.micro"),
-// 			Tags: map[string]interface{}{
-// 				"Name": "HelloWorld",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("HelloWorld"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -48,7 +46,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ebsAtt, err := ec2.NewVolumeAttachment(ctx, "ebsAtt", &ec2.VolumeAttachmentArgs{
+// 		_, err = ec2.NewVolumeAttachment(ctx, "ebsAtt", &ec2.VolumeAttachmentArgs{
 // 			DeviceName: pulumi.String("/dev/sdh"),
 // 			InstanceId: web.ID(),
 // 			VolumeId:   example.ID(),

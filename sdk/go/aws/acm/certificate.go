@@ -28,7 +28,6 @@ import (
 // which is currently in use (eg, by `lb.Listener`).
 //
 // ## Example Usage
-//
 // ### Certificate creation
 //
 // ```go
@@ -41,10 +40,10 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cert, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
+// 		_, err = acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
 // 			DomainName: pulumi.String("example.com"),
-// 			Tags: map[string]interface{}{
-// 				"Environment": "test",
+// 			Tags: pulumi.Map{
+// 				"Environment": pulumi.String("test"),
 // 			},
 // 			ValidationMethod: pulumi.String("DNS"),
 // 		})

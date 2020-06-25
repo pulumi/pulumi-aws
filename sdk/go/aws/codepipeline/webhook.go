@@ -11,6 +11,8 @@ import (
 )
 
 // Provides a CodePipeline Webhook.
+//
+// ## Example Usage
 type Webhook struct {
 	pulumi.CustomResourceState
 

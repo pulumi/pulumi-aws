@@ -88,8 +88,6 @@ def get_service_quota(quota_code=None,quota_name=None,service_code=None,opts=Non
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

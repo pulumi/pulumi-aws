@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

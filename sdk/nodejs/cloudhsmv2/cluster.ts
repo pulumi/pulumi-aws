@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example below creates a CloudHSM cluster.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

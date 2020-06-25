@@ -15,7 +15,6 @@ import (
 // > NOTE: The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
 //
 // ## Example Usage
-//
 // ### File Gateway
 //
 // ```go
@@ -28,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
+// 		_, err = storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
 // 			GatewayIpAddress: pulumi.String("1.2.3.4"),
 // 			GatewayName:      pulumi.String("example"),
 // 			GatewayTimezone:  pulumi.String("GMT"),
@@ -41,7 +40,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Volume Gateway (Cached)
 //
 // ```go
@@ -54,7 +52,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
+// 		_, err = storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
 // 			GatewayIpAddress: pulumi.String("1.2.3.4"),
 // 			GatewayName:      pulumi.String("example"),
 // 			GatewayTimezone:  pulumi.String("GMT"),
@@ -67,7 +65,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Volume Gateway (Stored)
 //
 // ```go
@@ -80,7 +77,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
+// 		_, err = storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
 // 			GatewayIpAddress: pulumi.String("1.2.3.4"),
 // 			GatewayName:      pulumi.String("example"),
 // 			GatewayTimezone:  pulumi.String("GMT"),

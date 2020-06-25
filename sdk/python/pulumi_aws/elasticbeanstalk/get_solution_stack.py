@@ -49,8 +49,6 @@ def get_solution_stack(most_recent=None,name_regex=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

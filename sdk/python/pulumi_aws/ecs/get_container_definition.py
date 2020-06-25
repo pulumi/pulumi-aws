@@ -99,8 +99,6 @@ def get_container_definition(container_name=None,task_definition=None,opts=None)
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

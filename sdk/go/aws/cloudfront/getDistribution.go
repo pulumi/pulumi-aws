@@ -11,18 +11,17 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudfront"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := cloudfront.LookupDistribution(ctx, &cloudfront.LookupDistributionArgs{
+// 		_, err := cloudfront.LookupDistribution(ctx, &cloudfront.LookupDistributionArgs{
 // 			Id: "EDFDVBD632BHDS5",
 // 		}, nil)
 // 		if err != nil {

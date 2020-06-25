@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following shows outputing all VPC Ids.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -24,6 +24,23 @@ import * as utilities from "../utilities";
  *         service: "production",
  *     },
  * }, { async: true }));
+ *
+ * export const foo = fooVpcs.ids;
+ * ```
+ *
+ * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const fooVpcs = pulumi.output(aws.ec2.getVpcs({ async: true }));
+ * const testFlowLog: aws.ec2.FlowLog[] = [];
+ * for (let i = 0; i < fooVpcs.apply(fooVpcs => fooVpcs.ids.length); i++) {
+ *     testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${i}`, {
+ *         vpcId: fooVpcs.apply(fooVpcs => fooVpcs.ids[i]),
+ *     }));
+ * }
  *
  * export const foo = fooVpcs.ids;
  * ```

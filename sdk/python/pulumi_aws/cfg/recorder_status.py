@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class RecorderStatus(pulumi.CustomResource):
     is_enabled: pulumi.Output[bool]
     """
@@ -25,8 +26,6 @@ class RecorderStatus(pulumi.CustomResource):
         > **Note:** Starting Configuration Recorder requires a `Delivery Channel` to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -126,9 +125,9 @@ class RecorderStatus(pulumi.CustomResource):
         __props__["is_enabled"] = is_enabled
         __props__["name"] = name
         return RecorderStatus(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

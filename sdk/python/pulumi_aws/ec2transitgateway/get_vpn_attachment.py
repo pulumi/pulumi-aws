@@ -52,7 +52,6 @@ def get_vpn_attachment(filters=None,tags=None,transit_gateway_id=None,vpn_connec
     Get information on an EC2 Transit Gateway VPN Attachment.
 
     ## Example Usage
-
     ### By Transit Gateway and VPN Connection Identifiers
 
     ```python
@@ -62,7 +61,6 @@ def get_vpn_attachment(filters=None,tags=None,transit_gateway_id=None,vpn_connec
     example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
         vpn_connection_id=aws_vpn_connection["example"]["id"])
     ```
-
     ### Filter
 
     ```python

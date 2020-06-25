@@ -20,8 +20,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -49,6 +47,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// &gt; **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
     /// </summary>
     public partial class NetworkAclRule : Pulumi.CustomResource
     {

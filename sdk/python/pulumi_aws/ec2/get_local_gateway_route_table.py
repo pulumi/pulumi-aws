@@ -61,7 +61,7 @@ def get_local_gateway_route_table(filters=None,local_gateway_id=None,local_gatew
 
     ## Example Usage
 
-
+    The following example returns a specific local gateway route table ID
 
     ```python
     import pulumi

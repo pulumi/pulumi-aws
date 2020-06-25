@@ -18,8 +18,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -44,7 +42,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// }
     /// ```
-    /// 
     /// ## Availability Zones
     /// 
     /// Lightsail currently supports the following Availability Zones (e.g. `us-east-1a`):

@@ -20,8 +20,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,7 +68,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ## Note on ECDSA Key Algorithm
  *
  * If the ARN of the `sslCertificateId` that is pointed to references a

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class PolicyAttachment(pulumi.CustomResource):
     policy_id: pulumi.Output[str]
     """
@@ -23,7 +24,6 @@ class PolicyAttachment(pulumi.CustomResource):
         Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
 
         ## Example Usage
-
         ### Organization Account
 
         ```python
@@ -34,7 +34,6 @@ class PolicyAttachment(pulumi.CustomResource):
             policy_id=aws_organizations_policy["example"]["id"],
             target_id="123456789012")
         ```
-
         ### Organization Root
 
         ```python
@@ -45,7 +44,6 @@ class PolicyAttachment(pulumi.CustomResource):
             policy_id=aws_organizations_policy["example"]["id"],
             target_id=aws_organizations_organization["example"]["roots"][0]["id"])
         ```
-
         ### Organization Unit
 
         ```python
@@ -110,9 +108,9 @@ class PolicyAttachment(pulumi.CustomResource):
         __props__["policy_id"] = policy_id
         __props__["target_id"] = target_id
         return PolicyAttachment(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

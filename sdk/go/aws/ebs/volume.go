@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -26,11 +24,11 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
+// 		_, err = ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			Size:             pulumi.Int(40),
-// 			Tags: map[string]interface{}{
-// 				"Name": "HelloWorld",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("HelloWorld"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -40,6 +38,8 @@ import (
 // 	})
 // }
 // ```
+//
+// > **NOTE**: One of `size` or `snapshotId` is required when specifying an EBS volume
 type Volume struct {
 	pulumi.CustomResourceState
 

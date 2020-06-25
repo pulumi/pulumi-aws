@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ExternalKey(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -61,8 +62,6 @@ class ExternalKey(pulumi.CustomResource):
         > **Note:** All arguments including the key material will be stored in the raw state as plain-text.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -152,9 +151,9 @@ class ExternalKey(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["valid_to"] = valid_to
         return ExternalKey(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

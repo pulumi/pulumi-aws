@@ -14,8 +14,6 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -34,7 +32,6 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// }
     /// ```
-    /// 
     /// ### Bitbucket Server Usage
     /// 
     /// ```csharp

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Trail(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -98,8 +99,10 @@ class Trail(pulumi.CustomResource):
         > *NOTE:* For an organization trail, this resource must be in the master account of the organization.
 
         ## Example Usage
-
         ### Basic
+
+        Enable CloudTrail to capture all compatible management events in region.
+        For capturing events from services like IAM, `include_global_service_events` must be enabled.
 
         ```python
         import pulumi
@@ -143,7 +146,9 @@ class Trail(pulumi.CustomResource):
             s3_bucket_name=foo.id,
             s3_key_prefix="prefix")
         ```
+        ### Data Event Logging
 
+        CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html).
         ### Logging All Lambda Function Invocations
 
         ```python
@@ -159,7 +164,6 @@ class Trail(pulumi.CustomResource):
             "readWriteType": "All",
         }])
         ```
-
         ### Logging All S3 Bucket Object Events
 
         ```python
@@ -175,7 +179,6 @@ class Trail(pulumi.CustomResource):
             "readWriteType": "All",
         }])
         ```
-
         ### Logging Individual S3 Bucket Events
 
         ```python
@@ -332,9 +335,9 @@ class Trail(pulumi.CustomResource):
         __props__["sns_topic_name"] = sns_topic_name
         __props__["tags"] = tags
         return Trail(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

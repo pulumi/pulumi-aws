@@ -12,8 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,6 +48,25 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     serviceCode: "AmazonEC2",
+ * }, { async: true }));
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = pulumi.output(aws.pricing.getProduct({
+ *     filters: [
+ *         {
+ *             field: "instanceType",
+ *             value: "ds1.xlarge",
+ *         },
+ *         {
+ *             field: "location",
+ *             value: "US East (N. Virginia)",
+ *         },
+ *     ],
+ *     serviceCode: "AmazonRedshift",
  * }, { async: true }));
  * ```
  */

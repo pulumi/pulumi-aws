@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * a particular domain name. An API stage can be associated with the domain name using the `aws.apigatewayv2.ApiMapping` resource.
  *
  * ## Example Usage
- *
  * ### Basic
  *
  * ```typescript

@@ -14,6 +14,8 @@ import (
 // This resource accepts ownership of a transit virtual interface created by another AWS account.
 //
 // > **NOTE:** AWS allows a Direct Connect hosted transit virtual interface to be deleted from either the allocator's or accepter's side. However, this provider only allows the Direct Connect hosted transit virtual interface to be deleted from the allocator's side by removing the corresponding `directconnect.HostedTransitVirtualInterface` resource from your configuration. Removing a `directconnect.HostedTransitVirtualInterfaceAcceptor` resource from your configuration will remove it from your statefile and management, **but will not delete the Direct Connect virtual interface.**
+//
+// ## Example Usage
 type HostedTransitVirtualInterfaceAcceptor struct {
 	pulumi.CustomResourceState
 

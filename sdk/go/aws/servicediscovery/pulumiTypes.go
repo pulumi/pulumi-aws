@@ -22,8 +22,7 @@ type ServiceDnsConfig struct {
 // ServiceDnsConfigInput is an input type that accepts ServiceDnsConfigArgs and ServiceDnsConfigOutput values.
 // You can construct a concrete instance of `ServiceDnsConfigInput` via:
 //
-// 		 ServiceDnsConfigArgs{...}
-//
+//          ServiceDnsConfigArgs{...}
 type ServiceDnsConfigInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i ServiceDnsConfigArgs) ToServiceDnsConfigPtrOutputWithContext(ctx context
 // ServiceDnsConfigPtrInput is an input type that accepts ServiceDnsConfigArgs, ServiceDnsConfigPtr and ServiceDnsConfigPtrOutput values.
 // You can construct a concrete instance of `ServiceDnsConfigPtrInput` via:
 //
-// 		 ServiceDnsConfigArgs{...}
+//          ServiceDnsConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ServiceDnsConfigPtrInput interface {
 	pulumi.Input
 
@@ -191,8 +189,7 @@ type ServiceDnsConfigDnsRecord struct {
 // ServiceDnsConfigDnsRecordInput is an input type that accepts ServiceDnsConfigDnsRecordArgs and ServiceDnsConfigDnsRecordOutput values.
 // You can construct a concrete instance of `ServiceDnsConfigDnsRecordInput` via:
 //
-// 		 ServiceDnsConfigDnsRecordArgs{...}
-//
+//          ServiceDnsConfigDnsRecordArgs{...}
 type ServiceDnsConfigDnsRecordInput interface {
 	pulumi.Input
 
@@ -222,8 +219,7 @@ func (i ServiceDnsConfigDnsRecordArgs) ToServiceDnsConfigDnsRecordOutputWithCont
 // ServiceDnsConfigDnsRecordArrayInput is an input type that accepts ServiceDnsConfigDnsRecordArray and ServiceDnsConfigDnsRecordArrayOutput values.
 // You can construct a concrete instance of `ServiceDnsConfigDnsRecordArrayInput` via:
 //
-// 		 ServiceDnsConfigDnsRecordArray{ ServiceDnsConfigDnsRecordArgs{...} }
-//
+//          ServiceDnsConfigDnsRecordArray{ ServiceDnsConfigDnsRecordArgs{...} }
 type ServiceDnsConfigDnsRecordArrayInput interface {
 	pulumi.Input
 
@@ -301,8 +297,7 @@ type ServiceHealthCheckConfig struct {
 // ServiceHealthCheckConfigInput is an input type that accepts ServiceHealthCheckConfigArgs and ServiceHealthCheckConfigOutput values.
 // You can construct a concrete instance of `ServiceHealthCheckConfigInput` via:
 //
-// 		 ServiceHealthCheckConfigArgs{...}
-//
+//          ServiceHealthCheckConfigArgs{...}
 type ServiceHealthCheckConfigInput interface {
 	pulumi.Input
 
@@ -342,12 +337,11 @@ func (i ServiceHealthCheckConfigArgs) ToServiceHealthCheckConfigPtrOutputWithCon
 // ServiceHealthCheckConfigPtrInput is an input type that accepts ServiceHealthCheckConfigArgs, ServiceHealthCheckConfigPtr and ServiceHealthCheckConfigPtrOutput values.
 // You can construct a concrete instance of `ServiceHealthCheckConfigPtrInput` via:
 //
-// 		 ServiceHealthCheckConfigArgs{...}
+//          ServiceHealthCheckConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ServiceHealthCheckConfigPtrInput interface {
 	pulumi.Input
 
@@ -468,8 +462,7 @@ type ServiceHealthCheckCustomConfig struct {
 // ServiceHealthCheckCustomConfigInput is an input type that accepts ServiceHealthCheckCustomConfigArgs and ServiceHealthCheckCustomConfigOutput values.
 // You can construct a concrete instance of `ServiceHealthCheckCustomConfigInput` via:
 //
-// 		 ServiceHealthCheckCustomConfigArgs{...}
-//
+//          ServiceHealthCheckCustomConfigArgs{...}
 type ServiceHealthCheckCustomConfigInput interface {
 	pulumi.Input
 
@@ -505,12 +498,11 @@ func (i ServiceHealthCheckCustomConfigArgs) ToServiceHealthCheckCustomConfigPtrO
 // ServiceHealthCheckCustomConfigPtrInput is an input type that accepts ServiceHealthCheckCustomConfigArgs, ServiceHealthCheckCustomConfigPtr and ServiceHealthCheckCustomConfigPtrOutput values.
 // You can construct a concrete instance of `ServiceHealthCheckCustomConfigPtrInput` via:
 //
-// 		 ServiceHealthCheckCustomConfigArgs{...}
+//          ServiceHealthCheckCustomConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ServiceHealthCheckCustomConfigPtrInput interface {
 	pulumi.Input
 

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Domain(pulumi.CustomResource):
     access_policies: pulumi.Output[str]
     """
@@ -129,7 +130,6 @@ class Domain(pulumi.CustomResource):
         Manages an AWS Elasticsearch Domain.
 
         ## Example Usage
-
         ### Basic Usage
 
         ```python
@@ -148,8 +148,9 @@ class Domain(pulumi.CustomResource):
                 "Domain": "TestDomain",
             })
         ```
-
         ### Access Policy
+
+        > See also: `elasticsearch.DomainPolicy` resource
 
         ```python
         import pulumi
@@ -178,7 +179,6 @@ class Domain(pulumi.CustomResource):
 
         \"\"\")
         ```
-
         ### Log Publishing to CloudWatch Logs
 
         ```python
@@ -212,7 +212,6 @@ class Domain(pulumi.CustomResource):
             "logType": "INDEX_SLOW_LOGS",
         }])
         ```
-
         ### VPC based ES
 
         ```python
@@ -520,9 +519,9 @@ class Domain(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["vpc_options"] = vpc_options
         return Domain(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

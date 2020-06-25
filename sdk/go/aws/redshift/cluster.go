@@ -13,6 +13,34 @@ import (
 // Provides a Redshift Cluster Resource.
 //
 // > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/redshift"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = redshift.NewCluster(ctx, "default", &redshift.ClusterArgs{
+// 			ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
+// 			ClusterType:       pulumi.String("single-node"),
+// 			DatabaseName:      pulumi.String("mydb"),
+// 			MasterPassword:    pulumi.String("Mustbe8characters"),
+// 			MasterUsername:    pulumi.String("foo"),
+// 			NodeType:          pulumi.String("dc1.large"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

@@ -13,6 +13,34 @@ import (
 // Manages an Amazon Managed Streaming for Kafka configuration. More information can be found on the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration.html).
 //
 // > **NOTE:** The API does not support deleting MSK configurations. Removing this resource will only remove the this provider state for it.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/msk"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = msk.NewConfiguration(ctx, "example", &msk.ConfigurationArgs{
+// 			KafkaVersions: pulumi.StringArray{
+// 				pulumi.String("2.1.0"),
+// 			},
+// 			ServerProperties: pulumi.String(fmt.Sprintf("%v%v%v", "auto.create.topics.enable = true\n", "delete.topic.enable = true\n", "\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Configuration struct {
 	pulumi.CustomResourceState
 

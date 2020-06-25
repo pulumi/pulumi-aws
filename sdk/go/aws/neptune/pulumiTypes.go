@@ -22,8 +22,7 @@ type ClusterParameterGroupParameter struct {
 // ClusterParameterGroupParameterInput is an input type that accepts ClusterParameterGroupParameterArgs and ClusterParameterGroupParameterOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupParameterInput` via:
 //
-// 		 ClusterParameterGroupParameterArgs{...}
-//
+//          ClusterParameterGroupParameterArgs{...}
 type ClusterParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -55,8 +54,7 @@ func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutp
 // ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
 //
-// 		 ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
-//
+//          ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
 type ClusterParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -139,8 +137,7 @@ type ParameterGroupParameter struct {
 // ParameterGroupParameterInput is an input type that accepts ParameterGroupParameterArgs and ParameterGroupParameterOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterInput` via:
 //
-// 		 ParameterGroupParameterArgs{...}
-//
+//          ParameterGroupParameterArgs{...}
 type ParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -172,8 +169,7 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 // ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
 //
-// 		 ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
-//
+//          ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
 type ParameterGroupParameterArrayInput interface {
 	pulumi.Input
 

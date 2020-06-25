@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Cognito User Pool Domain resource.
  *
  * ## Example Usage
- *
  * ### Amazon Cognito domain
  *
  * ```typescript
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     userPoolId: example.id,
  * });
  * ```
- *
  * ### Custom Cognito domain
  *
  * ```typescript

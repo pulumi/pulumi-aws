@@ -34,8 +34,7 @@ type ProjectArtifacts struct {
 // ProjectArtifactsInput is an input type that accepts ProjectArtifactsArgs and ProjectArtifactsOutput values.
 // You can construct a concrete instance of `ProjectArtifactsInput` via:
 //
-// 		 ProjectArtifactsArgs{...}
-//
+//          ProjectArtifactsArgs{...}
 type ProjectArtifactsInput interface {
 	pulumi.Input
 
@@ -87,12 +86,11 @@ func (i ProjectArtifactsArgs) ToProjectArtifactsPtrOutputWithContext(ctx context
 // ProjectArtifactsPtrInput is an input type that accepts ProjectArtifactsArgs, ProjectArtifactsPtr and ProjectArtifactsPtrOutput values.
 // You can construct a concrete instance of `ProjectArtifactsPtrInput` via:
 //
-// 		 ProjectArtifactsArgs{...}
+//          ProjectArtifactsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProjectArtifactsPtrInput interface {
 	pulumi.Input
 
@@ -307,8 +305,7 @@ type ProjectCache struct {
 // ProjectCacheInput is an input type that accepts ProjectCacheArgs and ProjectCacheOutput values.
 // You can construct a concrete instance of `ProjectCacheInput` via:
 //
-// 		 ProjectCacheArgs{...}
-//
+//          ProjectCacheArgs{...}
 type ProjectCacheInput interface {
 	pulumi.Input
 
@@ -348,12 +345,11 @@ func (i ProjectCacheArgs) ToProjectCachePtrOutputWithContext(ctx context.Context
 // ProjectCachePtrInput is an input type that accepts ProjectCacheArgs, ProjectCachePtr and ProjectCachePtrOutput values.
 // You can construct a concrete instance of `ProjectCachePtrInput` via:
 //
-// 		 ProjectCacheArgs{...}
+//          ProjectCacheArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProjectCachePtrInput interface {
 	pulumi.Input
 
@@ -488,8 +484,7 @@ type ProjectEnvironment struct {
 // ProjectEnvironmentInput is an input type that accepts ProjectEnvironmentArgs and ProjectEnvironmentOutput values.
 // You can construct a concrete instance of `ProjectEnvironmentInput` via:
 //
-// 		 ProjectEnvironmentArgs{...}
-//
+//          ProjectEnvironmentArgs{...}
 type ProjectEnvironmentInput interface {
 	pulumi.Input
 
@@ -539,12 +534,11 @@ func (i ProjectEnvironmentArgs) ToProjectEnvironmentPtrOutputWithContext(ctx con
 // ProjectEnvironmentPtrInput is an input type that accepts ProjectEnvironmentArgs, ProjectEnvironmentPtr and ProjectEnvironmentPtrOutput values.
 // You can construct a concrete instance of `ProjectEnvironmentPtrInput` via:
 //
-// 		 ProjectEnvironmentArgs{...}
+//          ProjectEnvironmentArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProjectEnvironmentPtrInput interface {
 	pulumi.Input
 
@@ -744,8 +738,7 @@ type ProjectEnvironmentEnvironmentVariable struct {
 // ProjectEnvironmentEnvironmentVariableInput is an input type that accepts ProjectEnvironmentEnvironmentVariableArgs and ProjectEnvironmentEnvironmentVariableOutput values.
 // You can construct a concrete instance of `ProjectEnvironmentEnvironmentVariableInput` via:
 //
-// 		 ProjectEnvironmentEnvironmentVariableArgs{...}
-//
+//          ProjectEnvironmentEnvironmentVariableArgs{...}
 type ProjectEnvironmentEnvironmentVariableInput interface {
 	pulumi.Input
 
@@ -777,8 +770,7 @@ func (i ProjectEnvironmentEnvironmentVariableArgs) ToProjectEnvironmentEnvironme
 // ProjectEnvironmentEnvironmentVariableArrayInput is an input type that accepts ProjectEnvironmentEnvironmentVariableArray and ProjectEnvironmentEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `ProjectEnvironmentEnvironmentVariableArrayInput` via:
 //
-// 		 ProjectEnvironmentEnvironmentVariableArray{ ProjectEnvironmentEnvironmentVariableArgs{...} }
-//
+//          ProjectEnvironmentEnvironmentVariableArray{ ProjectEnvironmentEnvironmentVariableArgs{...} }
 type ProjectEnvironmentEnvironmentVariableArrayInput interface {
 	pulumi.Input
 
@@ -859,8 +851,7 @@ type ProjectEnvironmentRegistryCredential struct {
 // ProjectEnvironmentRegistryCredentialInput is an input type that accepts ProjectEnvironmentRegistryCredentialArgs and ProjectEnvironmentRegistryCredentialOutput values.
 // You can construct a concrete instance of `ProjectEnvironmentRegistryCredentialInput` via:
 //
-// 		 ProjectEnvironmentRegistryCredentialArgs{...}
-//
+//          ProjectEnvironmentRegistryCredentialArgs{...}
 type ProjectEnvironmentRegistryCredentialInput interface {
 	pulumi.Input
 
@@ -898,12 +889,11 @@ func (i ProjectEnvironmentRegistryCredentialArgs) ToProjectEnvironmentRegistryCr
 // ProjectEnvironmentRegistryCredentialPtrInput is an input type that accepts ProjectEnvironmentRegistryCredentialArgs, ProjectEnvironmentRegistryCredentialPtr and ProjectEnvironmentRegistryCredentialPtrOutput values.
 // You can construct a concrete instance of `ProjectEnvironmentRegistryCredentialPtrInput` via:
 //
-// 		 ProjectEnvironmentRegistryCredentialArgs{...}
+//          ProjectEnvironmentRegistryCredentialArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProjectEnvironmentRegistryCredentialPtrInput interface {
 	pulumi.Input
 
@@ -1011,8 +1001,7 @@ type ProjectLogsConfig struct {
 // ProjectLogsConfigInput is an input type that accepts ProjectLogsConfigArgs and ProjectLogsConfigOutput values.
 // You can construct a concrete instance of `ProjectLogsConfigInput` via:
 //
-// 		 ProjectLogsConfigArgs{...}
-//
+//          ProjectLogsConfigArgs{...}
 type ProjectLogsConfigInput interface {
 	pulumi.Input
 
@@ -1050,12 +1039,11 @@ func (i ProjectLogsConfigArgs) ToProjectLogsConfigPtrOutputWithContext(ctx conte
 // ProjectLogsConfigPtrInput is an input type that accepts ProjectLogsConfigArgs, ProjectLogsConfigPtr and ProjectLogsConfigPtrOutput values.
 // You can construct a concrete instance of `ProjectLogsConfigPtrInput` via:
 //
-// 		 ProjectLogsConfigArgs{...}
+//          ProjectLogsConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProjectLogsConfigPtrInput interface {
 	pulumi.Input
 
@@ -1165,8 +1153,7 @@ type ProjectLogsConfigCloudwatchLogs struct {
 // ProjectLogsConfigCloudwatchLogsInput is an input type that accepts ProjectLogsConfigCloudwatchLogsArgs and ProjectLogsConfigCloudwatchLogsOutput values.
 // You can construct a concrete instance of `ProjectLogsConfigCloudwatchLogsInput` via:
 //
-// 		 ProjectLogsConfigCloudwatchLogsArgs{...}
-//
+//          ProjectLogsConfigCloudwatchLogsArgs{...}
 type ProjectLogsConfigCloudwatchLogsInput interface {
 	pulumi.Input
 
@@ -1206,12 +1193,11 @@ func (i ProjectLogsConfigCloudwatchLogsArgs) ToProjectLogsConfigCloudwatchLogsPt
 // ProjectLogsConfigCloudwatchLogsPtrInput is an input type that accepts ProjectLogsConfigCloudwatchLogsArgs, ProjectLogsConfigCloudwatchLogsPtr and ProjectLogsConfigCloudwatchLogsPtrOutput values.
 // You can construct a concrete instance of `ProjectLogsConfigCloudwatchLogsPtrInput` via:
 //
-// 		 ProjectLogsConfigCloudwatchLogsArgs{...}
+//          ProjectLogsConfigCloudwatchLogsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProjectLogsConfigCloudwatchLogsPtrInput interface {
 	pulumi.Input
 
@@ -1336,8 +1322,7 @@ type ProjectLogsConfigS3Logs struct {
 // ProjectLogsConfigS3LogsInput is an input type that accepts ProjectLogsConfigS3LogsArgs and ProjectLogsConfigS3LogsOutput values.
 // You can construct a concrete instance of `ProjectLogsConfigS3LogsInput` via:
 //
-// 		 ProjectLogsConfigS3LogsArgs{...}
-//
+//          ProjectLogsConfigS3LogsArgs{...}
 type ProjectLogsConfigS3LogsInput interface {
 	pulumi.Input
 
@@ -1377,12 +1362,11 @@ func (i ProjectLogsConfigS3LogsArgs) ToProjectLogsConfigS3LogsPtrOutputWithConte
 // ProjectLogsConfigS3LogsPtrInput is an input type that accepts ProjectLogsConfigS3LogsArgs, ProjectLogsConfigS3LogsPtr and ProjectLogsConfigS3LogsPtrOutput values.
 // You can construct a concrete instance of `ProjectLogsConfigS3LogsPtrInput` via:
 //
-// 		 ProjectLogsConfigS3LogsArgs{...}
+//          ProjectLogsConfigS3LogsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProjectLogsConfigS3LogsPtrInput interface {
 	pulumi.Input
 
@@ -1519,8 +1503,7 @@ type ProjectSecondaryArtifact struct {
 // ProjectSecondaryArtifactInput is an input type that accepts ProjectSecondaryArtifactArgs and ProjectSecondaryArtifactOutput values.
 // You can construct a concrete instance of `ProjectSecondaryArtifactInput` via:
 //
-// 		 ProjectSecondaryArtifactArgs{...}
-//
+//          ProjectSecondaryArtifactArgs{...}
 type ProjectSecondaryArtifactInput interface {
 	pulumi.Input
 
@@ -1564,8 +1547,7 @@ func (i ProjectSecondaryArtifactArgs) ToProjectSecondaryArtifactOutputWithContex
 // ProjectSecondaryArtifactArrayInput is an input type that accepts ProjectSecondaryArtifactArray and ProjectSecondaryArtifactArrayOutput values.
 // You can construct a concrete instance of `ProjectSecondaryArtifactArrayInput` via:
 //
-// 		 ProjectSecondaryArtifactArray{ ProjectSecondaryArtifactArgs{...} }
-//
+//          ProjectSecondaryArtifactArray{ ProjectSecondaryArtifactArgs{...} }
 type ProjectSecondaryArtifactArrayInput interface {
 	pulumi.Input
 
@@ -1690,8 +1672,7 @@ type ProjectSecondarySource struct {
 // ProjectSecondarySourceInput is an input type that accepts ProjectSecondarySourceArgs and ProjectSecondarySourceOutput values.
 // You can construct a concrete instance of `ProjectSecondarySourceInput` via:
 //
-// 		 ProjectSecondarySourceArgs{...}
-//
+//          ProjectSecondarySourceArgs{...}
 type ProjectSecondarySourceInput interface {
 	pulumi.Input
 
@@ -1735,8 +1716,7 @@ func (i ProjectSecondarySourceArgs) ToProjectSecondarySourceOutputWithContext(ct
 // ProjectSecondarySourceArrayInput is an input type that accepts ProjectSecondarySourceArray and ProjectSecondarySourceArrayOutput values.
 // You can construct a concrete instance of `ProjectSecondarySourceArrayInput` via:
 //
-// 		 ProjectSecondarySourceArray{ ProjectSecondarySourceArgs{...} }
-//
+//          ProjectSecondarySourceArray{ ProjectSecondarySourceArgs{...} }
 type ProjectSecondarySourceArrayInput interface {
 	pulumi.Input
 
@@ -1849,8 +1829,7 @@ type ProjectSecondarySourceAuth struct {
 // ProjectSecondarySourceAuthInput is an input type that accepts ProjectSecondarySourceAuthArgs and ProjectSecondarySourceAuthOutput values.
 // You can construct a concrete instance of `ProjectSecondarySourceAuthInput` via:
 //
-// 		 ProjectSecondarySourceAuthArgs{...}
-//
+//          ProjectSecondarySourceAuthArgs{...}
 type ProjectSecondarySourceAuthInput interface {
 	pulumi.Input
 
@@ -1880,8 +1859,7 @@ func (i ProjectSecondarySourceAuthArgs) ToProjectSecondarySourceAuthOutputWithCo
 // ProjectSecondarySourceAuthArrayInput is an input type that accepts ProjectSecondarySourceAuthArray and ProjectSecondarySourceAuthArrayOutput values.
 // You can construct a concrete instance of `ProjectSecondarySourceAuthArrayInput` via:
 //
-// 		 ProjectSecondarySourceAuthArray{ ProjectSecondarySourceAuthArgs{...} }
-//
+//          ProjectSecondarySourceAuthArray{ ProjectSecondarySourceAuthArgs{...} }
 type ProjectSecondarySourceAuthArrayInput interface {
 	pulumi.Input
 
@@ -1955,8 +1933,7 @@ type ProjectSecondarySourceGitSubmodulesConfig struct {
 // ProjectSecondarySourceGitSubmodulesConfigInput is an input type that accepts ProjectSecondarySourceGitSubmodulesConfigArgs and ProjectSecondarySourceGitSubmodulesConfigOutput values.
 // You can construct a concrete instance of `ProjectSecondarySourceGitSubmodulesConfigInput` via:
 //
-// 		 ProjectSecondarySourceGitSubmodulesConfigArgs{...}
-//
+//          ProjectSecondarySourceGitSubmodulesConfigArgs{...}
 type ProjectSecondarySourceGitSubmodulesConfigInput interface {
 	pulumi.Input
 
@@ -1992,12 +1969,11 @@ func (i ProjectSecondarySourceGitSubmodulesConfigArgs) ToProjectSecondarySourceG
 // ProjectSecondarySourceGitSubmodulesConfigPtrInput is an input type that accepts ProjectSecondarySourceGitSubmodulesConfigArgs, ProjectSecondarySourceGitSubmodulesConfigPtr and ProjectSecondarySourceGitSubmodulesConfigPtrOutput values.
 // You can construct a concrete instance of `ProjectSecondarySourceGitSubmodulesConfigPtrInput` via:
 //
-// 		 ProjectSecondarySourceGitSubmodulesConfigArgs{...}
+//          ProjectSecondarySourceGitSubmodulesConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProjectSecondarySourceGitSubmodulesConfigPtrInput interface {
 	pulumi.Input
 
@@ -2104,8 +2080,7 @@ type ProjectSource struct {
 // ProjectSourceInput is an input type that accepts ProjectSourceArgs and ProjectSourceOutput values.
 // You can construct a concrete instance of `ProjectSourceInput` via:
 //
-// 		 ProjectSourceArgs{...}
-//
+//          ProjectSourceArgs{...}
 type ProjectSourceInput interface {
 	pulumi.Input
 
@@ -2155,12 +2130,11 @@ func (i ProjectSourceArgs) ToProjectSourcePtrOutputWithContext(ctx context.Conte
 // ProjectSourcePtrInput is an input type that accepts ProjectSourceArgs, ProjectSourcePtr and ProjectSourcePtrOutput values.
 // You can construct a concrete instance of `ProjectSourcePtrInput` via:
 //
-// 		 ProjectSourceArgs{...}
+//          ProjectSourceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProjectSourcePtrInput interface {
 	pulumi.Input
 
@@ -2358,8 +2332,7 @@ type ProjectSourceAuth struct {
 // ProjectSourceAuthInput is an input type that accepts ProjectSourceAuthArgs and ProjectSourceAuthOutput values.
 // You can construct a concrete instance of `ProjectSourceAuthInput` via:
 //
-// 		 ProjectSourceAuthArgs{...}
-//
+//          ProjectSourceAuthArgs{...}
 type ProjectSourceAuthInput interface {
 	pulumi.Input
 
@@ -2389,8 +2362,7 @@ func (i ProjectSourceAuthArgs) ToProjectSourceAuthOutputWithContext(ctx context.
 // ProjectSourceAuthArrayInput is an input type that accepts ProjectSourceAuthArray and ProjectSourceAuthArrayOutput values.
 // You can construct a concrete instance of `ProjectSourceAuthArrayInput` via:
 //
-// 		 ProjectSourceAuthArray{ ProjectSourceAuthArgs{...} }
-//
+//          ProjectSourceAuthArray{ ProjectSourceAuthArgs{...} }
 type ProjectSourceAuthArrayInput interface {
 	pulumi.Input
 
@@ -2464,8 +2436,7 @@ type ProjectSourceGitSubmodulesConfig struct {
 // ProjectSourceGitSubmodulesConfigInput is an input type that accepts ProjectSourceGitSubmodulesConfigArgs and ProjectSourceGitSubmodulesConfigOutput values.
 // You can construct a concrete instance of `ProjectSourceGitSubmodulesConfigInput` via:
 //
-// 		 ProjectSourceGitSubmodulesConfigArgs{...}
-//
+//          ProjectSourceGitSubmodulesConfigArgs{...}
 type ProjectSourceGitSubmodulesConfigInput interface {
 	pulumi.Input
 
@@ -2501,12 +2472,11 @@ func (i ProjectSourceGitSubmodulesConfigArgs) ToProjectSourceGitSubmodulesConfig
 // ProjectSourceGitSubmodulesConfigPtrInput is an input type that accepts ProjectSourceGitSubmodulesConfigArgs, ProjectSourceGitSubmodulesConfigPtr and ProjectSourceGitSubmodulesConfigPtrOutput values.
 // You can construct a concrete instance of `ProjectSourceGitSubmodulesConfigPtrInput` via:
 //
-// 		 ProjectSourceGitSubmodulesConfigArgs{...}
+//          ProjectSourceGitSubmodulesConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProjectSourceGitSubmodulesConfigPtrInput interface {
 	pulumi.Input
 
@@ -2601,8 +2571,7 @@ type ProjectVpcConfig struct {
 // ProjectVpcConfigInput is an input type that accepts ProjectVpcConfigArgs and ProjectVpcConfigOutput values.
 // You can construct a concrete instance of `ProjectVpcConfigInput` via:
 //
-// 		 ProjectVpcConfigArgs{...}
-//
+//          ProjectVpcConfigArgs{...}
 type ProjectVpcConfigInput interface {
 	pulumi.Input
 
@@ -2642,12 +2611,11 @@ func (i ProjectVpcConfigArgs) ToProjectVpcConfigPtrOutputWithContext(ctx context
 // ProjectVpcConfigPtrInput is an input type that accepts ProjectVpcConfigArgs, ProjectVpcConfigPtr and ProjectVpcConfigPtrOutput values.
 // You can construct a concrete instance of `ProjectVpcConfigPtrInput` via:
 //
-// 		 ProjectVpcConfigArgs{...}
+//          ProjectVpcConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProjectVpcConfigPtrInput interface {
 	pulumi.Input
 
@@ -2768,8 +2736,7 @@ type WebhookFilterGroup struct {
 // WebhookFilterGroupInput is an input type that accepts WebhookFilterGroupArgs and WebhookFilterGroupOutput values.
 // You can construct a concrete instance of `WebhookFilterGroupInput` via:
 //
-// 		 WebhookFilterGroupArgs{...}
-//
+//          WebhookFilterGroupArgs{...}
 type WebhookFilterGroupInput interface {
 	pulumi.Input
 
@@ -2797,8 +2764,7 @@ func (i WebhookFilterGroupArgs) ToWebhookFilterGroupOutputWithContext(ctx contex
 // WebhookFilterGroupArrayInput is an input type that accepts WebhookFilterGroupArray and WebhookFilterGroupArrayOutput values.
 // You can construct a concrete instance of `WebhookFilterGroupArrayInput` via:
 //
-// 		 WebhookFilterGroupArray{ WebhookFilterGroupArgs{...} }
-//
+//          WebhookFilterGroupArray{ WebhookFilterGroupArgs{...} }
 type WebhookFilterGroupArrayInput interface {
 	pulumi.Input
 
@@ -2871,8 +2837,7 @@ type WebhookFilterGroupFilter struct {
 // WebhookFilterGroupFilterInput is an input type that accepts WebhookFilterGroupFilterArgs and WebhookFilterGroupFilterOutput values.
 // You can construct a concrete instance of `WebhookFilterGroupFilterInput` via:
 //
-// 		 WebhookFilterGroupFilterArgs{...}
-//
+//          WebhookFilterGroupFilterArgs{...}
 type WebhookFilterGroupFilterInput interface {
 	pulumi.Input
 
@@ -2904,8 +2869,7 @@ func (i WebhookFilterGroupFilterArgs) ToWebhookFilterGroupFilterOutputWithContex
 // WebhookFilterGroupFilterArrayInput is an input type that accepts WebhookFilterGroupFilterArray and WebhookFilterGroupFilterArrayOutput values.
 // You can construct a concrete instance of `WebhookFilterGroupFilterArrayInput` via:
 //
-// 		 WebhookFilterGroupFilterArray{ WebhookFilterGroupFilterArgs{...} }
-//
+//          WebhookFilterGroupFilterArray{ WebhookFilterGroupFilterArgs{...} }
 type WebhookFilterGroupFilterArrayInput interface {
 	pulumi.Input
 

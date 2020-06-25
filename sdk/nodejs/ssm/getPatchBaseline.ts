@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * To retrieve a baseline provided by AWS:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,6 +21,20 @@ import * as utilities from "../utilities";
  *     namePrefix: "AWS-",
  *     operatingSystem: "CENTOS",
  *     owner: "AWS",
+ * }, { async: true }));
+ * ```
+ *
+ * To retrieve a baseline on your account:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const defaultCustom = pulumi.output(aws.ssm.getPatchBaseline({
+ *     defaultBaseline: true,
+ *     namePrefix: "MyCustomBaseline",
+ *     operatingSystem: "WINDOWS",
+ *     owner: "Self",
  * }, { async: true }));
  * ```
  */

@@ -38,8 +38,7 @@ type BudgetCostTypes struct {
 // BudgetCostTypesInput is an input type that accepts BudgetCostTypesArgs and BudgetCostTypesOutput values.
 // You can construct a concrete instance of `BudgetCostTypesInput` via:
 //
-// 		 BudgetCostTypesArgs{...}
-//
+//          BudgetCostTypesArgs{...}
 type BudgetCostTypesInput interface {
 	pulumi.Input
 
@@ -95,12 +94,11 @@ func (i BudgetCostTypesArgs) ToBudgetCostTypesPtrOutputWithContext(ctx context.C
 // BudgetCostTypesPtrInput is an input type that accepts BudgetCostTypesArgs, BudgetCostTypesPtr and BudgetCostTypesPtrOutput values.
 // You can construct a concrete instance of `BudgetCostTypesPtrInput` via:
 //
-// 		 BudgetCostTypesArgs{...}
+//          BudgetCostTypesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type BudgetCostTypesPtrInput interface {
 	pulumi.Input
 
@@ -351,8 +349,7 @@ type BudgetNotification struct {
 // BudgetNotificationInput is an input type that accepts BudgetNotificationArgs and BudgetNotificationOutput values.
 // You can construct a concrete instance of `BudgetNotificationInput` via:
 //
-// 		 BudgetNotificationArgs{...}
-//
+//          BudgetNotificationArgs{...}
 type BudgetNotificationInput interface {
 	pulumi.Input
 
@@ -390,8 +387,7 @@ func (i BudgetNotificationArgs) ToBudgetNotificationOutputWithContext(ctx contex
 // BudgetNotificationArrayInput is an input type that accepts BudgetNotificationArray and BudgetNotificationArrayOutput values.
 // You can construct a concrete instance of `BudgetNotificationArrayInput` via:
 //
-// 		 BudgetNotificationArray{ BudgetNotificationArgs{...} }
-//
+//          BudgetNotificationArray{ BudgetNotificationArgs{...} }
 type BudgetNotificationArrayInput interface {
 	pulumi.Input
 

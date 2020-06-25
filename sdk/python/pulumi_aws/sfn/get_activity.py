@@ -49,8 +49,6 @@ def get_activity(arn=None,name=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

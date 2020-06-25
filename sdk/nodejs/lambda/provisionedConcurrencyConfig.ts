@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Manages a Lambda Provisioned Concurrency Configuration.
  *
  * ## Example Usage
- *
  * ### Alias Name
  *
  * ```typescript
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     qualifier: aws_lambda_alias.example.name,
  * });
  * ```
- *
  * ### Function Version
  *
  * ```typescript

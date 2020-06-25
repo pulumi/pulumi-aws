@@ -15,6 +15,108 @@ import (
 // which provides some details about a specific availability zone.
 //
 // > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
+//
+// ## Example Usage
+// ### By State
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "available"
+// 		available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+// 			State: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewSubnet(ctx, "primary", &ec2.SubnetArgs{
+// 			AvailabilityZone: pulumi.String(available.Names[0]),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewSubnet(ctx, "secondary", &ec2.SubnetArgs{
+// 			AvailabilityZone: pulumi.String(available.Names[1]),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### By Filter
+//
+// All Local Zones (regardless of opt-in status):
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		_, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+// 			AllAvailabilityZones: &opt0,
+// 			Filters: []aws.GetAvailabilityZonesFilter{
+// 				aws.GetAvailabilityZonesFilter{
+// 					Name: "opt-in-status",
+// 					Values: []string{
+// 						"not-opted-in",
+// 						"opted-in",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// Only Availability Zones (no Local Zones):
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+// 			Filters: []aws.GetAvailabilityZonesFilter{
+// 				aws.GetAvailabilityZonesFilter{
+// 					Name: "opt-in-status",
+// 					Values: []string{
+// 						"opt-in-not-required",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs, opts ...pulumi.InvokeOption) (*GetAvailabilityZonesResult, error) {
 	var rv GetAvailabilityZonesResult
 	err := ctx.Invoke("aws:index/getAvailabilityZones:getAvailabilityZones", args, &rv, opts...)

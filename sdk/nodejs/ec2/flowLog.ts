@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
  *
  * ## Example Usage
- *
  * ### CloudWatch Logging
  *
  * ```typescript
@@ -60,7 +59,6 @@ import * as utilities from "../utilities";
  *     role: exampleRole.id,
  * });
  * ```
- *
  * ### S3 Logging
  *
  * ```typescript

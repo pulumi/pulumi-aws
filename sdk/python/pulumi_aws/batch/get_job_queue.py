@@ -86,8 +86,6 @@ def get_job_queue(name=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

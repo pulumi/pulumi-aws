@@ -250,8 +250,6 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

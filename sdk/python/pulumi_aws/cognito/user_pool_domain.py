@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class UserPoolDomain(pulumi.CustomResource):
     aws_account_id: pulumi.Output[str]
     """
@@ -43,7 +44,6 @@ class UserPoolDomain(pulumi.CustomResource):
         Provides a Cognito User Pool Domain resource.
 
         ## Example Usage
-
         ### Amazon Cognito domain
 
         ```python
@@ -55,7 +55,6 @@ class UserPoolDomain(pulumi.CustomResource):
             domain="example-domain",
             user_pool_id=example.id)
         ```
-
         ### Custom Cognito domain
 
         ```python
@@ -138,9 +137,9 @@ class UserPoolDomain(pulumi.CustomResource):
         __props__["user_pool_id"] = user_pool_id
         __props__["version"] = version
         return UserPoolDomain(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

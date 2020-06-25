@@ -15,7 +15,27 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
 //
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = ec2.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2.RouteTableAssociationArgs{
+// 			SubnetId:     pulumi.String(aws_subnet.Foo.Id),
+// 			RouteTableId: pulumi.String(aws_route_table.Bar.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ```go
 // package main
@@ -27,8 +47,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		routeTableAssociation, err := ec2.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2.RouteTableAssociationArgs{
-// 			SubnetId:     pulumi.String(aws_subnet.Foo.Id),
+// 		_, err = ec2.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2.RouteTableAssociationArgs{
+// 			GatewayId:    pulumi.String(aws_internet_gateway.Foo.Id),
 // 			RouteTableId: pulumi.String(aws_route_table.Bar.Id),
 // 		})
 // 		if err != nil {

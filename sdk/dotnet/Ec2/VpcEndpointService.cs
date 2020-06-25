@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Ec2
     /// and will overwrite the association.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// 
     /// ### Basic w/ Tags
     /// 
     /// ```csharp

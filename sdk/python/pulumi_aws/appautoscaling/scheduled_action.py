@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ScheduledAction(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -54,7 +55,6 @@ class ScheduledAction(pulumi.CustomResource):
         Provides an Application AutoScaling ScheduledAction resource.
 
         ## Example Usage
-
         ### DynamoDB Table Autoscaling
 
         ```python
@@ -77,7 +77,6 @@ class ScheduledAction(pulumi.CustomResource):
             schedule="at(2006-01-02T15:04:05)",
             service_namespace=dynamodb_target.service_namespace)
         ```
-
         ### ECS Service Autoscaling
 
         ```python
@@ -191,9 +190,9 @@ class ScheduledAction(pulumi.CustomResource):
         __props__["service_namespace"] = service_namespace
         __props__["start_time"] = start_time
         return ScheduledAction(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

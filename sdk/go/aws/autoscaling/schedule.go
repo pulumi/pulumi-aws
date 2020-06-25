@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -42,7 +40,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		foobarSchedule, err := autoscaling.NewSchedule(ctx, "foobarSchedule", &autoscaling.ScheduleArgs{
+// 		_, err = autoscaling.NewSchedule(ctx, "foobarSchedule", &autoscaling.ScheduleArgs{
 // 			AutoscalingGroupName: foobarGroup.Name,
 // 			DesiredCapacity:      pulumi.Int(0),
 // 			EndTime:              pulumi.String("2016-12-12T06:00:00Z"),

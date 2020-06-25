@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Provides an AWS App Mesh route resource.
  *
  * ## Example Usage
- *
  * ### HTTP Routing
  *
  * ```typescript
@@ -41,7 +40,6 @@ import * as utilities from "../utilities";
  *     virtualRouterName: aws_appmesh_virtual_router_serviceb.name,
  * });
  * ```
- *
  * ### HTTP Header Routing
  *
  * ```typescript
@@ -74,7 +72,6 @@ import * as utilities from "../utilities";
  *     virtualRouterName: aws_appmesh_virtual_router_serviceb.name,
  * });
  * ```
- *
  * ### TCP Routing
  *
  * ```typescript

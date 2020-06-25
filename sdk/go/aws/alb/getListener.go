@@ -17,32 +17,35 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lb"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		listener, err := lb.LookupListener(ctx, &lb.LookupListenerArgs{
-// 			Arn: listenerArn,
+// 		opt0 := listenerArn
+// 		_, err := lb.LookupListener(ctx, &lb.LookupListenerArgs{
+// 			Arn: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
+// 		opt1 := "default-public"
 // 		selected, err := lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
-// 			Name: "default-public",
+// 			Name: &opt1,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		selected443, err := lb.LookupListener(ctx, &lb.LookupListenerArgs{
-// 			LoadBalancerArn: selected.Arn,
-// 			Port:            443,
+// 		opt2 := selected.Arn
+// 		opt3 := 443
+// 		_, err := lb.LookupListener(ctx, &lb.LookupListenerArgs{
+// 			LoadBalancerArn: &opt2,
+// 			Port:            &opt3,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

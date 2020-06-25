@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Provides a resource to manage an S3 Access Point.
  *
  * ## Example Usage
- *
  * ### Basic Usage
  *
  * ```typescript
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
  * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {bucket: exampleBucket.id});
  * ```
- *
  * ### Access Point Restricted to a VPC
  *
  * ```typescript

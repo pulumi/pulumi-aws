@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

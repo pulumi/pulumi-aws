@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to get a list of cognito user pools.
+//
+// ## Example Usage
 func GetUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs, opts ...pulumi.InvokeOption) (*GetUserPoolsResult, error) {
 	var rv GetUserPoolsResult
 	err := ctx.Invoke("aws:cognito/getUserPools:getUserPools", args, &rv, opts...)

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class GatewayAssociationProposal(pulumi.CustomResource):
     allowed_prefixes: pulumi.Output[list]
     """
@@ -44,8 +45,6 @@ class GatewayAssociationProposal(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -55,6 +54,8 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             dx_gateway_id=aws_dx_gateway["example"]["id"],
             dx_gateway_owner_account_id=aws_dx_gateway["example"]["owner_account_id"])
         ```
+
+        A full example of how to create a VPN Gateway in one AWS account, create a Direct Connect Gateway in a second AWS account, and associate the VPN Gateway with the Direct Connect Gateway via the `directconnect.GatewayAssociationProposal` and `directconnect.GatewayAssociation` resources can be found in [the `./examples/dx-gateway-cross-account-vgw-association` directory within the Github Repository](https://github.com/providers/provider-aws/tree/master/examples/dx-gateway-cross-account-vgw-association).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,9 +131,9 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         __props__["dx_gateway_owner_account_id"] = dx_gateway_owner_account_id
         __props__["vpn_gateway_id"] = vpn_gateway_id
         return GatewayAssociationProposal(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

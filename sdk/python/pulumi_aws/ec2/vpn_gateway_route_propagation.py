@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class VpnGatewayRoutePropagation(pulumi.CustomResource):
     route_table_id: pulumi.Output[str]
     """
@@ -27,8 +28,6 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         propagation not explicitly listed in its value will be removed.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -92,9 +91,9 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         __props__["route_table_id"] = route_table_id
         __props__["vpn_gateway_id"] = vpn_gateway_id
         return VpnGatewayRoutePropagation(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

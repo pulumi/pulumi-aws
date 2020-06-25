@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Repository(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -47,8 +48,6 @@ class Repository(pulumi.CustomResource):
         Provides a CodeCommit Repository Resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -130,9 +129,9 @@ class Repository(pulumi.CustomResource):
         __props__["repository_name"] = repository_name
         __props__["tags"] = tags
         return Repository(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

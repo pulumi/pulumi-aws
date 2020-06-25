@@ -128,7 +128,6 @@ def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
     `ec2.Eip` provides details about a specific Elastic IP.
 
     ## Example Usage
-
     ### Search By Allocation ID (VPC only)
 
     ```python
@@ -137,7 +136,6 @@ def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
 
     by_allocation_id = aws.get_elastic_ip(id="eipalloc-12345678")
     ```
-
     ### Search By Filters (EC2-Classic or VPC)
 
     ```python
@@ -149,7 +147,6 @@ def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
         "values": ["exampleNameTagValue"],
     }])
     ```
-
     ### Search By Public IP (EC2-Classic or VPC)
 
     ```python
@@ -158,7 +155,6 @@ def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
 
     by_public_ip = aws.get_elastic_ip(public_ip="1.2.3.4")
     ```
-
     ### Search By Tags (EC2-Classic or VPC)
 
     ```python

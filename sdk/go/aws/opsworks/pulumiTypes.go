@@ -28,8 +28,7 @@ type ApplicationAppSource struct {
 // ApplicationAppSourceInput is an input type that accepts ApplicationAppSourceArgs and ApplicationAppSourceOutput values.
 // You can construct a concrete instance of `ApplicationAppSourceInput` via:
 //
-// 		 ApplicationAppSourceArgs{...}
-//
+//          ApplicationAppSourceArgs{...}
 type ApplicationAppSourceInput interface {
 	pulumi.Input
 
@@ -67,8 +66,7 @@ func (i ApplicationAppSourceArgs) ToApplicationAppSourceOutputWithContext(ctx co
 // ApplicationAppSourceArrayInput is an input type that accepts ApplicationAppSourceArray and ApplicationAppSourceArrayOutput values.
 // You can construct a concrete instance of `ApplicationAppSourceArrayInput` via:
 //
-// 		 ApplicationAppSourceArray{ ApplicationAppSourceArgs{...} }
-//
+//          ApplicationAppSourceArray{ ApplicationAppSourceArgs{...} }
 type ApplicationAppSourceArrayInput interface {
 	pulumi.Input
 
@@ -166,8 +164,7 @@ type ApplicationEnvironment struct {
 // ApplicationEnvironmentInput is an input type that accepts ApplicationEnvironmentArgs and ApplicationEnvironmentOutput values.
 // You can construct a concrete instance of `ApplicationEnvironmentInput` via:
 //
-// 		 ApplicationEnvironmentArgs{...}
-//
+//          ApplicationEnvironmentArgs{...}
 type ApplicationEnvironmentInput interface {
 	pulumi.Input
 
@@ -199,8 +196,7 @@ func (i ApplicationEnvironmentArgs) ToApplicationEnvironmentOutputWithContext(ct
 // ApplicationEnvironmentArrayInput is an input type that accepts ApplicationEnvironmentArray and ApplicationEnvironmentArrayOutput values.
 // You can construct a concrete instance of `ApplicationEnvironmentArrayInput` via:
 //
-// 		 ApplicationEnvironmentArray{ ApplicationEnvironmentArgs{...} }
-//
+//          ApplicationEnvironmentArray{ ApplicationEnvironmentArgs{...} }
 type ApplicationEnvironmentArrayInput interface {
 	pulumi.Input
 
@@ -283,8 +279,7 @@ type ApplicationSslConfiguration struct {
 // ApplicationSslConfigurationInput is an input type that accepts ApplicationSslConfigurationArgs and ApplicationSslConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationSslConfigurationInput` via:
 //
-// 		 ApplicationSslConfigurationArgs{...}
-//
+//          ApplicationSslConfigurationArgs{...}
 type ApplicationSslConfigurationInput interface {
 	pulumi.Input
 
@@ -316,8 +311,7 @@ func (i ApplicationSslConfigurationArgs) ToApplicationSslConfigurationOutputWith
 // ApplicationSslConfigurationArrayInput is an input type that accepts ApplicationSslConfigurationArray and ApplicationSslConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationSslConfigurationArrayInput` via:
 //
-// 		 ApplicationSslConfigurationArray{ ApplicationSslConfigurationArgs{...} }
-//
+//          ApplicationSslConfigurationArray{ ApplicationSslConfigurationArgs{...} }
 type ApplicationSslConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -408,8 +402,7 @@ type CustomLayerEbsVolume struct {
 // CustomLayerEbsVolumeInput is an input type that accepts CustomLayerEbsVolumeArgs and CustomLayerEbsVolumeOutput values.
 // You can construct a concrete instance of `CustomLayerEbsVolumeInput` via:
 //
-// 		 CustomLayerEbsVolumeArgs{...}
-//
+//          CustomLayerEbsVolumeArgs{...}
 type CustomLayerEbsVolumeInput interface {
 	pulumi.Input
 
@@ -449,8 +442,7 @@ func (i CustomLayerEbsVolumeArgs) ToCustomLayerEbsVolumeOutputWithContext(ctx co
 // CustomLayerEbsVolumeArrayInput is an input type that accepts CustomLayerEbsVolumeArray and CustomLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `CustomLayerEbsVolumeArrayInput` via:
 //
-// 		 CustomLayerEbsVolumeArray{ CustomLayerEbsVolumeArgs{...} }
-//
+//          CustomLayerEbsVolumeArray{ CustomLayerEbsVolumeArgs{...} }
 type CustomLayerEbsVolumeArrayInput interface {
 	pulumi.Input
 
@@ -560,8 +552,7 @@ type GangliaLayerEbsVolume struct {
 // GangliaLayerEbsVolumeInput is an input type that accepts GangliaLayerEbsVolumeArgs and GangliaLayerEbsVolumeOutput values.
 // You can construct a concrete instance of `GangliaLayerEbsVolumeInput` via:
 //
-// 		 GangliaLayerEbsVolumeArgs{...}
-//
+//          GangliaLayerEbsVolumeArgs{...}
 type GangliaLayerEbsVolumeInput interface {
 	pulumi.Input
 
@@ -600,8 +591,7 @@ func (i GangliaLayerEbsVolumeArgs) ToGangliaLayerEbsVolumeOutputWithContext(ctx 
 // GangliaLayerEbsVolumeArrayInput is an input type that accepts GangliaLayerEbsVolumeArray and GangliaLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `GangliaLayerEbsVolumeArrayInput` via:
 //
-// 		 GangliaLayerEbsVolumeArray{ GangliaLayerEbsVolumeArgs{...} }
-//
+//          GangliaLayerEbsVolumeArray{ GangliaLayerEbsVolumeArgs{...} }
 type GangliaLayerEbsVolumeArrayInput interface {
 	pulumi.Input
 
@@ -710,8 +700,7 @@ type HaproxyLayerEbsVolume struct {
 // HaproxyLayerEbsVolumeInput is an input type that accepts HaproxyLayerEbsVolumeArgs and HaproxyLayerEbsVolumeOutput values.
 // You can construct a concrete instance of `HaproxyLayerEbsVolumeInput` via:
 //
-// 		 HaproxyLayerEbsVolumeArgs{...}
-//
+//          HaproxyLayerEbsVolumeArgs{...}
 type HaproxyLayerEbsVolumeInput interface {
 	pulumi.Input
 
@@ -750,8 +739,7 @@ func (i HaproxyLayerEbsVolumeArgs) ToHaproxyLayerEbsVolumeOutputWithContext(ctx 
 // HaproxyLayerEbsVolumeArrayInput is an input type that accepts HaproxyLayerEbsVolumeArray and HaproxyLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `HaproxyLayerEbsVolumeArrayInput` via:
 //
-// 		 HaproxyLayerEbsVolumeArray{ HaproxyLayerEbsVolumeArgs{...} }
-//
+//          HaproxyLayerEbsVolumeArray{ HaproxyLayerEbsVolumeArgs{...} }
 type HaproxyLayerEbsVolumeArrayInput interface {
 	pulumi.Input
 
@@ -853,8 +841,7 @@ type InstanceEbsBlockDevice struct {
 // InstanceEbsBlockDeviceInput is an input type that accepts InstanceEbsBlockDeviceArgs and InstanceEbsBlockDeviceOutput values.
 // You can construct a concrete instance of `InstanceEbsBlockDeviceInput` via:
 //
-// 		 InstanceEbsBlockDeviceArgs{...}
-//
+//          InstanceEbsBlockDeviceArgs{...}
 type InstanceEbsBlockDeviceInput interface {
 	pulumi.Input
 
@@ -886,8 +873,7 @@ func (i InstanceEbsBlockDeviceArgs) ToInstanceEbsBlockDeviceOutputWithContext(ct
 // InstanceEbsBlockDeviceArrayInput is an input type that accepts InstanceEbsBlockDeviceArray and InstanceEbsBlockDeviceArrayOutput values.
 // You can construct a concrete instance of `InstanceEbsBlockDeviceArrayInput` via:
 //
-// 		 InstanceEbsBlockDeviceArray{ InstanceEbsBlockDeviceArgs{...} }
-//
+//          InstanceEbsBlockDeviceArray{ InstanceEbsBlockDeviceArgs{...} }
 type InstanceEbsBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -975,8 +961,7 @@ type InstanceEphemeralBlockDevice struct {
 // InstanceEphemeralBlockDeviceInput is an input type that accepts InstanceEphemeralBlockDeviceArgs and InstanceEphemeralBlockDeviceOutput values.
 // You can construct a concrete instance of `InstanceEphemeralBlockDeviceInput` via:
 //
-// 		 InstanceEphemeralBlockDeviceArgs{...}
-//
+//          InstanceEphemeralBlockDeviceArgs{...}
 type InstanceEphemeralBlockDeviceInput interface {
 	pulumi.Input
 
@@ -1004,8 +989,7 @@ func (i InstanceEphemeralBlockDeviceArgs) ToInstanceEphemeralBlockDeviceOutputWi
 // InstanceEphemeralBlockDeviceArrayInput is an input type that accepts InstanceEphemeralBlockDeviceArray and InstanceEphemeralBlockDeviceArrayOutput values.
 // You can construct a concrete instance of `InstanceEphemeralBlockDeviceArrayInput` via:
 //
-// 		 InstanceEphemeralBlockDeviceArray{ InstanceEphemeralBlockDeviceArgs{...} }
-//
+//          InstanceEphemeralBlockDeviceArray{ InstanceEphemeralBlockDeviceArgs{...} }
 type InstanceEphemeralBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -1079,8 +1063,7 @@ type InstanceRootBlockDevice struct {
 // InstanceRootBlockDeviceInput is an input type that accepts InstanceRootBlockDeviceArgs and InstanceRootBlockDeviceOutput values.
 // You can construct a concrete instance of `InstanceRootBlockDeviceInput` via:
 //
-// 		 InstanceRootBlockDeviceArgs{...}
-//
+//          InstanceRootBlockDeviceArgs{...}
 type InstanceRootBlockDeviceInput interface {
 	pulumi.Input
 
@@ -1110,8 +1093,7 @@ func (i InstanceRootBlockDeviceArgs) ToInstanceRootBlockDeviceOutputWithContext(
 // InstanceRootBlockDeviceArrayInput is an input type that accepts InstanceRootBlockDeviceArray and InstanceRootBlockDeviceArrayOutput values.
 // You can construct a concrete instance of `InstanceRootBlockDeviceArrayInput` via:
 //
-// 		 InstanceRootBlockDeviceArray{ InstanceRootBlockDeviceArgs{...} }
-//
+//          InstanceRootBlockDeviceArray{ InstanceRootBlockDeviceArgs{...} }
 type InstanceRootBlockDeviceArrayInput interface {
 	pulumi.Input
 
@@ -1202,8 +1184,7 @@ type JavaAppLayerEbsVolume struct {
 // JavaAppLayerEbsVolumeInput is an input type that accepts JavaAppLayerEbsVolumeArgs and JavaAppLayerEbsVolumeOutput values.
 // You can construct a concrete instance of `JavaAppLayerEbsVolumeInput` via:
 //
-// 		 JavaAppLayerEbsVolumeArgs{...}
-//
+//          JavaAppLayerEbsVolumeArgs{...}
 type JavaAppLayerEbsVolumeInput interface {
 	pulumi.Input
 
@@ -1242,8 +1223,7 @@ func (i JavaAppLayerEbsVolumeArgs) ToJavaAppLayerEbsVolumeOutputWithContext(ctx 
 // JavaAppLayerEbsVolumeArrayInput is an input type that accepts JavaAppLayerEbsVolumeArray and JavaAppLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `JavaAppLayerEbsVolumeArrayInput` via:
 //
-// 		 JavaAppLayerEbsVolumeArray{ JavaAppLayerEbsVolumeArgs{...} }
-//
+//          JavaAppLayerEbsVolumeArray{ JavaAppLayerEbsVolumeArgs{...} }
 type JavaAppLayerEbsVolumeArrayInput interface {
 	pulumi.Input
 
@@ -1352,8 +1332,7 @@ type MemcachedLayerEbsVolume struct {
 // MemcachedLayerEbsVolumeInput is an input type that accepts MemcachedLayerEbsVolumeArgs and MemcachedLayerEbsVolumeOutput values.
 // You can construct a concrete instance of `MemcachedLayerEbsVolumeInput` via:
 //
-// 		 MemcachedLayerEbsVolumeArgs{...}
-//
+//          MemcachedLayerEbsVolumeArgs{...}
 type MemcachedLayerEbsVolumeInput interface {
 	pulumi.Input
 
@@ -1392,8 +1371,7 @@ func (i MemcachedLayerEbsVolumeArgs) ToMemcachedLayerEbsVolumeOutputWithContext(
 // MemcachedLayerEbsVolumeArrayInput is an input type that accepts MemcachedLayerEbsVolumeArray and MemcachedLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `MemcachedLayerEbsVolumeArrayInput` via:
 //
-// 		 MemcachedLayerEbsVolumeArray{ MemcachedLayerEbsVolumeArgs{...} }
-//
+//          MemcachedLayerEbsVolumeArray{ MemcachedLayerEbsVolumeArgs{...} }
 type MemcachedLayerEbsVolumeArrayInput interface {
 	pulumi.Input
 
@@ -1502,8 +1480,7 @@ type MysqlLayerEbsVolume struct {
 // MysqlLayerEbsVolumeInput is an input type that accepts MysqlLayerEbsVolumeArgs and MysqlLayerEbsVolumeOutput values.
 // You can construct a concrete instance of `MysqlLayerEbsVolumeInput` via:
 //
-// 		 MysqlLayerEbsVolumeArgs{...}
-//
+//          MysqlLayerEbsVolumeArgs{...}
 type MysqlLayerEbsVolumeInput interface {
 	pulumi.Input
 
@@ -1542,8 +1519,7 @@ func (i MysqlLayerEbsVolumeArgs) ToMysqlLayerEbsVolumeOutputWithContext(ctx cont
 // MysqlLayerEbsVolumeArrayInput is an input type that accepts MysqlLayerEbsVolumeArray and MysqlLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `MysqlLayerEbsVolumeArrayInput` via:
 //
-// 		 MysqlLayerEbsVolumeArray{ MysqlLayerEbsVolumeArgs{...} }
-//
+//          MysqlLayerEbsVolumeArray{ MysqlLayerEbsVolumeArgs{...} }
 type MysqlLayerEbsVolumeArrayInput interface {
 	pulumi.Input
 
@@ -1652,8 +1628,7 @@ type NodejsAppLayerEbsVolume struct {
 // NodejsAppLayerEbsVolumeInput is an input type that accepts NodejsAppLayerEbsVolumeArgs and NodejsAppLayerEbsVolumeOutput values.
 // You can construct a concrete instance of `NodejsAppLayerEbsVolumeInput` via:
 //
-// 		 NodejsAppLayerEbsVolumeArgs{...}
-//
+//          NodejsAppLayerEbsVolumeArgs{...}
 type NodejsAppLayerEbsVolumeInput interface {
 	pulumi.Input
 
@@ -1692,8 +1667,7 @@ func (i NodejsAppLayerEbsVolumeArgs) ToNodejsAppLayerEbsVolumeOutputWithContext(
 // NodejsAppLayerEbsVolumeArrayInput is an input type that accepts NodejsAppLayerEbsVolumeArray and NodejsAppLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `NodejsAppLayerEbsVolumeArrayInput` via:
 //
-// 		 NodejsAppLayerEbsVolumeArray{ NodejsAppLayerEbsVolumeArgs{...} }
-//
+//          NodejsAppLayerEbsVolumeArray{ NodejsAppLayerEbsVolumeArgs{...} }
 type NodejsAppLayerEbsVolumeArrayInput interface {
 	pulumi.Input
 
@@ -1802,8 +1776,7 @@ type PhpAppLayerEbsVolume struct {
 // PhpAppLayerEbsVolumeInput is an input type that accepts PhpAppLayerEbsVolumeArgs and PhpAppLayerEbsVolumeOutput values.
 // You can construct a concrete instance of `PhpAppLayerEbsVolumeInput` via:
 //
-// 		 PhpAppLayerEbsVolumeArgs{...}
-//
+//          PhpAppLayerEbsVolumeArgs{...}
 type PhpAppLayerEbsVolumeInput interface {
 	pulumi.Input
 
@@ -1842,8 +1815,7 @@ func (i PhpAppLayerEbsVolumeArgs) ToPhpAppLayerEbsVolumeOutputWithContext(ctx co
 // PhpAppLayerEbsVolumeArrayInput is an input type that accepts PhpAppLayerEbsVolumeArray and PhpAppLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `PhpAppLayerEbsVolumeArrayInput` via:
 //
-// 		 PhpAppLayerEbsVolumeArray{ PhpAppLayerEbsVolumeArgs{...} }
-//
+//          PhpAppLayerEbsVolumeArray{ PhpAppLayerEbsVolumeArgs{...} }
 type PhpAppLayerEbsVolumeArrayInput interface {
 	pulumi.Input
 
@@ -1952,8 +1924,7 @@ type RailsAppLayerEbsVolume struct {
 // RailsAppLayerEbsVolumeInput is an input type that accepts RailsAppLayerEbsVolumeArgs and RailsAppLayerEbsVolumeOutput values.
 // You can construct a concrete instance of `RailsAppLayerEbsVolumeInput` via:
 //
-// 		 RailsAppLayerEbsVolumeArgs{...}
-//
+//          RailsAppLayerEbsVolumeArgs{...}
 type RailsAppLayerEbsVolumeInput interface {
 	pulumi.Input
 
@@ -1992,8 +1963,7 @@ func (i RailsAppLayerEbsVolumeArgs) ToRailsAppLayerEbsVolumeOutputWithContext(ct
 // RailsAppLayerEbsVolumeArrayInput is an input type that accepts RailsAppLayerEbsVolumeArray and RailsAppLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `RailsAppLayerEbsVolumeArrayInput` via:
 //
-// 		 RailsAppLayerEbsVolumeArray{ RailsAppLayerEbsVolumeArgs{...} }
-//
+//          RailsAppLayerEbsVolumeArray{ RailsAppLayerEbsVolumeArgs{...} }
 type RailsAppLayerEbsVolumeArrayInput interface {
 	pulumi.Input
 
@@ -2101,8 +2071,7 @@ type StackCustomCookbooksSource struct {
 // StackCustomCookbooksSourceInput is an input type that accepts StackCustomCookbooksSourceArgs and StackCustomCookbooksSourceOutput values.
 // You can construct a concrete instance of `StackCustomCookbooksSourceInput` via:
 //
-// 		 StackCustomCookbooksSourceArgs{...}
-//
+//          StackCustomCookbooksSourceArgs{...}
 type StackCustomCookbooksSourceInput interface {
 	pulumi.Input
 
@@ -2140,8 +2109,7 @@ func (i StackCustomCookbooksSourceArgs) ToStackCustomCookbooksSourceOutputWithCo
 // StackCustomCookbooksSourceArrayInput is an input type that accepts StackCustomCookbooksSourceArray and StackCustomCookbooksSourceArrayOutput values.
 // You can construct a concrete instance of `StackCustomCookbooksSourceArrayInput` via:
 //
-// 		 StackCustomCookbooksSourceArray{ StackCustomCookbooksSourceArgs{...} }
-//
+//          StackCustomCookbooksSourceArray{ StackCustomCookbooksSourceArgs{...} }
 type StackCustomCookbooksSourceArrayInput interface {
 	pulumi.Input
 
@@ -2246,8 +2214,7 @@ type StaticWebLayerEbsVolume struct {
 // StaticWebLayerEbsVolumeInput is an input type that accepts StaticWebLayerEbsVolumeArgs and StaticWebLayerEbsVolumeOutput values.
 // You can construct a concrete instance of `StaticWebLayerEbsVolumeInput` via:
 //
-// 		 StaticWebLayerEbsVolumeArgs{...}
-//
+//          StaticWebLayerEbsVolumeArgs{...}
 type StaticWebLayerEbsVolumeInput interface {
 	pulumi.Input
 
@@ -2286,8 +2253,7 @@ func (i StaticWebLayerEbsVolumeArgs) ToStaticWebLayerEbsVolumeOutputWithContext(
 // StaticWebLayerEbsVolumeArrayInput is an input type that accepts StaticWebLayerEbsVolumeArray and StaticWebLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `StaticWebLayerEbsVolumeArrayInput` via:
 //
-// 		 StaticWebLayerEbsVolumeArray{ StaticWebLayerEbsVolumeArgs{...} }
-//
+//          StaticWebLayerEbsVolumeArray{ StaticWebLayerEbsVolumeArgs{...} }
 type StaticWebLayerEbsVolumeArrayInput interface {
 	pulumi.Input
 

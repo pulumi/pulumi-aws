@@ -13,8 +13,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -25,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		portfolio, err := servicecatalog.NewPortfolio(ctx, "portfolio", &servicecatalog.PortfolioArgs{
+// 		_, err = servicecatalog.NewPortfolio(ctx, "portfolio", &servicecatalog.PortfolioArgs{
 // 			Description:  pulumi.String("List of my organizations apps"),
 // 			ProviderName: pulumi.String("Brett"),
 // 		})

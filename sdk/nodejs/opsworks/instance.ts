@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +23,6 @@ import * as utilities from "../utilities";
  *     state: "stopped",
  * });
  * ```
- *
  * ## Block devices
  *
  * Each of the `*_block_device` attributes controls a portion of the AWS

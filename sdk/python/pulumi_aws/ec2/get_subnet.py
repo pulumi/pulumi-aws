@@ -104,7 +104,9 @@ def get_subnet(availability_zone=None,availability_zone_id=None,cidr_block=None,
 
     ## Example Usage
 
-
+    The following example shows how one might accept a subnet id as a variable
+    and use this data source to obtain the data necessary to create a security
+    group that allows connections from hosts in that subnet.
 
     ```python
     import pulumi

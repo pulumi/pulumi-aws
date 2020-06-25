@@ -19,8 +19,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -31,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := rds.NewOptionGroup(ctx, "example", &rds.OptionGroupArgs{
+// 		_, err = rds.NewOptionGroup(ctx, "example", &rds.OptionGroupArgs{
 // 			EngineName:         pulumi.String("sqlserver-ee"),
 // 			MajorEngineVersion: pulumi.String("11.00"),
 // 			Options: rds.OptionGroupOptionArray{
@@ -66,6 +64,8 @@ import (
 // 	})
 // }
 // ```
+//
+// > **Note**: Any modifications to the `dbOptionGroup` are set to happen immediately as we default to applying immediately.
 type OptionGroup struct {
 	pulumi.CustomResourceState
 

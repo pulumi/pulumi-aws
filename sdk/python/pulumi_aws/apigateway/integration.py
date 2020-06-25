@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Integration(pulumi.CustomResource):
     cache_key_parameters: pulumi.Output[list]
     """
@@ -88,8 +89,6 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -123,7 +122,6 @@ class Integration(pulumi.CustomResource):
             timeout_milliseconds=29000,
             type="MOCK")
         ```
-
         ## VPC Link
 
         ```python
@@ -303,9 +301,9 @@ class Integration(pulumi.CustomResource):
         __props__["type"] = type
         __props__["uri"] = uri
         return Integration(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

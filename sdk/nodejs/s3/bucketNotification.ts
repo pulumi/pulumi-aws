@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `aws.s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. See the example "Trigger multiple Lambda functions" for an option.
  *
  * ## Example Usage
- *
  * ### Add notification configuration to SNS Topic
  *
  * ```typescript
@@ -44,7 +43,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
  * ### Add notification configuration to SQS Queue
  *
  * ```typescript
@@ -78,7 +76,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
  * ### Add notification configuration to Lambda Function
  *
  * ```typescript
@@ -121,7 +118,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
  * ### Trigger multiple Lambda functions
  *
  * ```typescript
@@ -183,7 +179,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
  * ### Add multiple notification configurations to SQS Queue
  *
  * ```typescript

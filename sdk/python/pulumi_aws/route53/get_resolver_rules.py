@@ -57,7 +57,7 @@ def get_resolver_rules(owner_id=None,resolver_endpoint_id=None,rule_type=None,sh
 
     ## Example Usage
 
-
+    The following example shows how to get Route53 Resolver rules based on tags.
 
     ```python
     import pulumi

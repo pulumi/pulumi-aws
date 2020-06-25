@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
     network_interface_id: pulumi.Output[str]
     """
@@ -36,7 +37,11 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        The following provides a very basic example of setting up an instance (provided
+        by `instance`) in the default security group, creating a security group
+        (provided by `sg`) and then attaching the security group to the instance's
+        primary network interface via the `ec2.NetworkInterfaceSecurityGroupAttachment` resource,
+        named `sg_attachment`:
 
         ```python
         import pulumi
@@ -62,6 +67,22 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
             security_group_id=sg.id)
         ```
 
+        In this example, `instance` is provided by the `ec2.Instance` data source,
+        fetching an external instance, possibly not managed by this provider.
+        `sg_attachment` then attaches to the output instance's `network_interface_id`:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        instance = aws.ec2.get_instance(instance_id="i-1234567890abcdef0")
+        sg = aws.ec2.SecurityGroup("sg", tags={
+            "type": "test-security-group",
+        })
+        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment",
+            network_interface_id=instance.network_interface_id,
+            security_group_id=sg.id)
+        ```
         ## Output Reference
 
         There are no outputs for this resource.
@@ -119,9 +140,9 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         __props__["network_interface_id"] = network_interface_id
         __props__["security_group_id"] = security_group_id
         return NetworkInterfaceSecurityGroupAttachment(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

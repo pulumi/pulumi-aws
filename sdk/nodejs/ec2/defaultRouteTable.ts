@@ -38,9 +38,7 @@ import * as utilities from "../utilities";
  * in conjunction with any Route resources. Doing so will cause
  * a conflict of rule settings and will overwrite routes.
  *
- *
  * ## Example Usage
- *
  * ### With Tags
  *
  * ```typescript

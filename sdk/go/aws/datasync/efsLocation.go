@@ -16,8 +16,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -28,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := datasync.NewEfsLocation(ctx, "example", &datasync.EfsLocationArgs{
+// 		_, err = datasync.NewEfsLocation(ctx, "example", &datasync.EfsLocationArgs{
 // 			Ec2Config: &datasync.EfsLocationEc2ConfigArgs{
 // 				SecurityGroupArns: pulumi.StringArray{
 // 					pulumi.String(aws_security_group.Example.Arn),

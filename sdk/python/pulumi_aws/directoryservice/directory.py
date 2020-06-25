@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Directory(pulumi.CustomResource):
     access_url: pulumi.Output[str]
     """
@@ -88,7 +89,6 @@ class Directory(pulumi.CustomResource):
         > **Note:** All arguments including the password and customer username will be stored in the raw state as plain-text.
 
         ## Example Usage
-
         ### SimpleAD
 
         ```python
@@ -118,7 +118,6 @@ class Directory(pulumi.CustomResource):
                 "vpc_id": main.id,
             })
         ```
-
         ### Microsoft Active Directory (MicrosoftAD)
 
         ```python
@@ -149,7 +148,6 @@ class Directory(pulumi.CustomResource):
                 "vpc_id": main.id,
             })
         ```
-
         ### Microsoft Active Directory Connector (ADConnector)
 
         ```python
@@ -310,9 +308,9 @@ class Directory(pulumi.CustomResource):
         __props__["type"] = type
         __props__["vpc_settings"] = vpc_settings
         return Directory(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

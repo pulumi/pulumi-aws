@@ -17,7 +17,6 @@ import (
 // a particular domain name. An API stage can be associated with the domain name using the `apigatewayv2.ApiMapping` resource.
 //
 // ## Example Usage
-//
 // ### Basic
 //
 // ```go
@@ -30,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := apigatewayv2.NewDomainName(ctx, "example", &apigatewayv2.DomainNameArgs{
+// 		_, err = apigatewayv2.NewDomainName(ctx, "example", &apigatewayv2.DomainNameArgs{
 // 			DomainName: pulumi.String("ws-api.example.com"),
 // 			DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
 // 				CertificateArn: pulumi.String(aws_acm_certificate.Example.Arn),

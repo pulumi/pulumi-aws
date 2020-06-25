@@ -21,8 +21,6 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

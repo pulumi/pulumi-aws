@@ -74,8 +74,6 @@ def get_server_certificate(latest=None,name=None,name_prefix=None,path_prefix=No
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -90,10 +88,9 @@ def get_server_certificate(latest=None,name=None,name_prefix=None,path_prefix=No
         "sslCertificateId": my_domain.arn,
     }])
     ```
+    ## Import
 
-    ## Import 
-
-    The import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn. 
+    The import function will read in certificate body, certificate chain (if it exists), id, name, path, and arn.
     It will not retrieve the private key which is not available through the AWS API.
 
 

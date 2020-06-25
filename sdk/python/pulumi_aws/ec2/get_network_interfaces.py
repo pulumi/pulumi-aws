@@ -47,13 +47,39 @@ def get_network_interfaces(filters=None,tags=None,opts=None):
     """
     ## Example Usage
 
-
+    The following shows outputing all network interface ids in a region.
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example_network_interfaces = aws.ec2.get_network_interfaces()
+    pulumi.export("example", example_network_interfaces.ids)
+    ```
+
+    The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_network_interfaces(tags={
+        "Name": "test",
+    })
+    pulumi.export("example1", example.ids)
+    ```
+
+    The following example retrieves a network interface ids which associated
+    with specific subnet.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_network_interfaces = aws.ec2.get_network_interfaces(filters=[{
+        "name": "subnet-id",
+        "values": [aws_subnet["test"]["id"]],
+    }])
     pulumi.export("example", example_network_interfaces.ids)
     ```
 

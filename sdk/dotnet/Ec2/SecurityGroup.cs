@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// Basic usage
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -75,7 +75,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// 
     /// ## Usage with prefix list IDs
     /// 
     /// Prefix list IDs are managed by AWS internally. Prefix list IDs

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -57,7 +55,6 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// }
     /// ```
-    /// 
     /// ## Attributes
     /// 
     /// The following additional atttributes are provided:

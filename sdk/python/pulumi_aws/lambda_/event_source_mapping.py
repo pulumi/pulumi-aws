@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class EventSourceMapping(pulumi.CustomResource):
     batch_size: pulumi.Output[float]
     """
@@ -80,7 +81,6 @@ class EventSourceMapping(pulumi.CustomResource):
         For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
 
         ## Example Usage
-
         ### DynamoDB
 
         ```python
@@ -92,7 +92,6 @@ class EventSourceMapping(pulumi.CustomResource):
             function_name=aws_lambda_function["example"]["arn"],
             starting_position="LATEST")
         ```
-
         ### Kinesis
 
         ```python
@@ -104,7 +103,6 @@ class EventSourceMapping(pulumi.CustomResource):
             function_name=aws_lambda_function["example"]["arn"],
             starting_position="LATEST")
         ```
-
         ### SQS
 
         ```python
@@ -237,9 +235,9 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__["state_transition_reason"] = state_transition_reason
         __props__["uuid"] = uuid
         return EventSourceMapping(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

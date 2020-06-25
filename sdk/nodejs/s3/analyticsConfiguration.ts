@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
  *
  * ## Example Usage
- *
  * ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
  *
  * ```typescript
@@ -32,7 +31,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Add analytics configuration with S3 bucket object filter
  *
  * ```typescript

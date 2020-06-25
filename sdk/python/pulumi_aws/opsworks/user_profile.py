@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class UserProfile(pulumi.CustomResource):
     allow_self_management: pulumi.Output[bool]
     """
@@ -31,8 +32,6 @@ class UserProfile(pulumi.CustomResource):
         Provides an OpsWorks User Profile resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -104,9 +103,9 @@ class UserProfile(pulumi.CustomResource):
         __props__["ssh_username"] = ssh_username
         __props__["user_arn"] = user_arn
         return UserProfile(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

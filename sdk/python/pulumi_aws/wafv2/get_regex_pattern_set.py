@@ -63,8 +63,6 @@ def get_regex_pattern_set(name=None,scope=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

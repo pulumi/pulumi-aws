@@ -11,7 +11,9 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following adds a route for a particular cidr block to every (private
+ * kops) route table in a specified vpc to use a particular vpc peering
+ * connection.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -12,7 +12,54 @@ import (
 
 // Provides a resource to create a new launch configuration, used for autoscaling groups.
 //
+// ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		ubuntu, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+// 			Filters: []aws.GetAmiFilter{
+// 				aws.GetAmiFilter{
+// 					Name: "name",
+// 					Values: []string{
+// 						"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+// 					},
+// 				},
+// 				aws.GetAmiFilter{
+// 					Name: "virtualization-type",
+// 					Values: []string{
+// 						"hvm",
+// 					},
+// 				},
+// 			},
+// 			MostRecent: &opt0,
+// 			Owners: []string{
+// 				"099720109477",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+// 			ImageId:      pulumi.String(ubuntu.Id),
+// 			InstanceType: pulumi.String("t2.micro"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Using with AutoScaling Groups
 //
 // Launch Configurations cannot be updated after creation with the Amazon
@@ -23,7 +70,62 @@ import (
 // Either omit the Launch Configuration `name` attribute, or specify a partial name
 // with `namePrefix`.  Example:
 //
+// ```go
+// package main
 //
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		ubuntu, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+// 			Filters: []aws.GetAmiFilter{
+// 				aws.GetAmiFilter{
+// 					Name: "name",
+// 					Values: []string{
+// 						"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+// 					},
+// 				},
+// 				aws.GetAmiFilter{
+// 					Name: "virtualization-type",
+// 					Values: []string{
+// 						"hvm",
+// 					},
+// 				},
+// 			},
+// 			MostRecent: &opt0,
+// 			Owners: []string{
+// 				"099720109477",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+// 			ImageId:      pulumi.String(ubuntu.Id),
+// 			InstanceType: pulumi.String("t2.micro"),
+// 			NamePrefix:   pulumi.String("lc-example-"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+// 			LaunchConfiguration: asConf.Name,
+// 			MaxSize:             pulumi.Int(2),
+// 			MinSize:             pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // With this setup this provider generates a unique name for your Launch
 // Configuration and can then update the AutoScaling Group without conflict before
@@ -38,7 +140,60 @@ import (
 // documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 // for more information or how to launch [Spot Instances](https://www.terraform.io/docs/providers/aws/r/spot_instance_request.html) with this provider.
 //
+// ```go
+// package main
 //
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		ubuntu, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+// 			Filters: []aws.GetAmiFilter{
+// 				aws.GetAmiFilter{
+// 					Name: "name",
+// 					Values: []string{
+// 						"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+// 					},
+// 				},
+// 				aws.GetAmiFilter{
+// 					Name: "virtualization-type",
+// 					Values: []string{
+// 						"hvm",
+// 					},
+// 				},
+// 			},
+// 			MostRecent: &opt0,
+// 			Owners: []string{
+// 				"099720109477",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+// 			ImageId:      pulumi.String(ubuntu.Id),
+// 			InstanceType: pulumi.String("m4.large"),
+// 			SpotPrice:    pulumi.String("0.001"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+// 			LaunchConfiguration: asConf.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Block devices
 //

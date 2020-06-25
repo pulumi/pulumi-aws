@@ -75,8 +75,6 @@ def get_state_machine(name=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

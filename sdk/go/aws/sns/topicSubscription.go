@@ -25,7 +25,7 @@ import (
 //
 // ## Example Usage
 //
-//
+// You can directly supply a topic and ARN by hand in the `topicArn` property along with the queue ARN:
 //
 // ```go
 // package main
@@ -37,7 +37,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		userUpdatesSqsTarget, err := sns.NewTopicSubscription(ctx, "userUpdatesSqsTarget", &sns.TopicSubscriptionArgs{
+// 		_, err = sns.NewTopicSubscription(ctx, "userUpdatesSqsTarget", &sns.TopicSubscriptionArgs{
 // 			Endpoint: pulumi.String("arn:aws:sqs:us-west-2:432981146916:queue-too"),
 // 			Protocol: pulumi.String("sqs"),
 // 			Topic:    pulumi.String("arn:aws:sns:us-west-2:432981146916:user-updates-topic"),
@@ -49,6 +49,42 @@ import (
 // 	})
 // }
 // ```
+//
+// Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/sns"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/sqs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		userUpdates, err := sns.NewTopic(ctx, "userUpdates", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		userUpdatesQueue, err := sqs.NewQueue(ctx, "userUpdatesQueue", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = sns.NewTopicSubscription(ctx, "userUpdatesSqsTarget", &sns.TopicSubscriptionArgs{
+// 			Topic:    userUpdates.Arn,
+// 			Protocol: pulumi.String("sqs"),
+// 			Endpoint: userUpdatesQueue.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
 type TopicSubscription struct {
 	pulumi.CustomResourceState
 

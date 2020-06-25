@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ProxyProtocolPolicy(pulumi.CustomResource):
     instance_ports: pulumi.Output[list]
     """
@@ -25,8 +26,6 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -113,9 +112,9 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         __props__["instance_ports"] = instance_ports
         __props__["load_balancer"] = load_balancer
         return ProxyProtocolPolicy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

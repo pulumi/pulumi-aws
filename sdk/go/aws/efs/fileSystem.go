@@ -12,7 +12,6 @@ import (
 // Provides an Elastic File System (EFS) File System resource.
 //
 // ## Example Usage
-//
 // ### EFS File System w/ tags
 //
 // ```go
@@ -25,9 +24,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		foo, err := efs.NewFileSystem(ctx, "foo", &efs.FileSystemArgs{
-// 			Tags: map[string]interface{}{
-// 				"Name": "MyProduct",
+// 		_, err = efs.NewFileSystem(ctx, "foo", &efs.FileSystemArgs{
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("MyProduct"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -37,7 +36,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Using lifecycle policy
 //
 // ```go
@@ -50,7 +48,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		fooWithLifecylePolicy, err := efs.NewFileSystem(ctx, "fooWithLifecylePolicy", &efs.FileSystemArgs{
+// 		_, err = efs.NewFileSystem(ctx, "fooWithLifecylePolicy", &efs.FileSystemArgs{
 // 			LifecyclePolicy: &efs.FileSystemLifecyclePolicyArgs{
 // 				TransitionToIa: pulumi.String("AFTER_30_DAYS"),
 // 			},

@@ -49,7 +49,7 @@ def get_local_gateways(filters=None,tags=None,opts=None):
 
     ## Example Usage
 
-
+    The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
 
     ```python
     import pulumi

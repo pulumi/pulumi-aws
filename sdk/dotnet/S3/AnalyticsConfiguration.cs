@@ -13,7 +13,6 @@ namespace Pulumi.Aws.S3
     /// Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Add analytics configuration with S3 bucket object filter
     /// 
     /// ```csharp

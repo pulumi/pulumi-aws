@@ -15,7 +15,9 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example shows how one might accept a VPC id as a variable
+ * and use this data source to obtain the data necessary to create a subnet
+ * within it.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

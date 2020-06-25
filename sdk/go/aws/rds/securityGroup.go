@@ -14,6 +14,33 @@ import (
 // EC2-Classic Platform. For instances inside a VPC, use the
 // `aws_db_instance.vpc_security_group_ids`
 // attribute instead.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = rds.NewSecurityGroup(ctx, "default", &rds.SecurityGroupArgs{
+// 			Ingress: rds.SecurityGroupIngressArray{
+// 				&rds.SecurityGroupIngressArgs{
+// 					Cidr: pulumi.String("10.0.0.0/24"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SecurityGroup struct {
 	pulumi.CustomResourceState
 

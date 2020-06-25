@@ -24,7 +24,6 @@ namespace Pulumi.Aws.AppMesh
     /// The state associated with existing resources will automatically be migrated.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp
@@ -71,7 +70,6 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// }
     /// ```
-    /// 
     /// ### AWS Cloud Map Service Discovery
     /// 
     /// ```csharp
@@ -126,7 +124,6 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// }
     /// ```
-    /// 
     /// ### Listener Health Check
     /// 
     /// ```csharp
@@ -182,7 +179,6 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// }
     /// ```
-    /// 
     /// ### Logging
     /// 
     /// ```csharp

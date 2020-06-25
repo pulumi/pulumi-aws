@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -31,7 +29,6 @@ namespace Pulumi.Aws.Sns
     /// 
     /// }
     /// ```
-    /// 
     /// ## Example with Delivery Policy
     /// 
     /// ```csharp

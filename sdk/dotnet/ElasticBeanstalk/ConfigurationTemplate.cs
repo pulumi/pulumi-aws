@@ -16,8 +16,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -39,7 +37,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// }
     /// ```
-    /// 
     /// ## Option Settings
     /// 
     /// The `setting` field supports the following format:

@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -28,6 +26,24 @@ namespace Pulumi.Aws.Ec2
     ///         var routeTableAssociation = new Aws.Ec2.RouteTableAssociation("routeTableAssociation", new Aws.Ec2.RouteTableAssociationArgs
     ///         {
     ///             SubnetId = aws_subnet.Foo.Id,
+    ///             RouteTableId = aws_route_table.Bar.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var routeTableAssociation = new Aws.Ec2.RouteTableAssociation("routeTableAssociation", new Aws.Ec2.RouteTableAssociationArgs
+    ///         {
+    ///             GatewayId = aws_internet_gateway.Foo.Id,
     ///             RouteTableId = aws_route_table.Bar.Id,
     ///         });
     ///     }

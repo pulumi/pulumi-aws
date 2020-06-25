@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class VpnConnectionRoute(pulumi.CustomResource):
     destination_cidr_block: pulumi.Output[str]
     """
@@ -23,8 +24,6 @@ class VpnConnectionRoute(pulumi.CustomResource):
         Provides a static route between a VPN connection and a customer gateway.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -99,9 +98,9 @@ class VpnConnectionRoute(pulumi.CustomResource):
         __props__["destination_cidr_block"] = destination_cidr_block
         __props__["vpn_connection_id"] = vpn_connection_id
         return VpnConnectionRoute(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

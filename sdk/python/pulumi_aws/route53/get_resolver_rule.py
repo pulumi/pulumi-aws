@@ -83,7 +83,7 @@ def get_resolver_rule(domain_name=None,name=None,resolver_endpoint_id=None,resol
 
     ## Example Usage
 
-
+    The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
 
     ```python
     import pulumi

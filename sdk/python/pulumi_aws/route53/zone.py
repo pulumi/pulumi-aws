@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Zone(pulumi.CustomResource):
     comment: pulumi.Output[str]
     """
@@ -51,7 +52,6 @@ class Zone(pulumi.CustomResource):
         Manages a Route53 Hosted Zone.
 
         ## Example Usage
-
         ### Public Zone
 
         ```python
@@ -60,8 +60,11 @@ class Zone(pulumi.CustomResource):
 
         primary = aws.route53.Zone("primary")
         ```
-
         ### Public Subdomain Zone
+
+        For use in subdomains, note that you need to create a
+        `route53.Record` of type `NS` as well as the subdomain
+        zone.
 
         ```python
         import pulumi
@@ -83,8 +86,11 @@ class Zone(pulumi.CustomResource):
             type="NS",
             zone_id=main.zone_id)
         ```
-
         ### Private Zone
+
+        > **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate ` Zone VPC Association resource. At this time, you cannot use in-line VPC associations in conjunction with any  `route53.ZoneAssociation`  resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [ `ignoreChanges` ](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the  `route53.ZoneAssociation` resource.
+
+        > **NOTE:** Private zones require at least one VPC association at all times.
 
         ```python
         import pulumi
@@ -179,9 +185,9 @@ class Zone(pulumi.CustomResource):
         __props__["vpcs"] = vpcs
         __props__["zone_id"] = zone_id
         return Zone(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

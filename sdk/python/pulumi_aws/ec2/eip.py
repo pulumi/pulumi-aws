@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Eip(pulumi.CustomResource):
     allocation_id: pulumi.Output[str]
     associate_with_private_ip: pulumi.Output[str]
@@ -73,7 +74,7 @@ class Eip(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        Single EIP associated with an instance:
 
         ```python
         import pulumi
@@ -81,6 +82,64 @@ class Eip(pulumi.CustomResource):
 
         lb = aws.ec2.Eip("lb",
             instance=aws_instance["web"]["id"],
+            vpc=True)
+        ```
+
+        Multiple EIPs associated with a single network interface:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        multi_ip = aws.ec2.NetworkInterface("multi-ip",
+            private_ips=[
+                "10.0.0.10",
+                "10.0.0.11",
+            ],
+            subnet_id=aws_subnet["main"]["id"])
+        one = aws.ec2.Eip("one",
+            associate_with_private_ip="10.0.0.10",
+            network_interface=multi_ip.id,
+            vpc=True)
+        two = aws.ec2.Eip("two",
+            associate_with_private_ip="10.0.0.11",
+            network_interface=multi_ip.id,
+            vpc=True)
+        ```
+
+        Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only):
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.ec2.Vpc("default",
+            cidr_block="10.0.0.0/16",
+            enable_dns_hostnames=True)
+        gw = aws.ec2.InternetGateway("gw", vpc_id=default.id)
+        tf_test_subnet = aws.ec2.Subnet("tfTestSubnet",
+            cidr_block="10.0.0.0/24",
+            map_public_ip_on_launch=True,
+            vpc_id=default.id)
+        foo = aws.ec2.Instance("foo",
+            ami="ami-5189a661",
+            instance_type="t2.micro",
+            private_ip="10.0.0.12",
+            subnet_id=tf_test_subnet.id)
+        bar = aws.ec2.Eip("bar",
+            associate_with_private_ip="10.0.0.12",
+            instance=foo.id,
+            vpc=True)
+        ```
+
+        Allocating EIP from the BYOIP pool:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        byoip_ip = aws.ec2.Eip("byoip-ip",
+            public_ipv4_pool="ipv4pool-ec2-012345",
             vpc=True)
         ```
 
@@ -178,9 +237,9 @@ class Eip(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["vpc"] = vpc
         return Eip(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

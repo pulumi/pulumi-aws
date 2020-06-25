@@ -19,7 +19,6 @@ import (
 // > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 //
 // ## Example Usage
-//
 // ### Creating A New Domain
 //
 // ```go
@@ -32,7 +31,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		domainTest, err := lightsail.NewDomain(ctx, "domainTest", &lightsail.DomainArgs{
+// 		_, err = lightsail.NewDomain(ctx, "domainTest", &lightsail.DomainArgs{
 // 			DomainName: pulumi.String("mydomain.com"),
 // 		})
 // 		if err != nil {

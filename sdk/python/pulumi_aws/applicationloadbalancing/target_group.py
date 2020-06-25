@@ -10,6 +10,8 @@ from typing import Union
 from .. import utilities, tables
 
 warnings.warn("aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup", DeprecationWarning)
+
+
 class TargetGroup(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -95,6 +97,7 @@ class TargetGroup(pulumi.CustomResource):
     The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
     """
     warnings.warn("aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, deregistration_delay=None, health_check=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, name_prefix=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Target Group resource for use with Load Balancer resources.
@@ -102,7 +105,6 @@ class TargetGroup(pulumi.CustomResource):
         > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
 
         ## Example Usage
-
         ### Instance Target Group
 
         ```python
@@ -115,7 +117,6 @@ class TargetGroup(pulumi.CustomResource):
             protocol="HTTP",
             vpc_id=main.id)
         ```
-
         ### IP Target Group
 
         ```python
@@ -129,7 +130,6 @@ class TargetGroup(pulumi.CustomResource):
             target_type="ip",
             vpc_id=main.id)
         ```
-
         ### Lambda Target Group
 
         ```python
@@ -289,9 +289,9 @@ class TargetGroup(pulumi.CustomResource):
         __props__["target_type"] = target_type
         __props__["vpc_id"] = vpc_id
         return TargetGroup(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

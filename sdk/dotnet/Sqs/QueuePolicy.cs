@@ -15,8 +15,6 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

@@ -12,12 +12,11 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudformation"
 // 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
@@ -30,12 +29,12 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		web, err := ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
+// 		_, err = ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
 // 			Ami:          pulumi.String("ami-abb07bcb"),
 // 			InstanceType: pulumi.String("t1.micro"),
 // 			SubnetId:     pulumi.String(network.Outputs.SubnetId),
-// 			Tags: map[string]interface{}{
-// 				"Name": "HelloWorld",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("HelloWorld"),
 // 			},
 // 		})
 // 		if err != nil {

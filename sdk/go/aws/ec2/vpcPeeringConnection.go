@@ -24,7 +24,7 @@ import (
 // VPC Peering Connections use the `ec2.VpcPeeringConnection` resource to manage the requester's side of the
 // connection and use the `ec2.VpcPeeringConnectionAccepter` resource to manage the accepter's side of the connection.
 //
-//
+// ## Example Usage
 // ## Notes
 //
 // If both VPCs are not in the same AWS account do not enable the `autoAccept` attribute.

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Attachment(pulumi.CustomResource):
     alb_target_group_arn: pulumi.Output[str]
     """
@@ -35,8 +36,6 @@ class Attachment(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -45,6 +44,16 @@ class Attachment(pulumi.CustomResource):
         asg_attachment_bar = aws.autoscaling.Attachment("asgAttachmentBar",
             autoscaling_group_name=aws_autoscaling_group["asg"]["id"],
             elb=aws_elb["bar"]["id"])
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Create a new ALB Target Group attachment
+        asg_attachment_bar = aws.autoscaling.Attachment("asgAttachmentBar",
+            alb_target_group_arn=aws_alb_target_group["test"]["arn"],
+            autoscaling_group_name=aws_autoscaling_group["asg"]["id"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -102,9 +111,9 @@ class Attachment(pulumi.CustomResource):
         __props__["autoscaling_group_name"] = autoscaling_group_name
         __props__["elb"] = elb
         return Attachment(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

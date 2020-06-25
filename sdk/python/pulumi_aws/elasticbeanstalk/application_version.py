@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ApplicationVersion(pulumi.CustomResource):
     application: pulumi.Output[str]
     """
@@ -52,14 +53,12 @@ class ApplicationVersion(pulumi.CustomResource):
         This resource creates a Beanstalk Application Version that can be deployed to a Beanstalk
         Environment.
 
-        > **NOTE on Application Version Resource:**  When using the Application Version resource with multiple 
+        > **NOTE on Application Version Resource:**  When using the Application Version resource with multiple
         Elastic Beanstalk Environments it is possible that an error may be returned
         when attempting to delete an Application Version while it is still in use by a different environment.
         To work around this you can either create each environment in a separate AWS account or create your `elasticbeanstalk.ApplicationVersion` resources with a unique names in your Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -158,9 +157,9 @@ class ApplicationVersion(pulumi.CustomResource):
         __props__["name"] = name
         __props__["tags"] = tags
         return ApplicationVersion(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

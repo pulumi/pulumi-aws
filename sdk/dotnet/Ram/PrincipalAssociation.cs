@@ -23,7 +23,6 @@ namespace Pulumi.Aws.Ram
     /// - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `aws.ram.ResourceShareAccepter` resource to accept these invitations.
     /// 
     /// ## Example Usage
-    /// 
     /// ### AWS Account ID
     /// 
     /// ```csharp
@@ -47,7 +46,6 @@ namespace Pulumi.Aws.Ram
     /// 
     /// }
     /// ```
-    /// 
     /// ### AWS Organization
     /// 
     /// ```csharp

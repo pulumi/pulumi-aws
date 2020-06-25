@@ -13,7 +13,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following dynamodb table description models the table and GSI shown
+ * in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -58,8 +59,9 @@ import * as utilities from "../utilities";
  *     writeCapacity: 20,
  * });
  * ```
- *
  * ### Global Tables
+ *
+ * This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `aws.dynamodb.GlobalTable` resource.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

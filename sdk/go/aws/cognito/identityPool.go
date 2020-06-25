@@ -11,6 +11,8 @@ import (
 )
 
 // Provides an AWS Cognito Identity Pool.
+//
+// ## Example Usage
 type IdentityPool struct {
 	pulumi.CustomResourceState
 

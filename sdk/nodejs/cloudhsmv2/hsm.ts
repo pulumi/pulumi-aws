@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example below creates an HSM module in CloudHSM cluster.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

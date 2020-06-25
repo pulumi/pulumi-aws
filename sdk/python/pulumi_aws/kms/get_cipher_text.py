@@ -56,8 +56,6 @@ def get_cipher_text(context=None,key_id=None,plaintext=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

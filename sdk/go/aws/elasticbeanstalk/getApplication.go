@@ -11,12 +11,11 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/elasticbeanstalk"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //

@@ -75,8 +75,6 @@ def get_ip_ranges(regions=None,services=None,url=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

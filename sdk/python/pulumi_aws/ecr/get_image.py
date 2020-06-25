@@ -71,8 +71,6 @@ def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

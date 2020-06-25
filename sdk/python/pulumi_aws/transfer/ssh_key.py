@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class SshKey(pulumi.CustomResource):
     body: pulumi.Output[str]
     """
@@ -25,7 +26,6 @@ class SshKey(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, body=None, server_id=None, user_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a AWS Transfer User SSH Key resource.
-
 
         ```python
         import pulumi
@@ -139,9 +139,9 @@ class SshKey(pulumi.CustomResource):
         __props__["server_id"] = server_id
         __props__["user_name"] = user_name
         return SshKey(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

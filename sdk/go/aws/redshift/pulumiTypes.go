@@ -23,8 +23,7 @@ type ClusterLogging struct {
 // ClusterLoggingInput is an input type that accepts ClusterLoggingArgs and ClusterLoggingOutput values.
 // You can construct a concrete instance of `ClusterLoggingInput` via:
 //
-// 		 ClusterLoggingArgs{...}
-//
+//          ClusterLoggingArgs{...}
 type ClusterLoggingInput interface {
 	pulumi.Input
 
@@ -65,12 +64,11 @@ func (i ClusterLoggingArgs) ToClusterLoggingPtrOutputWithContext(ctx context.Con
 // ClusterLoggingPtrInput is an input type that accepts ClusterLoggingArgs, ClusterLoggingPtr and ClusterLoggingPtrOutput values.
 // You can construct a concrete instance of `ClusterLoggingPtrInput` via:
 //
-// 		 ClusterLoggingArgs{...}
+//          ClusterLoggingArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterLoggingPtrInput interface {
 	pulumi.Input
 
@@ -197,8 +195,7 @@ type ClusterSnapshotCopy struct {
 // ClusterSnapshotCopyInput is an input type that accepts ClusterSnapshotCopyArgs and ClusterSnapshotCopyOutput values.
 // You can construct a concrete instance of `ClusterSnapshotCopyInput` via:
 //
-// 		 ClusterSnapshotCopyArgs{...}
-//
+//          ClusterSnapshotCopyArgs{...}
 type ClusterSnapshotCopyInput interface {
 	pulumi.Input
 
@@ -238,12 +235,11 @@ func (i ClusterSnapshotCopyArgs) ToClusterSnapshotCopyPtrOutputWithContext(ctx c
 // ClusterSnapshotCopyPtrInput is an input type that accepts ClusterSnapshotCopyArgs, ClusterSnapshotCopyPtr and ClusterSnapshotCopyPtrOutput values.
 // You can construct a concrete instance of `ClusterSnapshotCopyPtrInput` via:
 //
-// 		 ClusterSnapshotCopyArgs{...}
+//          ClusterSnapshotCopyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterSnapshotCopyPtrInput interface {
 	pulumi.Input
 
@@ -366,8 +362,7 @@ type ParameterGroupParameter struct {
 // ParameterGroupParameterInput is an input type that accepts ParameterGroupParameterArgs and ParameterGroupParameterOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterInput` via:
 //
-// 		 ParameterGroupParameterArgs{...}
-//
+//          ParameterGroupParameterArgs{...}
 type ParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -397,8 +392,7 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 // ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
 //
-// 		 ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
-//
+//          ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
 type ParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -477,8 +471,7 @@ type SecurityGroupIngress struct {
 // SecurityGroupIngressInput is an input type that accepts SecurityGroupIngressArgs and SecurityGroupIngressOutput values.
 // You can construct a concrete instance of `SecurityGroupIngressInput` via:
 //
-// 		 SecurityGroupIngressArgs{...}
-//
+//          SecurityGroupIngressArgs{...}
 type SecurityGroupIngressInput interface {
 	pulumi.Input
 
@@ -511,8 +504,7 @@ func (i SecurityGroupIngressArgs) ToSecurityGroupIngressOutputWithContext(ctx co
 // SecurityGroupIngressArrayInput is an input type that accepts SecurityGroupIngressArray and SecurityGroupIngressArrayOutput values.
 // You can construct a concrete instance of `SecurityGroupIngressArrayInput` via:
 //
-// 		 SecurityGroupIngressArray{ SecurityGroupIngressArgs{...} }
-//
+//          SecurityGroupIngressArray{ SecurityGroupIngressArgs{...} }
 type SecurityGroupIngressArrayInput interface {
 	pulumi.Input
 

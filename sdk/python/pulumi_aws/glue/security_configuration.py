@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class SecurityConfiguration(pulumi.CustomResource):
     encryption_configuration: pulumi.Output[dict]
     """
@@ -35,8 +36,6 @@ class SecurityConfiguration(pulumi.CustomResource):
         Manages a Glue Security Configuration.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -135,9 +134,9 @@ class SecurityConfiguration(pulumi.CustomResource):
         __props__["encryption_configuration"] = encryption_configuration
         __props__["name"] = name
         return SecurityConfiguration(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -12,7 +12,6 @@ import (
 // Manages a Route53 Hosted Zone.
 //
 // ## Example Usage
-//
 // ### Public Zone
 //
 // ```go
@@ -25,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := route53.NewZone(ctx, "primary", nil)
+// 		_, err = route53.NewZone(ctx, "primary", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -33,8 +32,11 @@ import (
 // 	})
 // }
 // ```
+// ### Public Subdomain Zone
 //
-// ### Private Zone
+// For use in subdomains, note that you need to create a
+// `route53.Record` of type `NS` as well as the subdomain
+// zone.
 //
 // ```go
 // package main
@@ -46,7 +48,62 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		private, err := route53.NewZone(ctx, "private", &route53.ZoneArgs{
+// 		main, err := route53.NewZone(ctx, "main", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		dev, err := route53.NewZone(ctx, "dev", &route53.ZoneArgs{
+// 			Tags: pulumi.Map{
+// 				"Environment": pulumi.String("dev"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "dev-ns", &route53.RecordArgs{
+// 			Name: pulumi.String("dev.example.com"),
+// 			Records: pulumi.StringArray{
+// 				dev.NameServers.ApplyT(func(nameServers []string) (string, error) {
+// 					return nameServers[0], nil
+// 				}).(pulumi.StringOutput),
+// 				dev.NameServers.ApplyT(func(nameServers []string) (string, error) {
+// 					return nameServers[1], nil
+// 				}).(pulumi.StringOutput),
+// 				dev.NameServers.ApplyT(func(nameServers []string) (string, error) {
+// 					return nameServers[2], nil
+// 				}).(pulumi.StringOutput),
+// 				dev.NameServers.ApplyT(func(nameServers []string) (string, error) {
+// 					return nameServers[3], nil
+// 				}).(pulumi.StringOutput),
+// 			},
+// 			Ttl:    pulumi.Int(30),
+// 			Type:   pulumi.String("NS"),
+// 			ZoneId: main.ZoneId,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Private Zone
+//
+// > **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate ` Zone VPC Association resource. At this time, you cannot use in-line VPC associations in conjunction with any  `route53.ZoneAssociation`  resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [ `ignoreChanges` ](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the  `route53.ZoneAssociation` resource.
+//
+// > **NOTE:** Private zones require at least one VPC association at all times.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = route53.NewZone(ctx, "private", &route53.ZoneArgs{
 // 			Vpcs: route53.ZoneVpcArray{
 // 				&route53.ZoneVpcArgs{
 // 					VpcId: pulumi.String(aws_vpc.Example.Id),

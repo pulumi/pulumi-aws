@@ -13,7 +13,6 @@ namespace Pulumi.Aws.AppAutoScaling
     /// Provides an Application AutoScaling ScheduledAction resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ### DynamoDB Table Autoscaling
     /// 
     /// ```csharp
@@ -48,7 +47,6 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// }
     /// ```
-    /// 
     /// ### ECS Service Autoscaling
     /// 
     /// ```csharp

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class VpnGatewayAttachment(pulumi.CustomResource):
     vpc_id: pulumi.Output[str]
     """
@@ -29,8 +30,6 @@ class VpnGatewayAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -43,6 +42,10 @@ class VpnGatewayAttachment(pulumi.CustomResource):
             vpc_id=network.id,
             vpn_gateway_id=vpn.id)
         ```
+
+        See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
+        and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
+        guides for more information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -97,9 +100,9 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         __props__["vpc_id"] = vpc_id
         __props__["vpn_gateway_id"] = vpn_gateway_id
         return VpnGatewayAttachment(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

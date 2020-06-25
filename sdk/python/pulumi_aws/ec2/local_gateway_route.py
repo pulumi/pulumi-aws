@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class LocalGatewayRoute(pulumi.CustomResource):
     destination_cidr_block: pulumi.Output[str]
     """
@@ -27,8 +28,6 @@ class LocalGatewayRoute(pulumi.CustomResource):
         Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -99,9 +98,9 @@ class LocalGatewayRoute(pulumi.CustomResource):
         __props__["local_gateway_route_table_id"] = local_gateway_route_table_id
         __props__["local_gateway_virtual_interface_group_id"] = local_gateway_virtual_interface_group_id
         return LocalGatewayRoute(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

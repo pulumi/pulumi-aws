@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ListenerPolicy(pulumi.CustomResource):
     load_balancer_name: pulumi.Output[str]
     """
@@ -26,9 +27,7 @@ class ListenerPolicy(pulumi.CustomResource):
         """
         Attaches a load balancer policy to an ELB Listener.
 
-
         ## Example Usage
-
         ### Custom Policy
 
         ```python
@@ -67,6 +66,7 @@ class ListenerPolicy(pulumi.CustomResource):
             policy_names=[wu_tang_ssl.policy_name])
         ```
 
+        This example shows how to customize the TLS settings of an HTTPS listener.
         ### AWS Predefined Security Policy
 
         ```python
@@ -98,6 +98,8 @@ class ListenerPolicy(pulumi.CustomResource):
             load_balancer_port=443,
             policy_names=[wu_tang_ssl_tls_1_1.policy_name])
         ```
+
+        This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,9 +160,9 @@ class ListenerPolicy(pulumi.CustomResource):
         __props__["load_balancer_port"] = load_balancer_port
         __props__["policy_names"] = policy_names
         return ListenerPolicy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

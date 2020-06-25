@@ -12,6 +12,8 @@ import (
 
 // Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
 // This resource accepts ownership of a public virtual interface created by another AWS account.
+//
+// ## Example Usage
 type HostedPublicVirtualInterfaceAccepter struct {
 	pulumi.CustomResourceState
 

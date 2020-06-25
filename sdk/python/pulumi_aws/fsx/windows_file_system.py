@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class WindowsFileSystem(pulumi.CustomResource):
     active_directory_id: pulumi.Output[str]
     """
@@ -96,8 +97,9 @@ class WindowsFileSystem(pulumi.CustomResource):
         > **NOTE:** Either the `active_directory_id` argument or `self_managed_active_directory` configuration block must be specified.
 
         ## Example Usage
-
         ### Using AWS Directory Service
+
+        Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
 
         ```python
         import pulumi
@@ -110,8 +112,9 @@ class WindowsFileSystem(pulumi.CustomResource):
             subnet_ids=aws_subnet["example"]["id"],
             throughput_capacity=1024)
         ```
-
         ### Using a Self-Managed Microsoft Active Directory
+
+        Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
 
         ```python
         import pulumi
@@ -265,9 +268,9 @@ class WindowsFileSystem(pulumi.CustomResource):
         __props__["vpc_id"] = vpc_id
         __props__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
         return WindowsFileSystem(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

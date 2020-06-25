@@ -21,8 +21,7 @@ type ClusterNode struct {
 // ClusterNodeInput is an input type that accepts ClusterNodeArgs and ClusterNodeOutput values.
 // You can construct a concrete instance of `ClusterNodeInput` via:
 //
-// 		 ClusterNodeArgs{...}
-//
+//          ClusterNodeArgs{...}
 type ClusterNodeInput interface {
 	pulumi.Input
 
@@ -53,8 +52,7 @@ func (i ClusterNodeArgs) ToClusterNodeOutputWithContext(ctx context.Context) Clu
 // ClusterNodeArrayInput is an input type that accepts ClusterNodeArray and ClusterNodeArrayOutput values.
 // You can construct a concrete instance of `ClusterNodeArrayInput` via:
 //
-// 		 ClusterNodeArray{ ClusterNodeArgs{...} }
-//
+//          ClusterNodeArray{ ClusterNodeArgs{...} }
 type ClusterNodeArrayInput interface {
 	pulumi.Input
 
@@ -135,8 +133,7 @@ type ClusterServerSideEncryption struct {
 // ClusterServerSideEncryptionInput is an input type that accepts ClusterServerSideEncryptionArgs and ClusterServerSideEncryptionOutput values.
 // You can construct a concrete instance of `ClusterServerSideEncryptionInput` via:
 //
-// 		 ClusterServerSideEncryptionArgs{...}
-//
+//          ClusterServerSideEncryptionArgs{...}
 type ClusterServerSideEncryptionInput interface {
 	pulumi.Input
 
@@ -172,12 +169,11 @@ func (i ClusterServerSideEncryptionArgs) ToClusterServerSideEncryptionPtrOutputW
 // ClusterServerSideEncryptionPtrInput is an input type that accepts ClusterServerSideEncryptionArgs, ClusterServerSideEncryptionPtr and ClusterServerSideEncryptionPtrOutput values.
 // You can construct a concrete instance of `ClusterServerSideEncryptionPtrInput` via:
 //
-// 		 ClusterServerSideEncryptionArgs{...}
+//          ClusterServerSideEncryptionArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterServerSideEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -270,8 +266,7 @@ type ParameterGroupParameter struct {
 // ParameterGroupParameterInput is an input type that accepts ParameterGroupParameterArgs and ParameterGroupParameterOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterInput` via:
 //
-// 		 ParameterGroupParameterArgs{...}
-//
+//          ParameterGroupParameterArgs{...}
 type ParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -301,8 +296,7 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 // ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
 //
-// 		 ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
-//
+//          ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
 type ParameterGroupParameterArrayInput interface {
 	pulumi.Input
 

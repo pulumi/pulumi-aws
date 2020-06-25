@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class NodeGroup(pulumi.CustomResource):
     ami_type: pulumi.Output[str]
     """
@@ -96,8 +97,6 @@ class NodeGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -112,8 +111,9 @@ class NodeGroup(pulumi.CustomResource):
                 "min_size": 1,
             })
         ```
-
         ### Ignoring Changes to Desired Size
+
+        You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 
         ```python
         import pulumi
@@ -124,7 +124,6 @@ class NodeGroup(pulumi.CustomResource):
             "desiredSize": 2,
         })
         ```
-
         ### Example IAM Role for EKS Node Group
 
         ```python
@@ -296,9 +295,9 @@ class NodeGroup(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["version"] = version
         return NodeGroup(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

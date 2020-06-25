@@ -11,7 +11,6 @@ import (
 // can be specified when creating a VPC endpoint within the region configured in the provider.
 //
 // ## Example Usage
-//
 // ### AWS Service
 //
 // ```go
@@ -24,8 +23,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "s3"
 // 		s3, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
-// 			Service: "s3",
+// 			Service: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -36,7 +36,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ep, err := ec2.NewVpcEndpoint(ctx, "ep", &ec2.VpcEndpointArgs{
+// 		_, err = ec2.NewVpcEndpoint(ctx, "ep", &ec2.VpcEndpointArgs{
 // 			ServiceName: pulumi.String(s3.ServiceName),
 // 			VpcId:       foo.ID(),
 // 		})
@@ -47,20 +47,21 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Non-AWS Service
 //
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		custome, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
-// 			ServiceName: "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
+// 		opt0 := "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8"
+// 		_, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
+// 			ServiceName: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -69,21 +70,21 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Filter
 //
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
-// 			Filters: ec2.getVpcEndpointServiceFilterArray{
-// 				&ec2.LookupVpcEndpointServiceFilter{
+// 		_, err := ec2.LookupVpcEndpointService(ctx, &ec2.LookupVpcEndpointServiceArgs{
+// 			Filters: []ec2.GetVpcEndpointServiceFilter{
+// 				ec2.GetVpcEndpointServiceFilter{
 // 					Name: "service-name",
 // 					Values: []string{
 // 						"some-service",

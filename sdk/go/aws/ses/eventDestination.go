@@ -13,7 +13,6 @@ import (
 // Provides an SES event destination
 //
 // ## Example Usage
-//
 // ### CloudWatch Destination
 //
 // ```go
@@ -26,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cloudwatch, err := ses.NewEventDestination(ctx, "cloudwatch", &ses.EventDestinationArgs{
+// 		_, err = ses.NewEventDestination(ctx, "cloudwatch", &ses.EventDestinationArgs{
 // 			CloudwatchDestinations: ses.EventDestinationCloudwatchDestinationArray{
 // 				&ses.EventDestinationCloudwatchDestinationArgs{
 // 					DefaultValue:  pulumi.String("default"),
@@ -48,7 +47,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Kinesis Destination
 //
 // ```go
@@ -61,7 +59,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		kinesis, err := ses.NewEventDestination(ctx, "kinesis", &ses.EventDestinationArgs{
+// 		_, err = ses.NewEventDestination(ctx, "kinesis", &ses.EventDestinationArgs{
 // 			ConfigurationSetName: pulumi.String(aws_ses_configuration_set.Example.Name),
 // 			Enabled:              pulumi.Bool(true),
 // 			KinesisDestination: &ses.EventDestinationKinesisDestinationArgs{
@@ -80,7 +78,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### SNS Destination
 //
 // ```go
@@ -93,7 +90,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		sns, err := ses.NewEventDestination(ctx, "sns", &ses.EventDestinationArgs{
+// 		_, err = ses.NewEventDestination(ctx, "sns", &ses.EventDestinationArgs{
 // 			ConfigurationSetName: pulumi.String(aws_ses_configuration_set.Example.Name),
 // 			Enabled:              pulumi.Bool(true),
 // 			MatchingTypes: pulumi.StringArray{

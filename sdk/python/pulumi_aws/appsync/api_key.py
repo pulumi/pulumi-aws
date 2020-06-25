@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ApiKey(pulumi.CustomResource):
     api_id: pulumi.Output[str]
     """
@@ -31,8 +32,6 @@ class ApiKey(pulumi.CustomResource):
         Provides an AppSync API Key.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -104,9 +103,9 @@ class ApiKey(pulumi.CustomResource):
         __props__["expires"] = expires
         __props__["key"] = key
         return ApiKey(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

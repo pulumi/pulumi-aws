@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using System.IO;
     /// using Pulumi;

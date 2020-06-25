@@ -22,8 +22,7 @@ type IdentityPoolCognitoIdentityProvider struct {
 // IdentityPoolCognitoIdentityProviderInput is an input type that accepts IdentityPoolCognitoIdentityProviderArgs and IdentityPoolCognitoIdentityProviderOutput values.
 // You can construct a concrete instance of `IdentityPoolCognitoIdentityProviderInput` via:
 //
-// 		 IdentityPoolCognitoIdentityProviderArgs{...}
-//
+//          IdentityPoolCognitoIdentityProviderArgs{...}
 type IdentityPoolCognitoIdentityProviderInput interface {
 	pulumi.Input
 
@@ -55,8 +54,7 @@ func (i IdentityPoolCognitoIdentityProviderArgs) ToIdentityPoolCognitoIdentityPr
 // IdentityPoolCognitoIdentityProviderArrayInput is an input type that accepts IdentityPoolCognitoIdentityProviderArray and IdentityPoolCognitoIdentityProviderArrayOutput values.
 // You can construct a concrete instance of `IdentityPoolCognitoIdentityProviderArrayInput` via:
 //
-// 		 IdentityPoolCognitoIdentityProviderArray{ IdentityPoolCognitoIdentityProviderArgs{...} }
-//
+//          IdentityPoolCognitoIdentityProviderArray{ IdentityPoolCognitoIdentityProviderArgs{...} }
 type IdentityPoolCognitoIdentityProviderArrayInput interface {
 	pulumi.Input
 
@@ -141,8 +139,7 @@ type IdentityPoolRoleAttachmentRoleMapping struct {
 // IdentityPoolRoleAttachmentRoleMappingInput is an input type that accepts IdentityPoolRoleAttachmentRoleMappingArgs and IdentityPoolRoleAttachmentRoleMappingOutput values.
 // You can construct a concrete instance of `IdentityPoolRoleAttachmentRoleMappingInput` via:
 //
-// 		 IdentityPoolRoleAttachmentRoleMappingArgs{...}
-//
+//          IdentityPoolRoleAttachmentRoleMappingArgs{...}
 type IdentityPoolRoleAttachmentRoleMappingInput interface {
 	pulumi.Input
 
@@ -176,8 +173,7 @@ func (i IdentityPoolRoleAttachmentRoleMappingArgs) ToIdentityPoolRoleAttachmentR
 // IdentityPoolRoleAttachmentRoleMappingArrayInput is an input type that accepts IdentityPoolRoleAttachmentRoleMappingArray and IdentityPoolRoleAttachmentRoleMappingArrayOutput values.
 // You can construct a concrete instance of `IdentityPoolRoleAttachmentRoleMappingArrayInput` via:
 //
-// 		 IdentityPoolRoleAttachmentRoleMappingArray{ IdentityPoolRoleAttachmentRoleMappingArgs{...} }
-//
+//          IdentityPoolRoleAttachmentRoleMappingArray{ IdentityPoolRoleAttachmentRoleMappingArgs{...} }
 type IdentityPoolRoleAttachmentRoleMappingArrayInput interface {
 	pulumi.Input
 
@@ -269,8 +265,7 @@ type IdentityPoolRoleAttachmentRoleMappingMappingRule struct {
 // IdentityPoolRoleAttachmentRoleMappingMappingRuleInput is an input type that accepts IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs and IdentityPoolRoleAttachmentRoleMappingMappingRuleOutput values.
 // You can construct a concrete instance of `IdentityPoolRoleAttachmentRoleMappingMappingRuleInput` via:
 //
-// 		 IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs{...}
-//
+//          IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs{...}
 type IdentityPoolRoleAttachmentRoleMappingMappingRuleInput interface {
 	pulumi.Input
 
@@ -304,8 +299,7 @@ func (i IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs) ToIdentityPoolRole
 // IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayInput is an input type that accepts IdentityPoolRoleAttachmentRoleMappingMappingRuleArray and IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayOutput values.
 // You can construct a concrete instance of `IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayInput` via:
 //
-// 		 IdentityPoolRoleAttachmentRoleMappingMappingRuleArray{ IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs{...} }
-//
+//          IdentityPoolRoleAttachmentRoleMappingMappingRuleArray{ IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs{...} }
 type IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayInput interface {
 	pulumi.Input
 
@@ -391,8 +385,7 @@ type ResourceServerScope struct {
 // ResourceServerScopeInput is an input type that accepts ResourceServerScopeArgs and ResourceServerScopeOutput values.
 // You can construct a concrete instance of `ResourceServerScopeInput` via:
 //
-// 		 ResourceServerScopeArgs{...}
-//
+//          ResourceServerScopeArgs{...}
 type ResourceServerScopeInput interface {
 	pulumi.Input
 
@@ -422,8 +415,7 @@ func (i ResourceServerScopeArgs) ToResourceServerScopeOutputWithContext(ctx cont
 // ResourceServerScopeArrayInput is an input type that accepts ResourceServerScopeArray and ResourceServerScopeArrayOutput values.
 // You can construct a concrete instance of `ResourceServerScopeArrayInput` via:
 //
-// 		 ResourceServerScopeArray{ ResourceServerScopeArgs{...} }
-//
+//          ResourceServerScopeArray{ ResourceServerScopeArgs{...} }
 type ResourceServerScopeArrayInput interface {
 	pulumi.Input
 
@@ -503,8 +495,7 @@ type UserPoolAdminCreateUserConfig struct {
 // UserPoolAdminCreateUserConfigInput is an input type that accepts UserPoolAdminCreateUserConfigArgs and UserPoolAdminCreateUserConfigOutput values.
 // You can construct a concrete instance of `UserPoolAdminCreateUserConfigInput` via:
 //
-// 		 UserPoolAdminCreateUserConfigArgs{...}
-//
+//          UserPoolAdminCreateUserConfigArgs{...}
 type UserPoolAdminCreateUserConfigInput interface {
 	pulumi.Input
 
@@ -546,12 +537,11 @@ func (i UserPoolAdminCreateUserConfigArgs) ToUserPoolAdminCreateUserConfigPtrOut
 // UserPoolAdminCreateUserConfigPtrInput is an input type that accepts UserPoolAdminCreateUserConfigArgs, UserPoolAdminCreateUserConfigPtr and UserPoolAdminCreateUserConfigPtrOutput values.
 // You can construct a concrete instance of `UserPoolAdminCreateUserConfigPtrInput` via:
 //
-// 		 UserPoolAdminCreateUserConfigArgs{...}
+//          UserPoolAdminCreateUserConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolAdminCreateUserConfigPtrInput interface {
 	pulumi.Input
 
@@ -682,8 +672,7 @@ type UserPoolAdminCreateUserConfigInviteMessageTemplate struct {
 // UserPoolAdminCreateUserConfigInviteMessageTemplateInput is an input type that accepts UserPoolAdminCreateUserConfigInviteMessageTemplateArgs and UserPoolAdminCreateUserConfigInviteMessageTemplateOutput values.
 // You can construct a concrete instance of `UserPoolAdminCreateUserConfigInviteMessageTemplateInput` via:
 //
-// 		 UserPoolAdminCreateUserConfigInviteMessageTemplateArgs{...}
-//
+//          UserPoolAdminCreateUserConfigInviteMessageTemplateArgs{...}
 type UserPoolAdminCreateUserConfigInviteMessageTemplateInput interface {
 	pulumi.Input
 
@@ -723,12 +712,11 @@ func (i UserPoolAdminCreateUserConfigInviteMessageTemplateArgs) ToUserPoolAdminC
 // UserPoolAdminCreateUserConfigInviteMessageTemplatePtrInput is an input type that accepts UserPoolAdminCreateUserConfigInviteMessageTemplateArgs, UserPoolAdminCreateUserConfigInviteMessageTemplatePtr and UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput values.
 // You can construct a concrete instance of `UserPoolAdminCreateUserConfigInviteMessageTemplatePtrInput` via:
 //
-// 		 UserPoolAdminCreateUserConfigInviteMessageTemplateArgs{...}
+//          UserPoolAdminCreateUserConfigInviteMessageTemplateArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolAdminCreateUserConfigInviteMessageTemplatePtrInput interface {
 	pulumi.Input
 
@@ -857,8 +845,7 @@ type UserPoolClientAnalyticsConfiguration struct {
 // UserPoolClientAnalyticsConfigurationInput is an input type that accepts UserPoolClientAnalyticsConfigurationArgs and UserPoolClientAnalyticsConfigurationOutput values.
 // You can construct a concrete instance of `UserPoolClientAnalyticsConfigurationInput` via:
 //
-// 		 UserPoolClientAnalyticsConfigurationArgs{...}
-//
+//          UserPoolClientAnalyticsConfigurationArgs{...}
 type UserPoolClientAnalyticsConfigurationInput interface {
 	pulumi.Input
 
@@ -900,12 +887,11 @@ func (i UserPoolClientAnalyticsConfigurationArgs) ToUserPoolClientAnalyticsConfi
 // UserPoolClientAnalyticsConfigurationPtrInput is an input type that accepts UserPoolClientAnalyticsConfigurationArgs, UserPoolClientAnalyticsConfigurationPtr and UserPoolClientAnalyticsConfigurationPtrOutput values.
 // You can construct a concrete instance of `UserPoolClientAnalyticsConfigurationPtrInput` via:
 //
-// 		 UserPoolClientAnalyticsConfigurationArgs{...}
+//          UserPoolClientAnalyticsConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolClientAnalyticsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1043,8 +1029,7 @@ type UserPoolDeviceConfiguration struct {
 // UserPoolDeviceConfigurationInput is an input type that accepts UserPoolDeviceConfigurationArgs and UserPoolDeviceConfigurationOutput values.
 // You can construct a concrete instance of `UserPoolDeviceConfigurationInput` via:
 //
-// 		 UserPoolDeviceConfigurationArgs{...}
-//
+//          UserPoolDeviceConfigurationArgs{...}
 type UserPoolDeviceConfigurationInput interface {
 	pulumi.Input
 
@@ -1082,12 +1067,11 @@ func (i UserPoolDeviceConfigurationArgs) ToUserPoolDeviceConfigurationPtrOutputW
 // UserPoolDeviceConfigurationPtrInput is an input type that accepts UserPoolDeviceConfigurationArgs, UserPoolDeviceConfigurationPtr and UserPoolDeviceConfigurationPtrOutput values.
 // You can construct a concrete instance of `UserPoolDeviceConfigurationPtrInput` via:
 //
-// 		 UserPoolDeviceConfigurationArgs{...}
+//          UserPoolDeviceConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolDeviceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1199,8 +1183,7 @@ type UserPoolEmailConfiguration struct {
 // UserPoolEmailConfigurationInput is an input type that accepts UserPoolEmailConfigurationArgs and UserPoolEmailConfigurationOutput values.
 // You can construct a concrete instance of `UserPoolEmailConfigurationInput` via:
 //
-// 		 UserPoolEmailConfigurationArgs{...}
-//
+//          UserPoolEmailConfigurationArgs{...}
 type UserPoolEmailConfigurationInput interface {
 	pulumi.Input
 
@@ -1242,12 +1225,11 @@ func (i UserPoolEmailConfigurationArgs) ToUserPoolEmailConfigurationPtrOutputWit
 // UserPoolEmailConfigurationPtrInput is an input type that accepts UserPoolEmailConfigurationArgs, UserPoolEmailConfigurationPtr and UserPoolEmailConfigurationPtrOutput values.
 // You can construct a concrete instance of `UserPoolEmailConfigurationPtrInput` via:
 //
-// 		 UserPoolEmailConfigurationArgs{...}
+//          UserPoolEmailConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolEmailConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1401,8 +1383,7 @@ type UserPoolLambdaConfig struct {
 // UserPoolLambdaConfigInput is an input type that accepts UserPoolLambdaConfigArgs and UserPoolLambdaConfigOutput values.
 // You can construct a concrete instance of `UserPoolLambdaConfigInput` via:
 //
-// 		 UserPoolLambdaConfigArgs{...}
-//
+//          UserPoolLambdaConfigArgs{...}
 type UserPoolLambdaConfigInput interface {
 	pulumi.Input
 
@@ -1456,12 +1437,11 @@ func (i UserPoolLambdaConfigArgs) ToUserPoolLambdaConfigPtrOutputWithContext(ctx
 // UserPoolLambdaConfigPtrInput is an input type that accepts UserPoolLambdaConfigArgs, UserPoolLambdaConfigPtr and UserPoolLambdaConfigPtrOutput values.
 // You can construct a concrete instance of `UserPoolLambdaConfigPtrInput` via:
 //
-// 		 UserPoolLambdaConfigArgs{...}
+//          UserPoolLambdaConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolLambdaConfigPtrInput interface {
 	pulumi.Input
 
@@ -1697,8 +1677,7 @@ type UserPoolPasswordPolicy struct {
 // UserPoolPasswordPolicyInput is an input type that accepts UserPoolPasswordPolicyArgs and UserPoolPasswordPolicyOutput values.
 // You can construct a concrete instance of `UserPoolPasswordPolicyInput` via:
 //
-// 		 UserPoolPasswordPolicyArgs{...}
-//
+//          UserPoolPasswordPolicyArgs{...}
 type UserPoolPasswordPolicyInput interface {
 	pulumi.Input
 
@@ -1744,12 +1723,11 @@ func (i UserPoolPasswordPolicyArgs) ToUserPoolPasswordPolicyPtrOutputWithContext
 // UserPoolPasswordPolicyPtrInput is an input type that accepts UserPoolPasswordPolicyArgs, UserPoolPasswordPolicyPtr and UserPoolPasswordPolicyPtrOutput values.
 // You can construct a concrete instance of `UserPoolPasswordPolicyPtrInput` via:
 //
-// 		 UserPoolPasswordPolicyArgs{...}
+//          UserPoolPasswordPolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolPasswordPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1927,8 +1905,7 @@ type UserPoolSchema struct {
 // UserPoolSchemaInput is an input type that accepts UserPoolSchemaArgs and UserPoolSchemaOutput values.
 // You can construct a concrete instance of `UserPoolSchemaInput` via:
 //
-// 		 UserPoolSchemaArgs{...}
-//
+//          UserPoolSchemaArgs{...}
 type UserPoolSchemaInput interface {
 	pulumi.Input
 
@@ -1968,8 +1945,7 @@ func (i UserPoolSchemaArgs) ToUserPoolSchemaOutputWithContext(ctx context.Contex
 // UserPoolSchemaArrayInput is an input type that accepts UserPoolSchemaArray and UserPoolSchemaArrayOutput values.
 // You can construct a concrete instance of `UserPoolSchemaArrayInput` via:
 //
-// 		 UserPoolSchemaArray{ UserPoolSchemaArgs{...} }
-//
+//          UserPoolSchemaArray{ UserPoolSchemaArgs{...} }
 type UserPoolSchemaArrayInput interface {
 	pulumi.Input
 
@@ -2070,8 +2046,7 @@ type UserPoolSchemaNumberAttributeConstraints struct {
 // UserPoolSchemaNumberAttributeConstraintsInput is an input type that accepts UserPoolSchemaNumberAttributeConstraintsArgs and UserPoolSchemaNumberAttributeConstraintsOutput values.
 // You can construct a concrete instance of `UserPoolSchemaNumberAttributeConstraintsInput` via:
 //
-// 		 UserPoolSchemaNumberAttributeConstraintsArgs{...}
-//
+//          UserPoolSchemaNumberAttributeConstraintsArgs{...}
 type UserPoolSchemaNumberAttributeConstraintsInput interface {
 	pulumi.Input
 
@@ -2109,12 +2084,11 @@ func (i UserPoolSchemaNumberAttributeConstraintsArgs) ToUserPoolSchemaNumberAttr
 // UserPoolSchemaNumberAttributeConstraintsPtrInput is an input type that accepts UserPoolSchemaNumberAttributeConstraintsArgs, UserPoolSchemaNumberAttributeConstraintsPtr and UserPoolSchemaNumberAttributeConstraintsPtrOutput values.
 // You can construct a concrete instance of `UserPoolSchemaNumberAttributeConstraintsPtrInput` via:
 //
-// 		 UserPoolSchemaNumberAttributeConstraintsArgs{...}
+//          UserPoolSchemaNumberAttributeConstraintsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolSchemaNumberAttributeConstraintsPtrInput interface {
 	pulumi.Input
 
@@ -2222,8 +2196,7 @@ type UserPoolSchemaStringAttributeConstraints struct {
 // UserPoolSchemaStringAttributeConstraintsInput is an input type that accepts UserPoolSchemaStringAttributeConstraintsArgs and UserPoolSchemaStringAttributeConstraintsOutput values.
 // You can construct a concrete instance of `UserPoolSchemaStringAttributeConstraintsInput` via:
 //
-// 		 UserPoolSchemaStringAttributeConstraintsArgs{...}
-//
+//          UserPoolSchemaStringAttributeConstraintsArgs{...}
 type UserPoolSchemaStringAttributeConstraintsInput interface {
 	pulumi.Input
 
@@ -2261,12 +2234,11 @@ func (i UserPoolSchemaStringAttributeConstraintsArgs) ToUserPoolSchemaStringAttr
 // UserPoolSchemaStringAttributeConstraintsPtrInput is an input type that accepts UserPoolSchemaStringAttributeConstraintsArgs, UserPoolSchemaStringAttributeConstraintsPtr and UserPoolSchemaStringAttributeConstraintsPtrOutput values.
 // You can construct a concrete instance of `UserPoolSchemaStringAttributeConstraintsPtrInput` via:
 //
-// 		 UserPoolSchemaStringAttributeConstraintsArgs{...}
+//          UserPoolSchemaStringAttributeConstraintsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolSchemaStringAttributeConstraintsPtrInput interface {
 	pulumi.Input
 
@@ -2374,8 +2346,7 @@ type UserPoolSmsConfiguration struct {
 // UserPoolSmsConfigurationInput is an input type that accepts UserPoolSmsConfigurationArgs and UserPoolSmsConfigurationOutput values.
 // You can construct a concrete instance of `UserPoolSmsConfigurationInput` via:
 //
-// 		 UserPoolSmsConfigurationArgs{...}
-//
+//          UserPoolSmsConfigurationArgs{...}
 type UserPoolSmsConfigurationInput interface {
 	pulumi.Input
 
@@ -2413,12 +2384,11 @@ func (i UserPoolSmsConfigurationArgs) ToUserPoolSmsConfigurationPtrOutputWithCon
 // UserPoolSmsConfigurationPtrInput is an input type that accepts UserPoolSmsConfigurationArgs, UserPoolSmsConfigurationPtr and UserPoolSmsConfigurationPtrOutput values.
 // You can construct a concrete instance of `UserPoolSmsConfigurationPtrInput` via:
 //
-// 		 UserPoolSmsConfigurationArgs{...}
+//          UserPoolSmsConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolSmsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2524,8 +2494,7 @@ type UserPoolSoftwareTokenMfaConfiguration struct {
 // UserPoolSoftwareTokenMfaConfigurationInput is an input type that accepts UserPoolSoftwareTokenMfaConfigurationArgs and UserPoolSoftwareTokenMfaConfigurationOutput values.
 // You can construct a concrete instance of `UserPoolSoftwareTokenMfaConfigurationInput` via:
 //
-// 		 UserPoolSoftwareTokenMfaConfigurationArgs{...}
-//
+//          UserPoolSoftwareTokenMfaConfigurationArgs{...}
 type UserPoolSoftwareTokenMfaConfigurationInput interface {
 	pulumi.Input
 
@@ -2561,12 +2530,11 @@ func (i UserPoolSoftwareTokenMfaConfigurationArgs) ToUserPoolSoftwareTokenMfaCon
 // UserPoolSoftwareTokenMfaConfigurationPtrInput is an input type that accepts UserPoolSoftwareTokenMfaConfigurationArgs, UserPoolSoftwareTokenMfaConfigurationPtr and UserPoolSoftwareTokenMfaConfigurationPtrOutput values.
 // You can construct a concrete instance of `UserPoolSoftwareTokenMfaConfigurationPtrInput` via:
 //
-// 		 UserPoolSoftwareTokenMfaConfigurationArgs{...}
+//          UserPoolSoftwareTokenMfaConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolSoftwareTokenMfaConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2657,8 +2625,7 @@ type UserPoolUserPoolAddOns struct {
 // UserPoolUserPoolAddOnsInput is an input type that accepts UserPoolUserPoolAddOnsArgs and UserPoolUserPoolAddOnsOutput values.
 // You can construct a concrete instance of `UserPoolUserPoolAddOnsInput` via:
 //
-// 		 UserPoolUserPoolAddOnsArgs{...}
-//
+//          UserPoolUserPoolAddOnsArgs{...}
 type UserPoolUserPoolAddOnsInput interface {
 	pulumi.Input
 
@@ -2694,12 +2661,11 @@ func (i UserPoolUserPoolAddOnsArgs) ToUserPoolUserPoolAddOnsPtrOutputWithContext
 // UserPoolUserPoolAddOnsPtrInput is an input type that accepts UserPoolUserPoolAddOnsArgs, UserPoolUserPoolAddOnsPtr and UserPoolUserPoolAddOnsPtrOutput values.
 // You can construct a concrete instance of `UserPoolUserPoolAddOnsPtrInput` via:
 //
-// 		 UserPoolUserPoolAddOnsArgs{...}
+//          UserPoolUserPoolAddOnsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolUserPoolAddOnsPtrInput interface {
 	pulumi.Input
 
@@ -2790,8 +2756,7 @@ type UserPoolUsernameConfiguration struct {
 // UserPoolUsernameConfigurationInput is an input type that accepts UserPoolUsernameConfigurationArgs and UserPoolUsernameConfigurationOutput values.
 // You can construct a concrete instance of `UserPoolUsernameConfigurationInput` via:
 //
-// 		 UserPoolUsernameConfigurationArgs{...}
-//
+//          UserPoolUsernameConfigurationArgs{...}
 type UserPoolUsernameConfigurationInput interface {
 	pulumi.Input
 
@@ -2827,12 +2792,11 @@ func (i UserPoolUsernameConfigurationArgs) ToUserPoolUsernameConfigurationPtrOut
 // UserPoolUsernameConfigurationPtrInput is an input type that accepts UserPoolUsernameConfigurationArgs, UserPoolUsernameConfigurationPtr and UserPoolUsernameConfigurationPtrOutput values.
 // You can construct a concrete instance of `UserPoolUsernameConfigurationPtrInput` via:
 //
-// 		 UserPoolUsernameConfigurationArgs{...}
+//          UserPoolUsernameConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolUsernameConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2933,8 +2897,7 @@ type UserPoolVerificationMessageTemplate struct {
 // UserPoolVerificationMessageTemplateInput is an input type that accepts UserPoolVerificationMessageTemplateArgs and UserPoolVerificationMessageTemplateOutput values.
 // You can construct a concrete instance of `UserPoolVerificationMessageTemplateInput` via:
 //
-// 		 UserPoolVerificationMessageTemplateArgs{...}
-//
+//          UserPoolVerificationMessageTemplateArgs{...}
 type UserPoolVerificationMessageTemplateInput interface {
 	pulumi.Input
 
@@ -2980,12 +2943,11 @@ func (i UserPoolVerificationMessageTemplateArgs) ToUserPoolVerificationMessageTe
 // UserPoolVerificationMessageTemplatePtrInput is an input type that accepts UserPoolVerificationMessageTemplateArgs, UserPoolVerificationMessageTemplatePtr and UserPoolVerificationMessageTemplatePtrOutput values.
 // You can construct a concrete instance of `UserPoolVerificationMessageTemplatePtrInput` via:
 //
-// 		 UserPoolVerificationMessageTemplateArgs{...}
+//          UserPoolVerificationMessageTemplateArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type UserPoolVerificationMessageTemplatePtrInput interface {
 	pulumi.Input
 

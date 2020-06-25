@@ -20,7 +20,6 @@ import (
 // and will overwrite the association.
 //
 // ## Example Usage
-//
 // ### Basic
 //
 // ```go
@@ -33,7 +32,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
+// 		_, err = ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
 // 			AcceptanceRequired: pulumi.Bool(false),
 // 			NetworkLoadBalancerArns: pulumi.StringArray{
 // 				pulumi.String(aws_lb.Example.Arn),
@@ -46,7 +45,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Basic w/ Tags
 //
 // ```go
@@ -59,13 +57,13 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
+// 		_, err = ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
 // 			AcceptanceRequired: pulumi.Bool(false),
 // 			NetworkLoadBalancerArns: pulumi.StringArray{
 // 				pulumi.String(aws_lb.Example.Arn),
 // 			},
-// 			Tags: map[string]interface{}{
-// 				"Environment": "test",
+// 			Tags: pulumi.Map{
+// 				"Environment": pulumi.String("test"),
 // 			},
 // 		})
 // 		if err != nil {

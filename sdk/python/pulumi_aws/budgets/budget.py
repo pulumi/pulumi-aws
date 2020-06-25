@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Budget(pulumi.CustomResource):
     account_id: pulumi.Output[str]
     """
@@ -83,8 +84,6 @@ class Budget(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -106,6 +105,81 @@ class Budget(pulumi.CustomResource):
             time_period_end="2087-06-15_00:00",
             time_period_start="2017-07-01_00:00",
             time_unit="MONTHLY")
+        ```
+
+        Create a budget for *$100*.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost = aws.budgets.Budget("cost",
+            budget_type="COST",
+            limit_amount="100",
+            limit_unit="USD")
+        ```
+
+        Create a budget for s3 with a limit of *3 GB* of storage.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        s3 = aws.budgets.Budget("s3",
+            budget_type="USAGE",
+            limit_amount="3",
+            limit_unit="GB")
+        ```
+
+        Create a Savings Plan Utilization Budget
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        savings_plan_utilization = aws.budgets.Budget("savingsPlanUtilization",
+            budget_type="SAVINGS_PLANS_UTILIZATION",
+            cost_types={
+                "includeCredit": False,
+                "includeDiscount": False,
+                "includeOtherSubscription": False,
+                "includeRecurring": False,
+                "includeRefund": False,
+                "includeSubscription": True,
+                "includeSupport": False,
+                "includeTax": False,
+                "includeUpfront": False,
+                "useBlended": False,
+            },
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE")
+        ```
+
+        Create a RI Utilization Budget
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ri_utilization = aws.budgets.Budget("riUtilization",
+            budget_type="RI_UTILIZATION",
+            cost_filters={
+                "Service": "Amazon Relational Database Service",
+            },
+            cost_types={
+                "includeCredit": False,
+                "includeDiscount": False,
+                "includeOtherSubscription": False,
+                "includeRecurring": False,
+                "includeRefund": False,
+                "includeSubscription": True,
+                "includeSupport": False,
+                "includeTax": False,
+                "includeUpfront": False,
+                "useBlended": False,
+            },
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE")
         ```
 
         :param str resource_name: The name of the resource.
@@ -253,9 +327,9 @@ class Budget(pulumi.CustomResource):
         __props__["time_period_start"] = time_period_start
         __props__["time_unit"] = time_unit
         return Budget(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -16,7 +16,108 @@ import (
 //
 // ## Application Load Balancer Association Example
 //
+// ```go
+// package main
 //
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/alb"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/wafregional"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		ipset, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
+// 			IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
+// 				&wafregional.IpSetIpSetDescriptorArgs{
+// 					Type:  pulumi.String("IPV4"),
+// 					Value: pulumi.String("192.0.7.0/24"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooRule, err := wafregional.NewRule(ctx, "fooRule", &wafregional.RuleArgs{
+// 			MetricName: pulumi.String("tfWAFRule"),
+// 			Predicates: wafregional.RulePredicateArray{
+// 				&wafregional.RulePredicateArgs{
+// 					DataId:  ipset.ID(),
+// 					Negated: pulumi.Bool(false),
+// 					Type:    pulumi.String("IPMatch"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooWebAcl, err := wafregional.NewWebAcl(ctx, "fooWebAcl", &wafregional.WebAclArgs{
+// 			DefaultAction: &wafregional.WebAclDefaultActionArgs{
+// 				Type: pulumi.String("ALLOW"),
+// 			},
+// 			MetricName: pulumi.String("foo"),
+// 			Rules: wafregional.WebAclRuleArray{
+// 				&wafregional.WebAclRuleArgs{
+// 					Action: &wafregional.WebAclRuleActionArgs{
+// 						Type: pulumi.String("BLOCK"),
+// 					},
+// 					Priority: pulumi.Int(1),
+// 					RuleId:   fooRule.ID(),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.1.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		available, err := aws.GetAvailabilityZones(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
+// 			AvailabilityZone: pulumi.String(available.Names[0]),
+// 			CidrBlock:        pulumi.String("10.1.1.0/24"),
+// 			VpcId:            fooVpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
+// 			AvailabilityZone: pulumi.String(available.Names[1]),
+// 			CidrBlock:        pulumi.String("10.1.2.0/24"),
+// 			VpcId:            fooVpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooLoadBalancer, err := alb.NewLoadBalancer(ctx, "fooLoadBalancer", &alb.LoadBalancerArgs{
+// 			Internal: pulumi.Bool(true),
+// 			Subnets: pulumi.StringArray{
+// 				fooSubnet.ID(),
+// 				bar.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = wafregional.NewWebAclAssociation(ctx, "fooWebAclAssociation", &wafregional.WebAclAssociationArgs{
+// 			ResourceArn: fooLoadBalancer.Arn,
+// 			WebAclId:    fooWebAcl.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## API Gateway Association Example
 //
@@ -114,7 +215,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		testIntegrationResponse, err := apigateway.NewIntegrationResponse(ctx, "testIntegrationResponse", &apigateway.IntegrationResponseArgs{
+// 		_, err = apigateway.NewIntegrationResponse(ctx, "testIntegrationResponse", &apigateway.IntegrationResponseArgs{
 // 			HttpMethod: testIntegration.HttpMethod,
 // 			ResourceId: testResource.ID(),
 // 			RestApi:    testRestApi.ID(),
@@ -137,7 +238,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		association, err := wafregional.NewWebAclAssociation(ctx, "association", &wafregional.WebAclAssociationArgs{
+// 		_, err = wafregional.NewWebAclAssociation(ctx, "association", &wafregional.WebAclAssociationArgs{
 // 			ResourceArn: testStage.Arn,
 // 			WebAclId:    fooWebAcl.ID(),
 // 		})

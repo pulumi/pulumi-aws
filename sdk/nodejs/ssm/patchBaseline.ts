@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * Provides an SSM Patch Baseline resource
  *
- * > **NOTE on Patch Baselines:** The `approvedPatches` and `approvalRule` are 
+ * > **NOTE on Patch Baselines:** The `approvedPatches` and `approvalRule` are
  * both marked as optional fields, but the Patch Baseline requires that at least one
  * of them is specified.
  *
  * ## Example Usage
  *
- *
+ * Basic usage using `approvedPatches` only
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,6 +23,121 @@ import * as utilities from "../utilities";
  *
  * const production = new aws.ssm.PatchBaseline("production", {
  *     approvedPatches: ["KB123456"],
+ * });
+ * ```
+ *
+ * Advanced usage, specifying patch filters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const production = new aws.ssm.PatchBaseline("production", {
+ *     approvalRules: [
+ *         {
+ *             approveAfterDays: 7,
+ *             complianceLevel: "HIGH",
+ *             patchFilters: [
+ *                 {
+ *                     key: "PRODUCT",
+ *                     values: ["WindowsServer2016"],
+ *                 },
+ *                 {
+ *                     key: "CLASSIFICATION",
+ *                     values: [
+ *                         "CriticalUpdates",
+ *                         "SecurityUpdates",
+ *                         "Updates",
+ *                     ],
+ *                 },
+ *                 {
+ *                     key: "MSRC_SEVERITY",
+ *                     values: [
+ *                         "Critical",
+ *                         "Important",
+ *                         "Moderate",
+ *                     ],
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             approveAfterDays: 7,
+ *             patchFilters: [{
+ *                 key: "PRODUCT",
+ *                 values: ["WindowsServer2012"],
+ *             }],
+ *         },
+ *     ],
+ *     approvedPatches: [
+ *         "KB123456",
+ *         "KB456789",
+ *     ],
+ *     description: "Patch Baseline Description",
+ *     globalFilters: [
+ *         {
+ *             key: "PRODUCT",
+ *             values: ["WindowsServer2008"],
+ *         },
+ *         {
+ *             key: "CLASSIFICATION",
+ *             values: ["ServicePacks"],
+ *         },
+ *         {
+ *             key: "MSRC_SEVERITY",
+ *             values: ["Low"],
+ *         },
+ *     ],
+ *     rejectedPatches: ["KB987654"],
+ * });
+ * ```
+ *
+ * Advanced usage, specifying Microsoft application and Windows patch rules
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const windowsOsApps = new aws.ssm.PatchBaseline("windows_os_apps", {
+ *     approvalRules: [
+ *         {
+ *             approveAfterDays: 7,
+ *             patchFilters: [
+ *                 {
+ *                     key: "CLASSIFICATION",
+ *                     values: [
+ *                         "CriticalUpdates",
+ *                         "SecurityUpdates",
+ *                     ],
+ *                 },
+ *                 {
+ *                     key: "MSRC_SEVERITY",
+ *                     values: [
+ *                         "Critical",
+ *                         "Important",
+ *                     ],
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             approveAfterDays: 7,
+ *             patchFilters: [
+ *                 {
+ *                     key: "PATCH_SET",
+ *                     values: ["APPLICATION"],
+ *                 },
+ *                 // Filter on Microsoft product if necessary 
+ *                 {
+ *                     key: "PRODUCT",
+ *                     values: [
+ *                         "Office 2013",
+ *                         "Office 2016",
+ *                     ],
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ *     description: "Patch both Windows and Microsoft apps",
+ *     operatingSystem: "WINDOWS",
  * });
  * ```
  */

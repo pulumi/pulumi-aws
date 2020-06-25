@@ -70,8 +70,6 @@ def get_alias(function_name=None,name=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

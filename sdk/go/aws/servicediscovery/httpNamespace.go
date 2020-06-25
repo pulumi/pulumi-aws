@@ -11,8 +11,6 @@ import (
 
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -23,7 +21,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := servicediscovery.NewHttpNamespace(ctx, "example", &servicediscovery.HttpNamespaceArgs{
+// 		_, err = servicediscovery.NewHttpNamespace(ctx, "example", &servicediscovery.HttpNamespaceArgs{
 // 			Description: pulumi.String("example"),
 // 		})
 // 		if err != nil {

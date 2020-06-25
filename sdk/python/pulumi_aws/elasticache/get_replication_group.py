@@ -118,8 +118,6 @@ def get_replication_group(replication_group_id=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

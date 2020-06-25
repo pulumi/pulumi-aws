@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class TopicRule(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -56,8 +57,6 @@ class TopicRule(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, dynamodbv2s=None, elasticsearch=None, enabled=None, firehose=None, iot_analytics=None, iot_events=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, step_functions=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -412,9 +411,9 @@ class TopicRule(pulumi.CustomResource):
         __props__["step_functions"] = step_functions
         __props__["tags"] = tags
         return TopicRule(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

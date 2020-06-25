@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class NetworkAclRule(pulumi.CustomResource):
     cidr_block: pulumi.Output[str]
     """
@@ -66,8 +67,6 @@ class NetworkAclRule(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -83,6 +82,8 @@ class NetworkAclRule(pulumi.CustomResource):
             from_port=22,
             to_port=22)
         ```
+
+        > **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,9 +178,9 @@ class NetworkAclRule(pulumi.CustomResource):
         __props__["rule_number"] = rule_number
         __props__["to_port"] = to_port
         return NetworkAclRule(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

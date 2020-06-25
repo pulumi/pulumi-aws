@@ -11,8 +11,6 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,7 +30,6 @@ import {RestApi} from "./index";
  *     restApi: myDemoAPI.id,
  * });
  * ```
- *
  * ## Usage with Cognito User Pool Authorizer
  *
  * ```typescript

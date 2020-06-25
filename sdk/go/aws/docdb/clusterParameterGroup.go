@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -26,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := docdb.NewClusterParameterGroup(ctx, "example", &docdb.ClusterParameterGroupArgs{
+// 		_, err = docdb.NewClusterParameterGroup(ctx, "example", &docdb.ClusterParameterGroupArgs{
 // 			Description: pulumi.String("docdb cluster parameter group"),
 // 			Family:      pulumi.String("docdb3.6"),
 // 			Parameters: docdb.ClusterParameterGroupParameterArray{

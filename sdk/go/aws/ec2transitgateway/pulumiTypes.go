@@ -20,8 +20,7 @@ type GetDirectConnectGatewayAttachmentFilter struct {
 // GetDirectConnectGatewayAttachmentFilterInput is an input type that accepts GetDirectConnectGatewayAttachmentFilterArgs and GetDirectConnectGatewayAttachmentFilterOutput values.
 // You can construct a concrete instance of `GetDirectConnectGatewayAttachmentFilterInput` via:
 //
-// 		 GetDirectConnectGatewayAttachmentFilterArgs{...}
-//
+//          GetDirectConnectGatewayAttachmentFilterArgs{...}
 type GetDirectConnectGatewayAttachmentFilterInput interface {
 	pulumi.Input
 
@@ -51,8 +50,7 @@ func (i GetDirectConnectGatewayAttachmentFilterArgs) ToGetDirectConnectGatewayAt
 // GetDirectConnectGatewayAttachmentFilterArrayInput is an input type that accepts GetDirectConnectGatewayAttachmentFilterArray and GetDirectConnectGatewayAttachmentFilterArrayOutput values.
 // You can construct a concrete instance of `GetDirectConnectGatewayAttachmentFilterArrayInput` via:
 //
-// 		 GetDirectConnectGatewayAttachmentFilterArray{ GetDirectConnectGatewayAttachmentFilterArgs{...} }
-//
+//          GetDirectConnectGatewayAttachmentFilterArray{ GetDirectConnectGatewayAttachmentFilterArgs{...} }
 type GetDirectConnectGatewayAttachmentFilterArrayInput interface {
 	pulumi.Input
 
@@ -130,8 +128,7 @@ type GetPeeringAttachmentFilter struct {
 // GetPeeringAttachmentFilterInput is an input type that accepts GetPeeringAttachmentFilterArgs and GetPeeringAttachmentFilterOutput values.
 // You can construct a concrete instance of `GetPeeringAttachmentFilterInput` via:
 //
-// 		 GetPeeringAttachmentFilterArgs{...}
-//
+//          GetPeeringAttachmentFilterArgs{...}
 type GetPeeringAttachmentFilterInput interface {
 	pulumi.Input
 
@@ -163,8 +160,7 @@ func (i GetPeeringAttachmentFilterArgs) ToGetPeeringAttachmentFilterOutputWithCo
 // GetPeeringAttachmentFilterArrayInput is an input type that accepts GetPeeringAttachmentFilterArray and GetPeeringAttachmentFilterArrayOutput values.
 // You can construct a concrete instance of `GetPeeringAttachmentFilterArrayInput` via:
 //
-// 		 GetPeeringAttachmentFilterArray{ GetPeeringAttachmentFilterArgs{...} }
-//
+//          GetPeeringAttachmentFilterArray{ GetPeeringAttachmentFilterArgs{...} }
 type GetPeeringAttachmentFilterArrayInput interface {
 	pulumi.Input
 
@@ -242,8 +238,7 @@ type GetRouteTableFilter struct {
 // GetRouteTableFilterInput is an input type that accepts GetRouteTableFilterArgs and GetRouteTableFilterOutput values.
 // You can construct a concrete instance of `GetRouteTableFilterInput` via:
 //
-// 		 GetRouteTableFilterArgs{...}
-//
+//          GetRouteTableFilterArgs{...}
 type GetRouteTableFilterInput interface {
 	pulumi.Input
 
@@ -273,8 +268,7 @@ func (i GetRouteTableFilterArgs) ToGetRouteTableFilterOutputWithContext(ctx cont
 // GetRouteTableFilterArrayInput is an input type that accepts GetRouteTableFilterArray and GetRouteTableFilterArrayOutput values.
 // You can construct a concrete instance of `GetRouteTableFilterArrayInput` via:
 //
-// 		 GetRouteTableFilterArray{ GetRouteTableFilterArgs{...} }
-//
+//          GetRouteTableFilterArray{ GetRouteTableFilterArgs{...} }
 type GetRouteTableFilterArrayInput interface {
 	pulumi.Input
 
@@ -350,8 +344,7 @@ type GetTransitGatewayFilter struct {
 // GetTransitGatewayFilterInput is an input type that accepts GetTransitGatewayFilterArgs and GetTransitGatewayFilterOutput values.
 // You can construct a concrete instance of `GetTransitGatewayFilterInput` via:
 //
-// 		 GetTransitGatewayFilterArgs{...}
-//
+//          GetTransitGatewayFilterArgs{...}
 type GetTransitGatewayFilterInput interface {
 	pulumi.Input
 
@@ -381,8 +374,7 @@ func (i GetTransitGatewayFilterArgs) ToGetTransitGatewayFilterOutputWithContext(
 // GetTransitGatewayFilterArrayInput is an input type that accepts GetTransitGatewayFilterArray and GetTransitGatewayFilterArrayOutput values.
 // You can construct a concrete instance of `GetTransitGatewayFilterArrayInput` via:
 //
-// 		 GetTransitGatewayFilterArray{ GetTransitGatewayFilterArgs{...} }
-//
+//          GetTransitGatewayFilterArray{ GetTransitGatewayFilterArgs{...} }
 type GetTransitGatewayFilterArrayInput interface {
 	pulumi.Input
 
@@ -458,8 +450,7 @@ type GetVpcAttachmentFilter struct {
 // GetVpcAttachmentFilterInput is an input type that accepts GetVpcAttachmentFilterArgs and GetVpcAttachmentFilterOutput values.
 // You can construct a concrete instance of `GetVpcAttachmentFilterInput` via:
 //
-// 		 GetVpcAttachmentFilterArgs{...}
-//
+//          GetVpcAttachmentFilterArgs{...}
 type GetVpcAttachmentFilterInput interface {
 	pulumi.Input
 
@@ -489,8 +480,7 @@ func (i GetVpcAttachmentFilterArgs) ToGetVpcAttachmentFilterOutputWithContext(ct
 // GetVpcAttachmentFilterArrayInput is an input type that accepts GetVpcAttachmentFilterArray and GetVpcAttachmentFilterArrayOutput values.
 // You can construct a concrete instance of `GetVpcAttachmentFilterArrayInput` via:
 //
-// 		 GetVpcAttachmentFilterArray{ GetVpcAttachmentFilterArgs{...} }
-//
+//          GetVpcAttachmentFilterArray{ GetVpcAttachmentFilterArgs{...} }
 type GetVpcAttachmentFilterArrayInput interface {
 	pulumi.Input
 
@@ -566,8 +556,7 @@ type GetVpnAttachmentFilter struct {
 // GetVpnAttachmentFilterInput is an input type that accepts GetVpnAttachmentFilterArgs and GetVpnAttachmentFilterOutput values.
 // You can construct a concrete instance of `GetVpnAttachmentFilterInput` via:
 //
-// 		 GetVpnAttachmentFilterArgs{...}
-//
+//          GetVpnAttachmentFilterArgs{...}
 type GetVpnAttachmentFilterInput interface {
 	pulumi.Input
 
@@ -597,8 +586,7 @@ func (i GetVpnAttachmentFilterArgs) ToGetVpnAttachmentFilterOutputWithContext(ct
 // GetVpnAttachmentFilterArrayInput is an input type that accepts GetVpnAttachmentFilterArray and GetVpnAttachmentFilterArrayOutput values.
 // You can construct a concrete instance of `GetVpnAttachmentFilterArrayInput` via:
 //
-// 		 GetVpnAttachmentFilterArray{ GetVpnAttachmentFilterArgs{...} }
-//
+//          GetVpnAttachmentFilterArray{ GetVpnAttachmentFilterArgs{...} }
 type GetVpnAttachmentFilterArrayInput interface {
 	pulumi.Input
 

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -33,7 +31,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// 
     /// ## Remarks
     /// 
     /// * You can only associate one DHCP Options Set to a given VPC ID.

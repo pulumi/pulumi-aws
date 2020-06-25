@@ -28,8 +28,7 @@ type WindowsFileSystemSelfManagedActiveDirectory struct {
 // WindowsFileSystemSelfManagedActiveDirectoryInput is an input type that accepts WindowsFileSystemSelfManagedActiveDirectoryArgs and WindowsFileSystemSelfManagedActiveDirectoryOutput values.
 // You can construct a concrete instance of `WindowsFileSystemSelfManagedActiveDirectoryInput` via:
 //
-// 		 WindowsFileSystemSelfManagedActiveDirectoryArgs{...}
-//
+//          WindowsFileSystemSelfManagedActiveDirectoryArgs{...}
 type WindowsFileSystemSelfManagedActiveDirectoryInput interface {
 	pulumi.Input
 
@@ -75,12 +74,11 @@ func (i WindowsFileSystemSelfManagedActiveDirectoryArgs) ToWindowsFileSystemSelf
 // WindowsFileSystemSelfManagedActiveDirectoryPtrInput is an input type that accepts WindowsFileSystemSelfManagedActiveDirectoryArgs, WindowsFileSystemSelfManagedActiveDirectoryPtr and WindowsFileSystemSelfManagedActiveDirectoryPtrOutput values.
 // You can construct a concrete instance of `WindowsFileSystemSelfManagedActiveDirectoryPtrInput` via:
 //
-// 		 WindowsFileSystemSelfManagedActiveDirectoryArgs{...}
+//          WindowsFileSystemSelfManagedActiveDirectoryArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type WindowsFileSystemSelfManagedActiveDirectoryPtrInput interface {
 	pulumi.Input
 

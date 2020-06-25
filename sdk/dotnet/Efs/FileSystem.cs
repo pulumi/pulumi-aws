@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Efs
     /// Provides an Elastic File System (EFS) File System resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ### EFS File System w/ tags
     /// 
     /// ```csharp
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.Efs
     /// 
     /// }
     /// ```
-    /// 
     /// ### Using lifecycle policy
     /// 
     /// ```csharp

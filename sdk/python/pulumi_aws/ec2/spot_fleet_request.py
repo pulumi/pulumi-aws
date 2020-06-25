@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class SpotFleetRequest(pulumi.CustomResource):
     allocation_strategy: pulumi.Output[str]
     """
@@ -166,7 +167,6 @@ class SpotFleetRequest(pulumi.CustomResource):
         instances to be requested on the Spot market.
 
         ## Example Usage
-
         ### Using launch specifications
 
         ```python
@@ -207,7 +207,6 @@ class SpotFleetRequest(pulumi.CustomResource):
             target_capacity=6,
             valid_until="2019-11-04T20:44:20Z")
         ```
-
         ### Using launch templates
 
         ```python
@@ -232,6 +231,8 @@ class SpotFleetRequest(pulumi.CustomResource):
             }])
         ```
 
+        > **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
+        launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used:
         ### Using multiple launch specifications
 
         ```python
@@ -258,7 +259,6 @@ class SpotFleetRequest(pulumi.CustomResource):
             target_capacity=2,
             valid_until="2019-11-04T20:44:20Z")
         ```
-
         ### Using multiple launch configurations
 
         ```python
@@ -571,9 +571,9 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__["valid_until"] = valid_until
         __props__["wait_for_fulfillment"] = wait_for_fulfillment
         return SpotFleetRequest(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -11,20 +11,23 @@ import (
 //
 // ## Example Usage
 //
-//
+// The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
 //
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/route53"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := route53.LookupResolverRule(ctx, &route53.LookupResolverRuleArgs{
-// 			DomainName: "subdomain.example.com",
-// 			RuleType:   "SYSTEM",
+// 		opt0 := "subdomain.example.com"
+// 		opt1 := "SYSTEM"
+// 		_, err := route53.LookupResolverRule(ctx, &route53.LookupResolverRuleArgs{
+// 			DomainName: &opt0,
+// 			RuleType:   &opt1,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -26,14 +24,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := dms.NewReplicationSubnetGroup(ctx, "test", &dms.ReplicationSubnetGroupArgs{
+// 		_, err = dms.NewReplicationSubnetGroup(ctx, "test", &dms.ReplicationSubnetGroupArgs{
 // 			ReplicationSubnetGroupDescription: pulumi.String("Test replication subnet group"),
 // 			ReplicationSubnetGroupId:          pulumi.String("test-dms-replication-subnet-group-tf"),
 // 			SubnetIds: pulumi.StringArray{
 // 				pulumi.String("subnet-12345678"),
 // 			},
-// 			Tags: map[string]interface{}{
-// 				"Name": "test",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("test"),
 // 			},
 // 		})
 // 		if err != nil {

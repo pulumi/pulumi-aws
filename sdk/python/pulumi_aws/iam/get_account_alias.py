@@ -42,8 +42,6 @@ def get_account_alias(opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  * which is currently in use (eg, by `aws.lb.Listener`).
  *
  * ## Example Usage
- *
  * ### Certificate creation
  *
  * ```typescript
@@ -41,7 +40,6 @@ import * as utilities from "../utilities";
  *     validationMethod: "DNS",
  * });
  * ```
- *
  * ### Importing an existing certificate
  *
  * ```typescript

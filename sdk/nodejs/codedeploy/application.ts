@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Provides a CodeDeploy application to be used as a basis for deployments
  *
  * ## Example Usage
- *
  * ### ECS Application
  *
  * ```typescript
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     computePlatform: "ECS",
  * });
  * ```
- *
  * ### Lambda Application
  *
  * ```typescript
@@ -30,7 +28,6 @@ import * as utilities from "../utilities";
  *     computePlatform: "Lambda",
  * });
  * ```
- *
  * ### Server Application
  *
  * ```typescript

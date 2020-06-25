@@ -73,7 +73,6 @@ def get_task_definition(task_definition=None,opts=None):
     a specific AWS ECS task definition.
 
 
-
     :param str task_definition: The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
     """
     __args__ = dict()

@@ -14,12 +14,11 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/iam"
 // 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ses"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
@@ -32,9 +31,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleIdentityPolicy, err := ses.NewIdentityPolicy(ctx, "exampleIdentityPolicy", &ses.IdentityPolicyArgs{
+// 		_, err = ses.NewIdentityPolicy(ctx, "exampleIdentityPolicy", &ses.IdentityPolicyArgs{
 // 			Identity: exampleDomainIdentity.Arn,
-// 			Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.LookupPolicyDocumentResult) (string, error) {
+// 			Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (string, error) {
 // 				return examplePolicyDocument.Json, nil
 // 			}).(pulumi.StringOutput),
 // 		})

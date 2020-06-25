@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Route(pulumi.CustomResource):
     api_id: pulumi.Output[str]
     """
@@ -63,7 +64,6 @@ class Route(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
         ## Example Usage
-
         ### Basic
 
         ```python
@@ -170,9 +170,9 @@ class Route(pulumi.CustomResource):
         __props__["route_response_selection_expression"] = route_response_selection_expression
         __props__["target"] = target
         return Route(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

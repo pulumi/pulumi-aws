@@ -22,8 +22,6 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -46,6 +44,9 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// }
     /// ```
+    /// 
+    /// &gt; **Note:** AWS Neptune does not support user name/password–based access control.
+    /// See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {

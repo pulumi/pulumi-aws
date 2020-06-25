@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class SpotDatafeedSubscription(pulumi.CustomResource):
     bucket: pulumi.Output[str]
     """
@@ -26,8 +27,6 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -90,9 +89,9 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         __props__["bucket"] = bucket
         __props__["prefix"] = prefix
         return SpotDatafeedSubscription(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

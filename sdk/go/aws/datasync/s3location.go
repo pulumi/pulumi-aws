@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -26,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := datasync.NewS3Location(ctx, "example", &datasync.S3LocationArgs{
+// 		_, err = datasync.NewS3Location(ctx, "example", &datasync.S3LocationArgs{
 // 			S3BucketArn: pulumi.String(aws_s3_bucket.Example.Arn),
 // 			S3Config: &datasync.S3LocationS3ConfigArgs{
 // 				BucketAccessRoleArn: pulumi.String(aws_iam_role.Example.Arn),

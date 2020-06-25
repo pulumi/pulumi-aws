@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -50,6 +48,120 @@ namespace Pulumi.Aws.Budgets
     ///             TimePeriodEnd = "2087-06-15_00:00",
     ///             TimePeriodStart = "2017-07-01_00:00",
     ///             TimeUnit = "MONTHLY",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Create a budget for *$100*.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cost = new Aws.Budgets.Budget("cost", new Aws.Budgets.BudgetArgs
+    ///         {
+    ///             BudgetType = "COST",
+    ///             LimitAmount = "100",
+    ///             LimitUnit = "USD",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Create a budget for s3 with a limit of *3 GB* of storage.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var s3 = new Aws.Budgets.Budget("s3", new Aws.Budgets.BudgetArgs
+    ///         {
+    ///             BudgetType = "USAGE",
+    ///             LimitAmount = "3",
+    ///             LimitUnit = "GB",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Create a Savings Plan Utilization Budget
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var savingsPlanUtilization = new Aws.Budgets.Budget("savingsPlanUtilization", new Aws.Budgets.BudgetArgs
+    ///         {
+    ///             BudgetType = "SAVINGS_PLANS_UTILIZATION",
+    ///             CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
+    ///             {
+    ///                 IncludeCredit = false,
+    ///                 IncludeDiscount = false,
+    ///                 IncludeOtherSubscription = false,
+    ///                 IncludeRecurring = false,
+    ///                 IncludeRefund = false,
+    ///                 IncludeSubscription = true,
+    ///                 IncludeSupport = false,
+    ///                 IncludeTax = false,
+    ///                 IncludeUpfront = false,
+    ///                 UseBlended = false,
+    ///             },
+    ///             LimitAmount = "100.0",
+    ///             LimitUnit = "PERCENTAGE",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Create a RI Utilization Budget
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var riUtilization = new Aws.Budgets.Budget("riUtilization", new Aws.Budgets.BudgetArgs
+    ///         {
+    ///             BudgetType = "RI_UTILIZATION",
+    ///             CostFilters = 
+    ///             {
+    ///                 { "Service", "Amazon Relational Database Service" },
+    ///             },
+    ///             CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
+    ///             {
+    ///                 IncludeCredit = false,
+    ///                 IncludeDiscount = false,
+    ///                 IncludeOtherSubscription = false,
+    ///                 IncludeRecurring = false,
+    ///                 IncludeRefund = false,
+    ///                 IncludeSubscription = true,
+    ///                 IncludeSupport = false,
+    ///                 IncludeTax = false,
+    ///                 IncludeUpfront = false,
+    ///                 UseBlended = false,
+    ///             },
+    ///             LimitAmount = "100.0",
+    ///             LimitUnit = "PERCENTAGE",
     ///         });
     ///     }
     /// 

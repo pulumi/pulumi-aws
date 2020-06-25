@@ -15,7 +15,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example shows how one might accept a Route Table id as a variable
+ * and use this data source to obtain the data necessary to create a route.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

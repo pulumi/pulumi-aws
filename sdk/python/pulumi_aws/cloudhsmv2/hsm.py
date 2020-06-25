@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Hsm(pulumi.CustomResource):
     availability_zone: pulumi.Output[str]
     """
@@ -44,7 +45,7 @@ class Hsm(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        The following example below creates an HSM module in CloudHSM cluster.
 
         ```python
         import pulumi
@@ -124,9 +125,9 @@ class Hsm(pulumi.CustomResource):
         __props__["ip_address"] = ip_address
         __props__["subnet_id"] = subnet_id
         return Hsm(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

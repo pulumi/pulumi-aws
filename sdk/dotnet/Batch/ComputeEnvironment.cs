@@ -20,8 +20,6 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

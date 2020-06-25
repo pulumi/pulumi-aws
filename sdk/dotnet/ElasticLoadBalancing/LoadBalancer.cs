@@ -23,8 +23,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -91,7 +89,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// 
     /// }
     /// ```
-    /// 
     /// ## Note on ECDSA Key Algorithm
     /// 
     /// If the ARN of the `ssl_certificate_id` that is pointed to references a

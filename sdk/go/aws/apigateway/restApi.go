@@ -14,7 +14,6 @@ import (
 // > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2.
 //
 // ## Example Usage
-//
 // ### Basic
 //
 // ```go
@@ -27,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+// 		_, err = apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
 // 			Description: pulumi.String("This is my API for demonstration purposes"),
 // 		})
 // 		if err != nil {
@@ -37,7 +36,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Regional Endpoint Type
 //
 // ```go
@@ -50,7 +48,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
+// 		_, err = apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
 // 			EndpointConfiguration: &apigateway.RestApiEndpointConfigurationArgs{
 // 				Types: pulumi.String("REGIONAL"),
 // 			},

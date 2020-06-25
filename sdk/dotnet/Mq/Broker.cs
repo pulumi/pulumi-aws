@@ -28,8 +28,6 @@ namespace Pulumi.Aws.Mq
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

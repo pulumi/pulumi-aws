@@ -13,6 +13,41 @@ import (
 // Attaches a Managed IAM Policy to an IAM user
 //
 // > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		user, err := iam.NewUser(ctx, "user", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
+// 			Description: pulumi.String("A test policy"),
+// 			Policy:      pulumi.String(""),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewUserPolicyAttachment(ctx, "test-attach", &iam.UserPolicyAttachmentArgs{
+// 			PolicyArn: policy.Arn,
+// 			User:      user.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type UserPolicyAttachment struct {
 	pulumi.CustomResourceState
 

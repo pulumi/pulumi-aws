@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class TransitVirtualInterface(pulumi.CustomResource):
     address_family: pulumi.Output[str]
     """
@@ -74,8 +75,6 @@ class TransitVirtualInterface(pulumi.CustomResource):
         A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit gateways.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -198,9 +197,9 @@ class TransitVirtualInterface(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["vlan"] = vlan
         return TransitVirtualInterface(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

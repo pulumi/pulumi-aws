@@ -11,26 +11,27 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/servicequotas"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		byQuotaCode, err := servicequotas.LookupServiceQuota(ctx, &servicequotas.LookupServiceQuotaArgs{
-// 			QuotaCode:   "L-F678F1CE",
+// 		opt0 := "L-F678F1CE"
+// 		_, err := servicequotas.LookupServiceQuota(ctx, &servicequotas.LookupServiceQuotaArgs{
+// 			QuotaCode:   &opt0,
 // 			ServiceCode: "vpc",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		byQuotaName, err := servicequotas.LookupServiceQuota(ctx, &servicequotas.LookupServiceQuotaArgs{
-// 			QuotaName:   "VPCs per Region",
+// 		opt1 := "VPCs per Region"
+// 		_, err := servicequotas.LookupServiceQuota(ctx, &servicequotas.LookupServiceQuotaArgs{
+// 			QuotaName:   &opt1,
 // 			ServiceCode: "vpc",
 // 		}, nil)
 // 		if err != nil {

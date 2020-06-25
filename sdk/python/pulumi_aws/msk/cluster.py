@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Cluster(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -118,8 +119,6 @@ class Cluster(pulumi.CustomResource):
         Manages AWS Managed Streaming for Kafka cluster
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -427,9 +426,9 @@ class Cluster(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["zookeeper_connect_string"] = zookeeper_connect_string
         return Cluster(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

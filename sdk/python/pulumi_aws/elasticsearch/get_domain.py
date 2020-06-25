@@ -169,8 +169,6 @@ def get_domain(domain_name=None,tags=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

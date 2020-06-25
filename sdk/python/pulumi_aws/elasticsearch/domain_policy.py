@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class DomainPolicy(pulumi.CustomResource):
     access_policies: pulumi.Output[str]
     """
@@ -23,8 +24,6 @@ class DomainPolicy(pulumi.CustomResource):
         Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -104,9 +103,9 @@ class DomainPolicy(pulumi.CustomResource):
         __props__["access_policies"] = access_policies
         __props__["domain_name"] = domain_name
         return DomainPolicy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

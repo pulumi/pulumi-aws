@@ -15,7 +15,31 @@ import (
 // > **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1.
 //
 // ## Example Usage
+// ### Basic WebSocket API
 //
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/apigatewayv2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = apigatewayv2.NewApi(ctx, "example", &apigatewayv2.ApiArgs{
+// 			ProtocolType:             pulumi.String("WEBSOCKET"),
+// 			RouteSelectionExpression: pulumi.String(fmt.Sprintf("%v%v", "$", "request.body.action")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Basic HTTP API
 //
 // ```go
@@ -28,7 +52,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := apigatewayv2.NewApi(ctx, "example", &apigatewayv2.ApiArgs{
+// 		_, err = apigatewayv2.NewApi(ctx, "example", &apigatewayv2.ApiArgs{
 // 			ProtocolType: pulumi.String("HTTP"),
 // 		})
 // 		if err != nil {

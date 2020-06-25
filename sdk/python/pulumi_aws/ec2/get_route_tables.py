@@ -53,7 +53,9 @@ def get_route_tables(filters=None,tags=None,vpc_id=None,opts=None):
 
     ## Example Usage
 
-
+    The following adds a route for a particular cidr block to every (private
+    kops) route table in a specified vpc to use a particular vpc peering
+    connection.
 
     ```python
     import pulumi

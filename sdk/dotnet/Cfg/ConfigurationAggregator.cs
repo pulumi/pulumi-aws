@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Cfg
     /// Manages an AWS Config Configuration Aggregator
     /// 
     /// ## Example Usage
-    /// 
     /// ### Account Based Aggregation
     /// 
     /// ```csharp
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// }
     /// ```
-    /// 
     /// ### Organization Based Aggregation
     /// 
     /// ```csharp

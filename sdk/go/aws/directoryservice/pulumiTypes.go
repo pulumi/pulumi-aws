@@ -27,8 +27,7 @@ type DirectoryConnectSettings struct {
 // DirectoryConnectSettingsInput is an input type that accepts DirectoryConnectSettingsArgs and DirectoryConnectSettingsOutput values.
 // You can construct a concrete instance of `DirectoryConnectSettingsInput` via:
 //
-// 		 DirectoryConnectSettingsArgs{...}
-//
+//          DirectoryConnectSettingsArgs{...}
 type DirectoryConnectSettingsInput interface {
 	pulumi.Input
 
@@ -73,12 +72,11 @@ func (i DirectoryConnectSettingsArgs) ToDirectoryConnectSettingsPtrOutputWithCon
 // DirectoryConnectSettingsPtrInput is an input type that accepts DirectoryConnectSettingsArgs, DirectoryConnectSettingsPtr and DirectoryConnectSettingsPtrOutput values.
 // You can construct a concrete instance of `DirectoryConnectSettingsPtrInput` via:
 //
-// 		 DirectoryConnectSettingsArgs{...}
+//          DirectoryConnectSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DirectoryConnectSettingsPtrInput interface {
 	pulumi.Input
 
@@ -244,8 +242,7 @@ type DirectoryVpcSettings struct {
 // DirectoryVpcSettingsInput is an input type that accepts DirectoryVpcSettingsArgs and DirectoryVpcSettingsOutput values.
 // You can construct a concrete instance of `DirectoryVpcSettingsInput` via:
 //
-// 		 DirectoryVpcSettingsArgs{...}
-//
+//          DirectoryVpcSettingsArgs{...}
 type DirectoryVpcSettingsInput interface {
 	pulumi.Input
 
@@ -284,12 +281,11 @@ func (i DirectoryVpcSettingsArgs) ToDirectoryVpcSettingsPtrOutputWithContext(ctx
 // DirectoryVpcSettingsPtrInput is an input type that accepts DirectoryVpcSettingsArgs, DirectoryVpcSettingsPtr and DirectoryVpcSettingsPtrOutput values.
 // You can construct a concrete instance of `DirectoryVpcSettingsPtrInput` via:
 //
-// 		 DirectoryVpcSettingsArgs{...}
+//          DirectoryVpcSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DirectoryVpcSettingsPtrInput interface {
 	pulumi.Input
 
@@ -416,8 +412,7 @@ type GetDirectoryConnectSetting struct {
 // GetDirectoryConnectSettingInput is an input type that accepts GetDirectoryConnectSettingArgs and GetDirectoryConnectSettingOutput values.
 // You can construct a concrete instance of `GetDirectoryConnectSettingInput` via:
 //
-// 		 GetDirectoryConnectSettingArgs{...}
-//
+//          GetDirectoryConnectSettingArgs{...}
 type GetDirectoryConnectSettingInput interface {
 	pulumi.Input
 
@@ -454,8 +449,7 @@ func (i GetDirectoryConnectSettingArgs) ToGetDirectoryConnectSettingOutputWithCo
 // GetDirectoryConnectSettingArrayInput is an input type that accepts GetDirectoryConnectSettingArray and GetDirectoryConnectSettingArrayOutput values.
 // You can construct a concrete instance of `GetDirectoryConnectSettingArrayInput` via:
 //
-// 		 GetDirectoryConnectSettingArray{ GetDirectoryConnectSettingArgs{...} }
-//
+//          GetDirectoryConnectSettingArray{ GetDirectoryConnectSettingArgs{...} }
 type GetDirectoryConnectSettingArrayInput interface {
 	pulumi.Input
 
@@ -551,8 +545,7 @@ type GetDirectoryVpcSetting struct {
 // GetDirectoryVpcSettingInput is an input type that accepts GetDirectoryVpcSettingArgs and GetDirectoryVpcSettingOutput values.
 // You can construct a concrete instance of `GetDirectoryVpcSettingInput` via:
 //
-// 		 GetDirectoryVpcSettingArgs{...}
-//
+//          GetDirectoryVpcSettingArgs{...}
 type GetDirectoryVpcSettingInput interface {
 	pulumi.Input
 
@@ -583,8 +576,7 @@ func (i GetDirectoryVpcSettingArgs) ToGetDirectoryVpcSettingOutputWithContext(ct
 // GetDirectoryVpcSettingArrayInput is an input type that accepts GetDirectoryVpcSettingArray and GetDirectoryVpcSettingArrayOutput values.
 // You can construct a concrete instance of `GetDirectoryVpcSettingArrayInput` via:
 //
-// 		 GetDirectoryVpcSettingArray{ GetDirectoryVpcSettingArgs{...} }
-//
+//          GetDirectoryVpcSettingArray{ GetDirectoryVpcSettingArgs{...} }
 type GetDirectoryVpcSettingArrayInput interface {
 	pulumi.Input
 

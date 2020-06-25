@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Eks
     /// Manages an EKS Fargate Profile.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Example IAM Role for EKS Fargate Profile
     /// 
     /// ```csharp

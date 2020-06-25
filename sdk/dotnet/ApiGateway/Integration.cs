@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -70,7 +68,6 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// }
     /// ```
-    /// 
     /// ## VPC Link
     /// 
     /// ```csharp

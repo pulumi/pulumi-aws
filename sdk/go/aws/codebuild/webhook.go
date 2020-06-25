@@ -13,8 +13,13 @@ import (
 // Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
 //
 // ## Example Usage
-//
 // ### Bitbucket and GitHub
+//
+// When working with [Bitbucket](https://bitbucket.org) and [GitHub](https://github.com) source CodeBuild webhooks, the CodeBuild service will automatically create (on `codebuild.Webhook` resource creation) and delete (on `codebuild.Webhook` resource deletion) the Bitbucket/GitHub repository webhook using its granted OAuth permissions. This behavior cannot be controlled by this provider.
+//
+// > **Note:** The AWS account that this provider uses to create this resource *must* have authorized CodeBuild to access Bitbucket/GitHub's OAuth API in each applicable region. This is a manual step that must be done *before* creating webhooks with this resource. If OAuth is not configured, AWS will return an error similar to `ResourceNotFoundException: Could not find access token for server type github`. More information can be found in the CodeBuild User Guide for [Bitbucket](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-bitbucket-pull-request.html) and [GitHub](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-pull-request.html).
+//
+// > **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucketHook`/`githubRepositoryWebhook` resource is only possible with importing that resource after creation of the `codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `codebuild.Webhook` resource in this scenario.
 //
 // ```go
 // package main
@@ -26,17 +31,17 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
+// 		_, err = codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
 // 			FilterGroups: codebuild.WebhookFilterGroupArray{
 // 				&codebuild.WebhookFilterGroupArgs{
-// 					Filter: []map[string]interface{}{
-// 						map[string]interface{}{
-// 							"pattern": "PUSH",
-// 							"type":    "EVENT",
+// 					Filter: pulumi.MapArray{
+// 						pulumi.Map{
+// 							"pattern": pulumi.String("PUSH"),
+// 							"type":    pulumi.String("EVENT"),
 // 						},
-// 						map[string]interface{}{
-// 							"pattern": "master",
-// 							"type":    "HEAD_REF",
+// 						pulumi.Map{
+// 							"pattern": pulumi.String("master"),
+// 							"type":    pulumi.String("HEAD_REF"),
 // 						},
 // 					},
 // 				},

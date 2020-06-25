@@ -9,13 +9,26 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- *
+ * List the event categories of all the RDS resources.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleEventCategories = pulumi.output(aws.rds.getEventCategories({ async: true }));
+ *
+ * export const example = exampleEventCategories.eventCategories;
+ * ```
+ *
+ * List the event categories specific to the RDS resource `db-snapshot`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleEventCategories = pulumi.output(aws.rds.getEventCategories({
+ *     sourceType: "db-snapshot",
+ * }, { async: true }));
  *
  * export const example = exampleEventCategories.eventCategories;
  * ```

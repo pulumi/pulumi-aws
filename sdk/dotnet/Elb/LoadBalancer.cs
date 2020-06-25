@@ -23,8 +23,6 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -91,7 +89,6 @@ namespace Pulumi.Aws.Elb
     /// 
     /// }
     /// ```
-    /// 
     /// ## Note on ECDSA Key Algorithm
     /// 
     /// If the ARN of the `ssl_certificate_id` that is pointed to references a

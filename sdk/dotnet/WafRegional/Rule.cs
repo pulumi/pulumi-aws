@@ -14,8 +14,6 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -52,7 +50,6 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// }
     /// ```
-    /// 
     /// ## Nested Fields
     /// 
     /// ### `predicate`

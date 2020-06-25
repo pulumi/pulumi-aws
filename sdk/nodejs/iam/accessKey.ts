@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,6 +38,15 @@ import * as utilities from "../utilities";
  * });
  *
  * export const secret = lbAccessKey.encryptedSecret;
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testUser = new aws.iam.User("testUser", {path: "/test/"});
+ * const testAccessKey = new aws.iam.AccessKey("testAccessKey", {user: testUser.name});
+ * export const awsIamSmtpPasswordV4 = testAccessKey.sesSmtpPasswordV4;
  * ```
  */
 export class AccessKey extends pulumi.CustomResource {

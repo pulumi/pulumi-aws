@@ -73,8 +73,9 @@ def get_secret_version(secret_id=None,version_id=None,version_stage=None,opts=No
     Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `secretsmanager.Secret` data source.
 
     ## Example Usage
-
     ### Retrieve Current Secret Version
+
+    By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
 
     ```python
     import pulumi
@@ -82,7 +83,6 @@ def get_secret_version(secret_id=None,version_id=None,version_stage=None,opts=No
 
     example = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"])
     ```
-
     ### Retrieve Specific Secret Version
 
     ```python

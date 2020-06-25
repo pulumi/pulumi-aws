@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class OrganizationCustomRule(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -67,8 +68,6 @@ class OrganizationCustomRule(pulumi.CustomResource):
         > **NOTE:** The proper Lambda permission to allow the AWS Config service invoke the Lambda Function must be in place before the rule will successfully create or update. See also the `lambda.Permission` resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -178,9 +177,9 @@ class OrganizationCustomRule(pulumi.CustomResource):
         __props__["tag_value_scope"] = tag_value_scope
         __props__["trigger_types"] = trigger_types
         return OrganizationCustomRule(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * See the AWS Docs on [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Modify.html) for more information.
  *
  * ## Example Usage
- *
  * ### Memcached Cluster
  *
  * ```typescript
@@ -34,7 +33,6 @@ import * as utilities from "../utilities";
  *     port: 11211,
  * });
  * ```
- *
  * ### Redis Instance
  *
  * ```typescript
@@ -50,8 +48,9 @@ import * as utilities from "../utilities";
  *     port: 6379,
  * });
  * ```
- *
  * ### Redis Cluster Mode Disabled Read Replica Instance
+ *
+ * These inherit their settings from the replication group.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
