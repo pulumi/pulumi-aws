@@ -58,6 +58,8 @@ import (
 type TrafficMirrorSession struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the traffic mirror session.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the traffic mirror session.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
@@ -116,6 +118,8 @@ func GetTrafficMirrorSession(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficMirrorSession resources.
 type trafficMirrorSessionState struct {
+	// The ARN of the traffic mirror session.
+	Arn *string `pulumi:"arn"`
 	// A description of the traffic mirror session.
 	Description *string `pulumi:"description"`
 	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
@@ -135,6 +139,8 @@ type trafficMirrorSessionState struct {
 }
 
 type TrafficMirrorSessionState struct {
+	// The ARN of the traffic mirror session.
+	Arn pulumi.StringPtrInput
 	// A description of the traffic mirror session.
 	Description pulumi.StringPtrInput
 	// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.

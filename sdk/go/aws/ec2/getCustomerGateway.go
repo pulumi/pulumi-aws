@@ -75,6 +75,8 @@ type LookupCustomerGatewayArgs struct {
 
 // A collection of values returned by getCustomerGateway.
 type LookupCustomerGatewayResult struct {
+	// The ARN of the customer gateway.
+	Arn string `pulumi:"arn"`
 	// (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 	BgpAsn  int                        `pulumi:"bgpAsn"`
 	Filters []GetCustomerGatewayFilter `pulumi:"filters"`

@@ -13,12 +13,18 @@ class GetVpcEndpointServiceResult:
     """
     A collection of values returned by getVpcEndpointService.
     """
-    def __init__(__self__, acceptance_required=None, availability_zones=None, base_endpoint_dns_names=None, filters=None, id=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, service=None, service_id=None, service_name=None, service_type=None, tags=None, vpc_endpoint_policy_supported=None):
+    def __init__(__self__, acceptance_required=None, arn=None, availability_zones=None, base_endpoint_dns_names=None, filters=None, id=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, service=None, service_id=None, service_name=None, service_type=None, tags=None, vpc_endpoint_policy_supported=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError("Expected argument 'acceptance_required' to be a bool")
         __self__.acceptance_required = acceptance_required
         """
         Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
+        """
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        __self__.arn = arn
+        """
+        The Amazon Resource Name (ARN) of the VPC endpoint service.
         """
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
@@ -96,6 +102,7 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             yield self
         return GetVpcEndpointServiceResult(
             acceptance_required=self.acceptance_required,
+            arn=self.arn,
             availability_zones=self.availability_zones,
             base_endpoint_dns_names=self.base_endpoint_dns_names,
             filters=self.filters,
@@ -176,6 +183,7 @@ def get_vpc_endpoint_service(filters=None,service=None,service_name=None,tags=No
 
     return AwaitableGetVpcEndpointServiceResult(
         acceptance_required=__ret__.get('acceptanceRequired'),
+        arn=__ret__.get('arn'),
         availability_zones=__ret__.get('availabilityZones'),
         base_endpoint_dns_names=__ret__.get('baseEndpointDnsNames'),
         filters=__ret__.get('filters'),

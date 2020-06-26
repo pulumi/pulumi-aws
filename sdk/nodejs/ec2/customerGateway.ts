@@ -52,6 +52,10 @@ export class CustomerGateway extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the customer gateway.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
     public readonly bgpAsn!: pulumi.Output<number>;
@@ -81,6 +85,7 @@ export class CustomerGateway extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as CustomerGatewayState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -100,6 +105,7 @@ export class CustomerGateway extends pulumi.CustomResource {
             inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -116,6 +122,10 @@ export class CustomerGateway extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomerGateway resources.
  */
 export interface CustomerGatewayState {
+    /**
+     * The ARN of the customer gateway.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */

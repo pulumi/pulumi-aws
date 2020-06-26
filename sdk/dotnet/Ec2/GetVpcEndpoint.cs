@@ -110,6 +110,10 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcEndpointResult
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         /// </summary>
         public readonly ImmutableArray<string> CidrBlocks;
@@ -166,6 +170,8 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private GetVpcEndpointResult(
+            string arn,
+
             ImmutableArray<string> cidrBlocks,
 
             ImmutableArray<Outputs.GetVpcEndpointDnsEntryResult> dnsEntries,
@@ -202,6 +208,7 @@ namespace Pulumi.Aws.Ec2
 
             string vpcId)
         {
+            Arn = arn;
             CidrBlocks = cidrBlocks;
             DnsEntries = dnsEntries;
             Filters = filters;

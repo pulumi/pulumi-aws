@@ -60,6 +60,10 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the traffic mirror session.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A description of the traffic mirror session.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -104,6 +108,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TrafficMirrorSessionState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["packetLength"] = state ? state.packetLength : undefined;
@@ -134,6 +139,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             inputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
             inputs["trafficMirrorTargetId"] = args ? args.trafficMirrorTargetId : undefined;
             inputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -150,6 +156,10 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrafficMirrorSession resources.
  */
 export interface TrafficMirrorSessionState {
+    /**
+     * The ARN of the traffic mirror session.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * A description of the traffic mirror session.
      */

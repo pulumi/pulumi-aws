@@ -82,6 +82,10 @@ export interface GetVpcEndpointArgs {
  */
 export interface GetVpcEndpointResult {
     /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint.
+     */
+    readonly arn: string;
+    /**
      * The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      */
     readonly cidrBlocks: string[];

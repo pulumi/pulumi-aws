@@ -64,6 +64,19 @@ import * as utilities from "../utilities";
  *     taskDefinition: aws_ecs_task_definition_bar.arn,
  * });
  * ```
+ * ### External Deployment Controller
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ecs.Service("example", {
+ *     cluster: aws_ecs_cluster_example.id,
+ *     deploymentController: {
+ *         type: "EXTERNAL",
+ *     },
+ * });
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -166,7 +179,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly propagateTags!: pulumi.Output<string | undefined>;
     /**
-     * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+     * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */
     public readonly schedulingStrategy!: pulumi.Output<string | undefined>;
     /**
@@ -174,16 +187,13 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceServiceRegistries | undefined>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
      */
-    public readonly taskDefinition!: pulumi.Output<string>;
-    /**
-     * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-     */
+    public readonly taskDefinition!: pulumi.Output<string | undefined>;
     public readonly waitForSteadyState!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -193,7 +203,7 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
@@ -223,9 +233,6 @@ export class Service extends pulumi.CustomResource {
             inputs["waitForSteadyState"] = state ? state.waitForSteadyState : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if (!args || args.taskDefinition === undefined) {
-                throw new Error("Missing required property 'taskDefinition'");
-            }
             inputs["capacityProviderStrategies"] = args ? args.capacityProviderStrategies : undefined;
             inputs["cluster"] = args ? args.cluster : undefined;
             inputs["deploymentController"] = args ? args.deploymentController : undefined;
@@ -338,7 +345,7 @@ export interface ServiceState {
      */
     readonly propagateTags?: pulumi.Input<string>;
     /**
-     * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+     * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */
     readonly schedulingStrategy?: pulumi.Input<string>;
     /**
@@ -346,16 +353,13 @@ export interface ServiceState {
      */
     readonly serviceRegistries?: pulumi.Input<inputs.ecs.ServiceServiceRegistries>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
      */
     readonly taskDefinition?: pulumi.Input<string>;
-    /**
-     * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-     */
     readonly waitForSteadyState?: pulumi.Input<boolean>;
 }
 
@@ -436,7 +440,7 @@ export interface ServiceArgs {
      */
     readonly propagateTags?: pulumi.Input<string>;
     /**
-     * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+     * The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */
     readonly schedulingStrategy?: pulumi.Input<string>;
     /**
@@ -444,15 +448,12 @@ export interface ServiceArgs {
      */
     readonly serviceRegistries?: pulumi.Input<inputs.ecs.ServiceServiceRegistries>;
     /**
-     * Key-value mapping of resource tags
+     * Key-value map of resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
      */
-    readonly taskDefinition: pulumi.Input<string>;
-    /**
-     * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-     */
+    readonly taskDefinition?: pulumi.Input<string>;
     readonly waitForSteadyState?: pulumi.Input<boolean>;
 }

@@ -75,6 +75,10 @@ export class NetworkAcl extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the network ACL
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Specifies an egress rule. Parameters defined below.
      */
     public readonly egress!: pulumi.Output<outputs.ec2.NetworkAclEgress[]>;
@@ -111,6 +115,7 @@ export class NetworkAcl extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as NetworkAclState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["egress"] = state ? state.egress : undefined;
             inputs["ingress"] = state ? state.ingress : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
@@ -127,6 +132,7 @@ export class NetworkAcl extends pulumi.CustomResource {
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
         }
         if (!opts) {
@@ -144,6 +150,10 @@ export class NetworkAcl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetworkAcl resources.
  */
 export interface NetworkAclState {
+    /**
+     * The ARN of the network ACL
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Specifies an egress rule. Parameters defined below.
      */

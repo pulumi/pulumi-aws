@@ -145,6 +145,10 @@ namespace Pulumi.Aws.Ebs
     public sealed class GetSnapshotResult
     {
         /// <summary>
+        /// Amazon Resource Name (ARN) of the EBS Snapshot.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// </summary>
         public readonly string DataEncryptionKeyId;
@@ -200,6 +204,8 @@ namespace Pulumi.Aws.Ebs
 
         [OutputConstructor]
         private GetSnapshotResult(
+            string arn,
+
             string dataEncryptionKeyId,
 
             string description,
@@ -234,6 +240,7 @@ namespace Pulumi.Aws.Ebs
 
             int volumeSize)
         {
+            Arn = arn;
             DataEncryptionKeyId = dataEncryptionKeyId;
             Description = description;
             Encrypted = encrypted;

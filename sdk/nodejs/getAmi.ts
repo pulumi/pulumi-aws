@@ -105,6 +105,10 @@ export interface GetAmiResult {
      */
     readonly architecture: string;
     /**
+     * The ARN of the AMI.
+     */
+    readonly arn: string;
+    /**
      * The block device mappings of the AMI.
      * * `block_device_mappings.#.device_name` - The physical name of the device.
      * * `block_device_mappings.#.ebs.delete_on_termination` - `true` if the EBS volume

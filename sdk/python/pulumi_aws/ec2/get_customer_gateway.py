@@ -13,7 +13,13 @@ class GetCustomerGatewayResult:
     """
     A collection of values returned by getCustomerGateway.
     """
-    def __init__(__self__, bgp_asn=None, filters=None, id=None, ip_address=None, tags=None, type=None):
+    def __init__(__self__, arn=None, bgp_asn=None, filters=None, id=None, ip_address=None, tags=None, type=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        __self__.arn = arn
+        """
+        The ARN of the customer gateway.
+        """
         if bgp_asn and not isinstance(bgp_asn, float):
             raise TypeError("Expected argument 'bgp_asn' to be a float")
         __self__.bgp_asn = bgp_asn
@@ -50,6 +56,7 @@ class AwaitableGetCustomerGatewayResult(GetCustomerGatewayResult):
         if False:
             yield self
         return GetCustomerGatewayResult(
+            arn=self.arn,
             bgp_asn=self.bgp_asn,
             filters=self.filters,
             id=self.id,
@@ -104,6 +111,7 @@ def get_customer_gateway(filters=None,id=None,tags=None,opts=None):
     __ret__ = pulumi.runtime.invoke('aws:ec2/getCustomerGateway:getCustomerGateway', __args__, opts=opts).value
 
     return AwaitableGetCustomerGatewayResult(
+        arn=__ret__.get('arn'),
         bgp_asn=__ret__.get('bgpAsn'),
         filters=__ret__.get('filters'),
         id=__ret__.get('id'),

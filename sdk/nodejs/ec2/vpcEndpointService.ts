@@ -78,6 +78,10 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     public readonly allowedPrincipals!: pulumi.Output<string[]>;
     /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint service.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The Availability Zones in which the service is available.
      */
     public /*out*/ readonly availabilityZones!: pulumi.Output<string[]>;
@@ -128,6 +132,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             const state = argsOrState as VpcEndpointServiceState | undefined;
             inputs["acceptanceRequired"] = state ? state.acceptanceRequired : undefined;
             inputs["allowedPrincipals"] = state ? state.allowedPrincipals : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             inputs["baseEndpointDnsNames"] = state ? state.baseEndpointDnsNames : undefined;
             inputs["managesVpcEndpoints"] = state ? state.managesVpcEndpoints : undefined;
@@ -149,6 +154,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             inputs["allowedPrincipals"] = args ? args.allowedPrincipals : undefined;
             inputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["availabilityZones"] = undefined /*out*/;
             inputs["baseEndpointDnsNames"] = undefined /*out*/;
             inputs["managesVpcEndpoints"] = undefined /*out*/;
@@ -180,6 +186,10 @@ export interface VpcEndpointServiceState {
      * The ARNs of one or more principals allowed to discover the endpoint service.
      */
     readonly allowedPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint service.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The Availability Zones in which the service is available.
      */

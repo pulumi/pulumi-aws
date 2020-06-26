@@ -469,7 +469,7 @@ namespace Pulumi.Aws.CloudFront
         /// requests, the Id of the AWS WAF web ACL that is associated with the
         /// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
         /// region and the credentials configuring this argument must have
-        /// `waf:GetWebACL` permissions assigned.
+        /// `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
         /// </summary>
         [Output("webAclId")]
         public Output<string?> WebAclId { get; private set; } = null!;
@@ -690,7 +690,7 @@ namespace Pulumi.Aws.CloudFront
         /// requests, the Id of the AWS WAF web ACL that is associated with the
         /// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
         /// region and the credentials configuring this argument must have
-        /// `waf:GetWebACL` permissions assigned.
+        /// `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
         /// </summary>
         [Input("webAclId")]
         public Input<string>? WebAclId { get; set; }
@@ -942,7 +942,7 @@ namespace Pulumi.Aws.CloudFront
         /// requests, the Id of the AWS WAF web ACL that is associated with the
         /// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
         /// region and the credentials configuring this argument must have
-        /// `waf:GetWebACL` permissions assigned.
+        /// `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
         /// </summary>
         [Input("webAclId")]
         public Input<string>? WebAclId { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ServiceDeploymentController
     {
         /// <summary>
-        /// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+        /// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
         /// </summary>
         public readonly string? Type;
 

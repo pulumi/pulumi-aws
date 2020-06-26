@@ -86,6 +86,7 @@ export interface GetVpnGatewayArgs {
  */
 export interface GetVpnGatewayResult {
     readonly amazonSideAsn: string;
+    readonly arn: string;
     readonly attachedVpcId: string;
     readonly availabilityZone: string;
     readonly filters?: outputs.ec2.GetVpnGatewayFilter[];

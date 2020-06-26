@@ -165,6 +165,10 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Architecture;
         /// <summary>
+        /// The ARN of the AMI.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// The block device mappings of the AMI.
         /// * `block_device_mappings.#.device_name` - The physical name of the device.
         /// * `block_device_mappings.#.ebs.delete_on_termination` - `true` if the EBS volume
@@ -297,6 +301,8 @@ namespace Pulumi.Aws
         private GetAmiResult(
             string architecture,
 
+            string arn,
+
             ImmutableArray<Outputs.GetAmiBlockDeviceMappingResult> blockDeviceMappings,
 
             string creationDate,
@@ -356,6 +362,7 @@ namespace Pulumi.Aws
             string virtualizationType)
         {
             Architecture = architecture;
+            Arn = arn;
             BlockDeviceMappings = blockDeviceMappings;
             CreationDate = creationDate;
             Description = description;

@@ -11,6 +11,10 @@ from .. import utilities, tables
 
 
 class NetworkAcl(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the network ACL
+    """
     egress: pulumi.Output[list]
     """
     Specifies an egress rule. Parameters defined below.
@@ -159,6 +163,7 @@ class NetworkAcl(pulumi.CustomResource):
             if vpc_id is None:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
+            __props__['arn'] = None
             __props__['owner_id'] = None
         super(NetworkAcl, __self__).__init__(
             'aws:ec2/networkAcl:NetworkAcl',
@@ -167,7 +172,7 @@ class NetworkAcl(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, egress=None, ingress=None, owner_id=None, subnet_ids=None, tags=None, vpc_id=None):
+    def get(resource_name, id, opts=None, arn=None, egress=None, ingress=None, owner_id=None, subnet_ids=None, tags=None, vpc_id=None):
         """
         Get an existing NetworkAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -175,6 +180,7 @@ class NetworkAcl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the network ACL
         :param pulumi.Input[list] egress: Specifies an egress rule. Parameters defined below.
         :param pulumi.Input[list] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the network ACL.
@@ -214,6 +220,7 @@ class NetworkAcl(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["egress"] = egress
         __props__["ingress"] = ingress
         __props__["owner_id"] = owner_id

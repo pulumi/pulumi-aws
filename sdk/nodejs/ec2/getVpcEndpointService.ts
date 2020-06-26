@@ -103,6 +103,10 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly acceptanceRequired: boolean;
     /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint service.
+     */
+    readonly arn: string;
+    /**
      * The Availability Zones in which the service is available.
      */
     readonly availabilityZones: string[];

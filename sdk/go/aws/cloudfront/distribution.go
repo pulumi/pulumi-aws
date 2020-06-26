@@ -270,7 +270,7 @@ type Distribution struct {
 	// requests, the Id of the AWS WAF web ACL that is associated with the
 	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
 	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned.
+	// `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
 	WebAclId pulumi.StringPtrOutput `pulumi:"webAclId"`
 }
 
@@ -406,7 +406,7 @@ type distributionState struct {
 	// requests, the Id of the AWS WAF web ACL that is associated with the
 	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
 	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned.
+	// `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
 	WebAclId *string `pulumi:"webAclId"`
 }
 
@@ -500,7 +500,7 @@ type DistributionState struct {
 	// requests, the Id of the AWS WAF web ACL that is associated with the
 	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
 	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned.
+	// `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
 	WebAclId pulumi.StringPtrInput
 }
 
@@ -570,7 +570,7 @@ type distributionArgs struct {
 	// requests, the Id of the AWS WAF web ACL that is associated with the
 	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
 	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned.
+	// `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
 	WebAclId *string `pulumi:"webAclId"`
 }
 
@@ -637,7 +637,7 @@ type DistributionArgs struct {
 	// requests, the Id of the AWS WAF web ACL that is associated with the
 	// distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
 	// region and the credentials configuring this argument must have
-	// `waf:GetWebACL` permissions assigned.
+	// `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
 	WebAclId pulumi.StringPtrInput
 }
 

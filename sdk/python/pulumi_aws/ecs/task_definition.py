@@ -105,8 +105,14 @@ class TaskDefinition(pulumi.CustomResource):
         * `scope` (`str`) - The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
 
       * `efsVolumeConfiguration` (`dict`) - Used to configure a EFS volume.
+        * `authorizationConfig` (`dict`) - The authorization configuration details for the Amazon EFS file system.
+          * `accessPointId` (`str`) - The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+          * `iam` (`str`) - Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+
         * `file_system_id` (`str`) - The ID of the EFS File System.
-        * `root_directory` (`str`) - The path to mount on the host
+        * `root_directory` (`str`) - The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
+        * `transitEncryption` (`str`) - Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+        * `transitEncryptionPort` (`float`) - The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
 
       * `hostPath` (`str`) - The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
       * `name` (`str`) - The name of the volume. This name is referenced in the `sourceVolume`
@@ -191,8 +197,14 @@ class TaskDefinition(pulumi.CustomResource):
             * `scope` (`pulumi.Input[str]`) - The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
 
           * `efsVolumeConfiguration` (`pulumi.Input[dict]`) - Used to configure a EFS volume.
+            * `authorizationConfig` (`pulumi.Input[dict]`) - The authorization configuration details for the Amazon EFS file system.
+              * `accessPointId` (`pulumi.Input[str]`) - The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+              * `iam` (`pulumi.Input[str]`) - Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+
             * `file_system_id` (`pulumi.Input[str]`) - The ID of the EFS File System.
-            * `root_directory` (`pulumi.Input[str]`) - The path to mount on the host
+            * `root_directory` (`pulumi.Input[str]`) - The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
+            * `transitEncryption` (`pulumi.Input[str]`) - Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+            * `transitEncryptionPort` (`pulumi.Input[float]`) - The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
 
           * `hostPath` (`pulumi.Input[str]`) - The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
           * `name` (`pulumi.Input[str]`) - The name of the volume. This name is referenced in the `sourceVolume`
@@ -303,8 +315,14 @@ class TaskDefinition(pulumi.CustomResource):
             * `scope` (`pulumi.Input[str]`) - The scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are `scoped` as shared persist after the task stops.
 
           * `efsVolumeConfiguration` (`pulumi.Input[dict]`) - Used to configure a EFS volume.
+            * `authorizationConfig` (`pulumi.Input[dict]`) - The authorization configuration details for the Amazon EFS file system.
+              * `accessPointId` (`pulumi.Input[str]`) - The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+              * `iam` (`pulumi.Input[str]`) - Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+
             * `file_system_id` (`pulumi.Input[str]`) - The ID of the EFS File System.
-            * `root_directory` (`pulumi.Input[str]`) - The path to mount on the host
+            * `root_directory` (`pulumi.Input[str]`) - The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
+            * `transitEncryption` (`pulumi.Input[str]`) - Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+            * `transitEncryptionPort` (`pulumi.Input[float]`) - The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
 
           * `hostPath` (`pulumi.Input[str]`) - The path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
           * `name` (`pulumi.Input[str]`) - The name of the volume. This name is referenced in the `sourceVolume`

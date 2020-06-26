@@ -70,6 +70,8 @@ type LookupVpcEndpointArgs struct {
 
 // A collection of values returned by getVpcEndpoint.
 type LookupVpcEndpointResult struct {
+	// The Amazon Resource Name (ARN) of the VPC endpoint.
+	Arn string `pulumi:"arn"`
 	// The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.

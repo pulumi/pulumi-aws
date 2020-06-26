@@ -203,6 +203,7 @@ export interface ProviderEndpoint {
     rds?: pulumi.Input<string>;
     redshift?: pulumi.Input<string>;
     resourcegroups?: pulumi.Input<string>;
+    resourcegroupstaggingapi?: pulumi.Input<string>;
     route53?: pulumi.Input<string>;
     route53domains?: pulumi.Input<string>;
     route53resolver?: pulumi.Input<string>;
@@ -7358,7 +7359,7 @@ export namespace ecs {
 
     export interface ServiceDeploymentController {
         /**
-         * Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+         * Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
          */
         type?: pulumi.Input<string>;
     }
@@ -7530,13 +7531,36 @@ export namespace ecs {
 
     export interface TaskDefinitionVolumeEfsVolumeConfiguration {
         /**
+         * The authorization configuration details for the Amazon EFS file system.
+         */
+        authorizationConfig?: pulumi.Input<inputs.ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig>;
+        /**
          * The ID of the EFS File System.
          */
         fileSystemId: pulumi.Input<string>;
         /**
-         * The path to mount on the host
+         * The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
          */
         rootDirectory?: pulumi.Input<string>;
+        /**
+         * Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+         */
+        transitEncryption?: pulumi.Input<string>;
+        /**
+         * The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+         */
+        transitEncryptionPort?: pulumi.Input<number>;
+    }
+
+    export interface TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+        /**
+         * The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+         */
+        accessPointId?: pulumi.Input<string>;
+        /**
+         * Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+         */
+        iam?: pulumi.Input<string>;
     }
 }
 
@@ -10075,6 +10099,292 @@ export namespace iot {
          * The type of document you are storing.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorAction {
+        cloudwatchAlarm?: pulumi.Input<inputs.iot.TopicRuleErrorActionCloudwatchAlarm>;
+        cloudwatchMetric?: pulumi.Input<inputs.iot.TopicRuleErrorActionCloudwatchMetric>;
+        dynamodb?: pulumi.Input<inputs.iot.TopicRuleErrorActionDynamodb>;
+        dynamodbv2?: pulumi.Input<inputs.iot.TopicRuleErrorActionDynamodbv2>;
+        elasticsearch?: pulumi.Input<inputs.iot.TopicRuleErrorActionElasticsearch>;
+        firehose?: pulumi.Input<inputs.iot.TopicRuleErrorActionFirehose>;
+        iotAnalytics?: pulumi.Input<inputs.iot.TopicRuleErrorActionIotAnalytics>;
+        iotEvents?: pulumi.Input<inputs.iot.TopicRuleErrorActionIotEvents>;
+        kinesis?: pulumi.Input<inputs.iot.TopicRuleErrorActionKinesis>;
+        lambda?: pulumi.Input<inputs.iot.TopicRuleErrorActionLambda>;
+        republish?: pulumi.Input<inputs.iot.TopicRuleErrorActionRepublish>;
+        s3?: pulumi.Input<inputs.iot.TopicRuleErrorActionS3>;
+        sns?: pulumi.Input<inputs.iot.TopicRuleErrorActionSns>;
+        sqs?: pulumi.Input<inputs.iot.TopicRuleErrorActionSqs>;
+        stepFunctions?: pulumi.Input<inputs.iot.TopicRuleErrorActionStepFunctions>;
+    }
+
+    export interface TopicRuleErrorActionCloudwatchAlarm {
+        /**
+         * The CloudWatch alarm name.
+         */
+        alarmName: pulumi.Input<string>;
+        /**
+         * The IAM role ARN that allows access to the CloudWatch alarm.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * The reason for the alarm change.
+         */
+        stateReason: pulumi.Input<string>;
+        /**
+         * The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+         */
+        stateValue: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionCloudwatchMetric {
+        /**
+         * The CloudWatch metric name.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * The CloudWatch metric namespace name.
+         */
+        metricNamespace: pulumi.Input<string>;
+        /**
+         * An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
+         */
+        metricTimestamp?: pulumi.Input<string>;
+        /**
+         * The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
+         */
+        metricUnit: pulumi.Input<string>;
+        /**
+         * The CloudWatch metric value.
+         */
+        metricValue: pulumi.Input<string>;
+        /**
+         * The IAM role ARN that allows access to the CloudWatch metric.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionDynamodb {
+        /**
+         * The hash key name.
+         */
+        hashKeyField: pulumi.Input<string>;
+        /**
+         * The hash key type. Valid values are "STRING" or "NUMBER".
+         */
+        hashKeyType?: pulumi.Input<string>;
+        /**
+         * The hash key value.
+         */
+        hashKeyValue: pulumi.Input<string>;
+        /**
+         * The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+         */
+        operation?: pulumi.Input<string>;
+        /**
+         * The action payload.
+         */
+        payloadField?: pulumi.Input<string>;
+        /**
+         * The range key name.
+         */
+        rangeKeyField?: pulumi.Input<string>;
+        /**
+         * The range key type. Valid values are "STRING" or "NUMBER".
+         */
+        rangeKeyType?: pulumi.Input<string>;
+        /**
+         * The range key value.
+         */
+        rangeKeyValue?: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role that grants access to the DynamoDB table.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * The name of the DynamoDB table.
+         */
+        tableName: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionDynamodbv2 {
+        /**
+         * Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+         */
+        putItem?: pulumi.Input<inputs.iot.TopicRuleErrorActionDynamodbv2PutItem>;
+        /**
+         * The IAM role ARN that allows access to the CloudWatch alarm.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionDynamodbv2PutItem {
+        /**
+         * The name of the DynamoDB table.
+         */
+        tableName: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionElasticsearch {
+        /**
+         * The endpoint of your Elasticsearch domain.
+         */
+        endpoint: pulumi.Input<string>;
+        /**
+         * The unique identifier for the document you are storing.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * The Elasticsearch index where you want to store your data.
+         */
+        index: pulumi.Input<string>;
+        /**
+         * The IAM role ARN that has access to Elasticsearch.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * The type of document you are storing.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionFirehose {
+        /**
+         * The delivery stream name.
+         */
+        deliveryStreamName: pulumi.Input<string>;
+        /**
+         * The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+         */
+        separator?: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionIotAnalytics {
+        /**
+         * Name of AWS IOT Analytics channel.
+         */
+        channelName: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role that grants access.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionIotEvents {
+        /**
+         * The name of the AWS IoT Events input.
+         */
+        inputName: pulumi.Input<string>;
+        /**
+         * Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
+         */
+        messageId?: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role that grants access.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionKinesis {
+        /**
+         * The partition key.
+         */
+        partitionKey?: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * The name of the Amazon Kinesis stream.
+         */
+        streamName: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionLambda {
+        /**
+         * The ARN of the Lambda function.
+         */
+        functionArn: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionRepublish {
+        /**
+         * The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+         */
+        qos?: pulumi.Input<number>;
+        /**
+         * The ARN of the IAM role that grants access.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * The name of the MQTT topic the message should be republished to.
+         */
+        topic: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionS3 {
+        /**
+         * The Amazon S3 bucket name.
+         */
+        bucketName: pulumi.Input<string>;
+        /**
+         * The object key.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The IAM role ARN that allows access to the CloudWatch alarm.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionSns {
+        /**
+         * The message format of the message to publish. Accepted values are "JSON" and "RAW".
+         */
+        messageFormat?: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role that grants access.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * The ARN of the SNS topic.
+         */
+        targetArn: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleErrorActionSqs {
+        /**
+         * The URL of the Amazon SQS queue.
+         */
+        queueUrl: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role that grants access.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * Specifies whether to use Base64 encoding.
+         */
+        useBase64: pulumi.Input<boolean>;
+    }
+
+    export interface TopicRuleErrorActionStepFunctions {
+        /**
+         * The prefix used to generate, along with a UUID, the unique state machine execution name.
+         */
+        executionNamePrefix?: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role that grants access to start execution of the state machine.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * The name of the Step Functions state machine whose execution will be started.
+         */
+        stateMachineName: pulumi.Input<string>;
     }
 
     export interface TopicRuleFirehose {

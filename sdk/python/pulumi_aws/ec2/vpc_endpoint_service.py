@@ -19,6 +19,10 @@ class VpcEndpointService(pulumi.CustomResource):
     """
     The ARNs of one or more principals allowed to discover the endpoint service.
     """
+    arn: pulumi.Output[str]
+    """
+    The Amazon Resource Name (ARN) of the VPC endpoint service.
+    """
     availability_zones: pulumi.Output[list]
     """
     The Availability Zones in which the service is available.
@@ -123,6 +127,7 @@ class VpcEndpointService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'network_load_balancer_arns'")
             __props__['network_load_balancer_arns'] = network_load_balancer_arns
             __props__['tags'] = tags
+            __props__['arn'] = None
             __props__['availability_zones'] = None
             __props__['base_endpoint_dns_names'] = None
             __props__['manages_vpc_endpoints'] = None
@@ -137,7 +142,7 @@ class VpcEndpointService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, acceptance_required=None, allowed_principals=None, availability_zones=None, base_endpoint_dns_names=None, manages_vpc_endpoints=None, network_load_balancer_arns=None, private_dns_name=None, service_name=None, service_type=None, state=None, tags=None):
+    def get(resource_name, id, opts=None, acceptance_required=None, allowed_principals=None, arn=None, availability_zones=None, base_endpoint_dns_names=None, manages_vpc_endpoints=None, network_load_balancer_arns=None, private_dns_name=None, service_name=None, service_type=None, state=None, tags=None):
         """
         Get an existing VpcEndpointService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -147,6 +152,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] acceptance_required: Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
         :param pulumi.Input[list] allowed_principals: The ARNs of one or more principals allowed to discover the endpoint service.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the VPC endpoint service.
         :param pulumi.Input[list] availability_zones: The Availability Zones in which the service is available.
         :param pulumi.Input[list] base_endpoint_dns_names: The DNS names for the service.
         :param pulumi.Input[bool] manages_vpc_endpoints: Whether or not the service manages its VPC endpoints - `true` or `false`.
@@ -163,6 +169,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
         __props__["acceptance_required"] = acceptance_required
         __props__["allowed_principals"] = allowed_principals
+        __props__["arn"] = arn
         __props__["availability_zones"] = availability_zones
         __props__["base_endpoint_dns_names"] = base_endpoint_dns_names
         __props__["manages_vpc_endpoints"] = manages_vpc_endpoints

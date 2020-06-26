@@ -11,6 +11,10 @@ from .. import utilities, tables
 
 
 class TrafficMirrorSession(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the traffic mirror session.
+    """
     description: pulumi.Output[str]
     """
     A description of the traffic mirror session.
@@ -111,6 +115,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
                 raise TypeError("Missing required property 'traffic_mirror_target_id'")
             __props__['traffic_mirror_target_id'] = traffic_mirror_target_id
             __props__['virtual_network_id'] = virtual_network_id
+            __props__['arn'] = None
         super(TrafficMirrorSession, __self__).__init__(
             'aws:ec2/trafficMirrorSession:TrafficMirrorSession',
             resource_name,
@@ -118,7 +123,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, network_interface_id=None, packet_length=None, session_number=None, tags=None, traffic_mirror_filter_id=None, traffic_mirror_target_id=None, virtual_network_id=None):
+    def get(resource_name, id, opts=None, arn=None, description=None, network_interface_id=None, packet_length=None, session_number=None, tags=None, traffic_mirror_filter_id=None, traffic_mirror_target_id=None, virtual_network_id=None):
         """
         Get an existing TrafficMirrorSession resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -126,6 +131,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the traffic mirror session.
         :param pulumi.Input[str] description: A description of the traffic mirror session.
         :param pulumi.Input[str] network_interface_id: ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
         :param pulumi.Input[float] packet_length: The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
@@ -139,6 +145,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["description"] = description
         __props__["network_interface_id"] = network_interface_id
         __props__["packet_length"] = packet_length

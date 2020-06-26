@@ -708,7 +708,7 @@ func (o ServiceCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInput) Ser
 }
 
 type ServiceDeploymentController struct {
-	// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+	// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
 	Type *string `pulumi:"type"`
 }
 
@@ -724,7 +724,7 @@ type ServiceDeploymentControllerInput interface {
 }
 
 type ServiceDeploymentControllerArgs struct {
-	// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+	// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -805,7 +805,7 @@ func (o ServiceDeploymentControllerOutput) ToServiceDeploymentControllerPtrOutpu
 	}).(ServiceDeploymentControllerPtrOutput)
 }
 
-// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
 func (o ServiceDeploymentControllerOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentController) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -828,7 +828,7 @@ func (o ServiceDeploymentControllerPtrOutput) Elem() ServiceDeploymentController
 	return o.ApplyT(func(v *ServiceDeploymentController) ServiceDeploymentController { return *v }).(ServiceDeploymentControllerOutput)
 }
 
-// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
 func (o ServiceDeploymentControllerPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentController) *string {
 		if v == nil {
@@ -2283,10 +2283,16 @@ func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Scope() pulumi.S
 }
 
 type TaskDefinitionVolumeEfsVolumeConfiguration struct {
+	// The authorization configuration details for the Amazon EFS file system.
+	AuthorizationConfig *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfig"`
 	// The ID of the EFS File System.
 	FileSystemId string `pulumi:"fileSystemId"`
-	// The path to mount on the host
+	// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
 	RootDirectory *string `pulumi:"rootDirectory"`
+	// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+	TransitEncryption *string `pulumi:"transitEncryption"`
+	// The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+	TransitEncryptionPort *int `pulumi:"transitEncryptionPort"`
 }
 
 // TaskDefinitionVolumeEfsVolumeConfigurationInput is an input type that accepts TaskDefinitionVolumeEfsVolumeConfigurationArgs and TaskDefinitionVolumeEfsVolumeConfigurationOutput values.
@@ -2301,10 +2307,16 @@ type TaskDefinitionVolumeEfsVolumeConfigurationInput interface {
 }
 
 type TaskDefinitionVolumeEfsVolumeConfigurationArgs struct {
+	// The authorization configuration details for the Amazon EFS file system.
+	AuthorizationConfig TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
 	// The ID of the EFS File System.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// The path to mount on the host
+	// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
 	RootDirectory pulumi.StringPtrInput `pulumi:"rootDirectory"`
+	// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+	TransitEncryption pulumi.StringPtrInput `pulumi:"transitEncryption"`
+	// The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+	TransitEncryptionPort pulumi.IntPtrInput `pulumi:"transitEncryptionPort"`
 }
 
 func (TaskDefinitionVolumeEfsVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -2384,14 +2396,31 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) ToTaskDefinitionVolume
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput)
 }
 
+// The authorization configuration details for the Amazon EFS file system.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) AuthorizationConfig() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+		return v.AuthorizationConfig
+	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
+}
+
 // The ID of the EFS File System.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// The path to mount on the host
+// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) RootDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *string { return v.RootDirectory }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) TransitEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *string { return v.TransitEncryption }).(pulumi.StringPtrOutput)
+}
+
+// The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *int { return v.TransitEncryptionPort }).(pulumi.IntPtrOutput)
 }
 
 type TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2414,6 +2443,16 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) Elem() TaskDefiniti
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationOutput)
 }
 
+// The authorization configuration details for the Amazon EFS file system.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) AuthorizationConfig() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationConfig
+	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
+}
+
 // The ID of the EFS File System.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *string {
@@ -2424,13 +2463,185 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) FileSystemId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to mount on the host
+// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *string {
 		if v == nil {
 			return nil
 		}
 		return v.RootDirectory
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) TransitEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransitEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TransitEncryptionPort
+	}).(pulumi.IntPtrOutput)
+}
+
+type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig struct {
+	// The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+	AccessPointId *string `pulumi:"accessPointId"`
+	// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+	Iam *string `pulumi:"iam"`
+}
+
+// TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput is an input type that accepts TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs and TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput` via:
+//
+//          TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs{...}
+type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput
+	ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput
+}
+
+type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs struct {
+	// The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+	AccessPointId pulumi.StringPtrInput `pulumi:"accessPointId"`
+	// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+	Iam pulumi.StringPtrInput `pulumi:"iam"`
+}
+
+func (TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (i TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return i.ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput)
+}
+
+func (i TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return i.ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput).ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrInput is an input type that accepts TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs, TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtr and TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrInput` via:
+//
+//          TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput
+	ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput
+}
+
+type taskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrType TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs
+
+func TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtr(v *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrInput {
+	return (*taskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrType)(v)
+}
+
+func (*taskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *taskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrType) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return i.ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrType) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
+}
+
+type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o.ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+		return &v
+	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
+}
+
+// The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) AccessPointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *string { return v.AccessPointId }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) Iam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *string { return v.Iam }).(pulumi.StringPtrOutput)
+}
+
+type TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) Elem() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+		return *v
+	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput)
+}
+
+// The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) AccessPointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessPointId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) Iam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Iam
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2569,6 +2780,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionVolumeEfsVolumeConfigurationOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingArrayOutput{})
 }

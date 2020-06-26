@@ -41,6 +41,8 @@ type VpnGateway struct {
 
 	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
 	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
+	// Amazon Resource Name (ARN) of the VPN Gateway.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// A map of tags to assign to the resource.
@@ -79,6 +81,8 @@ func GetVpnGateway(ctx *pulumi.Context,
 type vpnGatewayState struct {
 	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
 	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
+	// Amazon Resource Name (ARN) of the VPN Gateway.
+	Arn *string `pulumi:"arn"`
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// A map of tags to assign to the resource.
@@ -90,6 +94,8 @@ type vpnGatewayState struct {
 type VpnGatewayState struct {
 	// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
 	AmazonSideAsn pulumi.StringPtrInput
+	// Amazon Resource Name (ARN) of the VPN Gateway.
+	Arn pulumi.StringPtrInput
 	// The Availability Zone for the virtual private gateway.
 	AvailabilityZone pulumi.StringPtrInput
 	// A map of tags to assign to the resource.

@@ -184,42 +184,43 @@ type Endpoints struct {
 	Qldb               *string `pulumi:"qldb"`
 	Quicksight         *string `pulumi:"quicksight"`
 	// Deprecated: use `endpoints` configuration block `route53` argument instead
-	R53              *string `pulumi:"r53"`
-	Ram              *string `pulumi:"ram"`
-	Rds              *string `pulumi:"rds"`
-	Redshift         *string `pulumi:"redshift"`
-	Resourcegroups   *string `pulumi:"resourcegroups"`
-	Route53          *string `pulumi:"route53"`
-	Route53domains   *string `pulumi:"route53domains"`
-	Route53resolver  *string `pulumi:"route53resolver"`
-	S3               *string `pulumi:"s3"`
-	S3control        *string `pulumi:"s3control"`
-	Sagemaker        *string `pulumi:"sagemaker"`
-	Sdb              *string `pulumi:"sdb"`
-	Secretsmanager   *string `pulumi:"secretsmanager"`
-	Securityhub      *string `pulumi:"securityhub"`
-	Serverlessrepo   *string `pulumi:"serverlessrepo"`
-	Servicecatalog   *string `pulumi:"servicecatalog"`
-	Servicediscovery *string `pulumi:"servicediscovery"`
-	Servicequotas    *string `pulumi:"servicequotas"`
-	Ses              *string `pulumi:"ses"`
-	Shield           *string `pulumi:"shield"`
-	Sns              *string `pulumi:"sns"`
-	Sqs              *string `pulumi:"sqs"`
-	Ssm              *string `pulumi:"ssm"`
-	Stepfunctions    *string `pulumi:"stepfunctions"`
-	Storagegateway   *string `pulumi:"storagegateway"`
-	Sts              *string `pulumi:"sts"`
-	Swf              *string `pulumi:"swf"`
-	Synthetics       *string `pulumi:"synthetics"`
-	Transfer         *string `pulumi:"transfer"`
-	Waf              *string `pulumi:"waf"`
-	Wafregional      *string `pulumi:"wafregional"`
-	Wafv2            *string `pulumi:"wafv2"`
-	Worklink         *string `pulumi:"worklink"`
-	Workmail         *string `pulumi:"workmail"`
-	Workspaces       *string `pulumi:"workspaces"`
-	Xray             *string `pulumi:"xray"`
+	R53                      *string `pulumi:"r53"`
+	Ram                      *string `pulumi:"ram"`
+	Rds                      *string `pulumi:"rds"`
+	Redshift                 *string `pulumi:"redshift"`
+	Resourcegroups           *string `pulumi:"resourcegroups"`
+	Resourcegroupstaggingapi *string `pulumi:"resourcegroupstaggingapi"`
+	Route53                  *string `pulumi:"route53"`
+	Route53domains           *string `pulumi:"route53domains"`
+	Route53resolver          *string `pulumi:"route53resolver"`
+	S3                       *string `pulumi:"s3"`
+	S3control                *string `pulumi:"s3control"`
+	Sagemaker                *string `pulumi:"sagemaker"`
+	Sdb                      *string `pulumi:"sdb"`
+	Secretsmanager           *string `pulumi:"secretsmanager"`
+	Securityhub              *string `pulumi:"securityhub"`
+	Serverlessrepo           *string `pulumi:"serverlessrepo"`
+	Servicecatalog           *string `pulumi:"servicecatalog"`
+	Servicediscovery         *string `pulumi:"servicediscovery"`
+	Servicequotas            *string `pulumi:"servicequotas"`
+	Ses                      *string `pulumi:"ses"`
+	Shield                   *string `pulumi:"shield"`
+	Sns                      *string `pulumi:"sns"`
+	Sqs                      *string `pulumi:"sqs"`
+	Ssm                      *string `pulumi:"ssm"`
+	Stepfunctions            *string `pulumi:"stepfunctions"`
+	Storagegateway           *string `pulumi:"storagegateway"`
+	Sts                      *string `pulumi:"sts"`
+	Swf                      *string `pulumi:"swf"`
+	Synthetics               *string `pulumi:"synthetics"`
+	Transfer                 *string `pulumi:"transfer"`
+	Waf                      *string `pulumi:"waf"`
+	Wafregional              *string `pulumi:"wafregional"`
+	Wafv2                    *string `pulumi:"wafv2"`
+	Worklink                 *string `pulumi:"worklink"`
+	Workmail                 *string `pulumi:"workmail"`
+	Workspaces               *string `pulumi:"workspaces"`
+	Xray                     *string `pulumi:"xray"`
 }
 
 // EndpointsInput is an input type that accepts EndpointsArgs and EndpointsOutput values.
@@ -340,42 +341,43 @@ type EndpointsArgs struct {
 	Qldb               pulumi.StringPtrInput `pulumi:"qldb"`
 	Quicksight         pulumi.StringPtrInput `pulumi:"quicksight"`
 	// Deprecated: use `endpoints` configuration block `route53` argument instead
-	R53              pulumi.StringPtrInput `pulumi:"r53"`
-	Ram              pulumi.StringPtrInput `pulumi:"ram"`
-	Rds              pulumi.StringPtrInput `pulumi:"rds"`
-	Redshift         pulumi.StringPtrInput `pulumi:"redshift"`
-	Resourcegroups   pulumi.StringPtrInput `pulumi:"resourcegroups"`
-	Route53          pulumi.StringPtrInput `pulumi:"route53"`
-	Route53domains   pulumi.StringPtrInput `pulumi:"route53domains"`
-	Route53resolver  pulumi.StringPtrInput `pulumi:"route53resolver"`
-	S3               pulumi.StringPtrInput `pulumi:"s3"`
-	S3control        pulumi.StringPtrInput `pulumi:"s3control"`
-	Sagemaker        pulumi.StringPtrInput `pulumi:"sagemaker"`
-	Sdb              pulumi.StringPtrInput `pulumi:"sdb"`
-	Secretsmanager   pulumi.StringPtrInput `pulumi:"secretsmanager"`
-	Securityhub      pulumi.StringPtrInput `pulumi:"securityhub"`
-	Serverlessrepo   pulumi.StringPtrInput `pulumi:"serverlessrepo"`
-	Servicecatalog   pulumi.StringPtrInput `pulumi:"servicecatalog"`
-	Servicediscovery pulumi.StringPtrInput `pulumi:"servicediscovery"`
-	Servicequotas    pulumi.StringPtrInput `pulumi:"servicequotas"`
-	Ses              pulumi.StringPtrInput `pulumi:"ses"`
-	Shield           pulumi.StringPtrInput `pulumi:"shield"`
-	Sns              pulumi.StringPtrInput `pulumi:"sns"`
-	Sqs              pulumi.StringPtrInput `pulumi:"sqs"`
-	Ssm              pulumi.StringPtrInput `pulumi:"ssm"`
-	Stepfunctions    pulumi.StringPtrInput `pulumi:"stepfunctions"`
-	Storagegateway   pulumi.StringPtrInput `pulumi:"storagegateway"`
-	Sts              pulumi.StringPtrInput `pulumi:"sts"`
-	Swf              pulumi.StringPtrInput `pulumi:"swf"`
-	Synthetics       pulumi.StringPtrInput `pulumi:"synthetics"`
-	Transfer         pulumi.StringPtrInput `pulumi:"transfer"`
-	Waf              pulumi.StringPtrInput `pulumi:"waf"`
-	Wafregional      pulumi.StringPtrInput `pulumi:"wafregional"`
-	Wafv2            pulumi.StringPtrInput `pulumi:"wafv2"`
-	Worklink         pulumi.StringPtrInput `pulumi:"worklink"`
-	Workmail         pulumi.StringPtrInput `pulumi:"workmail"`
-	Workspaces       pulumi.StringPtrInput `pulumi:"workspaces"`
-	Xray             pulumi.StringPtrInput `pulumi:"xray"`
+	R53                      pulumi.StringPtrInput `pulumi:"r53"`
+	Ram                      pulumi.StringPtrInput `pulumi:"ram"`
+	Rds                      pulumi.StringPtrInput `pulumi:"rds"`
+	Redshift                 pulumi.StringPtrInput `pulumi:"redshift"`
+	Resourcegroups           pulumi.StringPtrInput `pulumi:"resourcegroups"`
+	Resourcegroupstaggingapi pulumi.StringPtrInput `pulumi:"resourcegroupstaggingapi"`
+	Route53                  pulumi.StringPtrInput `pulumi:"route53"`
+	Route53domains           pulumi.StringPtrInput `pulumi:"route53domains"`
+	Route53resolver          pulumi.StringPtrInput `pulumi:"route53resolver"`
+	S3                       pulumi.StringPtrInput `pulumi:"s3"`
+	S3control                pulumi.StringPtrInput `pulumi:"s3control"`
+	Sagemaker                pulumi.StringPtrInput `pulumi:"sagemaker"`
+	Sdb                      pulumi.StringPtrInput `pulumi:"sdb"`
+	Secretsmanager           pulumi.StringPtrInput `pulumi:"secretsmanager"`
+	Securityhub              pulumi.StringPtrInput `pulumi:"securityhub"`
+	Serverlessrepo           pulumi.StringPtrInput `pulumi:"serverlessrepo"`
+	Servicecatalog           pulumi.StringPtrInput `pulumi:"servicecatalog"`
+	Servicediscovery         pulumi.StringPtrInput `pulumi:"servicediscovery"`
+	Servicequotas            pulumi.StringPtrInput `pulumi:"servicequotas"`
+	Ses                      pulumi.StringPtrInput `pulumi:"ses"`
+	Shield                   pulumi.StringPtrInput `pulumi:"shield"`
+	Sns                      pulumi.StringPtrInput `pulumi:"sns"`
+	Sqs                      pulumi.StringPtrInput `pulumi:"sqs"`
+	Ssm                      pulumi.StringPtrInput `pulumi:"ssm"`
+	Stepfunctions            pulumi.StringPtrInput `pulumi:"stepfunctions"`
+	Storagegateway           pulumi.StringPtrInput `pulumi:"storagegateway"`
+	Sts                      pulumi.StringPtrInput `pulumi:"sts"`
+	Swf                      pulumi.StringPtrInput `pulumi:"swf"`
+	Synthetics               pulumi.StringPtrInput `pulumi:"synthetics"`
+	Transfer                 pulumi.StringPtrInput `pulumi:"transfer"`
+	Waf                      pulumi.StringPtrInput `pulumi:"waf"`
+	Wafregional              pulumi.StringPtrInput `pulumi:"wafregional"`
+	Wafv2                    pulumi.StringPtrInput `pulumi:"wafv2"`
+	Worklink                 pulumi.StringPtrInput `pulumi:"worklink"`
+	Workmail                 pulumi.StringPtrInput `pulumi:"workmail"`
+	Workspaces               pulumi.StringPtrInput `pulumi:"workspaces"`
+	Xray                     pulumi.StringPtrInput `pulumi:"xray"`
 }
 
 func (EndpointsArgs) ElementType() reflect.Type {
@@ -865,6 +867,10 @@ func (o EndpointsOutput) Redshift() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Resourcegroups() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Resourcegroups }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Resourcegroupstaggingapi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Resourcegroupstaggingapi }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Route53() pulumi.StringPtrOutput {

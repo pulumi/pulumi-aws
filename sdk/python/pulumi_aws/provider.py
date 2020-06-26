@@ -157,6 +157,7 @@ class Provider(pulumi.ProviderResource):
           * `rds` (`pulumi.Input[str]`)
           * `redshift` (`pulumi.Input[str]`)
           * `resourcegroups` (`pulumi.Input[str]`)
+          * `resourcegroupstaggingapi` (`pulumi.Input[str]`)
           * `route53` (`pulumi.Input[str]`)
           * `route53domains` (`pulumi.Input[str]`)
           * `route53resolver` (`pulumi.Input[str]`)

@@ -139,6 +139,12 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcEndpoint : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         /// </summary>
         [Output("autoAccept")]
@@ -379,6 +385,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         /// </summary>

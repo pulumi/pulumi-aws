@@ -86,6 +86,12 @@ namespace Pulumi.Aws.Ec2
     public partial class VpnConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// Amazon Resource Name (ARN) of the VPN Connection.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration information for the VPN connection's customer gateway (in the native XML format).
         /// </summary>
         [Output("customerGatewayConfiguration")]
@@ -342,6 +348,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpnConnectionState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the VPN Connection.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The configuration information for the VPN connection's customer gateway (in the native XML format).
         /// </summary>

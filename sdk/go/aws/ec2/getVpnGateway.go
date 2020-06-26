@@ -71,6 +71,7 @@ type LookupVpnGatewayArgs struct {
 // A collection of values returned by getVpnGateway.
 type LookupVpnGatewayResult struct {
 	AmazonSideAsn    string                `pulumi:"amazonSideAsn"`
+	Arn              string                `pulumi:"arn"`
 	AttachedVpcId    string                `pulumi:"attachedVpcId"`
 	AvailabilityZone string                `pulumi:"availabilityZone"`
 	Filters          []GetVpnGatewayFilter `pulumi:"filters"`

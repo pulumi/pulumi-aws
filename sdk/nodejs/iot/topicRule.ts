@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const mytopic = new aws.sns.Topic("mytopic", {});
+ * const myerrortopic = new aws.sns.Topic("myerrortopic", {});
  * const role = new aws.iam.Role("role", {
  *     assumeRolePolicy: `{
  *   "Version": "2012-10-17",
@@ -32,6 +33,13 @@ import * as utilities from "../utilities";
  * const rule = new aws.iot.TopicRule("rule", {
  *     description: "Example rule",
  *     enabled: true,
+ *     errorAction: {
+ *         sns: {
+ *             messageFormat: "RAW",
+ *             roleArn: role.arn,
+ *             targetArn: myerrortopic.arn,
+ *         },
+ *     },
  *     sns: {
  *         messageFormat: "RAW",
  *         roleArn: role.arn,
@@ -103,6 +111,10 @@ export class TopicRule extends pulumi.CustomResource {
      * Specifies whether the rule is enabled.
      */
     public readonly enabled!: pulumi.Output<boolean>;
+    /**
+     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+     */
+    public readonly errorAction!: pulumi.Output<outputs.iot.TopicRuleErrorAction | undefined>;
     public readonly firehose!: pulumi.Output<outputs.iot.TopicRuleFirehose | undefined>;
     public readonly iotAnalytics!: pulumi.Output<outputs.iot.TopicRuleIotAnalytic[] | undefined>;
     public readonly iotEvents!: pulumi.Output<outputs.iot.TopicRuleIotEvent[] | undefined>;
@@ -150,6 +162,7 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["dynamodbv2s"] = state ? state.dynamodbv2s : undefined;
             inputs["elasticsearch"] = state ? state.elasticsearch : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
+            inputs["errorAction"] = state ? state.errorAction : undefined;
             inputs["firehose"] = state ? state.firehose : undefined;
             inputs["iotAnalytics"] = state ? state.iotAnalytics : undefined;
             inputs["iotEvents"] = state ? state.iotEvents : undefined;
@@ -182,6 +195,7 @@ export class TopicRule extends pulumi.CustomResource {
             inputs["dynamodbv2s"] = args ? args.dynamodbv2s : undefined;
             inputs["elasticsearch"] = args ? args.elasticsearch : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["errorAction"] = args ? args.errorAction : undefined;
             inputs["firehose"] = args ? args.firehose : undefined;
             inputs["iotAnalytics"] = args ? args.iotAnalytics : undefined;
             inputs["iotEvents"] = args ? args.iotEvents : undefined;
@@ -230,6 +244,10 @@ export interface TopicRuleState {
      * Specifies whether the rule is enabled.
      */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+     */
+    readonly errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
     readonly firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
     readonly iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
     readonly iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
@@ -275,6 +293,10 @@ export interface TopicRuleArgs {
      * Specifies whether the rule is enabled.
      */
     readonly enabled: pulumi.Input<boolean>;
+    /**
+     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+     */
+    readonly errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
     readonly firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
     readonly iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
     readonly iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;

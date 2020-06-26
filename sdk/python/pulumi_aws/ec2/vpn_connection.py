@@ -11,6 +11,10 @@ from .. import utilities, tables
 
 
 class VpnConnection(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of the VPN Connection.
+    """
     customer_gateway_configuration: pulumi.Output[str]
     """
     The configuration information for the VPN connection's customer gateway (in the native XML format).
@@ -190,6 +194,7 @@ class VpnConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['vpn_gateway_id'] = vpn_gateway_id
+            __props__['arn'] = None
             __props__['customer_gateway_configuration'] = None
             __props__['routes'] = None
             __props__['transit_gateway_attachment_id'] = None
@@ -211,7 +216,7 @@ class VpnConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, customer_gateway_configuration=None, customer_gateway_id=None, routes=None, static_routes_only=None, tags=None, transit_gateway_attachment_id=None, transit_gateway_id=None, tunnel1_address=None, tunnel1_bgp_asn=None, tunnel1_bgp_holdtime=None, tunnel1_cgw_inside_address=None, tunnel1_inside_cidr=None, tunnel1_preshared_key=None, tunnel1_vgw_inside_address=None, tunnel2_address=None, tunnel2_bgp_asn=None, tunnel2_bgp_holdtime=None, tunnel2_cgw_inside_address=None, tunnel2_inside_cidr=None, tunnel2_preshared_key=None, tunnel2_vgw_inside_address=None, type=None, vgw_telemetries=None, vpn_gateway_id=None):
+    def get(resource_name, id, opts=None, arn=None, customer_gateway_configuration=None, customer_gateway_id=None, routes=None, static_routes_only=None, tags=None, transit_gateway_attachment_id=None, transit_gateway_id=None, tunnel1_address=None, tunnel1_bgp_asn=None, tunnel1_bgp_holdtime=None, tunnel1_cgw_inside_address=None, tunnel1_inside_cidr=None, tunnel1_preshared_key=None, tunnel1_vgw_inside_address=None, tunnel2_address=None, tunnel2_bgp_asn=None, tunnel2_bgp_holdtime=None, tunnel2_cgw_inside_address=None, tunnel2_inside_cidr=None, tunnel2_preshared_key=None, tunnel2_vgw_inside_address=None, type=None, vgw_telemetries=None, vpn_gateway_id=None):
         """
         Get an existing VpnConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -219,6 +224,7 @@ class VpnConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the VPN Connection.
         :param pulumi.Input[str] customer_gateway_configuration: The configuration information for the VPN connection's customer gateway (in the native XML format).
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
@@ -260,6 +266,7 @@ class VpnConnection(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["customer_gateway_configuration"] = customer_gateway_configuration
         __props__["customer_gateway_id"] = customer_gateway_id
         __props__["routes"] = routes

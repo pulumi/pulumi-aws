@@ -40,6 +40,12 @@ namespace Pulumi.Aws.Ec2
     public partial class CustomerGateway : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the customer gateway.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
         [Output("bgpAsn")]
@@ -148,6 +154,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class CustomerGatewayState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the customer gateway.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>

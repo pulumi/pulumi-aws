@@ -35,6 +35,12 @@ namespace Pulumi.Aws.Ec2
     public partial class PlacementGroup : Pulumi.CustomResource
     {
         /// <summary>
+        /// Amazon Resource Name (ARN) of the placement group.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the placement group.
         /// </summary>
         [Output("name")]
@@ -135,6 +141,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class PlacementGroupState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the placement group.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The name of the placement group.
         /// </summary>

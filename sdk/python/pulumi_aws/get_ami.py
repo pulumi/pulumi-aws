@@ -13,12 +13,18 @@ class GetAmiResult:
     """
     A collection of values returned by getAmi.
     """
-    def __init__(__self__, architecture=None, block_device_mappings=None, creation_date=None, description=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, virtualization_type=None):
+    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, creation_date=None, description=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, virtualization_type=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         __self__.architecture = architecture
         """
         The OS architecture of the AMI (ie: `i386` or `x86_64`).
+        """
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        __self__.arn = arn
+        """
+        The ARN of the AMI.
         """
         if block_device_mappings and not isinstance(block_device_mappings, list):
             raise TypeError("Expected argument 'block_device_mappings' to be a list")
@@ -213,6 +219,7 @@ class AwaitableGetAmiResult(GetAmiResult):
             yield self
         return GetAmiResult(
             architecture=self.architecture,
+            arn=self.arn,
             block_device_mappings=self.block_device_mappings,
             creation_date=self.creation_date,
             description=self.description,
@@ -314,6 +321,7 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
 
     return AwaitableGetAmiResult(
         architecture=__ret__.get('architecture'),
+        arn=__ret__.get('arn'),
         block_device_mappings=__ret__.get('blockDeviceMappings'),
         creation_date=__ret__.get('creationDate'),
         description=__ret__.get('description'),

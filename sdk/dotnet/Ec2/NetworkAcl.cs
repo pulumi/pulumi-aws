@@ -69,6 +69,12 @@ namespace Pulumi.Aws.Ec2
     public partial class NetworkAcl : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the network ACL
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies an egress rule. Parameters defined below.
         /// </summary>
         [Output("egress")]
@@ -211,6 +217,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class NetworkAclState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the network ACL
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("egress")]
         private InputList<Inputs.NetworkAclEgressGetArgs>? _egress;
 

@@ -11,6 +11,10 @@ from .. import utilities, tables
 
 
 class CustomerGateway(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the customer gateway.
+    """
     bgp_asn: pulumi.Output[float]
     """
     The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
@@ -82,6 +86,7 @@ class CustomerGateway(pulumi.CustomResource):
             if type is None:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
+            __props__['arn'] = None
         super(CustomerGateway, __self__).__init__(
             'aws:ec2/customerGateway:CustomerGateway',
             resource_name,
@@ -89,7 +94,7 @@ class CustomerGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, bgp_asn=None, ip_address=None, tags=None, type=None):
+    def get(resource_name, id, opts=None, arn=None, bgp_asn=None, ip_address=None, tags=None, type=None):
         """
         Get an existing CustomerGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -97,6 +102,7 @@ class CustomerGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the customer gateway.
         :param pulumi.Input[float] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         :param pulumi.Input[str] ip_address: The IP address of the gateway's Internet-routable external interface.
         :param pulumi.Input[dict] tags: Tags to apply to the gateway.
@@ -107,6 +113,7 @@ class CustomerGateway(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["bgp_asn"] = bgp_asn
         __props__["ip_address"] = ip_address
         __props__["tags"] = tags

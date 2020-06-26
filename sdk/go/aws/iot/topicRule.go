@@ -30,6 +30,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		myerrortopic, err := sns.NewTopic(ctx, "myerrortopic", nil)
+// 		if err != nil {
+// 			return err
+// 		}
 // 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
 // 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"iot.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n", "\n")),
 // 		})
@@ -39,6 +43,13 @@ import (
 // 		_, err = iot.NewTopicRule(ctx, "rule", &iot.TopicRuleArgs{
 // 			Description: pulumi.String("Example rule"),
 // 			Enabled:     pulumi.Bool(true),
+// 			ErrorAction: &iot.TopicRuleErrorActionArgs{
+// 				Sns: &iot.TopicRuleErrorActionSnsArgs{
+// 					MessageFormat: pulumi.String("RAW"),
+// 					RoleArn:       role.Arn,
+// 					TargetArn:     myerrortopic.Arn,
+// 				},
+// 			},
 // 			Sns: &iot.TopicRuleSnsArgs{
 // 				Sns: pulumi.String("RAW"),
 // 				Sns: role.Arn,
@@ -76,7 +87,9 @@ type TopicRule struct {
 	Dynamodbv2s   TopicRuleDynamodbv2ArrayOutput  `pulumi:"dynamodbv2s"`
 	Elasticsearch TopicRuleElasticsearchPtrOutput `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
-	Enabled      pulumi.BoolOutput               `pulumi:"enabled"`
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	ErrorAction  TopicRuleErrorActionPtrOutput   `pulumi:"errorAction"`
 	Firehose     TopicRuleFirehosePtrOutput      `pulumi:"firehose"`
 	IotAnalytics TopicRuleIotAnalyticArrayOutput `pulumi:"iotAnalytics"`
 	IotEvents    TopicRuleIotEventArrayOutput    `pulumi:"iotEvents"`
@@ -144,7 +157,9 @@ type topicRuleState struct {
 	Dynamodbv2s   []TopicRuleDynamodbv2   `pulumi:"dynamodbv2s"`
 	Elasticsearch *TopicRuleElasticsearch `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
-	Enabled      *bool                  `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	ErrorAction  *TopicRuleErrorAction  `pulumi:"errorAction"`
 	Firehose     *TopicRuleFirehose     `pulumi:"firehose"`
 	IotAnalytics []TopicRuleIotAnalytic `pulumi:"iotAnalytics"`
 	IotEvents    []TopicRuleIotEvent    `pulumi:"iotEvents"`
@@ -176,7 +191,9 @@ type TopicRuleState struct {
 	Dynamodbv2s   TopicRuleDynamodbv2ArrayInput
 	Elasticsearch TopicRuleElasticsearchPtrInput
 	// Specifies whether the rule is enabled.
-	Enabled      pulumi.BoolPtrInput
+	Enabled pulumi.BoolPtrInput
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	ErrorAction  TopicRuleErrorActionPtrInput
 	Firehose     TopicRuleFirehosePtrInput
 	IotAnalytics TopicRuleIotAnalyticArrayInput
 	IotEvents    TopicRuleIotEventArrayInput
@@ -210,7 +227,9 @@ type topicRuleArgs struct {
 	Dynamodbv2s   []TopicRuleDynamodbv2   `pulumi:"dynamodbv2s"`
 	Elasticsearch *TopicRuleElasticsearch `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
-	Enabled      bool                   `pulumi:"enabled"`
+	Enabled bool `pulumi:"enabled"`
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	ErrorAction  *TopicRuleErrorAction  `pulumi:"errorAction"`
 	Firehose     *TopicRuleFirehose     `pulumi:"firehose"`
 	IotAnalytics []TopicRuleIotAnalytic `pulumi:"iotAnalytics"`
 	IotEvents    []TopicRuleIotEvent    `pulumi:"iotEvents"`
@@ -241,7 +260,9 @@ type TopicRuleArgs struct {
 	Dynamodbv2s   TopicRuleDynamodbv2ArrayInput
 	Elasticsearch TopicRuleElasticsearchPtrInput
 	// Specifies whether the rule is enabled.
-	Enabled      pulumi.BoolInput
+	Enabled pulumi.BoolInput
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	ErrorAction  TopicRuleErrorActionPtrInput
 	Firehose     TopicRuleFirehosePtrInput
 	IotAnalytics TopicRuleIotAnalyticArrayInput
 	IotEvents    TopicRuleIotEventArrayInput

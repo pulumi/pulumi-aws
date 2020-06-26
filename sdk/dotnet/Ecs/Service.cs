@@ -37,6 +37,28 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// }
     /// ```
+    /// ### External Deployment Controller
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ecs.Service("example", new Aws.Ecs.ServiceArgs
+    ///         {
+    ///             Cluster = aws_ecs_cluster.Example.Id,
+    ///             DeploymentController = new Aws.Ecs.Inputs.ServiceDeploymentControllerArgs
+    ///             {
+    ///                 Type = "EXTERNAL",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {
@@ -149,7 +171,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> PropagateTags { get; private set; } = null!;
 
         /// <summary>
-        /// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+        /// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         /// </summary>
         [Output("schedulingStrategy")]
         public Output<string?> SchedulingStrategy { get; private set; } = null!;
@@ -161,20 +183,17 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.ServiceServiceRegistries?> ServiceRegistries { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         /// </summary>
         [Output("taskDefinition")]
-        public Output<string> TaskDefinition { get; private set; } = null!;
+        public Output<string?> TaskDefinition { get; private set; } = null!;
 
-        /// <summary>
-        /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-        /// </summary>
         [Output("waitForSteadyState")]
         public Output<bool?> WaitForSteadyState { get; private set; } = null!;
 
@@ -186,7 +205,7 @@ namespace Pulumi.Aws.Ecs
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
+        public Service(string name, ServiceArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:ecs/service:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -357,7 +376,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? PropagateTags { get; set; }
 
         /// <summary>
-        /// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+        /// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         /// </summary>
         [Input("schedulingStrategy")]
         public Input<string>? SchedulingStrategy { get; set; }
@@ -372,7 +391,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         public InputMap<string> Tags
         {
@@ -381,14 +400,11 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         /// </summary>
-        [Input("taskDefinition", required: true)]
-        public Input<string> TaskDefinition { get; set; } = null!;
+        [Input("taskDefinition")]
+        public Input<string>? TaskDefinition { get; set; }
 
-        /// <summary>
-        /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-        /// </summary>
         [Input("waitForSteadyState")]
         public Input<bool>? WaitForSteadyState { get; set; }
 
@@ -532,7 +548,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? PropagateTags { get; set; }
 
         /// <summary>
-        /// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+        /// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         /// </summary>
         [Input("schedulingStrategy")]
         public Input<string>? SchedulingStrategy { get; set; }
@@ -547,7 +563,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags
+        /// Key-value map of resource tags
         /// </summary>
         public InputMap<string> Tags
         {
@@ -556,14 +572,11 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         /// </summary>
         [Input("taskDefinition")]
         public Input<string>? TaskDefinition { get; set; }
 
-        /// <summary>
-        /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-        /// </summary>
         [Input("waitForSteadyState")]
         public Input<bool>? WaitForSteadyState { get; set; }
 
