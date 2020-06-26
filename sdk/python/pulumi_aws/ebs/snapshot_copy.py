@@ -11,6 +11,10 @@ from .. import utilities, tables
 
 
 class SnapshotCopy(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of the EBS Snapshot.
+    """
     data_encryption_key_id: pulumi.Output[str]
     """
     The data encryption key identifier for the snapshot.
@@ -119,6 +123,7 @@ class SnapshotCopy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_snapshot_id'")
             __props__['source_snapshot_id'] = source_snapshot_id
             __props__['tags'] = tags
+            __props__['arn'] = None
             __props__['data_encryption_key_id'] = None
             __props__['owner_alias'] = None
             __props__['owner_id'] = None
@@ -131,7 +136,7 @@ class SnapshotCopy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, data_encryption_key_id=None, description=None, encrypted=None, kms_key_id=None, owner_alias=None, owner_id=None, source_region=None, source_snapshot_id=None, tags=None, volume_id=None, volume_size=None):
+    def get(resource_name, id, opts=None, arn=None, data_encryption_key_id=None, description=None, encrypted=None, kms_key_id=None, owner_alias=None, owner_id=None, source_region=None, source_snapshot_id=None, tags=None, volume_id=None, volume_size=None):
         """
         Get an existing SnapshotCopy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -139,6 +144,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
         :param pulumi.Input[str] data_encryption_key_id: The data encryption key identifier for the snapshot.
                * `source_snapshot_id` The ARN of the copied snapshot.
                * `source_region` The region of the source snapshot.
@@ -156,6 +162,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["data_encryption_key_id"] = data_encryption_key_id
         __props__["description"] = description
         __props__["encrypted"] = encrypted

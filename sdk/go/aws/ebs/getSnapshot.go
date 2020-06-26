@@ -78,6 +78,8 @@ type LookupSnapshotArgs struct {
 
 // A collection of values returned by getSnapshot.
 type LookupSnapshotResult struct {
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn string `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId string `pulumi:"dataEncryptionKeyId"`
 	// A description for the snapshot

@@ -115,6 +115,10 @@ export class VpcEndpoint extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      */
     public readonly autoAccept!: pulumi.Output<boolean | undefined>;
@@ -196,6 +200,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as VpcEndpointState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["autoAccept"] = state ? state.autoAccept : undefined;
             inputs["cidrBlocks"] = state ? state.cidrBlocks : undefined;
             inputs["dnsEntries"] = state ? state.dnsEntries : undefined;
@@ -231,6 +236,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcEndpointType"] = args ? args.vpcEndpointType : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["cidrBlocks"] = undefined /*out*/;
             inputs["dnsEntries"] = undefined /*out*/;
             inputs["networkInterfaceIds"] = undefined /*out*/;
@@ -254,6 +260,10 @@ export class VpcEndpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcEndpoint resources.
  */
 export interface VpcEndpointState {
+    /**
+     * The Amazon Resource Name (ARN) of the VPC endpoint.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      */

@@ -87,6 +87,10 @@ export class VpnConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the VPN Connection.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The configuration information for the VPN connection's customer gateway (in the native XML format).
      */
     public /*out*/ readonly customerGatewayConfiguration!: pulumi.Output<string>;
@@ -189,6 +193,7 @@ export class VpnConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as VpnConnectionState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["customerGatewayConfiguration"] = state ? state.customerGatewayConfiguration : undefined;
             inputs["customerGatewayId"] = state ? state.customerGatewayId : undefined;
             inputs["routes"] = state ? state.routes : undefined;
@@ -231,6 +236,7 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["tunnel2PresharedKey"] = args ? args.tunnel2PresharedKey : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["customerGatewayConfiguration"] = undefined /*out*/;
             inputs["routes"] = undefined /*out*/;
             inputs["transitGatewayAttachmentId"] = undefined /*out*/;
@@ -261,6 +267,10 @@ export class VpnConnection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpnConnection resources.
  */
 export interface VpnConnectionState {
+    /**
+     * Amazon Resource Name (ARN) of the VPN Connection.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The configuration information for the VPN connection's customer gateway (in the native XML format).
      */

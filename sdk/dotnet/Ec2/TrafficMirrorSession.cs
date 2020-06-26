@@ -52,6 +52,12 @@ namespace Pulumi.Aws.Ec2
     public partial class TrafficMirrorSession : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the traffic mirror session.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the traffic mirror session.
         /// </summary>
         [Output("description")]
@@ -206,6 +212,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class TrafficMirrorSessionState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the traffic mirror session.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// A description of the traffic mirror session.
         /// </summary>

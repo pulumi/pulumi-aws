@@ -30,11 +30,11 @@ namespace Pulumi.Aws.MediaStore
     ///         var exampleContainerPolicy = new Aws.MediaStore.ContainerPolicy("exampleContainerPolicy", new Aws.MediaStore.ContainerPolicyArgs
     ///         {
     ///             ContainerName = exampleContainer.Name,
-    ///             Policy = Output.Tuple(currentCallerIdentity, currentCallerIdentity, currentRegion, exampleContainer.Name).Apply(values =&gt;
+    ///             Policy = Output.Tuple(currentCallerIdentity, currentRegion, currentCallerIdentity, exampleContainer.Name).Apply(values =&gt;
     ///             {
     ///                 var currentCallerIdentity = values.Item1;
-    ///                 var currentCallerIdentity1 = values.Item2;
-    ///                 var currentRegion = values.Item3;
+    ///                 var currentRegion = values.Item2;
+    ///                 var currentCallerIdentity1 = values.Item3;
     ///                 var name = values.Item4;
     ///                 return @$"{{
     /// 	""Version"": ""2012-10-17"",
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.MediaStore
     /// 		""Action"": [ ""mediastore:*"" ],
     /// 		""Principal"": {{""AWS"" : ""arn:aws:iam::{currentCallerIdentity.AccountId}:root""}},
     /// 		""Effect"": ""Allow"",
-    /// 		""Resource"": ""arn:aws:mediastore:{currentCallerIdentity1.AccountId}:{currentRegion.Name}:container/{name}/*"",
+    /// 		""Resource"": ""arn:aws:mediastore:{currentRegion.Name}:{currentCallerIdentity1.AccountId}:container/{name}/*"",
     /// 		""Condition"": {{
     /// 			""Bool"": {{ ""aws:SecureTransport"": ""true"" }}
     /// 		}}

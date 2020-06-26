@@ -69,6 +69,10 @@ export class Ami extends pulumi.CustomResource {
      */
     public readonly architecture!: pulumi.Output<string | undefined>;
     /**
+     * The ARN of the AMI.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A longer, human-readable description for the AMI.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -143,6 +147,7 @@ export class Ami extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AmiState | undefined;
             inputs["architecture"] = state ? state.architecture : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             inputs["enaSupport"] = state ? state.enaSupport : undefined;
@@ -172,6 +177,7 @@ export class Ami extends pulumi.CustomResource {
             inputs["sriovNetSupport"] = args ? args.sriovNetSupport : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualizationType"] = args ? args.virtualizationType : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["manageEbsSnapshots"] = undefined /*out*/;
             inputs["rootSnapshotId"] = undefined /*out*/;
         }
@@ -194,6 +200,10 @@ export interface AmiState {
      * Machine architecture for created instances. Defaults to "x8664".
      */
     readonly architecture?: pulumi.Input<string>;
+    /**
+     * The ARN of the AMI.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * A longer, human-readable description for the AMI.
      */

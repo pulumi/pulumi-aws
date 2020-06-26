@@ -57,6 +57,10 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The data encryption key identifier for the snapshot.
      */
     public /*out*/ readonly dataEncryptionKeyId!: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class Snapshot extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SnapshotState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;
@@ -122,6 +127,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["volumeId"] = args ? args.volumeId : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["dataEncryptionKeyId"] = undefined /*out*/;
             inputs["encrypted"] = undefined /*out*/;
             inputs["kmsKeyId"] = undefined /*out*/;
@@ -144,6 +150,10 @@ export class Snapshot extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Snapshot resources.
  */
 export interface SnapshotState {
+    /**
+     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The data encryption key identifier for the snapshot.
      */

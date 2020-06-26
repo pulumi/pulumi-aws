@@ -68,6 +68,10 @@ export class AmiCopy extends pulumi.CustomResource {
      */
     public /*out*/ readonly architecture!: pulumi.Output<string>;
     /**
+     * The ARN of the AMI.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A longer, human-readable description for the AMI.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -159,6 +163,7 @@ export class AmiCopy extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AmiCopyState | undefined;
             inputs["architecture"] = state ? state.architecture : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             inputs["enaSupport"] = state ? state.enaSupport : undefined;
@@ -195,6 +200,7 @@ export class AmiCopy extends pulumi.CustomResource {
             inputs["sourceAmiRegion"] = args ? args.sourceAmiRegion : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["architecture"] = undefined /*out*/;
+            inputs["arn"] = undefined /*out*/;
             inputs["enaSupport"] = undefined /*out*/;
             inputs["imageLocation"] = undefined /*out*/;
             inputs["kernelId"] = undefined /*out*/;
@@ -224,6 +230,10 @@ export interface AmiCopyState {
      * Machine architecture for created instances. Defaults to "x8664".
      */
     readonly architecture?: pulumi.Input<string>;
+    /**
+     * The ARN of the AMI.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * A longer, human-readable description for the AMI.
      */

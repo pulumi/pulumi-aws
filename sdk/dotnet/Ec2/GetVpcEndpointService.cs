@@ -157,6 +157,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool AcceptanceRequired;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint service.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// The Availability Zones in which the service is available.
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
@@ -204,6 +208,8 @@ namespace Pulumi.Aws.Ec2
         private GetVpcEndpointServiceResult(
             bool acceptanceRequired,
 
+            string arn,
+
             ImmutableArray<string> availabilityZones,
 
             ImmutableArray<string> baseEndpointDnsNames,
@@ -231,6 +237,7 @@ namespace Pulumi.Aws.Ec2
             bool vpcEndpointPolicySupported)
         {
             AcceptanceRequired = acceptanceRequired;
+            Arn = arn;
             AvailabilityZones = availabilityZones;
             BaseEndpointDnsNames = baseEndpointDnsNames;
             Filters = filters;

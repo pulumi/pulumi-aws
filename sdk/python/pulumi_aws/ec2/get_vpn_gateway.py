@@ -13,10 +13,13 @@ class GetVpnGatewayResult:
     """
     A collection of values returned by getVpnGateway.
     """
-    def __init__(__self__, amazon_side_asn=None, attached_vpc_id=None, availability_zone=None, filters=None, id=None, state=None, tags=None):
+    def __init__(__self__, amazon_side_asn=None, arn=None, attached_vpc_id=None, availability_zone=None, filters=None, id=None, state=None, tags=None):
         if amazon_side_asn and not isinstance(amazon_side_asn, str):
             raise TypeError("Expected argument 'amazon_side_asn' to be a str")
         __self__.amazon_side_asn = amazon_side_asn
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        __self__.arn = arn
         if attached_vpc_id and not isinstance(attached_vpc_id, str):
             raise TypeError("Expected argument 'attached_vpc_id' to be a str")
         __self__.attached_vpc_id = attached_vpc_id
@@ -42,6 +45,7 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
             yield self
         return GetVpnGatewayResult(
             amazon_side_asn=self.amazon_side_asn,
+            arn=self.arn,
             attached_vpc_id=self.attached_vpc_id,
             availability_zone=self.availability_zone,
             filters=self.filters,
@@ -102,6 +106,7 @@ def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=
 
     return AwaitableGetVpnGatewayResult(
         amazon_side_asn=__ret__.get('amazonSideAsn'),
+        arn=__ret__.get('arn'),
         attached_vpc_id=__ret__.get('attachedVpcId'),
         availability_zone=__ret__.get('availabilityZone'),
         filters=__ret__.get('filters'),

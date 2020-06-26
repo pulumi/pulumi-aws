@@ -50,6 +50,8 @@ import (
 type Snapshot struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId pulumi.StringOutput `pulumi:"dataEncryptionKeyId"`
 	// A description of what the snapshot is.
@@ -101,6 +103,8 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn *string `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId *string `pulumi:"dataEncryptionKeyId"`
 	// A description of what the snapshot is.
@@ -122,6 +126,8 @@ type snapshotState struct {
 }
 
 type SnapshotState struct {
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn pulumi.StringPtrInput
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId pulumi.StringPtrInput
 	// A description of what the snapshot is.

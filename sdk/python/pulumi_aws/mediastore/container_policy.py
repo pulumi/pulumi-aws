@@ -41,7 +41,7 @@ class ContainerPolicy(pulumi.CustomResource):
         		"Action": [ "mediastore:*" ],
         		"Principal": {{"AWS" : "arn:aws:iam::{current_caller_identity.account_id}:root"}},
         		"Effect": "Allow",
-        		"Resource": "arn:aws:mediastore:{current_caller_identity.account_id}:{current_region.name}:container/{name}/*",
+        		"Resource": "arn:aws:mediastore:{current_region.name}:{current_caller_identity.account_id}:container/{name}/*",
         		"Condition": {{
         			"Bool": {{ "aws:SecureTransport": "true" }}
         		}}

@@ -134,6 +134,10 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the Default Network ACL
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The Network ACL ID to manage. This
      * attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      */
@@ -176,6 +180,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DefaultNetworkAclState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["defaultNetworkAclId"] = state ? state.defaultNetworkAclId : undefined;
             inputs["egress"] = state ? state.egress : undefined;
             inputs["ingress"] = state ? state.ingress : undefined;
@@ -193,6 +198,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
             inputs["ingress"] = args ? args.ingress : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
@@ -211,6 +217,10 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultNetworkAcl resources.
  */
 export interface DefaultNetworkAclState {
+    /**
+     * The ARN of the Default Network ACL
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The Network ACL ID to manage. This
      * attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.

@@ -27,7 +27,7 @@ class Service(pulumi.CustomResource):
     """
     Configuration block containing deployment controller configuration. Defined below.
 
-      * `type` (`str`) - Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+      * `type` (`str`) - Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
     """
     deployment_maximum_percent: pulumi.Output[float]
     """
@@ -113,7 +113,7 @@ class Service(pulumi.CustomResource):
     """
     scheduling_strategy: pulumi.Output[str]
     """
-    The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+    The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
     """
     service_registries: pulumi.Output[dict]
     """
@@ -126,16 +126,13 @@ class Service(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    Key-value mapping of resource tags
+    Key-value map of resource tags
     """
     task_definition: pulumi.Output[str]
     """
-    The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+    The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
     """
     wait_for_steady_state: pulumi.Output[bool]
-    """
-    If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-    """
     def __init__(__self__, resource_name, opts=None, capacity_provider_strategies=None, cluster=None, deployment_controller=None, deployment_maximum_percent=None, deployment_minimum_healthy_percent=None, desired_count=None, enable_ecs_managed_tags=None, force_new_deployment=None, health_check_grace_period_seconds=None, iam_role=None, launch_type=None, load_balancers=None, name=None, network_configuration=None, ordered_placement_strategies=None, placement_constraints=None, platform_version=None, propagate_tags=None, scheduling_strategy=None, service_registries=None, tags=None, task_definition=None, wait_for_steady_state=None, __props__=None, __name__=None, __opts__=None):
         """
         > **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
@@ -194,6 +191,18 @@ class Service(pulumi.CustomResource):
             scheduling_strategy="DAEMON",
             task_definition=aws_ecs_task_definition["bar"]["arn"])
         ```
+        ### External Deployment Controller
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.Service("example",
+            cluster=aws_ecs_cluster["example"]["id"],
+            deployment_controller={
+                "type": "EXTERNAL",
+            })
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,11 +224,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[list] placement_constraints: rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. Defined below.
         :param pulumi.Input[str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[str] propagate_tags: Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
-        :param pulumi.Input[str] scheduling_strategy: The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+        :param pulumi.Input[str] scheduling_strategy: The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         :param pulumi.Input[dict] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-        :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
+        :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 
         The **capacity_provider_strategies** object supports the following:
 
@@ -229,7 +237,7 @@ class Service(pulumi.CustomResource):
 
         The **deployment_controller** object supports the following:
 
-          * `type` (`pulumi.Input[str]`) - Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+          * `type` (`pulumi.Input[str]`) - Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
 
         The **load_balancers** object supports the following:
 
@@ -306,8 +314,6 @@ class Service(pulumi.CustomResource):
             __props__['scheduling_strategy'] = scheduling_strategy
             __props__['service_registries'] = service_registries
             __props__['tags'] = tags
-            if task_definition is None:
-                raise TypeError("Missing required property 'task_definition'")
             __props__['task_definition'] = task_definition
             __props__['wait_for_steady_state'] = wait_for_steady_state
         super(Service, __self__).__init__(
@@ -343,11 +349,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[list] placement_constraints: rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. Defined below.
         :param pulumi.Input[str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[str] propagate_tags: Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
-        :param pulumi.Input[str] scheduling_strategy: The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+        :param pulumi.Input[str] scheduling_strategy: The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         :param pulumi.Input[dict] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`.
-        :param pulumi.Input[dict] tags: Key-value mapping of resource tags
-        :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-        :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+        :param pulumi.Input[dict] tags: Key-value map of resource tags
+        :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 
         The **capacity_provider_strategies** object supports the following:
 
@@ -357,7 +362,7 @@ class Service(pulumi.CustomResource):
 
         The **deployment_controller** object supports the following:
 
-          * `type` (`pulumi.Input[str]`) - Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+          * `type` (`pulumi.Input[str]`) - Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
 
         The **load_balancers** object supports the following:
 

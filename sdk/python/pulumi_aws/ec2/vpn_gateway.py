@@ -15,6 +15,10 @@ class VpnGateway(pulumi.CustomResource):
     """
     The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
     """
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of the VPN Gateway.
+    """
     availability_zone: pulumi.Output[str]
     """
     The Availability Zone for the virtual private gateway.
@@ -72,6 +76,7 @@ class VpnGateway(pulumi.CustomResource):
             __props__['availability_zone'] = availability_zone
             __props__['tags'] = tags
             __props__['vpc_id'] = vpc_id
+            __props__['arn'] = None
         super(VpnGateway, __self__).__init__(
             'aws:ec2/vpnGateway:VpnGateway',
             resource_name,
@@ -79,7 +84,7 @@ class VpnGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, amazon_side_asn=None, availability_zone=None, tags=None, vpc_id=None):
+    def get(resource_name, id, opts=None, amazon_side_asn=None, arn=None, availability_zone=None, tags=None, vpc_id=None):
         """
         Get an existing VpnGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -88,6 +93,7 @@ class VpnGateway(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] amazon_side_asn: The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the VPN Gateway.
         :param pulumi.Input[str] availability_zone: The Availability Zone for the virtual private gateway.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.
@@ -97,6 +103,7 @@ class VpnGateway(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["amazon_side_asn"] = amazon_side_asn
+        __props__["arn"] = arn
         __props__["availability_zone"] = availability_zone
         __props__["tags"] = tags
         __props__["vpc_id"] = vpc_id

@@ -56,6 +56,12 @@ namespace Pulumi.Aws.Ebs
     public partial class SnapshotCopy : Pulumi.CustomResource
     {
         /// <summary>
+        /// Amazon Resource Name (ARN) of the EBS Snapshot.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// * `source_snapshot_id` The ARN of the copied snapshot.
         /// * `source_region` The region of the source snapshot.
@@ -215,6 +221,12 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class SnapshotCopyState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the EBS Snapshot.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// * `source_snapshot_id` The ARN of the copied snapshot.

@@ -38,6 +38,8 @@ import (
 type ReceiptFilter struct {
 	pulumi.CustomResourceState
 
+	// The SES receipt filter ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The IP address or address range to filter, in CIDR notation
 	Cidr pulumi.StringOutput `pulumi:"cidr"`
 	// The name of the filter
@@ -80,6 +82,8 @@ func GetReceiptFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReceiptFilter resources.
 type receiptFilterState struct {
+	// The SES receipt filter ARN.
+	Arn *string `pulumi:"arn"`
 	// The IP address or address range to filter, in CIDR notation
 	Cidr *string `pulumi:"cidr"`
 	// The name of the filter
@@ -89,6 +93,8 @@ type receiptFilterState struct {
 }
 
 type ReceiptFilterState struct {
+	// The SES receipt filter ARN.
+	Arn pulumi.StringPtrInput
 	// The IP address or address range to filter, in CIDR notation
 	Cidr pulumi.StringPtrInput
 	// The name of the filter

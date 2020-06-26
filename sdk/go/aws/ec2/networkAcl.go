@@ -67,6 +67,8 @@ import (
 type NetworkAcl struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the network ACL
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies an egress rule. Parameters defined below.
 	Egress NetworkAclEgressArrayOutput `pulumi:"egress"`
 	// Specifies an ingress rule. Parameters defined below.
@@ -112,6 +114,8 @@ func GetNetworkAcl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkAcl resources.
 type networkAclState struct {
+	// The ARN of the network ACL
+	Arn *string `pulumi:"arn"`
 	// Specifies an egress rule. Parameters defined below.
 	Egress []NetworkAclEgress `pulumi:"egress"`
 	// Specifies an ingress rule. Parameters defined below.
@@ -127,6 +131,8 @@ type networkAclState struct {
 }
 
 type NetworkAclState struct {
+	// The ARN of the network ACL
+	Arn pulumi.StringPtrInput
 	// Specifies an egress rule. Parameters defined below.
 	Egress NetworkAclEgressArrayInput
 	// Specifies an ingress rule. Parameters defined below.

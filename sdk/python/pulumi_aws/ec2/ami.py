@@ -15,6 +15,10 @@ class Ami(pulumi.CustomResource):
     """
     Machine architecture for created instances. Defaults to "x86_64".
     """
+    arn: pulumi.Output[str]
+    """
+    The ARN of the AMI.
+    """
     description: pulumi.Output[str]
     """
     A longer, human-readable description for the AMI.
@@ -202,6 +206,7 @@ class Ami(pulumi.CustomResource):
             __props__['sriov_net_support'] = sriov_net_support
             __props__['tags'] = tags
             __props__['virtualization_type'] = virtualization_type
+            __props__['arn'] = None
             __props__['manage_ebs_snapshots'] = None
             __props__['root_snapshot_id'] = None
         super(Ami, __self__).__init__(
@@ -211,7 +216,7 @@ class Ami(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, architecture=None, description=None, ebs_block_devices=None, ena_support=None, ephemeral_block_devices=None, image_location=None, kernel_id=None, manage_ebs_snapshots=None, name=None, ramdisk_id=None, root_device_name=None, root_snapshot_id=None, sriov_net_support=None, tags=None, virtualization_type=None):
+    def get(resource_name, id, opts=None, architecture=None, arn=None, description=None, ebs_block_devices=None, ena_support=None, ephemeral_block_devices=None, image_location=None, kernel_id=None, manage_ebs_snapshots=None, name=None, ramdisk_id=None, root_device_name=None, root_snapshot_id=None, sriov_net_support=None, tags=None, virtualization_type=None):
         """
         Get an existing Ami resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -220,6 +225,7 @@ class Ami(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
+        :param pulumi.Input[str] arn: The ARN of the AMI.
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[list] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
@@ -270,6 +276,7 @@ class Ami(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["architecture"] = architecture
+        __props__["arn"] = arn
         __props__["description"] = description
         __props__["ebs_block_devices"] = ebs_block_devices
         __props__["ena_support"] = ena_support

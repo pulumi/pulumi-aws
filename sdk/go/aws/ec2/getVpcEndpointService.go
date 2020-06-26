@@ -124,6 +124,8 @@ type LookupVpcEndpointServiceArgs struct {
 type LookupVpcEndpointServiceResult struct {
 	// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
 	AcceptanceRequired bool `pulumi:"acceptanceRequired"`
+	// The Amazon Resource Name (ARN) of the VPC endpoint service.
+	Arn string `pulumi:"arn"`
 	// The Availability Zones in which the service is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The DNS names for the service.

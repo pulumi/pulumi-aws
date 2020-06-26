@@ -11,6 +11,10 @@ from .. import utilities, tables
 
 
 class VpcEndpoint(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The Amazon Resource Name (ARN) of the VPC endpoint.
+    """
     auto_accept: pulumi.Output[bool]
     """
     Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
@@ -202,6 +206,7 @@ class VpcEndpoint(pulumi.CustomResource):
             if vpc_id is None:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__['vpc_id'] = vpc_id
+            __props__['arn'] = None
             __props__['cidr_blocks'] = None
             __props__['dns_entries'] = None
             __props__['network_interface_ids'] = None
@@ -216,7 +221,7 @@ class VpcEndpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_accept=None, cidr_blocks=None, dns_entries=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
+    def get(resource_name, id, opts=None, arn=None, auto_accept=None, cidr_blocks=None, dns_entries=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
         """
         Get an existing VpcEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -224,6 +229,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the VPC endpoint.
         :param pulumi.Input[bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         :param pulumi.Input[list] cidr_blocks: The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[list] dns_entries: The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
@@ -252,6 +258,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["auto_accept"] = auto_accept
         __props__["cidr_blocks"] = cidr_blocks
         __props__["dns_entries"] = dns_entries

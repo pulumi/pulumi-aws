@@ -13,7 +13,13 @@ class GetVpcEndpointResult:
     """
     A collection of values returned by getVpcEndpoint.
     """
-    def __init__(__self__, cidr_blocks=None, dns_entries=None, filters=None, id=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, cidr_blocks=None, dns_entries=None, filters=None, id=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        __self__.arn = arn
+        """
+        The Amazon Resource Name (ARN) of the VPC endpoint.
+        """
         if cidr_blocks and not isinstance(cidr_blocks, list):
             raise TypeError("Expected argument 'cidr_blocks' to be a list")
         __self__.cidr_blocks = cidr_blocks
@@ -110,6 +116,7 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
         if False:
             yield self
         return GetVpcEndpointResult(
+            arn=self.arn,
             cidr_blocks=self.cidr_blocks,
             dns_entries=self.dns_entries,
             filters=self.filters,
@@ -179,6 +186,7 @@ def get_vpc_endpoint(filters=None,id=None,service_name=None,state=None,tags=None
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts).value
 
     return AwaitableGetVpcEndpointResult(
+        arn=__ret__.get('arn'),
         cidr_blocks=__ret__.get('cidrBlocks'),
         dns_entries=__ret__.get('dnsEntries'),
         filters=__ret__.get('filters'),

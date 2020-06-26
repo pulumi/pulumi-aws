@@ -165,6 +165,8 @@ import (
 type DefaultNetworkAcl struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Default Network ACL
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Network ACL ID to manage. This
 	// attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
 	DefaultNetworkAclId pulumi.StringOutput `pulumi:"defaultNetworkAclId"`
@@ -214,6 +216,8 @@ func GetDefaultNetworkAcl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultNetworkAcl resources.
 type defaultNetworkAclState struct {
+	// The ARN of the Default Network ACL
+	Arn *string `pulumi:"arn"`
 	// The Network ACL ID to manage. This
 	// attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
 	DefaultNetworkAclId *string `pulumi:"defaultNetworkAclId"`
@@ -233,6 +237,8 @@ type defaultNetworkAclState struct {
 }
 
 type DefaultNetworkAclState struct {
+	// The ARN of the Default Network ACL
+	Arn pulumi.StringPtrInput
 	// The Network ACL ID to manage. This
 	// attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
 	DefaultNetworkAclId pulumi.StringPtrInput

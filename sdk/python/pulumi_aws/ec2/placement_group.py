@@ -11,6 +11,10 @@ from .. import utilities, tables
 
 
 class PlacementGroup(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of the placement group.
+    """
     name: pulumi.Output[str]
     """
     The name of the placement group.
@@ -69,6 +73,7 @@ class PlacementGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'strategy'")
             __props__['strategy'] = strategy
             __props__['tags'] = tags
+            __props__['arn'] = None
             __props__['placement_group_id'] = None
         super(PlacementGroup, __self__).__init__(
             'aws:ec2/placementGroup:PlacementGroup',
@@ -77,7 +82,7 @@ class PlacementGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, placement_group_id=None, strategy=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, name=None, placement_group_id=None, strategy=None, tags=None):
         """
         Get an existing PlacementGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -85,6 +90,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the placement group.
         :param pulumi.Input[str] name: The name of the placement group.
         :param pulumi.Input[str] placement_group_id: The ID of the placement group.
         :param pulumi.Input[str] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
@@ -94,6 +100,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["name"] = name
         __props__["placement_group_id"] = placement_group_id
         __props__["strategy"] = strategy

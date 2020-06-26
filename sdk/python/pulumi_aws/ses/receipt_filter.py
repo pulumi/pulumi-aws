@@ -11,6 +11,10 @@ from .. import utilities, tables
 
 
 class ReceiptFilter(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The SES receipt filter ARN.
+    """
     cidr: pulumi.Output[str]
     """
     The IP address or address range to filter, in CIDR notation
@@ -68,6 +72,7 @@ class ReceiptFilter(pulumi.CustomResource):
             if policy is None:
                 raise TypeError("Missing required property 'policy'")
             __props__['policy'] = policy
+            __props__['arn'] = None
         super(ReceiptFilter, __self__).__init__(
             'aws:ses/receiptFilter:ReceiptFilter',
             resource_name,
@@ -75,7 +80,7 @@ class ReceiptFilter(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, cidr=None, name=None, policy=None):
+    def get(resource_name, id, opts=None, arn=None, cidr=None, name=None, policy=None):
         """
         Get an existing ReceiptFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -83,6 +88,7 @@ class ReceiptFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The SES receipt filter ARN.
         :param pulumi.Input[str] cidr: The IP address or address range to filter, in CIDR notation
         :param pulumi.Input[str] name: The name of the filter
         :param pulumi.Input[str] policy: Block or Allow
@@ -91,6 +97,7 @@ class ReceiptFilter(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["cidr"] = cidr
         __props__["name"] = name
         __props__["policy"] = policy

@@ -215,6 +215,7 @@ export interface ProviderEndpoint {
     rds?: string;
     redshift?: string;
     resourcegroups?: string;
+    resourcegroupstaggingapi?: string;
     route53?: string;
     route53domains?: string;
     route53resolver?: string;
@@ -2921,7 +2922,7 @@ export namespace batch {
         /**
          * The desired number of EC2 vCPUS in the compute environment.
          */
-        desiredVcpus?: number;
+        desiredVcpus: number;
         /**
          * The EC2 key pair that is used for instances launched in the compute environment.
          */
@@ -5157,6 +5158,7 @@ export namespace config {
         rds?: string;
         redshift?: string;
         resourcegroups?: string;
+        resourcegroupstaggingapi?: string;
         route53?: string;
         route53domains?: string;
         route53resolver?: string;
@@ -8194,7 +8196,7 @@ export namespace ecs {
 
     export interface ServiceDeploymentController {
         /**
-         * Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+         * Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
          */
         type?: string;
     }
@@ -8366,13 +8368,36 @@ export namespace ecs {
 
     export interface TaskDefinitionVolumeEfsVolumeConfiguration {
         /**
+         * The authorization configuration details for the Amazon EFS file system.
+         */
+        authorizationConfig?: outputs.ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig;
+        /**
          * The ID of the EFS File System.
          */
         fileSystemId: string;
         /**
-         * The path to mount on the host
+         * The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
          */
         rootDirectory?: string;
+        /**
+         * Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+         */
+        transitEncryption?: string;
+        /**
+         * The port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
+         */
+        transitEncryptionPort?: number;
+    }
+
+    export interface TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+        /**
+         * The access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
+         */
+        accessPointId?: string;
+        /**
+         * Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
+         */
+        iam?: string;
     }
 }
 
@@ -11335,6 +11360,292 @@ export namespace iot {
          * The type of document you are storing.
          */
         type: string;
+    }
+
+    export interface TopicRuleErrorAction {
+        cloudwatchAlarm?: outputs.iot.TopicRuleErrorActionCloudwatchAlarm;
+        cloudwatchMetric?: outputs.iot.TopicRuleErrorActionCloudwatchMetric;
+        dynamodb?: outputs.iot.TopicRuleErrorActionDynamodb;
+        dynamodbv2?: outputs.iot.TopicRuleErrorActionDynamodbv2;
+        elasticsearch?: outputs.iot.TopicRuleErrorActionElasticsearch;
+        firehose?: outputs.iot.TopicRuleErrorActionFirehose;
+        iotAnalytics?: outputs.iot.TopicRuleErrorActionIotAnalytics;
+        iotEvents?: outputs.iot.TopicRuleErrorActionIotEvents;
+        kinesis?: outputs.iot.TopicRuleErrorActionKinesis;
+        lambda?: outputs.iot.TopicRuleErrorActionLambda;
+        republish?: outputs.iot.TopicRuleErrorActionRepublish;
+        s3?: outputs.iot.TopicRuleErrorActionS3;
+        sns?: outputs.iot.TopicRuleErrorActionSns;
+        sqs?: outputs.iot.TopicRuleErrorActionSqs;
+        stepFunctions?: outputs.iot.TopicRuleErrorActionStepFunctions;
+    }
+
+    export interface TopicRuleErrorActionCloudwatchAlarm {
+        /**
+         * The CloudWatch alarm name.
+         */
+        alarmName: string;
+        /**
+         * The IAM role ARN that allows access to the CloudWatch alarm.
+         */
+        roleArn: string;
+        /**
+         * The reason for the alarm change.
+         */
+        stateReason: string;
+        /**
+         * The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+         */
+        stateValue: string;
+    }
+
+    export interface TopicRuleErrorActionCloudwatchMetric {
+        /**
+         * The CloudWatch metric name.
+         */
+        metricName: string;
+        /**
+         * The CloudWatch metric namespace name.
+         */
+        metricNamespace: string;
+        /**
+         * An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
+         */
+        metricTimestamp?: string;
+        /**
+         * The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
+         */
+        metricUnit: string;
+        /**
+         * The CloudWatch metric value.
+         */
+        metricValue: string;
+        /**
+         * The IAM role ARN that allows access to the CloudWatch metric.
+         */
+        roleArn: string;
+    }
+
+    export interface TopicRuleErrorActionDynamodb {
+        /**
+         * The hash key name.
+         */
+        hashKeyField: string;
+        /**
+         * The hash key type. Valid values are "STRING" or "NUMBER".
+         */
+        hashKeyType?: string;
+        /**
+         * The hash key value.
+         */
+        hashKeyValue: string;
+        /**
+         * The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+         */
+        operation?: string;
+        /**
+         * The action payload.
+         */
+        payloadField?: string;
+        /**
+         * The range key name.
+         */
+        rangeKeyField?: string;
+        /**
+         * The range key type. Valid values are "STRING" or "NUMBER".
+         */
+        rangeKeyType?: string;
+        /**
+         * The range key value.
+         */
+        rangeKeyValue?: string;
+        /**
+         * The ARN of the IAM role that grants access to the DynamoDB table.
+         */
+        roleArn: string;
+        /**
+         * The name of the DynamoDB table.
+         */
+        tableName: string;
+    }
+
+    export interface TopicRuleErrorActionDynamodbv2 {
+        /**
+         * Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+         */
+        putItem?: outputs.iot.TopicRuleErrorActionDynamodbv2PutItem;
+        /**
+         * The IAM role ARN that allows access to the CloudWatch alarm.
+         */
+        roleArn: string;
+    }
+
+    export interface TopicRuleErrorActionDynamodbv2PutItem {
+        /**
+         * The name of the DynamoDB table.
+         */
+        tableName: string;
+    }
+
+    export interface TopicRuleErrorActionElasticsearch {
+        /**
+         * The endpoint of your Elasticsearch domain.
+         */
+        endpoint: string;
+        /**
+         * The unique identifier for the document you are storing.
+         */
+        id: string;
+        /**
+         * The Elasticsearch index where you want to store your data.
+         */
+        index: string;
+        /**
+         * The IAM role ARN that has access to Elasticsearch.
+         */
+        roleArn: string;
+        /**
+         * The type of document you are storing.
+         */
+        type: string;
+    }
+
+    export interface TopicRuleErrorActionFirehose {
+        /**
+         * The delivery stream name.
+         */
+        deliveryStreamName: string;
+        /**
+         * The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
+         */
+        roleArn: string;
+        /**
+         * A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+         */
+        separator?: string;
+    }
+
+    export interface TopicRuleErrorActionIotAnalytics {
+        /**
+         * Name of AWS IOT Analytics channel.
+         */
+        channelName: string;
+        /**
+         * The ARN of the IAM role that grants access.
+         */
+        roleArn: string;
+    }
+
+    export interface TopicRuleErrorActionIotEvents {
+        /**
+         * The name of the AWS IoT Events input.
+         */
+        inputName: string;
+        /**
+         * Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
+         */
+        messageId?: string;
+        /**
+         * The ARN of the IAM role that grants access.
+         */
+        roleArn: string;
+    }
+
+    export interface TopicRuleErrorActionKinesis {
+        /**
+         * The partition key.
+         */
+        partitionKey?: string;
+        /**
+         * The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+         */
+        roleArn: string;
+        /**
+         * The name of the Amazon Kinesis stream.
+         */
+        streamName: string;
+    }
+
+    export interface TopicRuleErrorActionLambda {
+        /**
+         * The ARN of the Lambda function.
+         */
+        functionArn: string;
+    }
+
+    export interface TopicRuleErrorActionRepublish {
+        /**
+         * The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+         */
+        qos?: number;
+        /**
+         * The ARN of the IAM role that grants access.
+         */
+        roleArn: string;
+        /**
+         * The name of the MQTT topic the message should be republished to.
+         */
+        topic: string;
+    }
+
+    export interface TopicRuleErrorActionS3 {
+        /**
+         * The Amazon S3 bucket name.
+         */
+        bucketName: string;
+        /**
+         * The object key.
+         */
+        key: string;
+        /**
+         * The IAM role ARN that allows access to the CloudWatch alarm.
+         */
+        roleArn: string;
+    }
+
+    export interface TopicRuleErrorActionSns {
+        /**
+         * The message format of the message to publish. Accepted values are "JSON" and "RAW".
+         */
+        messageFormat?: string;
+        /**
+         * The ARN of the IAM role that grants access.
+         */
+        roleArn: string;
+        /**
+         * The ARN of the SNS topic.
+         */
+        targetArn: string;
+    }
+
+    export interface TopicRuleErrorActionSqs {
+        /**
+         * The URL of the Amazon SQS queue.
+         */
+        queueUrl: string;
+        /**
+         * The ARN of the IAM role that grants access.
+         */
+        roleArn: string;
+        /**
+         * Specifies whether to use Base64 encoding.
+         */
+        useBase64: boolean;
+    }
+
+    export interface TopicRuleErrorActionStepFunctions {
+        /**
+         * The prefix used to generate, along with a UUID, the unique state machine execution name.
+         */
+        executionNamePrefix?: string;
+        /**
+         * The ARN of the IAM role that grants access to start execution of the state machine.
+         */
+        roleArn: string;
+        /**
+         * The name of the Step Functions state machine whose execution will be started.
+         */
+        stateMachineName: string;
     }
 
     export interface TopicRuleFirehose {

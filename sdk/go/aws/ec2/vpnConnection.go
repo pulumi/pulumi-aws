@@ -103,6 +103,8 @@ import (
 type VpnConnection struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the VPN Connection.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The configuration information for the VPN connection's customer gateway (in the native XML format).
 	CustomerGatewayConfiguration pulumi.StringOutput `pulumi:"customerGatewayConfiguration"`
 	// The ID of the customer gateway.
@@ -185,6 +187,8 @@ func GetVpnConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpnConnection resources.
 type vpnConnectionState struct {
+	// Amazon Resource Name (ARN) of the VPN Connection.
+	Arn *string `pulumi:"arn"`
 	// The configuration information for the VPN connection's customer gateway (in the native XML format).
 	CustomerGatewayConfiguration *string `pulumi:"customerGatewayConfiguration"`
 	// The ID of the customer gateway.
@@ -234,6 +238,8 @@ type vpnConnectionState struct {
 }
 
 type VpnConnectionState struct {
+	// Amazon Resource Name (ARN) of the VPN Connection.
+	Arn pulumi.StringPtrInput
 	// The configuration information for the VPN connection's customer gateway (in the native XML format).
 	CustomerGatewayConfiguration pulumi.StringPtrInput
 	// The ID of the customer gateway.

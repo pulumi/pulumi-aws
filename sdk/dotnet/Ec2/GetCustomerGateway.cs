@@ -106,6 +106,10 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetCustomerGatewayResult
     {
         /// <summary>
+        /// The ARN of the customer gateway.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
         public readonly int BgpAsn;
@@ -126,6 +130,8 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private GetCustomerGatewayResult(
+            string arn,
+
             int bgpAsn,
 
             ImmutableArray<Outputs.GetCustomerGatewayFilterResult> filters,
@@ -138,6 +144,7 @@ namespace Pulumi.Aws.Ec2
 
             string type)
         {
+            Arn = arn;
             BgpAsn = bgpAsn;
             Filters = filters;
             Id = id;

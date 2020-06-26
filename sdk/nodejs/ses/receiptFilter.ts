@@ -48,6 +48,10 @@ export class ReceiptFilter extends pulumi.CustomResource {
     }
 
     /**
+     * The SES receipt filter ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The IP address or address range to filter, in CIDR notation
      */
     public readonly cidr!: pulumi.Output<string>;
@@ -72,6 +76,7 @@ export class ReceiptFilter extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ReceiptFilterState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["cidr"] = state ? state.cidr : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["policy"] = state ? state.policy : undefined;
@@ -86,6 +91,7 @@ export class ReceiptFilter extends pulumi.CustomResource {
             inputs["cidr"] = args ? args.cidr : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["policy"] = args ? args.policy : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,6 +108,10 @@ export class ReceiptFilter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReceiptFilter resources.
  */
 export interface ReceiptFilterState {
+    /**
+     * The SES receipt filter ARN.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The IP address or address range to filter, in CIDR notation
      */

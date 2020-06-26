@@ -35,6 +35,12 @@ namespace Pulumi.Aws.Ses
     public partial class ReceiptFilter : Pulumi.CustomResource
     {
         /// <summary>
+        /// The SES receipt filter ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The IP address or address range to filter, in CIDR notation
         /// </summary>
         [Output("cidr")]
@@ -123,6 +129,12 @@ namespace Pulumi.Aws.Ses
 
     public sealed class ReceiptFilterState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The SES receipt filter ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The IP address or address range to filter, in CIDR notation
         /// </summary>

@@ -36,6 +36,8 @@ import (
 type CatalogDatabase struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Glue Catalog Database.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Description of the database.
@@ -76,6 +78,8 @@ func GetCatalogDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CatalogDatabase resources.
 type catalogDatabaseState struct {
+	// The ARN of the Glue Catalog Database.
+	Arn *string `pulumi:"arn"`
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId *string `pulumi:"catalogId"`
 	// Description of the database.
@@ -89,6 +93,8 @@ type catalogDatabaseState struct {
 }
 
 type CatalogDatabaseState struct {
+	// The ARN of the Glue Catalog Database.
+	Arn pulumi.StringPtrInput
 	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrInput
 	// Description of the database.

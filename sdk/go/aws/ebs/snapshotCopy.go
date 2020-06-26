@@ -60,6 +60,8 @@ import (
 type SnapshotCopy struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
 	// * `sourceSnapshotId` The ARN of the copied snapshot.
 	// * `sourceRegion` The region of the source snapshot.
@@ -119,6 +121,8 @@ func GetSnapshotCopy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotCopy resources.
 type snapshotCopyState struct {
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn *string `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
 	// * `sourceSnapshotId` The ARN of the copied snapshot.
 	// * `sourceRegion` The region of the source snapshot.
@@ -145,6 +149,8 @@ type snapshotCopyState struct {
 }
 
 type SnapshotCopyState struct {
+	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	Arn pulumi.StringPtrInput
 	// The data encryption key identifier for the snapshot.
 	// * `sourceSnapshotId` The ARN of the copied snapshot.
 	// * `sourceRegion` The region of the source snapshot.

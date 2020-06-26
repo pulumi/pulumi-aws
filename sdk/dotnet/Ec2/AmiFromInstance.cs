@@ -56,6 +56,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Architecture { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the AMI.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// A longer, human-readable description for the AMI.
         /// </summary>
         [Output("description")]
@@ -279,6 +285,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("architecture")]
         public Input<string>? Architecture { get; set; }
+
+        /// <summary>
+        /// The ARN of the AMI.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// A longer, human-readable description for the AMI.

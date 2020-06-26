@@ -2292,8 +2292,9 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_efs_mount_target": {Tok: awsDataSource(efsMod, "getMountTarget")},
-			"aws_efs_access_point": {Tok: awsDataSource(efsMod, "getAccessPoint")},
+			"aws_efs_mount_target":  {Tok: awsDataSource(efsMod, "getMountTarget")},
+			"aws_efs_access_point":  {Tok: awsDataSource(efsMod, "getAccessPoint")},
+			"aws_efs_access_points": {Tok: awsDataSource(efsMod, "getAccessPoints")},
 			// ECS for Kubernetes
 			"aws_eks_cluster": {
 				Tok: awsDataSource(eksMod, "getCluster"),

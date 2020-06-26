@@ -50,6 +50,10 @@ export class PlacementGroup extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the placement group.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The name of the placement group.
      */
     public readonly name!: pulumi.Output<string>;
@@ -78,6 +82,7 @@ export class PlacementGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as PlacementGroupState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["placementGroupId"] = state ? state.placementGroupId : undefined;
             inputs["strategy"] = state ? state.strategy : undefined;
@@ -90,6 +95,7 @@ export class PlacementGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["strategy"] = args ? args.strategy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["placementGroupId"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +113,10 @@ export class PlacementGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PlacementGroup resources.
  */
 export interface PlacementGroupState {
+    /**
+     * Amazon Resource Name (ARN) of the placement group.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The name of the placement group.
      */

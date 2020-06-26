@@ -72,6 +72,8 @@ import (
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the VPC endpoint.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept pulumi.BoolPtrOutput `pulumi:"autoAccept"`
 	// The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
@@ -143,6 +145,8 @@ func GetVpcEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpoint resources.
 type vpcEndpointState struct {
+	// The Amazon Resource Name (ARN) of the VPC endpoint.
+	Arn *string `pulumi:"arn"`
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept *bool `pulumi:"autoAccept"`
 	// The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
@@ -181,6 +185,8 @@ type vpcEndpointState struct {
 }
 
 type VpcEndpointState struct {
+	// The Amazon Resource Name (ARN) of the VPC endpoint.
+	Arn pulumi.StringPtrInput
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept pulumi.BoolPtrInput
 	// The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.

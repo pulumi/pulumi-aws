@@ -54,6 +54,10 @@ export class VpnGateway extends pulumi.CustomResource {
      */
     public readonly amazonSideAsn!: pulumi.Output<string>;
     /**
+     * Amazon Resource Name (ARN) of the VPN Gateway.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The Availability Zone for the virtual private gateway.
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
@@ -79,6 +83,7 @@ export class VpnGateway extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as VpnGatewayState | undefined;
             inputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
@@ -88,6 +93,7 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -108,6 +114,10 @@ export interface VpnGatewayState {
      * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
      */
     readonly amazonSideAsn?: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the VPN Gateway.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The Availability Zone for the virtual private gateway.
      */

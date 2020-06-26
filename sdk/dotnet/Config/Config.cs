@@ -214,6 +214,7 @@ namespace Pulumi.Aws
                 public string? Rds { get; set; } = null!;
                 public string? Redshift { get; set; } = null!;
                 public string? Resourcegroups { get; set; } = null!;
+                public string? Resourcegroupstaggingapi { get; set; } = null!;
                 public string? Route53 { get; set; } = null!;
                 public string? Route53domains { get; set; } = null!;
                 public string? Route53resolver { get; set; } = null!;

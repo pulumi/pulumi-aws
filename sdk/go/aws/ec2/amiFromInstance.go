@@ -55,6 +55,8 @@ type AmiFromInstance struct {
 
 	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture pulumi.StringOutput `pulumi:"architecture"`
+	// The ARN of the AMI.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
@@ -131,6 +133,8 @@ func GetAmiFromInstance(ctx *pulumi.Context,
 type amiFromInstanceState struct {
 	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture *string `pulumi:"architecture"`
+	// The ARN of the AMI.
+	Arn *string `pulumi:"arn"`
 	// A longer, human-readable description for the AMI.
 	Description *string `pulumi:"description"`
 	// Nested block describing an EBS block device that should be
@@ -177,6 +181,8 @@ type amiFromInstanceState struct {
 type AmiFromInstanceState struct {
 	// Machine architecture for created instances. Defaults to "x8664".
 	Architecture pulumi.StringPtrInput
+	// The ARN of the AMI.
+	Arn pulumi.StringPtrInput
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrInput
 	// Nested block describing an EBS block device that should be

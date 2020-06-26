@@ -154,6 +154,12 @@ namespace Pulumi.Aws.Ec2
     public partial class DefaultNetworkAcl : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the Default Network ACL
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The Network ACL ID to manage. This
         /// attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
         /// </summary>
@@ -306,6 +312,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultNetworkAclState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Default Network ACL
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The Network ACL ID to manage. This
         /// attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.

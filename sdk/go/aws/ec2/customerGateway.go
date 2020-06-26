@@ -42,6 +42,8 @@ import (
 type CustomerGateway struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the customer gateway.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
 	// The IP address of the gateway's Internet-routable external interface.
@@ -90,6 +92,8 @@ func GetCustomerGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomerGateway resources.
 type customerGatewayState struct {
+	// The ARN of the customer gateway.
+	Arn *string `pulumi:"arn"`
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 	BgpAsn *int `pulumi:"bgpAsn"`
 	// The IP address of the gateway's Internet-routable external interface.
@@ -102,6 +106,8 @@ type customerGatewayState struct {
 }
 
 type CustomerGatewayState struct {
+	// The ARN of the customer gateway.
+	Arn pulumi.StringPtrInput
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 	BgpAsn pulumi.IntPtrInput
 	// The IP address of the gateway's Internet-routable external interface.

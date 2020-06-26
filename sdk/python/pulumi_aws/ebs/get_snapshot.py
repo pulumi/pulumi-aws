@@ -13,7 +13,13 @@ class GetSnapshotResult:
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, data_encryption_key_id=None, description=None, encrypted=None, filters=None, id=None, kms_key_id=None, most_recent=None, owner_alias=None, owner_id=None, owners=None, restorable_by_user_ids=None, snapshot_id=None, snapshot_ids=None, state=None, tags=None, volume_id=None, volume_size=None):
+    def __init__(__self__, arn=None, data_encryption_key_id=None, description=None, encrypted=None, filters=None, id=None, kms_key_id=None, most_recent=None, owner_alias=None, owner_id=None, owners=None, restorable_by_user_ids=None, snapshot_id=None, snapshot_ids=None, state=None, tags=None, volume_id=None, volume_size=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        __self__.arn = arn
+        """
+        Amazon Resource Name (ARN) of the EBS Snapshot.
+        """
         if data_encryption_key_id and not isinstance(data_encryption_key_id, str):
             raise TypeError("Expected argument 'data_encryption_key_id' to be a str")
         __self__.data_encryption_key_id = data_encryption_key_id
@@ -107,6 +113,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
         if False:
             yield self
         return GetSnapshotResult(
+            arn=self.arn,
             data_encryption_key_id=self.data_encryption_key_id,
             description=self.description,
             encrypted=self.encrypted,
@@ -180,6 +187,7 @@ def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_id
     __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshot:getSnapshot', __args__, opts=opts).value
 
     return AwaitableGetSnapshotResult(
+        arn=__ret__.get('arn'),
         data_encryption_key_id=__ret__.get('dataEncryptionKeyId'),
         description=__ret__.get('description'),
         encrypted=__ret__.get('encrypted'),

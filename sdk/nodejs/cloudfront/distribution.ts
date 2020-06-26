@@ -377,7 +377,7 @@ export class Distribution extends pulumi.CustomResource {
      * requests, the Id of the AWS WAF web ACL that is associated with the
      * distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
      * region and the credentials configuring this argument must have
-     * `waf:GetWebACL` permissions assigned.
+     * `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
      */
     public readonly webAclId!: pulumi.Output<string | undefined>;
 
@@ -626,7 +626,7 @@ export interface DistributionState {
      * requests, the Id of the AWS WAF web ACL that is associated with the
      * distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
      * region and the credentials configuring this argument must have
-     * `waf:GetWebACL` permissions assigned.
+     * `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
      */
     readonly webAclId?: pulumi.Input<string>;
 }
@@ -733,7 +733,7 @@ export interface DistributionArgs {
      * requests, the Id of the AWS WAF web ACL that is associated with the
      * distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
      * region and the credentials configuring this argument must have
-     * `waf:GetWebACL` permissions assigned.
+     * `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
      */
     readonly webAclId?: pulumi.Input<string>;
 }

@@ -23,6 +23,9 @@ namespace Pulumi.Aws.Iot
     ///         var mytopic = new Aws.Sns.Topic("mytopic", new Aws.Sns.TopicArgs
     ///         {
     ///         });
+    ///         var myerrortopic = new Aws.Sns.Topic("myerrortopic", new Aws.Sns.TopicArgs
+    ///         {
+    ///         });
     ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
     ///         {
     ///             AssumeRolePolicy = @"{
@@ -44,6 +47,15 @@ namespace Pulumi.Aws.Iot
     ///         {
     ///             Description = "Example rule",
     ///             Enabled = true,
+    ///             ErrorAction = new Aws.Iot.Inputs.TopicRuleErrorActionArgs
+    ///             {
+    ///                 Sns = new Aws.Iot.Inputs.TopicRuleErrorActionSnsArgs
+    ///                 {
+    ///                     MessageFormat = "RAW",
+    ///                     RoleArn = role.Arn,
+    ///                     TargetArn = myerrortopic.Arn,
+    ///                 },
+    ///             },
     ///             Sns = new Aws.Iot.Inputs.TopicRuleSnsArgs
     ///             {
     ///                 Sns = "RAW",
@@ -110,6 +122,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        /// </summary>
+        [Output("errorAction")]
+        public Output<Outputs.TopicRuleErrorAction?> ErrorAction { get; private set; } = null!;
 
         [Output("firehose")]
         public Output<Outputs.TopicRuleFirehose?> Firehose { get; private set; } = null!;
@@ -243,6 +261,12 @@ namespace Pulumi.Aws.Iot
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        /// </summary>
+        [Input("errorAction")]
+        public Input<Inputs.TopicRuleErrorActionArgs>? ErrorAction { get; set; }
+
         [Input("firehose")]
         public Input<Inputs.TopicRuleFirehoseArgs>? Firehose { get; set; }
 
@@ -362,6 +386,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        /// </summary>
+        [Input("errorAction")]
+        public Input<Inputs.TopicRuleErrorActionGetArgs>? ErrorAction { get; set; }
 
         [Input("firehose")]
         public Input<Inputs.TopicRuleFirehoseGetArgs>? Firehose { get; set; }

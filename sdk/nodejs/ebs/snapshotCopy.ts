@@ -64,6 +64,10 @@ export class SnapshotCopy extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The data encryption key identifier for the snapshot.
      * * `sourceSnapshotId` The ARN of the copied snapshot.
      * * `sourceRegion` The region of the source snapshot.
@@ -119,6 +123,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SnapshotCopyState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["encrypted"] = state ? state.encrypted : undefined;
@@ -144,6 +149,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
             inputs["sourceRegion"] = args ? args.sourceRegion : undefined;
             inputs["sourceSnapshotId"] = args ? args.sourceSnapshotId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["dataEncryptionKeyId"] = undefined /*out*/;
             inputs["ownerAlias"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
@@ -165,6 +171,10 @@ export class SnapshotCopy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SnapshotCopy resources.
  */
 export interface SnapshotCopyState {
+    /**
+     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The data encryption key identifier for the snapshot.
      * * `sourceSnapshotId` The ARN of the copied snapshot.

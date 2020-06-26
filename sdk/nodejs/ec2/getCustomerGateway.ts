@@ -72,6 +72,10 @@ export interface GetCustomerGatewayArgs {
  */
 export interface GetCustomerGatewayResult {
     /**
+     * The ARN of the customer gateway.
+     */
+    readonly arn: string;
+    /**
      * (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
     readonly bgpAsn: number;

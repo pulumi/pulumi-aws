@@ -11,6 +11,10 @@ from .. import utilities, tables
 
 
 class Snapshot(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    Amazon Resource Name (ARN) of the EBS Snapshot.
+    """
     data_encryption_key_id: pulumi.Output[str]
     """
     The data encryption key identifier for the snapshot.
@@ -98,6 +102,7 @@ class Snapshot(pulumi.CustomResource):
             if volume_id is None:
                 raise TypeError("Missing required property 'volume_id'")
             __props__['volume_id'] = volume_id
+            __props__['arn'] = None
             __props__['data_encryption_key_id'] = None
             __props__['encrypted'] = None
             __props__['kms_key_id'] = None
@@ -111,7 +116,7 @@ class Snapshot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, data_encryption_key_id=None, description=None, encrypted=None, kms_key_id=None, owner_alias=None, owner_id=None, tags=None, volume_id=None, volume_size=None):
+    def get(resource_name, id, opts=None, arn=None, data_encryption_key_id=None, description=None, encrypted=None, kms_key_id=None, owner_alias=None, owner_id=None, tags=None, volume_id=None, volume_size=None):
         """
         Get an existing Snapshot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -119,6 +124,7 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
         :param pulumi.Input[str] data_encryption_key_id: The data encryption key identifier for the snapshot.
         :param pulumi.Input[str] description: A description of what the snapshot is.
         :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
@@ -133,6 +139,7 @@ class Snapshot(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["data_encryption_key_id"] = data_encryption_key_id
         __props__["description"] = description
         __props__["encrypted"] = encrypted

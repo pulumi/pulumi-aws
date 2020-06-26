@@ -80,6 +80,8 @@ type VpcEndpointService struct {
 	AcceptanceRequired pulumi.BoolOutput `pulumi:"acceptanceRequired"`
 	// The ARNs of one or more principals allowed to discover the endpoint service.
 	AllowedPrincipals pulumi.StringArrayOutput `pulumi:"allowedPrincipals"`
+	// The Amazon Resource Name (ARN) of the VPC endpoint service.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Availability Zones in which the service is available.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// The DNS names for the service.
@@ -138,6 +140,8 @@ type vpcEndpointServiceState struct {
 	AcceptanceRequired *bool `pulumi:"acceptanceRequired"`
 	// The ARNs of one or more principals allowed to discover the endpoint service.
 	AllowedPrincipals []string `pulumi:"allowedPrincipals"`
+	// The Amazon Resource Name (ARN) of the VPC endpoint service.
+	Arn *string `pulumi:"arn"`
 	// The Availability Zones in which the service is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The DNS names for the service.
@@ -163,6 +167,8 @@ type VpcEndpointServiceState struct {
 	AcceptanceRequired pulumi.BoolPtrInput
 	// The ARNs of one or more principals allowed to discover the endpoint service.
 	AllowedPrincipals pulumi.StringArrayInput
+	// The Amazon Resource Name (ARN) of the VPC endpoint service.
+	Arn pulumi.StringPtrInput
 	// The Availability Zones in which the service is available.
 	AvailabilityZones pulumi.StringArrayInput
 	// The DNS names for the service.

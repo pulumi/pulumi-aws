@@ -6,6 +6,7 @@ export * from "./accessPoint";
 export * from "./fileSystem";
 export * from "./fileSystemPolicy";
 export * from "./getAccessPoint";
+export * from "./getAccessPoints";
 export * from "./getFileSystem";
 export * from "./getMountTarget";
 export * from "./mountTarget";

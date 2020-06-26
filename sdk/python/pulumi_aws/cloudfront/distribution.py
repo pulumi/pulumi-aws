@@ -370,7 +370,7 @@ class Distribution(pulumi.CustomResource):
     requests, the Id of the AWS WAF web ACL that is associated with the
     distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
     region and the credentials configuring this argument must have
-    `waf:GetWebACL` permissions assigned.
+    `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
     """
     def __init__(__self__, resource_name, opts=None, aliases=None, comment=None, custom_error_responses=None, default_cache_behavior=None, default_root_object=None, enabled=None, http_version=None, is_ipv6_enabled=None, logging_config=None, ordered_cache_behaviors=None, origin_groups=None, origins=None, price_class=None, restrictions=None, retain_on_delete=None, tags=None, viewer_certificate=None, wait_for_deployment=None, web_acl_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -611,7 +611,7 @@ class Distribution(pulumi.CustomResource):
                requests, the Id of the AWS WAF web ACL that is associated with the
                distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
                region and the credentials configuring this argument must have
-               `waf:GetWebACL` permissions assigned.
+               `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
 
         The **custom_error_responses** object supports the following:
 
@@ -975,7 +975,7 @@ class Distribution(pulumi.CustomResource):
                requests, the Id of the AWS WAF web ACL that is associated with the
                distribution. The WAF Web ACL must exist in the WAF Global (CloudFront)
                region and the credentials configuring this argument must have
-               `waf:GetWebACL` permissions assigned.
+               `waf:GetWebACL` permissions assigned. If using WAFv2, provide the ARN of the web ACL.
 
         The **custom_error_responses** object supports the following:
 

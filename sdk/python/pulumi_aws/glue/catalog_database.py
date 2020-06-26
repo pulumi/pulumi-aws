@@ -11,6 +11,10 @@ from .. import utilities, tables
 
 
 class CatalogDatabase(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the Glue Catalog Database.
+    """
     catalog_id: pulumi.Output[str]
     """
     ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
@@ -74,6 +78,7 @@ class CatalogDatabase(pulumi.CustomResource):
             __props__['location_uri'] = location_uri
             __props__['name'] = name
             __props__['parameters'] = parameters
+            __props__['arn'] = None
         super(CatalogDatabase, __self__).__init__(
             'aws:glue/catalogDatabase:CatalogDatabase',
             resource_name,
@@ -81,7 +86,7 @@ class CatalogDatabase(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, catalog_id=None, description=None, location_uri=None, name=None, parameters=None):
+    def get(resource_name, id, opts=None, arn=None, catalog_id=None, description=None, location_uri=None, name=None, parameters=None):
         """
         Get an existing CatalogDatabase resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -89,6 +94,7 @@ class CatalogDatabase(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Glue Catalog Database.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[str] description: Description of the database.
         :param pulumi.Input[str] location_uri: The location of the database (for example, an HDFS path).
@@ -99,6 +105,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["catalog_id"] = catalog_id
         __props__["description"] = description
         __props__["location_uri"] = location_uri

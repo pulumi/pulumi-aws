@@ -11,6 +11,10 @@ from .. import utilities, tables
 
 
 class DefaultNetworkAcl(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the Default Network ACL
+    """
     default_network_acl_id: pulumi.Output[str]
     """
     The Network ACL ID to manage. This
@@ -221,6 +225,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
             __props__['ingress'] = ingress
             __props__['subnet_ids'] = subnet_ids
             __props__['tags'] = tags
+            __props__['arn'] = None
             __props__['owner_id'] = None
             __props__['vpc_id'] = None
         super(DefaultNetworkAcl, __self__).__init__(
@@ -230,7 +235,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, default_network_acl_id=None, egress=None, ingress=None, owner_id=None, subnet_ids=None, tags=None, vpc_id=None):
+    def get(resource_name, id, opts=None, arn=None, default_network_acl_id=None, egress=None, ingress=None, owner_id=None, subnet_ids=None, tags=None, vpc_id=None):
         """
         Get an existing DefaultNetworkAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -238,6 +243,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Default Network ACL
         :param pulumi.Input[str] default_network_acl_id: The Network ACL ID to manage. This
                attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
         :param pulumi.Input[list] egress: Specifies an egress rule. Parameters defined below.
@@ -280,6 +286,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["default_network_acl_id"] = default_network_acl_id
         __props__["egress"] = egress
         __props__["ingress"] = ingress

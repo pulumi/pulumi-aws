@@ -434,6 +434,7 @@
         "efs/fileSystem.ts",
         "efs/fileSystemPolicy.ts",
         "efs/getAccessPoint.ts",
+        "efs/getAccessPoints.ts",
         "efs/getFileSystem.ts",
         "efs/getMountTarget.ts",
         "efs/index.ts",

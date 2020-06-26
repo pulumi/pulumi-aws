@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class ServiceDeploymentControllerGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`. Default: `ECS`.
+        /// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

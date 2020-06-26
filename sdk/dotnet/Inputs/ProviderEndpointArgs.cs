@@ -339,6 +339,9 @@ namespace Pulumi.Aws.Inputs
         [Input("resourcegroups")]
         public Input<string>? Resourcegroups { get; set; }
 
+        [Input("resourcegroupstaggingapi")]
+        public Input<string>? Resourcegroupstaggingapi { get; set; }
+
         [Input("route53")]
         public Input<string>? Route53 { get; set; }
 

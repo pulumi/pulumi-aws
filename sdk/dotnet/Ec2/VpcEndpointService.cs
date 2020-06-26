@@ -84,6 +84,12 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> AllowedPrincipals { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint service.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The Availability Zones in which the service is available.
         /// </summary>
         [Output("availabilityZones")]
@@ -249,6 +255,12 @@ namespace Pulumi.Aws.Ec2
             get => _allowedPrincipals ?? (_allowedPrincipals = new InputList<string>());
             set => _allowedPrincipals = value;
         }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC endpoint service.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;

@@ -7,6 +7,7 @@ from .access_point import *
 from .file_system import *
 from .file_system_policy import *
 from .get_access_point import *
+from .get_access_points import *
 from .get_file_system import *
 from .get_mount_target import *
 from .mount_target import *

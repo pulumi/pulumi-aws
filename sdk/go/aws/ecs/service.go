@@ -6,7 +6,6 @@ package ecs
 import (
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -33,6 +32,31 @@ import (
 // 			Cluster:            pulumi.String(aws_ecs_cluster.Foo.Id),
 // 			SchedulingStrategy: pulumi.String("DAEMON"),
 // 			TaskDefinition:     pulumi.String(aws_ecs_task_definition.Bar.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### External Deployment Controller
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = ecs.NewService(ctx, "example", &ecs.ServiceArgs{
+// 			Cluster: pulumi.String(aws_ecs_cluster.Example.Id),
+// 			DeploymentController: &ecs.ServiceDeploymentControllerArgs{
+// 				Type: pulumi.String("EXTERNAL"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -80,24 +104,20 @@ type Service struct {
 	PlatformVersion pulumi.StringOutput `pulumi:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags pulumi.StringPtrOutput `pulumi:"propagateTags"`
-	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy pulumi.StringPtrOutput `pulumi:"schedulingStrategy"`
 	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
 	ServiceRegistries ServiceServiceRegistriesPtrOutput `pulumi:"serviceRegistries"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-	TaskDefinition pulumi.StringOutput `pulumi:"taskDefinition"`
-	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-	WaitForSteadyState pulumi.BoolPtrOutput `pulumi:"waitForSteadyState"`
+	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+	TaskDefinition     pulumi.StringPtrOutput `pulumi:"taskDefinition"`
+	WaitForSteadyState pulumi.BoolPtrOutput   `pulumi:"waitForSteadyState"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
 func NewService(ctx *pulumi.Context,
 	name string, args *ServiceArgs, opts ...pulumi.ResourceOption) (*Service, error) {
-	if args == nil || args.TaskDefinition == nil {
-		return nil, errors.New("missing required argument 'TaskDefinition'")
-	}
 	if args == nil {
 		args = &ServiceArgs{}
 	}
@@ -159,16 +179,15 @@ type serviceState struct {
 	PlatformVersion *string `pulumi:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags *string `pulumi:"propagateTags"`
-	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy *string `pulumi:"schedulingStrategy"`
 	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
 	ServiceRegistries *ServiceServiceRegistries `pulumi:"serviceRegistries"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-	TaskDefinition *string `pulumi:"taskDefinition"`
-	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
+	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+	TaskDefinition     *string `pulumi:"taskDefinition"`
+	WaitForSteadyState *bool   `pulumi:"waitForSteadyState"`
 }
 
 type ServiceState struct {
@@ -208,15 +227,14 @@ type ServiceState struct {
 	PlatformVersion pulumi.StringPtrInput
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags pulumi.StringPtrInput
-	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy pulumi.StringPtrInput
 	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
 	ServiceRegistries ServiceServiceRegistriesPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.StringMapInput
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-	TaskDefinition pulumi.StringPtrInput
-	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+	TaskDefinition     pulumi.StringPtrInput
 	WaitForSteadyState pulumi.BoolPtrInput
 }
 
@@ -261,16 +279,15 @@ type serviceArgs struct {
 	PlatformVersion *string `pulumi:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags *string `pulumi:"propagateTags"`
-	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy *string `pulumi:"schedulingStrategy"`
 	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
 	ServiceRegistries *ServiceServiceRegistries `pulumi:"serviceRegistries"`
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-	TaskDefinition string `pulumi:"taskDefinition"`
-	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
+	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+	TaskDefinition     *string `pulumi:"taskDefinition"`
+	WaitForSteadyState *bool   `pulumi:"waitForSteadyState"`
 }
 
 // The set of arguments for constructing a Service resource.
@@ -311,15 +328,14 @@ type ServiceArgs struct {
 	PlatformVersion pulumi.StringPtrInput
 	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags pulumi.StringPtrInput
-	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Fargate tasks do not support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html).
+	// The scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy pulumi.StringPtrInput
 	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`.
 	ServiceRegistries ServiceServiceRegistriesPtrInput
-	// Key-value mapping of resource tags
+	// Key-value map of resource tags
 	Tags pulumi.StringMapInput
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-	TaskDefinition pulumi.StringInput
-	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+	TaskDefinition     pulumi.StringPtrInput
 	WaitForSteadyState pulumi.BoolPtrInput
 }
 

@@ -87,6 +87,10 @@ export interface GetSnapshotArgs {
  */
 export interface GetSnapshotResult {
     /**
+     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     */
+    readonly arn: string;
+    /**
      * The data encryption key identifier for the snapshot.
      */
     readonly dataEncryptionKeyId: string;

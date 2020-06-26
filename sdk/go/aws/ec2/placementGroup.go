@@ -38,6 +38,8 @@ import (
 type PlacementGroup struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the placement group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the placement group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the placement group.
@@ -79,6 +81,8 @@ func GetPlacementGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PlacementGroup resources.
 type placementGroupState struct {
+	// Amazon Resource Name (ARN) of the placement group.
+	Arn *string `pulumi:"arn"`
 	// The name of the placement group.
 	Name *string `pulumi:"name"`
 	// The ID of the placement group.
@@ -90,6 +94,8 @@ type placementGroupState struct {
 }
 
 type PlacementGroupState struct {
+	// Amazon Resource Name (ARN) of the placement group.
+	Arn pulumi.StringPtrInput
 	// The name of the placement group.
 	Name pulumi.StringPtrInput
 	// The ID of the placement group.

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * 		"Action": [ "mediastore:*" ],
  * 		"Principal": {"AWS" : "arn:aws:iam::${currentCallerIdentity.accountId}:root"},
  * 		"Effect": "Allow",
- * 		"Resource": "arn:aws:mediastore:${currentCallerIdentity.accountId}:${currentRegion.name!}:container/${exampleContainer.name}/*",
+ * 		"Resource": "arn:aws:mediastore:${currentRegion.name!}:${currentCallerIdentity.accountId}:container/${exampleContainer.name}/*",
  * 		"Condition": {
  * 			"Bool": { "aws:SecureTransport": "true" }
  * 		}
