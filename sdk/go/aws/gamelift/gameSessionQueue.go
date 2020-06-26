@@ -10,6 +10,8 @@ import (
 )
 
 // Provides an Gamelift Game Session Queue resource.
+//
+// ## Example Usage
 type GameSessionQueue struct {
 	pulumi.CustomResourceState
 

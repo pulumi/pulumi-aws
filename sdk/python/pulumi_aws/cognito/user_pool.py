@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class UserPool(pulumi.CustomResource):
     admin_create_user_config: pulumi.Output[dict]
     """
@@ -129,7 +130,7 @@ class UserPool(pulumi.CustomResource):
     """
     Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the [`up` command and use --replace](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
 
-      * `externalId` (`str`) - The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+      * `external_id` (`str`) - The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
       * `snsCallerArn` (`str`) - The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
     """
     sms_verification_message: pulumi.Output[str]
@@ -178,7 +179,6 @@ class UserPool(pulumi.CustomResource):
         Provides a Cognito User Pool resource.
 
         ## Example Usage
-
         ### Basic configuration
 
         ```python
@@ -187,7 +187,6 @@ class UserPool(pulumi.CustomResource):
 
         pool = aws.cognito.UserPool("pool")
         ```
-
         ### Enabling SMS and Software Token Multi-Factor Authentication
 
         ```python
@@ -199,7 +198,7 @@ class UserPool(pulumi.CustomResource):
             mfa_configuration="ON",
             sms_authentication_message="Your code is {####}",
             sms_configuration={
-                "externalId": "example",
+                "external_id": "example",
                 "snsCallerArn": aws_iam_role["example"]["arn"],
             },
             software_token_mfa_configuration={
@@ -292,7 +291,7 @@ class UserPool(pulumi.CustomResource):
 
         The **sms_configuration** object supports the following:
 
-          * `externalId` (`pulumi.Input[str]`) - The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+          * `external_id` (`pulumi.Input[str]`) - The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
           * `snsCallerArn` (`pulumi.Input[str]`) - The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
 
         The **software_token_mfa_configuration** object supports the following:
@@ -460,7 +459,7 @@ class UserPool(pulumi.CustomResource):
 
         The **sms_configuration** object supports the following:
 
-          * `externalId` (`pulumi.Input[str]`) - The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+          * `external_id` (`pulumi.Input[str]`) - The external ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
           * `snsCallerArn` (`pulumi.Input[str]`) - The ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
 
         The **software_token_mfa_configuration** object supports the following:
@@ -514,9 +513,9 @@ class UserPool(pulumi.CustomResource):
         __props__["username_configuration"] = username_configuration
         __props__["verification_message_template"] = verification_message_template
         return UserPool(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

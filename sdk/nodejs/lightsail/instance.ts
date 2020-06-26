@@ -13,8 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,7 +28,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ## Availability Zones
  *
  * Lightsail currently supports the following Availability Zones (e.g. `us-east-1a`):

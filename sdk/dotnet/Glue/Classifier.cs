@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Glue
     /// &gt; **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Csv Classifier
     /// 
     /// ```csharp
@@ -46,7 +45,6 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
-    /// 
     /// ### Grok Classifier
     /// 
     /// ```csharp
@@ -69,7 +67,6 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
-    /// 
     /// ### JSON Classifier
     /// 
     /// ```csharp
@@ -91,7 +88,6 @@ namespace Pulumi.Aws.Glue
     /// 
     /// }
     /// ```
-    /// 
     /// ### XML Classifier
     /// 
     /// ```csharp

@@ -70,8 +70,6 @@ def get_certificate(domain=None,key_types=None,most_recent=None,statuses=None,ta
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

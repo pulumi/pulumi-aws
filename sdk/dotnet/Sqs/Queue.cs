@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Sqs
     /// <summary>
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Text.Json;
@@ -44,7 +42,6 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// }
     /// ```
-    /// 
     /// ## FIFO queue
     /// 
     /// ```csharp

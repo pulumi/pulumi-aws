@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// instances to be requested on the Spot market.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Using launch specifications
     /// 
     /// ```csharp
@@ -72,7 +71,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// 
     /// ### Using multiple launch specifications
     /// 
     /// ```csharp

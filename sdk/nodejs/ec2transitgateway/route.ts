@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Manages an EC2 Transit Gateway Route.
  *
  * ## Example Usage
- *
  * ### Standard usage
  *
  * ```typescript
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     transitGatewayRouteTableId: aws_ec2_transit_gateway_example.associationDefaultRouteTableId,
  * });
  * ```
- *
  * ### Blackhole route
  *
  * ```typescript

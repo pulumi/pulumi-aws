@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Lambda
     /// For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
     /// 
     /// ## Example Usage
-    /// 
     /// ### DynamoDB
     /// 
     /// ```csharp
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
-    /// 
     /// ### Kinesis
     /// 
     /// ```csharp
@@ -58,7 +56,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
-    /// 
     /// ### SQS
     /// 
     /// ```csharp

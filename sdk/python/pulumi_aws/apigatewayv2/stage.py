@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Stage(pulumi.CustomResource):
     access_log_settings: pulumi.Output[dict]
     """
@@ -98,7 +99,6 @@ class Stage(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
         ## Example Usage
-
         ### Basic
 
         ```python
@@ -264,9 +264,9 @@ class Stage(pulumi.CustomResource):
         __props__["stage_variables"] = stage_variables
         __props__["tags"] = tags
         return Stage(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

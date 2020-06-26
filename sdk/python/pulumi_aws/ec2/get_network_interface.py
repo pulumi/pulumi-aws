@@ -151,8 +151,6 @@ def get_network_interface(filters=None,id=None,tags=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

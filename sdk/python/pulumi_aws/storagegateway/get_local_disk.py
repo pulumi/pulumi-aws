@@ -53,8 +53,6 @@ def get_local_disk(disk_node=None,disk_path=None,gateway_arn=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

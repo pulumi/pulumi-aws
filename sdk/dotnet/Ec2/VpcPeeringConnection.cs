@@ -26,8 +26,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -47,6 +45,98 @@ namespace Pulumi.Aws.Ec2
     /// }
     /// ```
     /// 
+    /// Basic usage with connection options:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ec2.VpcPeeringConnection("foo", new Aws.Ec2.VpcPeeringConnectionArgs
+    ///         {
+    ///             Accepter = new Aws.Ec2.Inputs.VpcPeeringConnectionAccepterArgs
+    ///             {
+    ///                 AllowRemoteVpcDnsResolution = true,
+    ///             },
+    ///             PeerOwnerId = @var.Peer_owner_id,
+    ///             PeerVpcId = aws_vpc.Bar.Id,
+    ///             Requester = new Aws.Ec2.Inputs.VpcPeeringConnectionRequesterArgs
+    ///             {
+    ///                 AllowRemoteVpcDnsResolution = true,
+    ///             },
+    ///             VpcId = aws_vpc.Foo.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Basic usage with tags:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooVpc = new Aws.Ec2.Vpc("fooVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var bar = new Aws.Ec2.Vpc("bar", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.2.0.0/16",
+    ///         });
+    ///         var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
+    ///         {
+    ///             AutoAccept = true,
+    ///             PeerOwnerId = @var.Peer_owner_id,
+    ///             PeerVpcId = bar.Id,
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "VPC Peering between foo and bar" },
+    ///             },
+    ///             VpcId = fooVpc.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Basic usage with region:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooVpc = new Aws.Ec2.Vpc("fooVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.1.0.0/16",
+    ///         });
+    ///         var bar = new Aws.Ec2.Vpc("bar", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.2.0.0/16",
+    ///         });
+    ///         var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
+    ///         {
+    ///             PeerOwnerId = @var.Peer_owner_id,
+    ///             PeerVpcId = bar.Id,
+    ///             VpcId = fooVpc.Id,
+    ///             PeerRegion = "us-east-1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Notes
     /// 
     /// If both VPCs are not in the same AWS account do not enable the `auto_accept` attribute.

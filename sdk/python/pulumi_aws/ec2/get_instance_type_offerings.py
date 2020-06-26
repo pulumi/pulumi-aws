@@ -49,8 +49,6 @@ def get_instance_type_offerings(filters=None,location_type=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -64,7 +64,7 @@ def get_patch_baseline(default_baseline=None,name_prefix=None,operating_system=N
 
     ## Example Usage
 
-
+    To retrieve a baseline provided by AWS:
 
     ```python
     import pulumi
@@ -73,6 +73,18 @@ def get_patch_baseline(default_baseline=None,name_prefix=None,operating_system=N
     centos = aws.ssm.get_patch_baseline(name_prefix="AWS-",
         operating_system="CENTOS",
         owner="AWS")
+    ```
+
+    To retrieve a baseline on your account:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    default_custom = aws.ssm.get_patch_baseline(default_baseline=True,
+        name_prefix="MyCustomBaseline",
+        operating_system="WINDOWS",
+        owner="Self")
     ```
 
 

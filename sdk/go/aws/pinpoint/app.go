@@ -13,8 +13,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -25,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := pinpoint.NewApp(ctx, "example", &pinpoint.AppArgs{
+// 		_, err = pinpoint.NewApp(ctx, "example", &pinpoint.AppArgs{
 // 			Limits: &pinpoint.AppLimitsArgs{
 // 				MaximumDuration: pulumi.Int(600),
 // 			},

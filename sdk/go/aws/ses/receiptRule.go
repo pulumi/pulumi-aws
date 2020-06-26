@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -26,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		store, err := ses.NewReceiptRule(ctx, "store", &ses.ReceiptRuleArgs{
+// 		_, err = ses.NewReceiptRule(ctx, "store", &ses.ReceiptRuleArgs{
 // 			AddHeaderActions: ses.ReceiptRuleAddHeaderActionArray{
 // 				&ses.ReceiptRuleAddHeaderActionArgs{
 // 					HeaderName:  pulumi.String("Custom-Header"),

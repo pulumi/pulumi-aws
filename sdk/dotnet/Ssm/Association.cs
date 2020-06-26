@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

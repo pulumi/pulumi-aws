@@ -73,8 +73,6 @@ def get_authorization_token(registry_id=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

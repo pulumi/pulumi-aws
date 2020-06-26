@@ -12,6 +12,34 @@ import (
 // Provides a Kinesis Video Stream resource. Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing.
 //
 // For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/kinesis"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = kinesis.NewVideoStream(ctx, "default", &kinesis.VideoStreamArgs{
+// 			DataRetentionInHours: pulumi.Int(1),
+// 			DeviceName:           pulumi.String("kinesis-video-device-name"),
+// 			MediaType:            pulumi.String("video/h264"),
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("kinesis-video-stream"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VideoStream struct {
 	pulumi.CustomResourceState
 

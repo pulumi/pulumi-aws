@@ -100,7 +100,6 @@ def get_vpc_dhcp_options(dhcp_options_id=None,filters=None,tags=None,opts=None):
     Retrieve information about an EC2 DHCP Options configuration.
 
     ## Example Usage
-
     ### Lookup by DHCP Options ID
 
     ```python
@@ -109,7 +108,6 @@ def get_vpc_dhcp_options(dhcp_options_id=None,filters=None,tags=None,opts=None):
 
     example = aws.ec2.get_vpc_dhcp_options(dhcp_options_id="dopts-12345678")
     ```
-
     ### Lookup by Filter
 
     ```python

@@ -12,10 +12,9 @@ import (
 
 // Attaches a load balancer policy to an ELB backend server.
 //
-//
 // ## Example Usage
 //
-//
+// Where the file `pubkey` in the current directory contains only the _public key_ of the certificate.
 //
 // ```go
 // package main
@@ -30,6 +29,8 @@ import (
 // 	})
 // }
 // ```
+//
+// This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
 type LoadBalancerBackendServerPolicy struct {
 	pulumi.CustomResourceState
 

@@ -29,7 +29,6 @@ namespace Pulumi.Aws.Acm
     /// which is currently in use (eg, by `aws.lb.Listener`).
     /// 
     /// ## Example Usage
-    /// 
     /// ### Certificate creation
     /// 
     /// ```csharp
@@ -53,7 +52,6 @@ namespace Pulumi.Aws.Acm
     /// 
     /// }
     /// ```
-    /// 
     /// ### Importing an existing certificate
     /// 
     /// ```csharp

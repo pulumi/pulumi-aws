@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * The state associated with existing resources will automatically be migrated.
  *
  * ## Example Usage
- *
  * ### Basic
  *
  * ```typescript
@@ -50,7 +49,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### AWS Cloud Map Service Discovery
  *
  * ```typescript
@@ -84,7 +82,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Listener Health Check
  *
  * ```typescript
@@ -121,7 +118,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Logging
  *
  * ```typescript

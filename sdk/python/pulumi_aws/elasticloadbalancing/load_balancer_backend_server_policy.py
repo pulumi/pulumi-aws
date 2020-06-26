@@ -10,6 +10,8 @@ from typing import Union
 from .. import utilities, tables
 
 warnings.warn("aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favor of aws.elb.LoadBalancerBackendServerPolicy", DeprecationWarning)
+
+
 class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
     instance_port: pulumi.Output[float]
     """
@@ -24,14 +26,12 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
     List of Policy Names to apply to the backend server.
     """
     warnings.warn("aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favor of aws.elb.LoadBalancerBackendServerPolicy", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, instance_port=None, load_balancer_name=None, policy_names=None, __props__=None, __name__=None, __opts__=None):
         """
         Attaches a load balancer policy to an ELB backend server.
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -70,6 +70,14 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             load_balancer_name=wu_tang.name,
             policy_names=[wu_tang_root_ca_backend_auth_policy.policy_name])
         ```
+
+        Where the file `pubkey` in the current directory contains only the _public key_ of the certificate.
+
+        ```python
+        import pulumi
+        ```
+
+        This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,9 +137,9 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         __props__["load_balancer_name"] = load_balancer_name
         __props__["policy_names"] = policy_names
         return LoadBalancerBackendServerPolicy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

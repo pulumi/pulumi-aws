@@ -16,8 +16,6 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;

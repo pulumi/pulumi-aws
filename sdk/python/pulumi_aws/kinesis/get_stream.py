@@ -100,8 +100,6 @@ def get_stream(name=None,tags=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

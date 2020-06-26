@@ -14,10 +14,7 @@ import (
 //
 // > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
 //
-//
 // ## Example Usage
-//
-//
 //
 // ```go
 // package main
@@ -33,7 +30,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		channel, err := pinpoint.NewAdmChannel(ctx, "channel", &pinpoint.AdmChannelArgs{
+// 		_, err = pinpoint.NewAdmChannel(ctx, "channel", &pinpoint.AdmChannelArgs{
 // 			ApplicationId: app.ApplicationId,
 // 			ClientId:      pulumi.String(""),
 // 			ClientSecret:  pulumi.String(""),

@@ -60,8 +60,6 @@ def get_outposts(availability_zone=None,availability_zone_id=None,site_id=None,o
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -14,8 +14,6 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -45,7 +43,6 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// }
     /// ```
-    /// 
     /// ## Usage with Cognito User Pool Authorizer
     /// 
     /// ```csharp

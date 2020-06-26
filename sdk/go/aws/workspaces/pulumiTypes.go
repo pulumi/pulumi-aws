@@ -26,8 +26,7 @@ type DirectorySelfServicePermissions struct {
 // DirectorySelfServicePermissionsInput is an input type that accepts DirectorySelfServicePermissionsArgs and DirectorySelfServicePermissionsOutput values.
 // You can construct a concrete instance of `DirectorySelfServicePermissionsInput` via:
 //
-// 		 DirectorySelfServicePermissionsArgs{...}
-//
+//          DirectorySelfServicePermissionsArgs{...}
 type DirectorySelfServicePermissionsInput interface {
 	pulumi.Input
 
@@ -71,12 +70,11 @@ func (i DirectorySelfServicePermissionsArgs) ToDirectorySelfServicePermissionsPt
 // DirectorySelfServicePermissionsPtrInput is an input type that accepts DirectorySelfServicePermissionsArgs, DirectorySelfServicePermissionsPtr and DirectorySelfServicePermissionsPtrOutput values.
 // You can construct a concrete instance of `DirectorySelfServicePermissionsPtrInput` via:
 //
-// 		 DirectorySelfServicePermissionsArgs{...}
+//          DirectorySelfServicePermissionsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DirectorySelfServicePermissionsPtrInput interface {
 	pulumi.Input
 
@@ -229,8 +227,7 @@ type IpGroupRule struct {
 // IpGroupRuleInput is an input type that accepts IpGroupRuleArgs and IpGroupRuleOutput values.
 // You can construct a concrete instance of `IpGroupRuleInput` via:
 //
-// 		 IpGroupRuleArgs{...}
-//
+//          IpGroupRuleArgs{...}
 type IpGroupRuleInput interface {
 	pulumi.Input
 
@@ -260,8 +257,7 @@ func (i IpGroupRuleArgs) ToIpGroupRuleOutputWithContext(ctx context.Context) IpG
 // IpGroupRuleArrayInput is an input type that accepts IpGroupRuleArray and IpGroupRuleArrayOutput values.
 // You can construct a concrete instance of `IpGroupRuleArrayInput` via:
 //
-// 		 IpGroupRuleArray{ IpGroupRuleArgs{...} }
-//
+//          IpGroupRuleArray{ IpGroupRuleArgs{...} }
 type IpGroupRuleArrayInput interface {
 	pulumi.Input
 
@@ -343,8 +339,7 @@ type WorkspaceWorkspaceProperties struct {
 // WorkspaceWorkspacePropertiesInput is an input type that accepts WorkspaceWorkspacePropertiesArgs and WorkspaceWorkspacePropertiesOutput values.
 // You can construct a concrete instance of `WorkspaceWorkspacePropertiesInput` via:
 //
-// 		 WorkspaceWorkspacePropertiesArgs{...}
-//
+//          WorkspaceWorkspacePropertiesArgs{...}
 type WorkspaceWorkspacePropertiesInput interface {
 	pulumi.Input
 
@@ -388,12 +383,11 @@ func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesPtrOutpu
 // WorkspaceWorkspacePropertiesPtrInput is an input type that accepts WorkspaceWorkspacePropertiesArgs, WorkspaceWorkspacePropertiesPtr and WorkspaceWorkspacePropertiesPtrOutput values.
 // You can construct a concrete instance of `WorkspaceWorkspacePropertiesPtrInput` via:
 //
-// 		 WorkspaceWorkspacePropertiesArgs{...}
+//          WorkspaceWorkspacePropertiesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type WorkspaceWorkspacePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -544,8 +538,7 @@ type GetBundleComputeType struct {
 // GetBundleComputeTypeInput is an input type that accepts GetBundleComputeTypeArgs and GetBundleComputeTypeOutput values.
 // You can construct a concrete instance of `GetBundleComputeTypeInput` via:
 //
-// 		 GetBundleComputeTypeArgs{...}
-//
+//          GetBundleComputeTypeArgs{...}
 type GetBundleComputeTypeInput interface {
 	pulumi.Input
 
@@ -573,8 +566,7 @@ func (i GetBundleComputeTypeArgs) ToGetBundleComputeTypeOutputWithContext(ctx co
 // GetBundleComputeTypeArrayInput is an input type that accepts GetBundleComputeTypeArray and GetBundleComputeTypeArrayOutput values.
 // You can construct a concrete instance of `GetBundleComputeTypeArrayInput` via:
 //
-// 		 GetBundleComputeTypeArray{ GetBundleComputeTypeArgs{...} }
-//
+//          GetBundleComputeTypeArray{ GetBundleComputeTypeArgs{...} }
 type GetBundleComputeTypeArrayInput interface {
 	pulumi.Input
 
@@ -643,8 +635,7 @@ type GetBundleRootStorage struct {
 // GetBundleRootStorageInput is an input type that accepts GetBundleRootStorageArgs and GetBundleRootStorageOutput values.
 // You can construct a concrete instance of `GetBundleRootStorageInput` via:
 //
-// 		 GetBundleRootStorageArgs{...}
-//
+//          GetBundleRootStorageArgs{...}
 type GetBundleRootStorageInput interface {
 	pulumi.Input
 
@@ -672,8 +663,7 @@ func (i GetBundleRootStorageArgs) ToGetBundleRootStorageOutputWithContext(ctx co
 // GetBundleRootStorageArrayInput is an input type that accepts GetBundleRootStorageArray and GetBundleRootStorageArrayOutput values.
 // You can construct a concrete instance of `GetBundleRootStorageArrayInput` via:
 //
-// 		 GetBundleRootStorageArray{ GetBundleRootStorageArgs{...} }
-//
+//          GetBundleRootStorageArray{ GetBundleRootStorageArgs{...} }
 type GetBundleRootStorageArrayInput interface {
 	pulumi.Input
 
@@ -742,8 +732,7 @@ type GetBundleUserStorage struct {
 // GetBundleUserStorageInput is an input type that accepts GetBundleUserStorageArgs and GetBundleUserStorageOutput values.
 // You can construct a concrete instance of `GetBundleUserStorageInput` via:
 //
-// 		 GetBundleUserStorageArgs{...}
-//
+//          GetBundleUserStorageArgs{...}
 type GetBundleUserStorageInput interface {
 	pulumi.Input
 
@@ -771,8 +760,7 @@ func (i GetBundleUserStorageArgs) ToGetBundleUserStorageOutputWithContext(ctx co
 // GetBundleUserStorageArrayInput is an input type that accepts GetBundleUserStorageArray and GetBundleUserStorageArrayOutput values.
 // You can construct a concrete instance of `GetBundleUserStorageArrayInput` via:
 //
-// 		 GetBundleUserStorageArray{ GetBundleUserStorageArgs{...} }
-//
+//          GetBundleUserStorageArray{ GetBundleUserStorageArgs{...} }
 type GetBundleUserStorageArrayInput interface {
 	pulumi.Input
 

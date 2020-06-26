@@ -20,8 +20,6 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -160,7 +158,16 @@ namespace Pulumi.Aws.Emr
     /// }
     /// ```
     /// 
+    /// The `aws.emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster
+    /// to use as a service, and another to place on your Cluster Instances to interact
+    /// with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`,
+    /// and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting
+    /// Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html)
+    /// guide for more information on these IAM roles. There is also a fully-bootable
+    /// example this provider configuration at the bottom of this page.
     /// ### Multiple Node Master Instance Group
+    /// 
+    /// Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
     /// 
     /// ```csharp
     /// using Pulumi;

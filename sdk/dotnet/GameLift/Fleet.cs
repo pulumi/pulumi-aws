@@ -14,8 +14,6 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

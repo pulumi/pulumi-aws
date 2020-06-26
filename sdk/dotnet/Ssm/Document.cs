@@ -18,8 +18,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -55,7 +53,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// }
     /// ```
-    /// 
     /// ## Permissions
     /// 
     /// The permissions attribute specifies how you want to share the document. If you share a document privately,

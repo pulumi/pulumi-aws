@@ -18,8 +18,7 @@ type ServerEndpointDetails struct {
 // ServerEndpointDetailsInput is an input type that accepts ServerEndpointDetailsArgs and ServerEndpointDetailsOutput values.
 // You can construct a concrete instance of `ServerEndpointDetailsInput` via:
 //
-// 		 ServerEndpointDetailsArgs{...}
-//
+//          ServerEndpointDetailsArgs{...}
 type ServerEndpointDetailsInput interface {
 	pulumi.Input
 
@@ -55,12 +54,11 @@ func (i ServerEndpointDetailsArgs) ToServerEndpointDetailsPtrOutputWithContext(c
 // ServerEndpointDetailsPtrInput is an input type that accepts ServerEndpointDetailsArgs, ServerEndpointDetailsPtr and ServerEndpointDetailsPtrOutput values.
 // You can construct a concrete instance of `ServerEndpointDetailsPtrInput` via:
 //
-// 		 ServerEndpointDetailsArgs{...}
+//          ServerEndpointDetailsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ServerEndpointDetailsPtrInput interface {
 	pulumi.Input
 

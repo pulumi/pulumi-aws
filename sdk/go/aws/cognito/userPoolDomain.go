@@ -13,7 +13,6 @@ import (
 // Provides a Cognito User Pool Domain resource.
 //
 // ## Example Usage
-//
 // ### Amazon Cognito domain
 //
 // ```go
@@ -30,7 +29,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		main, err := cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
+// 		_, err = cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
 // 			Domain:     pulumi.String("example-domain"),
 // 			UserPoolId: example.ID(),
 // 		})
@@ -41,7 +40,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Custom Cognito domain
 //
 // ```go
@@ -58,7 +56,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		main, err := cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
+// 		_, err = cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
 // 			CertificateArn: pulumi.String(aws_acm_certificate.Cert.Arn),
 // 			Domain:         pulumi.String("example-domain.example.com"),
 // 			UserPoolId:     example.ID(),

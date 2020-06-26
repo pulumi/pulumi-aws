@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * Doing so will cause a conflict of associations and will overwrite the association.
  *
  * ## Example Usage
- *
  * ### Basic
  *
  * ```typescript
@@ -29,7 +28,6 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
- *
  * ### Basic w/ Tags
  *
  * ```typescript
@@ -44,7 +42,6 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
- *
  * ### Interface Endpoint Type
  *
  * ```typescript
@@ -59,7 +56,6 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc_main.id,
  * });
  * ```
- *
  * ### Non-AWS Service
  *
  * ```typescript
@@ -87,6 +83,8 @@ import * as utilities from "../utilities";
  *     zoneId: internal.zoneId!,
  * });
  * ```
+ *
+ * > **NOTE The `dnsEntry` output is a list of maps:** This provider interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
  */
 export class VpcEndpoint extends pulumi.CustomResource {
     /**

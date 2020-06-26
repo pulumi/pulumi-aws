@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class SecurityGroup(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -103,7 +104,7 @@ class SecurityGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        Basic usage
 
         ```python
         import pulumi
@@ -129,7 +130,6 @@ class SecurityGroup(pulumi.CustomResource):
                 "Name": "allow_tls",
             })
         ```
-
         ## Usage with prefix list IDs
 
         Prefix list IDs are managed by AWS internally. Prefix list IDs
@@ -305,9 +305,9 @@ class SecurityGroup(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["vpc_id"] = vpc_id
         return SecurityGroup(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

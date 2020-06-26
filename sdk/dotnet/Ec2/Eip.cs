@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// Single EIP associated with an instance:
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -31,6 +31,105 @@ namespace Pulumi.Aws.Ec2
     ///         var lb = new Aws.Ec2.Eip("lb", new Aws.Ec2.EipArgs
     ///         {
     ///             Instance = aws_instance.Web.Id,
+    ///             Vpc = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Multiple EIPs associated with a single network interface:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var multi_ip = new Aws.Ec2.NetworkInterface("multi-ip", new Aws.Ec2.NetworkInterfaceArgs
+    ///         {
+    ///             PrivateIps = 
+    ///             {
+    ///                 "10.0.0.10",
+    ///                 "10.0.0.11",
+    ///             },
+    ///             SubnetId = aws_subnet.Main.Id,
+    ///         });
+    ///         var one = new Aws.Ec2.Eip("one", new Aws.Ec2.EipArgs
+    ///         {
+    ///             AssociateWithPrivateIp = "10.0.0.10",
+    ///             NetworkInterface = multi_ip.Id,
+    ///             Vpc = true,
+    ///         });
+    ///         var two = new Aws.Ec2.Eip("two", new Aws.Ec2.EipArgs
+    ///         {
+    ///             AssociateWithPrivateIp = "10.0.0.11",
+    ///             NetworkInterface = multi_ip.Id,
+    ///             Vpc = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only):
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Ec2.Vpc("default", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///             EnableDnsHostnames = true,
+    ///         });
+    ///         var gw = new Aws.Ec2.InternetGateway("gw", new Aws.Ec2.InternetGatewayArgs
+    ///         {
+    ///             VpcId = @default.Id,
+    ///         });
+    ///         var tfTestSubnet = new Aws.Ec2.Subnet("tfTestSubnet", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/24",
+    ///             MapPublicIpOnLaunch = true,
+    ///             VpcId = @default.Id,
+    ///         });
+    ///         var foo = new Aws.Ec2.Instance("foo", new Aws.Ec2.InstanceArgs
+    ///         {
+    ///             Ami = "ami-5189a661",
+    ///             InstanceType = "t2.micro",
+    ///             PrivateIp = "10.0.0.12",
+    ///             SubnetId = tfTestSubnet.Id,
+    ///         });
+    ///         var bar = new Aws.Ec2.Eip("bar", new Aws.Ec2.EipArgs
+    ///         {
+    ///             AssociateWithPrivateIp = "10.0.0.12",
+    ///             Instance = foo.Id,
+    ///             Vpc = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Allocating EIP from the BYOIP pool:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var byoip_ip = new Aws.Ec2.Eip("byoip-ip", new Aws.Ec2.EipArgs
+    ///         {
+    ///             PublicIpv4Pool = "ipv4pool-ec2-012345",
     ///             Vpc = true,
     ///         });
     ///     }

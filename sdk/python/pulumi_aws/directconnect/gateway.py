@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Gateway(pulumi.CustomResource):
     amazon_side_asn: pulumi.Output[str]
     """
@@ -27,8 +28,6 @@ class Gateway(pulumi.CustomResource):
         Provides a Direct Connect Gateway.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -91,9 +90,9 @@ class Gateway(pulumi.CustomResource):
         __props__["name"] = name
         __props__["owner_account_id"] = owner_account_id
         return Gateway(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

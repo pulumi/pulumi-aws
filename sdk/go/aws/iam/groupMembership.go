@@ -21,8 +21,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -45,7 +43,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		team, err := iam.NewGroupMembership(ctx, "team", &iam.GroupMembershipArgs{
+// 		_, err = iam.NewGroupMembership(ctx, "team", &iam.GroupMembershipArgs{
 // 			Group: group.Name,
 // 			Users: pulumi.StringArray{
 // 				userOne.Name,

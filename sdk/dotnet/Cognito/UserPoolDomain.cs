@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Cognito
     /// Provides a Cognito User Pool Domain resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Amazon Cognito domain
     /// 
     /// ```csharp
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// }
     /// ```
-    /// 
     /// ### Custom Cognito domain
     /// 
     /// ```csharp

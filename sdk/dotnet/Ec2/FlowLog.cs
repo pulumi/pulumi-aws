@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
     /// 
     /// ## Example Usage
-    /// 
     /// ### CloudWatch Logging
     /// 
     /// ```csharp
@@ -79,7 +78,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// 
     /// ### S3 Logging
     /// 
     /// ```csharp

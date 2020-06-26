@@ -52,6 +52,7 @@ class GetSecretResult:
         if rotation_enabled is not None:
             warnings.warn("Use the aws_secretsmanager_secret_rotation data source instead", DeprecationWarning)
             pulumi.log.warn("rotation_enabled is deprecated: Use the aws_secretsmanager_secret_rotation data source instead")
+
         __self__.rotation_enabled = rotation_enabled
         """
         Whether rotation is enabled or not.
@@ -61,6 +62,7 @@ class GetSecretResult:
         if rotation_lambda_arn is not None:
             warnings.warn("Use the aws_secretsmanager_secret_rotation data source instead", DeprecationWarning)
             pulumi.log.warn("rotation_lambda_arn is deprecated: Use the aws_secretsmanager_secret_rotation data source instead")
+
         __self__.rotation_lambda_arn = rotation_lambda_arn
         """
         Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
@@ -70,6 +72,7 @@ class GetSecretResult:
         if rotation_rules is not None:
             warnings.warn("Use the aws_secretsmanager_secret_rotation data source instead", DeprecationWarning)
             pulumi.log.warn("rotation_rules is deprecated: Use the aws_secretsmanager_secret_rotation data source instead")
+
         __self__.rotation_rules = rotation_rules
         """
         Rotation rules if rotation is enabled.
@@ -102,7 +105,6 @@ def get_secret(arn=None,name=None,opts=None):
     Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion`.
 
     ## Example Usage
-
     ### ARN
 
     ```python
@@ -111,7 +113,6 @@ def get_secret(arn=None,name=None,opts=None):
 
     by_arn = aws.secretsmanager.get_secret(arn="arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456")
     ```
-
     ### Name
 
     ```python

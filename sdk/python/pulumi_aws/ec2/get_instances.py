@@ -73,8 +73,6 @@ def get_instances(filters=None,instance_state_names=None,instance_tags=None,opts
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

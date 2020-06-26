@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Fleet(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -87,8 +88,6 @@ class Fleet(pulumi.CustomResource):
         Provides a Gamelift Fleet resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -249,9 +248,9 @@ class Fleet(pulumi.CustomResource):
         __props__["runtime_configuration"] = runtime_configuration
         __props__["tags"] = tags
         return Fleet(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

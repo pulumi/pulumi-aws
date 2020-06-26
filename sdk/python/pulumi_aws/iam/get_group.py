@@ -68,8 +68,6 @@ def get_group(group_name=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

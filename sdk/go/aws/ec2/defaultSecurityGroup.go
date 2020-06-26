@@ -41,14 +41,90 @@ import (
 // provides by default, but pulls the resource under management by this provider. This means that
 // any ingress or egress rules added or changed will be detected as drift.
 //
+// ```go
+// package main
 //
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.1.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
+// 			Egress: ec2.DefaultSecurityGroupEgressArray{
+// 				&ec2.DefaultSecurityGroupEgressArgs{
+// 					CidrBlocks: pulumi.StringArray{
+// 						pulumi.String("0.0.0.0/0"),
+// 					},
+// 					FromPort: pulumi.Int(0),
+// 					Protocol: pulumi.String("-1"),
+// 					ToPort:   pulumi.Int(0),
+// 				},
+// 			},
+// 			Ingress: ec2.DefaultSecurityGroupIngressArray{
+// 				&ec2.DefaultSecurityGroupIngressArgs{
+// 					FromPort: pulumi.Int(0),
+// 					Protocol: pulumi.String("-1"),
+// 					Self:     pulumi.Bool(true),
+// 					ToPort:   pulumi.Int(0),
+// 				},
+// 			},
+// 			VpcId: mainvpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Example config to deny all Egress traffic, allowing Ingress
 //
 // The following denies all Egress traffic by omitting any `egress` rules, while
 // including the default `ingress` rule to allow all traffic.
 //
+// ```go
+// package main
 //
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.1.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
+// 			Ingress: ec2.DefaultSecurityGroupIngressArray{
+// 				&ec2.DefaultSecurityGroupIngressArgs{
+// 					FromPort: pulumi.Int(0),
+// 					Protocol: pulumi.String("-1"),
+// 					Self:     pulumi.Bool(true),
+// 					ToPort:   pulumi.Int(0),
+// 				},
+// 			},
+// 			VpcId: mainvpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Usage
 //

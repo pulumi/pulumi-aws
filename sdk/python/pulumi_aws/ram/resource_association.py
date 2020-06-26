@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ResourceAssociation(pulumi.CustomResource):
     resource_arn: pulumi.Output[str]
     """
@@ -25,8 +26,6 @@ class ResourceAssociation(pulumi.CustomResource):
         > *NOTE:* Certain AWS resources (e.g. EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -90,9 +89,9 @@ class ResourceAssociation(pulumi.CustomResource):
         __props__["resource_arn"] = resource_arn
         __props__["resource_share_arn"] = resource_share_arn
         return ResourceAssociation(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

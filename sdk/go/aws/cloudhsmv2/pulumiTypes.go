@@ -21,8 +21,7 @@ type ClusterClusterCertificate struct {
 // ClusterClusterCertificateInput is an input type that accepts ClusterClusterCertificateArgs and ClusterClusterCertificateOutput values.
 // You can construct a concrete instance of `ClusterClusterCertificateInput` via:
 //
-// 		 ClusterClusterCertificateArgs{...}
-//
+//          ClusterClusterCertificateArgs{...}
 type ClusterClusterCertificateInput interface {
 	pulumi.Input
 
@@ -53,8 +52,7 @@ func (i ClusterClusterCertificateArgs) ToClusterClusterCertificateOutputWithCont
 // ClusterClusterCertificateArrayInput is an input type that accepts ClusterClusterCertificateArray and ClusterClusterCertificateArrayOutput values.
 // You can construct a concrete instance of `ClusterClusterCertificateArrayInput` via:
 //
-// 		 ClusterClusterCertificateArray{ ClusterClusterCertificateArgs{...} }
-//
+//          ClusterClusterCertificateArray{ ClusterClusterCertificateArgs{...} }
 type ClusterClusterCertificateArrayInput interface {
 	pulumi.Input
 
@@ -141,8 +139,7 @@ type GetClusterClusterCertificates struct {
 // GetClusterClusterCertificatesInput is an input type that accepts GetClusterClusterCertificatesArgs and GetClusterClusterCertificatesOutput values.
 // You can construct a concrete instance of `GetClusterClusterCertificatesInput` via:
 //
-// 		 GetClusterClusterCertificatesArgs{...}
-//
+//          GetClusterClusterCertificatesArgs{...}
 type GetClusterClusterCertificatesInput interface {
 	pulumi.Input
 

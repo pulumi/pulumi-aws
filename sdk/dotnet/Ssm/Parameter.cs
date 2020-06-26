@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// To store a basic string parameter:
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -33,6 +33,46 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// }
     /// ```
+    /// 
+    /// To store an encrypted string using the default SSM KMS key:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var @default = new Aws.Rds.Instance("default", new Aws.Rds.InstanceArgs
+    ///         {
+    ///             AllocatedStorage = 10,
+    ///             DbSubnetGroupName = "my_database_subnet_group",
+    ///             Engine = "mysql",
+    ///             EngineVersion = "5.7.16",
+    ///             InstanceClass = "db.t2.micro",
+    ///             Name = "mydb",
+    ///             ParameterGroupName = "default.mysql5.7",
+    ///             Password = @var.Database_master_password,
+    ///             StorageType = "gp2",
+    ///             Username = "foo",
+    ///         });
+    ///         var secret = new Aws.Ssm.Parameter("secret", new Aws.Ssm.ParameterArgs
+    ///         {
+    ///             Description = "The parameter description",
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", @var.Environment },
+    ///             },
+    ///             Type = "SecureString",
+    ///             Value = @var.Database_master_password,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
     /// </summary>
     public partial class Parameter : Pulumi.CustomResource
     {

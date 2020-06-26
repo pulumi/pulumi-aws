@@ -17,7 +17,7 @@ import (
 //
 // ## Example Usage
 //
-//
+// Single EIP associated with an instance:
 //
 // ```go
 // package main
@@ -29,9 +29,37 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		lb, err := ec2.NewEip(ctx, "lb", &ec2.EipArgs{
+// 		_, err = ec2.NewEip(ctx, "lb", &ec2.EipArgs{
 // 			Instance: pulumi.String(aws_instance.Web.Id),
 // 			Vpc:      pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// Multiple EIPs associated with a single network interface:
+//
+// Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only):
+//
+// Allocating EIP from the BYOIP pool:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = ec2.NewEip(ctx, "byoip-ip", &ec2.EipArgs{
+// 			PublicIpv4Pool: pulumi.String("ipv4pool-ec2-012345"),
+// 			Vpc:            pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -22,8 +22,7 @@ type EndpointAuthenticationOption struct {
 // EndpointAuthenticationOptionInput is an input type that accepts EndpointAuthenticationOptionArgs and EndpointAuthenticationOptionOutput values.
 // You can construct a concrete instance of `EndpointAuthenticationOptionInput` via:
 //
-// 		 EndpointAuthenticationOptionArgs{...}
-//
+//          EndpointAuthenticationOptionArgs{...}
 type EndpointAuthenticationOptionInput interface {
 	pulumi.Input
 
@@ -55,8 +54,7 @@ func (i EndpointAuthenticationOptionArgs) ToEndpointAuthenticationOptionOutputWi
 // EndpointAuthenticationOptionArrayInput is an input type that accepts EndpointAuthenticationOptionArray and EndpointAuthenticationOptionArrayOutput values.
 // You can construct a concrete instance of `EndpointAuthenticationOptionArrayInput` via:
 //
-// 		 EndpointAuthenticationOptionArray{ EndpointAuthenticationOptionArgs{...} }
-//
+//          EndpointAuthenticationOptionArray{ EndpointAuthenticationOptionArgs{...} }
 type EndpointAuthenticationOptionArrayInput interface {
 	pulumi.Input
 
@@ -139,8 +137,7 @@ type EndpointConnectionLogOptions struct {
 // EndpointConnectionLogOptionsInput is an input type that accepts EndpointConnectionLogOptionsArgs and EndpointConnectionLogOptionsOutput values.
 // You can construct a concrete instance of `EndpointConnectionLogOptionsInput` via:
 //
-// 		 EndpointConnectionLogOptionsArgs{...}
-//
+//          EndpointConnectionLogOptionsArgs{...}
 type EndpointConnectionLogOptionsInput interface {
 	pulumi.Input
 
@@ -180,12 +177,11 @@ func (i EndpointConnectionLogOptionsArgs) ToEndpointConnectionLogOptionsPtrOutpu
 // EndpointConnectionLogOptionsPtrInput is an input type that accepts EndpointConnectionLogOptionsArgs, EndpointConnectionLogOptionsPtr and EndpointConnectionLogOptionsPtrOutput values.
 // You can construct a concrete instance of `EndpointConnectionLogOptionsPtrInput` via:
 //
-// 		 EndpointConnectionLogOptionsArgs{...}
+//          EndpointConnectionLogOptionsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EndpointConnectionLogOptionsPtrInput interface {
 	pulumi.Input
 

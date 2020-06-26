@@ -12,6 +12,59 @@ import (
 // Provides a Glue Workflow resource.
 // The workflow graph (DAG) can be build using the `glue.Trigger` resource.
 // See the example below for creating a graph with four nodes (two triggers and two jobs).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := glue.NewWorkflow(ctx, "example", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = glue.NewTrigger(ctx, "example-start", &glue.TriggerArgs{
+// 			Actions: glue.TriggerActionArray{
+// 				&glue.TriggerActionArgs{
+// 					JobName: pulumi.String("example-job"),
+// 				},
+// 			},
+// 			Type:         pulumi.String("ON_DEMAND"),
+// 			WorkflowName: example.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = glue.NewTrigger(ctx, "example-inner", &glue.TriggerArgs{
+// 			Actions: glue.TriggerActionArray{
+// 				&glue.TriggerActionArgs{
+// 					JobName: pulumi.String("another-example-job"),
+// 				},
+// 			},
+// 			Predicate: &glue.TriggerPredicateArgs{
+// 				Conditions: glue.TriggerPredicateConditionArray{
+// 					&glue.TriggerPredicateConditionArgs{
+// 						JobName: pulumi.String("example-job"),
+// 						State:   pulumi.String("SUCCEEDED"),
+// 					},
+// 				},
+// 			},
+// 			Type:         pulumi.String("CONDITIONAL"),
+// 			WorkflowName: example.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Workflow struct {
 	pulumi.CustomResourceState
 

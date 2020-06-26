@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -50,7 +48,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		wafAcl, err := waf.NewWebAcl(ctx, "wafAcl", &waf.WebAclArgs{
+// 		_, err = waf.NewWebAcl(ctx, "wafAcl", &waf.WebAclArgs{
 // 			DefaultAction: &waf.WebAclDefaultActionArgs{
 // 				Type: pulumi.String("ALLOW"),
 // 			},
@@ -73,8 +71,9 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Logging
+//
+// > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
 //
 // ```go
 // package main
@@ -86,17 +85,17 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := waf.NewWebAcl(ctx, "example", &waf.WebAclArgs{
+// 		_, err = waf.NewWebAcl(ctx, "example", &waf.WebAclArgs{
 // 			LoggingConfiguration: &waf.WebAclLoggingConfigurationArgs{
 // 				LogDestination: pulumi.String(aws_kinesis_firehose_delivery_stream.Example.Arn),
 // 				RedactedFields: &waf.WebAclLoggingConfigurationRedactedFieldsArgs{
-// 					FieldToMatch: []interface{}{
-// 						map[string]interface{}{
-// 							"type": "URI",
+// 					FieldToMatch: pulumi.Array{
+// 						pulumi.Map{
+// 							"type": pulumi.String("URI"),
 // 						},
-// 						map[string]interface{}{
-// 							"data": "referer",
-// 							"type": "HEADER",
+// 						pulumi.Map{
+// 							"data": pulumi.String("referer"),
+// 							"type": pulumi.String("HEADER"),
 // 						},
 // 					},
 // 				},

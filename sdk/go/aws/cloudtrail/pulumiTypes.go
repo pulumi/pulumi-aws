@@ -22,8 +22,7 @@ type TrailEventSelector struct {
 // TrailEventSelectorInput is an input type that accepts TrailEventSelectorArgs and TrailEventSelectorOutput values.
 // You can construct a concrete instance of `TrailEventSelectorInput` via:
 //
-// 		 TrailEventSelectorArgs{...}
-//
+//          TrailEventSelectorArgs{...}
 type TrailEventSelectorInput interface {
 	pulumi.Input
 
@@ -55,8 +54,7 @@ func (i TrailEventSelectorArgs) ToTrailEventSelectorOutputWithContext(ctx contex
 // TrailEventSelectorArrayInput is an input type that accepts TrailEventSelectorArray and TrailEventSelectorArrayOutput values.
 // You can construct a concrete instance of `TrailEventSelectorArrayInput` via:
 //
-// 		 TrailEventSelectorArray{ TrailEventSelectorArgs{...} }
-//
+//          TrailEventSelectorArray{ TrailEventSelectorArgs{...} }
 type TrailEventSelectorArrayInput interface {
 	pulumi.Input
 
@@ -137,8 +135,7 @@ type TrailEventSelectorDataResource struct {
 // TrailEventSelectorDataResourceInput is an input type that accepts TrailEventSelectorDataResourceArgs and TrailEventSelectorDataResourceOutput values.
 // You can construct a concrete instance of `TrailEventSelectorDataResourceInput` via:
 //
-// 		 TrailEventSelectorDataResourceArgs{...}
-//
+//          TrailEventSelectorDataResourceArgs{...}
 type TrailEventSelectorDataResourceInput interface {
 	pulumi.Input
 
@@ -168,8 +165,7 @@ func (i TrailEventSelectorDataResourceArgs) ToTrailEventSelectorDataResourceOutp
 // TrailEventSelectorDataResourceArrayInput is an input type that accepts TrailEventSelectorDataResourceArray and TrailEventSelectorDataResourceArrayOutput values.
 // You can construct a concrete instance of `TrailEventSelectorDataResourceArrayInput` via:
 //
-// 		 TrailEventSelectorDataResourceArray{ TrailEventSelectorDataResourceArgs{...} }
-//
+//          TrailEventSelectorDataResourceArray{ TrailEventSelectorDataResourceArgs{...} }
 type TrailEventSelectorDataResourceArrayInput interface {
 	pulumi.Input
 

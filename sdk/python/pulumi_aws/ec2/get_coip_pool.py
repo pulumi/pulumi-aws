@@ -61,7 +61,7 @@ def get_coip_pool(filters=None,local_gateway_route_table_id=None,pool_id=None,ta
 
     ## Example Usage
 
-
+    The following example returns a specific coip pool ID
 
     ```python
     import pulumi

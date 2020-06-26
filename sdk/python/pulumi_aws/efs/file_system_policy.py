@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class FileSystemPolicy(pulumi.CustomResource):
     file_system_id: pulumi.Output[str]
     """
@@ -23,8 +24,6 @@ class FileSystemPolicy(pulumi.CustomResource):
         Provides an Elastic File System (EFS) File System Policy resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -113,9 +112,9 @@ class FileSystemPolicy(pulumi.CustomResource):
         __props__["file_system_id"] = file_system_id
         __props__["policy"] = policy
         return FileSystemPolicy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

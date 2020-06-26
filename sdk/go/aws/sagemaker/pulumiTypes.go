@@ -28,8 +28,7 @@ type EndpointConfigurationProductionVariant struct {
 // EndpointConfigurationProductionVariantInput is an input type that accepts EndpointConfigurationProductionVariantArgs and EndpointConfigurationProductionVariantOutput values.
 // You can construct a concrete instance of `EndpointConfigurationProductionVariantInput` via:
 //
-// 		 EndpointConfigurationProductionVariantArgs{...}
-//
+//          EndpointConfigurationProductionVariantArgs{...}
 type EndpointConfigurationProductionVariantInput interface {
 	pulumi.Input
 
@@ -67,8 +66,7 @@ func (i EndpointConfigurationProductionVariantArgs) ToEndpointConfigurationProdu
 // EndpointConfigurationProductionVariantArrayInput is an input type that accepts EndpointConfigurationProductionVariantArray and EndpointConfigurationProductionVariantArrayOutput values.
 // You can construct a concrete instance of `EndpointConfigurationProductionVariantArrayInput` via:
 //
-// 		 EndpointConfigurationProductionVariantArray{ EndpointConfigurationProductionVariantArgs{...} }
-//
+//          EndpointConfigurationProductionVariantArray{ EndpointConfigurationProductionVariantArgs{...} }
 type EndpointConfigurationProductionVariantArrayInput interface {
 	pulumi.Input
 
@@ -169,8 +167,7 @@ type ModelContainer struct {
 // ModelContainerInput is an input type that accepts ModelContainerArgs and ModelContainerOutput values.
 // You can construct a concrete instance of `ModelContainerInput` via:
 //
-// 		 ModelContainerArgs{...}
-//
+//          ModelContainerArgs{...}
 type ModelContainerInput interface {
 	pulumi.Input
 
@@ -205,8 +202,7 @@ func (i ModelContainerArgs) ToModelContainerOutputWithContext(ctx context.Contex
 // ModelContainerArrayInput is an input type that accepts ModelContainerArray and ModelContainerArrayOutput values.
 // You can construct a concrete instance of `ModelContainerArrayInput` via:
 //
-// 		 ModelContainerArray{ ModelContainerArgs{...} }
-//
+//          ModelContainerArray{ ModelContainerArgs{...} }
 type ModelContainerArrayInput interface {
 	pulumi.Input
 
@@ -298,8 +294,7 @@ type ModelPrimaryContainer struct {
 // ModelPrimaryContainerInput is an input type that accepts ModelPrimaryContainerArgs and ModelPrimaryContainerOutput values.
 // You can construct a concrete instance of `ModelPrimaryContainerInput` via:
 //
-// 		 ModelPrimaryContainerArgs{...}
-//
+//          ModelPrimaryContainerArgs{...}
 type ModelPrimaryContainerInput interface {
 	pulumi.Input
 
@@ -342,12 +337,11 @@ func (i ModelPrimaryContainerArgs) ToModelPrimaryContainerPtrOutputWithContext(c
 // ModelPrimaryContainerPtrInput is an input type that accepts ModelPrimaryContainerArgs, ModelPrimaryContainerPtr and ModelPrimaryContainerPtrOutput values.
 // You can construct a concrete instance of `ModelPrimaryContainerPtrInput` via:
 //
-// 		 ModelPrimaryContainerArgs{...}
+//          ModelPrimaryContainerArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ModelPrimaryContainerPtrInput interface {
 	pulumi.Input
 
@@ -485,8 +479,7 @@ type ModelVpcConfig struct {
 // ModelVpcConfigInput is an input type that accepts ModelVpcConfigArgs and ModelVpcConfigOutput values.
 // You can construct a concrete instance of `ModelVpcConfigInput` via:
 //
-// 		 ModelVpcConfigArgs{...}
-//
+//          ModelVpcConfigArgs{...}
 type ModelVpcConfigInput interface {
 	pulumi.Input
 
@@ -522,12 +515,11 @@ func (i ModelVpcConfigArgs) ToModelVpcConfigPtrOutputWithContext(ctx context.Con
 // ModelVpcConfigPtrInput is an input type that accepts ModelVpcConfigArgs, ModelVpcConfigPtr and ModelVpcConfigPtrOutput values.
 // You can construct a concrete instance of `ModelVpcConfigPtrInput` via:
 //
-// 		 ModelVpcConfigArgs{...}
+//          ModelVpcConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ModelVpcConfigPtrInput interface {
 	pulumi.Input
 

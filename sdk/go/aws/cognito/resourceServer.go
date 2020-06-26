@@ -13,7 +13,6 @@ import (
 // Provides a Cognito Resource Server.
 //
 // ## Example Usage
-//
 // ### Create a basic resource server
 //
 // ```go
@@ -30,7 +29,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		resource, err := cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
+// 		_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
 // 			Identifier: pulumi.String("https://example.com"),
 // 			UserPoolId: pool.ID(),
 // 		})
@@ -41,7 +40,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Create a resource server with sample-scope
 //
 // ```go
@@ -58,7 +56,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		resource, err := cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
+// 		_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
 // 			Identifier: pulumi.String("https://example.com"),
 // 			Scopes: cognito.ResourceServerScopeArray{
 // 				&cognito.ResourceServerScopeArgs{

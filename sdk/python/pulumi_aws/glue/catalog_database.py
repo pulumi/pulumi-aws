@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class CatalogDatabase(pulumi.CustomResource):
     catalog_id: pulumi.Output[str]
     """
@@ -35,8 +36,6 @@ class CatalogDatabase(pulumi.CustomResource):
         Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -106,9 +105,9 @@ class CatalogDatabase(pulumi.CustomResource):
         __props__["name"] = name
         __props__["parameters"] = parameters
         return CatalogDatabase(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

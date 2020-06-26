@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Alias(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -38,8 +39,6 @@ class Alias(pulumi.CustomResource):
         the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -112,9 +111,9 @@ class Alias(pulumi.CustomResource):
         __props__["target_key_arn"] = target_key_arn
         __props__["target_key_id"] = target_key_id
         return Alias(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

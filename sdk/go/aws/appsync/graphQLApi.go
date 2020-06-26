@@ -13,7 +13,6 @@ import (
 // Provides an AppSync GraphQL API.
 //
 // ## Example Usage
-//
 // ### API Key Authentication
 //
 // ```go
@@ -26,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 		_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 // 			AuthenticationType: pulumi.String("API_KEY"),
 // 		})
 // 		if err != nil {
@@ -36,7 +35,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### AWS Cognito User Pool Authentication
 //
 // ```go
@@ -49,7 +47,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 		_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 // 			AuthenticationType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
 // 			UserPoolConfig: &appsync.GraphQLApiUserPoolConfigArgs{
 // 				AwsRegion:     pulumi.String(data.Aws_region.Current.Name),
@@ -64,7 +62,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### AWS IAM Authentication
 //
 // ```go
@@ -77,7 +74,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 		_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 // 			AuthenticationType: pulumi.String("AWS_IAM"),
 // 		})
 // 		if err != nil {
@@ -87,7 +84,31 @@ import (
 // 	})
 // }
 // ```
+// ### With Schema
 //
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/appsync"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 			AuthenticationType: pulumi.String("AWS_IAM"),
+// 			Schema: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "schema {\n", "	query: Query\n", "}\n", "type Query {\n", "  test: Int\n", "}\n", "\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### OpenID Connect Authentication
 //
 // ```go
@@ -100,7 +121,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 		_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 // 			AuthenticationType: pulumi.String("OPENID_CONNECT"),
 // 			OpenidConnectConfig: &appsync.GraphQLApiOpenidConnectConfigArgs{
 // 				Issuer: pulumi.String("https://example.com"),
@@ -113,7 +134,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### With Multiple Authentication Providers
 //
 // ```go
@@ -126,13 +146,54 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 		_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 // 			AdditionalAuthenticationProviders: appsync.GraphQLApiAdditionalAuthenticationProviderArray{
 // 				&appsync.GraphQLApiAdditionalAuthenticationProviderArgs{
 // 					AuthenticationType: pulumi.String("AWS_IAM"),
 // 				},
 // 			},
 // 			AuthenticationType: pulumi.String("API_KEY"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Enabling Logging
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/appsync"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "        \"Effect\": \"Allow\",\n", "        \"Principal\": {\n", "            \"Service\": \"appsync.amazonaws.com\"\n", "        },\n", "        \"Action\": \"sts:AssumeRole\"\n", "        }\n", "    ]\n", "}\n", "\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs"),
+// 			Role:      exampleRole.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
+// 			LogConfig: &appsync.GraphQLApiLogConfigArgs{
+// 				CloudwatchLogsRoleArn: exampleRole.Arn,
+// 				FieldLogLevel:         pulumi.String("ERROR"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

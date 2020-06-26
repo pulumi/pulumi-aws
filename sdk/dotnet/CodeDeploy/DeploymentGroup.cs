@@ -16,8 +16,6 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -114,7 +112,6 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// }
     /// ```
-    /// 
     /// ### Blue Green Deployments with ECS
     /// 
     /// ```csharp
@@ -194,7 +191,6 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// }
     /// ```
-    /// 
     /// ### Blue Green Deployments with Servers and Classic ELB
     /// 
     /// ```csharp

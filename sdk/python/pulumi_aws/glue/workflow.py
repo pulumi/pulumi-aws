@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Workflow(pulumi.CustomResource):
     default_run_properties: pulumi.Output[dict]
     """
@@ -25,12 +26,10 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, default_run_properties=None, description=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Glue Workflow resource.
-        The workflow graph (DAG) can be build using the `glue.Trigger` resource. 
-        See the example below for creating a graph with four nodes (two triggers and two jobs). 
+        The workflow graph (DAG) can be build using the `glue.Trigger` resource.
+        See the example below for creating a graph with four nodes (two triggers and two jobs).
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -110,9 +109,9 @@ class Workflow(pulumi.CustomResource):
         __props__["description"] = description
         __props__["name"] = name
         return Workflow(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

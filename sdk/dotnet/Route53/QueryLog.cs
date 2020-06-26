@@ -20,8 +20,6 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

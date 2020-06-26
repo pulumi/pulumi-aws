@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class MaintenanceWindowTask(pulumi.CustomResource):
     description: pulumi.Output[str]
     """
@@ -110,7 +111,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         Provides an SSM Maintenance Window Task resource
 
         ## Example Usage
-
         ### Automation Tasks
 
         ```python
@@ -139,7 +139,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             task_type="AUTOMATION",
             window_id=aws_ssm_maintenance_window["example"]["id"])
         ```
-
         ### Run Command Tasks
 
         ```python
@@ -176,7 +175,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             task_type="RUN_COMMAND",
             window_id=aws_ssm_maintenance_window["example"]["id"])
         ```
-
         ### Step Function Tasks
 
         ```python
@@ -418,9 +416,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         __props__["task_type"] = task_type
         __props__["window_id"] = window_id
         return MaintenanceWindowTask(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

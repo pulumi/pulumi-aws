@@ -10,21 +10,21 @@ import (
 // Get information on an EC2 Transit Gateway VPC Attachment.
 //
 // ## Example Usage
-//
 // ### By Filter
 //
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2transitgateway"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := ec2transitgateway.LookupVpcAttachment(ctx, &ec2transitgateway.LookupVpcAttachmentArgs{
-// 			Filters: ec2transitgateway.getVpcAttachmentFilterArray{
-// 				&ec2transitgateway.LookupVpcAttachmentFilter{
+// 		_, err := ec2transitgateway.LookupVpcAttachment(ctx, &ec2transitgateway.LookupVpcAttachmentArgs{
+// 			Filters: []ec2transitgateway.GetVpcAttachmentFilter{
+// 				ec2transitgateway.GetVpcAttachmentFilter{
 // 					Name: "vpc-id",
 // 					Values: []string{
 // 						"vpc-12345678",
@@ -39,20 +39,21 @@ import (
 // 	})
 // }
 // ```
-//
 // ### By Identifier
 //
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2transitgateway"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := ec2transitgateway.LookupVpcAttachment(ctx, &ec2transitgateway.LookupVpcAttachmentArgs{
-// 			Id: "tgw-attach-12345678",
+// 		opt0 := "tgw-attach-12345678"
+// 		_, err := ec2transitgateway.LookupVpcAttachment(ctx, &ec2transitgateway.LookupVpcAttachmentArgs{
+// 			Id: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

@@ -13,7 +13,6 @@ import (
 // Provides a resource to manage an S3 Access Point.
 //
 // ## Example Usage
-//
 // ### Basic Usage
 //
 // ```go
@@ -30,7 +29,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleAccessPoint, err := s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
+// 		_, err = s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
 // 			Bucket: exampleBucket.ID(),
 // 		})
 // 		if err != nil {

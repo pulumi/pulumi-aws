@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -36,8 +34,8 @@ import (
 // 		fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			CidrBlock:        pulumi.String("10.1.1.0/24"),
-// 			Tags: map[string]interface{}{
-// 				"Name": "tf-dbsubnet-test-1",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("tf-dbsubnet-test-1"),
 // 			},
 // 			VpcId: fooVpc.ID(),
 // 		})
@@ -47,21 +45,21 @@ import (
 // 		bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
 // 			AvailabilityZone: pulumi.String("us-west-2b"),
 // 			CidrBlock:        pulumi.String("10.1.2.0/24"),
-// 			Tags: map[string]interface{}{
-// 				"Name": "tf-dbsubnet-test-2",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("tf-dbsubnet-test-2"),
 // 			},
 // 			VpcId: fooVpc.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		fooSubnetGroup, err := redshift.NewSubnetGroup(ctx, "fooSubnetGroup", &redshift.SubnetGroupArgs{
+// 		_, err = redshift.NewSubnetGroup(ctx, "fooSubnetGroup", &redshift.SubnetGroupArgs{
 // 			SubnetIds: pulumi.StringArray{
 // 				fooSubnet.ID(),
 // 				bar.ID(),
 // 			},
-// 			Tags: map[string]interface{}{
-// 				"environment": "Production",
+// 			Tags: pulumi.Map{
+// 				"environment": pulumi.String("Production"),
 // 			},
 // 		})
 // 		if err != nil {

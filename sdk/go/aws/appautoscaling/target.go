@@ -13,6 +13,92 @@ import (
 // Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the `appautoscaling.Policy` resource.
 //
 // > **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the `iam.ServiceLinkedRole` resource.
+//
+// ## Example Usage
+// ### DynamoDB Table Autoscaling
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/appautoscaling"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = appautoscaling.NewTarget(ctx, "dynamodbTableReadTarget", &appautoscaling.TargetArgs{
+// 			MaxCapacity:       pulumi.Int(100),
+// 			MinCapacity:       pulumi.Int(5),
+// 			ResourceId:        pulumi.String(fmt.Sprintf("%v%v", "table/", aws_dynamodb_table.Example.Name)),
+// 			ScalableDimension: pulumi.String("dynamodb:table:ReadCapacityUnits"),
+// 			ServiceNamespace:  pulumi.String("dynamodb"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### ECS Service Autoscaling
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/appautoscaling"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = appautoscaling.NewTarget(ctx, "ecsTarget", &appautoscaling.TargetArgs{
+// 			MaxCapacity:       pulumi.Int(4),
+// 			MinCapacity:       pulumi.Int(1),
+// 			ResourceId:        pulumi.String(fmt.Sprintf("%v%v%v%v", "service/", aws_ecs_cluster.Example.Name, "/", aws_ecs_service.Example.Name)),
+// 			ScalableDimension: pulumi.String("ecs:service:DesiredCount"),
+// 			ServiceNamespace:  pulumi.String("ecs"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Aurora Read Replica Autoscaling
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/appautoscaling"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = appautoscaling.NewTarget(ctx, "replicas", &appautoscaling.TargetArgs{
+// 			MaxCapacity:       pulumi.Int(15),
+// 			MinCapacity:       pulumi.Int(1),
+// 			ResourceId:        pulumi.String(fmt.Sprintf("%v%v", "cluster:", aws_rds_cluster.Example.Id)),
+// 			ScalableDimension: pulumi.String("rds:cluster:ReadReplicaCount"),
+// 			ServiceNamespace:  pulumi.String("rds"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Target struct {
 	pulumi.CustomResourceState
 

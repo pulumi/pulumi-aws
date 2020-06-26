@@ -11,6 +11,41 @@ import (
 )
 
 // Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
+//
+// ## Example Usage
+// ### Add analytics configuration with S3 bucket object filter
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := s3.NewBucket(ctx, "example", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewAnalyticsConfiguration(ctx, "example-filtered", &s3.AnalyticsConfigurationArgs{
+// 			Bucket: example.Bucket,
+// 			Filter: &s3.AnalyticsConfigurationFilterArgs{
+// 				Prefix: pulumi.String("documents/"),
+// 				Tags: pulumi.Map{
+// 					"priority": pulumi.String("high"),
+// 					"class":    pulumi.String("blue"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type AnalyticsConfiguration struct {
 	pulumi.CustomResourceState
 

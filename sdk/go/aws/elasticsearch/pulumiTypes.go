@@ -36,8 +36,7 @@ type DomainClusterConfig struct {
 // DomainClusterConfigInput is an input type that accepts DomainClusterConfigArgs and DomainClusterConfigOutput values.
 // You can construct a concrete instance of `DomainClusterConfigInput` via:
 //
-// 		 DomainClusterConfigArgs{...}
-//
+//          DomainClusterConfigArgs{...}
 type DomainClusterConfigInput interface {
 	pulumi.Input
 
@@ -91,12 +90,11 @@ func (i DomainClusterConfigArgs) ToDomainClusterConfigPtrOutputWithContext(ctx c
 // DomainClusterConfigPtrInput is an input type that accepts DomainClusterConfigArgs, DomainClusterConfigPtr and DomainClusterConfigPtrOutput values.
 // You can construct a concrete instance of `DomainClusterConfigPtrInput` via:
 //
-// 		 DomainClusterConfigArgs{...}
+//          DomainClusterConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DomainClusterConfigPtrInput interface {
 	pulumi.Input
 
@@ -322,8 +320,7 @@ type DomainClusterConfigZoneAwarenessConfig struct {
 // DomainClusterConfigZoneAwarenessConfigInput is an input type that accepts DomainClusterConfigZoneAwarenessConfigArgs and DomainClusterConfigZoneAwarenessConfigOutput values.
 // You can construct a concrete instance of `DomainClusterConfigZoneAwarenessConfigInput` via:
 //
-// 		 DomainClusterConfigZoneAwarenessConfigArgs{...}
-//
+//          DomainClusterConfigZoneAwarenessConfigArgs{...}
 type DomainClusterConfigZoneAwarenessConfigInput interface {
 	pulumi.Input
 
@@ -359,12 +356,11 @@ func (i DomainClusterConfigZoneAwarenessConfigArgs) ToDomainClusterConfigZoneAwa
 // DomainClusterConfigZoneAwarenessConfigPtrInput is an input type that accepts DomainClusterConfigZoneAwarenessConfigArgs, DomainClusterConfigZoneAwarenessConfigPtr and DomainClusterConfigZoneAwarenessConfigPtrOutput values.
 // You can construct a concrete instance of `DomainClusterConfigZoneAwarenessConfigPtrInput` via:
 //
-// 		 DomainClusterConfigZoneAwarenessConfigArgs{...}
+//          DomainClusterConfigZoneAwarenessConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DomainClusterConfigZoneAwarenessConfigPtrInput interface {
 	pulumi.Input
 
@@ -461,8 +457,7 @@ type DomainCognitoOptions struct {
 // DomainCognitoOptionsInput is an input type that accepts DomainCognitoOptionsArgs and DomainCognitoOptionsOutput values.
 // You can construct a concrete instance of `DomainCognitoOptionsInput` via:
 //
-// 		 DomainCognitoOptionsArgs{...}
-//
+//          DomainCognitoOptionsArgs{...}
 type DomainCognitoOptionsInput interface {
 	pulumi.Input
 
@@ -504,12 +499,11 @@ func (i DomainCognitoOptionsArgs) ToDomainCognitoOptionsPtrOutputWithContext(ctx
 // DomainCognitoOptionsPtrInput is an input type that accepts DomainCognitoOptionsArgs, DomainCognitoOptionsPtr and DomainCognitoOptionsPtrOutput values.
 // You can construct a concrete instance of `DomainCognitoOptionsPtrInput` via:
 //
-// 		 DomainCognitoOptionsArgs{...}
+//          DomainCognitoOptionsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DomainCognitoOptionsPtrInput interface {
 	pulumi.Input
 
@@ -647,8 +641,7 @@ type DomainDomainEndpointOptions struct {
 // DomainDomainEndpointOptionsInput is an input type that accepts DomainDomainEndpointOptionsArgs and DomainDomainEndpointOptionsOutput values.
 // You can construct a concrete instance of `DomainDomainEndpointOptionsInput` via:
 //
-// 		 DomainDomainEndpointOptionsArgs{...}
-//
+//          DomainDomainEndpointOptionsArgs{...}
 type DomainDomainEndpointOptionsInput interface {
 	pulumi.Input
 
@@ -686,12 +679,11 @@ func (i DomainDomainEndpointOptionsArgs) ToDomainDomainEndpointOptionsPtrOutputW
 // DomainDomainEndpointOptionsPtrInput is an input type that accepts DomainDomainEndpointOptionsArgs, DomainDomainEndpointOptionsPtr and DomainDomainEndpointOptionsPtrOutput values.
 // You can construct a concrete instance of `DomainDomainEndpointOptionsPtrInput` via:
 //
-// 		 DomainDomainEndpointOptionsArgs{...}
+//          DomainDomainEndpointOptionsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DomainDomainEndpointOptionsPtrInput interface {
 	pulumi.Input
 
@@ -805,8 +797,7 @@ type DomainEbsOptions struct {
 // DomainEbsOptionsInput is an input type that accepts DomainEbsOptionsArgs and DomainEbsOptionsOutput values.
 // You can construct a concrete instance of `DomainEbsOptionsInput` via:
 //
-// 		 DomainEbsOptionsArgs{...}
-//
+//          DomainEbsOptionsArgs{...}
 type DomainEbsOptionsInput interface {
 	pulumi.Input
 
@@ -850,12 +841,11 @@ func (i DomainEbsOptionsArgs) ToDomainEbsOptionsPtrOutputWithContext(ctx context
 // DomainEbsOptionsPtrInput is an input type that accepts DomainEbsOptionsArgs, DomainEbsOptionsPtr and DomainEbsOptionsPtrOutput values.
 // You can construct a concrete instance of `DomainEbsOptionsPtrInput` via:
 //
-// 		 DomainEbsOptionsArgs{...}
+//          DomainEbsOptionsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DomainEbsOptionsPtrInput interface {
 	pulumi.Input
 
@@ -997,8 +987,7 @@ type DomainEncryptAtRest struct {
 // DomainEncryptAtRestInput is an input type that accepts DomainEncryptAtRestArgs and DomainEncryptAtRestOutput values.
 // You can construct a concrete instance of `DomainEncryptAtRestInput` via:
 //
-// 		 DomainEncryptAtRestArgs{...}
-//
+//          DomainEncryptAtRestArgs{...}
 type DomainEncryptAtRestInput interface {
 	pulumi.Input
 
@@ -1036,12 +1025,11 @@ func (i DomainEncryptAtRestArgs) ToDomainEncryptAtRestPtrOutputWithContext(ctx c
 // DomainEncryptAtRestPtrInput is an input type that accepts DomainEncryptAtRestArgs, DomainEncryptAtRestPtr and DomainEncryptAtRestPtrOutput values.
 // You can construct a concrete instance of `DomainEncryptAtRestPtrInput` via:
 //
-// 		 DomainEncryptAtRestArgs{...}
+//          DomainEncryptAtRestArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DomainEncryptAtRestPtrInput interface {
 	pulumi.Input
 
@@ -1151,8 +1139,7 @@ type DomainLogPublishingOption struct {
 // DomainLogPublishingOptionInput is an input type that accepts DomainLogPublishingOptionArgs and DomainLogPublishingOptionOutput values.
 // You can construct a concrete instance of `DomainLogPublishingOptionInput` via:
 //
-// 		 DomainLogPublishingOptionArgs{...}
-//
+//          DomainLogPublishingOptionArgs{...}
 type DomainLogPublishingOptionInput interface {
 	pulumi.Input
 
@@ -1184,8 +1171,7 @@ func (i DomainLogPublishingOptionArgs) ToDomainLogPublishingOptionOutputWithCont
 // DomainLogPublishingOptionArrayInput is an input type that accepts DomainLogPublishingOptionArray and DomainLogPublishingOptionArrayOutput values.
 // You can construct a concrete instance of `DomainLogPublishingOptionArrayInput` via:
 //
-// 		 DomainLogPublishingOptionArray{ DomainLogPublishingOptionArgs{...} }
-//
+//          DomainLogPublishingOptionArray{ DomainLogPublishingOptionArgs{...} }
 type DomainLogPublishingOptionArrayInput interface {
 	pulumi.Input
 
@@ -1264,8 +1250,7 @@ type DomainNodeToNodeEncryption struct {
 // DomainNodeToNodeEncryptionInput is an input type that accepts DomainNodeToNodeEncryptionArgs and DomainNodeToNodeEncryptionOutput values.
 // You can construct a concrete instance of `DomainNodeToNodeEncryptionInput` via:
 //
-// 		 DomainNodeToNodeEncryptionArgs{...}
-//
+//          DomainNodeToNodeEncryptionArgs{...}
 type DomainNodeToNodeEncryptionInput interface {
 	pulumi.Input
 
@@ -1301,12 +1286,11 @@ func (i DomainNodeToNodeEncryptionArgs) ToDomainNodeToNodeEncryptionPtrOutputWit
 // DomainNodeToNodeEncryptionPtrInput is an input type that accepts DomainNodeToNodeEncryptionArgs, DomainNodeToNodeEncryptionPtr and DomainNodeToNodeEncryptionPtrOutput values.
 // You can construct a concrete instance of `DomainNodeToNodeEncryptionPtrInput` via:
 //
-// 		 DomainNodeToNodeEncryptionArgs{...}
+//          DomainNodeToNodeEncryptionArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DomainNodeToNodeEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -1398,8 +1382,7 @@ type DomainSnapshotOptions struct {
 // DomainSnapshotOptionsInput is an input type that accepts DomainSnapshotOptionsArgs and DomainSnapshotOptionsOutput values.
 // You can construct a concrete instance of `DomainSnapshotOptionsInput` via:
 //
-// 		 DomainSnapshotOptionsArgs{...}
-//
+//          DomainSnapshotOptionsArgs{...}
 type DomainSnapshotOptionsInput interface {
 	pulumi.Input
 
@@ -1436,12 +1419,11 @@ func (i DomainSnapshotOptionsArgs) ToDomainSnapshotOptionsPtrOutputWithContext(c
 // DomainSnapshotOptionsPtrInput is an input type that accepts DomainSnapshotOptionsArgs, DomainSnapshotOptionsPtr and DomainSnapshotOptionsPtrOutput values.
 // You can construct a concrete instance of `DomainSnapshotOptionsPtrInput` via:
 //
-// 		 DomainSnapshotOptionsArgs{...}
+//          DomainSnapshotOptionsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DomainSnapshotOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1538,8 +1520,7 @@ type DomainVpcOptions struct {
 // DomainVpcOptionsInput is an input type that accepts DomainVpcOptionsArgs and DomainVpcOptionsOutput values.
 // You can construct a concrete instance of `DomainVpcOptionsInput` via:
 //
-// 		 DomainVpcOptionsArgs{...}
-//
+//          DomainVpcOptionsArgs{...}
 type DomainVpcOptionsInput interface {
 	pulumi.Input
 
@@ -1579,12 +1560,11 @@ func (i DomainVpcOptionsArgs) ToDomainVpcOptionsPtrOutputWithContext(ctx context
 // DomainVpcOptionsPtrInput is an input type that accepts DomainVpcOptionsArgs, DomainVpcOptionsPtr and DomainVpcOptionsPtrOutput values.
 // You can construct a concrete instance of `DomainVpcOptionsPtrInput` via:
 //
-// 		 DomainVpcOptionsArgs{...}
+//          DomainVpcOptionsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DomainVpcOptionsPtrInput interface {
 	pulumi.Input
 
@@ -1733,8 +1713,7 @@ type GetDomainClusterConfig struct {
 // GetDomainClusterConfigInput is an input type that accepts GetDomainClusterConfigArgs and GetDomainClusterConfigOutput values.
 // You can construct a concrete instance of `GetDomainClusterConfigInput` via:
 //
-// 		 GetDomainClusterConfigArgs{...}
-//
+//          GetDomainClusterConfigArgs{...}
 type GetDomainClusterConfigInput interface {
 	pulumi.Input
 
@@ -1780,8 +1759,7 @@ func (i GetDomainClusterConfigArgs) ToGetDomainClusterConfigOutputWithContext(ct
 // GetDomainClusterConfigArrayInput is an input type that accepts GetDomainClusterConfigArray and GetDomainClusterConfigArrayOutput values.
 // You can construct a concrete instance of `GetDomainClusterConfigArrayInput` via:
 //
-// 		 GetDomainClusterConfigArray{ GetDomainClusterConfigArgs{...} }
-//
+//          GetDomainClusterConfigArray{ GetDomainClusterConfigArgs{...} }
 type GetDomainClusterConfigArrayInput interface {
 	pulumi.Input
 
@@ -1897,8 +1875,7 @@ type GetDomainClusterConfigZoneAwarenessConfig struct {
 // GetDomainClusterConfigZoneAwarenessConfigInput is an input type that accepts GetDomainClusterConfigZoneAwarenessConfigArgs and GetDomainClusterConfigZoneAwarenessConfigOutput values.
 // You can construct a concrete instance of `GetDomainClusterConfigZoneAwarenessConfigInput` via:
 //
-// 		 GetDomainClusterConfigZoneAwarenessConfigArgs{...}
-//
+//          GetDomainClusterConfigZoneAwarenessConfigArgs{...}
 type GetDomainClusterConfigZoneAwarenessConfigInput interface {
 	pulumi.Input
 
@@ -1926,8 +1903,7 @@ func (i GetDomainClusterConfigZoneAwarenessConfigArgs) ToGetDomainClusterConfigZ
 // GetDomainClusterConfigZoneAwarenessConfigArrayInput is an input type that accepts GetDomainClusterConfigZoneAwarenessConfigArray and GetDomainClusterConfigZoneAwarenessConfigArrayOutput values.
 // You can construct a concrete instance of `GetDomainClusterConfigZoneAwarenessConfigArrayInput` via:
 //
-// 		 GetDomainClusterConfigZoneAwarenessConfigArray{ GetDomainClusterConfigZoneAwarenessConfigArgs{...} }
-//
+//          GetDomainClusterConfigZoneAwarenessConfigArray{ GetDomainClusterConfigZoneAwarenessConfigArgs{...} }
 type GetDomainClusterConfigZoneAwarenessConfigArrayInput interface {
 	pulumi.Input
 
@@ -2002,8 +1978,7 @@ type GetDomainCognitoOption struct {
 // GetDomainCognitoOptionInput is an input type that accepts GetDomainCognitoOptionArgs and GetDomainCognitoOptionOutput values.
 // You can construct a concrete instance of `GetDomainCognitoOptionInput` via:
 //
-// 		 GetDomainCognitoOptionArgs{...}
-//
+//          GetDomainCognitoOptionArgs{...}
 type GetDomainCognitoOptionInput interface {
 	pulumi.Input
 
@@ -2037,8 +2012,7 @@ func (i GetDomainCognitoOptionArgs) ToGetDomainCognitoOptionOutputWithContext(ct
 // GetDomainCognitoOptionArrayInput is an input type that accepts GetDomainCognitoOptionArray and GetDomainCognitoOptionArrayOutput values.
 // You can construct a concrete instance of `GetDomainCognitoOptionArrayInput` via:
 //
-// 		 GetDomainCognitoOptionArray{ GetDomainCognitoOptionArgs{...} }
-//
+//          GetDomainCognitoOptionArray{ GetDomainCognitoOptionArgs{...} }
 type GetDomainCognitoOptionArrayInput interface {
 	pulumi.Input
 
@@ -2129,8 +2103,7 @@ type GetDomainEbsOption struct {
 // GetDomainEbsOptionInput is an input type that accepts GetDomainEbsOptionArgs and GetDomainEbsOptionOutput values.
 // You can construct a concrete instance of `GetDomainEbsOptionInput` via:
 //
-// 		 GetDomainEbsOptionArgs{...}
-//
+//          GetDomainEbsOptionArgs{...}
 type GetDomainEbsOptionInput interface {
 	pulumi.Input
 
@@ -2165,8 +2138,7 @@ func (i GetDomainEbsOptionArgs) ToGetDomainEbsOptionOutputWithContext(ctx contex
 // GetDomainEbsOptionArrayInput is an input type that accepts GetDomainEbsOptionArray and GetDomainEbsOptionArrayOutput values.
 // You can construct a concrete instance of `GetDomainEbsOptionArrayInput` via:
 //
-// 		 GetDomainEbsOptionArray{ GetDomainEbsOptionArgs{...} }
-//
+//          GetDomainEbsOptionArray{ GetDomainEbsOptionArgs{...} }
 type GetDomainEbsOptionArrayInput interface {
 	pulumi.Input
 
@@ -2253,8 +2225,7 @@ type GetDomainEncryptionAtRest struct {
 // GetDomainEncryptionAtRestInput is an input type that accepts GetDomainEncryptionAtRestArgs and GetDomainEncryptionAtRestOutput values.
 // You can construct a concrete instance of `GetDomainEncryptionAtRestInput` via:
 //
-// 		 GetDomainEncryptionAtRestArgs{...}
-//
+//          GetDomainEncryptionAtRestArgs{...}
 type GetDomainEncryptionAtRestInput interface {
 	pulumi.Input
 
@@ -2284,8 +2255,7 @@ func (i GetDomainEncryptionAtRestArgs) ToGetDomainEncryptionAtRestOutputWithCont
 // GetDomainEncryptionAtRestArrayInput is an input type that accepts GetDomainEncryptionAtRestArray and GetDomainEncryptionAtRestArrayOutput values.
 // You can construct a concrete instance of `GetDomainEncryptionAtRestArrayInput` via:
 //
-// 		 GetDomainEncryptionAtRestArray{ GetDomainEncryptionAtRestArgs{...} }
-//
+//          GetDomainEncryptionAtRestArray{ GetDomainEncryptionAtRestArgs{...} }
 type GetDomainEncryptionAtRestArrayInput interface {
 	pulumi.Input
 
@@ -2363,8 +2333,7 @@ type GetDomainLogPublishingOption struct {
 // GetDomainLogPublishingOptionInput is an input type that accepts GetDomainLogPublishingOptionArgs and GetDomainLogPublishingOptionOutput values.
 // You can construct a concrete instance of `GetDomainLogPublishingOptionInput` via:
 //
-// 		 GetDomainLogPublishingOptionArgs{...}
-//
+//          GetDomainLogPublishingOptionArgs{...}
 type GetDomainLogPublishingOptionInput interface {
 	pulumi.Input
 
@@ -2396,8 +2365,7 @@ func (i GetDomainLogPublishingOptionArgs) ToGetDomainLogPublishingOptionOutputWi
 // GetDomainLogPublishingOptionArrayInput is an input type that accepts GetDomainLogPublishingOptionArray and GetDomainLogPublishingOptionArrayOutput values.
 // You can construct a concrete instance of `GetDomainLogPublishingOptionArrayInput` via:
 //
-// 		 GetDomainLogPublishingOptionArray{ GetDomainLogPublishingOptionArgs{...} }
-//
+//          GetDomainLogPublishingOptionArray{ GetDomainLogPublishingOptionArgs{...} }
 type GetDomainLogPublishingOptionArrayInput interface {
 	pulumi.Input
 
@@ -2476,8 +2444,7 @@ type GetDomainNodeToNodeEncryption struct {
 // GetDomainNodeToNodeEncryptionInput is an input type that accepts GetDomainNodeToNodeEncryptionArgs and GetDomainNodeToNodeEncryptionOutput values.
 // You can construct a concrete instance of `GetDomainNodeToNodeEncryptionInput` via:
 //
-// 		 GetDomainNodeToNodeEncryptionArgs{...}
-//
+//          GetDomainNodeToNodeEncryptionArgs{...}
 type GetDomainNodeToNodeEncryptionInput interface {
 	pulumi.Input
 
@@ -2505,8 +2472,7 @@ func (i GetDomainNodeToNodeEncryptionArgs) ToGetDomainNodeToNodeEncryptionOutput
 // GetDomainNodeToNodeEncryptionArrayInput is an input type that accepts GetDomainNodeToNodeEncryptionArray and GetDomainNodeToNodeEncryptionArrayOutput values.
 // You can construct a concrete instance of `GetDomainNodeToNodeEncryptionArrayInput` via:
 //
-// 		 GetDomainNodeToNodeEncryptionArray{ GetDomainNodeToNodeEncryptionArgs{...} }
-//
+//          GetDomainNodeToNodeEncryptionArray{ GetDomainNodeToNodeEncryptionArgs{...} }
 type GetDomainNodeToNodeEncryptionArrayInput interface {
 	pulumi.Input
 
@@ -2576,8 +2542,7 @@ type GetDomainSnapshotOption struct {
 // GetDomainSnapshotOptionInput is an input type that accepts GetDomainSnapshotOptionArgs and GetDomainSnapshotOptionOutput values.
 // You can construct a concrete instance of `GetDomainSnapshotOptionInput` via:
 //
-// 		 GetDomainSnapshotOptionArgs{...}
-//
+//          GetDomainSnapshotOptionArgs{...}
 type GetDomainSnapshotOptionInput interface {
 	pulumi.Input
 
@@ -2606,8 +2571,7 @@ func (i GetDomainSnapshotOptionArgs) ToGetDomainSnapshotOptionOutputWithContext(
 // GetDomainSnapshotOptionArrayInput is an input type that accepts GetDomainSnapshotOptionArray and GetDomainSnapshotOptionArrayOutput values.
 // You can construct a concrete instance of `GetDomainSnapshotOptionArrayInput` via:
 //
-// 		 GetDomainSnapshotOptionArray{ GetDomainSnapshotOptionArgs{...} }
-//
+//          GetDomainSnapshotOptionArray{ GetDomainSnapshotOptionArgs{...} }
 type GetDomainSnapshotOptionArrayInput interface {
 	pulumi.Input
 
@@ -2683,8 +2647,7 @@ type GetDomainVpcOption struct {
 // GetDomainVpcOptionInput is an input type that accepts GetDomainVpcOptionArgs and GetDomainVpcOptionOutput values.
 // You can construct a concrete instance of `GetDomainVpcOptionInput` via:
 //
-// 		 GetDomainVpcOptionArgs{...}
-//
+//          GetDomainVpcOptionArgs{...}
 type GetDomainVpcOptionInput interface {
 	pulumi.Input
 
@@ -2718,8 +2681,7 @@ func (i GetDomainVpcOptionArgs) ToGetDomainVpcOptionOutputWithContext(ctx contex
 // GetDomainVpcOptionArrayInput is an input type that accepts GetDomainVpcOptionArray and GetDomainVpcOptionArrayOutput values.
 // You can construct a concrete instance of `GetDomainVpcOptionArrayInput` via:
 //
-// 		 GetDomainVpcOptionArray{ GetDomainVpcOptionArgs{...} }
-//
+//          GetDomainVpcOptionArray{ GetDomainVpcOptionArgs{...} }
 type GetDomainVpcOptionArrayInput interface {
 	pulumi.Input
 

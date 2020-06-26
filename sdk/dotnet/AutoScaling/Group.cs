@@ -16,8 +16,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -82,7 +80,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// }
     /// ```
-    /// 
     /// ### With Latest Version Of Launch Template
     /// 
     /// ```csharp
@@ -118,7 +115,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// }
     /// ```
-    /// 
     /// ### Mixed Instances Policy
     /// 
     /// ```csharp
@@ -172,7 +168,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// }
     /// ```
-    /// 
     /// ## Waiting for Capacity
     /// 
     /// A newly-created ASG is initially empty and begins to scale to `min_size` (or

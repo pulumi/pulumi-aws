@@ -13,7 +13,6 @@ namespace Pulumi.Aws.S3
     /// Attaches a policy to an S3 bucket resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

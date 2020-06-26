@@ -11,8 +11,6 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,7 +49,6 @@ import {RestApi} from "./index";
  *     type: "MOCK",
  * });
  * ```
- *
  * ## Lambda integration
  *
  * ```typescript

@@ -15,8 +15,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -27,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		myDetector, err := guardduty.NewDetector(ctx, "myDetector", &guardduty.DetectorArgs{
+// 		_, err = guardduty.NewDetector(ctx, "myDetector", &guardduty.DetectorArgs{
 // 			Enable: pulumi.Bool(true),
 // 		})
 // 		if err != nil {

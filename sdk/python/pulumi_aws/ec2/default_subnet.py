@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class DefaultSubnet(pulumi.CustomResource):
     arn: pulumi.Output[str]
     assign_ipv6_address_on_creation: pulumi.Output[bool]
@@ -53,7 +54,7 @@ class DefaultSubnet(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        Basic usage with tags:
 
         ```python
         import pulumi
@@ -145,9 +146,9 @@ class DefaultSubnet(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["vpc_id"] = vpc_id
         return DefaultSubnet(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

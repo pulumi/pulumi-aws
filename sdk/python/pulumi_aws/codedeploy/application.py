@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Application(pulumi.CustomResource):
     compute_platform: pulumi.Output[str]
     """
@@ -24,7 +25,6 @@ class Application(pulumi.CustomResource):
         Provides a CodeDeploy application to be used as a basis for deployments
 
         ## Example Usage
-
         ### ECS Application
 
         ```python
@@ -33,7 +33,6 @@ class Application(pulumi.CustomResource):
 
         example = aws.codedeploy.Application("example", compute_platform="ECS")
         ```
-
         ### Lambda Application
 
         ```python
@@ -42,7 +41,6 @@ class Application(pulumi.CustomResource):
 
         example = aws.codedeploy.Application("example", compute_platform="Lambda")
         ```
-
         ### Server Application
 
         ```python
@@ -103,9 +101,9 @@ class Application(pulumi.CustomResource):
         __props__["name"] = name
         __props__["unique_id"] = unique_id
         return Application(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

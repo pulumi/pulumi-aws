@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class NetworkAssociation(pulumi.CustomResource):
     client_vpn_endpoint_id: pulumi.Output[str]
     """
@@ -32,12 +33,10 @@ class NetworkAssociation(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, client_vpn_endpoint_id=None, subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the 
+        Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -110,9 +109,9 @@ class NetworkAssociation(pulumi.CustomResource):
         __props__["subnet_id"] = subnet_id
         __props__["vpc_id"] = vpc_id
         return NetworkAssociation(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

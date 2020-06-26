@@ -16,8 +16,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// 
     /// }
     /// ```
-    /// 
     /// ## Usage with lambda
     /// 
     /// ```csharp

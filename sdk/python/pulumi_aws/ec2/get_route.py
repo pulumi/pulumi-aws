@@ -78,7 +78,8 @@ def get_route(destination_cidr_block=None,destination_ipv6_cidr_block=None,egres
 
     ## Example Usage
 
-
+    The following example shows how one might use a CIDR value to find a network interface id
+    and use this to create a data source of that network interface.
 
     ```python
     import pulumi

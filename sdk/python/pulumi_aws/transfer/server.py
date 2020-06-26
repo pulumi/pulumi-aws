@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Server(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -63,7 +64,6 @@ class Server(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, endpoint_details=None, endpoint_type=None, force_destroy=None, host_key=None, identity_provider_type=None, invocation_role=None, logging_role=None, tags=None, url=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a AWS Transfer Server resource.
-
 
         ```python
         import pulumi
@@ -203,9 +203,9 @@ class Server(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["url"] = url
         return Server(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

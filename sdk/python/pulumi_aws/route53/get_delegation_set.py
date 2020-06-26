@@ -41,7 +41,7 @@ def get_delegation_set(id=None,opts=None):
 
     ## Example Usage
 
-
+    The following example shows how to get a delegation set from its id.
 
     ```python
     import pulumi

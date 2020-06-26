@@ -13,8 +13,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -25,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		xssMatchSet, err := wafregional.NewXssMatchSet(ctx, "xssMatchSet", &wafregional.XssMatchSetArgs{
+// 		_, err = wafregional.NewXssMatchSet(ctx, "xssMatchSet", &wafregional.XssMatchSetArgs{
 // 			XssMatchTuples: wafregional.XssMatchSetXssMatchTupleArray{
 // 				&wafregional.XssMatchSetXssMatchTupleArgs{
 // 					FieldToMatch: &wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs{

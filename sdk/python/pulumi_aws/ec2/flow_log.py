@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class FlowLog(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -67,7 +68,6 @@ class FlowLog(pulumi.CustomResource):
         interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
 
         ## Example Usage
-
         ### CloudWatch Logging
 
         ```python
@@ -116,7 +116,6 @@ class FlowLog(pulumi.CustomResource):
         \"\"\",
             role=example_role.id)
         ```
-
         ### S3 Logging
 
         ```python
@@ -230,9 +229,9 @@ class FlowLog(pulumi.CustomResource):
         __props__["traffic_type"] = traffic_type
         __props__["vpc_id"] = vpc_id
         return FlowLog(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

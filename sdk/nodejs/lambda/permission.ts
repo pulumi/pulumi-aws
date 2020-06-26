@@ -11,8 +11,6 @@ import {Function} from "./index";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,7 +50,6 @@ import {Function} from "./index";
  *     sourceArn: "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
  * });
  * ```
- *
  * ## Usage with SNS
  *
  * ```typescript

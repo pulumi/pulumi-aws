@@ -33,8 +33,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -45,7 +43,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		routeTable, err := ec2.NewRouteTable(ctx, "routeTable", &ec2.RouteTableArgs{
+// 		_, err = ec2.NewRouteTable(ctx, "routeTable", &ec2.RouteTableArgs{
 // 			Routes: ec2.RouteTableRouteArray{
 // 				&ec2.RouteTableRouteArgs{
 // 					CidrBlock: pulumi.String("10.0.1.0/24"),
@@ -56,8 +54,8 @@ import (
 // 					Ipv6CidrBlock:       pulumi.String("::/0"),
 // 				},
 // 			},
-// 			Tags: map[string]interface{}{
-// 				"Name": "main",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("main"),
 // 			},
 // 			VpcId: pulumi.String(aws_vpc.Default.Id),
 // 		})

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Recorder(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
@@ -40,8 +41,6 @@ class Recorder(pulumi.CustomResource):
         > **Note:** _Starting_ the Configuration Recorder requires a `delivery channel` (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -146,9 +145,9 @@ class Recorder(pulumi.CustomResource):
         __props__["recording_group"] = recording_group
         __props__["role_arn"] = role_arn
         return Recorder(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

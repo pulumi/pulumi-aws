@@ -18,8 +18,7 @@ type ClusterCertificateAuthority struct {
 // ClusterCertificateAuthorityInput is an input type that accepts ClusterCertificateAuthorityArgs and ClusterCertificateAuthorityOutput values.
 // You can construct a concrete instance of `ClusterCertificateAuthorityInput` via:
 //
-// 		 ClusterCertificateAuthorityArgs{...}
-//
+//          ClusterCertificateAuthorityArgs{...}
 type ClusterCertificateAuthorityInput interface {
 	pulumi.Input
 
@@ -55,12 +54,11 @@ func (i ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityPtrOutputW
 // ClusterCertificateAuthorityPtrInput is an input type that accepts ClusterCertificateAuthorityArgs, ClusterCertificateAuthorityPtr and ClusterCertificateAuthorityPtrOutput values.
 // You can construct a concrete instance of `ClusterCertificateAuthorityPtrInput` via:
 //
-// 		 ClusterCertificateAuthorityArgs{...}
+//          ClusterCertificateAuthorityArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCertificateAuthorityPtrInput interface {
 	pulumi.Input
 
@@ -153,8 +151,7 @@ type ClusterEncryptionConfig struct {
 // ClusterEncryptionConfigInput is an input type that accepts ClusterEncryptionConfigArgs and ClusterEncryptionConfigOutput values.
 // You can construct a concrete instance of `ClusterEncryptionConfigInput` via:
 //
-// 		 ClusterEncryptionConfigArgs{...}
-//
+//          ClusterEncryptionConfigArgs{...}
 type ClusterEncryptionConfigInput interface {
 	pulumi.Input
 
@@ -192,12 +189,11 @@ func (i ClusterEncryptionConfigArgs) ToClusterEncryptionConfigPtrOutputWithConte
 // ClusterEncryptionConfigPtrInput is an input type that accepts ClusterEncryptionConfigArgs, ClusterEncryptionConfigPtr and ClusterEncryptionConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterEncryptionConfigPtrInput` via:
 //
-// 		 ClusterEncryptionConfigArgs{...}
+//          ClusterEncryptionConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterEncryptionConfigPtrInput interface {
 	pulumi.Input
 
@@ -303,8 +299,7 @@ type ClusterEncryptionConfigProvider struct {
 // ClusterEncryptionConfigProviderInput is an input type that accepts ClusterEncryptionConfigProviderArgs and ClusterEncryptionConfigProviderOutput values.
 // You can construct a concrete instance of `ClusterEncryptionConfigProviderInput` via:
 //
-// 		 ClusterEncryptionConfigProviderArgs{...}
-//
+//          ClusterEncryptionConfigProviderArgs{...}
 type ClusterEncryptionConfigProviderInput interface {
 	pulumi.Input
 
@@ -340,12 +335,11 @@ func (i ClusterEncryptionConfigProviderArgs) ToClusterEncryptionConfigProviderPt
 // ClusterEncryptionConfigProviderPtrInput is an input type that accepts ClusterEncryptionConfigProviderArgs, ClusterEncryptionConfigProviderPtr and ClusterEncryptionConfigProviderPtrOutput values.
 // You can construct a concrete instance of `ClusterEncryptionConfigProviderPtrInput` via:
 //
-// 		 ClusterEncryptionConfigProviderArgs{...}
+//          ClusterEncryptionConfigProviderArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterEncryptionConfigProviderPtrInput interface {
 	pulumi.Input
 
@@ -436,8 +430,7 @@ type ClusterIdentity struct {
 // ClusterIdentityInput is an input type that accepts ClusterIdentityArgs and ClusterIdentityOutput values.
 // You can construct a concrete instance of `ClusterIdentityInput` via:
 //
-// 		 ClusterIdentityArgs{...}
-//
+//          ClusterIdentityArgs{...}
 type ClusterIdentityInput interface {
 	pulumi.Input
 
@@ -465,8 +458,7 @@ func (i ClusterIdentityArgs) ToClusterIdentityOutputWithContext(ctx context.Cont
 // ClusterIdentityArrayInput is an input type that accepts ClusterIdentityArray and ClusterIdentityArrayOutput values.
 // You can construct a concrete instance of `ClusterIdentityArrayInput` via:
 //
-// 		 ClusterIdentityArray{ ClusterIdentityArgs{...} }
-//
+//          ClusterIdentityArray{ ClusterIdentityArgs{...} }
 type ClusterIdentityArrayInput interface {
 	pulumi.Input
 
@@ -535,8 +527,7 @@ type ClusterIdentityOidc struct {
 // ClusterIdentityOidcInput is an input type that accepts ClusterIdentityOidcArgs and ClusterIdentityOidcOutput values.
 // You can construct a concrete instance of `ClusterIdentityOidcInput` via:
 //
-// 		 ClusterIdentityOidcArgs{...}
-//
+//          ClusterIdentityOidcArgs{...}
 type ClusterIdentityOidcInput interface {
 	pulumi.Input
 
@@ -564,8 +555,7 @@ func (i ClusterIdentityOidcArgs) ToClusterIdentityOidcOutputWithContext(ctx cont
 // ClusterIdentityOidcArrayInput is an input type that accepts ClusterIdentityOidcArray and ClusterIdentityOidcArrayOutput values.
 // You can construct a concrete instance of `ClusterIdentityOidcArrayInput` via:
 //
-// 		 ClusterIdentityOidcArray{ ClusterIdentityOidcArgs{...} }
-//
+//          ClusterIdentityOidcArray{ ClusterIdentityOidcArgs{...} }
 type ClusterIdentityOidcArrayInput interface {
 	pulumi.Input
 
@@ -646,8 +636,7 @@ type ClusterVpcConfig struct {
 // ClusterVpcConfigInput is an input type that accepts ClusterVpcConfigArgs and ClusterVpcConfigOutput values.
 // You can construct a concrete instance of `ClusterVpcConfigInput` via:
 //
-// 		 ClusterVpcConfigArgs{...}
-//
+//          ClusterVpcConfigArgs{...}
 type ClusterVpcConfigInput interface {
 	pulumi.Input
 
@@ -695,12 +684,11 @@ func (i ClusterVpcConfigArgs) ToClusterVpcConfigPtrOutputWithContext(ctx context
 // ClusterVpcConfigPtrInput is an input type that accepts ClusterVpcConfigArgs, ClusterVpcConfigPtr and ClusterVpcConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterVpcConfigPtrInput` via:
 //
-// 		 ClusterVpcConfigArgs{...}
+//          ClusterVpcConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterVpcConfigPtrInput interface {
 	pulumi.Input
 
@@ -883,8 +871,7 @@ type FargateProfileSelector struct {
 // FargateProfileSelectorInput is an input type that accepts FargateProfileSelectorArgs and FargateProfileSelectorOutput values.
 // You can construct a concrete instance of `FargateProfileSelectorInput` via:
 //
-// 		 FargateProfileSelectorArgs{...}
-//
+//          FargateProfileSelectorArgs{...}
 type FargateProfileSelectorInput interface {
 	pulumi.Input
 
@@ -914,8 +901,7 @@ func (i FargateProfileSelectorArgs) ToFargateProfileSelectorOutputWithContext(ct
 // FargateProfileSelectorArrayInput is an input type that accepts FargateProfileSelectorArray and FargateProfileSelectorArrayOutput values.
 // You can construct a concrete instance of `FargateProfileSelectorArrayInput` via:
 //
-// 		 FargateProfileSelectorArray{ FargateProfileSelectorArgs{...} }
-//
+//          FargateProfileSelectorArray{ FargateProfileSelectorArgs{...} }
 type FargateProfileSelectorArrayInput interface {
 	pulumi.Input
 
@@ -991,8 +977,7 @@ type NodeGroupRemoteAccess struct {
 // NodeGroupRemoteAccessInput is an input type that accepts NodeGroupRemoteAccessArgs and NodeGroupRemoteAccessOutput values.
 // You can construct a concrete instance of `NodeGroupRemoteAccessInput` via:
 //
-// 		 NodeGroupRemoteAccessArgs{...}
-//
+//          NodeGroupRemoteAccessArgs{...}
 type NodeGroupRemoteAccessInput interface {
 	pulumi.Input
 
@@ -1030,12 +1015,11 @@ func (i NodeGroupRemoteAccessArgs) ToNodeGroupRemoteAccessPtrOutputWithContext(c
 // NodeGroupRemoteAccessPtrInput is an input type that accepts NodeGroupRemoteAccessArgs, NodeGroupRemoteAccessPtr and NodeGroupRemoteAccessPtrOutput values.
 // You can construct a concrete instance of `NodeGroupRemoteAccessPtrInput` via:
 //
-// 		 NodeGroupRemoteAccessArgs{...}
+//          NodeGroupRemoteAccessArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type NodeGroupRemoteAccessPtrInput interface {
 	pulumi.Input
 
@@ -1143,8 +1127,7 @@ type NodeGroupResource struct {
 // NodeGroupResourceInput is an input type that accepts NodeGroupResourceArgs and NodeGroupResourceOutput values.
 // You can construct a concrete instance of `NodeGroupResourceInput` via:
 //
-// 		 NodeGroupResourceArgs{...}
-//
+//          NodeGroupResourceArgs{...}
 type NodeGroupResourceInput interface {
 	pulumi.Input
 
@@ -1174,8 +1157,7 @@ func (i NodeGroupResourceArgs) ToNodeGroupResourceOutputWithContext(ctx context.
 // NodeGroupResourceArrayInput is an input type that accepts NodeGroupResourceArray and NodeGroupResourceArrayOutput values.
 // You can construct a concrete instance of `NodeGroupResourceArrayInput` via:
 //
-// 		 NodeGroupResourceArray{ NodeGroupResourceArgs{...} }
-//
+//          NodeGroupResourceArray{ NodeGroupResourceArgs{...} }
 type NodeGroupResourceArrayInput interface {
 	pulumi.Input
 
@@ -1249,8 +1231,7 @@ type NodeGroupResourceAutoscalingGroup struct {
 // NodeGroupResourceAutoscalingGroupInput is an input type that accepts NodeGroupResourceAutoscalingGroupArgs and NodeGroupResourceAutoscalingGroupOutput values.
 // You can construct a concrete instance of `NodeGroupResourceAutoscalingGroupInput` via:
 //
-// 		 NodeGroupResourceAutoscalingGroupArgs{...}
-//
+//          NodeGroupResourceAutoscalingGroupArgs{...}
 type NodeGroupResourceAutoscalingGroupInput interface {
 	pulumi.Input
 
@@ -1278,8 +1259,7 @@ func (i NodeGroupResourceAutoscalingGroupArgs) ToNodeGroupResourceAutoscalingGro
 // NodeGroupResourceAutoscalingGroupArrayInput is an input type that accepts NodeGroupResourceAutoscalingGroupArray and NodeGroupResourceAutoscalingGroupArrayOutput values.
 // You can construct a concrete instance of `NodeGroupResourceAutoscalingGroupArrayInput` via:
 //
-// 		 NodeGroupResourceAutoscalingGroupArray{ NodeGroupResourceAutoscalingGroupArgs{...} }
-//
+//          NodeGroupResourceAutoscalingGroupArray{ NodeGroupResourceAutoscalingGroupArgs{...} }
 type NodeGroupResourceAutoscalingGroupArrayInput interface {
 	pulumi.Input
 
@@ -1352,8 +1332,7 @@ type NodeGroupScalingConfig struct {
 // NodeGroupScalingConfigInput is an input type that accepts NodeGroupScalingConfigArgs and NodeGroupScalingConfigOutput values.
 // You can construct a concrete instance of `NodeGroupScalingConfigInput` via:
 //
-// 		 NodeGroupScalingConfigArgs{...}
-//
+//          NodeGroupScalingConfigArgs{...}
 type NodeGroupScalingConfigInput interface {
 	pulumi.Input
 
@@ -1393,12 +1372,11 @@ func (i NodeGroupScalingConfigArgs) ToNodeGroupScalingConfigPtrOutputWithContext
 // NodeGroupScalingConfigPtrInput is an input type that accepts NodeGroupScalingConfigArgs, NodeGroupScalingConfigPtr and NodeGroupScalingConfigPtrOutput values.
 // You can construct a concrete instance of `NodeGroupScalingConfigPtrInput` via:
 //
-// 		 NodeGroupScalingConfigArgs{...}
+//          NodeGroupScalingConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type NodeGroupScalingConfigPtrInput interface {
 	pulumi.Input
 
@@ -1519,8 +1497,7 @@ type GetClusterCertificateAuthority struct {
 // GetClusterCertificateAuthorityInput is an input type that accepts GetClusterCertificateAuthorityArgs and GetClusterCertificateAuthorityOutput values.
 // You can construct a concrete instance of `GetClusterCertificateAuthorityInput` via:
 //
-// 		 GetClusterCertificateAuthorityArgs{...}
-//
+//          GetClusterCertificateAuthorityArgs{...}
 type GetClusterCertificateAuthorityInput interface {
 	pulumi.Input
 
@@ -1572,8 +1549,7 @@ type GetClusterIdentity struct {
 // GetClusterIdentityInput is an input type that accepts GetClusterIdentityArgs and GetClusterIdentityOutput values.
 // You can construct a concrete instance of `GetClusterIdentityInput` via:
 //
-// 		 GetClusterIdentityArgs{...}
-//
+//          GetClusterIdentityArgs{...}
 type GetClusterIdentityInput interface {
 	pulumi.Input
 
@@ -1601,8 +1577,7 @@ func (i GetClusterIdentityArgs) ToGetClusterIdentityOutputWithContext(ctx contex
 // GetClusterIdentityArrayInput is an input type that accepts GetClusterIdentityArray and GetClusterIdentityArrayOutput values.
 // You can construct a concrete instance of `GetClusterIdentityArrayInput` via:
 //
-// 		 GetClusterIdentityArray{ GetClusterIdentityArgs{...} }
-//
+//          GetClusterIdentityArray{ GetClusterIdentityArgs{...} }
 type GetClusterIdentityArrayInput interface {
 	pulumi.Input
 
@@ -1671,8 +1646,7 @@ type GetClusterIdentityOidc struct {
 // GetClusterIdentityOidcInput is an input type that accepts GetClusterIdentityOidcArgs and GetClusterIdentityOidcOutput values.
 // You can construct a concrete instance of `GetClusterIdentityOidcInput` via:
 //
-// 		 GetClusterIdentityOidcArgs{...}
-//
+//          GetClusterIdentityOidcArgs{...}
 type GetClusterIdentityOidcInput interface {
 	pulumi.Input
 
@@ -1700,8 +1674,7 @@ func (i GetClusterIdentityOidcArgs) ToGetClusterIdentityOidcOutputWithContext(ct
 // GetClusterIdentityOidcArrayInput is an input type that accepts GetClusterIdentityOidcArray and GetClusterIdentityOidcArrayOutput values.
 // You can construct a concrete instance of `GetClusterIdentityOidcArrayInput` via:
 //
-// 		 GetClusterIdentityOidcArray{ GetClusterIdentityOidcArgs{...} }
-//
+//          GetClusterIdentityOidcArray{ GetClusterIdentityOidcArgs{...} }
 type GetClusterIdentityOidcArrayInput interface {
 	pulumi.Input
 
@@ -1782,8 +1755,7 @@ type GetClusterVpcConfig struct {
 // GetClusterVpcConfigInput is an input type that accepts GetClusterVpcConfigArgs and GetClusterVpcConfigOutput values.
 // You can construct a concrete instance of `GetClusterVpcConfigInput` via:
 //
-// 		 GetClusterVpcConfigArgs{...}
-//
+//          GetClusterVpcConfigArgs{...}
 type GetClusterVpcConfigInput interface {
 	pulumi.Input
 

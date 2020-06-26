@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
  *
  * ## Example Usage
- *
  * ### Basic
  *
  * ```typescript

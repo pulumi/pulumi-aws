@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Alias(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -48,8 +49,6 @@ class Alias(pulumi.CustomResource):
         For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -145,9 +144,9 @@ class Alias(pulumi.CustomResource):
         __props__["name"] = name
         __props__["routing_config"] = routing_config
         return Alias(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

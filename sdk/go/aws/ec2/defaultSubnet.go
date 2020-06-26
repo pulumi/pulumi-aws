@@ -19,7 +19,7 @@ import (
 //
 // ## Example Usage
 //
-//
+// Basic usage with tags:
 //
 // ```go
 // package main
@@ -31,10 +31,10 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		defaultAz1, err := ec2.NewDefaultSubnet(ctx, "defaultAz1", &ec2.DefaultSubnetArgs{
+// 		_, err = ec2.NewDefaultSubnet(ctx, "defaultAz1", &ec2.DefaultSubnetArgs{
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
-// 			Tags: map[string]interface{}{
-// 				"Name": "Default subnet for us-west-2a",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("Default subnet for us-west-2a"),
 // 			},
 // 		})
 // 		if err != nil {

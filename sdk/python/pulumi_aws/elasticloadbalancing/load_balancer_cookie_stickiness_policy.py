@@ -10,6 +10,8 @@ from typing import Union
 from .. import utilities, tables
 
 warnings.warn("aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy", DeprecationWarning)
+
+
 class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
     cookie_expiration_period: pulumi.Output[float]
     """
@@ -32,13 +34,12 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
     The name of the stickiness policy.
     """
     warnings.warn("aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, cookie_expiration_period=None, lb_port=None, load_balancer=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -128,9 +129,9 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         __props__["load_balancer"] = load_balancer
         __props__["name"] = name
         return LoadBalancerCookieStickinessPolicy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

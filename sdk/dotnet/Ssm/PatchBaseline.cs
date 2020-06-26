@@ -12,13 +12,13 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Provides an SSM Patch Baseline resource
     /// 
-    /// &gt; **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are 
+    /// &gt; **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are
     /// both marked as optional fields, but the Patch Baseline requires that at least one
     /// of them is specified.
     /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// Basic usage using `approved_patches` only
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -34,6 +34,187 @@ namespace Pulumi.Aws.Ssm
     ///             {
     ///                 "KB123456",
     ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Advanced usage, specifying patch filters
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var production = new Aws.Ssm.PatchBaseline("production", new Aws.Ssm.PatchBaselineArgs
+    ///         {
+    ///             ApprovalRules = 
+    ///             {
+    ///                 new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
+    ///                 {
+    ///                     ApproveAfterDays = 7,
+    ///                     ComplianceLevel = "HIGH",
+    ///                     PatchFilter = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "key", "PRODUCT" },
+    ///                             { "values", 
+    ///                             {
+    ///                                 "WindowsServer2016",
+    ///                             } },
+    ///                         },
+    ///                         
+    ///                         {
+    ///                             { "key", "CLASSIFICATION" },
+    ///                             { "values", 
+    ///                             {
+    ///                                 "CriticalUpdates",
+    ///                                 "SecurityUpdates",
+    ///                                 "Updates",
+    ///                             } },
+    ///                         },
+    ///                         
+    ///                         {
+    ///                             { "key", "MSRC_SEVERITY" },
+    ///                             { "values", 
+    ///                             {
+    ///                                 "Critical",
+    ///                                 "Important",
+    ///                                 "Moderate",
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
+    ///                 {
+    ///                     ApproveAfterDays = 7,
+    ///                     PatchFilter = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "key", "PRODUCT" },
+    ///                             { "values", 
+    ///                             {
+    ///                                 "WindowsServer2012",
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ApprovedPatches = 
+    ///             {
+    ///                 "KB123456",
+    ///                 "KB456789",
+    ///             },
+    ///             Description = "Patch Baseline Description",
+    ///             GlobalFilters = 
+    ///             {
+    ///                 new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
+    ///                 {
+    ///                     Key = "PRODUCT",
+    ///                     Values = 
+    ///                     {
+    ///                         "WindowsServer2008",
+    ///                     },
+    ///                 },
+    ///                 new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
+    ///                 {
+    ///                     Key = "CLASSIFICATION",
+    ///                     Values = 
+    ///                     {
+    ///                         "ServicePacks",
+    ///                     },
+    ///                 },
+    ///                 new Aws.Ssm.Inputs.PatchBaselineGlobalFilterArgs
+    ///                 {
+    ///                     Key = "MSRC_SEVERITY",
+    ///                     Values = 
+    ///                     {
+    ///                         "Low",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             RejectedPatches = 
+    ///             {
+    ///                 "KB987654",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Advanced usage, specifying Microsoft application and Windows patch rules
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var windowsOsApps = new Aws.Ssm.PatchBaseline("windowsOsApps", new Aws.Ssm.PatchBaselineArgs
+    ///         {
+    ///             ApprovalRules = 
+    ///             {
+    ///                 new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
+    ///                 {
+    ///                     ApproveAfterDays = 7,
+    ///                     PatchFilter = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "key", "CLASSIFICATION" },
+    ///                             { "values", 
+    ///                             {
+    ///                                 "CriticalUpdates",
+    ///                                 "SecurityUpdates",
+    ///                             } },
+    ///                         },
+    ///                         
+    ///                         {
+    ///                             { "key", "MSRC_SEVERITY" },
+    ///                             { "values", 
+    ///                             {
+    ///                                 "Critical",
+    ///                                 "Important",
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
+    ///                 {
+    ///                     ApproveAfterDays = 7,
+    ///                     PatchFilter = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "key", "PATCH_SET" },
+    ///                             { "values", 
+    ///                             {
+    ///                                 "APPLICATION",
+    ///                             } },
+    ///                         },
+    ///                         
+    ///                         {
+    ///                             { "key", "PRODUCT" },
+    ///                             { "values", 
+    ///                             {
+    ///                                 "Office 2013",
+    ///                                 "Office 2016",
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Description = "Patch both Windows and Microsoft apps",
+    ///             OperatingSystem = "WINDOWS",
     ///         });
     ///     }
     /// 

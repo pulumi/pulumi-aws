@@ -18,8 +18,6 @@ namespace Pulumi.Aws.Alb
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

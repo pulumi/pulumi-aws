@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Document(pulumi.CustomResource):
     arn: pulumi.Output[str]
     attachments_sources: pulumi.Output[list]
@@ -110,8 +111,6 @@ class Document(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -138,7 +137,6 @@ class Document(pulumi.CustomResource):
         \"\"\",
             document_type="Command")
         ```
-
         ## Permissions
 
         The permissions attribute specifies how you want to share the document. If you share a document privately,
@@ -284,9 +282,9 @@ class Document(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["target_type"] = target_type
         return Document(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

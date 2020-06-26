@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,6 +34,63 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * Basic usage with connection options:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = new aws.ec2.VpcPeeringConnection("foo", {
+ *     accepter: {
+ *         allowRemoteVpcDnsResolution: true,
+ *     },
+ *     peerOwnerId: var_peer_owner_id,
+ *     peerVpcId: aws_vpc_bar.id,
+ *     requester: {
+ *         allowRemoteVpcDnsResolution: true,
+ *     },
+ *     vpcId: aws_vpc_foo.id,
+ * });
+ * ```
+ *
+ * Basic usage with tags:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const fooVpc = new aws.ec2.Vpc("foo", {
+ *     cidrBlock: "10.1.0.0/16",
+ * });
+ * const bar = new aws.ec2.Vpc("bar", {
+ *     cidrBlock: "10.2.0.0/16",
+ * });
+ * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("foo", {
+ *     autoAccept: true,
+ *     peerOwnerId: var_peer_owner_id,
+ *     peerVpcId: bar.id,
+ *     tags: {
+ *         Name: "VPC Peering between foo and bar",
+ *     },
+ *     vpcId: fooVpc.id,
+ * });
+ * ```
+ *
+ * Basic usage with region:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"});
+ * const bar = new aws.ec2.Vpc("bar", {cidrBlock: "10.2.0.0/16"});
+ * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection", {
+ *     peerOwnerId: _var.peer_owner_id,
+ *     peerVpcId: bar.id,
+ *     vpcId: fooVpc.id,
+ *     peerRegion: "us-east-1",
+ * });
+ * ```
  * ## Notes
  *
  * If both VPCs are not in the same AWS account do not enable the `autoAccept` attribute.

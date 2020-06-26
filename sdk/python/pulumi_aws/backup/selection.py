@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Selection(pulumi.CustomResource):
     iam_role_arn: pulumi.Output[str]
     """
@@ -39,8 +40,11 @@ class Selection(pulumi.CustomResource):
         Manages selection conditions for AWS Backup plan resources.
 
         ## Example Usage
-
         ### IAM Role
+
+        > For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
+
+        The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
 
         ```python
         import pulumi
@@ -65,7 +69,6 @@ class Selection(pulumi.CustomResource):
             role=example_role.name)
         example_selection = aws.backup.Selection("exampleSelection", iam_role_arn=example_role.arn)
         ```
-
         ### Selecting Backups By Tag
 
         ```python
@@ -81,7 +84,6 @@ class Selection(pulumi.CustomResource):
                 "value": "bar",
             }])
         ```
-
         ### Selecting Backups By Resource
 
         ```python
@@ -175,9 +177,9 @@ class Selection(pulumi.CustomResource):
         __props__["resources"] = resources
         __props__["selection_tags"] = selection_tags
         return Selection(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

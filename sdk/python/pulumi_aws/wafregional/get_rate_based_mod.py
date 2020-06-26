@@ -38,8 +38,6 @@ def get_rate_based_mod(name=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

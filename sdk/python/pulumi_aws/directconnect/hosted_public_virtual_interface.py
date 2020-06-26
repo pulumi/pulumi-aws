@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class HostedPublicVirtualInterface(pulumi.CustomResource):
     address_family: pulumi.Output[str]
     """
@@ -65,8 +66,6 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         A hosted virtual interface is a virtual interface that is owned by another AWS account.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -186,9 +185,9 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         __props__["route_filter_prefixes"] = route_filter_prefixes
         __props__["vlan"] = vlan
         return HostedPublicVirtualInterface(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

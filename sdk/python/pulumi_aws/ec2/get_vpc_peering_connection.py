@@ -92,8 +92,6 @@ def get_vpc_peering_connection(cidr_block=None,filters=None,id=None,owner_id=Non
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

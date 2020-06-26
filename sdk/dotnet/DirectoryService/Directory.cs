@@ -15,7 +15,6 @@ namespace Pulumi.Aws.DirectoryService
     /// &gt; **Note:** All arguments including the password and customer username will be stored in the raw state as plain-text.
     /// 
     /// ## Example Usage
-    /// 
     /// ### SimpleAD
     /// 
     /// ```csharp
@@ -64,7 +63,6 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// }
     /// ```
-    /// 
     /// ### Microsoft Active Directory (MicrosoftAD)
     /// 
     /// ```csharp
@@ -114,7 +112,6 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// }
     /// ```
-    /// 
     /// ### Microsoft Active Directory Connector (ADConnector)
     /// 
     /// ```csharp

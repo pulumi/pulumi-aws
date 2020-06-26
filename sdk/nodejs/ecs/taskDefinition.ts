@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Manages a revision of an ECS task definition to be used in `aws.ecs.Service`.
  *
  * ## Example Usage
- *
  * ### With AppMesh Proxy
  *
  * ```typescript

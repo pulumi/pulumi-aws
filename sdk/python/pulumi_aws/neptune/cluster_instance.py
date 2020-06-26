@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ClusterInstance(pulumi.CustomResource):
     address: pulumi.Output[str]
     """
@@ -115,10 +116,9 @@ class ClusterInstance(pulumi.CustomResource):
         You can simply add neptune instances and Neptune manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/resources.html#count)
         meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
 
-
         ## Example Usage
 
-
+        The following example will create a neptune cluster with two neptune instances(one writer and one reader).
 
         ```python
         import pulumi
@@ -279,9 +279,9 @@ class ClusterInstance(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["writer"] = writer
         return ClusterInstance(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

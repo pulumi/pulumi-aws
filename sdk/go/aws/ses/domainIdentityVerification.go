@@ -17,6 +17,52 @@ import (
 // deploy the required DNS verification records, and wait for verification to complete.
 //
 // > **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/route53"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ses"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
+// 			Domain: pulumi.String("example.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
+// 			Name: example.ID().ApplyT(func(id string) (string, error) {
+// 				return fmt.Sprintf("%v%v", "_amazonses.", id), nil
+// 			}).(pulumi.StringOutput),
+// 			Records: pulumi.StringArray{
+// 				example.VerificationToken,
+// 			},
+// 			Ttl:    pulumi.Int(600),
+// 			Type:   pulumi.String("TXT"),
+// 			ZoneId: pulumi.String(aws_route53_zone.Example.Zone_id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ses.NewDomainIdentityVerification(ctx, "exampleVerification", &ses.DomainIdentityVerificationArgs{
+// 			Domain: example.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DomainIdentityVerification struct {
 	pulumi.CustomResourceState
 

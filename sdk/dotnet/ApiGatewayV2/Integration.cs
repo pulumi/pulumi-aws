@@ -14,7 +14,6 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
     /// 
     /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// }
     /// ```
-    /// 
     /// ### Lambda Integration
     /// 
     /// ```csharp

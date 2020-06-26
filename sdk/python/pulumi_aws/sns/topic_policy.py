@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class TopicPolicy(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -25,8 +26,6 @@ class TopicPolicy(pulumi.CustomResource):
         > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -117,9 +116,9 @@ class TopicPolicy(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["policy"] = policy
         return TopicPolicy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

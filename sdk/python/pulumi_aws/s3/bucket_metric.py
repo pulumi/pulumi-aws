@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class BucketMetric(pulumi.CustomResource):
     bucket: pulumi.Output[str]
     """
@@ -30,7 +31,6 @@ class BucketMetric(pulumi.CustomResource):
         Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
 
         ## Example Usage
-
         ### Add metrics configuration for entire S3 bucket
 
         ```python
@@ -40,7 +40,6 @@ class BucketMetric(pulumi.CustomResource):
         example = aws.s3.Bucket("example")
         example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket", bucket=example.bucket)
         ```
-
         ### Add metrics configuration with S3 bucket object filter
 
         ```python
@@ -124,9 +123,9 @@ class BucketMetric(pulumi.CustomResource):
         __props__["filter"] = filter
         __props__["name"] = name
         return BucketMetric(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

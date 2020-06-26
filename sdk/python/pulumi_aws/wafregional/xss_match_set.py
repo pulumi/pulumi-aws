@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class XssMatchSet(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
@@ -29,8 +30,6 @@ class XssMatchSet(pulumi.CustomResource):
         Provides a WAF Regional XSS Match Set Resource for use with Application Load Balancer.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -117,9 +116,9 @@ class XssMatchSet(pulumi.CustomResource):
         __props__["name"] = name
         __props__["xss_match_tuples"] = xss_match_tuples
         return XssMatchSet(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -12,33 +12,33 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		foo, err := ec2.LookupInstance(ctx, &ec2.LookupInstanceArgs{
-// 			Filters: ec2.getInstanceFilterArray{
-// 				&ec2.LookupInstanceFilter{
+// 		opt0 := "i-instanceid"
+// 		_, err := ec2.LookupInstance(ctx, &ec2.LookupInstanceArgs{
+// 			Filters: []ec2.GetInstanceFilter{
+// 				ec2.GetInstanceFilter{
 // 					Name: "image-id",
 // 					Values: []string{
 // 						"ami-xxxxxxxx",
 // 					},
 // 				},
-// 				&ec2.LookupInstanceFilter{
+// 				ec2.GetInstanceFilter{
 // 					Name: "tag:Name",
 // 					Values: []string{
 // 						"instance-name-tag",
 // 					},
 // 				},
 // 			},
-// 			InstanceId: "i-instanceid",
+// 			InstanceId: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

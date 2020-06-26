@@ -11,19 +11,19 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/storagegateway"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := storagegateway.LookupLocalDisk(ctx, &storagegateway.LookupLocalDiskArgs{
-// 			DiskPath:   aws_volume_attachment.Test.Device_name,
+// 		opt0 := aws_volume_attachment.Test.Device_name
+// 		_, err := storagegateway.GetLocalDisk(ctx, &storagegateway.GetLocalDiskArgs{
+// 			DiskPath:   &opt0,
 // 			GatewayArn: aws_storagegateway_gateway.Test.Arn,
 // 		}, nil)
 // 		if err != nil {

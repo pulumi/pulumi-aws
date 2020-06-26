@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -34,15 +32,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleProvider, err := cognito.NewIdentityProvider(ctx, "exampleProvider", &cognito.IdentityProviderArgs{
-// 			AttributeMapping: map[string]interface{}{
-// 				"email":    "email",
-// 				"username": "sub",
+// 		_, err = cognito.NewIdentityProvider(ctx, "exampleProvider", &cognito.IdentityProviderArgs{
+// 			AttributeMapping: pulumi.Map{
+// 				"email":    pulumi.String("email"),
+// 				"username": pulumi.String("sub"),
 // 			},
-// 			ProviderDetails: map[string]interface{}{
-// 				"authorize_scopes": "email",
-// 				"client_id":        "your client_id",
-// 				"client_secret":    "your client_secret",
+// 			ProviderDetails: pulumi.Map{
+// 				"authorize_scopes": pulumi.String("email"),
+// 				"client_id":        pulumi.String("your client_id"),
+// 				"client_secret":    pulumi.String("your client_secret"),
 // 			},
 // 			ProviderName: pulumi.String("Google"),
 // 			ProviderType: pulumi.String("Google"),

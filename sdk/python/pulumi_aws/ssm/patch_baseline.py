@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class PatchBaseline(pulumi.CustomResource):
     approval_rules: pulumi.Output[list]
     """
@@ -60,19 +61,131 @@ class PatchBaseline(pulumi.CustomResource):
         """
         Provides an SSM Patch Baseline resource
 
-        > **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are 
+        > **NOTE on Patch Baselines:** The `approved_patches` and `approval_rule` are
         both marked as optional fields, but the Patch Baseline requires that at least one
         of them is specified.
 
         ## Example Usage
 
-
+        Basic usage using `approved_patches` only
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         production = aws.ssm.PatchBaseline("production", approved_patches=["KB123456"])
+        ```
+
+        Advanced usage, specifying patch filters
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        production = aws.ssm.PatchBaseline("production",
+            approval_rules=[
+                {
+                    "approveAfterDays": 7,
+                    "complianceLevel": "HIGH",
+                    "patchFilter": [
+                        {
+                            "key": "PRODUCT",
+                            "values": ["WindowsServer2016"],
+                        },
+                        {
+                            "key": "CLASSIFICATION",
+                            "values": [
+                                "CriticalUpdates",
+                                "SecurityUpdates",
+                                "Updates",
+                            ],
+                        },
+                        {
+                            "key": "MSRC_SEVERITY",
+                            "values": [
+                                "Critical",
+                                "Important",
+                                "Moderate",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    "approveAfterDays": 7,
+                    "patchFilter": [{
+                        "key": "PRODUCT",
+                        "values": ["WindowsServer2012"],
+                    }],
+                },
+            ],
+            approved_patches=[
+                "KB123456",
+                "KB456789",
+            ],
+            description="Patch Baseline Description",
+            global_filters=[
+                {
+                    "key": "PRODUCT",
+                    "values": ["WindowsServer2008"],
+                },
+                {
+                    "key": "CLASSIFICATION",
+                    "values": ["ServicePacks"],
+                },
+                {
+                    "key": "MSRC_SEVERITY",
+                    "values": ["Low"],
+                },
+            ],
+            rejected_patches=["KB987654"])
+        ```
+
+        Advanced usage, specifying Microsoft application and Windows patch rules
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        windows_os_apps = aws.ssm.PatchBaseline("windowsOsApps",
+            approval_rules=[
+                {
+                    "approveAfterDays": 7,
+                    "patchFilter": [
+                        {
+                            "key": "CLASSIFICATION",
+                            "values": [
+                                "CriticalUpdates",
+                                "SecurityUpdates",
+                            ],
+                        },
+                        {
+                            "key": "MSRC_SEVERITY",
+                            "values": [
+                                "Critical",
+                                "Important",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    "approveAfterDays": 7,
+                    "patchFilter": [
+                        {
+                            "key": "PATCH_SET",
+                            "values": ["APPLICATION"],
+                        },
+                        {
+                            "key": "PRODUCT",
+                            "values": [
+                                "Office 2013",
+                                "Office 2016",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            description="Patch both Windows and Microsoft apps",
+            operating_system="WINDOWS")
         ```
 
         :param str resource_name: The name of the resource.
@@ -180,9 +293,9 @@ class PatchBaseline(pulumi.CustomResource):
         __props__["rejected_patches"] = rejected_patches
         __props__["tags"] = tags
         return PatchBaseline(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

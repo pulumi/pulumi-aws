@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Lambda
     /// Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
     /// 
     /// ## Example Usage
-    /// 
     /// ### Error Handling Configuration
     /// 
     /// ```csharp
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
-    /// 
     /// ### Configuration for Alias Name
     /// 
     /// ```csharp
@@ -55,7 +53,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
-    /// 
     /// ### Configuration for Function Latest Unpublished Version
     /// 
     /// ```csharp
@@ -76,7 +73,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
-    /// 
     /// ### Configuration for Function Published Version
     /// 
     /// ```csharp

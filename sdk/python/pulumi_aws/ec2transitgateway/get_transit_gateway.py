@@ -121,7 +121,6 @@ def get_transit_gateway(filters=None,id=None,tags=None,opts=None):
     Get information on an EC2 Transit Gateway.
 
     ## Example Usage
-
     ### By Filter
 
     ```python
@@ -133,7 +132,6 @@ def get_transit_gateway(filters=None,id=None,tags=None,opts=None):
         "values": ["64512"],
     }])
     ```
-
     ### By Identifier
 
     ```python

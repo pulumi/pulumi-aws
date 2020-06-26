@@ -83,8 +83,6 @@ def get_bundle(bundle_id=None,name=None,owner=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -32,8 +32,7 @@ type PlanRule struct {
 // PlanRuleInput is an input type that accepts PlanRuleArgs and PlanRuleOutput values.
 // You can construct a concrete instance of `PlanRuleInput` via:
 //
-// 		 PlanRuleArgs{...}
-//
+//          PlanRuleArgs{...}
 type PlanRuleInput interface {
 	pulumi.Input
 
@@ -75,8 +74,7 @@ func (i PlanRuleArgs) ToPlanRuleOutputWithContext(ctx context.Context) PlanRuleO
 // PlanRuleArrayInput is an input type that accepts PlanRuleArray and PlanRuleArrayOutput values.
 // You can construct a concrete instance of `PlanRuleArrayInput` via:
 //
-// 		 PlanRuleArray{ PlanRuleArgs{...} }
-//
+//          PlanRuleArray{ PlanRuleArgs{...} }
 type PlanRuleArrayInput interface {
 	pulumi.Input
 
@@ -182,8 +180,7 @@ type PlanRuleCopyAction struct {
 // PlanRuleCopyActionInput is an input type that accepts PlanRuleCopyActionArgs and PlanRuleCopyActionOutput values.
 // You can construct a concrete instance of `PlanRuleCopyActionInput` via:
 //
-// 		 PlanRuleCopyActionArgs{...}
-//
+//          PlanRuleCopyActionArgs{...}
 type PlanRuleCopyActionInput interface {
 	pulumi.Input
 
@@ -213,8 +210,7 @@ func (i PlanRuleCopyActionArgs) ToPlanRuleCopyActionOutputWithContext(ctx contex
 // PlanRuleCopyActionArrayInput is an input type that accepts PlanRuleCopyActionArray and PlanRuleCopyActionArrayOutput values.
 // You can construct a concrete instance of `PlanRuleCopyActionArrayInput` via:
 //
-// 		 PlanRuleCopyActionArray{ PlanRuleCopyActionArgs{...} }
-//
+//          PlanRuleCopyActionArray{ PlanRuleCopyActionArgs{...} }
 type PlanRuleCopyActionArrayInput interface {
 	pulumi.Input
 
@@ -290,8 +286,7 @@ type PlanRuleCopyActionLifecycle struct {
 // PlanRuleCopyActionLifecycleInput is an input type that accepts PlanRuleCopyActionLifecycleArgs and PlanRuleCopyActionLifecycleOutput values.
 // You can construct a concrete instance of `PlanRuleCopyActionLifecycleInput` via:
 //
-// 		 PlanRuleCopyActionLifecycleArgs{...}
-//
+//          PlanRuleCopyActionLifecycleArgs{...}
 type PlanRuleCopyActionLifecycleInput interface {
 	pulumi.Input
 
@@ -329,12 +324,11 @@ func (i PlanRuleCopyActionLifecycleArgs) ToPlanRuleCopyActionLifecyclePtrOutputW
 // PlanRuleCopyActionLifecyclePtrInput is an input type that accepts PlanRuleCopyActionLifecycleArgs, PlanRuleCopyActionLifecyclePtr and PlanRuleCopyActionLifecyclePtrOutput values.
 // You can construct a concrete instance of `PlanRuleCopyActionLifecyclePtrInput` via:
 //
-// 		 PlanRuleCopyActionLifecycleArgs{...}
+//          PlanRuleCopyActionLifecycleArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PlanRuleCopyActionLifecyclePtrInput interface {
 	pulumi.Input
 
@@ -442,8 +436,7 @@ type PlanRuleLifecycle struct {
 // PlanRuleLifecycleInput is an input type that accepts PlanRuleLifecycleArgs and PlanRuleLifecycleOutput values.
 // You can construct a concrete instance of `PlanRuleLifecycleInput` via:
 //
-// 		 PlanRuleLifecycleArgs{...}
-//
+//          PlanRuleLifecycleArgs{...}
 type PlanRuleLifecycleInput interface {
 	pulumi.Input
 
@@ -481,12 +474,11 @@ func (i PlanRuleLifecycleArgs) ToPlanRuleLifecyclePtrOutputWithContext(ctx conte
 // PlanRuleLifecyclePtrInput is an input type that accepts PlanRuleLifecycleArgs, PlanRuleLifecyclePtr and PlanRuleLifecyclePtrOutput values.
 // You can construct a concrete instance of `PlanRuleLifecyclePtrInput` via:
 //
-// 		 PlanRuleLifecycleArgs{...}
+//          PlanRuleLifecycleArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PlanRuleLifecyclePtrInput interface {
 	pulumi.Input
 
@@ -596,8 +588,7 @@ type SelectionSelectionTag struct {
 // SelectionSelectionTagInput is an input type that accepts SelectionSelectionTagArgs and SelectionSelectionTagOutput values.
 // You can construct a concrete instance of `SelectionSelectionTagInput` via:
 //
-// 		 SelectionSelectionTagArgs{...}
-//
+//          SelectionSelectionTagArgs{...}
 type SelectionSelectionTagInput interface {
 	pulumi.Input
 
@@ -629,8 +620,7 @@ func (i SelectionSelectionTagArgs) ToSelectionSelectionTagOutputWithContext(ctx 
 // SelectionSelectionTagArrayInput is an input type that accepts SelectionSelectionTagArray and SelectionSelectionTagArrayOutput values.
 // You can construct a concrete instance of `SelectionSelectionTagArrayInput` via:
 //
-// 		 SelectionSelectionTagArray{ SelectionSelectionTagArgs{...} }
-//
+//          SelectionSelectionTagArray{ SelectionSelectionTagArgs{...} }
 type SelectionSelectionTagArrayInput interface {
 	pulumi.Input
 

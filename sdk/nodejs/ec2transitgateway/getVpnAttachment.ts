@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Get information on an EC2 Transit Gateway VPN Attachment.
  *
  * ## Example Usage
- *
  * ### By Transit Gateway and VPN Connection Identifiers
  *
  * ```typescript
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     vpnConnectionId: aws_vpn_connection_exampleId,
  * }, { async: true }));
  * ```
- *
  * ### Filter
  *
  * ```typescript

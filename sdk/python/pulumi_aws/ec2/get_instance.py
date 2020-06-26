@@ -289,8 +289,6 @@ def get_instance(filters=None,get_password_data=None,get_user_data=None,instance
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

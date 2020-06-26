@@ -8,6 +8,8 @@ import (
 )
 
 // Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
+//
+// ## Example Usage
 func GetLocalGatewayVirtualInterface(ctx *pulumi.Context, args *GetLocalGatewayVirtualInterfaceArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayVirtualInterfaceResult, error) {
 	var rv GetLocalGatewayVirtualInterfaceResult
 	err := ctx.Invoke("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", args, &rv, opts...)

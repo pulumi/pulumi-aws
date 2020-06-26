@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -30,7 +28,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleBucketPublicAccessBlock, err := s3.NewBucketPublicAccessBlock(ctx, "exampleBucketPublicAccessBlock", &s3.BucketPublicAccessBlockArgs{
+// 		_, err = s3.NewBucketPublicAccessBlock(ctx, "exampleBucketPublicAccessBlock", &s3.BucketPublicAccessBlockArgs{
 // 			BlockPublicAcls:   pulumi.Bool(true),
 // 			BlockPublicPolicy: pulumi.Bool(true),
 // 			Bucket:            exampleBucket.ID(),

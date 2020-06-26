@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -26,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := organizations.NewOrganizationalUnit(ctx, "example", &organizations.OrganizationalUnitArgs{
+// 		_, err = organizations.NewOrganizationalUnit(ctx, "example", &organizations.OrganizationalUnitArgs{
 // 			ParentId: pulumi.String(aws_organizations_organization.Example.Roots[0].Id),
 // 		})
 // 		if err != nil {

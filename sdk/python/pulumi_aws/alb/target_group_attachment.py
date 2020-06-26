@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class TargetGroupAttachment(pulumi.CustomResource):
     availability_zone: pulumi.Output[str]
     """
@@ -34,8 +35,6 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -47,7 +46,6 @@ class TargetGroupAttachment(pulumi.CustomResource):
             target_group_arn=test_target_group.arn,
             target_id=test_instance.id)
         ```
-
         ## Usage with lambda
 
         ```python
@@ -129,9 +127,9 @@ class TargetGroupAttachment(pulumi.CustomResource):
         __props__["target_group_arn"] = target_group_arn
         __props__["target_id"] = target_id
         return TargetGroupAttachment(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

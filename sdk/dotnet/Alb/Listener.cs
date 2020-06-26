@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Alb
     /// &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Forward Action
     /// 
     /// ```csharp
@@ -52,7 +51,6 @@ namespace Pulumi.Aws.Alb
     /// 
     /// }
     /// ```
-    /// 
     /// ### Redirect Action
     /// 
     /// ```csharp
@@ -89,7 +87,6 @@ namespace Pulumi.Aws.Alb
     /// 
     /// }
     /// ```
-    /// 
     /// ### Fixed-response Action
     /// 
     /// ```csharp
@@ -126,7 +123,6 @@ namespace Pulumi.Aws.Alb
     /// 
     /// }
     /// ```
-    /// 
     /// ### Authenticate-cognito Action
     /// 
     /// ```csharp
@@ -180,7 +176,6 @@ namespace Pulumi.Aws.Alb
     /// 
     /// }
     /// ```
-    /// 
     /// ### Authenticate-oidc Action
     /// 
     /// ```csharp

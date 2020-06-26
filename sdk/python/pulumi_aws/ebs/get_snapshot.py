@@ -131,8 +131,6 @@ def get_snapshot(filters=None,most_recent=None,owners=None,restorable_by_user_id
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

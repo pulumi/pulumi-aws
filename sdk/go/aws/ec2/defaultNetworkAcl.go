@@ -41,20 +41,127 @@ import (
 // includes, but pulls the resource under management by this provider. This means that
 // any ACL rules added or changed will be detected as drift.
 //
+// ```go
+// package main
 //
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.1.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewDefaultNetworkAcl(ctx, "default", &ec2.DefaultNetworkAclArgs{
+// 			DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
+// 			Ingress: ec2.DefaultNetworkAclIngressArray{
+// 				&ec2.DefaultNetworkAclIngressArgs{
+// 					Protocol:  pulumi.String("-1"),
+// 					RuleNo:    pulumi.Int(100),
+// 					Action:    pulumi.String("allow"),
+// 					CidrBlock: mainvpc.CidrBlock,
+// 					FromPort:  pulumi.Int(0),
+// 					ToPort:    pulumi.Int(0),
+// 				},
+// 			},
+// 			Egress: ec2.DefaultNetworkAclEgressArray{
+// 				&ec2.DefaultNetworkAclEgressArgs{
+// 					Protocol:  pulumi.String("-1"),
+// 					RuleNo:    pulumi.Int(100),
+// 					Action:    pulumi.String("allow"),
+// 					CidrBlock: pulumi.String("0.0.0.0/0"),
+// 					FromPort:  pulumi.Int(0),
+// 					ToPort:    pulumi.Int(0),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Example config to deny all Egress traffic, allowing Ingress
 //
 // The following denies all Egress traffic by omitting any `egress` rules, while
 // including the default `ingress` rule to allow all traffic.
 //
+// ```go
+// package main
 //
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.1.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewDefaultNetworkAcl(ctx, "default", &ec2.DefaultNetworkAclArgs{
+// 			DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
+// 			Ingress: ec2.DefaultNetworkAclIngressArray{
+// 				&ec2.DefaultNetworkAclIngressArgs{
+// 					Protocol:  pulumi.String("-1"),
+// 					RuleNo:    pulumi.Int(100),
+// 					Action:    pulumi.String("allow"),
+// 					CidrBlock: mainvpc.CidrBlock,
+// 					FromPort:  pulumi.Int(0),
+// 					ToPort:    pulumi.Int(0),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Example config to deny all traffic to any Subnet in the Default Network ACL
 //
 // This config denies all traffic in the Default ACL. This can be useful if you
 // want a locked down default to force all resources in the VPC to assign a
 // non-default ACL.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("10.1.0.0/16"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewDefaultNetworkAcl(ctx, "default", &ec2.DefaultNetworkAclArgs{
+// 			DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DefaultNetworkAcl struct {
 	pulumi.CustomResourceState
 

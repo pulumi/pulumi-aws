@@ -13,7 +13,6 @@ namespace Pulumi.Aws.S3
     /// Provides a resource to manage an S3 Access Point.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp

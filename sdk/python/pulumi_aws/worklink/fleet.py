@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Fleet(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -65,13 +66,38 @@ class Fleet(pulumi.CustomResource):
         """
         ## Example Usage
 
-
+        Basic usage:
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.worklink.Fleet("example")
+        ```
+
+        Network Configuration Usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.worklink.Fleet("example", network={
+            "security_group_ids": [aws_security_group["test"]["id"]],
+            "subnet_ids": [[__item["id"] for __item in aws_subnet["test"]]],
+            "vpc_id": aws_vpc["test"]["id"],
+        })
+        ```
+
+        Identity Provider Configuration Usage:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.worklink.Fleet("test", identity_provider={
+            "samlMetadata": (lambda path: open(path).read())("saml-metadata.xml"),
+            "type": "SAML",
+        })
         ```
 
         :param str resource_name: The name of the resource.
@@ -177,9 +203,9 @@ class Fleet(pulumi.CustomResource):
         __props__["network"] = network
         __props__["optimize_for_end_user_location"] = optimize_for_end_user_location
         return Fleet(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

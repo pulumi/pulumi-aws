@@ -7,6 +7,7 @@ from setuptools import setup, find_packages
 from setuptools.command.install import install
 from subprocess import check_call
 
+
 class InstallPluginCommand(install):
     def run(self):
         install.run(self)
@@ -24,9 +25,11 @@ class InstallPluginCommand(install):
             else:
                 raise
 
+
 def readme():
     with open('README.md', encoding='utf-8') as f:
         return f.read()
+
 
 setup(name='pulumi_aws',
       version='${VERSION}',

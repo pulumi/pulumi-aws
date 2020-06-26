@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -29,27 +27,27 @@ import (
 // 		example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			Size:             pulumi.Int(40),
-// 			Tags: map[string]interface{}{
-// 				"Name": "HelloWorld",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("HelloWorld"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleSnapshot, err := ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
-// 			Tags: map[string]interface{}{
-// 				"Name": "HelloWorld_snap",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("HelloWorld_snap"),
 // 			},
 // 			VolumeId: example.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleCopy, err := ebs.NewSnapshotCopy(ctx, "exampleCopy", &ebs.SnapshotCopyArgs{
+// 		_, err = ebs.NewSnapshotCopy(ctx, "exampleCopy", &ebs.SnapshotCopyArgs{
 // 			SourceRegion:     pulumi.String("us-west-2"),
 // 			SourceSnapshotId: exampleSnapshot.ID(),
-// 			Tags: map[string]interface{}{
-// 				"Name": "HelloWorld_copy_snap",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("HelloWorld_copy_snap"),
 // 			},
 // 		})
 // 		if err != nil {

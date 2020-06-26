@@ -11,19 +11,19 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/outposts"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := outposts.LookupOutpost(ctx, &outposts.LookupOutpostArgs{
-// 			Name: "example",
+// 		opt0 := "example"
+// 		_, err := outposts.GetOutpost(ctx, &outposts.GetOutpostArgs{
+// 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

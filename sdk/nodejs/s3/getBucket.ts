@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  * Distribution.
  *
  * ## Example Usage
- *
  * ### Route53 Record
  *
  * ```typescript
@@ -36,7 +35,6 @@ import * as utilities from "../utilities";
  *     zoneId: testZone.id,
  * });
  * ```
- *
  * ### CloudFront Origin
  *
  * ```typescript

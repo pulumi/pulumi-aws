@@ -9,6 +9,58 @@ import (
 
 // Use this data source to get the ID of a registered AMI for use in other
 // resources.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		opt1 := "^myami-\\d{3}"
+// 		_, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+// 			ExecutableUsers: []string{
+// 				"self",
+// 			},
+// 			Filters: []aws.GetAmiFilter{
+// 				aws.GetAmiFilter{
+// 					Name: "name",
+// 					Values: []string{
+// 						"myami-*",
+// 					},
+// 				},
+// 				aws.GetAmiFilter{
+// 					Name: "root-device-type",
+// 					Values: []string{
+// 						"ebs",
+// 					},
+// 				},
+// 				aws.GetAmiFilter{
+// 					Name: "virtualization-type",
+// 					Values: []string{
+// 						"hvm",
+// 					},
+// 				},
+// 			},
+// 			MostRecent: &opt0,
+// 			NameRegex:  &opt1,
+// 			Owners: []string{
+// 				"self",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetAmi(ctx *pulumi.Context, args *GetAmiArgs, opts ...pulumi.InvokeOption) (*GetAmiResult, error) {
 	var rv GetAmiResult
 	err := ctx.Invoke("aws:index/getAmi:getAmi", args, &rv, opts...)
@@ -51,18 +103,18 @@ type GetAmiResult struct {
 	// The block device mappings of the AMI.
 	// * `block_device_mappings.#.device_name` - The physical name of the device.
 	// * `block_device_mappings.#.ebs.delete_on_termination` - `true` if the EBS volume
-	// will be deleted on termination.
+	//   will be deleted on termination.
 	// * `block_device_mappings.#.ebs.encrypted` - `true` if the EBS volume
-	// is encrypted.
+	//   is encrypted.
 	// * `block_device_mappings.#.ebs.iops` - `0` if the EBS volume is
-	// not a provisioned IOPS image, otherwise the supported IOPS count.
+	//   not a provisioned IOPS image, otherwise the supported IOPS count.
 	// * `block_device_mappings.#.ebs.snapshot_id` - The ID of the snapshot.
 	// * `block_device_mappings.#.ebs.volume_size` - The size of the volume, in GiB.
 	// * `block_device_mappings.#.ebs.volume_type` - The volume type.
 	// * `block_device_mappings.#.no_device` - Suppresses the specified device
-	// included in the block device mapping of the AMI.
+	//   included in the block device mapping of the AMI.
 	// * `block_device_mappings.#.virtual_name` - The virtual device name (for
-	// instance stores).
+	//   instance stores).
 	BlockDeviceMappings []GetAmiBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// The date and time the image was created.
 	CreationDate string `pulumi:"creationDate"`

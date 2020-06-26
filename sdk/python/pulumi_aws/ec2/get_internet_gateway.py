@@ -64,8 +64,6 @@ def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=No
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

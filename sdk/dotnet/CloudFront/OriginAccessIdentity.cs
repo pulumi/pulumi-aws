@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// The following example below creates a CloudFront origin access identity.
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -37,7 +37,6 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// }
     /// ```
-    /// 
     /// ## Using With CloudFront
     /// 
     /// Normally, when referencing an origin access identity in CloudFront, you need to

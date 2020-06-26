@@ -26,7 +26,74 @@ import (
 //
 // ## Example Usage
 //
+// The following provides a very basic example of setting up an instance (provided
+// by `instance`) in the default security group, creating a security group
+// (provided by `sg`) and then attaching the security group to the instance's
+// primary network interface via the `ec2.NetworkInterfaceSecurityGroupAttachment` resource,
+// named `sgAttachment`:
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		ami, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+// 			Filters: []aws.GetAmiFilter{
+// 				aws.GetAmiFilter{
+// 					Name: "name",
+// 					Values: []string{
+// 						"amzn-ami-hvm-*",
+// 					},
+// 				},
+// 			},
+// 			MostRecent: &opt0,
+// 			Owners: []string{
+// 				"amazon",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		instance, err := ec2.NewInstance(ctx, "instance", &ec2.InstanceArgs{
+// 			Ami:          pulumi.String(ami.Id),
+// 			InstanceType: pulumi.String("t2.micro"),
+// 			Tags: pulumi.Map{
+// 				"type": pulumi.String("test-instance"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		sg, err := ec2.NewSecurityGroup(ctx, "sg", &ec2.SecurityGroupArgs{
+// 			Tags: pulumi.Map{
+// 				"type": pulumi.String("test-security-group"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sgAttachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
+// 			NetworkInterfaceId: instance.PrimaryNetworkInterfaceId,
+// 			SecurityGroupId:    sg.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// In this example, `instance` is provided by the `ec2.Instance` data source,
+// fetching an external instance, possibly not managed by this provider.
+// `sgAttachment` then attaches to the output instance's `networkInterfaceId`:
 //
 // ```go
 // package main
@@ -38,21 +105,22 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "i-1234567890abcdef0"
 // 		instance, err := ec2.LookupInstance(ctx, &ec2.LookupInstanceArgs{
-// 			InstanceId: "i-1234567890abcdef0",
+// 			InstanceId: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		sg, err := ec2.NewSecurityGroup(ctx, "sg", &ec2.SecurityGroupArgs{
-// 			Tags: map[string]interface{}{
-// 				"type": "test-security-group",
+// 			Tags: pulumi.Map{
+// 				"type": pulumi.String("test-security-group"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		sgAttachment, err := ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sgAttachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
+// 		_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sgAttachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
 // 			NetworkInterfaceId: pulumi.String(instance.NetworkInterfaceId),
 // 			SecurityGroupId:    sg.ID(),
 // 		})
@@ -63,7 +131,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Output Reference
 //
 // There are no outputs for this resource.

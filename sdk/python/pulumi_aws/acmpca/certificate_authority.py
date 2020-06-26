@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class CertificateAuthority(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -96,7 +97,6 @@ class CertificateAuthority(pulumi.CustomResource):
         > **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute and import the signed certificate using the AWS SDK, CLI or Console. This provider can support another resource to manage that workflow automatically in the future.
 
         ## Example Usage
-
         ### Basic
 
         ```python
@@ -113,7 +113,6 @@ class CertificateAuthority(pulumi.CustomResource):
             },
             permanent_deletion_time_in_days=7)
         ```
-
         ### Enable Certificate Revocation List
 
         ```python
@@ -303,9 +302,9 @@ class CertificateAuthority(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["type"] = type
         return CertificateAuthority(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

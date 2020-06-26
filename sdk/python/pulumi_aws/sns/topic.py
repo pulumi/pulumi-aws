@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Topic(pulumi.CustomResource):
     application_failure_feedback_role_arn: pulumi.Output[str]
     """
@@ -96,15 +97,12 @@ class Topic(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         user_updates = aws.sns.Topic("userUpdates")
         ```
-
         ## Example with Delivery Policy
 
         ```python
@@ -265,9 +263,9 @@ class Topic(pulumi.CustomResource):
         __props__["sqs_success_feedback_sample_rate"] = sqs_success_feedback_sample_rate
         __props__["tags"] = tags
         return Topic(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -19,8 +19,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -35,8 +33,8 @@ import (
 // 			Ami:              pulumi.String("ami-21f78e11"),
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			InstanceType:     pulumi.String("t1.micro"),
-// 			Tags: map[string]interface{}{
-// 				"Name": "HelloWorld",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("HelloWorld"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -48,7 +46,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		eipAssoc, err := ec2.NewEipAssociation(ctx, "eipAssoc", &ec2.EipAssociationArgs{
+// 		_, err = ec2.NewEipAssociation(ctx, "eipAssoc", &ec2.EipAssociationArgs{
 // 			AllocationId: example.ID(),
 // 			InstanceId:   web.ID(),
 // 		})

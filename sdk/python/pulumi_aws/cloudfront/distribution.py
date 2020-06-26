@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Distribution(pulumi.CustomResource):
     active_trusted_signers: pulumi.Output[dict]
     """
@@ -387,7 +388,7 @@ class Distribution(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        The following example below creates a CloudFront distribution with an S3 origin.
 
         ```python
         import pulumi
@@ -516,6 +517,53 @@ class Distribution(pulumi.CustomResource):
             viewer_certificate={
                 "cloudfrontDefaultCertificate": True,
             })
+        ```
+
+        The following example below creates a Cloudfront distribution with an origin group for failover routing:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
+            default_cache_behavior={
+                "targetOriginId": "groupS3",
+            },
+            origins=[
+                {
+                    "domain_name": aws_s3_bucket["primary"]["bucket_regional_domain_name"],
+                    "originId": "primaryS3",
+                    "s3OriginConfig": {
+                        "originAccessIdentity": aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
+                    },
+                },
+                {
+                    "domain_name": aws_s3_bucket["failover"]["bucket_regional_domain_name"],
+                    "originId": "failoverS3",
+                    "s3OriginConfig": {
+                        "originAccessIdentity": aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
+                    },
+                },
+            ],
+            origin_groups=[{
+                "failoverCriteria": {
+                    "statusCodes": [
+                        403,
+                        404,
+                        500,
+                        502,
+                    ],
+                },
+                "member": [
+                    {
+                        "originId": "primaryS3",
+                    },
+                    {
+                        "originId": "failoverS3",
+                    },
+                ],
+                "originId": "groupS3",
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -1192,9 +1240,9 @@ class Distribution(pulumi.CustomResource):
         __props__["wait_for_deployment"] = wait_for_deployment
         __props__["web_acl_id"] = web_acl_id
         return Distribution(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

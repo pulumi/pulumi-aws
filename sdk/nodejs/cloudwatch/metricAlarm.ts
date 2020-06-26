@@ -13,8 +13,6 @@ import {Topic} from "../sns";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,7 +29,6 @@ import {Topic} from "../sns";
  *     threshold: 80,
  * });
  * ```
- *
  * ## Example in Conjunction with Scaling Policies
  *
  * ```typescript

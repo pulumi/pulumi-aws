@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -38,7 +36,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		defaultEventSubscription, err := redshift.NewEventSubscription(ctx, "defaultEventSubscription", &redshift.EventSubscriptionArgs{
+// 		_, err = redshift.NewEventSubscription(ctx, "defaultEventSubscription", &redshift.EventSubscriptionArgs{
 // 			EventCategories: pulumi.StringArray{
 // 				pulumi.String("configuration"),
 // 				pulumi.String("management"),
@@ -46,13 +44,13 @@ import (
 // 				pulumi.String("security"),
 // 			},
 // 			Severity:    pulumi.String("INFO"),
-// 			SnsTopicArn: pulumi.String(defaultTopic.Arn),
+// 			SnsTopicArn: defaultTopic.Arn,
 // 			SourceIds: pulumi.StringArray{
 // 				defaultCluster.ID(),
 // 			},
 // 			SourceType: pulumi.String("cluster"),
-// 			Tags: map[string]interface{}{
-// 				"Name": "default",
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("default"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -62,7 +60,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Attributes
 //
 // The following additional atttributes are provided:

@@ -22,8 +22,7 @@ type ClusterParameterGroupParameter struct {
 // ClusterParameterGroupParameterInput is an input type that accepts ClusterParameterGroupParameterArgs and ClusterParameterGroupParameterOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupParameterInput` via:
 //
-// 		 ClusterParameterGroupParameterArgs{...}
-//
+//          ClusterParameterGroupParameterArgs{...}
 type ClusterParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -55,8 +54,7 @@ func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutp
 // ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
 //
-// 		 ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
-//
+//          ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
 type ClusterParameterGroupParameterArrayInput interface {
 	pulumi.Input
 

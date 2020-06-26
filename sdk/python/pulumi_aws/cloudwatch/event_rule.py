@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class EventRule(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -54,8 +55,6 @@ class EventRule(pulumi.CustomResource):
         Provides a CloudWatch Event Rule resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -170,9 +169,9 @@ class EventRule(pulumi.CustomResource):
         __props__["schedule_expression"] = schedule_expression
         __props__["tags"] = tags
         return EventRule(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

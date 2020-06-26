@@ -21,8 +21,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -36,6 +34,25 @@ namespace Pulumi.Aws.AutoScaling
     ///         {
     ///             AutoscalingGroupName = aws_autoscaling_group.Asg.Id,
     ///             Elb = aws_elb.Bar.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new ALB Target Group attachment
+    ///         var asgAttachmentBar = new Aws.AutoScaling.Attachment("asgAttachmentBar", new Aws.AutoScaling.AttachmentArgs
+    ///         {
+    ///             AlbTargetGroupArn = aws_alb_target_group.Test.Arn,
+    ///             AutoscalingGroupName = aws_autoscaling_group.Asg.Id,
     ///         });
     ///     }
     /// 

@@ -15,7 +15,6 @@ namespace Pulumi.Aws.LB
     /// &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Instance Target Group
     /// 
     /// ```csharp
@@ -40,7 +39,6 @@ namespace Pulumi.Aws.LB
     /// 
     /// }
     /// ```
-    /// 
     /// ### IP Target Group
     /// 
     /// ```csharp
@@ -66,7 +64,6 @@ namespace Pulumi.Aws.LB
     /// 
     /// }
     /// ```
-    /// 
     /// ### Lambda Target Group
     /// 
     /// ```csharp

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class LoadBalancerPolicy(pulumi.CustomResource):
     load_balancer_name: pulumi.Output[str]
     """
@@ -34,8 +35,6 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         Provides a load balancer policy, which can be attached to an ELB listener or backend server.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -100,6 +99,14 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             load_balancer_port=443,
             policy_names=[wu_tang_ssl.policy_name])
         ```
+
+        Where the file `pubkey` in the current directory contains only the _public key_ of the certificate.
+
+        ```python
+        import pulumi
+        ```
+
+        This example shows how to enable backend authentication for an ELB as well as customize the TLS settings.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,9 +183,9 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         __props__["policy_name"] = policy_name
         __props__["policy_type_name"] = policy_type_name
         return LoadBalancerPolicy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

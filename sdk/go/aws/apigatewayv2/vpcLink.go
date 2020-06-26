@@ -17,8 +17,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -29,13 +27,13 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := apigatewayv2.NewVpcLink(ctx, "example", &apigatewayv2.VpcLinkArgs{
+// 		_, err = apigatewayv2.NewVpcLink(ctx, "example", &apigatewayv2.VpcLinkArgs{
 // 			SecurityGroupIds: pulumi.StringArray{
 // 				pulumi.String(data.Aws_security_group.Example.Id),
 // 			},
 // 			SubnetIds: data.Aws_subnet_ids.Example.Ids,
-// 			Tags: map[string]interface{}{
-// 				"Usage": "example",
+// 			Tags: pulumi.Map{
+// 				"Usage": pulumi.String("example"),
 // 			},
 // 		})
 // 		if err != nil {

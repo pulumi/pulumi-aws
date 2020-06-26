@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Project(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -20,7 +21,7 @@ class Project(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a resource to manage AWS Device Farm Projects. 
+        Provides a resource to manage AWS Device Farm Projects.
         Please keep in mind that this feature is only supported on the "us-west-2" region.
         This resource will error if you try to create a project in another region.
 
@@ -28,7 +29,6 @@ class Project(pulumi.CustomResource):
         [Device Farm Projects][aws-get-project].
 
         ## Basic Example Usage
-
 
         ```python
         import pulumi
@@ -85,9 +85,9 @@ class Project(pulumi.CustomResource):
         __props__["arn"] = arn
         __props__["name"] = name
         return Project(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

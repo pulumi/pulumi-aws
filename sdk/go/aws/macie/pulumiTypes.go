@@ -22,8 +22,7 @@ type S3BucketAssociationClassificationType struct {
 // S3BucketAssociationClassificationTypeInput is an input type that accepts S3BucketAssociationClassificationTypeArgs and S3BucketAssociationClassificationTypeOutput values.
 // You can construct a concrete instance of `S3BucketAssociationClassificationTypeInput` via:
 //
-// 		 S3BucketAssociationClassificationTypeArgs{...}
-//
+//          S3BucketAssociationClassificationTypeArgs{...}
 type S3BucketAssociationClassificationTypeInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i S3BucketAssociationClassificationTypeArgs) ToS3BucketAssociationClassifi
 // S3BucketAssociationClassificationTypePtrInput is an input type that accepts S3BucketAssociationClassificationTypeArgs, S3BucketAssociationClassificationTypePtr and S3BucketAssociationClassificationTypePtrOutput values.
 // You can construct a concrete instance of `S3BucketAssociationClassificationTypePtrInput` via:
 //
-// 		 S3BucketAssociationClassificationTypeArgs{...}
+//          S3BucketAssociationClassificationTypeArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type S3BucketAssociationClassificationTypePtrInput interface {
 	pulumi.Input
 

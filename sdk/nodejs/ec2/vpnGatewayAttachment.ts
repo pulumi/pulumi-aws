@@ -14,8 +14,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,6 +31,10 @@ import * as utilities from "../utilities";
  *     vpnGatewayId: vpn.id,
  * });
  * ```
+ *
+ * See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
+ * and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
+ * guides for more information.
  */
 export class VpnGatewayAttachment extends pulumi.CustomResource {
     /**

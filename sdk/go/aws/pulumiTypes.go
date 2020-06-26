@@ -20,8 +20,7 @@ type GetAmiBlockDeviceMapping struct {
 // GetAmiBlockDeviceMappingInput is an input type that accepts GetAmiBlockDeviceMappingArgs and GetAmiBlockDeviceMappingOutput values.
 // You can construct a concrete instance of `GetAmiBlockDeviceMappingInput` via:
 //
-// 		 GetAmiBlockDeviceMappingArgs{...}
-//
+//          GetAmiBlockDeviceMappingArgs{...}
 type GetAmiBlockDeviceMappingInput interface {
 	pulumi.Input
 
@@ -51,8 +50,7 @@ func (i GetAmiBlockDeviceMappingArgs) ToGetAmiBlockDeviceMappingOutputWithContex
 // GetAmiBlockDeviceMappingArrayInput is an input type that accepts GetAmiBlockDeviceMappingArray and GetAmiBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `GetAmiBlockDeviceMappingArrayInput` via:
 //
-// 		 GetAmiBlockDeviceMappingArray{ GetAmiBlockDeviceMappingArgs{...} }
-//
+//          GetAmiBlockDeviceMappingArray{ GetAmiBlockDeviceMappingArgs{...} }
 type GetAmiBlockDeviceMappingArrayInput interface {
 	pulumi.Input
 
@@ -133,8 +131,7 @@ type GetAmiFilter struct {
 // GetAmiFilterInput is an input type that accepts GetAmiFilterArgs and GetAmiFilterOutput values.
 // You can construct a concrete instance of `GetAmiFilterInput` via:
 //
-// 		 GetAmiFilterArgs{...}
-//
+//          GetAmiFilterArgs{...}
 type GetAmiFilterInput interface {
 	pulumi.Input
 
@@ -163,8 +160,7 @@ func (i GetAmiFilterArgs) ToGetAmiFilterOutputWithContext(ctx context.Context) G
 // GetAmiFilterArrayInput is an input type that accepts GetAmiFilterArray and GetAmiFilterArrayOutput values.
 // You can construct a concrete instance of `GetAmiFilterArrayInput` via:
 //
-// 		 GetAmiFilterArray{ GetAmiFilterArgs{...} }
-//
+//          GetAmiFilterArray{ GetAmiFilterArgs{...} }
 type GetAmiFilterArrayInput interface {
 	pulumi.Input
 
@@ -237,8 +233,7 @@ type GetAmiIdsFilter struct {
 // GetAmiIdsFilterInput is an input type that accepts GetAmiIdsFilterArgs and GetAmiIdsFilterOutput values.
 // You can construct a concrete instance of `GetAmiIdsFilterInput` via:
 //
-// 		 GetAmiIdsFilterArgs{...}
-//
+//          GetAmiIdsFilterArgs{...}
 type GetAmiIdsFilterInput interface {
 	pulumi.Input
 
@@ -266,8 +261,7 @@ func (i GetAmiIdsFilterArgs) ToGetAmiIdsFilterOutputWithContext(ctx context.Cont
 // GetAmiIdsFilterArrayInput is an input type that accepts GetAmiIdsFilterArray and GetAmiIdsFilterArrayOutput values.
 // You can construct a concrete instance of `GetAmiIdsFilterArrayInput` via:
 //
-// 		 GetAmiIdsFilterArray{ GetAmiIdsFilterArgs{...} }
-//
+//          GetAmiIdsFilterArray{ GetAmiIdsFilterArgs{...} }
 type GetAmiIdsFilterArrayInput interface {
 	pulumi.Input
 
@@ -339,8 +333,7 @@ type GetAmiProductCode struct {
 // GetAmiProductCodeInput is an input type that accepts GetAmiProductCodeArgs and GetAmiProductCodeOutput values.
 // You can construct a concrete instance of `GetAmiProductCodeInput` via:
 //
-// 		 GetAmiProductCodeArgs{...}
-//
+//          GetAmiProductCodeArgs{...}
 type GetAmiProductCodeInput interface {
 	pulumi.Input
 
@@ -368,8 +361,7 @@ func (i GetAmiProductCodeArgs) ToGetAmiProductCodeOutputWithContext(ctx context.
 // GetAmiProductCodeArrayInput is an input type that accepts GetAmiProductCodeArray and GetAmiProductCodeArrayOutput values.
 // You can construct a concrete instance of `GetAmiProductCodeArrayInput` via:
 //
-// 		 GetAmiProductCodeArray{ GetAmiProductCodeArgs{...} }
-//
+//          GetAmiProductCodeArray{ GetAmiProductCodeArgs{...} }
 type GetAmiProductCodeArrayInput interface {
 	pulumi.Input
 
@@ -443,8 +435,7 @@ type GetAutoscalingGroupsFilter struct {
 // GetAutoscalingGroupsFilterInput is an input type that accepts GetAutoscalingGroupsFilterArgs and GetAutoscalingGroupsFilterOutput values.
 // You can construct a concrete instance of `GetAutoscalingGroupsFilterInput` via:
 //
-// 		 GetAutoscalingGroupsFilterArgs{...}
-//
+//          GetAutoscalingGroupsFilterArgs{...}
 type GetAutoscalingGroupsFilterInput interface {
 	pulumi.Input
 
@@ -474,8 +465,7 @@ func (i GetAutoscalingGroupsFilterArgs) ToGetAutoscalingGroupsFilterOutputWithCo
 // GetAutoscalingGroupsFilterArrayInput is an input type that accepts GetAutoscalingGroupsFilterArray and GetAutoscalingGroupsFilterArrayOutput values.
 // You can construct a concrete instance of `GetAutoscalingGroupsFilterArrayInput` via:
 //
-// 		 GetAutoscalingGroupsFilterArray{ GetAutoscalingGroupsFilterArgs{...} }
-//
+//          GetAutoscalingGroupsFilterArray{ GetAutoscalingGroupsFilterArgs{...} }
 type GetAutoscalingGroupsFilterArrayInput interface {
 	pulumi.Input
 
@@ -551,8 +541,7 @@ type GetAvailabilityZoneFilter struct {
 // GetAvailabilityZoneFilterInput is an input type that accepts GetAvailabilityZoneFilterArgs and GetAvailabilityZoneFilterOutput values.
 // You can construct a concrete instance of `GetAvailabilityZoneFilterInput` via:
 //
-// 		 GetAvailabilityZoneFilterArgs{...}
-//
+//          GetAvailabilityZoneFilterArgs{...}
 type GetAvailabilityZoneFilterInput interface {
 	pulumi.Input
 
@@ -582,8 +571,7 @@ func (i GetAvailabilityZoneFilterArgs) ToGetAvailabilityZoneFilterOutputWithCont
 // GetAvailabilityZoneFilterArrayInput is an input type that accepts GetAvailabilityZoneFilterArray and GetAvailabilityZoneFilterArrayOutput values.
 // You can construct a concrete instance of `GetAvailabilityZoneFilterArrayInput` via:
 //
-// 		 GetAvailabilityZoneFilterArray{ GetAvailabilityZoneFilterArgs{...} }
-//
+//          GetAvailabilityZoneFilterArray{ GetAvailabilityZoneFilterArgs{...} }
 type GetAvailabilityZoneFilterArrayInput interface {
 	pulumi.Input
 
@@ -659,8 +647,7 @@ type GetAvailabilityZonesFilter struct {
 // GetAvailabilityZonesFilterInput is an input type that accepts GetAvailabilityZonesFilterArgs and GetAvailabilityZonesFilterOutput values.
 // You can construct a concrete instance of `GetAvailabilityZonesFilterInput` via:
 //
-// 		 GetAvailabilityZonesFilterArgs{...}
-//
+//          GetAvailabilityZonesFilterArgs{...}
 type GetAvailabilityZonesFilterInput interface {
 	pulumi.Input
 
@@ -690,8 +677,7 @@ func (i GetAvailabilityZonesFilterArgs) ToGetAvailabilityZonesFilterOutputWithCo
 // GetAvailabilityZonesFilterArrayInput is an input type that accepts GetAvailabilityZonesFilterArray and GetAvailabilityZonesFilterArrayOutput values.
 // You can construct a concrete instance of `GetAvailabilityZonesFilterArrayInput` via:
 //
-// 		 GetAvailabilityZonesFilterArray{ GetAvailabilityZonesFilterArgs{...} }
-//
+//          GetAvailabilityZonesFilterArray{ GetAvailabilityZonesFilterArgs{...} }
 type GetAvailabilityZonesFilterArrayInput interface {
 	pulumi.Input
 
@@ -765,8 +751,7 @@ type GetElasticIpFilter struct {
 // GetElasticIpFilterInput is an input type that accepts GetElasticIpFilterArgs and GetElasticIpFilterOutput values.
 // You can construct a concrete instance of `GetElasticIpFilterInput` via:
 //
-// 		 GetElasticIpFilterArgs{...}
-//
+//          GetElasticIpFilterArgs{...}
 type GetElasticIpFilterInput interface {
 	pulumi.Input
 
@@ -794,8 +779,7 @@ func (i GetElasticIpFilterArgs) ToGetElasticIpFilterOutputWithContext(ctx contex
 // GetElasticIpFilterArrayInput is an input type that accepts GetElasticIpFilterArray and GetElasticIpFilterArrayOutput values.
 // You can construct a concrete instance of `GetElasticIpFilterArrayInput` via:
 //
-// 		 GetElasticIpFilterArray{ GetElasticIpFilterArgs{...} }
-//
+//          GetElasticIpFilterArray{ GetElasticIpFilterArgs{...} }
 type GetElasticIpFilterArrayInput interface {
 	pulumi.Input
 
@@ -869,8 +853,7 @@ type GetPrefixListFilter struct {
 // GetPrefixListFilterInput is an input type that accepts GetPrefixListFilterArgs and GetPrefixListFilterOutput values.
 // You can construct a concrete instance of `GetPrefixListFilterInput` via:
 //
-// 		 GetPrefixListFilterArgs{...}
-//
+//          GetPrefixListFilterArgs{...}
 type GetPrefixListFilterInput interface {
 	pulumi.Input
 
@@ -900,8 +883,7 @@ func (i GetPrefixListFilterArgs) ToGetPrefixListFilterOutputWithContext(ctx cont
 // GetPrefixListFilterArrayInput is an input type that accepts GetPrefixListFilterArray and GetPrefixListFilterArrayOutput values.
 // You can construct a concrete instance of `GetPrefixListFilterArrayInput` via:
 //
-// 		 GetPrefixListFilterArray{ GetPrefixListFilterArgs{...} }
-//
+//          GetPrefixListFilterArray{ GetPrefixListFilterArgs{...} }
 type GetPrefixListFilterArrayInput interface {
 	pulumi.Input
 
@@ -977,8 +959,7 @@ type GetRegionsFilter struct {
 // GetRegionsFilterInput is an input type that accepts GetRegionsFilterArgs and GetRegionsFilterOutput values.
 // You can construct a concrete instance of `GetRegionsFilterInput` via:
 //
-// 		 GetRegionsFilterArgs{...}
-//
+//          GetRegionsFilterArgs{...}
 type GetRegionsFilterInput interface {
 	pulumi.Input
 
@@ -1008,8 +989,7 @@ func (i GetRegionsFilterArgs) ToGetRegionsFilterOutputWithContext(ctx context.Co
 // GetRegionsFilterArrayInput is an input type that accepts GetRegionsFilterArray and GetRegionsFilterArrayOutput values.
 // You can construct a concrete instance of `GetRegionsFilterArrayInput` via:
 //
-// 		 GetRegionsFilterArray{ GetRegionsFilterArgs{...} }
-//
+//          GetRegionsFilterArray{ GetRegionsFilterArgs{...} }
 type GetRegionsFilterArrayInput interface {
 	pulumi.Input
 
@@ -1085,8 +1065,7 @@ type ProviderAssumeRole struct {
 // ProviderAssumeRoleInput is an input type that accepts ProviderAssumeRoleArgs and ProviderAssumeRoleOutput values.
 // You can construct a concrete instance of `ProviderAssumeRoleInput` via:
 //
-// 		 ProviderAssumeRoleArgs{...}
-//
+//          ProviderAssumeRoleArgs{...}
 type ProviderAssumeRoleInput interface {
 	pulumi.Input
 
@@ -1124,12 +1103,11 @@ func (i ProviderAssumeRoleArgs) ToProviderAssumeRolePtrOutputWithContext(ctx con
 // ProviderAssumeRolePtrInput is an input type that accepts ProviderAssumeRoleArgs, ProviderAssumeRolePtr and ProviderAssumeRolePtrOutput values.
 // You can construct a concrete instance of `ProviderAssumeRolePtrInput` via:
 //
-// 		 ProviderAssumeRoleArgs{...}
+//          ProviderAssumeRoleArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProviderAssumeRolePtrInput interface {
 	pulumi.Input
 
@@ -1396,8 +1374,7 @@ type ProviderEndpoint struct {
 // ProviderEndpointInput is an input type that accepts ProviderEndpointArgs and ProviderEndpointOutput values.
 // You can construct a concrete instance of `ProviderEndpointInput` via:
 //
-// 		 ProviderEndpointArgs{...}
-//
+//          ProviderEndpointArgs{...}
 type ProviderEndpointInput interface {
 	pulumi.Input
 
@@ -1565,8 +1542,7 @@ func (i ProviderEndpointArgs) ToProviderEndpointOutputWithContext(ctx context.Co
 // ProviderEndpointArrayInput is an input type that accepts ProviderEndpointArray and ProviderEndpointArrayOutput values.
 // You can construct a concrete instance of `ProviderEndpointArrayInput` via:
 //
-// 		 ProviderEndpointArray{ ProviderEndpointArgs{...} }
-//
+//          ProviderEndpointArray{ ProviderEndpointArgs{...} }
 type ProviderEndpointArrayInput interface {
 	pulumi.Input
 
@@ -2192,8 +2168,7 @@ type ProviderIgnoreTags struct {
 // ProviderIgnoreTagsInput is an input type that accepts ProviderIgnoreTagsArgs and ProviderIgnoreTagsOutput values.
 // You can construct a concrete instance of `ProviderIgnoreTagsInput` via:
 //
-// 		 ProviderIgnoreTagsArgs{...}
-//
+//          ProviderIgnoreTagsArgs{...}
 type ProviderIgnoreTagsInput interface {
 	pulumi.Input
 
@@ -2229,12 +2204,11 @@ func (i ProviderIgnoreTagsArgs) ToProviderIgnoreTagsPtrOutputWithContext(ctx con
 // ProviderIgnoreTagsPtrInput is an input type that accepts ProviderIgnoreTagsArgs, ProviderIgnoreTagsPtr and ProviderIgnoreTagsPtrOutput values.
 // You can construct a concrete instance of `ProviderIgnoreTagsPtrInput` via:
 //
-// 		 ProviderIgnoreTagsArgs{...}
+//          ProviderIgnoreTagsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProviderIgnoreTagsPtrInput interface {
 	pulumi.Input
 

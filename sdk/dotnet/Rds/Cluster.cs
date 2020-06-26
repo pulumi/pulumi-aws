@@ -30,7 +30,6 @@ namespace Pulumi.Aws.Rds
     /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Aurora MySQL 2.x (MySQL 5.7)
     /// 
     /// ```csharp
@@ -62,7 +61,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// }
     /// ```
-    /// 
     /// ### Aurora MySQL 1.x (MySQL 5.6)
     /// 
     /// ```csharp
@@ -92,7 +90,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// }
     /// ```
-    /// 
     /// ### Aurora with PostgreSQL engine
     /// 
     /// ```csharp
@@ -123,8 +120,9 @@ namespace Pulumi.Aws.Rds
     /// 
     /// }
     /// ```
-    /// 
     /// ### Aurora Multi-Master Cluster
+    /// 
+    /// &gt; More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
     /// 
     /// ```csharp
     /// using Pulumi;

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class GcmChannel(pulumi.CustomResource):
     api_key: pulumi.Output[str]
     """
@@ -29,8 +30,6 @@ class GcmChannel(pulumi.CustomResource):
         > **Note:** Api Key argument will be stored in the raw state as plain-text.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -99,9 +98,9 @@ class GcmChannel(pulumi.CustomResource):
         __props__["application_id"] = application_id
         __props__["enabled"] = enabled
         return GcmChannel(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

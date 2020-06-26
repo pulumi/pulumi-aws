@@ -13,8 +13,65 @@ import (
 // Provides a Route53 record resource.
 //
 // ## Example Usage
+// ### Weighted routing policy
+// Other routing policies are configured similarly. See [AWS Route53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = route53.NewRecord(ctx, "www-dev", &route53.RecordArgs{
+// 			Name: pulumi.String("www"),
+// 			Records: pulumi.StringArray{
+// 				pulumi.String("dev.example.com"),
+// 			},
+// 			SetIdentifier: pulumi.String("dev"),
+// 			Ttl:           pulumi.Int(5),
+// 			Type:          pulumi.String("CNAME"),
+// 			WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
+// 				&route53.RecordWeightedRoutingPolicyArgs{
+// 					Weight: pulumi.Int(10),
+// 				},
+// 			},
+// 			ZoneId: pulumi.String(aws_route53_zone.Primary.Zone_id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "www-live", &route53.RecordArgs{
+// 			Name: pulumi.String("www"),
+// 			Records: pulumi.StringArray{
+// 				pulumi.String("live.example.com"),
+// 			},
+// 			SetIdentifier: pulumi.String("live"),
+// 			Ttl:           pulumi.Int(5),
+// 			Type:          pulumi.String("CNAME"),
+// 			WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
+// 				&route53.RecordWeightedRoutingPolicyArgs{
+// 					Weight: pulumi.Int(90),
+// 				},
+// 			},
+// 			ZoneId: pulumi.String(aws_route53_zone.Primary.Zone_id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Alias record
+// See [related part of AWS Route53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
+// to understand differences between alias and non-alias records.
+//
+// TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
+// you cannot change this, therefore `ttl` has to be omitted in alias records.
 //
 // ```go
 // package main
@@ -43,7 +100,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		www, err := route53.NewRecord(ctx, "www", &route53.RecordArgs{
+// 		_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
 // 			Aliases: route53.RecordAliasArray{
 // 				&route53.RecordAliasArgs{
 // 					EvaluateTargetHealth: pulumi.Bool(true),
@@ -62,8 +119,9 @@ import (
 // 	})
 // }
 // ```
-//
 // ### NS and SOA Record Management
+//
+// When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allowOverwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
 //
 // ```go
 // package main
@@ -79,7 +137,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleRecord, err := route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
+// 		_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
 // 			AllowOverwrite: pulumi.Bool(true),
 // 			Name:           pulumi.String("test.example.com"),
 // 			Records: pulumi.StringArray{

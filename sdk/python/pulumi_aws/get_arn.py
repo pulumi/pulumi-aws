@@ -75,8 +75,6 @@ def get_arn(arn=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

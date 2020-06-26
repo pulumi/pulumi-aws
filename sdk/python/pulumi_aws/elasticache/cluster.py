@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Cluster(pulumi.CustomResource):
     apply_immediately: pulumi.Output[bool]
     """
@@ -158,7 +159,6 @@ class Cluster(pulumi.CustomResource):
         See the AWS Docs on [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Modify.html) for more information.
 
         ## Example Usage
-
         ### Memcached Cluster
 
         ```python
@@ -172,7 +172,6 @@ class Cluster(pulumi.CustomResource):
             parameter_group_name="default.memcached1.4",
             port=11211)
         ```
-
         ### Redis Instance
 
         ```python
@@ -187,8 +186,9 @@ class Cluster(pulumi.CustomResource):
             parameter_group_name="default.redis3.2",
             port=6379)
         ```
-
         ### Redis Cluster Mode Disabled Read Replica Instance
+
+        These inherit their settings from the replication group.
 
         ```python
         import pulumi
@@ -399,9 +399,9 @@ class Cluster(pulumi.CustomResource):
         __props__["subnet_group_name"] = subnet_group_name
         __props__["tags"] = tags
         return Cluster(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

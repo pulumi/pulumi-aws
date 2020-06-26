@@ -16,8 +16,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,6 +45,8 @@ import * as utilities from "../utilities";
  *     optionGroupDescription: "Option Group",
  * });
  * ```
+ *
+ * > **Note**: Any modifications to the `dbOptionGroup` are set to happen immediately as we default to applying immediately.
  */
 export class OptionGroup extends pulumi.CustomResource {
     /**

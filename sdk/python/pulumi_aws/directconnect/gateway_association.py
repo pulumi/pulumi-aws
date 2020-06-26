@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class GatewayAssociation(pulumi.CustomResource):
     allowed_prefixes: pulumi.Output[list]
     """
@@ -59,7 +60,6 @@ class GatewayAssociation(pulumi.CustomResource):
         by creating an `directconnect.GatewayAssociation` resource with the `proposal_id` and `associated_gateway_owner_account_id` attributes set.
 
         ## Example Usage
-
         ### VPN Gateway Association
 
         ```python
@@ -73,7 +73,6 @@ class GatewayAssociation(pulumi.CustomResource):
             associated_gateway_id=example_vpn_gateway.id,
             dx_gateway_id=example_gateway.id)
         ```
-
         ### Transit Gateway Association
 
         ```python
@@ -90,7 +89,6 @@ class GatewayAssociation(pulumi.CustomResource):
             associated_gateway_id=example_transit_gateway.id,
             dx_gateway_id=example_gateway.id)
         ```
-
         ### Allowed Prefixes
 
         ```python
@@ -108,6 +106,8 @@ class GatewayAssociation(pulumi.CustomResource):
             associated_gateway_id=example_vpn_gateway.id,
             dx_gateway_id=example_gateway.id)
         ```
+
+        A full example of how to create a VPN Gateway in one AWS account, create a Direct Connect Gateway in a second AWS account, and associate the VPN Gateway with the Direct Connect Gateway via the `directconnect.GatewayAssociationProposal` and `directconnect.GatewayAssociation` resources can be found in [the `./examples/dx-gateway-cross-account-vgw-association` directory within the Github Repository](https://github.com/providers/provider-aws/tree/master/examples/dx-gateway-cross-account-vgw-association).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,9 +196,9 @@ class GatewayAssociation(pulumi.CustomResource):
         __props__["proposal_id"] = proposal_id
         __props__["vpn_gateway_id"] = vpn_gateway_id
         return GatewayAssociation(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

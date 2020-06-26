@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class LustreFileSystem(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -67,8 +68,6 @@ class LustreFileSystem(pulumi.CustomResource):
         Manages a FSx Lustre File System. See the [FSx Lustre Guide](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html) for more information.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -172,9 +171,9 @@ class LustreFileSystem(pulumi.CustomResource):
         __props__["vpc_id"] = vpc_id
         __props__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
         return LustreFileSystem(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

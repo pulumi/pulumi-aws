@@ -16,8 +16,6 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using System.IO;
     /// using Pulumi;

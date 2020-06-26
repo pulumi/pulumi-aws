@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class AvailabilityZoneGroup(pulumi.CustomResource):
     group_name: pulumi.Output[str]
     """
@@ -25,8 +26,6 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
         > **NOTE:** This is an advanced resource. The provider will automatically assume management of the EC2 Availability Zone Group without import and perform no actions on removal from configuration.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -90,9 +89,9 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
         __props__["group_name"] = group_name
         __props__["opt_in_status"] = opt_in_status
         return AvailabilityZoneGroup(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

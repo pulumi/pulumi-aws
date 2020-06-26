@@ -10,12 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides an Traffic mirror session.
+// Provides an Traffic mirror session.\
 // Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
 //
 // ## Example Usage
 //
-//
+// To create a basic traffic mirror session
 //
 // ```go
 // package main
@@ -42,7 +42,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		session, err := ec2.NewTrafficMirrorSession(ctx, "session", &ec2.TrafficMirrorSessionArgs{
+// 		_, err = ec2.NewTrafficMirrorSession(ctx, "session", &ec2.TrafficMirrorSessionArgs{
 // 			Description:           pulumi.String("traffic mirror session - example"),
 // 			NetworkInterfaceId:    pulumi.String(aws_instance.Test.Primary_network_interface_id),
 // 			TrafficMirrorFilterId: filter.ID(),

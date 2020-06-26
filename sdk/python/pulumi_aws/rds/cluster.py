@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Cluster(pulumi.CustomResource):
     apply_immediately: pulumi.Output[bool]
     """
@@ -200,7 +201,6 @@ class Cluster(pulumi.CustomResource):
         > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
 
         ## Example Usage
-
         ### Aurora MySQL 2.x (MySQL 5.7)
 
         ```python
@@ -222,7 +222,6 @@ class Cluster(pulumi.CustomResource):
             master_username="foo",
             preferred_backup_window="07:00-09:00")
         ```
-
         ### Aurora MySQL 1.x (MySQL 5.6)
 
         ```python
@@ -242,7 +241,6 @@ class Cluster(pulumi.CustomResource):
             master_username="foo",
             preferred_backup_window="07:00-09:00")
         ```
-
         ### Aurora with PostgreSQL engine
 
         ```python
@@ -263,8 +261,9 @@ class Cluster(pulumi.CustomResource):
             master_username="foo",
             preferred_backup_window="07:00-09:00")
         ```
-
         ### Aurora Multi-Master Cluster
+
+        > More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
 
         ```python
         import pulumi
@@ -510,9 +509,9 @@ class Cluster(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["vpc_security_group_ids"] = vpc_security_group_ids
         return Cluster(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

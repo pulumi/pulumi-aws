@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * Basic usage:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,6 +23,26 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * Full usage:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = new aws.ec2.VpcDhcpOptions("foo", {
+ *     domainName: "service.consul",
+ *     domainNameServers: [
+ *         "127.0.0.1",
+ *         "10.0.0.2",
+ *     ],
+ *     netbiosNameServers: ["127.0.0.1"],
+ *     netbiosNodeType: "2",
+ *     ntpServers: ["127.0.0.1"],
+ *     tags: {
+ *         Name: "foo-name",
+ *     },
+ * });
+ * ```
  * ## Remarks
  *
  * * Notice that all arguments are optional but you have to specify at least one argument.

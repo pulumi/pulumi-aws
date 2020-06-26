@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Table(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -142,7 +143,8 @@ class Table(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        The following dynamodb table description models the table and GSI shown
+        in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
 
         ```python
         import pulumi
@@ -186,8 +188,9 @@ class Table(pulumi.CustomResource):
             },
             write_capacity=20)
         ```
-
         ### Global Tables
+
+        This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `dynamodb.GlobalTable` resource.
 
         ```python
         import pulumi
@@ -451,9 +454,9 @@ class Table(pulumi.CustomResource):
         __props__["ttl"] = ttl
         __props__["write_capacity"] = write_capacity
         return Table(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

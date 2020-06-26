@@ -13,8 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +23,6 @@ import * as utilities from "../utilities";
  *     stackSetName: aws_cloudformation_stack_set_example.name,
  * });
  * ```
- *
  * ### Example IAM Setup in Target Account
  *
  * ```typescript

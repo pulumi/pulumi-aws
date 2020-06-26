@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class SizeConstraintSet(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -47,8 +48,6 @@ class SizeConstraintSet(pulumi.CustomResource):
         Provides a WAF Size Constraint Set Resource
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -160,9 +159,9 @@ class SizeConstraintSet(pulumi.CustomResource):
         __props__["name"] = name
         __props__["size_constraints"] = size_constraints
         return SizeConstraintSet(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

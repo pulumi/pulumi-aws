@@ -19,8 +19,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -70,6 +68,8 @@ namespace Pulumi.Aws.Rds
     /// 
     /// }
     /// ```
+    /// 
+    /// &gt; **Note**: Any modifications to the `db_option_group` are set to happen immediately as we default to applying immediately.
     /// </summary>
     public partial class OptionGroup : Pulumi.CustomResource
     {

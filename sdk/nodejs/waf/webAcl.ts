@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,8 +44,9 @@ import * as utilities from "../utilities";
  *     }],
  * }, { dependsOn: [ipset, wafrule] });
  * ```
- *
  * ### Logging
+ *
+ * > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

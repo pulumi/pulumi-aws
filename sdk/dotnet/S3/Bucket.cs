@@ -13,7 +13,6 @@ namespace Pulumi.Aws.S3
     /// Provides a S3 bucket resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Private Bucket w/ Tags
     /// 
     /// ```csharp
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// 
     /// ### Static Website Hosting
     /// 
     /// ```csharp
@@ -73,7 +71,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// 
     /// ### Using CORS
     /// 
     /// ```csharp
@@ -116,7 +113,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// 
     /// ### Using versioning
     /// 
     /// ```csharp
@@ -139,7 +135,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// 
     /// ### Enable Logging
     /// 
     /// ```csharp
@@ -170,7 +165,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// 
     /// ### Using object lifecycle
     /// 
     /// ```csharp
@@ -263,7 +257,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// 
     /// ### Using replication configuration
     /// 
     /// ```csharp
@@ -384,7 +377,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// 
     /// ### Enable Default Server Side Encryption
     /// 
     /// ```csharp
@@ -418,7 +410,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// 
     /// ### Using ACL policy grants
     /// 
     /// ```csharp

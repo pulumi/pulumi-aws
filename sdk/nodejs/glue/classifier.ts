@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
  *
  * ## Example Usage
- *
  * ### Csv Classifier
  *
  * ```typescript
@@ -33,7 +32,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Grok Classifier
  *
  * ```typescript
@@ -47,7 +45,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### JSON Classifier
  *
  * ```typescript
@@ -60,7 +57,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### XML Classifier
  *
  * ```typescript

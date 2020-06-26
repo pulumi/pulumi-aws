@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CodeDeploy
     /// Provides a CodeDeploy deployment config for an application
     /// 
     /// ## Example Usage
-    /// 
     /// ### Server Usage
     /// 
     /// ```csharp
@@ -81,7 +80,6 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// }
     /// ```
-    /// 
     /// ### Lambda Usage
     /// 
     /// ```csharp

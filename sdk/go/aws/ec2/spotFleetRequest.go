@@ -14,7 +14,6 @@ import (
 // instances to be requested on the Spot market.
 //
 // ## Example Usage
-//
 // ### Using launch specifications
 //
 // ```go
@@ -27,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cheapCompute, err := ec2.NewSpotFleetRequest(ctx, "cheapCompute", &ec2.SpotFleetRequestArgs{
+// 		_, err = ec2.NewSpotFleetRequest(ctx, "cheapCompute", &ec2.SpotFleetRequestArgs{
 // 			AllocationStrategy: pulumi.String("diversified"),
 // 			IamFleetRole:       pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
 // 			LaunchSpecifications: ec2.SpotFleetRequestLaunchSpecificationArray{
@@ -44,16 +43,16 @@ import (
 // 					IamInstanceProfileArn: pulumi.String(aws_iam_instance_profile.Example.Arn),
 // 					InstanceType:          pulumi.String("m4.4xlarge"),
 // 					KeyName:               pulumi.String("my-key"),
-// 					RootBlockDevice: []map[string]interface{}{
-// 						map[string]interface{}{
-// 							"volumeSize": "300",
-// 							"volumeType": "gp2",
+// 					RootBlockDevice: pulumi.MapArray{
+// 						pulumi.Map{
+// 							"volumeSize": pulumi.String("300"),
+// 							"volumeType": pulumi.String("gp2"),
 // 						},
 // 					},
 // 					SpotPrice: pulumi.String("1.117"),
 // 					SubnetId:  pulumi.String("subnet-1234"),
-// 					Tags: map[string]interface{}{
-// 						"Name": "spot-fleet-example",
+// 					Tags: pulumi.Map{
+// 						"Name": pulumi.String("spot-fleet-example"),
 // 					},
 // 					WeightedCapacity: pulumi.String("35"),
 // 				},
@@ -69,7 +68,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Using multiple launch specifications
 //
 // ```go
@@ -82,7 +80,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		foo, err := ec2.NewSpotFleetRequest(ctx, "foo", &ec2.SpotFleetRequestArgs{
+// 		_, err = ec2.NewSpotFleetRequest(ctx, "foo", &ec2.SpotFleetRequestArgs{
 // 			IamFleetRole: pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
 // 			LaunchSpecifications: ec2.SpotFleetRequestLaunchSpecificationArray{
 // 				&ec2.SpotFleetRequestLaunchSpecificationArgs{

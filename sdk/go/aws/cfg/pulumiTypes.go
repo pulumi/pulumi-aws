@@ -22,8 +22,7 @@ type ConfigurationAggregatorAccountAggregationSource struct {
 // ConfigurationAggregatorAccountAggregationSourceInput is an input type that accepts ConfigurationAggregatorAccountAggregationSourceArgs and ConfigurationAggregatorAccountAggregationSourceOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorAccountAggregationSourceInput` via:
 //
-// 		 ConfigurationAggregatorAccountAggregationSourceArgs{...}
-//
+//          ConfigurationAggregatorAccountAggregationSourceArgs{...}
 type ConfigurationAggregatorAccountAggregationSourceInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i ConfigurationAggregatorAccountAggregationSourceArgs) ToConfigurationAggr
 // ConfigurationAggregatorAccountAggregationSourcePtrInput is an input type that accepts ConfigurationAggregatorAccountAggregationSourceArgs, ConfigurationAggregatorAccountAggregationSourcePtr and ConfigurationAggregatorAccountAggregationSourcePtrOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorAccountAggregationSourcePtrInput` via:
 //
-// 		 ConfigurationAggregatorAccountAggregationSourceArgs{...}
+//          ConfigurationAggregatorAccountAggregationSourceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ConfigurationAggregatorAccountAggregationSourcePtrInput interface {
 	pulumi.Input
 
@@ -195,8 +193,7 @@ type ConfigurationAggregatorOrganizationAggregationSource struct {
 // ConfigurationAggregatorOrganizationAggregationSourceInput is an input type that accepts ConfigurationAggregatorOrganizationAggregationSourceArgs and ConfigurationAggregatorOrganizationAggregationSourceOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorOrganizationAggregationSourceInput` via:
 //
-// 		 ConfigurationAggregatorOrganizationAggregationSourceArgs{...}
-//
+//          ConfigurationAggregatorOrganizationAggregationSourceArgs{...}
 type ConfigurationAggregatorOrganizationAggregationSourceInput interface {
 	pulumi.Input
 
@@ -236,12 +233,11 @@ func (i ConfigurationAggregatorOrganizationAggregationSourceArgs) ToConfiguratio
 // ConfigurationAggregatorOrganizationAggregationSourcePtrInput is an input type that accepts ConfigurationAggregatorOrganizationAggregationSourceArgs, ConfigurationAggregatorOrganizationAggregationSourcePtr and ConfigurationAggregatorOrganizationAggregationSourcePtrOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorOrganizationAggregationSourcePtrInput` via:
 //
-// 		 ConfigurationAggregatorOrganizationAggregationSourceArgs{...}
+//          ConfigurationAggregatorOrganizationAggregationSourceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ConfigurationAggregatorOrganizationAggregationSourcePtrInput interface {
 	pulumi.Input
 
@@ -358,16 +354,15 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn()
 
 type DeliveryChannelSnapshotDeliveryProperties struct {
 	// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-	// e.g. `One_Hour` or `Three_Hours`.
-	// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+	//   e.g. `One_Hour` or `Three_Hours`.
+	//   Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 	DeliveryFrequency *string `pulumi:"deliveryFrequency"`
 }
 
 // DeliveryChannelSnapshotDeliveryPropertiesInput is an input type that accepts DeliveryChannelSnapshotDeliveryPropertiesArgs and DeliveryChannelSnapshotDeliveryPropertiesOutput values.
 // You can construct a concrete instance of `DeliveryChannelSnapshotDeliveryPropertiesInput` via:
 //
-// 		 DeliveryChannelSnapshotDeliveryPropertiesArgs{...}
-//
+//          DeliveryChannelSnapshotDeliveryPropertiesArgs{...}
 type DeliveryChannelSnapshotDeliveryPropertiesInput interface {
 	pulumi.Input
 
@@ -377,8 +372,8 @@ type DeliveryChannelSnapshotDeliveryPropertiesInput interface {
 
 type DeliveryChannelSnapshotDeliveryPropertiesArgs struct {
 	// - The frequency with which AWS Config recurringly delivers configuration snapshots.
-	// e.g. `One_Hour` or `Three_Hours`.
-	// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+	//   e.g. `One_Hour` or `Three_Hours`.
+	//   Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 	DeliveryFrequency pulumi.StringPtrInput `pulumi:"deliveryFrequency"`
 }
 
@@ -405,12 +400,11 @@ func (i DeliveryChannelSnapshotDeliveryPropertiesArgs) ToDeliveryChannelSnapshot
 // DeliveryChannelSnapshotDeliveryPropertiesPtrInput is an input type that accepts DeliveryChannelSnapshotDeliveryPropertiesArgs, DeliveryChannelSnapshotDeliveryPropertiesPtr and DeliveryChannelSnapshotDeliveryPropertiesPtrOutput values.
 // You can construct a concrete instance of `DeliveryChannelSnapshotDeliveryPropertiesPtrInput` via:
 //
-// 		 DeliveryChannelSnapshotDeliveryPropertiesArgs{...}
+//          DeliveryChannelSnapshotDeliveryPropertiesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DeliveryChannelSnapshotDeliveryPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -461,8 +455,8 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesOutput) ToDeliveryChannelSnapsh
 }
 
 // - The frequency with which AWS Config recurringly delivers configuration snapshots.
-// e.g. `One_Hour` or `Three_Hours`.
-// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+//   e.g. `One_Hour` or `Three_Hours`.
+//   Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 func (o DeliveryChannelSnapshotDeliveryPropertiesOutput) DeliveryFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryChannelSnapshotDeliveryProperties) *string { return v.DeliveryFrequency }).(pulumi.StringPtrOutput)
 }
@@ -488,8 +482,8 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) Elem() DeliveryChann
 }
 
 // - The frequency with which AWS Config recurringly delivers configuration snapshots.
-// e.g. `One_Hour` or `Three_Hours`.
-// Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+//   e.g. `One_Hour` or `Three_Hours`.
+//   Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) DeliveryFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryChannelSnapshotDeliveryProperties) *string {
 		if v == nil {
@@ -516,8 +510,7 @@ type RecorderRecordingGroup struct {
 // RecorderRecordingGroupInput is an input type that accepts RecorderRecordingGroupArgs and RecorderRecordingGroupOutput values.
 // You can construct a concrete instance of `RecorderRecordingGroupInput` via:
 //
-// 		 RecorderRecordingGroupArgs{...}
-//
+//          RecorderRecordingGroupArgs{...}
 type RecorderRecordingGroupInput interface {
 	pulumi.Input
 
@@ -562,12 +555,11 @@ func (i RecorderRecordingGroupArgs) ToRecorderRecordingGroupPtrOutputWithContext
 // RecorderRecordingGroupPtrInput is an input type that accepts RecorderRecordingGroupArgs, RecorderRecordingGroupPtr and RecorderRecordingGroupPtrOutput values.
 // You can construct a concrete instance of `RecorderRecordingGroupPtrInput` via:
 //
-// 		 RecorderRecordingGroupArgs{...}
+//          RecorderRecordingGroupArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type RecorderRecordingGroupPtrInput interface {
 	pulumi.Input
 
@@ -708,8 +700,7 @@ type RuleScope struct {
 // RuleScopeInput is an input type that accepts RuleScopeArgs and RuleScopeOutput values.
 // You can construct a concrete instance of `RuleScopeInput` via:
 //
-// 		 RuleScopeArgs{...}
-//
+//          RuleScopeArgs{...}
 type RuleScopeInput interface {
 	pulumi.Input
 
@@ -755,12 +746,11 @@ func (i RuleScopeArgs) ToRuleScopePtrOutputWithContext(ctx context.Context) Rule
 // RuleScopePtrInput is an input type that accepts RuleScopeArgs, RuleScopePtr and RuleScopePtrOutput values.
 // You can construct a concrete instance of `RuleScopePtrInput` via:
 //
-// 		 RuleScopeArgs{...}
+//          RuleScopeArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type RuleScopePtrInput interface {
 	pulumi.Input
 
@@ -908,8 +898,7 @@ type RuleSource struct {
 // RuleSourceInput is an input type that accepts RuleSourceArgs and RuleSourceOutput values.
 // You can construct a concrete instance of `RuleSourceInput` via:
 //
-// 		 RuleSourceArgs{...}
-//
+//          RuleSourceArgs{...}
 type RuleSourceInput interface {
 	pulumi.Input
 
@@ -949,12 +938,11 @@ func (i RuleSourceArgs) ToRuleSourcePtrOutputWithContext(ctx context.Context) Ru
 // RuleSourcePtrInput is an input type that accepts RuleSourceArgs, RuleSourcePtr and RuleSourcePtrOutput values.
 // You can construct a concrete instance of `RuleSourcePtrInput` via:
 //
-// 		 RuleSourceArgs{...}
+//          RuleSourceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type RuleSourcePtrInput interface {
 	pulumi.Input
 
@@ -1081,8 +1069,7 @@ type RuleSourceSourceDetail struct {
 // RuleSourceSourceDetailInput is an input type that accepts RuleSourceSourceDetailArgs and RuleSourceSourceDetailOutput values.
 // You can construct a concrete instance of `RuleSourceSourceDetailInput` via:
 //
-// 		 RuleSourceSourceDetailArgs{...}
-//
+//          RuleSourceSourceDetailArgs{...}
 type RuleSourceSourceDetailInput interface {
 	pulumi.Input
 
@@ -1116,8 +1103,7 @@ func (i RuleSourceSourceDetailArgs) ToRuleSourceSourceDetailOutputWithContext(ct
 // RuleSourceSourceDetailArrayInput is an input type that accepts RuleSourceSourceDetailArray and RuleSourceSourceDetailArrayOutput values.
 // You can construct a concrete instance of `RuleSourceSourceDetailArrayInput` via:
 //
-// 		 RuleSourceSourceDetailArray{ RuleSourceSourceDetailArgs{...} }
-//
+//          RuleSourceSourceDetailArray{ RuleSourceSourceDetailArgs{...} }
 type RuleSourceSourceDetailArrayInput interface {
 	pulumi.Input
 

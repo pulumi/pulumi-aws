@@ -22,8 +22,7 @@ type GatewaySmbActiveDirectorySettings struct {
 // GatewaySmbActiveDirectorySettingsInput is an input type that accepts GatewaySmbActiveDirectorySettingsArgs and GatewaySmbActiveDirectorySettingsOutput values.
 // You can construct a concrete instance of `GatewaySmbActiveDirectorySettingsInput` via:
 //
-// 		 GatewaySmbActiveDirectorySettingsArgs{...}
-//
+//          GatewaySmbActiveDirectorySettingsArgs{...}
 type GatewaySmbActiveDirectorySettingsInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i GatewaySmbActiveDirectorySettingsArgs) ToGatewaySmbActiveDirectorySettin
 // GatewaySmbActiveDirectorySettingsPtrInput is an input type that accepts GatewaySmbActiveDirectorySettingsArgs, GatewaySmbActiveDirectorySettingsPtr and GatewaySmbActiveDirectorySettingsPtrOutput values.
 // You can construct a concrete instance of `GatewaySmbActiveDirectorySettingsPtrInput` via:
 //
-// 		 GatewaySmbActiveDirectorySettingsArgs{...}
+//          GatewaySmbActiveDirectorySettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type GatewaySmbActiveDirectorySettingsPtrInput interface {
 	pulumi.Input
 
@@ -195,8 +193,7 @@ type NfsFileShareNfsFileShareDefaults struct {
 // NfsFileShareNfsFileShareDefaultsInput is an input type that accepts NfsFileShareNfsFileShareDefaultsArgs and NfsFileShareNfsFileShareDefaultsOutput values.
 // You can construct a concrete instance of `NfsFileShareNfsFileShareDefaultsInput` via:
 //
-// 		 NfsFileShareNfsFileShareDefaultsArgs{...}
-//
+//          NfsFileShareNfsFileShareDefaultsArgs{...}
 type NfsFileShareNfsFileShareDefaultsInput interface {
 	pulumi.Input
 
@@ -238,12 +235,11 @@ func (i NfsFileShareNfsFileShareDefaultsArgs) ToNfsFileShareNfsFileShareDefaults
 // NfsFileShareNfsFileShareDefaultsPtrInput is an input type that accepts NfsFileShareNfsFileShareDefaultsArgs, NfsFileShareNfsFileShareDefaultsPtr and NfsFileShareNfsFileShareDefaultsPtrOutput values.
 // You can construct a concrete instance of `NfsFileShareNfsFileShareDefaultsPtrInput` via:
 //
-// 		 NfsFileShareNfsFileShareDefaultsArgs{...}
+//          NfsFileShareNfsFileShareDefaultsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type NfsFileShareNfsFileShareDefaultsPtrInput interface {
 	pulumi.Input
 

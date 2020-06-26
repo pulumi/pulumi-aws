@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class VpcPeeringConnection(pulumi.CustomResource):
     accept_status: pulumi.Output[str]
     """
@@ -92,8 +93,6 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -104,6 +103,56 @@ class VpcPeeringConnection(pulumi.CustomResource):
             vpc_id=aws_vpc["foo"]["id"])
         ```
 
+        Basic usage with connection options:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.ec2.VpcPeeringConnection("foo",
+            accepter={
+                "allowRemoteVpcDnsResolution": True,
+            },
+            peer_owner_id=var["peer_owner_id"],
+            peer_vpc_id=aws_vpc["bar"]["id"],
+            requester={
+                "allowRemoteVpcDnsResolution": True,
+            },
+            vpc_id=aws_vpc["foo"]["id"])
+        ```
+
+        Basic usage with tags:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
+        bar = aws.ec2.Vpc("bar", cidr_block="10.2.0.0/16")
+        foo_vpc_peering_connection = aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection",
+            auto_accept=True,
+            peer_owner_id=var["peer_owner_id"],
+            peer_vpc_id=bar.id,
+            tags={
+                "Name": "VPC Peering between foo and bar",
+            },
+            vpc_id=foo_vpc.id)
+        ```
+
+        Basic usage with region:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
+        bar = aws.ec2.Vpc("bar", cidr_block="10.2.0.0/16")
+        foo_vpc_peering_connection = aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection",
+            peer_owner_id=var["peer_owner_id"],
+            peer_vpc_id=bar.id,
+            vpc_id=foo_vpc.id,
+            peer_region="us-east-1")
+        ```
         ## Notes
 
         If both VPCs are not in the same AWS account do not enable the `auto_accept` attribute.
@@ -254,9 +303,9 @@ class VpcPeeringConnection(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["vpc_id"] = vpc_id
         return VpcPeeringConnection(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class NamedQuery(pulumi.CustomResource):
     database: pulumi.Output[str]
     """
@@ -35,8 +36,6 @@ class NamedQuery(pulumi.CustomResource):
         Provides an Athena Named Query resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -128,9 +127,9 @@ class NamedQuery(pulumi.CustomResource):
         __props__["query"] = query
         __props__["workgroup"] = workgroup
         return NamedQuery(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

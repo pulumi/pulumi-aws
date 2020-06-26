@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  * and will overwrite the association.
  *
  * ## Example Usage
- *
  * ### Basic
  *
  * ```typescript
@@ -27,7 +26,6 @@ import * as utilities from "../utilities";
  *     networkLoadBalancerArns: [aws_lb_example.arn],
  * });
  * ```
- *
  * ### Basic w/ Tags
  *
  * ```typescript

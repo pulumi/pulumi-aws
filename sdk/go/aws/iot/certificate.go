@@ -13,7 +13,6 @@ import (
 // Creates and manages an AWS IoT certificate.
 //
 // ## Example Usage
-//
 // ### Without CSR
 //
 // ```go
@@ -26,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cert, err := iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
+// 		_, err = iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
 // 			Active: pulumi.Bool(true),
 // 		})
 // 		if err != nil {

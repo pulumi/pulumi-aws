@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class GeoMatchSet(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -32,8 +33,6 @@ class GeoMatchSet(pulumi.CustomResource):
         Provides a WAF Geo Match Set Resource
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -117,9 +116,9 @@ class GeoMatchSet(pulumi.CustomResource):
         __props__["geo_match_constraints"] = geo_match_constraints
         __props__["name"] = name
         return GeoMatchSet(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

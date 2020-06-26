@@ -11,8 +11,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -24,8 +22,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		foo, err := ec2.LookupCustomerGateway(ctx, &ec2.LookupCustomerGatewayArgs{
-// 			Filters: ec2.getCustomerGatewayFilterArray{
-// 				&ec2.LookupCustomerGatewayFilter{
+// 			Filters: []ec2.GetCustomerGatewayFilter{
+// 				ec2.GetCustomerGatewayFilter{
 // 					Name: "tag:Name",
 // 					Values: []string{
 // 						"foo-prod",
@@ -43,7 +41,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		transit, err := ec2.NewVpnConnection(ctx, "transit", &ec2.VpnConnectionArgs{
+// 		_, err = ec2.NewVpnConnection(ctx, "transit", &ec2.VpnConnectionArgs{
 // 			CustomerGatewayId: pulumi.String(foo.Id),
 // 			StaticRoutesOnly:  pulumi.Bool(false),
 // 			Type:              pulumi.String(foo.Type),

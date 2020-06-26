@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from this provider unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from this provider to fully trigger version deprecation if necessary.
  *
  * ## Example Usage
- *
  * ### Simple String Value
  *
  * ```typescript
@@ -22,8 +21,9 @@ import * as utilities from "../utilities";
  *     secretString: "example-string-to-protect",
  * });
  * ```
- *
  * ### Key-Value Pairs
+ *
+ * Secrets Manager also accepts key-value pairs in JSON.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

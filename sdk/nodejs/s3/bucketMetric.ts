@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
  *
  * ## Example Usage
- *
  * ### Add metrics configuration for entire S3 bucket
  *
  * ```typescript
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     bucket: example.bucket,
  * });
  * ```
- *
  * ### Add metrics configuration with S3 bucket object filter
  *
  * ```typescript

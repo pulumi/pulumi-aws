@@ -16,8 +16,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -32,7 +30,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		gcm, err := pinpoint.NewGcmChannel(ctx, "gcm", &pinpoint.GcmChannelArgs{
+// 		_, err = pinpoint.NewGcmChannel(ctx, "gcm", &pinpoint.GcmChannelArgs{
 // 			ApiKey:        pulumi.String("api_key"),
 // 			ApplicationId: app.ApplicationId,
 // 		})

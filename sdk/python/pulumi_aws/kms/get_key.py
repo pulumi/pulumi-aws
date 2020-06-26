@@ -97,8 +97,6 @@ def get_key(grant_tokens=None,key_id=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

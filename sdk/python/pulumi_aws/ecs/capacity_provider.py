@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class CapacityProvider(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -40,8 +41,6 @@ class CapacityProvider(pulumi.CustomResource):
         Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -139,9 +138,9 @@ class CapacityProvider(pulumi.CustomResource):
         __props__["name"] = name
         __props__["tags"] = tags
         return CapacityProvider(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Function(pulumi.CustomResource):
     api_id: pulumi.Output[str]
     """
@@ -51,8 +52,6 @@ class Function(pulumi.CustomResource):
         Provides an AppSync Function.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -191,9 +190,9 @@ class Function(pulumi.CustomResource):
         __props__["request_mapping_template"] = request_mapping_template
         __props__["response_mapping_template"] = response_mapping_template
         return Function(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

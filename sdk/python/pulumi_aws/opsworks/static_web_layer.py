@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class StaticWebLayer(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -93,8 +94,6 @@ class StaticWebLayer(pulumi.CustomResource):
         Provides an OpsWorks static web server layer resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -241,9 +240,9 @@ class StaticWebLayer(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
         return StaticWebLayer(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

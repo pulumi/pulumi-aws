@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class LogResourcePolicy(pulumi.CustomResource):
     policy_document: pulumi.Output[str]
     """
@@ -23,7 +24,6 @@ class LogResourcePolicy(pulumi.CustomResource):
         Provides a resource to manage a CloudWatch log resource policy.
 
         ## Example Usage
-
         ### Elasticsearch Log Publishing
 
         ```python
@@ -46,7 +46,6 @@ class LogResourcePolicy(pulumi.CustomResource):
             policy_document=elasticsearch_log_publishing_policy_policy_document.json,
             policy_name="elasticsearch-log-publishing-policy")
         ```
-
         ### Route53 Query Logging
 
         ```python
@@ -122,9 +121,9 @@ class LogResourcePolicy(pulumi.CustomResource):
         __props__["policy_document"] = policy_document
         __props__["policy_name"] = policy_name
         return LogResourcePolicy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

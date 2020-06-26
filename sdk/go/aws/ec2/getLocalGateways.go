@@ -11,18 +11,19 @@ import (
 //
 // ## Example Usage
 //
-//
+// The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
 //
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		fooLocalGateways, err := ec2.LookupLocalGateways(ctx, &ec2.LookupLocalGatewaysArgs{
+// 		fooLocalGateways, err := ec2.GetLocalGateways(ctx, &ec2.GetLocalGatewaysArgs{
 // 			Tags: map[string]interface{}{
 // 				"service": "production",
 // 			},

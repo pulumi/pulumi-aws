@@ -41,9 +41,7 @@ namespace Pulumi.Aws.Ec2
     /// in conjunction with any Route resources. Doing so will cause
     /// a conflict of rule settings and will overwrite routes.
     /// 
-    /// 
     /// ## Example Usage
-    /// 
     /// ### With Tags
     /// 
     /// ```csharp

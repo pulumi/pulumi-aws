@@ -7,12 +7,10 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get the id of a Resource in API Gateway. 
- * To fetch the Resource, you must provide the REST API id as well as the full path.  
+ * Use this data source to get the id of a Resource in API Gateway.
+ * To fetch the Resource, you must provide the REST API id as well as the full path.
  *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

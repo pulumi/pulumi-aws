@@ -177,8 +177,6 @@ def get_snapshot(db_instance_identifier=None,db_snapshot_identifier=None,include
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

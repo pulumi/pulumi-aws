@@ -15,7 +15,6 @@ import (
 // > **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from this provider unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from this provider to fully trigger version deprecation if necessary.
 //
 // ## Example Usage
-//
 // ### Simple String Value
 //
 // ```go
@@ -28,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
+// 		_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
 // 			SecretId:     pulumi.String(aws_secretsmanager_secret.Example.Id),
 // 			SecretString: pulumi.String("example-string-to-protect"),
 // 		})

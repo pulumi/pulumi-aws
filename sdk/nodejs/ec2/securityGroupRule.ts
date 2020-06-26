@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * Basic usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -36,7 +36,6 @@ import * as utilities from "../utilities";
  *     securityGroupId: "sg-123456",
  * });
  * ```
- *
  * ## Usage with prefix list IDs
  *
  * Prefix list IDs are manged by AWS internally. Prefix list IDs

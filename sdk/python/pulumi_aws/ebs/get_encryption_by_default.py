@@ -41,8 +41,6 @@ def get_encryption_by_default(opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

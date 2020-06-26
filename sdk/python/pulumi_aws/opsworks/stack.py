@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Stack(pulumi.CustomResource):
     agent_version: pulumi.Output[str]
     """
@@ -119,8 +120,6 @@ class Stack(pulumi.CustomResource):
         Provides an OpsWorks stack resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -313,9 +312,9 @@ class Stack(pulumi.CustomResource):
         __props__["use_opsworks_security_groups"] = use_opsworks_security_groups
         __props__["vpc_id"] = vpc_id
         return Stack(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

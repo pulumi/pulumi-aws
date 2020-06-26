@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Sns
     /// Provides an SNS platform application resource
     /// 
     /// ## Example Usage
-    /// 
     /// ### Apple Push Notification Service (APNS)
     /// 
     /// ```csharp
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Sns
     /// 
     /// }
     /// ```
-    /// 
     /// ### Google Cloud Messaging (GCM)
     /// 
     /// ```csharp

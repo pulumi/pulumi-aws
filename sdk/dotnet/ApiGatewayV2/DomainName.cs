@@ -17,7 +17,6 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// a particular domain name. An API stage can be associated with the domain name using the `aws.apigatewayv2.ApiMapping` resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp

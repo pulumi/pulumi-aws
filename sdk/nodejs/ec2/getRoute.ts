@@ -15,7 +15,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example shows how one might use a CIDR value to find a network interface id
+ * and use this to create a data source of that network interface.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

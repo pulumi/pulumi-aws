@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class OriginAccessIdentity(pulumi.CustomResource):
     caller_reference: pulumi.Output[str]
     """
@@ -52,7 +53,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        The following example below creates a CloudFront origin access identity.
 
         ```python
         import pulumi
@@ -60,7 +61,6 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
         origin_access_identity = aws.cloudfront.OriginAccessIdentity("originAccessIdentity", comment="Some comment")
         ```
-
         ## Using With CloudFront
 
         Normally, when referencing an origin access identity in CloudFront, you need to
@@ -179,9 +179,9 @@ class OriginAccessIdentity(pulumi.CustomResource):
         __props__["iam_arn"] = iam_arn
         __props__["s3_canonical_user_id"] = s3_canonical_user_id
         return OriginAccessIdentity(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -17,8 +17,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -29,15 +27,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testStream, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
+// 		_, err = kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
 // 			RetentionPeriod: pulumi.Int(48),
 // 			ShardCount:      pulumi.Int(1),
 // 			ShardLevelMetrics: pulumi.StringArray{
 // 				pulumi.String("IncomingBytes"),
 // 				pulumi.String("OutgoingBytes"),
 // 			},
-// 			Tags: map[string]interface{}{
-// 				"Environment": "test",
+// 			Tags: pulumi.Map{
+// 				"Environment": pulumi.String("test"),
 // 			},
 // 		})
 // 		if err != nil {

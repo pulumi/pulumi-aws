@@ -19,8 +19,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -31,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		task, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
+// 		_, err = emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
 // 			ClusterId:     pulumi.String(aws_emr_cluster.Tf - test - cluster.Id),
 // 			InstanceCount: pulumi.Int(1),
 // 			InstanceType:  pulumi.String("m5.xlarge"),

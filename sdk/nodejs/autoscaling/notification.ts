@@ -13,7 +13,7 @@ import {NotificationType} from "./index";
  *
  * ## Example Usage
  *
- *
+ * Basic usage:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -16,8 +16,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -37,7 +35,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		testTargetGroupAttachment, err := lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
+// 		_, err = lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
 // 			Port:           pulumi.Int(80),
 // 			TargetGroupArn: testTargetGroup.Arn,
 // 			TargetId:       testInstance.ID(),
@@ -49,7 +47,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Usage with lambda
 //
 // ```go
@@ -73,7 +70,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		withLb, err := lambda.NewPermission(ctx, "withLb", &lambda.PermissionArgs{
+// 		_, err = lambda.NewPermission(ctx, "withLb", &lambda.PermissionArgs{
 // 			Action:    pulumi.String("lambda:InvokeFunction"),
 // 			Function:  testFunction.Arn,
 // 			Principal: pulumi.String("elasticloadbalancing.amazonaws.com"),
@@ -82,7 +79,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		testTargetGroupAttachment, err := lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
+// 		_, err = lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
 // 			TargetGroupArn: testTargetGroup.Arn,
 // 			TargetId:       testFunction.Arn,
 // 		})

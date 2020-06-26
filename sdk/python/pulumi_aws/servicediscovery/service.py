@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Service(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -61,8 +62,6 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -85,6 +84,26 @@ class Service(pulumi.CustomResource):
             },
             health_check_custom_config={
                 "failure_threshold": 1,
+            })
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_public_dns_namespace = aws.servicediscovery.PublicDnsNamespace("examplePublicDnsNamespace", description="example")
+        example_service = aws.servicediscovery.Service("exampleService",
+            dns_config={
+                "dnsRecords": [{
+                    "ttl": 10,
+                    "type": "A",
+                }],
+                "namespace_id": example_public_dns_namespace.id,
+            },
+            health_check_config={
+                "failure_threshold": 10,
+                "resource_path": "path",
+                "type": "HTTP",
             })
         ```
 
@@ -198,9 +217,9 @@ class Service(pulumi.CustomResource):
         __props__["namespace_id"] = namespace_id
         __props__["tags"] = tags
         return Service(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -20,8 +20,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -38,7 +36,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		barNetworkAclRule, err := ec2.NewNetworkAclRule(ctx, "barNetworkAclRule", &ec2.NetworkAclRuleArgs{
+// 		_, err = ec2.NewNetworkAclRule(ctx, "barNetworkAclRule", &ec2.NetworkAclRuleArgs{
 // 			NetworkAclId: barNetworkAcl.ID(),
 // 			RuleNumber:   pulumi.Int(200),
 // 			Egress:       pulumi.Bool(false),
@@ -55,6 +53,8 @@ import (
 // 	})
 // }
 // ```
+//
+// > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
 type NetworkAclRule struct {
 	pulumi.CustomResourceState
 

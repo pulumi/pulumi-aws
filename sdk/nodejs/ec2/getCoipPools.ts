@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following shows outputing all COIP Pool Ids.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

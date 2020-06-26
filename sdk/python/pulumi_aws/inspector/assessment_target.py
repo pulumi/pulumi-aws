@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class AssessmentTarget(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -27,8 +28,6 @@ class AssessmentTarget(pulumi.CustomResource):
         Provides a Inspector assessment target
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -93,9 +92,9 @@ class AssessmentTarget(pulumi.CustomResource):
         __props__["name"] = name
         __props__["resource_group_arn"] = resource_group_arn
         return AssessmentTarget(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

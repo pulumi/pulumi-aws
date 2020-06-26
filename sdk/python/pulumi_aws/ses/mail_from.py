@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class MailFrom(pulumi.CustomResource):
     behavior_on_mx_failure: pulumi.Output[str]
     """
@@ -29,8 +30,6 @@ class MailFrom(pulumi.CustomResource):
         > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the `ses.DomainIdentity` resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html) for more information.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -114,9 +113,9 @@ class MailFrom(pulumi.CustomResource):
         __props__["domain"] = domain
         __props__["mail_from_domain"] = mail_from_domain
         return MailFrom(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

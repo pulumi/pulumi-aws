@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class SecurityGroupRule(pulumi.CustomResource):
     cidr_blocks: pulumi.Output[list]
     """
@@ -76,7 +77,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        Basic usage
 
         ```python
         import pulumi
@@ -90,7 +91,6 @@ class SecurityGroupRule(pulumi.CustomResource):
             cidr_blocks=aws_vpc["example"]["cidr_block"],
             security_group_id="sg-123456")
         ```
-
         ## Usage with prefix list IDs
 
         Prefix list IDs are manged by AWS internally. Prefix list IDs
@@ -215,9 +215,9 @@ class SecurityGroupRule(pulumi.CustomResource):
         __props__["to_port"] = to_port
         __props__["type"] = type
         return SecurityGroupRule(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -13,6 +13,39 @@ import (
 // Provides an ElastiCache parameter group resource.
 //
 // > **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in this provider due to an Elasticache API limitation. Leave that parameter configured with any value to workaround the issue.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = elasticache.NewParameterGroup(ctx, "default", &elasticache.ParameterGroupArgs{
+// 			Family: pulumi.String("redis2.8"),
+// 			Parameters: elasticache.ParameterGroupParameterArray{
+// 				&elasticache.ParameterGroupParameterArgs{
+// 					Name:  pulumi.String("activerehashing"),
+// 					Value: pulumi.String("yes"),
+// 				},
+// 				&elasticache.ParameterGroupParameterArgs{
+// 					Name:  pulumi.String("min-slaves-to-write"),
+// 					Value: pulumi.String("2"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 

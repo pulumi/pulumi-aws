@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class GraphQLApi(pulumi.CustomResource):
     additional_authentication_providers: pulumi.Output[list]
     """
@@ -85,7 +86,6 @@ class GraphQLApi(pulumi.CustomResource):
         Provides an AppSync GraphQL API.
 
         ## Example Usage
-
         ### API Key Authentication
 
         ```python
@@ -94,7 +94,6 @@ class GraphQLApi(pulumi.CustomResource):
 
         example = aws.appsync.GraphQLApi("example", authentication_type="API_KEY")
         ```
-
         ### AWS Cognito User Pool Authentication
 
         ```python
@@ -109,7 +108,6 @@ class GraphQLApi(pulumi.CustomResource):
                 "user_pool_id": aws_cognito_user_pool["example"]["id"],
             })
         ```
-
         ### AWS IAM Authentication
 
         ```python
@@ -118,7 +116,6 @@ class GraphQLApi(pulumi.CustomResource):
 
         example = aws.appsync.GraphQLApi("example", authentication_type="AWS_IAM")
         ```
-
         ### With Schema
 
         ```python
@@ -136,7 +133,6 @@ class GraphQLApi(pulumi.CustomResource):
 
         \"\"\")
         ```
-
         ### OpenID Connect Authentication
 
         ```python
@@ -149,7 +145,6 @@ class GraphQLApi(pulumi.CustomResource):
                 "issuer": "https://example.com",
             })
         ```
-
         ### With Multiple Authentication Providers
 
         ```python
@@ -162,7 +157,6 @@ class GraphQLApi(pulumi.CustomResource):
             }],
             authentication_type="API_KEY")
         ```
-
         ### Enabling Logging
 
         ```python
@@ -345,9 +339,9 @@ class GraphQLApi(pulumi.CustomResource):
         __props__["user_pool_config"] = user_pool_config
         __props__["xray_enabled"] = xray_enabled
         return GraphQLApi(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

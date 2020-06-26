@@ -26,8 +26,6 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

@@ -56,8 +56,6 @@ def get_web_acl(name=None,scope=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

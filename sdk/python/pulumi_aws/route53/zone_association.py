@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ZoneAssociation(pulumi.CustomResource):
     vpc_id: pulumi.Output[str]
     """
@@ -31,8 +32,6 @@ class ZoneAssociation(pulumi.CustomResource):
         > **NOTE:** This provider provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the `route53.Zone` resource via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) in the `route53.Zone` resource to manage additional associations via this resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -119,9 +118,9 @@ class ZoneAssociation(pulumi.CustomResource):
         __props__["vpc_region"] = vpc_region
         __props__["zone_id"] = zone_id
         return ZoneAssociation(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

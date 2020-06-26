@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2.
  *
  * ## Example Usage
- *
  * ### Basic
  *
  * ```typescript
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     description: "This is my API for demonstration purposes",
  * });
  * ```
- *
  * ### Regional Endpoint Type
  *
  * ```typescript

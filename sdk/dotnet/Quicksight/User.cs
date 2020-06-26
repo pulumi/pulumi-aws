@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

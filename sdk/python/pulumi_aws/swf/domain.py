@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Domain(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -40,7 +41,7 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        To register a basic SWF domain:
 
         ```python
         import pulumi
@@ -117,9 +118,9 @@ class Domain(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["workflow_execution_retention_period_in_days"] = workflow_execution_retention_period_in_days
         return Domain(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

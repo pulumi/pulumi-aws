@@ -18,8 +18,7 @@ type ChannelHlsIngest struct {
 // ChannelHlsIngestInput is an input type that accepts ChannelHlsIngestArgs and ChannelHlsIngestOutput values.
 // You can construct a concrete instance of `ChannelHlsIngestInput` via:
 //
-// 		 ChannelHlsIngestArgs{...}
-//
+//          ChannelHlsIngestArgs{...}
 type ChannelHlsIngestInput interface {
 	pulumi.Input
 
@@ -47,8 +46,7 @@ func (i ChannelHlsIngestArgs) ToChannelHlsIngestOutputWithContext(ctx context.Co
 // ChannelHlsIngestArrayInput is an input type that accepts ChannelHlsIngestArray and ChannelHlsIngestArrayOutput values.
 // You can construct a concrete instance of `ChannelHlsIngestArrayInput` via:
 //
-// 		 ChannelHlsIngestArray{ ChannelHlsIngestArgs{...} }
-//
+//          ChannelHlsIngestArray{ ChannelHlsIngestArgs{...} }
 type ChannelHlsIngestArrayInput interface {
 	pulumi.Input
 
@@ -121,8 +119,7 @@ type ChannelHlsIngestIngestEndpoint struct {
 // ChannelHlsIngestIngestEndpointInput is an input type that accepts ChannelHlsIngestIngestEndpointArgs and ChannelHlsIngestIngestEndpointOutput values.
 // You can construct a concrete instance of `ChannelHlsIngestIngestEndpointInput` via:
 //
-// 		 ChannelHlsIngestIngestEndpointArgs{...}
-//
+//          ChannelHlsIngestIngestEndpointArgs{...}
 type ChannelHlsIngestIngestEndpointInput interface {
 	pulumi.Input
 
@@ -154,8 +151,7 @@ func (i ChannelHlsIngestIngestEndpointArgs) ToChannelHlsIngestIngestEndpointOutp
 // ChannelHlsIngestIngestEndpointArrayInput is an input type that accepts ChannelHlsIngestIngestEndpointArray and ChannelHlsIngestIngestEndpointArrayOutput values.
 // You can construct a concrete instance of `ChannelHlsIngestIngestEndpointArrayInput` via:
 //
-// 		 ChannelHlsIngestIngestEndpointArray{ ChannelHlsIngestIngestEndpointArgs{...} }
-//
+//          ChannelHlsIngestIngestEndpointArray{ ChannelHlsIngestIngestEndpointArgs{...} }
 type ChannelHlsIngestIngestEndpointArrayInput interface {
 	pulumi.Input
 

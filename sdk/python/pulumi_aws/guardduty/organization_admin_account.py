@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class OrganizationAdminAccount(pulumi.CustomResource):
     admin_account_id: pulumi.Output[str]
     """
@@ -19,8 +20,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         Manages a GuardDuty Organization Admin Account. The AWS account utilizing this resource must be an Organizations master account. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -80,9 +79,9 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         __props__["admin_account_id"] = admin_account_id
         return OrganizationAdminAccount(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

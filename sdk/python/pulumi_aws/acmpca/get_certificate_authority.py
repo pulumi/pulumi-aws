@@ -113,8 +113,6 @@ def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

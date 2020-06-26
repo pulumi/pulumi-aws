@@ -13,7 +13,7 @@ import (
 //
 // ## Example Usage
 //
-//
+// Basic usage:
 //
 // ```go
 // package main
@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		dnsResolver, err := ec2.NewVpcDhcpOptions(ctx, "dnsResolver", &ec2.VpcDhcpOptionsArgs{
+// 		_, err = ec2.NewVpcDhcpOptions(ctx, "dnsResolver", &ec2.VpcDhcpOptionsArgs{
 // 			DomainNameServers: pulumi.StringArray{
 // 				pulumi.String("8.8.8.8"),
 // 				pulumi.String("8.8.4.4"),
@@ -39,6 +39,42 @@ import (
 // }
 // ```
 //
+// Full usage:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = ec2.NewVpcDhcpOptions(ctx, "foo", &ec2.VpcDhcpOptionsArgs{
+// 			DomainName: pulumi.String("service.consul"),
+// 			DomainNameServers: pulumi.StringArray{
+// 				pulumi.String("127.0.0.1"),
+// 				pulumi.String("10.0.0.2"),
+// 			},
+// 			NetbiosNameServers: pulumi.StringArray{
+// 				pulumi.String("127.0.0.1"),
+// 			},
+// 			NetbiosNodeType: pulumi.String("2"),
+// 			NtpServers: pulumi.StringArray{
+// 				pulumi.String("127.0.0.1"),
+// 			},
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("foo-name"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Remarks
 //
 // * Notice that all arguments are optional but you have to specify at least one argument.

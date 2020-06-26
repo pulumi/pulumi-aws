@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ec2
     /// [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
     /// 
     /// ## Example Usage
-    /// 
     /// ### EC2 Transit Gateway
     /// 
     /// ```csharp
@@ -48,7 +47,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// 
     /// ### Virtual Private Gateway
     /// 
     /// ```csharp

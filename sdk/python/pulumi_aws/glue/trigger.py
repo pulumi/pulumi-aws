@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Trigger(pulumi.CustomResource):
     actions: pulumi.Output[list]
     """
@@ -69,7 +70,6 @@ class Trigger(pulumi.CustomResource):
         Manages a Glue Trigger resource.
 
         ## Example Usage
-
         ### Conditional Trigger
 
         ```python
@@ -88,7 +88,6 @@ class Trigger(pulumi.CustomResource):
             },
             type="CONDITIONAL")
         ```
-
         ### On-Demand Trigger
 
         ```python
@@ -101,7 +100,6 @@ class Trigger(pulumi.CustomResource):
             }],
             type="ON_DEMAND")
         ```
-
         ### Scheduled Trigger
 
         ```python
@@ -115,8 +113,9 @@ class Trigger(pulumi.CustomResource):
             schedule="cron(15 12 * * ? *)",
             type="SCHEDULED")
         ```
-
         ### Conditional Trigger with Crawler Action
+
+        **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 
         ```python
         import pulumi
@@ -134,8 +133,9 @@ class Trigger(pulumi.CustomResource):
             },
             type="CONDITIONAL")
         ```
+        ### Conditional Trigger with Crawler Condition
 
-        ### Conditional Trigger with Crawler Condition 
+        **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 
         ```python
         import pulumi
@@ -274,9 +274,9 @@ class Trigger(pulumi.CustomResource):
         __props__["type"] = type
         __props__["workflow_name"] = workflow_name
         return Trigger(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

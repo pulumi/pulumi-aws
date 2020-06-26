@@ -12,7 +12,6 @@ import {PolicyDocument} from "../iam";
  * Manages an AWS Elasticsearch Domain.
  *
  * ## Example Usage
- *
  * ### Basic Usage
  *
  * ```typescript
@@ -32,8 +31,9 @@ import {PolicyDocument} from "../iam";
  *     },
  * });
  * ```
- *
  * ### Access Policy
+ *
+ * > See also: `aws.elasticsearch.DomainPolicy` resource
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -62,7 +62,6 @@ import {PolicyDocument} from "../iam";
  * `,
  * });
  * ```
- *
  * ### Log Publishing to CloudWatch Logs
  *
  * ```typescript
@@ -98,7 +97,6 @@ import {PolicyDocument} from "../iam";
  *     }],
  * });
  * ```
- *
  * ### VPC based ES
  *
  * ```typescript

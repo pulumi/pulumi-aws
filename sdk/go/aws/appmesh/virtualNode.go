@@ -24,7 +24,6 @@ import (
 // The state associated with existing resources will automatically be migrated.
 //
 // ## Example Usage
-//
 // ### Basic
 //
 // ```go
@@ -37,13 +36,13 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		serviceb1, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
+// 		_, err = appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
 // 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
 // 			Spec: &appmesh.VirtualNodeSpecArgs{
-// 				Backend: []map[string]interface{}{
-// 					map[string]interface{}{
-// 						"virtualService": map[string]interface{}{
-// 							"virtualServiceName": "servicea.simpleapp.local",
+// 				Backend: pulumi.MapArray{
+// 					pulumi.Map{
+// 						"virtualService": pulumi.Map{
+// 							"virtualServiceName": pulumi.String("servicea.simpleapp.local"),
 // 						},
 // 					},
 // 				},
@@ -67,7 +66,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### AWS Cloud Map Service Discovery
 //
 // ```go
@@ -85,13 +83,13 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		serviceb1, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
+// 		_, err = appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
 // 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
 // 			Spec: &appmesh.VirtualNodeSpecArgs{
-// 				Backend: []map[string]interface{}{
-// 					map[string]interface{}{
-// 						"virtualService": map[string]interface{}{
-// 							"virtualServiceName": "servicea.simpleapp.local",
+// 				Backend: pulumi.MapArray{
+// 					pulumi.Map{
+// 						"virtualService": pulumi.Map{
+// 							"virtualServiceName": pulumi.String("servicea.simpleapp.local"),
 // 						},
 // 					},
 // 				},
@@ -103,8 +101,8 @@ import (
 // 				},
 // 				ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
 // 					AwsCloudMap: &appmesh.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs{
-// 						Attributes: map[string]interface{}{
-// 							"stack": "blue",
+// 						Attributes: pulumi.Map{
+// 							"stack": pulumi.String("blue"),
 // 						},
 // 						NamespaceName: example.Name,
 // 						ServiceName:   pulumi.String("serviceb1"),
@@ -119,7 +117,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Listener Health Check
 //
 // ```go
@@ -132,13 +129,13 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		serviceb1, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
+// 		_, err = appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
 // 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
 // 			Spec: &appmesh.VirtualNodeSpecArgs{
-// 				Backend: []map[string]interface{}{
-// 					map[string]interface{}{
-// 						"virtualService": map[string]interface{}{
-// 							"virtualServiceName": "servicea.simpleapp.local",
+// 				Backend: pulumi.MapArray{
+// 					pulumi.Map{
+// 						"virtualService": pulumi.Map{
+// 							"virtualServiceName": pulumi.String("servicea.simpleapp.local"),
 // 						},
 // 					},
 // 				},
@@ -170,7 +167,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Logging
 //
 // ```go
@@ -183,13 +179,13 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		serviceb1, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
+// 		_, err = appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
 // 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
 // 			Spec: &appmesh.VirtualNodeSpecArgs{
-// 				Backend: []map[string]interface{}{
-// 					map[string]interface{}{
-// 						"virtualService": map[string]interface{}{
-// 							"virtualServiceName": "servicea.simpleapp.local",
+// 				Backend: pulumi.MapArray{
+// 					pulumi.Map{
+// 						"virtualService": pulumi.Map{
+// 							"virtualServiceName": pulumi.String("servicea.simpleapp.local"),
 // 						},
 // 					},
 // 				},

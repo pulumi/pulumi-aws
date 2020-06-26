@@ -13,7 +13,6 @@ import (
 // Provides a resource to create a CloudWatch Events permission to support cross-account events in the current account default event bus.
 //
 // ## Example Usage
-//
 // ### Account Access
 //
 // ```go
@@ -26,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		devAccountAccess, err := cloudwatch.NewEventPermission(ctx, "devAccountAccess", &cloudwatch.EventPermissionArgs{
+// 		_, err = cloudwatch.NewEventPermission(ctx, "devAccountAccess", &cloudwatch.EventPermissionArgs{
 // 			Principal:   pulumi.String("123456789012"),
 // 			StatementId: pulumi.String("DevAccountAccess"),
 // 		})
@@ -37,7 +36,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Organization Access
 //
 // ```go
@@ -50,7 +48,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		organizationAccess, err := cloudwatch.NewEventPermission(ctx, "organizationAccess", &cloudwatch.EventPermissionArgs{
+// 		_, err = cloudwatch.NewEventPermission(ctx, "organizationAccess", &cloudwatch.EventPermissionArgs{
 // 			Condition: &cloudwatch.EventPermissionConditionArgs{
 // 				Key:   pulumi.String("aws:PrincipalOrgID"),
 // 				Type:  pulumi.String("StringEquals"),

@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
  *
  * ## Example Usage
- *
  * ### By Transit Gateway and Direct Connect Gateway Identifiers
  *
  * ```typescript

@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Manages a Route53 Hosted Zone.
  *
  * ## Example Usage
- *
  * ### Public Zone
  *
  * ```typescript
@@ -19,8 +18,11 @@ import * as utilities from "../utilities";
  *
  * const primary = new aws.route53.Zone("primary", {});
  * ```
- *
  * ### Public Subdomain Zone
+ *
+ * For use in subdomains, note that you need to create a
+ * `aws.route53.Record` of type `NS` as well as the subdomain
+ * zone.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -45,8 +47,11 @@ import * as utilities from "../utilities";
  *     zoneId: main.zoneId,
  * });
  * ```
- *
  * ### Private Zone
+ *
+ * > **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate ` Zone VPC Association resource. At this time, you cannot use in-line VPC associations in conjunction with any  `aws.route53.ZoneAssociation`  resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [ `ignoreChanges` ](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the  `aws.route53.ZoneAssociation` resource.
+ *
+ * > **NOTE:** Private zones require at least one VPC association at all times.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

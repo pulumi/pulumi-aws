@@ -58,7 +58,6 @@ def get_secret_rotation(secret_id=None,opts=None):
     Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the [`secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html). To retrieve a secret value, see the [`secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
 
     ## Example Usage
-
     ### Retrieve Secret Rotation Configuration
 
     ```python

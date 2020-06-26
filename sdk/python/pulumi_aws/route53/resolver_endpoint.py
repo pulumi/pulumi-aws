@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ResolverEndpoint(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -50,8 +51,6 @@ class ResolverEndpoint(pulumi.CustomResource):
         Provides a Route 53 Resolver endpoint resource.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -168,9 +167,9 @@ class ResolverEndpoint(pulumi.CustomResource):
         __props__["security_group_ids"] = security_group_ids
         __props__["tags"] = tags
         return ResolverEndpoint(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

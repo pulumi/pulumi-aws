@@ -15,8 +15,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -27,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := kms.NewExternalKey(ctx, "example", &kms.ExternalKeyArgs{
+// 		_, err = kms.NewExternalKey(ctx, "example", &kms.ExternalKeyArgs{
 // 			Description: pulumi.String("KMS EXTERNAL for AMI encryption"),
 // 		})
 // 		if err != nil {

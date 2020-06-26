@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -86,9 +87,9 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         __props__["on_create"] = on_create
         __props__["on_start"] = on_start
         return NotebookInstanceLifecycleConfiguration(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -13,8 +13,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -25,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		developers, err := iam.NewGroup(ctx, "developers", &iam.GroupArgs{
+// 		_, err = iam.NewGroup(ctx, "developers", &iam.GroupArgs{
 // 			Path: pulumi.String("/users/"),
 // 		})
 // 		if err != nil {

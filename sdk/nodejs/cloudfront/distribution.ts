@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example below creates a CloudFront distribution with an S3 origin.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -153,6 +153,55 @@ import * as utilities from "../utilities";
  *     viewerCertificate: {
  *         cloudfrontDefaultCertificate: true,
  *     },
+ * });
+ * ```
+ *
+ * The following example below creates a Cloudfront distribution with an origin group for failover routing:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
+ *     defaultCacheBehavior: {
+ *         // ... other configuration ...
+ *         targetOriginId: "groupS3",
+ *     },
+ *     origins: [
+ *         {
+ *             domainName: aws_s3_bucket_primary.bucketRegionalDomainName,
+ *             originId: "primaryS3",
+ *             s3OriginConfig: {
+ *                 originAccessIdentity: aws_cloudfront_origin_access_identity_default.cloudfrontAccessIdentityPath,
+ *             },
+ *         },
+ *         {
+ *             domainName: aws_s3_bucket_failover.bucketRegionalDomainName,
+ *             originId: "failoverS3",
+ *             s3OriginConfig: {
+ *                 originAccessIdentity: aws_cloudfront_origin_access_identity_default.cloudfrontAccessIdentityPath,
+ *             },
+ *         },
+ *     ],
+ *     originGroups: [{
+ *         failoverCriteria: {
+ *             statusCodes: [
+ *                 403,
+ *                 404,
+ *                 500,
+ *                 502,
+ *             ],
+ *         },
+ *         members: [
+ *             {
+ *                 originId: "primaryS3",
+ *             },
+ *             {
+ *                 originId: "failoverS3",
+ *             },
+ *         ],
+ *         originId: "groupS3",
+ *     }],
  * });
  * ```
  */

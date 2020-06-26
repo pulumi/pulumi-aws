@@ -22,8 +22,7 @@ type NotificationRuleTarget struct {
 // NotificationRuleTargetInput is an input type that accepts NotificationRuleTargetArgs and NotificationRuleTargetOutput values.
 // You can construct a concrete instance of `NotificationRuleTargetInput` via:
 //
-// 		 NotificationRuleTargetArgs{...}
-//
+//          NotificationRuleTargetArgs{...}
 type NotificationRuleTargetInput interface {
 	pulumi.Input
 
@@ -55,8 +54,7 @@ func (i NotificationRuleTargetArgs) ToNotificationRuleTargetOutputWithContext(ct
 // NotificationRuleTargetArrayInput is an input type that accepts NotificationRuleTargetArray and NotificationRuleTargetArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleTargetArrayInput` via:
 //
-// 		 NotificationRuleTargetArray{ NotificationRuleTargetArgs{...} }
-//
+//          NotificationRuleTargetArray{ NotificationRuleTargetArgs{...} }
 type NotificationRuleTargetArrayInput interface {
 	pulumi.Input
 

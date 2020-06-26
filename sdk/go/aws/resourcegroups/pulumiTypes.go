@@ -20,8 +20,7 @@ type GroupResourceQuery struct {
 // GroupResourceQueryInput is an input type that accepts GroupResourceQueryArgs and GroupResourceQueryOutput values.
 // You can construct a concrete instance of `GroupResourceQueryInput` via:
 //
-// 		 GroupResourceQueryArgs{...}
-//
+//          GroupResourceQueryArgs{...}
 type GroupResourceQueryInput interface {
 	pulumi.Input
 
@@ -59,12 +58,11 @@ func (i GroupResourceQueryArgs) ToGroupResourceQueryPtrOutputWithContext(ctx con
 // GroupResourceQueryPtrInput is an input type that accepts GroupResourceQueryArgs, GroupResourceQueryPtr and GroupResourceQueryPtrOutput values.
 // You can construct a concrete instance of `GroupResourceQueryPtrInput` via:
 //
-// 		 GroupResourceQueryArgs{...}
+//          GroupResourceQueryArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type GroupResourceQueryPtrInput interface {
 	pulumi.Input
 

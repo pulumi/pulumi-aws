@@ -10,6 +10,8 @@ from typing import Union
 from .. import utilities, tables
 
 warnings.warn("aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate", DeprecationWarning)
+
+
 class ListenerCertificate(pulumi.CustomResource):
     certificate_arn: pulumi.Output[str]
     """
@@ -20,6 +22,7 @@ class ListenerCertificate(pulumi.CustomResource):
     The ARN of the listener to which to attach the certificate.
     """
     warnings.warn("aws.elasticloadbalancingv2.ListenerCertificate has been deprecated in favor of aws.lb.ListenerCertificate", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, certificate_arn=None, listener_arn=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Load Balancer Listener Certificate resource.
@@ -29,8 +32,6 @@ class ListenerCertificate(pulumi.CustomResource):
         > **Note:** `alb.ListenerCertificate` is known as `lb.ListenerCertificate`. The functionality is identical.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -98,9 +99,9 @@ class ListenerCertificate(pulumi.CustomResource):
         __props__["certificate_arn"] = certificate_arn
         __props__["listener_arn"] = listener_arn
         return ListenerCertificate(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

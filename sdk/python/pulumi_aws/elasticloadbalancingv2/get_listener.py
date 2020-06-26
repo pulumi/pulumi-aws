@@ -69,8 +69,6 @@ def get_listener(arn=None,load_balancer_arn=None,port=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

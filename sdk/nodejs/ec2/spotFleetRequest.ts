@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * instances to be requested on the Spot market.
  *
  * ## Example Usage
- *
  * ### Using launch specifications
  *
  * ```typescript
@@ -53,7 +52,6 @@ import * as utilities from "../utilities";
  *     validUntil: "2019-11-04T20:44:20Z",
  * });
  * ```
- *
  * ### Using launch templates
  *
  * ```typescript
@@ -80,6 +78,8 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * > **NOTE:** This provider does not support the functionality where multiple `subnetId` or `availabilityZone` parameters can be specified in the same
+ * launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used:
  * ### Using multiple launch specifications
  *
  * ```typescript
@@ -107,7 +107,6 @@ import * as utilities from "../utilities";
  *     validUntil: "2019-11-04T20:44:20Z",
  * });
  * ```
- *
  * ### Using multiple launch configurations
  *
  * ```typescript

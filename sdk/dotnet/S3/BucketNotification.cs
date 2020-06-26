@@ -15,7 +15,6 @@ namespace Pulumi.Aws.S3
     /// &gt; **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `aws.s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. See the example "Trigger multiple Lambda functions" for an option.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Add notification configuration to SNS Topic
     /// 
     /// ```csharp
@@ -66,7 +65,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// 
     /// ### Add notification configuration to SQS Queue
     /// 
     /// ```csharp
@@ -119,7 +117,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// 
     /// ### Add multiple notification configurations to SQS Queue
     /// 
     /// ```csharp

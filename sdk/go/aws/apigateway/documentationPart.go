@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -30,7 +28,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleDocumentationPart, err := apigateway.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway.DocumentationPartArgs{
+// 		_, err = apigateway.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway.DocumentationPartArgs{
 // 			Location: &apigateway.DocumentationPartLocationArgs{
 // 				Method: pulumi.String("GET"),
 // 				Path:   pulumi.String("/example"),

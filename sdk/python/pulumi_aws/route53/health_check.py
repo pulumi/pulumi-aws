@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class HealthCheck(pulumi.CustomResource):
     child_health_threshold: pulumi.Output[float]
     """
@@ -92,7 +93,6 @@ class HealthCheck(pulumi.CustomResource):
         Provides a Route53 health check.
 
         ## Example Usage
-
         ### Connectivity and HTTP Status Code Check
 
         ```python
@@ -110,7 +110,6 @@ class HealthCheck(pulumi.CustomResource):
             },
             type="HTTP")
         ```
-
         ### Connectivity and String Matching Check
 
         ```python
@@ -126,7 +125,6 @@ class HealthCheck(pulumi.CustomResource):
             search_string="example",
             type="HTTPS_STR_MATCH")
         ```
-
         ### Aggregate Check
 
         ```python
@@ -141,7 +139,6 @@ class HealthCheck(pulumi.CustomResource):
             },
             type="CALCULATED")
         ```
-
         ### CloudWatch Alarm Check
 
         ```python
@@ -285,9 +282,9 @@ class HealthCheck(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["type"] = type
         return HealthCheck(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

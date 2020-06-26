@@ -89,7 +89,6 @@ def get_bucket(bucket=None,opts=None):
     Distribution.
 
     ## Example Usage
-
     ### Route53 Record
 
     ```python
@@ -107,7 +106,6 @@ def get_bucket(bucket=None,opts=None):
         type="A",
         zone_id=test_zone.id)
     ```
-
     ### CloudFront Origin
 
     ```python

@@ -46,8 +46,6 @@ def get_service_account(region=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class SmbFileShare(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -83,8 +84,9 @@ class SmbFileShare(pulumi.CustomResource):
         Manages an AWS Storage Gateway SMB File Share.
 
         ## Example Usage
-
         ### Active Directory Authentication
+
+        > **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creation. e.g. via "SMB Settings" in the AWS Storage Gateway console or `smb_active_directory_settings` in the `storagegateway.Gateway` resource.
 
         ```python
         import pulumi
@@ -96,8 +98,9 @@ class SmbFileShare(pulumi.CustomResource):
             location_arn=aws_s3_bucket["example"]["arn"],
             role_arn=aws_iam_role["example"]["arn"])
         ```
-
         ### Guest Authentication
+
+        > **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creation. e.g. via "SMB Settings" in the AWS Storage Gateway console or `smb_guest_password` in the `storagegateway.Gateway` resource.
 
         ```python
         import pulumi
@@ -222,9 +225,9 @@ class SmbFileShare(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["valid_user_lists"] = valid_user_lists
         return SmbFileShare(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,7 +26,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ## Rules
  *
  * License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:

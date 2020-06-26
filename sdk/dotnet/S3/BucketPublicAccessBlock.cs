@@ -14,8 +14,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

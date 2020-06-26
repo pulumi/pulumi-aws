@@ -16,8 +16,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -34,7 +32,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		tfTemplate, err := elasticbeanstalk.NewConfigurationTemplate(ctx, "tfTemplate", &elasticbeanstalk.ConfigurationTemplateArgs{
+// 		_, err = elasticbeanstalk.NewConfigurationTemplate(ctx, "tfTemplate", &elasticbeanstalk.ConfigurationTemplateArgs{
 // 			Application:       tftest.Name,
 // 			SolutionStackName: pulumi.String("64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4"),
 // 		})
@@ -45,7 +43,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Option Settings
 //
 // The `setting` field supports the following format:

@@ -17,8 +17,10 @@ namespace Pulumi.Aws.CloudTrail
     /// &gt; *NOTE:* For an organization trail, this resource must be in the master account of the organization.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Basic
+    /// 
+    /// Enable CloudTrail to capture all compatible management events in region.
+    /// For capturing events from services like IAM, `include_global_service_events` must be enabled.
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -73,7 +75,9 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// }
     /// ```
+    /// ### Data Event Logging
     /// 
+    /// CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html).
     /// ### Logging All Lambda Function Invocations
     /// 
     /// ```csharp
@@ -110,7 +114,6 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// }
     /// ```
-    /// 
     /// ### Logging All S3 Bucket Object Events
     /// 
     /// ```csharp
@@ -147,7 +150,6 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// }
     /// ```
-    /// 
     /// ### Logging Individual S3 Bucket Events
     /// 
     /// ```csharp

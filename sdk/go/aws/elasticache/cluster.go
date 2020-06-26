@@ -21,7 +21,6 @@ import (
 // See the AWS Docs on [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Modify.html) for more information.
 //
 // ## Example Usage
-//
 // ### Memcached Cluster
 //
 // ```go
@@ -34,7 +33,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
+// 		_, err = elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
 // 			Engine:             pulumi.String("memcached"),
 // 			NodeType:           pulumi.String("cache.m4.large"),
 // 			NumCacheNodes:      pulumi.Int(2),
@@ -48,7 +47,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Redis Instance
 //
 // ```go
@@ -61,7 +59,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
+// 		_, err = elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
 // 			Engine:             pulumi.String("redis"),
 // 			EngineVersion:      pulumi.String("3.2.10"),
 // 			NodeType:           pulumi.String("cache.m4.large"),
@@ -76,8 +74,9 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Redis Cluster Mode Disabled Read Replica Instance
+//
+// These inherit their settings from the replication group.
 //
 // ```go
 // package main
@@ -89,7 +88,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		replica, err := elasticache.NewCluster(ctx, "replica", &elasticache.ClusterArgs{
+// 		_, err = elasticache.NewCluster(ctx, "replica", &elasticache.ClusterArgs{
 // 			ReplicationGroupId: pulumi.String(aws_elasticache_replication_group.Example.Id),
 // 		})
 // 		if err != nil {

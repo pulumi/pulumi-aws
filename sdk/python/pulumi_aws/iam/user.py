@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class User(pulumi.CustomResource):
     arn: pulumi.Output[str]
     """
@@ -47,8 +48,6 @@ class User(pulumi.CustomResource):
         > *NOTE:* If policies are attached to the user via the `iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -149,9 +148,9 @@ class User(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["unique_id"] = unique_id
         return User(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

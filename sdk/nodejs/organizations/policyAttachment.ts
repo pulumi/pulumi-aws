@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
  *
  * ## Example Usage
- *
  * ### Organization Account
  *
  * ```typescript
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     targetId: "123456789012",
  * });
  * ```
- *
  * ### Organization Root
  *
  * ```typescript
@@ -32,7 +30,6 @@ import * as utilities from "../utilities";
  *     targetId: aws_organizations_organization_example.roots.0.id,
  * });
  * ```
- *
  * ### Organization Unit
  *
  * ```typescript

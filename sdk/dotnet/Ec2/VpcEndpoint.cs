@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Ec2
     /// Doing so will cause a conflict of associations and will overwrite the association.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Basic
     /// 
     /// ```csharp
@@ -40,7 +39,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// 
     /// ### Basic w/ Tags
     /// 
     /// ```csharp
@@ -64,7 +62,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// 
     /// ### Interface Endpoint Type
     /// 
     /// ```csharp
@@ -90,7 +87,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
-    /// 
     /// ### Non-AWS Service
     /// 
     /// ```csharp
@@ -137,6 +133,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// 
+    /// &gt; **NOTE The `dns_entry` output is a list of maps:** This provider interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
     /// </summary>
     public partial class VpcEndpoint : Pulumi.CustomResource
     {

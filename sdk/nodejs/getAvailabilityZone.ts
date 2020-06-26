@@ -21,7 +21,8 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example shows how this data source might be used to derive
+ * VPC and subnet CIDR prefixes systematically for an availability zone.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

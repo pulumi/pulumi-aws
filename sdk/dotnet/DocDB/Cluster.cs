@@ -20,11 +20,9 @@ namespace Pulumi.Aws.DocDB
     /// (see documentation below).
     /// 
     /// &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
-    /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+    /// **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
     /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;

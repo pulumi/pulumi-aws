@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * > **Note:** All arguments including the password and customer username will be stored in the raw state as plain-text.
  *
  * ## Example Usage
- *
  * ### SimpleAD
  *
  * ```typescript
@@ -47,7 +46,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Microsoft Active Directory (MicrosoftAD)
  *
  * ```typescript
@@ -83,7 +81,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Microsoft Active Directory Connector (ADConnector)
  *
  * ```typescript

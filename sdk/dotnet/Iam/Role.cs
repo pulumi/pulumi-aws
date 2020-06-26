@@ -16,8 +16,6 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -52,7 +50,6 @@ namespace Pulumi.Aws.Iam
     /// 
     /// }
     /// ```
-    /// 
     /// ## Example of Using Data Source for Assume Role Policy
     /// 
     /// ```csharp

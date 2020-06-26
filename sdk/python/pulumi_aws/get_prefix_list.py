@@ -62,8 +62,6 @@ def get_prefix_list(filters=None,name=None,prefix_list_id=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -83,7 +81,6 @@ def get_prefix_list(filters=None,name=None,prefix_list_id=None,opts=None):
         rule_number=200,
         to_port=443)
     ```
-
     ### Filter
 
     ```python

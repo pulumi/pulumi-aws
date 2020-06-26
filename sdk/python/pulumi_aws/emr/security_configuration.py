@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class SecurityConfiguration(pulumi.CustomResource):
     configuration: pulumi.Output[str]
     """
@@ -32,8 +33,6 @@ class SecurityConfiguration(pulumi.CustomResource):
         Provides a resource to manage AWS EMR Security Configurations
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -118,9 +117,9 @@ class SecurityConfiguration(pulumi.CustomResource):
         __props__["name"] = name
         __props__["name_prefix"] = name_prefix
         return SecurityConfiguration(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

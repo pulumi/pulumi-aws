@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class DeliveryChannel(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
@@ -41,8 +42,6 @@ class DeliveryChannel(pulumi.CustomResource):
         > **Note:** Delivery Channel requires a `Configuration Recorder` to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi
@@ -162,9 +161,9 @@ class DeliveryChannel(pulumi.CustomResource):
         __props__["snapshot_delivery_properties"] = snapshot_delivery_properties
         __props__["sns_topic_arn"] = sns_topic_arn
         return DeliveryChannel(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

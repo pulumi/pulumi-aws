@@ -22,8 +22,7 @@ type ClusterCacheNode struct {
 // ClusterCacheNodeInput is an input type that accepts ClusterCacheNodeArgs and ClusterCacheNodeOutput values.
 // You can construct a concrete instance of `ClusterCacheNodeInput` via:
 //
-// 		 ClusterCacheNodeArgs{...}
-//
+//          ClusterCacheNodeArgs{...}
 type ClusterCacheNodeInput interface {
 	pulumi.Input
 
@@ -55,8 +54,7 @@ func (i ClusterCacheNodeArgs) ToClusterCacheNodeOutputWithContext(ctx context.Co
 // ClusterCacheNodeArrayInput is an input type that accepts ClusterCacheNodeArray and ClusterCacheNodeArrayOutput values.
 // You can construct a concrete instance of `ClusterCacheNodeArrayInput` via:
 //
-// 		 ClusterCacheNodeArray{ ClusterCacheNodeArgs{...} }
-//
+//          ClusterCacheNodeArray{ ClusterCacheNodeArgs{...} }
 type ClusterCacheNodeArrayInput interface {
 	pulumi.Input
 
@@ -140,8 +138,7 @@ type ParameterGroupParameter struct {
 // ParameterGroupParameterInput is an input type that accepts ParameterGroupParameterArgs and ParameterGroupParameterOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterInput` via:
 //
-// 		 ParameterGroupParameterArgs{...}
-//
+//          ParameterGroupParameterArgs{...}
 type ParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -171,8 +168,7 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 // ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
 //
-// 		 ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
-//
+//          ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
 type ParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -248,8 +244,7 @@ type ReplicationGroupClusterMode struct {
 // ReplicationGroupClusterModeInput is an input type that accepts ReplicationGroupClusterModeArgs and ReplicationGroupClusterModeOutput values.
 // You can construct a concrete instance of `ReplicationGroupClusterModeInput` via:
 //
-// 		 ReplicationGroupClusterModeArgs{...}
-//
+//          ReplicationGroupClusterModeArgs{...}
 type ReplicationGroupClusterModeInput interface {
 	pulumi.Input
 
@@ -287,12 +282,11 @@ func (i ReplicationGroupClusterModeArgs) ToReplicationGroupClusterModePtrOutputW
 // ReplicationGroupClusterModePtrInput is an input type that accepts ReplicationGroupClusterModeArgs, ReplicationGroupClusterModePtr and ReplicationGroupClusterModePtrOutput values.
 // You can construct a concrete instance of `ReplicationGroupClusterModePtrInput` via:
 //
-// 		 ReplicationGroupClusterModeArgs{...}
+//          ReplicationGroupClusterModeArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ReplicationGroupClusterModePtrInput interface {
 	pulumi.Input
 
@@ -403,8 +397,7 @@ type GetClusterCacheNode struct {
 // GetClusterCacheNodeInput is an input type that accepts GetClusterCacheNodeArgs and GetClusterCacheNodeOutput values.
 // You can construct a concrete instance of `GetClusterCacheNodeInput` via:
 //
-// 		 GetClusterCacheNodeArgs{...}
-//
+//          GetClusterCacheNodeArgs{...}
 type GetClusterCacheNodeInput interface {
 	pulumi.Input
 
@@ -437,8 +430,7 @@ func (i GetClusterCacheNodeArgs) ToGetClusterCacheNodeOutputWithContext(ctx cont
 // GetClusterCacheNodeArrayInput is an input type that accepts GetClusterCacheNodeArray and GetClusterCacheNodeArrayOutput values.
 // You can construct a concrete instance of `GetClusterCacheNodeArrayInput` via:
 //
-// 		 GetClusterCacheNodeArray{ GetClusterCacheNodeArgs{...} }
-//
+//          GetClusterCacheNodeArray{ GetClusterCacheNodeArgs{...} }
 type GetClusterCacheNodeArrayInput interface {
 	pulumi.Input
 

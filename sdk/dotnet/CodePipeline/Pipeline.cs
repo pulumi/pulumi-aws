@@ -16,8 +16,6 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;

@@ -22,8 +22,7 @@ type EventPermissionCondition struct {
 // EventPermissionConditionInput is an input type that accepts EventPermissionConditionArgs and EventPermissionConditionOutput values.
 // You can construct a concrete instance of `EventPermissionConditionInput` via:
 //
-// 		 EventPermissionConditionArgs{...}
-//
+//          EventPermissionConditionArgs{...}
 type EventPermissionConditionInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i EventPermissionConditionArgs) ToEventPermissionConditionPtrOutputWithCon
 // EventPermissionConditionPtrInput is an input type that accepts EventPermissionConditionArgs, EventPermissionConditionPtr and EventPermissionConditionPtrOutput values.
 // You can construct a concrete instance of `EventPermissionConditionPtrInput` via:
 //
-// 		 EventPermissionConditionArgs{...}
+//          EventPermissionConditionArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventPermissionConditionPtrInput interface {
 	pulumi.Input
 
@@ -195,8 +193,7 @@ type EventTargetBatchTarget struct {
 // EventTargetBatchTargetInput is an input type that accepts EventTargetBatchTargetArgs and EventTargetBatchTargetOutput values.
 // You can construct a concrete instance of `EventTargetBatchTargetInput` via:
 //
-// 		 EventTargetBatchTargetArgs{...}
-//
+//          EventTargetBatchTargetArgs{...}
 type EventTargetBatchTargetInput interface {
 	pulumi.Input
 
@@ -238,12 +235,11 @@ func (i EventTargetBatchTargetArgs) ToEventTargetBatchTargetPtrOutputWithContext
 // EventTargetBatchTargetPtrInput is an input type that accepts EventTargetBatchTargetArgs, EventTargetBatchTargetPtr and EventTargetBatchTargetPtrOutput values.
 // You can construct a concrete instance of `EventTargetBatchTargetPtrInput` via:
 //
-// 		 EventTargetBatchTargetArgs{...}
+//          EventTargetBatchTargetArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventTargetBatchTargetPtrInput interface {
 	pulumi.Input
 
@@ -389,8 +385,7 @@ type EventTargetEcsTarget struct {
 // EventTargetEcsTargetInput is an input type that accepts EventTargetEcsTargetArgs and EventTargetEcsTargetOutput values.
 // You can construct a concrete instance of `EventTargetEcsTargetInput` via:
 //
-// 		 EventTargetEcsTargetArgs{...}
-//
+//          EventTargetEcsTargetArgs{...}
 type EventTargetEcsTargetInput interface {
 	pulumi.Input
 
@@ -436,12 +431,11 @@ func (i EventTargetEcsTargetArgs) ToEventTargetEcsTargetPtrOutputWithContext(ctx
 // EventTargetEcsTargetPtrInput is an input type that accepts EventTargetEcsTargetArgs, EventTargetEcsTargetPtr and EventTargetEcsTargetPtrOutput values.
 // You can construct a concrete instance of `EventTargetEcsTargetPtrInput` via:
 //
-// 		 EventTargetEcsTargetArgs{...}
+//          EventTargetEcsTargetArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventTargetEcsTargetPtrInput interface {
 	pulumi.Input
 
@@ -611,8 +605,7 @@ type EventTargetEcsTargetNetworkConfiguration struct {
 // EventTargetEcsTargetNetworkConfigurationInput is an input type that accepts EventTargetEcsTargetNetworkConfigurationArgs and EventTargetEcsTargetNetworkConfigurationOutput values.
 // You can construct a concrete instance of `EventTargetEcsTargetNetworkConfigurationInput` via:
 //
-// 		 EventTargetEcsTargetNetworkConfigurationArgs{...}
-//
+//          EventTargetEcsTargetNetworkConfigurationArgs{...}
 type EventTargetEcsTargetNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -652,12 +645,11 @@ func (i EventTargetEcsTargetNetworkConfigurationArgs) ToEventTargetEcsTargetNetw
 // EventTargetEcsTargetNetworkConfigurationPtrInput is an input type that accepts EventTargetEcsTargetNetworkConfigurationArgs, EventTargetEcsTargetNetworkConfigurationPtr and EventTargetEcsTargetNetworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `EventTargetEcsTargetNetworkConfigurationPtrInput` via:
 //
-// 		 EventTargetEcsTargetNetworkConfigurationArgs{...}
+//          EventTargetEcsTargetNetworkConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventTargetEcsTargetNetworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -780,8 +772,7 @@ type EventTargetInputTransformer struct {
 // EventTargetInputTransformerInput is an input type that accepts EventTargetInputTransformerArgs and EventTargetInputTransformerOutput values.
 // You can construct a concrete instance of `EventTargetInputTransformerInput` via:
 //
-// 		 EventTargetInputTransformerArgs{...}
-//
+//          EventTargetInputTransformerArgs{...}
 type EventTargetInputTransformerInput interface {
 	pulumi.Input
 
@@ -819,12 +810,11 @@ func (i EventTargetInputTransformerArgs) ToEventTargetInputTransformerPtrOutputW
 // EventTargetInputTransformerPtrInput is an input type that accepts EventTargetInputTransformerArgs, EventTargetInputTransformerPtr and EventTargetInputTransformerPtrOutput values.
 // You can construct a concrete instance of `EventTargetInputTransformerPtrInput` via:
 //
-// 		 EventTargetInputTransformerArgs{...}
+//          EventTargetInputTransformerArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventTargetInputTransformerPtrInput interface {
 	pulumi.Input
 
@@ -930,8 +920,7 @@ type EventTargetKinesisTarget struct {
 // EventTargetKinesisTargetInput is an input type that accepts EventTargetKinesisTargetArgs and EventTargetKinesisTargetOutput values.
 // You can construct a concrete instance of `EventTargetKinesisTargetInput` via:
 //
-// 		 EventTargetKinesisTargetArgs{...}
-//
+//          EventTargetKinesisTargetArgs{...}
 type EventTargetKinesisTargetInput interface {
 	pulumi.Input
 
@@ -967,12 +956,11 @@ func (i EventTargetKinesisTargetArgs) ToEventTargetKinesisTargetPtrOutputWithCon
 // EventTargetKinesisTargetPtrInput is an input type that accepts EventTargetKinesisTargetArgs, EventTargetKinesisTargetPtr and EventTargetKinesisTargetPtrOutput values.
 // You can construct a concrete instance of `EventTargetKinesisTargetPtrInput` via:
 //
-// 		 EventTargetKinesisTargetArgs{...}
+//          EventTargetKinesisTargetArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventTargetKinesisTargetPtrInput interface {
 	pulumi.Input
 
@@ -1065,8 +1053,7 @@ type EventTargetRunCommandTarget struct {
 // EventTargetRunCommandTargetInput is an input type that accepts EventTargetRunCommandTargetArgs and EventTargetRunCommandTargetOutput values.
 // You can construct a concrete instance of `EventTargetRunCommandTargetInput` via:
 //
-// 		 EventTargetRunCommandTargetArgs{...}
-//
+//          EventTargetRunCommandTargetArgs{...}
 type EventTargetRunCommandTargetInput interface {
 	pulumi.Input
 
@@ -1096,8 +1083,7 @@ func (i EventTargetRunCommandTargetArgs) ToEventTargetRunCommandTargetOutputWith
 // EventTargetRunCommandTargetArrayInput is an input type that accepts EventTargetRunCommandTargetArray and EventTargetRunCommandTargetArrayOutput values.
 // You can construct a concrete instance of `EventTargetRunCommandTargetArrayInput` via:
 //
-// 		 EventTargetRunCommandTargetArray{ EventTargetRunCommandTargetArgs{...} }
-//
+//          EventTargetRunCommandTargetArray{ EventTargetRunCommandTargetArgs{...} }
 type EventTargetRunCommandTargetArrayInput interface {
 	pulumi.Input
 
@@ -1171,8 +1157,7 @@ type EventTargetSqsTarget struct {
 // EventTargetSqsTargetInput is an input type that accepts EventTargetSqsTargetArgs and EventTargetSqsTargetOutput values.
 // You can construct a concrete instance of `EventTargetSqsTargetInput` via:
 //
-// 		 EventTargetSqsTargetArgs{...}
-//
+//          EventTargetSqsTargetArgs{...}
 type EventTargetSqsTargetInput interface {
 	pulumi.Input
 
@@ -1208,12 +1193,11 @@ func (i EventTargetSqsTargetArgs) ToEventTargetSqsTargetPtrOutputWithContext(ctx
 // EventTargetSqsTargetPtrInput is an input type that accepts EventTargetSqsTargetArgs, EventTargetSqsTargetPtr and EventTargetSqsTargetPtrOutput values.
 // You can construct a concrete instance of `EventTargetSqsTargetPtrInput` via:
 //
-// 		 EventTargetSqsTargetArgs{...}
+//          EventTargetSqsTargetArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventTargetSqsTargetPtrInput interface {
 	pulumi.Input
 
@@ -1310,8 +1294,7 @@ type LogMetricFilterMetricTransformation struct {
 // LogMetricFilterMetricTransformationInput is an input type that accepts LogMetricFilterMetricTransformationArgs and LogMetricFilterMetricTransformationOutput values.
 // You can construct a concrete instance of `LogMetricFilterMetricTransformationInput` via:
 //
-// 		 LogMetricFilterMetricTransformationArgs{...}
-//
+//          LogMetricFilterMetricTransformationArgs{...}
 type LogMetricFilterMetricTransformationInput interface {
 	pulumi.Input
 
@@ -1353,12 +1336,11 @@ func (i LogMetricFilterMetricTransformationArgs) ToLogMetricFilterMetricTransfor
 // LogMetricFilterMetricTransformationPtrInput is an input type that accepts LogMetricFilterMetricTransformationArgs, LogMetricFilterMetricTransformationPtr and LogMetricFilterMetricTransformationPtrOutput values.
 // You can construct a concrete instance of `LogMetricFilterMetricTransformationPtrInput` via:
 //
-// 		 LogMetricFilterMetricTransformationArgs{...}
+//          LogMetricFilterMetricTransformationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type LogMetricFilterMetricTransformationPtrInput interface {
 	pulumi.Input
 
@@ -1502,8 +1484,7 @@ type MetricAlarmMetricQuery struct {
 // MetricAlarmMetricQueryInput is an input type that accepts MetricAlarmMetricQueryArgs and MetricAlarmMetricQueryOutput values.
 // You can construct a concrete instance of `MetricAlarmMetricQueryInput` via:
 //
-// 		 MetricAlarmMetricQueryArgs{...}
-//
+//          MetricAlarmMetricQueryArgs{...}
 type MetricAlarmMetricQueryInput interface {
 	pulumi.Input
 
@@ -1539,8 +1520,7 @@ func (i MetricAlarmMetricQueryArgs) ToMetricAlarmMetricQueryOutputWithContext(ct
 // MetricAlarmMetricQueryArrayInput is an input type that accepts MetricAlarmMetricQueryArray and MetricAlarmMetricQueryArrayOutput values.
 // You can construct a concrete instance of `MetricAlarmMetricQueryArrayInput` via:
 //
-// 		 MetricAlarmMetricQueryArray{ MetricAlarmMetricQueryArgs{...} }
-//
+//          MetricAlarmMetricQueryArray{ MetricAlarmMetricQueryArgs{...} }
 type MetricAlarmMetricQueryArrayInput interface {
 	pulumi.Input
 
@@ -1642,8 +1622,7 @@ type MetricAlarmMetricQueryMetric struct {
 // MetricAlarmMetricQueryMetricInput is an input type that accepts MetricAlarmMetricQueryMetricArgs and MetricAlarmMetricQueryMetricOutput values.
 // You can construct a concrete instance of `MetricAlarmMetricQueryMetricInput` via:
 //
-// 		 MetricAlarmMetricQueryMetricArgs{...}
-//
+//          MetricAlarmMetricQueryMetricArgs{...}
 type MetricAlarmMetricQueryMetricInput interface {
 	pulumi.Input
 
@@ -1692,12 +1671,11 @@ func (i MetricAlarmMetricQueryMetricArgs) ToMetricAlarmMetricQueryMetricPtrOutpu
 // MetricAlarmMetricQueryMetricPtrInput is an input type that accepts MetricAlarmMetricQueryMetricArgs, MetricAlarmMetricQueryMetricPtr and MetricAlarmMetricQueryMetricPtrOutput values.
 // You can construct a concrete instance of `MetricAlarmMetricQueryMetricPtrInput` via:
 //
-// 		 MetricAlarmMetricQueryMetricArgs{...}
+//          MetricAlarmMetricQueryMetricArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type MetricAlarmMetricQueryMetricPtrInput interface {
 	pulumi.Input
 

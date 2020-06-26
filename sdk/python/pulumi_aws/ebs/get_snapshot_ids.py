@@ -51,8 +51,6 @@ def get_snapshot_ids(filters=None,owners=None,restorable_by_user_ids=None,opts=N
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws

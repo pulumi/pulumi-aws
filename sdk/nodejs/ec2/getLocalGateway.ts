@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example shows how one might accept a local gateway id as a variable.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

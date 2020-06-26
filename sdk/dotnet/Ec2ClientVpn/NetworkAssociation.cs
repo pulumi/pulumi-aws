@@ -10,12 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2ClientVpn
 {
     /// <summary>
-    /// Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the 
+    /// Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
     /// [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
     /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;

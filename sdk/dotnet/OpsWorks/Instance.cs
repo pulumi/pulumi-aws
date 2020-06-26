@@ -14,8 +14,6 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -39,7 +37,6 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// }
     /// ```
-    /// 
     /// ## Block devices
     /// 
     /// Each of the `*_block_device` attributes controls a portion of the AWS

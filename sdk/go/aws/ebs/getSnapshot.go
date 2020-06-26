@@ -11,33 +11,33 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ebs"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		ebsVolume, err := ebs.LookupSnapshot(ctx, &ebs.LookupSnapshotArgs{
-// 			Filters: ebs.getSnapshotFilterArray{
-// 				&ebs.LookupSnapshotFilter{
+// 		opt0 := true
+// 		_, err := ebs.LookupSnapshot(ctx, &ebs.LookupSnapshotArgs{
+// 			Filters: []ebs.GetSnapshotFilter{
+// 				ebs.GetSnapshotFilter{
 // 					Name: "volume-size",
 // 					Values: []string{
 // 						"40",
 // 					},
 // 				},
-// 				&ebs.LookupSnapshotFilter{
+// 				ebs.GetSnapshotFilter{
 // 					Name: "tag:Name",
 // 					Values: []string{
 // 						"Example",
 // 					},
 // 				},
 // 			},
-// 			MostRecent: true,
+// 			MostRecent: &opt0,
 // 			Owners: []string{
 // 				"self",
 // 			},

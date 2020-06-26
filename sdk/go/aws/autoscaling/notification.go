@@ -16,7 +16,7 @@ import (
 //
 // ## Example Usage
 //
-//
+// Basic usage:
 //
 // ```go
 // package main
@@ -41,7 +41,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleNotifications, err := autoscaling.NewNotification(ctx, "exampleNotifications", &autoscaling.NotificationArgs{
+// 		_, err = autoscaling.NewNotification(ctx, "exampleNotifications", &autoscaling.NotificationArgs{
 // 			GroupNames: pulumi.StringArray{
 // 				bar.Name,
 // 				foo.Name,
@@ -52,7 +52,7 @@ import (
 // 				pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH_ERROR"),
 // 				pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE_ERROR"),
 // 			},
-// 			TopicArn: pulumi.String(example.Arn),
+// 			TopicArn: example.Arn,
 // 		})
 // 		if err != nil {
 // 			return err

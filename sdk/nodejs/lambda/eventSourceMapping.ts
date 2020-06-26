@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  * For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
  *
  * ## Example Usage
- *
  * ### DynamoDB
  *
  * ```typescript
@@ -26,7 +25,6 @@ import * as utilities from "../utilities";
  *     startingPosition: "LATEST",
  * });
  * ```
- *
  * ### Kinesis
  *
  * ```typescript
@@ -39,7 +37,6 @@ import * as utilities from "../utilities";
  *     startingPosition: "LATEST",
  * });
  * ```
- *
  * ### SQS
  *
  * ```typescript

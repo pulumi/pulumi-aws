@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * To register a basic SWF domain:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

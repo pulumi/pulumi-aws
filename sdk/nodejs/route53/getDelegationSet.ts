@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * The following example shows how to get a delegation set from its id.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

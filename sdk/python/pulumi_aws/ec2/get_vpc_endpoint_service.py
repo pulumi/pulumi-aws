@@ -116,7 +116,6 @@ def get_vpc_endpoint_service(filters=None,service=None,service_name=None,tags=No
     can be specified when creating a VPC endpoint within the region configured in the provider.
 
     ## Example Usage
-
     ### AWS Service
 
     ```python
@@ -131,7 +130,6 @@ def get_vpc_endpoint_service(filters=None,service=None,service_name=None,tags=No
         service_name=s3.service_name,
         vpc_id=foo.id)
     ```
-
     ### Non-AWS Service
 
     ```python
@@ -140,7 +138,6 @@ def get_vpc_endpoint_service(filters=None,service=None,service_name=None,tags=No
 
     custome = aws.ec2.get_vpc_endpoint_service(service_name="com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
     ```
-
     ### Filter
 
     ```python

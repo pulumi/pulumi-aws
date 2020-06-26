@@ -21,8 +21,6 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;

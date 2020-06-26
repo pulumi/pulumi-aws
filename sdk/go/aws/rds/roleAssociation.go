@@ -19,8 +19,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -31,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := rds.NewRoleAssociation(ctx, "example", &rds.RoleAssociationArgs{
+// 		_, err = rds.NewRoleAssociation(ctx, "example", &rds.RoleAssociationArgs{
 // 			DbInstanceIdentifier: pulumi.String(aws_db_instance.Example.Id),
 // 			FeatureName:          pulumi.String("S3_INTEGRATION"),
 // 			RoleArn:              pulumi.String(aws_iam_role.Example.Id),

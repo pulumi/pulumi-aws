@@ -79,8 +79,6 @@ def get_nat_gateway(filters=None,id=None,state=None,subnet_id=None,tags=None,vpc
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -88,6 +86,18 @@ def get_nat_gateway(filters=None,id=None,state=None,subnet_id=None,tags=None,vpc
     config = pulumi.Config()
     subnet_id = config.require_object("subnetId")
     default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
+    ```
+
+    Usage with tags:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"],
+        tags={
+            "Name": "gw NAT",
+        })
     ```
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// **Using certs on file:**
     /// 
     /// ```csharp
     /// using System.IO;
@@ -40,6 +40,82 @@ namespace Pulumi.Aws.Iam
     ///         {
     ///             CertificateBody = File.ReadAllText("self-ca-cert.pem"),
     ///             PrivateKey = File.ReadAllText("test-key.pem"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// **Example with cert in-line:**
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testCertAlt = new Aws.Iam.ServerCertificate("testCertAlt", new Aws.Iam.ServerCertificateArgs
+    ///         {
+    ///             CertificateBody = @"-----BEGIN CERTIFICATE-----
+    /// [......] # cert contents
+    /// -----END CERTIFICATE-----
+    /// 
+    /// ",
+    ///             PrivateKey = @"-----BEGIN RSA PRIVATE KEY-----
+    /// [......] # cert contents
+    /// -----END RSA PRIVATE KEY-----
+    /// 
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// **Use in combination with an AWS ELB resource:**
+    /// 
+    /// Some properties of an IAM Server Certificates cannot be updated while they are
+    /// in use. In order for this provider to effectively manage a Certificate in this situation, it is
+    /// recommended you utilize the `name_prefix` attribute and enable the
+    /// `create_before_destroy` [lifecycle block][lifecycle]. This will allow this provider
+    /// to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
+    /// dependant resources before attempting to destroy the old version.
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testCert = new Aws.Iam.ServerCertificate("testCert", new Aws.Iam.ServerCertificateArgs
+    ///         {
+    ///             CertificateBody = File.ReadAllText("self-ca-cert.pem"),
+    ///             NamePrefix = "example-cert",
+    ///             PrivateKey = File.ReadAllText("test-key.pem"),
+    ///         });
+    ///         var ourapp = new Aws.Elb.LoadBalancer("ourapp", new Aws.Elb.LoadBalancerArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-west-2a",
+    ///             },
+    ///             CrossZoneLoadBalancing = true,
+    ///             Listeners = 
+    ///             {
+    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///                 {
+    ///                     InstancePort = 8000,
+    ///                     InstanceProtocol = "http",
+    ///                     LbPort = 443,
+    ///                     LbProtocol = "https",
+    ///                     SslCertificateId = testCert.Arn,
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 

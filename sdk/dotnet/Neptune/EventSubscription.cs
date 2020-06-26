@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Neptune
     /// <summary>
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -74,7 +72,6 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// }
     /// ```
-    /// 
     /// ## Attributes
     /// 
     /// The following additional atttributes are provided:

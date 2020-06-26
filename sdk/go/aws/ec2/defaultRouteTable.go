@@ -40,6 +40,36 @@ import (
 // defined in-line. At this time you cannot use a Route Table with in-line routes
 // in conjunction with any Route resources. Doing so will cause
 // a conflict of rule settings and will overwrite routes.
+//
+// ## Example Usage
+// ### With Tags
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = ec2.NewDefaultRouteTable(ctx, "defaultRouteTable", &ec2.DefaultRouteTableArgs{
+// 			DefaultRouteTableId: pulumi.String(aws_vpc.Foo.Default_route_table_id),
+// 			Routes: ec2.DefaultRouteTableRouteArray{
+// 				nil,
+// 			},
+// 			Tags: pulumi.Map{
+// 				"Name": pulumi.String("default table"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DefaultRouteTable struct {
 	pulumi.CustomResourceState
 

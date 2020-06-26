@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -30,7 +28,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		foo, err := cloudwatch.NewLogStream(ctx, "foo", &cloudwatch.LogStreamArgs{
+// 		_, err = cloudwatch.NewLogStream(ctx, "foo", &cloudwatch.LogStreamArgs{
 // 			LogGroupName: yada.Name,
 // 		})
 // 		if err != nil {
