@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.68.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 2.11.0 (2020-06-26)
+* Upgrade to v2.68.0 of the AWS Terraform Provider
 
 ## 2.10.1 (2020-06-24)
 * Ensure `autoscaling.Group.Tag` and `autoscaling.Group.Tags` do not panic due to their underlying types in the Terraform schema
