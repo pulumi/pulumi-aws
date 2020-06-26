@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Remove unused code [(#1021)](https://github.com/pulumi/pulumi-aws/pull/1021)
 
 ---
 
