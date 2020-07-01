@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add `C5A` instance type family to `aws.ec2.InstanceTypes`.
 
 ---
 
