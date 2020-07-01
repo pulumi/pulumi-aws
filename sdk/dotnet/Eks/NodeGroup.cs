@@ -13,6 +13,64 @@ namespace Pulumi.Aws.Eks
     /// Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
     /// 
     /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Eks.NodeGroup("example", new Aws.Eks.NodeGroupArgs
+    ///         {
+    ///             ClusterName = aws_eks_cluster.Example.Name,
+    ///             NodeRoleArn = aws_iam_role.Example.Arn,
+    ///             SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
+    ///             ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
+    ///             {
+    ///                 DesiredSize = 1,
+    ///                 MaxSize = 1,
+    ///                 MinSize = 1,
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 aws_iam_role_policy_attachment.Example_AmazonEKSWorkerNodePolicy,
+    ///                 aws_iam_role_policy_attachment.Example_AmazonEKS_CNI_Policy,
+    ///                 aws_iam_role_policy_attachment.Example_AmazonEC2ContainerRegistryReadOnly,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Ignoring Changes to Desired Size
+    /// 
+    /// You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ... other configurations ...
+    ///         var example = new Aws.Eks.NodeGroup("example", new Aws.Eks.NodeGroupArgs
+    ///         {
+    ///             ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
+    ///             {
+    ///                 DesiredSize = 2,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Example IAM Role for EKS Node Group
     /// 
     /// ```csharp

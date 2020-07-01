@@ -40,6 +40,9 @@ namespace Pulumi.Aws.Ec2
     ///         var peerVpc = new Aws.Ec2.Vpc("peerVpc", new Aws.Ec2.VpcArgs
     ///         {
     ///             CidrBlock = "10.1.0.0/16",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.peer",
     ///         });
     ///         var peerCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
     ///         // Requester's side of the connection.
@@ -64,6 +67,9 @@ namespace Pulumi.Aws.Ec2
     ///                 { "Side", "Accepter" },
     ///             },
     ///             VpcPeeringConnectionId = peerVpcPeeringConnection.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.peer",
     ///         });
     ///     }
     /// 

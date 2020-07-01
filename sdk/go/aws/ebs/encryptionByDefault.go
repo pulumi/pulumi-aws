@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ebs.NewEncryptionByDefault(ctx, "example", &ebs.EncryptionByDefaultArgs{
+// 		_, err := ebs.NewEncryptionByDefault(ctx, "example", &ebs.EncryptionByDefaultArgs{
 // 			Enabled: pulumi.Bool(true),
 // 		})
 // 		if err != nil {

@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = iam.NewAccountAlias(ctx, "alias", &iam.AccountAliasArgs{
+// 		_, err := iam.NewAccountAlias(ctx, "alias", &iam.AccountAliasArgs{
 // 			AccountAlias: pulumi.String("my-account-alias"),
 // 		})
 // 		if err != nil {

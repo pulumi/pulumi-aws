@@ -82,7 +82,9 @@ import (
 // 		_, err = lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
 // 			TargetGroupArn: testTargetGroup.Arn,
 // 			TargetId:       testFunction.Arn,
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_lambda_permission.with_lb",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
+// 		_, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
 // 			CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
 // 				KeyAlgorithm:     pulumi.String("RSA_4096"),
 // 				SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
@@ -89,7 +89,9 @@ import (
 // 					S3BucketName:     exampleBucket.ID(),
 // 				},
 // 			},
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_s3_bucket_policy.example",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

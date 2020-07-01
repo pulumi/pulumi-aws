@@ -10,8 +10,6 @@ import (
 // > **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
 //
 // The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
-//
-// ## Example Usage
 func GetBucketObjects(ctx *pulumi.Context, args *GetBucketObjectsArgs, opts ...pulumi.InvokeOption) (*GetBucketObjectsResult, error) {
 	var rv GetBucketObjectsResult
 	err := ctx.Invoke("aws:s3/getBucketObjects:getBucketObjects", args, &rv, opts...)

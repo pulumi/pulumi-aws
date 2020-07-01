@@ -23,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = sfn.NewActivity(ctx, "sfnActivity", nil)
+// 		_, err := sfn.NewActivity(ctx, "sfnActivity", nil)
 // 		if err != nil {
 // 			return err
 // 		}

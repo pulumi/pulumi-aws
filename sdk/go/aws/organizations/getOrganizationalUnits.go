@@ -25,7 +25,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err := organizations.GetOrganizationalUnits(ctx, &organizations.GetOrganizationalUnitsArgs{
+// 		_, err = organizations.GetOrganizationalUnits(ctx, &organizations.GetOrganizationalUnitsArgs{
 // 			ParentId: org.Roots[0].Id,
 // 		}, nil)
 // 		if err != nil {

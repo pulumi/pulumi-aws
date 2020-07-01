@@ -32,7 +32,7 @@ import (
 // 		}
 // 		memberDetector, err := guardduty.NewDetector(ctx, "memberDetector", &guardduty.DetectorArgs{
 // 			Enable: pulumi.Bool(true),
-// 		})
+// 		}, pulumi.Provider("aws.dev"))
 // 		if err != nil {
 // 			return err
 // 		}

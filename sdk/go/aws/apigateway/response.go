@@ -31,10 +31,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = apigateway.NewResponse(ctx, "test", &apigateway.ResponseArgs{
-// 			ResponseParameters: pulumi.Map{
+// 			ResponseParameters: pulumi.StringMap{
 // 				"gatewayresponse.header.Authorization": pulumi.String("'Basic'"),
 // 			},
-// 			ResponseTemplates: pulumi.Map{
+// 			ResponseTemplates: pulumi.StringMap{
 // 				"application/json": pulumi.String(fmt.Sprintf("%v%v%v", "{'message':", "$", "context.error.messageString}")),
 // 			},
 // 			ResponseType: pulumi.String("UNAUTHORIZED"),

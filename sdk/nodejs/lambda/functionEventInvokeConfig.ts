@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
  *     functionName: aws_lambda_alias.example.function_name,
- *     destination_config: {
- *         on_failure: {
+ *     destinationConfig: {
+ *         onFailure: {
  *             destination: aws_sqs_queue.example.arn,
  *         },
- *         on_success: {
+ *         onSuccess: {
  *             destination: aws_sns_topic.example.arn,
  *         },
  *     },

@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Batch
     ///             ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
     ///             {
     ///                 InstanceRole = ecsInstanceRoleInstanceProfile.Arn,
-    ///                 InstanceType = 
+    ///                 InstanceTypes = 
     ///                 {
     ///                     "c4.large",
     ///                 },
@@ -125,6 +125,12 @@ namespace Pulumi.Aws.Batch
     ///             },
     ///             ServiceRole = awsBatchServiceRoleRole.Arn,
     ///             Type = "MANAGED",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_iam_role_policy_attachment.aws_batch_service_role",
+    ///             },
     ///         });
     ///     }
     /// 

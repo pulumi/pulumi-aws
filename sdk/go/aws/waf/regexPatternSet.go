@@ -23,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = waf.NewRegexPatternSet(ctx, "example", &waf.RegexPatternSetArgs{
+// 		_, err := waf.NewRegexPatternSet(ctx, "example", &waf.RegexPatternSetArgs{
 // 			RegexPatternStrings: pulumi.StringArray{
 // 				pulumi.String("one"),
 // 				pulumi.String("two"),

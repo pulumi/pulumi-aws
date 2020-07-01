@@ -15,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ecs.CapacityProvider("test", {auto_scaling_group_provider: {
+ * const test = new aws.ecs.CapacityProvider("test", {autoScalingGroupProvider: {
  *     autoScalingGroupArn: aws_autoscaling_group.test.arn,
  *     managedTerminationProtection: "ENABLED",
- *     managed_scaling: {
+ *     managedScaling: {
  *         maximumScalingStepSize: 1000,
  *         minimumScalingStepSize: 1,
  *         status: "ENABLED",

@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ssm.NewMaintenanceWindowTask(ctx, "example", &ssm.MaintenanceWindowTaskArgs{
+// 		_, err := ssm.NewMaintenanceWindowTask(ctx, "example", &ssm.MaintenanceWindowTaskArgs{
 // 			MaxConcurrency: pulumi.String("2"),
 // 			MaxErrors:      pulumi.String("1"),
 // 			Priority:       pulumi.Int(1),
@@ -76,7 +76,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ssm.NewMaintenanceWindowTask(ctx, "example", &ssm.MaintenanceWindowTaskArgs{
+// 		_, err := ssm.NewMaintenanceWindowTask(ctx, "example", &ssm.MaintenanceWindowTaskArgs{
 // 			MaxConcurrency: pulumi.String("2"),
 // 			MaxErrors:      pulumi.String("1"),
 // 			Priority:       pulumi.Int(1),
@@ -135,7 +135,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ssm.NewMaintenanceWindowTask(ctx, "example", &ssm.MaintenanceWindowTaskArgs{
+// 		_, err := ssm.NewMaintenanceWindowTask(ctx, "example", &ssm.MaintenanceWindowTaskArgs{
 // 			MaxConcurrency: pulumi.String("2"),
 // 			MaxErrors:      pulumi.String("1"),
 // 			Priority:       pulumi.Int(1),

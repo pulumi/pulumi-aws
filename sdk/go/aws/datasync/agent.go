@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = datasync.NewAgent(ctx, "example", &datasync.AgentArgs{
+// 		_, err := datasync.NewAgent(ctx, "example", &datasync.AgentArgs{
 // 			IpAddress: pulumi.String("1.2.3.4"),
 // 		})
 // 		if err != nil {

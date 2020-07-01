@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * `});
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "s3",
- *     s3_configuration: {
+ *     s3Configuration: {
  *         roleArn: firehoseRole.arn,
  *         bucketArn: bucket.arn,
  *     },
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *     clusterName: "example",
  *     kafkaVersion: "2.1.0",
  *     numberOfBrokerNodes: 3,
- *     broker_node_group_info: {
+ *     brokerNodeGroupInfo: {
  *         instanceType: "kafka.m5.large",
  *         ebsVolumeSize: 1000,
  *         clientSubnets: [
@@ -76,22 +76,22 @@ import * as utilities from "../utilities";
  *         ],
  *         securityGroups: [sg.id],
  *     },
- *     encryption_info: {
+ *     encryptionInfo: {
  *         encryptionAtRestKmsKeyArn: kms.arn,
  *     },
- *     open_monitoring: {
+ *     openMonitoring: {
  *         prometheus: {
- *             jmx_exporter: {
+ *             jmxExporter: {
  *                 enabledInBroker: true,
  *             },
- *             node_exporter: {
+ *             nodeExporter: {
  *                 enabledInBroker: true,
  *             },
  *         },
  *     },
- *     logging_info: {
- *         broker_logs: {
- *             cloudwatch_logs: {
+ *     loggingInfo: {
+ *         brokerLogs: {
+ *             cloudwatchLogs: {
  *                 enabled: true,
  *                 logGroup: test.name,
  *             },

@@ -31,7 +31,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = neptune.NewCluster(ctx, "default", &neptune.ClusterArgs{
+// 		_, err := neptune.NewCluster(ctx, "_default", &neptune.ClusterArgs{
 // 			ApplyImmediately:                 pulumi.Bool(true),
 // 			BackupRetentionPeriod:            pulumi.Int(5),
 // 			ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),

@@ -24,8 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = xray.NewSamplingRule(ctx, "example", &xray.SamplingRuleArgs{
-// 			Attributes: pulumi.Map{
+// 		_, err := xray.NewSamplingRule(ctx, "example", &xray.SamplingRuleArgs{
+// 			Attributes: pulumi.StringMap{
 // 				"Hello": pulumi.String("Tris"),
 // 			},
 // 			FixedRate:     pulumi.Float64(0.05),

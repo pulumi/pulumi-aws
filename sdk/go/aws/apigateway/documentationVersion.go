@@ -32,7 +32,9 @@ import (
 // 			Description: pulumi.String("Example description"),
 // 			RestApiId:   exampleRestApi.ID(),
 // 			Version:     pulumi.String("example_version"),
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_api_gateway_documentation_part.example",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

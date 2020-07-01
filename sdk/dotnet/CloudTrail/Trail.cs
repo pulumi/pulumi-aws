@@ -94,15 +94,15 @@ namespace Pulumi.Aws.CloudTrail
     ///             {
     ///                 new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///                 {
-    ///                     DataResource = 
+    ///                     DataResources = 
     ///                     {
-    ///                         
+    ///                         new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
     ///                         {
-    ///                             { "type", "AWS::Lambda::Function" },
-    ///                             { "values", 
+    ///                             Type = "AWS::Lambda::Function",
+    ///                             Values = 
     ///                             {
     ///                                 "arn:aws:lambda",
-    ///                             } },
+    ///                             },
     ///                         },
     ///                     },
     ///                     IncludeManagementEvents = true,
@@ -130,15 +130,15 @@ namespace Pulumi.Aws.CloudTrail
     ///             {
     ///                 new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///                 {
-    ///                     DataResource = 
+    ///                     DataResources = 
     ///                     {
-    ///                         
+    ///                         new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
     ///                         {
-    ///                             { "type", "AWS::S3::Object" },
-    ///                             { "values", 
+    ///                             Type = "AWS::S3::Object",
+    ///                             Values = 
     ///                             {
     ///                                 "arn:aws:s3:::",
-    ///                             } },
+    ///                             },
     ///                         },
     ///                     },
     ///                     IncludeManagementEvents = true,
@@ -170,15 +170,15 @@ namespace Pulumi.Aws.CloudTrail
     ///             {
     ///                 new Aws.CloudTrail.Inputs.TrailEventSelectorArgs
     ///                 {
-    ///                     DataResource = 
+    ///                     DataResources = 
     ///                     {
-    ///                         
+    ///                         new Aws.CloudTrail.Inputs.TrailEventSelectorDataResourceArgs
     ///                         {
-    ///                             { "type", "AWS::S3::Object" },
-    ///                             { "values", 
+    ///                             Type = "AWS::S3::Object",
+    ///                             Values = 
     ///                             {
     ///                                 important_bucket.Apply(important_bucket =&gt; $"{important_bucket.Arn}/"),
-    ///                             } },
+    ///                             },
     ///                         },
     ///                     },
     ///                     IncludeManagementEvents = true,

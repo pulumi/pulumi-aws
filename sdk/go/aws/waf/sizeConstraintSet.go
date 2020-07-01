@@ -23,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = waf.NewSizeConstraintSet(ctx, "sizeConstraintSet", &waf.SizeConstraintSetArgs{
+// 		_, err := waf.NewSizeConstraintSet(ctx, "sizeConstraintSet", &waf.SizeConstraintSetArgs{
 // 			SizeConstraints: waf.SizeConstraintSetSizeConstraintArray{
 // 				&waf.SizeConstraintSetSizeConstraintArgs{
 // 					ComparisonOperator: pulumi.String("EQ"),

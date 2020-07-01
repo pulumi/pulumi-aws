@@ -243,7 +243,7 @@ import * as utilities from "../utilities";
  * const cluster = new aws.emr.Cluster("cluster", {
  *     releaseLabel: "emr-4.6.0",
  *     applications: ["Spark"],
- *     ec2_attributes: {
+ *     ec2Attributes: {
  *         subnetId: mainSubnet.id,
  *         emrManagedMasterSecurityGroup: aws_security_group.allow_all.id,
  *         emrManagedSlaveSecurityGroup: aws_security_group.allow_all.id,
@@ -258,7 +258,7 @@ import * as utilities from "../utilities";
  *         env: "env",
  *         name: "name-env",
  *     },
- *     bootstrap_action: [{
+ *     bootstrapActions: [{
  *         path: "s3://elasticmapreduce/bootstrap-actions/run-if",
  *         name: "runif",
  *         args: [
@@ -313,11 +313,13 @@ import * as utilities from "../utilities";
  *     tags: {
  *         name: "emr_test",
  *     },
+ * }, {
+ *     dependsOn: ["aws_subnet.main"],
  * });
  * const gw = new aws.ec2.InternetGateway("gw", {vpcId: mainVpc.id});
  * const routeTable = new aws.ec2.RouteTable("routeTable", {
  *     vpcId: mainVpc.id,
- *     route: [{
+ *     routes: [{
  *         cidrBlock: "0.0.0.0/0",
  *         gatewayId: gw.id,
  *     }],

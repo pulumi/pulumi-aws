@@ -31,6 +31,12 @@ namespace Pulumi.Aws.Cfg
     ///         var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new Aws.Cfg.DeliveryChannelArgs
     ///         {
     ///             S3BucketName = bucket.BucketName,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_config_configuration_recorder.foo",
+    ///             },
     ///         });
     ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
     ///         {

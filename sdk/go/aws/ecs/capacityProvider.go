@@ -11,6 +11,38 @@ import (
 )
 
 // Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ecs.NewCapacityProvider(ctx, "test", &ecs.CapacityProviderArgs{
+// 			AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
+// 				AutoScalingGroupArn:          pulumi.String(aws_autoscaling_group.Test.Arn),
+// 				ManagedTerminationProtection: pulumi.String("ENABLED"),
+// 				ManagedScaling: &ecs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs{
+// 					MaximumScalingStepSize: pulumi.Int(1000),
+// 					MinimumScalingStepSize: pulumi.Int(1),
+// 					Status:                 pulumi.String("ENABLED"),
+// 					TargetCapacity:         pulumi.Int(10),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type CapacityProvider struct {
 	pulumi.CustomResourceState
 

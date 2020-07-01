@@ -24,8 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = efs.NewFileSystem(ctx, "foo", &efs.FileSystemArgs{
-// 			Tags: pulumi.Map{
+// 		_, err := efs.NewFileSystem(ctx, "foo", &efs.FileSystemArgs{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("MyProduct"),
 // 			},
 // 		})
@@ -48,7 +48,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = efs.NewFileSystem(ctx, "fooWithLifecylePolicy", &efs.FileSystemArgs{
+// 		_, err := efs.NewFileSystem(ctx, "fooWithLifecylePolicy", &efs.FileSystemArgs{
 // 			LifecyclePolicy: &efs.FileSystemLifecyclePolicyArgs{
 // 				TransitionToIa: pulumi.String("AFTER_30_DAYS"),
 // 			},

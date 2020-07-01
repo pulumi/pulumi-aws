@@ -49,18 +49,18 @@ namespace Pulumi.Aws.Iam
         ///                     {
         ///                         "s3:ListBucket",
         ///                     },
-        ///                     Condition = 
+        ///                     Conditions = 
         ///                     {
-        ///                         
+        ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
         ///                         {
-        ///                             { "test", "StringLike" },
-        ///                             { "values", 
+        ///                             Test = "StringLike",
+        ///                             Values = 
         ///                             {
         ///                                 "",
         ///                                 "home/",
         ///                                 "home/&amp;{aws:username}/",
-        ///                             } },
-        ///                             { "variable", "s3:prefix" },
+        ///                             },
+        ///                             Variable = "s3:prefix",
         ///                         },
         ///                     },
         ///                     Resources = 

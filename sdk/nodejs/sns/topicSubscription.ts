@@ -72,7 +72,7 @@ import {Topic} from "./index";
  * };
  * const sns-topic-policy = aws.iam.getPolicyDocument({
  *     policyId: "__default_policy_ID",
- *     statement: [
+ *     statements: [
  *         {
  *             actions: [
  *                 "SNS:Subscribe",
@@ -85,7 +85,7 @@ import {Topic} from "./index";
  *                 "SNS:DeleteTopic",
  *                 "SNS:AddPermission",
  *             ],
- *             condition: [{
+ *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "AWS:SourceOwner",
  *                 values: [sns["account-id"]],
@@ -103,7 +103,7 @@ import {Topic} from "./index";
  *                 "SNS:Subscribe",
  *                 "SNS:Receive",
  *             ],
- *             condition: [{
+ *             conditions: [{
  *                 test: "StringLike",
  *                 variable: "SNS:Endpoint",
  *                 values: [`arn:aws:sqs:${sqs.region}:${sqs["account-id"]}:${sqs.name}`],
@@ -120,7 +120,7 @@ import {Topic} from "./index";
  * });
  * const sqs-queue-policy = aws.iam.getPolicyDocument({
  *     policyId: `arn:aws:sqs:${sqs.region}:${sqs["account-id"]}:${sqs.name}/SQSDefaultPolicy`,
- *     statement: [{
+ *     statements: [{
  *         sid: "example-sns-topic",
  *         effect: "Allow",
  *         principals: [{
@@ -129,7 +129,7 @@ import {Topic} from "./index";
  *         }],
  *         actions: ["SQS:SendMessage"],
  *         resources: [`arn:aws:sqs:${sqs.region}:${sqs["account-id"]}:${sqs.name}`],
- *         condition: [{
+ *         conditions: [{
  *             test: "ArnEquals",
  *             variable: "aws:SourceArn",
  *             values: [`arn:aws:sns:${sns.region}:${sns["account-id"]}:${sns.name}`],
@@ -139,7 +139,7 @@ import {Topic} from "./index";
  * // provider to manage SNS topics
  * const awsSns = new aws.Provider("awsSns", {
  *     region: sns.region,
- *     assume_role: {
+ *     assumeRole: {
  *         roleArn: `arn:aws:iam::${sns["account-id"]}:role/${sns["role-name"]}`,
  *         sessionName: `sns-${sns.region}`,
  *     },
@@ -147,7 +147,7 @@ import {Topic} from "./index";
  * // provider to manage SQS queues
  * const awsSqs = new aws.Provider("awsSqs", {
  *     region: sqs.region,
- *     assume_role: {
+ *     assumeRole: {
  *         roleArn: `arn:aws:iam::${sqs["account-id"]}:role/${sqs["role-name"]}`,
  *         sessionName: `sqs-${sqs.region}`,
  *     },
@@ -155,7 +155,7 @@ import {Topic} from "./index";
  * // provider to subscribe SQS to SNS (using the SQS account but the SNS region)
  * const sns2sqs = new aws.Provider("sns2sqs", {
  *     region: sns.region,
- *     assume_role: {
+ *     assumeRole: {
  *         roleArn: `arn:aws:iam::${sqs["account-id"]}:role/${sqs["role-name"]}`,
  *         sessionName: `sns2sqs-${sns.region}`,
  *     },
@@ -163,12 +163,18 @@ import {Topic} from "./index";
  * const sns_topicTopic = new aws.sns.Topic("sns-topicTopic", {
  *     displayName: sns.display_name,
  *     policy: sns_topic_policy.then(sns_topic_policy => sns_topic_policy.json),
+ * }, {
+ *     provider: "aws.sns",
  * });
- * const sqs_queue = new aws.sqs.Queue("sqs-queue", {policy: sqs_queue_policy.then(sqs_queue_policy => sqs_queue_policy.json)});
+ * const sqs_queue = new aws.sqs.Queue("sqs-queue", {policy: sqs_queue_policy.then(sqs_queue_policy => sqs_queue_policy.json)}, {
+ *     provider: "aws.sqs",
+ * });
  * const sns_topicTopicSubscription = new aws.sns.TopicSubscription("sns-topicTopicSubscription", {
  *     topic: sns_topicTopic.arn,
  *     protocol: "sqs",
  *     endpoint: sqs_queue.arn,
+ * }, {
+ *     provider: "aws.sns2sqs",
  * });
  * ```
  */

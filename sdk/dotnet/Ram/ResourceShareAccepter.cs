@@ -37,12 +37,18 @@ namespace Pulumi.Aws.Ram
     ///             {
     ///                 { "Name", "tf-test-resource-share" },
     ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.alternate",
     ///         });
     ///         var receiver = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
     ///         var senderInvite = new Aws.Ram.PrincipalAssociation("senderInvite", new Aws.Ram.PrincipalAssociationArgs
     ///         {
     ///             Principal = receiver.Apply(receiver =&gt; receiver.AccountId),
     ///             ResourceShareArn = senderShare.Arn,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.alternate",
     ///         });
     ///         var receiverAccept = new Aws.Ram.ResourceShareAccepter("receiverAccept", new Aws.Ram.ResourceShareAccepterArgs
     ///         {

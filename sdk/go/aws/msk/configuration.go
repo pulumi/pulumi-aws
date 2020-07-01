@@ -28,7 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = msk.NewConfiguration(ctx, "example", &msk.ConfigurationArgs{
+// 		_, err := msk.NewConfiguration(ctx, "example", &msk.ConfigurationArgs{
 // 			KafkaVersions: pulumi.StringArray{
 // 				pulumi.String("2.1.0"),
 // 			},

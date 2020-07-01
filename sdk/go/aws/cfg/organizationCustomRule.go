@@ -30,7 +30,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = lambda.NewPermission(ctx, "examplePermission", &lambda.PermissionArgs{
+// 		_, err := lambda.NewPermission(ctx, "examplePermission", &lambda.PermissionArgs{
 // 			Action:    pulumi.String("lambda:InvokeFunction"),
 // 			Function:  pulumi.String(aws_lambda_function.Example.Arn),
 // 			Principal: pulumi.String("config.amazonaws.com"),
@@ -52,7 +52,10 @@ import (
 // 			TriggerTypes: pulumi.StringArray{
 // 				pulumi.String("ConfigurationItemChangeNotification"),
 // 			},
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_lambda_permission.example",
+// 			"aws_organizations_organization.example",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

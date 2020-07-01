@@ -31,7 +31,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
 // 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("tf-test"),
 // 			},
 // 		})
@@ -41,7 +41,7 @@ import (
 // 		fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			CidrBlock:        pulumi.String("10.0.0.0/24"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("tf-test"),
 // 			},
 // 			VpcId: fooVpc.ID(),

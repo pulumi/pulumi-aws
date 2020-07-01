@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = neptune.NewClusterParameterGroup(ctx, "example", &neptune.ClusterParameterGroupArgs{
+// 		_, err := neptune.NewClusterParameterGroup(ctx, "example", &neptune.ClusterParameterGroupArgs{
 // 			Description: pulumi.String("neptune cluster parameter group"),
 // 			Family:      pulumi.String("neptune1"),
 // 			Parameters: neptune.ClusterParameterGroupParameterArray{

@@ -44,7 +44,9 @@ import (
 // 					Type:    pulumi.String("IPMatch"),
 // 				},
 // 			},
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_waf_ipset.ipset",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -63,7 +65,10 @@ import (
 // 					Type:     pulumi.String("REGULAR"),
 // 				},
 // 			},
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_waf_ipset.ipset",
+// 			"aws_waf_rule.wafrule",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -85,15 +90,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = waf.NewWebAcl(ctx, "example", &waf.WebAclArgs{
+// 		_, err := waf.NewWebAcl(ctx, "example", &waf.WebAclArgs{
 // 			LoggingConfiguration: &waf.WebAclLoggingConfigurationArgs{
 // 				LogDestination: pulumi.String(aws_kinesis_firehose_delivery_stream.Example.Arn),
 // 				RedactedFields: &waf.WebAclLoggingConfigurationRedactedFieldsArgs{
 // 					FieldToMatch: pulumi.Array{
-// 						pulumi.Map{
+// 						pulumi.StringMap{
 // 							"type": pulumi.String("URI"),
 // 						},
-// 						pulumi.Map{
+// 						pulumi.StringMap{
 // 							"data": pulumi.String("referer"),
 // 							"type": pulumi.String("HEADER"),
 // 						},

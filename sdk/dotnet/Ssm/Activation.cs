@@ -45,6 +45,12 @@ namespace Pulumi.Aws.Ssm
     ///             Description = "Test",
     ///             IamRole = testRole.Id,
     ///             RegistrationLimit = 5,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_iam_role_policy_attachment.test_attach",
+    ///             },
     ///         });
     ///     }
     /// 

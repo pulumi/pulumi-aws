@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleVolume = exampleEbsVolumes.then(exampleEbsVolumes => exampleEbsVolumes.ids.map((v, k) => [k, v]).map(([, ]) => aws.ebs.getVolume({
- *     filter: [{
+ *     filters: [{
  *         name: "volume-id",
  *         values: [each.value],
  *     }],

@@ -18,7 +18,9 @@ import * as utilities from "../utilities";
  *     featureSet: "ALL",
  * });
  * const exampleDetector = new aws.guardduty.Detector("exampleDetector", {});
- * const exampleOrganizationAdminAccount = new aws.guardduty.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "123456789012"});
+ * const exampleOrganizationAdminAccount = new aws.guardduty.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "123456789012"}, {
+ *     dependsOn: [exampleOrganization],
+ * });
  * ```
  */
 export class OrganizationAdminAccount extends pulumi.CustomResource {

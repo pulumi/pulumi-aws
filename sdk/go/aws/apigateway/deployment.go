@@ -64,10 +64,12 @@ import (
 // 		_, err = apigateway.NewDeployment(ctx, "myDemoDeployment", &apigateway.DeploymentArgs{
 // 			RestApi:   myDemoAPI.ID(),
 // 			StageName: pulumi.String("test"),
-// 			Variables: pulumi.Map{
+// 			Variables: pulumi.StringMap{
 // 				"answer": pulumi.String("42"),
 // 			},
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			myDemoIntegration,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

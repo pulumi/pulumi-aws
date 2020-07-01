@@ -13,6 +13,75 @@ import (
 // an IAM policy document, for use with resources which expect policy documents,
 // such as the `iam.Policy` resource.
 //
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			Statements: []iam.GetPolicyDocumentStatement{
+// 				iam.GetPolicyDocumentStatement{
+// 					Actions: []string{
+// 						"s3:ListAllMyBuckets",
+// 						"s3:GetBucketLocation",
+// 					},
+// 					Resources: []string{
+// 						"arn:aws:s3:::*",
+// 					},
+// 					Sid: "1",
+// 				},
+// 				iam.GetPolicyDocumentStatement{
+// 					Actions: []string{
+// 						"s3:ListBucket",
+// 					},
+// 					Conditions: []iam.GetPolicyDocumentStatementCondition{
+// 						iam.GetPolicyDocumentStatementCondition{
+// 							Test: "StringLike",
+// 							Values: []string{
+// 								"",
+// 								"home/",
+// 								"home/&{aws:username}/",
+// 							},
+// 							Variable: "s3:prefix",
+// 						},
+// 					},
+// 					Resources: []string{
+// 						fmt.Sprintf("%v%v", "arn:aws:s3:::", _var.S3_bucket_name),
+// 					},
+// 				},
+// 				iam.GetPolicyDocumentStatement{
+// 					Actions: []string{
+// 						"s3:*",
+// 					},
+// 					Resources: []string{
+// 						fmt.Sprintf("%v%v%v", "arn:aws:s3:::", _var.S3_bucket_name, "/home/&{aws:username}"),
+// 						fmt.Sprintf("%v%v%v", "arn:aws:s3:::", _var.S3_bucket_name, "/home/&{aws:username}/*"),
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
+// 			Path:   pulumi.String("/"),
+// 			Policy: pulumi.String(examplePolicyDocument.Json),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // Using this data source to generate policy documents is *optional*. It is also
 // valid to use literal JSON strings within your configuration, or to use the
 // `file` interpolation function to read a raw JSON policy document from a file.
@@ -34,10 +103,6 @@ import (
 // those principals have different behavior for IAM Role Trust Policy. Therefore
 // this provider will normalize the principal field only in above-mentioned case and principals
 // like `type = "AWS"` and `identifiers = ["*"]` will be rendered as `"Principal": {"AWS": "*"}`.
-//
-// ## Example with Multiple Principals
-//
-// Showing how you can use this as an assume role policy as well as showing how you can specify multiple principal blocks with different types.
 //
 // ## Example with Source and Override
 //
@@ -78,7 +143,7 @@ import (
 // 			return err
 // 		}
 // 		opt0 := source.Json
-// 		_, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 		_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			SourceJson: &opt0,
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
@@ -113,7 +178,7 @@ import (
 // 			return err
 // 		}
 // 		opt1 := override.Json
-// 		_, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 		_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			OverrideJson: &opt1,
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
@@ -226,7 +291,7 @@ import (
 // 		}
 // 		opt0 := override.Json
 // 		opt1 := source.Json
-// 		_, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 		_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			OverrideJson: &opt0,
 // 			SourceJson:   &opt1,
 // 		}, nil)

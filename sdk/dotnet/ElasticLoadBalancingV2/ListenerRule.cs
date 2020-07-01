@@ -188,16 +188,16 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     ///             {
     ///                 new Aws.LB.Inputs.ListenerRuleConditionArgs
     ///                 {
-    ///                     QueryString = 
+    ///                     QueryStrings = 
     ///                     {
-    ///                         
+    ///                         new Aws.LB.Inputs.ListenerRuleConditionQueryStringArgs
     ///                         {
-    ///                             { "key", "health" },
-    ///                             { "value", "check" },
+    ///                             Key = "health",
+    ///                             Value = "check",
     ///                         },
-    ///                         
+    ///                         new Aws.LB.Inputs.ListenerRuleConditionQueryStringArgs
     ///                         {
-    ///                             { "value", "bar" },
+    ///                             Value = "bar",
     ///                         },
     ///                     },
     ///                 },

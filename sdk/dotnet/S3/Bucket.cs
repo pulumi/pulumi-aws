@@ -53,9 +53,9 @@ namespace Pulumi.Aws.S3
     ///             Policy = File.ReadAllText("policy.json"),
     ///             Website = new Aws.S3.Inputs.BucketWebsiteArgs
     ///             {
-    ///                 Website = "error.html",
-    ///                 Website = "index.html",
-    ///                 Website = @"[{
+    ///                 ErrorDocument = "error.html",
+    ///                 IndexDocument = "index.html",
+    ///                 RoutingRules = @"[{
     ///     ""Condition"": {
     ///         ""KeyPrefixEquals"": ""docs/""
     ///     },
@@ -194,17 +194,17 @@ namespace Pulumi.Aws.S3
     ///                         { "autoclean", "true" },
     ///                         { "rule", "log" },
     ///                     },
-    ///                     Transition = 
+    ///                     Transitions = 
     ///                     {
-    ///                         
+    ///                         new Aws.S3.Inputs.BucketLifecycleRuleTransitionArgs
     ///                         {
-    ///                             { "days", 30 },
-    ///                             { "storageClass", "STANDARD_IA" },
+    ///                             Days = 30,
+    ///                             StorageClass = "STANDARD_IA",
     ///                         },
-    ///                         
+    ///                         new Aws.S3.Inputs.BucketLifecycleRuleTransitionArgs
     ///                         {
-    ///                             { "days", 60 },
-    ///                             { "storageClass", "GLACIER" },
+    ///                             Days = 60,
+    ///                             StorageClass = "GLACIER",
     ///                         },
     ///                     },
     ///                 },
@@ -232,17 +232,17 @@ namespace Pulumi.Aws.S3
     ///                     {
     ///                         Days = 90,
     ///                     },
-    ///                     NoncurrentVersionTransition = 
+    ///                     NoncurrentVersionTransitions = 
     ///                     {
-    ///                         
+    ///                         new Aws.S3.Inputs.BucketLifecycleRuleNoncurrentVersionTransitionArgs
     ///                         {
-    ///                             { "days", 30 },
-    ///                             { "storageClass", "STANDARD_IA" },
+    ///                             Days = 30,
+    ///                             StorageClass = "STANDARD_IA",
     ///                         },
-    ///                         
+    ///                         new Aws.S3.Inputs.BucketLifecycleRuleNoncurrentVersionTransitionArgs
     ///                         {
-    ///                             { "days", 60 },
-    ///                             { "storageClass", "GLACIER" },
+    ///                             Days = 60,
+    ///                             StorageClass = "GLACIER",
     ///                         },
     ///                     },
     ///                     Prefix = "config/",
@@ -323,6 +323,9 @@ namespace Pulumi.Aws.S3
     ///             {
     ///                 Enabled = true,
     ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.central",
     ///         });
     ///         var replicationPolicy = new Aws.Iam.Policy("replicationPolicy", new Aws.Iam.PolicyArgs
     ///         {

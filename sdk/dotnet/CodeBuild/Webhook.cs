@@ -35,17 +35,17 @@ namespace Pulumi.Aws.CodeBuild
     ///             {
     ///                 new Aws.CodeBuild.Inputs.WebhookFilterGroupArgs
     ///                 {
-    ///                     Filter = 
+    ///                     Filters = 
     ///                     {
-    ///                         
+    ///                         new Aws.CodeBuild.Inputs.WebhookFilterGroupFilterArgs
     ///                         {
-    ///                             { "pattern", "PUSH" },
-    ///                             { "type", "EVENT" },
+    ///                             Pattern = "PUSH",
+    ///                             Type = "EVENT",
     ///                         },
-    ///                         
+    ///                         new Aws.CodeBuild.Inputs.WebhookFilterGroupFilterArgs
     ///                         {
-    ///                             { "pattern", "master" },
-    ///                             { "type", "HEAD_REF" },
+    ///                             Pattern = "master",
+    ///                             Type = "HEAD_REF",
     ///                         },
     ///                     },
     ///                 },

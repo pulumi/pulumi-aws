@@ -40,48 +40,48 @@ namespace Pulumi.Aws.CodePipeline
     ///             {
     ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///                 {
-    ///                     Action = 
+    ///                     Actions = 
     ///                     {
-    ///                         
+    ///                         new Aws.CodePipeline.Inputs.PipelineStageActionArgs
     ///                         {
-    ///                             { "category", "Source" },
-    ///                             { "configuration", 
+    ///                             Category = "Source",
+    ///                             Configuration = 
     ///                             {
     ///                                 { "Branch", "master" },
     ///                                 { "Owner", "my-organization" },
     ///                                 { "Repo", "test" },
-    ///                             } },
-    ///                             { "name", "Source" },
-    ///                             { "outputArtifacts", 
+    ///                             },
+    ///                             Name = "Source",
+    ///                             OutputArtifacts = 
     ///                             {
     ///                                 "test",
-    ///                             } },
-    ///                             { "owner", "ThirdParty" },
-    ///                             { "provider", "GitHub" },
-    ///                             { "version", "1" },
+    ///                             },
+    ///                             Owner = "ThirdParty",
+    ///                             Provider = "GitHub",
+    ///                             Version = "1",
     ///                         },
     ///                     },
     ///                     Name = "Source",
     ///                 },
     ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///                 {
-    ///                     Action = 
+    ///                     Actions = 
     ///                     {
-    ///                         
+    ///                         new Aws.CodePipeline.Inputs.PipelineStageActionArgs
     ///                         {
-    ///                             { "category", "Build" },
-    ///                             { "configuration", 
+    ///                             Category = "Build",
+    ///                             Configuration = 
     ///                             {
     ///                                 { "ProjectName", "test" },
-    ///                             } },
-    ///                             { "inputArtifacts", 
+    ///                             },
+    ///                             InputArtifacts = 
     ///                             {
     ///                                 "test",
-    ///                             } },
-    ///                             { "name", "Build" },
-    ///                             { "owner", "AWS" },
-    ///                             { "provider", "CodeBuild" },
-    ///                             { "version", "1" },
+    ///                             },
+    ///                             Name = "Build",
+    ///                             Owner = "AWS",
+    ///                             Provider = "CodeBuild",
+    ///                             Version = "1",
     ///                         },
     ///                     },
     ///                     Name = "Build",

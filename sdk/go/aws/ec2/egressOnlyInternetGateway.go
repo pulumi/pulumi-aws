@@ -35,7 +35,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewEgressOnlyInternetGateway(ctx, "exampleEgressOnlyInternetGateway", &ec2.EgressOnlyInternetGatewayArgs{
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("main"),
 // 			},
 // 			VpcId: exampleVpc.ID(),

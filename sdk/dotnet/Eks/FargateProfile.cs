@@ -13,6 +13,33 @@ namespace Pulumi.Aws.Eks
     /// Manages an EKS Fargate Profile.
     /// 
     /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Eks.FargateProfile("example", new Aws.Eks.FargateProfileArgs
+    ///         {
+    ///             ClusterName = aws_eks_cluster.Example.Name,
+    ///             PodExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///             SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
+    ///             Selectors = 
+    ///             {
+    ///                 new Aws.Eks.Inputs.FargateProfileSelectorArgs
+    ///                 {
+    ///                     Namespace = "example",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Example IAM Role for EKS Fargate Profile
     /// 
     /// ```csharp

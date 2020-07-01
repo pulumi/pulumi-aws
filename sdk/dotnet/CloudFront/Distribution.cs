@@ -249,15 +249,15 @@ namespace Pulumi.Aws.CloudFront
     ///                             502,
     ///                         },
     ///                     },
-    ///                     Member = 
+    ///                     Members = 
     ///                     {
-    ///                         
+    ///                         new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
     ///                         {
-    ///                             { "originId", "primaryS3" },
+    ///                             OriginId = "primaryS3",
     ///                         },
-    ///                         
+    ///                         new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
     ///                         {
-    ///                             { "originId", "failoverS3" },
+    ///                             OriginId = "failoverS3",
     ///                         },
     ///                     },
     ///                     OriginId = "groupS3",

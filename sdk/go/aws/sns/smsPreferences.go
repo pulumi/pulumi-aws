@@ -23,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = sns.NewSmsPreferences(ctx, "updateSmsPrefs", nil)
+// 		_, err := sns.NewSmsPreferences(ctx, "updateSmsPrefs", nil)
 // 		if err != nil {
 // 			return err
 // 		}

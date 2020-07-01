@@ -28,7 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
 // 			EventSourceArn:   pulumi.String(aws_dynamodb_table.Example.Stream_arn),
 // 			FunctionName:     pulumi.String(aws_lambda_function.Example.Arn),
 // 			StartingPosition: pulumi.String("LATEST"),
@@ -52,7 +52,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
 // 			EventSourceArn:   pulumi.String(aws_kinesis_stream.Example.Arn),
 // 			FunctionName:     pulumi.String(aws_lambda_function.Example.Arn),
 // 			StartingPosition: pulumi.String("LATEST"),
@@ -76,7 +76,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
 // 			EventSourceArn: pulumi.String(aws_sqs_queue.Sqs_queue_test.Arn),
 // 			FunctionName:   pulumi.String(aws_lambda_function.Example.Arn),
 // 		})

@@ -47,24 +47,24 @@ import (
 // 				ResourceTypes: pulumi.StringArray{
 // 					pulumi.String("VOLUME"),
 // 				},
-// 				Schedule: pulumi.MapArray{
-// 					pulumi.Map{
-// 						"copyTags": pulumi.Bool(false),
-// 						"createRule": pulumi.Map{
-// 							"interval":     pulumi.Float64(24),
-// 							"intervalUnit": pulumi.String("HOURS"),
-// 							"times":        pulumi.String("23:45"),
+// 				Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
+// 					&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
+// 						CopyTags: pulumi.Bool(false),
+// 						CreateRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{
+// 							Interval:     pulumi.Int(24),
+// 							IntervalUnit: pulumi.String("HOURS"),
+// 							Times:        pulumi.String("23:45"),
 // 						},
-// 						"name": pulumi.String("2 weeks of daily snapshots"),
-// 						"retainRule": pulumi.Map{
-// 							"count": pulumi.Float64(14),
+// 						Name: pulumi.String("2 weeks of daily snapshots"),
+// 						RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{
+// 							Count: pulumi.Int(14),
 // 						},
-// 						"tagsToAdd": pulumi.Map{
+// 						TagsToAdd: pulumi.StringMap{
 // 							"SnapshotCreator": pulumi.String("DLM"),
 // 						},
 // 					},
 // 				},
-// 				TargetTags: pulumi.Map{
+// 				TargetTags: pulumi.StringMap{
 // 					"Snapshot": pulumi.String("true"),
 // 				},
 // 			},

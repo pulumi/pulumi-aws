@@ -110,12 +110,14 @@ import * as utilities from "../utilities";
  * });
  * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
- *     lambda_function: [{
+ *     lambdaFunctions: [{
  *         lambdaFunctionArn: func.arn,
  *         events: ["s3:ObjectCreated:*"],
  *         filterPrefix: "AWSLogs/",
  *         filterSuffix: ".log",
  *     }],
+ * }, {
+ *     dependsOn: [allowBucket],
  * });
  * ```
  * ### Trigger multiple Lambda functions
@@ -163,7 +165,7 @@ import * as utilities from "../utilities";
  * });
  * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
- *     lambda_function: [
+ *     lambdaFunctions: [
  *         {
  *             lambdaFunctionArn: func1.arn,
  *             events: ["s3:ObjectCreated:*"],
@@ -176,6 +178,11 @@ import * as utilities from "../utilities";
  *             filterPrefix: "OtherLogs/",
  *             filterSuffix: ".log",
  *         },
+ *     ],
+ * }, {
+ *     dependsOn: [
+ *         allowBucket1,
+ *         allowBucket2,
  *     ],
  * });
  * ```

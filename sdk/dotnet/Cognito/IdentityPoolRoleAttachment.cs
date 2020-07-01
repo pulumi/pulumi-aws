@@ -87,14 +87,14 @@ namespace Pulumi.Aws.Cognito
     ///                 {
     ///                     AmbiguousRoleResolution = "AuthenticatedRole",
     ///                     IdentityProvider = "graph.facebook.com",
-    ///                     MappingRule = 
+    ///                     MappingRules = 
     ///                     {
-    ///                         
+    ///                         new Aws.Cognito.Inputs.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs
     ///                         {
-    ///                             { "claim", "isAdmin" },
-    ///                             { "matchType", "Equals" },
-    ///                             { "roleArn", authenticatedRole.Arn },
-    ///                             { "value", "paid" },
+    ///                             Claim = "isAdmin",
+    ///                             MatchType = "Equals",
+    ///                             RoleArn = authenticatedRole.Arn,
+    ///                             Value = "paid",
     ///                         },
     ///                     },
     ///                     Type = "Rules",

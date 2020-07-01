@@ -39,14 +39,14 @@ namespace Pulumi.Aws.AppMesh
     ///             MeshName = aws_appmesh_mesh.Simple.Id,
     ///             Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///             {
-    ///                 Backend = 
+    ///                 Backends = 
     ///                 {
-    ///                     
+    ///                     new Aws.AppMesh.Inputs.VirtualNodeSpecBackendArgs
     ///                     {
-    ///                         { "virtualService", 
+    ///                         VirtualService = new Aws.AppMesh.Inputs.VirtualNodeSpecBackendVirtualServiceArgs
     ///                         {
-    ///                             { "virtualServiceName", "servicea.simpleapp.local" },
-    ///                         } },
+    ///                             VirtualServiceName = "servicea.simpleapp.local",
+    ///                         },
     ///                     },
     ///                 },
     ///                 Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
@@ -88,14 +88,14 @@ namespace Pulumi.Aws.AppMesh
     ///             MeshName = aws_appmesh_mesh.Simple.Id,
     ///             Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///             {
-    ///                 Backend = 
+    ///                 Backends = 
     ///                 {
-    ///                     
+    ///                     new Aws.AppMesh.Inputs.VirtualNodeSpecBackendArgs
     ///                     {
-    ///                         { "virtualService", 
+    ///                         VirtualService = new Aws.AppMesh.Inputs.VirtualNodeSpecBackendVirtualServiceArgs
     ///                         {
-    ///                             { "virtualServiceName", "servicea.simpleapp.local" },
-    ///                         } },
+    ///                             VirtualServiceName = "servicea.simpleapp.local",
+    ///                         },
     ///                     },
     ///                 },
     ///                 Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
@@ -139,14 +139,14 @@ namespace Pulumi.Aws.AppMesh
     ///             MeshName = aws_appmesh_mesh.Simple.Id,
     ///             Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///             {
-    ///                 Backend = 
+    ///                 Backends = 
     ///                 {
-    ///                     
+    ///                     new Aws.AppMesh.Inputs.VirtualNodeSpecBackendArgs
     ///                     {
-    ///                         { "virtualService", 
+    ///                         VirtualService = new Aws.AppMesh.Inputs.VirtualNodeSpecBackendVirtualServiceArgs
     ///                         {
-    ///                             { "virtualServiceName", "servicea.simpleapp.local" },
-    ///                         } },
+    ///                             VirtualServiceName = "servicea.simpleapp.local",
+    ///                         },
     ///                     },
     ///                 },
     ///                 Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
@@ -194,14 +194,14 @@ namespace Pulumi.Aws.AppMesh
     ///             MeshName = aws_appmesh_mesh.Simple.Id,
     ///             Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///             {
-    ///                 Backend = 
+    ///                 Backends = 
     ///                 {
-    ///                     
+    ///                     new Aws.AppMesh.Inputs.VirtualNodeSpecBackendArgs
     ///                     {
-    ///                         { "virtualService", 
+    ///                         VirtualService = new Aws.AppMesh.Inputs.VirtualNodeSpecBackendVirtualServiceArgs
     ///                         {
-    ///                             { "virtualServiceName", "servicea.simpleapp.local" },
-    ///                         } },
+    ///                             VirtualServiceName = "servicea.simpleapp.local",
+    ///                         },
     ///                     },
     ///                 },
     ///                 Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs

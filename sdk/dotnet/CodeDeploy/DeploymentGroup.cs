@@ -77,19 +77,19 @@ namespace Pulumi.Aws.CodeDeploy
     ///             {
     ///                 new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagSetArgs
     ///                 {
-    ///                     Ec2TagFilter = 
+    ///                     Ec2TagFilters = 
     ///                     {
-    ///                         
+    ///                         new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs
     ///                         {
-    ///                             { "key", "filterkey1" },
-    ///                             { "type", "KEY_AND_VALUE" },
-    ///                             { "value", "filtervalue" },
+    ///                             Key = "filterkey1",
+    ///                             Type = "KEY_AND_VALUE",
+    ///                             Value = "filtervalue",
     ///                         },
-    ///                         
+    ///                         new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs
     ///                         {
-    ///                             { "key", "filterkey2" },
-    ///                             { "type", "KEY_AND_VALUE" },
-    ///                             { "value", "filtervalue" },
+    ///                             Key = "filterkey2",
+    ///                             Type = "KEY_AND_VALUE",
+    ///                             Value = "filtervalue",
     ///                         },
     ///                     },
     ///                 },
@@ -231,11 +231,11 @@ namespace Pulumi.Aws.CodeDeploy
     ///             },
     ///             LoadBalancerInfo = new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoArgs
     ///             {
-    ///                 ElbInfo = 
+    ///                 ElbInfos = 
     ///                 {
-    ///                     
+    ///                     new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoElbInfoArgs
     ///                     {
-    ///                         { "name", aws_elb.Example.Name },
+    ///                         Name = aws_elb.Example.Name,
     ///                     },
     ///                 },
     ///             },

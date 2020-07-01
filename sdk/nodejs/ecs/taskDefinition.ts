@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
  *     containerDefinitions: fs.readFileSync("task-definitions/service.json"),
- *     proxy_configuration: {
+ *     proxyConfiguration: {
  *         type: "APPMESH",
  *         containerName: "applicationContainerName",
  *         properties: {

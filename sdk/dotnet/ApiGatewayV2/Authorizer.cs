@@ -58,7 +58,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///             },
     ///             JwtConfiguration = new Aws.ApiGatewayV2.Inputs.AuthorizerJwtConfigurationArgs
     ///             {
-    ///                 Audience = 
+    ///                 Audiences = 
     ///                 {
     ///                     "example",
     ///                 },

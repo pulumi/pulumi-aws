@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
  * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {
  *     bucket: exampleBucket.id,
- *     vpc_configuration: {
+ *     vpcConfiguration: {
  *         vpcId: exampleVpc.id,
  *     },
  * });

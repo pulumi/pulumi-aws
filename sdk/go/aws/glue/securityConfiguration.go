@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = glue.NewSecurityConfiguration(ctx, "example", &glue.SecurityConfigurationArgs{
+// 		_, err := glue.NewSecurityConfiguration(ctx, "example", &glue.SecurityConfigurationArgs{
 // 			EncryptionConfiguration: &glue.SecurityConfigurationEncryptionConfigurationArgs{
 // 				CloudwatchEncryption: &glue.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs{
 // 					CloudwatchEncryptionMode: pulumi.String("DISABLED"),

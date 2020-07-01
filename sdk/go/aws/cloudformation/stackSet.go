@@ -60,7 +60,7 @@ import (
 // 		}
 // 		example, err := cloudformation.NewStackSet(ctx, "example", &cloudformation.StackSetArgs{
 // 			AdministrationRoleArn: aWSCloudFormationStackSetAdministrationRole.Arn,
-// 			Parameters: pulumi.Map{
+// 			Parameters: pulumi.StringMap{
 // 				"VPCCidr": pulumi.String("10.0.0.0/16"),
 // 			},
 // 			TemplateBody: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Parameters\" : {\n", "    \"VPCCidr\" : {\n", "      \"Type\" : \"String\",\n", "      \"Default\" : \"10.0.0.0/16\",\n", "      \"Description\" : \"Enter the CIDR block for the VPC. Default is 10.0.0.0/16.\"\n", "    }\n", "  },\n", "  \"Resources\" : {\n", "    \"myVpc\": {\n", "      \"Type\" : \"AWS::EC2::VPC\",\n", "      \"Properties\" : {\n", "        \"CidrBlock\" : { \"Ref\" : \"VPCCidr\" },\n", "        \"Tags\" : [\n", "          {\"Key\": \"Name\", \"Value\": \"Primary_CF_VPC\"}\n", "        ]\n", "      }\n", "    }\n", "  }\n", "}\n", "\n")),

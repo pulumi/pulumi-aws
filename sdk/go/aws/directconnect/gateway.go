@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
+// 		_, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
 // 			AmazonSideAsn: pulumi.String("64512"),
 // 		})
 // 		if err != nil {

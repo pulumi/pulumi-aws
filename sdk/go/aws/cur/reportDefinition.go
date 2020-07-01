@@ -28,7 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = cur.NewReportDefinition(ctx, "exampleCurReportDefinition", &cur.ReportDefinitionArgs{
+// 		_, err := cur.NewReportDefinition(ctx, "exampleCurReportDefinition", &cur.ReportDefinitionArgs{
 // 			AdditionalArtifacts: pulumi.StringArray{
 // 				pulumi.String("REDSHIFT"),
 // 				pulumi.String("QUICKSIGHT"),

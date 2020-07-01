@@ -46,16 +46,16 @@ namespace Pulumi.Aws.Sns
     ///                         "SNS:DeleteTopic",
     ///                         "SNS:AddPermission",
     ///                     },
-    ///                     Condition = 
+    ///                     Conditions = 
     ///                     {
-    ///                         
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                         {
-    ///                             { "test", "StringEquals" },
-    ///                             { "values", 
+    ///                             Test = "StringEquals",
+    ///                             Values = 
     ///                             {
     ///                                 @var.Account_id,
-    ///                             } },
-    ///                             { "variable", "AWS:SourceOwner" },
+    ///                             },
+    ///                             Variable = "AWS:SourceOwner",
     ///                         },
     ///                     },
     ///                     Effect = "Allow",

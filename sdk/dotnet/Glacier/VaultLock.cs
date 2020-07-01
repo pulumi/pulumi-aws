@@ -40,16 +40,16 @@ namespace Pulumi.Aws.Glacier
     ///                     {
     ///                         "glacier:DeleteArchive",
     ///                     },
-    ///                     Condition = 
+    ///                     Conditions = 
     ///                     {
-    ///                         
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                         {
-    ///                             { "test", "NumericLessThanEquals" },
-    ///                             { "values", 
+    ///                             Test = "NumericLessThanEquals",
+    ///                             Values = 
     ///                             {
     ///                                 "365",
-    ///                             } },
-    ///                             { "variable", "glacier:ArchiveAgeinDays" },
+    ///                             },
+    ///                             Variable = "glacier:ArchiveAgeinDays",
     ///                         },
     ///                     },
     ///                     Effect = "Deny",

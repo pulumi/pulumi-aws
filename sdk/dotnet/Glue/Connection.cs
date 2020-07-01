@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Glue
     ///             PhysicalConnectionRequirements = new Aws.Glue.Inputs.ConnectionPhysicalConnectionRequirementsArgs
     ///             {
     ///                 AvailabilityZone = aws_subnet.Example.Availability_zone,
-    ///                 SecurityGroupIdList = 
+    ///                 SecurityGroupIdLists = 
     ///                 {
     ///                     aws_security_group.Example.Id,
     ///                 },

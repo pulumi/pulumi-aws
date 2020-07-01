@@ -11,6 +11,77 @@ namespace Pulumi.Aws.CodeStarNotifications
 {
     /// <summary>
     /// Provides a CodeStar Notifications Rule.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var code = new Aws.CodeCommit.Repository("code", new Aws.CodeCommit.RepositoryArgs
+    ///         {
+    ///             RepositoryName = "example-code-repo",
+    ///         });
+    ///         var notif = new Aws.Sns.Topic("notif", new Aws.Sns.TopicArgs
+    ///         {
+    ///         });
+    ///         var notifAccess = notif.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         {
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "sns:Publish",
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         {
+    ///                             Type = "Service",
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 "codestar-notifications.amazonaws.com",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         arn,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var @default = new Aws.Sns.TopicPolicy("default", new Aws.Sns.TopicPolicyArgs
+    ///         {
+    ///             Arn = notif.Arn,
+    ///             Policy = notifAccess.Apply(notifAccess =&gt; notifAccess.Json),
+    ///         });
+    ///         var commits = new Aws.CodeStarNotifications.NotificationRule("commits", new Aws.CodeStarNotifications.NotificationRuleArgs
+    ///         {
+    ///             DetailType = "BASIC",
+    ///             EventTypeIds = 
+    ///             {
+    ///                 "codecommit-repository-comments-on-commits",
+    ///             },
+    ///             Resource = code.Arn,
+    ///             Targets = 
+    ///             {
+    ///                 new Aws.CodeStarNotifications.Inputs.NotificationRuleTargetArgs
+    ///                 {
+    ///                     Address = notif.Arn,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class NotificationRule : Pulumi.CustomResource
     {

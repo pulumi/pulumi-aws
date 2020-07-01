@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Glue
     ///                 ContainsHeader = "PRESENT",
     ///                 Delimiter = ",",
     ///                 DisableValueTrimming = false,
-    ///                 Header = 
+    ///                 Headers = 
     ///                 {
     ///                     "example1",
     ///                     "example2",

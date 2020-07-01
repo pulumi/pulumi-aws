@@ -43,7 +43,7 @@ import (
 // 					SnsTopic: awsSnsTopic.Arn,
 // 				},
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Test": pulumi.String("MyArchive"),
 // 			},
 // 		})

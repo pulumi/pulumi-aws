@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = route53.NewRecord(ctx, "www-dev", &route53.RecordArgs{
+// 		_, err := route53.NewRecord(ctx, "www_dev", &route53.RecordArgs{
 // 			Name: pulumi.String("www"),
 // 			Records: pulumi.StringArray{
 // 				pulumi.String("dev.example.com"),
@@ -44,7 +44,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = route53.NewRecord(ctx, "www-live", &route53.RecordArgs{
+// 		_, err = route53.NewRecord(ctx, "www_live", &route53.RecordArgs{
 // 			Name: pulumi.String("www"),
 // 			Records: pulumi.StringArray{
 // 				pulumi.String("live.example.com"),

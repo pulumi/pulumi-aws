@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  * const example = new aws.cognito.UserPool("example", {
  *     mfaConfiguration: "ON",
  *     smsAuthenticationMessage: "Your code is {####}",
- *     sms_configuration: {
+ *     smsConfiguration: {
  *         externalId: "example",
  *         snsCallerArn: aws_iam_role.example.arn,
  *     },
- *     software_token_mfa_configuration: {
+ *     softwareTokenMfaConfiguration: {
  *         enabled: true,
  *     },
  * });

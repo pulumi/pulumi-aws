@@ -49,6 +49,9 @@ namespace Pulumi.Aws.DynamoDB
     ///             StreamEnabled = true,
     ///             StreamViewType = "NEW_AND_OLD_IMAGES",
     ///             WriteCapacity = 1,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.us-east-1",
     ///         });
     ///         var us_west_2Table = new Aws.DynamoDB.Table("us-west-2Table", new Aws.DynamoDB.TableArgs
     ///         {
@@ -65,6 +68,9 @@ namespace Pulumi.Aws.DynamoDB
     ///             StreamEnabled = true,
     ///             StreamViewType = "NEW_AND_OLD_IMAGES",
     ///             WriteCapacity = 1,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.us-west-2",
     ///         });
     ///         var myTable = new Aws.DynamoDB.GlobalTable("myTable", new Aws.DynamoDB.GlobalTableArgs
     ///         {
@@ -78,6 +84,14 @@ namespace Pulumi.Aws.DynamoDB
     ///                 {
     ///                     RegionName = "us-west-2",
     ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.us-east-1",
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_dynamodb_table.us-east-1",
+    ///                 "aws_dynamodb_table.us-west-2",
     ///             },
     ///         });
     ///     }

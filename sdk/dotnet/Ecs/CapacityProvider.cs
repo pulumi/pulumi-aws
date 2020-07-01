@@ -11,6 +11,36 @@ namespace Pulumi.Aws.Ecs
 {
     /// <summary>
     /// Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.Ecs.CapacityProvider("test", new Aws.Ecs.CapacityProviderArgs
+    ///         {
+    ///             AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
+    ///             {
+    ///                 AutoScalingGroupArn = aws_autoscaling_group.Test.Arn,
+    ///                 ManagedTerminationProtection = "ENABLED",
+    ///                 ManagedScaling = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs
+    ///                 {
+    ///                     MaximumScalingStepSize = 1000,
+    ///                     MinimumScalingStepSize = 1,
+    ///                     Status = "ENABLED",
+    ///                     TargetCapacity = 10,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class CapacityProvider : Pulumi.CustomResource
     {

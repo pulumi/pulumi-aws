@@ -57,7 +57,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = ec2.NewDefaultNetworkAcl(ctx, "default", &ec2.DefaultNetworkAclArgs{
+// 		_, err = ec2.NewDefaultNetworkAcl(ctx, "_default", &ec2.DefaultNetworkAclArgs{
 // 			DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
 // 			Ingress: ec2.DefaultNetworkAclIngressArray{
 // 				&ec2.DefaultNetworkAclIngressArgs{
@@ -109,7 +109,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = ec2.NewDefaultNetworkAcl(ctx, "default", &ec2.DefaultNetworkAclArgs{
+// 		_, err = ec2.NewDefaultNetworkAcl(ctx, "_default", &ec2.DefaultNetworkAclArgs{
 // 			DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
 // 			Ingress: ec2.DefaultNetworkAclIngressArray{
 // 				&ec2.DefaultNetworkAclIngressArgs{
@@ -152,7 +152,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = ec2.NewDefaultNetworkAcl(ctx, "default", &ec2.DefaultNetworkAclArgs{
+// 		_, err = ec2.NewDefaultNetworkAcl(ctx, "_default", &ec2.DefaultNetworkAclArgs{
 // 			DefaultNetworkAclId: mainvpc.DefaultNetworkAclId,
 // 		})
 // 		if err != nil {

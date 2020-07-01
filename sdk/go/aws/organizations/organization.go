@@ -23,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = organizations.NewOrganization(ctx, "org", &organizations.OrganizationArgs{
+// 		_, err := organizations.NewOrganization(ctx, "org", &organizations.OrganizationArgs{
 // 			AwsServiceAccessPrincipals: pulumi.StringArray{
 // 				pulumi.String("cloudtrail.amazonaws.com"),
 // 				pulumi.String("config.amazonaws.com"),

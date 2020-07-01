@@ -63,7 +63,10 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = lambda.NewFunction(ctx, "testLambda", nil)
+// 		_, err := lambda.NewFunction(ctx, "testLambda", nil, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_cloudwatch_log_group.example",
+// 			"aws_iam_role_policy_attachment.lambda_logs",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

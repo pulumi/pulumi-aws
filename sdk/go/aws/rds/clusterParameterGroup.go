@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = rds.NewClusterParameterGroup(ctx, "default", &rds.ClusterParameterGroupArgs{
+// 		_, err := rds.NewClusterParameterGroup(ctx, "_default", &rds.ClusterParameterGroupArgs{
 // 			Description: pulumi.String("RDS default cluster parameter group"),
 // 			Family:      pulumi.String("aurora5.6"),
 // 			Parameters: rds.ClusterParameterGroupParameterArray{

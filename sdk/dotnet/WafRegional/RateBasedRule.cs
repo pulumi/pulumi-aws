@@ -47,6 +47,12 @@ namespace Pulumi.Aws.WafRegional
     ///             },
     ///             RateKey = "IP",
     ///             RateLimit = 100,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_wafregional_ipset.ipset",
+    ///             },
     ///         });
     ///     }
     /// 

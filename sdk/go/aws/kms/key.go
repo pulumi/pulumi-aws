@@ -23,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = kms.NewKey(ctx, "key", &kms.KeyArgs{
+// 		_, err := kms.NewKey(ctx, "key", &kms.KeyArgs{
 // 			DeletionWindowInDays: pulumi.Int(10),
 // 			Description:          pulumi.String("KMS key 1"),
 // 		})

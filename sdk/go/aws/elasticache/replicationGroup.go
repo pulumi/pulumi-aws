@@ -37,7 +37,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = elasticache.NewReplicationGroup(ctx, "baz", &elasticache.ReplicationGroupArgs{
+// 		_, err := elasticache.NewReplicationGroup(ctx, "baz", &elasticache.ReplicationGroupArgs{
 // 			AutomaticFailoverEnabled: pulumi.Bool(true),
 // 			ClusterMode: &elasticache.ReplicationGroupClusterModeArgs{
 // 				NumNodeGroups:        pulumi.Int(2),

@@ -76,6 +76,12 @@ namespace Pulumi.Aws.Cfg
     ///                 AllRegions = true,
     ///                 RoleArn = organizationRole.Arn,
     ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_iam_role_policy_attachment.organization",
+    ///             },
     ///         });
     ///         var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organizationRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
     ///         {

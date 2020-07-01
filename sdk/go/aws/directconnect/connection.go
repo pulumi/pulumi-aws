@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = directconnect.NewConnection(ctx, "hoge", &directconnect.ConnectionArgs{
+// 		_, err := directconnect.NewConnection(ctx, "hoge", &directconnect.ConnectionArgs{
 // 			Bandwidth: pulumi.String("1Gbps"),
 // 			Location:  pulumi.String("EqDC2"),
 // 		})

@@ -29,12 +29,12 @@ namespace Pulumi.Aws.GameLift
     ///             FleetType = "ON_DEMAND",
     ///             RuntimeConfiguration = new Aws.GameLift.Inputs.FleetRuntimeConfigurationArgs
     ///             {
-    ///                 ServerProcess = 
+    ///                 ServerProcesses = 
     ///                 {
-    ///                     
+    ///                     new Aws.GameLift.Inputs.FleetRuntimeConfigurationServerProcessArgs
     ///                     {
-    ///                         { "concurrentExecutions", 1 },
-    ///                         { "launchPath", "C:\\game\\GomokuServer.exe" },
+    ///                         ConcurrentExecutions = 1,
+    ///                         LaunchPath = "C:\\game\\GomokuServer.exe",
     ///                     },
     ///                 },
     ///             },

@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
 // 			DatabaseName: pulumi.String(aws_glue_catalog_database.Example.Name),
 // 			DynamodbTargets: glue.CrawlerDynamodbTargetArray{
 // 				&glue.CrawlerDynamodbTargetArgs{
@@ -55,7 +55,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
 // 			DatabaseName: pulumi.String(aws_glue_catalog_database.Example.Name),
 // 			JdbcTargets: glue.CrawlerJdbcTargetArray{
 // 				&glue.CrawlerJdbcTargetArgs{
@@ -86,7 +86,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
 // 			DatabaseName: pulumi.String(aws_glue_catalog_database.Example.Name),
 // 			Role:         pulumi.String(aws_iam_role.Example.Arn),
 // 			S3Targets: glue.CrawlerS3TargetArray{

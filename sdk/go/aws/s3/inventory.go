@@ -73,7 +73,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = s3.NewInventory(ctx, "test-prefix", &s3.InventoryArgs{
+// 		_, err = s3.NewInventory(ctx, "test_prefix", &s3.InventoryArgs{
 // 			Bucket: test.ID(),
 // 			Destination: &s3.InventoryDestinationArgs{
 // 				Bucket: &s3.InventoryDestinationBucketArgs{

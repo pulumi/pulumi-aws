@@ -24,12 +24,12 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = rds.NewSubnetGroup(ctx, "default", &rds.SubnetGroupArgs{
+// 		_, err := rds.NewSubnetGroup(ctx, "_default", &rds.SubnetGroupArgs{
 // 			SubnetIds: pulumi.StringArray{
 // 				pulumi.String(aws_subnet.Frontend.Id),
 // 				pulumi.String(aws_subnet.Backend.Id),
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("My DB subnet group"),
 // 			},
 // 		})

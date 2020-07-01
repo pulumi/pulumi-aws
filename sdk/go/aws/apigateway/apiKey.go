@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = apigateway.NewApiKey(ctx, "myDemoApiKey", nil)
+// 		_, err := apigateway.NewApiKey(ctx, "myDemoApiKey", nil)
 // 		if err != nil {
 // 			return err
 // 		}

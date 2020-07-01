@@ -24,7 +24,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		bar, err := inspector.NewResourceGroup(ctx, "bar", &inspector.ResourceGroupArgs{
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Env":  pulumi.String("bar"),
 // 				"Name": pulumi.String("foo"),
 // 			},

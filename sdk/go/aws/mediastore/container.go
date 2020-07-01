@@ -23,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = mediastore.NewContainer(ctx, "example", nil)
+// 		_, err := mediastore.NewContainer(ctx, "example", nil)
 // 		if err != nil {
 // 			return err
 // 		}

@@ -29,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ec2.NewEip(ctx, "lb", &ec2.EipArgs{
+// 		_, err := ec2.NewEip(ctx, "lb", &ec2.EipArgs{
 // 			Instance: pulumi.String(aws_instance.Web.Id),
 // 			Vpc:      pulumi.Bool(true),
 // 		})
@@ -43,7 +43,105 @@ import (
 //
 // Multiple EIPs associated with a single network interface:
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewNetworkInterface(ctx, "multi_ip", &ec2.NetworkInterfaceArgs{
+// 			PrivateIps: pulumi.StringArray{
+// 				pulumi.String("10.0.0.10"),
+// 				pulumi.String("10.0.0.11"),
+// 			},
+// 			SubnetId: pulumi.String(aws_subnet.Main.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewEip(ctx, "one", &ec2.EipArgs{
+// 			AssociateWithPrivateIp: pulumi.String("10.0.0.10"),
+// 			NetworkInterface:       multi_ip.ID(),
+// 			Vpc:                    pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewEip(ctx, "two", &ec2.EipArgs{
+// 			AssociateWithPrivateIp: pulumi.String("10.0.0.11"),
+// 			NetworkInterface:       multi_ip.ID(),
+// 			Vpc:                    pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only):
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewVpc(ctx, "_default", &ec2.VpcArgs{
+// 			CidrBlock:          pulumi.String("10.0.0.0/16"),
+// 			EnableDnsHostnames: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
+// 			VpcId: _default.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		tfTestSubnet, err := ec2.NewSubnet(ctx, "tfTestSubnet", &ec2.SubnetArgs{
+// 			CidrBlock:           pulumi.String("10.0.0.0/24"),
+// 			MapPublicIpOnLaunch: pulumi.Bool(true),
+// 			VpcId:               _default.ID(),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_internet_gateway.gw",
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		foo, err := ec2.NewInstance(ctx, "foo", &ec2.InstanceArgs{
+// 			Ami:          pulumi.String("ami-5189a661"),
+// 			InstanceType: pulumi.String("t2.micro"),
+// 			PrivateIp:    pulumi.String("10.0.0.12"),
+// 			SubnetId:     tfTestSubnet.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewEip(ctx, "bar", &ec2.EipArgs{
+// 			AssociateWithPrivateIp: pulumi.String("10.0.0.12"),
+// 			Instance:               foo.ID(),
+// 			Vpc:                    pulumi.Bool(true),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_internet_gateway.gw",
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // Allocating EIP from the BYOIP pool:
 //
@@ -57,7 +155,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ec2.NewEip(ctx, "byoip-ip", &ec2.EipArgs{
+// 		_, err := ec2.NewEip(ctx, "byoip_ip", &ec2.EipArgs{
 // 			PublicIpv4Pool: pulumi.String("ipv4pool-ec2-012345"),
 // 			Vpc:            pulumi.Bool(true),
 // 		})

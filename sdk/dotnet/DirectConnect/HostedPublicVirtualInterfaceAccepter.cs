@@ -51,6 +51,9 @@ namespace Pulumi.Aws.DirectConnect
     ///                 { "Side", "Accepter" },
     ///             },
     ///             VirtualInterfaceId = creator.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.accepter",
     ///         });
     ///     }
     /// 

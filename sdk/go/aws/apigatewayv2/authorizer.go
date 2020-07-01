@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
+// 		_, err := apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
 // 			ApiId:          pulumi.String(aws_apigatewayv2_api.Example.Id),
 // 			AuthorizerType: pulumi.String("REQUEST"),
 // 			AuthorizerUri:  pulumi.String(aws_lambda_function.Example.Invoke_arn),
@@ -55,14 +55,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
+// 		_, err := apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
 // 			ApiId:          pulumi.String(aws_apigatewayv2_api.Example.Id),
 // 			AuthorizerType: pulumi.String("JWT"),
 // 			IdentitySources: pulumi.StringArray{
 // 				pulumi.String(fmt.Sprintf("%v%v", "$", "request.header.Authorization")),
 // 			},
 // 			JwtConfiguration: &apigatewayv2.AuthorizerJwtConfigurationArgs{
-// 				Audience: pulumi.StringArray{
+// 				Audiences: pulumi.StringArray{
 // 					pulumi.String("example"),
 // 				},
 // 				Issuer: pulumi.String(fmt.Sprintf("%v%v", "https://", aws_cognito_user_pool.Example.Endpoint)),

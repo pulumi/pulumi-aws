@@ -30,6 +30,12 @@ namespace Pulumi.Aws.ApiGateway
     ///             Description = "Example description",
     ///             RestApiId = exampleRestApi.Id,
     ///             Version = "example_version",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_api_gateway_documentation_part.example",
+    ///             },
     ///         });
     ///         var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("exampleDocumentationPart", new Aws.ApiGateway.DocumentationPartArgs
     ///         {

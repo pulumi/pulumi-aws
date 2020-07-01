@@ -151,6 +151,47 @@ import (
 // ```
 //
 // ## Example RunCommand Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		stopInstancesEventRule, err := cloudwatch.NewEventRule(ctx, "stopInstancesEventRule", &cloudwatch.EventRuleArgs{
+// 			Description:        pulumi.String("Stop instances nightly"),
+// 			ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudwatch.NewEventTarget(ctx, "stopInstancesEventTarget", &cloudwatch.EventTargetArgs{
+// 			Arn:     pulumi.String(fmt.Sprintf("%v%v%v", "arn:aws:ssm:", _var.Aws_region, "::document/AWS-RunShellScript")),
+// 			Input:   pulumi.String("{\"commands\":[\"halt\"]}"),
+// 			RoleArn: pulumi.String(aws_iam_role.Ssm_lifecycle.Arn),
+// 			Rule:    stopInstancesEventRule.Name,
+// 			RunCommandTargets: cloudwatch.EventTargetRunCommandTargetArray{
+// 				&cloudwatch.EventTargetRunCommandTargetArgs{
+// 					Key: pulumi.String("tag:Terminate"),
+// 					Values: pulumi.StringArray{
+// 						pulumi.String("midnight"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type EventTarget struct {
 	pulumi.CustomResourceState
 

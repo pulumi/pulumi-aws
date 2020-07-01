@@ -24,9 +24,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = budgets.NewBudget(ctx, "ec2", &budgets.BudgetArgs{
+// 		_, err := budgets.NewBudget(ctx, "ec2", &budgets.BudgetArgs{
 // 			BudgetType: pulumi.String("COST"),
-// 			CostFilters: pulumi.Map{
+// 			CostFilters: pulumi.StringMap{
 // 				"Service": pulumi.String("Amazon Elastic Compute Cloud - Compute"),
 // 			},
 // 			LimitAmount: pulumi.String("1200"),
@@ -66,7 +66,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = budgets.NewBudget(ctx, "cost", &budgets.BudgetArgs{
+// 		_, err := budgets.NewBudget(ctx, "cost", &budgets.BudgetArgs{
 // 			BudgetType:  pulumi.String("COST"),
 // 			LimitAmount: pulumi.String("100"),
 // 			LimitUnit:   pulumi.String("USD"),
@@ -91,7 +91,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = budgets.NewBudget(ctx, "s3", &budgets.BudgetArgs{
+// 		_, err := budgets.NewBudget(ctx, "s3", &budgets.BudgetArgs{
 // 			BudgetType:  pulumi.String("USAGE"),
 // 			LimitAmount: pulumi.String("3"),
 // 			LimitUnit:   pulumi.String("GB"),
@@ -116,7 +116,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = budgets.NewBudget(ctx, "savingsPlanUtilization", &budgets.BudgetArgs{
+// 		_, err := budgets.NewBudget(ctx, "savingsPlanUtilization", &budgets.BudgetArgs{
 // 			BudgetType: pulumi.String("SAVINGS_PLANS_UTILIZATION"),
 // 			CostTypes: &budgets.BudgetCostTypesArgs{
 // 				IncludeCredit:            pulumi.Bool(false),
@@ -153,9 +153,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = budgets.NewBudget(ctx, "riUtilization", &budgets.BudgetArgs{
+// 		_, err := budgets.NewBudget(ctx, "riUtilization", &budgets.BudgetArgs{
 // 			BudgetType: pulumi.String("RI_UTILIZATION"),
-// 			CostFilters: pulumi.Map{
+// 			CostFilters: pulumi.StringMap{
 // 				"Service": pulumi.String("Amazon Relational Database Service"),
 // 			},
 // 			CostTypes: &budgets.BudgetCostTypesArgs{

@@ -27,7 +27,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		fooServer, err := transfer.NewServer(ctx, "fooServer", &transfer.ServerArgs{
 // 			IdentityProviderType: pulumi.String("SERVICE_MANAGED"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"NAME": pulumi.String("tf-acc-test-transfer-server"),
 // 			},
 // 		})
@@ -50,7 +50,7 @@ import (
 // 		fooUser, err := transfer.NewUser(ctx, "fooUser", &transfer.UserArgs{
 // 			Role:     fooRole.Arn,
 // 			ServerId: fooServer.ID(),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"NAME": pulumi.String("tftestuser"),
 // 			},
 // 			UserName: pulumi.String("tftestuser"),

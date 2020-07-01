@@ -30,7 +30,7 @@ import (
 // 			return err
 // 		}
 // 		opt1 := "VPCs per Region"
-// 		_, err := servicequotas.LookupServiceQuota(ctx, &servicequotas.LookupServiceQuotaArgs{
+// 		_, err = servicequotas.LookupServiceQuota(ctx, &servicequotas.LookupServiceQuotaArgs{
 // 			QuotaName:   &opt1,
 // 			ServiceCode: "vpc",
 // 		}, nil)

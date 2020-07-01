@@ -33,14 +33,14 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSClusterPolicy", &iam.RolePolicyAttachmentArgs{
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "example_AmazonEKSClusterPolicy", &iam.RolePolicyAttachmentArgs{
 // 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"),
 // 			Role:      example.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSServicePolicy", &iam.RolePolicyAttachmentArgs{
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "example_AmazonEKSServicePolicy", &iam.RolePolicyAttachmentArgs{
 // 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSServicePolicy"),
 // 			Role:      example.Name,
 // 		})
@@ -68,12 +68,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = eks.NewCluster(ctx, "exampleCluster", &eks.ClusterArgs{
+// 		_, err := eks.NewCluster(ctx, "exampleCluster", &eks.ClusterArgs{
 // 			EnabledClusterLogTypes: pulumi.StringArray{
 // 				pulumi.String("api"),
 // 				pulumi.String("audit"),
 // 			},
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_cloudwatch_log_group.example",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

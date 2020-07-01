@@ -36,7 +36,7 @@ import (
 // 			return err
 // 		}
 // 		vpn, err := ec2.NewVpnGateway(ctx, "vpn", &ec2.VpnGatewayArgs{
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("example-vpn-gateway"),
 // 			},
 // 		})

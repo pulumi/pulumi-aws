@@ -30,7 +30,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = cloudfront.NewOriginAccessIdentity(ctx, "originAccessIdentity", &cloudfront.OriginAccessIdentityArgs{
+// 		_, err := cloudfront.NewOriginAccessIdentity(ctx, "originAccessIdentity", &cloudfront.OriginAccessIdentityArgs{
 // 			Comment: pulumi.String("Some comment"),
 // 		})
 // 		if err != nil {
@@ -61,18 +61,6 @@ import (
 // 	})
 // }
 // ```
-//
-// ### Updating your bucket policy
-//
-// Note that the AWS API may translate the `s3CanonicalUserId` `CanonicalUser`
-// principal into an `AWS` IAM ARN principal when supplied in an
-// [`s3.Bucket`][4] bucket policy, causing spurious diffs. If
-// you see this behaviour, use the `iamArn` instead:
-//
-// [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
-// [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
-// [3]: https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html
-// [4]: https://www.terraform.io/docs/providers/aws/r/s3_bucket.html
 type OriginAccessIdentity struct {
 	pulumi.CustomResourceState
 

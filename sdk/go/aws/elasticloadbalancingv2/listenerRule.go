@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+// 		_, err := lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -162,13 +162,13 @@ import (
 // 			},
 // 			Conditions: lb.ListenerRuleConditionArray{
 // 				&lb.ListenerRuleConditionArgs{
-// 					QueryString: pulumi.Array{
-// 						pulumi.Map{
-// 							"key":   pulumi.String("health"),
-// 							"value": pulumi.String("check"),
+// 					QueryStrings: lb.ListenerRuleConditionQueryStringArray{
+// 						&lb.ListenerRuleConditionQueryStringArgs{
+// 							Key:   pulumi.String("health"),
+// 							Value: pulumi.String("check"),
 // 						},
-// 						pulumi.Map{
-// 							"value": pulumi.String("bar"),
+// 						&lb.ListenerRuleConditionQueryStringArgs{
+// 							Value: pulumi.String("bar"),
 // 						},
 // 					},
 // 				},

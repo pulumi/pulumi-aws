@@ -17,6 +17,57 @@ namespace Pulumi.Aws.Ecs
     /// See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
     /// 
     /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mongo = new Aws.Ecs.Service("mongo", new Aws.Ecs.ServiceArgs
+    ///         {
+    ///             Cluster = aws_ecs_cluster.Foo.Id,
+    ///             TaskDefinition = aws_ecs_task_definition.Mongo.Arn,
+    ///             DesiredCount = 3,
+    ///             IamRole = aws_iam_role.Foo.Arn,
+    ///             OrderedPlacementStrategies = 
+    ///             {
+    ///                 new Aws.Ecs.Inputs.ServiceOrderedPlacementStrategyArgs
+    ///                 {
+    ///                     Type = "binpack",
+    ///                     Field = "cpu",
+    ///                 },
+    ///             },
+    ///             LoadBalancers = 
+    ///             {
+    ///                 new Aws.Ecs.Inputs.ServiceLoadBalancerArgs
+    ///                 {
+    ///                     TargetGroupArn = aws_lb_target_group.Foo.Arn,
+    ///                     ContainerName = "mongo",
+    ///                     ContainerPort = 8080,
+    ///                 },
+    ///             },
+    ///             PlacementConstraints = 
+    ///             {
+    ///                 new Aws.Ecs.Inputs.ServicePlacementConstraintArgs
+    ///                 {
+    ///                     Type = "memberOf",
+    ///                     Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_iam_role_policy.foo",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Daemon Scheduling Strategy
     /// 
     /// ```csharp

@@ -41,6 +41,87 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
+    /// ### Lambda File Systems
+    /// 
+    /// Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // EFS file system
+    ///         var efsForLambda = new Aws.Efs.FileSystem("efsForLambda", new Aws.Efs.FileSystemArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "efs_for_lambda" },
+    ///             },
+    ///         });
+    ///         // Mount target connects the file system to the subnet
+    ///         var alpha = new Aws.Efs.MountTarget("alpha", new Aws.Efs.MountTargetArgs
+    ///         {
+    ///             FileSystemId = efsForLambda.Id,
+    ///             SubnetId = aws_subnet.Subnet_for_lambda.Id,
+    ///             SecurityGroups = 
+    ///             {
+    ///                 aws_security_group.Sg_for_lambda.Id,
+    ///             },
+    ///         });
+    ///         // EFS access point used by lambda file system
+    ///         var accessPointForLambda = new Aws.Efs.AccessPoint("accessPointForLambda", new Aws.Efs.AccessPointArgs
+    ///         {
+    ///             FileSystemId = efsForLambda.Id,
+    ///             RootDirectory = new Aws.Efs.Inputs.AccessPointRootDirectoryArgs
+    ///             {
+    ///                 Path = "/lambda",
+    ///                 CreationInfo = new Aws.Efs.Inputs.AccessPointRootDirectoryCreationInfoArgs
+    ///                 {
+    ///                     OwnerGid = 1000,
+    ///                     OwnerUid = 1000,
+    ///                     Permissions = "777",
+    ///                 },
+    ///             },
+    ///             PosixUser = new Aws.Efs.Inputs.AccessPointPosixUserArgs
+    ///             {
+    ///                 Gid = 1000,
+    ///                 Uid = 1000,
+    ///             },
+    ///         });
+    ///         // A lambda function connected to an EFS file system
+    ///         // ... other configuration ...
+    ///         var example = new Aws.Lambda.Function("example", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             FileSystemConfig = new Aws.Lambda.Inputs.FunctionFileSystemConfigArgs
+    ///             {
+    ///                 Arn = accessPointForLambda.Arn,
+    ///                 LocalMountPath = "/mnt/efs",
+    ///             },
+    ///             VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
+    ///             {
+    ///                 SubnetIds = 
+    ///                 {
+    ///                     aws_subnet.Subnet_for_lambda.Id,
+    ///                 },
+    ///                 SecurityGroupIds = 
+    ///                 {
+    ///                     aws_security_group.Sg_for_lambda.Id,
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 alpha,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### CloudWatch Logging and Permissions
     /// 
     /// For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
@@ -55,6 +136,13 @@ namespace Pulumi.Aws.Lambda
     ///     {
     ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
     ///         {
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_cloudwatch_log_group.example",
+    ///                 "aws_iam_role_policy_attachment.lambda_logs",
+    ///             },
     ///         });
     ///         // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
     ///         // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.

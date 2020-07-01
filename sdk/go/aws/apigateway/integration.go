@@ -55,10 +55,10 @@ import (
 // 			},
 // 			CacheNamespace: pulumi.String("foobar"),
 // 			HttpMethod:     myDemoMethod.HttpMethod,
-// 			RequestParameters: pulumi.Map{
+// 			RequestParameters: pulumi.StringMap{
 // 				"integration.request.header.X-Authorization": pulumi.String("'static'"),
 // 			},
-// 			RequestTemplates: pulumi.Map{
+// 			RequestTemplates: pulumi.StringMap{
 // 				"application/xml": pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v", "{\n", "   \"body\" : ", "$", "input.json('", "$", "')\n", "}\n", "\n")),
 // 			},
 // 			ResourceId:          myDemoResource.ID(),
@@ -73,7 +73,6 @@ import (
 // 	})
 // }
 // ```
-// ## VPC Link
 type Integration struct {
 	pulumi.CustomResourceState
 

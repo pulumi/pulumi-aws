@@ -29,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
+// 		_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
 // 			ActiveDirectoryId:  pulumi.String(aws_directory_service_directory.Example.Id),
 // 			KmsKeyId:           pulumi.String(aws_kms_key.Example.Arn),
 // 			StorageCapacity:    pulumi.Int(300),
@@ -57,7 +57,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
+// 		_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
 // 			KmsKeyId: pulumi.String(aws_kms_key.Example.Arn),
 // 			SelfManagedActiveDirectory: &fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs{
 // 				DnsIps: pulumi.StringArray{

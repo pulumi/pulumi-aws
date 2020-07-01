@@ -31,22 +31,65 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
+// 		_, err := codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
 // 			FilterGroups: codebuild.WebhookFilterGroupArray{
 // 				&codebuild.WebhookFilterGroupArgs{
-// 					Filter: pulumi.MapArray{
-// 						pulumi.Map{
-// 							"pattern": pulumi.String("PUSH"),
-// 							"type":    pulumi.String("EVENT"),
+// 					Filters: codebuild.WebhookFilterGroupFilterArray{
+// 						&codebuild.WebhookFilterGroupFilterArgs{
+// 							Pattern: pulumi.String("PUSH"),
+// 							Type:    pulumi.String("EVENT"),
 // 						},
-// 						pulumi.Map{
-// 							"pattern": pulumi.String("master"),
-// 							"type":    pulumi.String("HEAD_REF"),
+// 						&codebuild.WebhookFilterGroupFilterArgs{
+// 							Pattern: pulumi.String("master"),
+// 							Type:    pulumi.String("HEAD_REF"),
 // 						},
 // 					},
 // 				},
 // 			},
 // 			ProjectName: pulumi.String(aws_codebuild_project.Example.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### GitHub Enterprise
+//
+// When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g. manually or with the `githubRepositoryWebhook` resource).
+//
+// More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/codebuild"
+// 	"github.com/pulumi/pulumi-github/sdk/go/github"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleWebhook, err := codebuild.NewWebhook(ctx, "exampleWebhook", &codebuild.WebhookArgs{
+// 			ProjectName: pulumi.String(aws_codebuild_project.Example.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = github.NewRepositoryWebhook(ctx, "exampleRepositoryWebhook", &github.RepositoryWebhookArgs{
+// 			Active: pulumi.Bool(true),
+// 			Configuration: &github.RepositoryWebhookConfigurationArgs{
+// 				ContentType: pulumi.String("json"),
+// 				InsecureSsl: pulumi.Bool(false),
+// 				Secret:      exampleWebhook.Secret,
+// 				Url:         exampleWebhook.PayloadUrl,
+// 			},
+// 			Events: pulumi.StringArray{
+// 				pulumi.String("push"),
+// 			},
+// 			Repository: pulumi.String(github_repository.Example.Name),
 // 		})
 // 		if err != nil {
 // 			return err

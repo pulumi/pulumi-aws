@@ -17,11 +17,13 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.gamelift.Build("test", {
  *     operatingSystem: "WINDOWS_2012",
- *     storage_location: {
+ *     storageLocation: {
  *         bucket: aws_s3_bucket.test.bucket,
  *         key: aws_s3_bucket_object.test.key,
  *         roleArn: aws_iam_role.test.arn,
  *     },
+ * }, {
+ *     dependsOn: ["aws_iam_role_policy.test"],
  * });
  * ```
  */

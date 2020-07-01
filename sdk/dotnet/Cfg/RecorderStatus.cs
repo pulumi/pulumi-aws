@@ -27,6 +27,12 @@ namespace Pulumi.Aws.Cfg
     ///         var fooRecorderStatus = new Aws.Cfg.RecorderStatus("fooRecorderStatus", new Aws.Cfg.RecorderStatusArgs
     ///         {
     ///             IsEnabled = true,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_config_delivery_channel.foo",
+    ///             },
     ///         });
     ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
     ///         {

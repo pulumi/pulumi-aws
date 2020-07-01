@@ -29,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = rds.NewOptionGroup(ctx, "example", &rds.OptionGroupArgs{
+// 		_, err := rds.NewOptionGroup(ctx, "example", &rds.OptionGroupArgs{
 // 			EngineName:         pulumi.String("sqlserver-ee"),
 // 			MajorEngineVersion: pulumi.String("11.00"),
 // 			Options: rds.OptionGroupOptionArray{

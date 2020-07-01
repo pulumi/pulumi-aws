@@ -200,6 +200,12 @@ namespace Pulumi.Aws.WafRegional
     ///         var testDeployment = new Aws.ApiGateway.Deployment("testDeployment", new Aws.ApiGateway.DeploymentArgs
     ///         {
     ///             RestApi = testRestApi.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_api_gateway_integration_response.test",
+    ///             },
     ///         });
     ///         var testStage = new Aws.ApiGateway.Stage("testStage", new Aws.ApiGateway.StageArgs
     ///         {

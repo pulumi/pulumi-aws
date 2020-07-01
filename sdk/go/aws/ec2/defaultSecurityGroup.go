@@ -57,7 +57,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
+// 		_, err = ec2.NewDefaultSecurityGroup(ctx, "_default", &ec2.DefaultSecurityGroupArgs{
 // 			Egress: ec2.DefaultSecurityGroupEgressArray{
 // 				&ec2.DefaultSecurityGroupEgressArgs{
 // 					CidrBlocks: pulumi.StringArray{
@@ -107,7 +107,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
+// 		_, err = ec2.NewDefaultSecurityGroup(ctx, "_default", &ec2.DefaultSecurityGroupArgs{
 // 			Ingress: ec2.DefaultSecurityGroupIngressArray{
 // 				&ec2.DefaultSecurityGroupIngressArgs{
 // 					FromPort: pulumi.Int(0),

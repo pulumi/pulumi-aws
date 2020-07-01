@@ -28,7 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = macie.NewMemberAccountAssociation(ctx, "example", &macie.MemberAccountAssociationArgs{
+// 		_, err := macie.NewMemberAccountAssociation(ctx, "example", &macie.MemberAccountAssociationArgs{
 // 			MemberAccountId: pulumi.String("123456789012"),
 // 		})
 // 		if err != nil {
