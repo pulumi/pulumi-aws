@@ -67,16 +67,16 @@ namespace Pulumi.Aws.Organizations
         ///                             "SNS:Subscribe",
         ///                             "SNS:Publish",
         ///                         },
-        ///                         Condition = 
+        ///                         Conditions = 
         ///                         {
-        ///                             
+        ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
         ///                             {
-        ///                                 { "test", "StringEquals" },
-        ///                                 { "values", 
+        ///                                 Test = "StringEquals",
+        ///                                 Values = 
         ///                                 {
         ///                                     example.Id,
-        ///                                 } },
-        ///                                 { "variable", "aws:PrincipalOrgID" },
+        ///                                 },
+        ///                                 Variable = "aws:PrincipalOrgID",
         ///                             },
         ///                         },
         ///                         Effect = "Allow",

@@ -68,16 +68,16 @@ import (
 // 			DeploymentGroupName: pulumi.String("example-group"),
 // 			Ec2TagSets: codedeploy.DeploymentGroupEc2TagSetArray{
 // 				&codedeploy.DeploymentGroupEc2TagSetArgs{
-// 					Ec2TagFilter: pulumi.MapArray{
-// 						pulumi.Map{
-// 							"key":   pulumi.String("filterkey1"),
-// 							"type":  pulumi.String("KEY_AND_VALUE"),
-// 							"value": pulumi.String("filtervalue"),
+// 					Ec2TagFilters: codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArray{
+// 						&codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs{
+// 							Key:   pulumi.String("filterkey1"),
+// 							Type:  pulumi.String("KEY_AND_VALUE"),
+// 							Value: pulumi.String("filtervalue"),
 // 						},
-// 						pulumi.Map{
-// 							"key":   pulumi.String("filterkey2"),
-// 							"type":  pulumi.String("KEY_AND_VALUE"),
-// 							"value": pulumi.String("filtervalue"),
+// 						&codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs{
+// 							Key:   pulumi.String("filterkey2"),
+// 							Type:  pulumi.String("KEY_AND_VALUE"),
+// 							Value: pulumi.String("filtervalue"),
 // 						},
 // 					},
 // 				},
@@ -136,9 +136,9 @@ import (
 // 				DeploymentType:   pulumi.String("BLUE_GREEN"),
 // 			},
 // 			LoadBalancerInfo: &codedeploy.DeploymentGroupLoadBalancerInfoArgs{
-// 				ElbInfo: pulumi.MapArray{
-// 					pulumi.Map{
-// 						"name": pulumi.String(aws_elb.Example.Name),
+// 				ElbInfos: codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArray{
+// 					&codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArgs{
+// 						Name: pulumi.String(aws_elb.Example.Name),
 // 					},
 // 				},
 // 			},

@@ -25,11 +25,11 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = kinesis.NewVideoStream(ctx, "default", &kinesis.VideoStreamArgs{
+// 		_, err := kinesis.NewVideoStream(ctx, "_default", &kinesis.VideoStreamArgs{
 // 			DataRetentionInHours: pulumi.Int(1),
 // 			DeviceName:           pulumi.String("kinesis-video-device-name"),
 // 			MediaType:            pulumi.String("video/h264"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("kinesis-video-stream"),
 // 			},
 // 		})

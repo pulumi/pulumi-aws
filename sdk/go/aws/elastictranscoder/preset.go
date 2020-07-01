@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = elastictranscoder.NewPreset(ctx, "bar", &elastictranscoder.PresetArgs{
+// 		_, err := elastictranscoder.NewPreset(ctx, "bar", &elastictranscoder.PresetArgs{
 // 			Audio: &elastictranscoder.PresetAudioArgs{
 // 				AudioPackingMode: pulumi.String("SingleTrack"),
 // 				BitRate:          pulumi.String("96"),
@@ -60,7 +60,7 @@ import (
 // 				PaddingPolicy:      pulumi.String("Pad"),
 // 				SizingPolicy:       pulumi.String("Fit"),
 // 			},
-// 			VideoCodecOptions: pulumi.Map{
+// 			VideoCodecOptions: pulumi.StringMap{
 // 				"ColorSpaceConversionMode": pulumi.String("None"),
 // 				"InterlacedMode":           pulumi.String("Progressive"),
 // 				"Level":                    pulumi.String("2.2"),

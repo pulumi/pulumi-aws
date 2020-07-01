@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = sagemaker.NewModel(ctx, "model", &sagemaker.ModelArgs{
+// 		_, err := sagemaker.NewModel(ctx, "model", &sagemaker.ModelArgs{
 // 			ExecutionRoleArn: pulumi.String(aws_iam_role.Foo.Arn),
 // 			PrimaryContainer: &sagemaker.ModelPrimaryContainerArgs{
 // 				Image: pulumi.String("174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1"),

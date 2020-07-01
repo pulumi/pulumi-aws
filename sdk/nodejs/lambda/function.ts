@@ -83,15 +83,15 @@ import {ARN} from "..";
  * // EFS access point used by lambda file system
  * const accessPointForLambda = new aws.efs.AccessPoint("accessPointForLambda", {
  *     fileSystemId: efsForLambda.id,
- *     root_directory: {
+ *     rootDirectory: {
  *         path: "/lambda",
- *         creation_info: {
+ *         creationInfo: {
  *             ownerGid: 1000,
  *             ownerUid: 1000,
  *             permissions: "777",
  *         },
  *     },
- *     posix_user: {
+ *     posixUser: {
  *         gid: 1000,
  *         uid: 1000,
  *     },
@@ -99,14 +99,16 @@ import {ARN} from "..";
  * // A lambda function connected to an EFS file system
  * // ... other configuration ...
  * const example = new aws.lambda.Function("example", {
- *     file_system_config: {
+ *     fileSystemConfig: {
  *         arn: accessPointForLambda.arn,
  *         localMountPath: "/mnt/efs",
  *     },
- *     vpc_config: {
+ *     vpcConfig: {
  *         subnetIds: [aws_subnet.subnet_for_lambda.id],
  *         securityGroupIds: [aws_security_group.sg_for_lambda.id],
  *     },
+ * }, {
+ *     dependsOn: [alpha],
  * });
  * ```
  * ### CloudWatch Logging and Permissions

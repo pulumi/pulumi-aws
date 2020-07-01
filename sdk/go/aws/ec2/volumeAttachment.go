@@ -32,7 +32,7 @@ import (
 // 			Ami:              pulumi.String("ami-21f78e11"),
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			InstanceType:     pulumi.String("t1.micro"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("HelloWorld"),
 // 			},
 // 		})

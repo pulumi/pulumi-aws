@@ -103,79 +103,79 @@ namespace Pulumi.Aws.CodePipeline
     ///             {
     ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///                 {
-    ///                     Action = 
+    ///                     Actions = 
     ///                     {
-    ///                         
+    ///                         new Aws.CodePipeline.Inputs.PipelineStageActionArgs
     ///                         {
-    ///                             { "category", "Source" },
-    ///                             { "configuration", 
+    ///                             Category = "Source",
+    ///                             Configuration = 
     ///                             {
     ///                                 { "Branch", "master" },
     ///                                 { "Owner", "my-organization" },
     ///                                 { "Repo", "test" },
-    ///                             } },
-    ///                             { "name", "Source" },
-    ///                             { "outputArtifacts", 
+    ///                             },
+    ///                             Name = "Source",
+    ///                             OutputArtifacts = 
     ///                             {
     ///                                 "source_output",
-    ///                             } },
-    ///                             { "owner", "ThirdParty" },
-    ///                             { "provider", "GitHub" },
-    ///                             { "version", "1" },
+    ///                             },
+    ///                             Owner = "ThirdParty",
+    ///                             Provider = "GitHub",
+    ///                             Version = "1",
     ///                         },
     ///                     },
     ///                     Name = "Source",
     ///                 },
     ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///                 {
-    ///                     Action = 
+    ///                     Actions = 
     ///                     {
-    ///                         
+    ///                         new Aws.CodePipeline.Inputs.PipelineStageActionArgs
     ///                         {
-    ///                             { "category", "Build" },
-    ///                             { "configuration", 
+    ///                             Category = "Build",
+    ///                             Configuration = 
     ///                             {
     ///                                 { "ProjectName", "test" },
-    ///                             } },
-    ///                             { "inputArtifacts", 
+    ///                             },
+    ///                             InputArtifacts = 
     ///                             {
     ///                                 "source_output",
-    ///                             } },
-    ///                             { "name", "Build" },
-    ///                             { "outputArtifacts", 
+    ///                             },
+    ///                             Name = "Build",
+    ///                             OutputArtifacts = 
     ///                             {
     ///                                 "build_output",
-    ///                             } },
-    ///                             { "owner", "AWS" },
-    ///                             { "provider", "CodeBuild" },
-    ///                             { "version", "1" },
+    ///                             },
+    ///                             Owner = "AWS",
+    ///                             Provider = "CodeBuild",
+    ///                             Version = "1",
     ///                         },
     ///                     },
     ///                     Name = "Build",
     ///                 },
     ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///                 {
-    ///                     Action = 
+    ///                     Actions = 
     ///                     {
-    ///                         
+    ///                         new Aws.CodePipeline.Inputs.PipelineStageActionArgs
     ///                         {
-    ///                             { "category", "Deploy" },
-    ///                             { "configuration", 
+    ///                             Category = "Deploy",
+    ///                             Configuration = 
     ///                             {
     ///                                 { "ActionMode", "REPLACE_ON_FAILURE" },
     ///                                 { "Capabilities", "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM" },
     ///                                 { "OutputFileName", "CreateStackOutput.json" },
     ///                                 { "StackName", "MyStack" },
     ///                                 { "TemplatePath", "build_output::sam-templated.yaml" },
-    ///                             } },
-    ///                             { "inputArtifacts", 
+    ///                             },
+    ///                             InputArtifacts = 
     ///                             {
     ///                                 "build_output",
-    ///                             } },
-    ///                             { "name", "Deploy" },
-    ///                             { "owner", "AWS" },
-    ///                             { "provider", "CloudFormation" },
-    ///                             { "version", "1" },
+    ///                             },
+    ///                             Name = "Deploy",
+    ///                             Owner = "AWS",
+    ///                             Provider = "CloudFormation",
+    ///                             Version = "1",
     ///                         },
     ///                     },
     ///                     Name = "Deploy",

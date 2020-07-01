@@ -32,7 +32,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
+// 		_, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
 // 			AcceptanceRequired: pulumi.Bool(false),
 // 			NetworkLoadBalancerArns: pulumi.StringArray{
 // 				pulumi.String(aws_lb.Example.Arn),
@@ -57,12 +57,12 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
+// 		_, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
 // 			AcceptanceRequired: pulumi.Bool(false),
 // 			NetworkLoadBalancerArns: pulumi.StringArray{
 // 				pulumi.String(aws_lb.Example.Arn),
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Environment": pulumi.String("test"),
 // 			},
 // 		})

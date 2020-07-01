@@ -24,15 +24,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
+// 		_, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
 // 			ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
-// 				ClusterConfig: pulumi.String("r4.large.elasticsearch"),
+// 				InstanceType: pulumi.String("r4.large.elasticsearch"),
 // 			},
 // 			ElasticsearchVersion: pulumi.String("1.5"),
 // 			SnapshotOptions: &elasticsearch.DomainSnapshotOptionsArgs{
-// 				SnapshotOptions: pulumi.Float64(23),
+// 				AutomatedSnapshotStartHour: pulumi.Int(23),
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Domain": pulumi.String("TestDomain"),
 // 			},
 // 		})

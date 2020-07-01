@@ -23,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = iam.NewGroup(ctx, "developers", &iam.GroupArgs{
+// 		_, err := iam.NewGroup(ctx, "developers", &iam.GroupArgs{
 // 			Path: pulumi.String("/users/"),
 // 		})
 // 		if err != nil {

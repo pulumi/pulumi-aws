@@ -58,9 +58,9 @@ namespace Pulumi.Aws.Iot
     ///             },
     ///             Sns = new Aws.Iot.Inputs.TopicRuleSnsArgs
     ///             {
-    ///                 Sns = "RAW",
-    ///                 Sns = role.Arn,
-    ///                 Sns = mytopic.Arn,
+    ///                 MessageFormat = "RAW",
+    ///                 RoleArn = role.Arn,
+    ///                 TargetArn = mytopic.Arn,
     ///             },
     ///             Sql = "SELECT * FROM 'topic/test'",
     ///             SqlVersion = "2016-03-23",

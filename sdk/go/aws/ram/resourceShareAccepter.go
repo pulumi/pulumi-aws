@@ -15,6 +15,57 @@ import (
 // > **Note:** If both AWS accounts are in the same Organization and [RAM Sharing with AWS Organizations is enabled](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs), this resource is not necessary as RAM Resource Share invitations are not used.
 //
 // ## Example Usage
+//
+// This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `ram.ResourceShare` and uses a data source in the _receiver_ account to create a `ram.PrincipalAssociation` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `ram.ResourceShareAccepter`.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/providers"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ram"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := providers.Newaws(ctx, "alternate", &providers.awsArgs{
+// 			Profile: pulumi.String("profile1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		senderShare, err := ram.NewResourceShare(ctx, "senderShare", &ram.ResourceShareArgs{
+// 			AllowExternalPrincipals: pulumi.Bool(true),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("tf-test-resource-share"),
+// 			},
+// 		}, pulumi.Provider("aws.alternate"))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		receiver, err := aws.GetCallerIdentity(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		senderInvite, err := ram.NewPrincipalAssociation(ctx, "senderInvite", &ram.PrincipalAssociationArgs{
+// 			Principal:        pulumi.String(receiver.AccountId),
+// 			ResourceShareArn: senderShare.Arn,
+// 		}, pulumi.Provider("aws.alternate"))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ram.NewResourceShareAccepter(ctx, "receiverAccept", &ram.ResourceShareAccepterArgs{
+// 			ShareArn: senderInvite.ResourceShareArn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ResourceShareAccepter struct {
 	pulumi.CustomResourceState
 

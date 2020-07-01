@@ -79,12 +79,12 @@ namespace Pulumi.Aws.AppAutoScaling
     ///                 AdjustmentType = "ChangeInCapacity",
     ///                 Cooldown = 60,
     ///                 MetricAggregationType = "Maximum",
-    ///                 StepAdjustment = 
+    ///                 StepAdjustments = 
     ///                 {
-    ///                     
+    ///                     new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs
     ///                     {
-    ///                         { "metricIntervalUpperBound", 0 },
-    ///                         { "scalingAdjustment", -1 },
+    ///                         MetricIntervalUpperBound = "0",
+    ///                         ScalingAdjustment = -1,
     ///                     },
     ///                 },
     ///             },

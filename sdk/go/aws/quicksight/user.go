@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = quicksight.NewUser(ctx, "example", &quicksight.UserArgs{
+// 		_, err := quicksight.NewUser(ctx, "example", &quicksight.UserArgs{
 // 			Email:        pulumi.String("author@example.com"),
 // 			IdentityType: pulumi.String("IAM"),
 // 			UserName:     pulumi.String("an-author"),

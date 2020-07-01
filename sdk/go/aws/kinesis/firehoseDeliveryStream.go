@@ -189,7 +189,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
+// 		_, err := kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
 // 			Destination: pulumi.String("splunk"),
 // 			S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
 // 				BucketArn:         pulumi.String(aws_s3_bucket.Bucket.Arn),

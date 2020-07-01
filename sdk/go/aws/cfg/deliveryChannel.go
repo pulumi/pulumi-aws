@@ -38,7 +38,9 @@ import (
 // 		}
 // 		_, err = cfg.NewDeliveryChannel(ctx, "fooDeliveryChannel", &cfg.DeliveryChannelArgs{
 // 			S3BucketName: bucket.Bucket,
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_config_configuration_recorder.foo",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

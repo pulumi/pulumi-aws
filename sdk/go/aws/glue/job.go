@@ -29,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = glue.NewJob(ctx, "example", &glue.JobArgs{
+// 		_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
 // 			Command: &glue.JobCommandArgs{
 // 				ScriptLocation: pulumi.String(fmt.Sprintf("%v%v%v", "s3://", aws_s3_bucket.Example.Bucket, "/example.py")),
 // 			},
@@ -56,11 +56,11 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = glue.NewJob(ctx, "example", &glue.JobArgs{
+// 		_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
 // 			Command: &glue.JobCommandArgs{
 // 				ScriptLocation: pulumi.String(fmt.Sprintf("%v%v%v", "s3://", aws_s3_bucket.Example.Bucket, "/example.scala")),
 // 			},
-// 			DefaultArguments: pulumi.Map{
+// 			DefaultArguments: pulumi.StringMap{
 // 				"--job-language": pulumi.String("scala"),
 // 			},
 // 			RoleArn: pulumi.String(aws_iam_role.Example.Arn),
@@ -92,7 +92,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = glue.NewJob(ctx, "exampleJob", &glue.JobArgs{
-// 			DefaultArguments: pulumi.Map{
+// 			DefaultArguments: pulumi.StringMap{
 // 				"--continuous-log-logGroup":          exampleLogGroup.Name,
 // 				"--enable-continuous-cloudwatch-log": pulumi.String("true"),
 // 				"--enable-continuous-log-filter":     pulumi.String("true"),

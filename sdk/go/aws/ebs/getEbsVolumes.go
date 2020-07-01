@@ -10,8 +10,6 @@ import (
 // `ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
 //
 // This data source can be useful for getting a list of volume IDs with (for example) matching tags.
-//
-// ## Example Usage
 func GetEbsVolumes(ctx *pulumi.Context, args *GetEbsVolumesArgs, opts ...pulumi.InvokeOption) (*GetEbsVolumesResult, error) {
 	var rv GetEbsVolumesResult
 	err := ctx.Invoke("aws:ebs/getEbsVolumes:getEbsVolumes", args, &rv, opts...)

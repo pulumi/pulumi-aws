@@ -28,7 +28,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		memberDetector, err := guardduty.NewDetector(ctx, "memberDetector", nil)
+// 		memberDetector, err := guardduty.NewDetector(ctx, "memberDetector", nil, pulumi.Provider("aws.dev"))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -44,7 +44,9 @@ import (
 // 		_, err = guardduty.NewInviteAccepter(ctx, "memberInviteAccepter", &guardduty.InviteAccepterArgs{
 // 			DetectorId:      memberDetector.ID(),
 // 			MasterAccountId: master.AccountId,
-// 		})
+// 		}, pulumi.Provider("aws.dev"), pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_guardduty_member.dev",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

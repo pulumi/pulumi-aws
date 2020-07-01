@@ -32,12 +32,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = cfg.NewRule(ctx, "rule", &cfg.RuleArgs{
+// 		_, err := cfg.NewRule(ctx, "rule", &cfg.RuleArgs{
 // 			Source: &cfg.RuleSourceArgs{
 // 				Owner:            pulumi.String("AWS"),
 // 				SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
 // 			},
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_config_configuration_recorder.foo",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -79,7 +81,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = cfg.NewRecorder(ctx, "exampleRecorder", nil)
+// 		_, err := cfg.NewRecorder(ctx, "exampleRecorder", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -100,7 +102,10 @@ import (
 // 				Owner:            pulumi.String("CUSTOM_LAMBDA"),
 // 				SourceIdentifier: exampleFunction.Arn,
 // 			},
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_config_configuration_recorder.example",
+// 			"aws_lambda_permission.example",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

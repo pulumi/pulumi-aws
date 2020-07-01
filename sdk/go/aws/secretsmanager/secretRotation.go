@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
+// 		_, err := secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
 // 			RotationLambdaArn: pulumi.String(aws_lambda_function.Example.Arn),
 // 			RotationRules: &secretsmanager.SecretRotationRotationRulesArgs{
 // 				AutomaticallyAfterDays: pulumi.Int(30),

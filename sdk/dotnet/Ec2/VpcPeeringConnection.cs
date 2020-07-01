@@ -121,10 +121,16 @@ namespace Pulumi.Aws.Ec2
     ///         var fooVpc = new Aws.Ec2.Vpc("fooVpc", new Aws.Ec2.VpcArgs
     ///         {
     ///             CidrBlock = "10.1.0.0/16",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.us-west-2",
     ///         });
     ///         var bar = new Aws.Ec2.Vpc("bar", new Aws.Ec2.VpcArgs
     ///         {
     ///             CidrBlock = "10.2.0.0/16",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.us-east-1",
     ///         });
     ///         var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
     ///         {

@@ -8,8 +8,6 @@ import (
 )
 
 // `ec2.InternetGateway` provides details about a specific Internet Gateway.
-//
-// ## Example Usage
 func LookupInternetGateway(ctx *pulumi.Context, args *LookupInternetGatewayArgs, opts ...pulumi.InvokeOption) (*LookupInternetGatewayResult, error) {
 	var rv LookupInternetGatewayResult
 	err := ctx.Invoke("aws:ec2/getInternetGateway:getInternetGateway", args, &rv, opts...)

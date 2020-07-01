@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = route53.NewResolverEndpoint(ctx, "foo", &route53.ResolverEndpointArgs{
+// 		_, err := route53.NewResolverEndpoint(ctx, "foo", &route53.ResolverEndpointArgs{
 // 			Direction: pulumi.String("INBOUND"),
 // 			IpAddresses: route53.ResolverEndpointIpAddressArray{
 // 				&route53.ResolverEndpointIpAddressArgs{
@@ -39,7 +39,7 @@ import (
 // 				pulumi.String(aws_security_group.Sg1.Id),
 // 				pulumi.String(aws_security_group.Sg2.Id),
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Environment": pulumi.String("Prod"),
 // 			},
 // 		})

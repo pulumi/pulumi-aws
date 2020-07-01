@@ -34,6 +34,12 @@ namespace Pulumi.Aws.Cfg
     ///                 Owner = "AWS",
     ///                 SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
     ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_config_configuration_recorder.foo",
+    ///             },
     ///         });
     ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
     ///         {
@@ -108,6 +114,13 @@ namespace Pulumi.Aws.Cfg
     ///             {
     ///                 Owner = "CUSTOM_LAMBDA",
     ///                 SourceIdentifier = exampleFunction.Arn,
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_config_configuration_recorder.example",
+    ///                 "aws_lambda_permission.example",
     ///             },
     ///         });
     ///     }

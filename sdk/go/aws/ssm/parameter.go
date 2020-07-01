@@ -11,36 +11,6 @@ import (
 )
 
 // Provides an SSM Parameter resource.
-//
-// ## Example Usage
-//
-// To store a basic string parameter:
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ssm.NewParameter(ctx, "foo", &ssm.ParameterArgs{
-// 			Type:  pulumi.String("String"),
-// 			Value: pulumi.String("bar"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// To store an encrypted string using the default SSM KMS key:
-//
-// > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 type Parameter struct {
 	pulumi.CustomResourceState
 

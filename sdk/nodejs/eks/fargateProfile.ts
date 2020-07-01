@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     clusterName: aws_eks_cluster.example.name,
  *     podExecutionRoleArn: aws_iam_role.example.arn,
  *     subnetIds: aws_subnet.example.map(__item => __item.id),
- *     selector: [{
+ *     selectors: [{
  *         namespace: "example",
  *     }],
  * });

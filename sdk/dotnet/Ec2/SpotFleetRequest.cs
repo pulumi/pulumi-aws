@@ -46,12 +46,12 @@ namespace Pulumi.Aws.Ec2
     ///                     IamInstanceProfileArn = aws_iam_instance_profile.Example.Arn,
     ///                     InstanceType = "m4.4xlarge",
     ///                     KeyName = "my-key",
-    ///                     RootBlockDevice = 
+    ///                     RootBlockDevices = 
     ///                     {
-    ///                         
+    ///                         new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs
     ///                         {
-    ///                             { "volumeSize", "300" },
-    ///                             { "volumeType", "gp2" },
+    ///                             VolumeSize = 300,
+    ///                             VolumeType = "gp2",
     ///                         },
     ///                     },
     ///                     SpotPrice = "1.117",

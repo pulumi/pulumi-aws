@@ -35,6 +35,9 @@ namespace Pulumi.Aws.Route53
     ///         var awsRoute53ExampleCom = new Aws.CloudWatch.LogGroup("awsRoute53ExampleCom", new Aws.CloudWatch.LogGroupArgs
     ///         {
     ///             RetentionInDays = 30,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.us-east-1",
     ///         });
     ///         var route53_query_logging_policyPolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
     ///         {
@@ -69,6 +72,9 @@ namespace Pulumi.Aws.Route53
     ///         {
     ///             PolicyDocument = route53_query_logging_policyPolicyDocument.Apply(route53_query_logging_policyPolicyDocument =&gt; route53_query_logging_policyPolicyDocument.Json),
     ///             PolicyName = "route53-query-logging-policy",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.us-east-1",
     ///         });
     ///         var exampleComZone = new Aws.Route53.Zone("exampleComZone", new Aws.Route53.ZoneArgs
     ///         {
@@ -77,6 +83,12 @@ namespace Pulumi.Aws.Route53
     ///         {
     ///             CloudwatchLogGroupArn = awsRoute53ExampleCom.Arn,
     ///             ZoneId = exampleComZone.ZoneId,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_cloudwatch_log_resource_policy.route53-query-logging-policy",
+    ///             },
     ///         });
     ///     }
     /// 

@@ -29,11 +29,39 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = appautoscaling.NewTarget(ctx, "dynamodbTableReadTarget", &appautoscaling.TargetArgs{
+// 		_, err := appautoscaling.NewTarget(ctx, "dynamodbTableReadTarget", &appautoscaling.TargetArgs{
 // 			MaxCapacity:       pulumi.Int(100),
 // 			MinCapacity:       pulumi.Int(5),
 // 			ResourceId:        pulumi.String(fmt.Sprintf("%v%v", "table/", aws_dynamodb_table.Example.Name)),
 // 			ScalableDimension: pulumi.String("dynamodb:table:ReadCapacityUnits"),
+// 			ServiceNamespace:  pulumi.String("dynamodb"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### DynamoDB Index Autoscaling
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/appautoscaling"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := appautoscaling.NewTarget(ctx, "dynamodbIndexReadTarget", &appautoscaling.TargetArgs{
+// 			MaxCapacity:       pulumi.Int(100),
+// 			MinCapacity:       pulumi.Int(5),
+// 			ResourceId:        pulumi.String(fmt.Sprintf("%v%v%v%v", "table/", aws_dynamodb_table.Example.Name, "/index/", _var.Index_name)),
+// 			ScalableDimension: pulumi.String("dynamodb:index:ReadCapacityUnits"),
 // 			ServiceNamespace:  pulumi.String("dynamodb"),
 // 		})
 // 		if err != nil {
@@ -57,7 +85,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = appautoscaling.NewTarget(ctx, "ecsTarget", &appautoscaling.TargetArgs{
+// 		_, err := appautoscaling.NewTarget(ctx, "ecsTarget", &appautoscaling.TargetArgs{
 // 			MaxCapacity:       pulumi.Int(4),
 // 			MinCapacity:       pulumi.Int(1),
 // 			ResourceId:        pulumi.String(fmt.Sprintf("%v%v%v%v", "service/", aws_ecs_cluster.Example.Name, "/", aws_ecs_service.Example.Name)),
@@ -85,7 +113,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = appautoscaling.NewTarget(ctx, "replicas", &appautoscaling.TargetArgs{
+// 		_, err := appautoscaling.NewTarget(ctx, "replicas", &appautoscaling.TargetArgs{
 // 			MaxCapacity:       pulumi.Int(15),
 // 			MinCapacity:       pulumi.Int(1),
 // 			ResourceId:        pulumi.String(fmt.Sprintf("%v%v", "cluster:", aws_rds_cluster.Example.Id)),

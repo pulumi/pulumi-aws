@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = storagegateway.NewNfsFileShare(ctx, "example", &storagegateway.NfsFileShareArgs{
+// 		_, err := storagegateway.NewNfsFileShare(ctx, "example", &storagegateway.NfsFileShareArgs{
 // 			ClientLists: pulumi.StringArray{
 // 				pulumi.String("0.0.0.0/0"),
 // 			},

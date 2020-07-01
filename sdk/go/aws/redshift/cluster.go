@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = redshift.NewCluster(ctx, "default", &redshift.ClusterArgs{
+// 		_, err := redshift.NewCluster(ctx, "_default", &redshift.ClusterArgs{
 // 			ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
 // 			ClusterType:       pulumi.String("single-node"),
 // 			DatabaseName:      pulumi.String("mydb"),

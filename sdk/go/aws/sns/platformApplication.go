@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = sns.NewPlatformApplication(ctx, "apnsApplication", &sns.PlatformApplicationArgs{
+// 		_, err := sns.NewPlatformApplication(ctx, "apnsApplication", &sns.PlatformApplicationArgs{
 // 			Platform:           pulumi.String("APNS"),
 // 			PlatformCredential: pulumi.String("<APNS PRIVATE KEY>"),
 // 			PlatformPrincipal:  pulumi.String("<APNS CERTIFICATE>"),
@@ -49,7 +49,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = sns.NewPlatformApplication(ctx, "gcmApplication", &sns.PlatformApplicationArgs{
+// 		_, err := sns.NewPlatformApplication(ctx, "gcmApplication", &sns.PlatformApplicationArgs{
 // 			Platform:           pulumi.String("GCM"),
 // 			PlatformCredential: pulumi.String("<GCM API KEY>"),
 // 		})

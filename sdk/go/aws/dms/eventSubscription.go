@@ -11,8 +11,6 @@ import (
 )
 
 // Provides a DMS (Data Migration Service) event subscription resource.
-//
-// ## Example Usage
 type EventSubscription struct {
 	pulumi.CustomResourceState
 

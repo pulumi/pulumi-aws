@@ -23,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = dax.NewParameterGroup(ctx, "example", &dax.ParameterGroupArgs{
+// 		_, err := dax.NewParameterGroup(ctx, "example", &dax.ParameterGroupArgs{
 // 			Parameters: dax.ParameterGroupParameterArray{
 // 				&dax.ParameterGroupParameterArgs{
 // 					Name:  pulumi.String("query-ttl-millis"),

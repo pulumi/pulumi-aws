@@ -44,7 +44,9 @@ import (
 // 					Type:    pulumi.String("IPMatch"),
 // 				},
 // 			},
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_waf_ipset.ipset",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = iam.NewOpenIdConnectProvider(ctx, "default", &iam.OpenIdConnectProviderArgs{
+// 		_, err := iam.NewOpenIdConnectProvider(ctx, "_default", &iam.OpenIdConnectProviderArgs{
 // 			ClientIdLists: pulumi.StringArray{
 // 				pulumi.String("266362248691-342342xasdasdasda-apps.googleusercontent.com"),
 // 			},

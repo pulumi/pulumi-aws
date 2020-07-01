@@ -34,6 +34,35 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
+    /// ### Access Point Restricted to a VPC
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///         });
+    ///         var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new Aws.S3.AccessPointArgs
+    ///         {
+    ///             Bucket = exampleBucket.Id,
+    ///             VpcConfiguration = new Aws.S3.Inputs.AccessPointVpcConfigurationArgs
+    ///             {
+    ///                 VpcId = exampleVpc.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AccessPoint : Pulumi.CustomResource
     {

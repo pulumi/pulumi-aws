@@ -30,6 +30,12 @@ namespace Pulumi.Aws.ApiGateway
     ///         {
     ///             RestApi = testRestApi.Id,
     ///             StageName = "dev",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_api_gateway_integration.test",
+    ///             },
     ///         });
     ///         var testStage = new Aws.ApiGateway.Stage("testStage", new Aws.ApiGateway.StageArgs
     ///         {

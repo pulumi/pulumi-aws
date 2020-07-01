@@ -119,13 +119,13 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ",
     ///                 BidPrice = "0.30",
-    ///                 EbsConfig = 
+    ///                 EbsConfigs = 
     ///                 {
-    ///                     
+    ///                     new Aws.Emr.Inputs.ClusterCoreInstanceGroupEbsConfigArgs
     ///                     {
-    ///                         { "size", "40" },
-    ///                         { "type", "gp2" },
-    ///                         { "volumesPerInstance", 1 },
+    ///                         Size = 40,
+    ///                         Type = "gp2",
+    ///                         VolumesPerInstance = 1,
     ///                     },
     ///                 },
     ///                 InstanceCount = 1,
@@ -195,6 +195,314 @@ namespace Pulumi.Aws.Emr
     ///             },
     ///             ReleaseLabel = "emr-5.24.1",
     ///             TerminationProtection = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ## Example bootable config
+    /// 
+    /// **NOTE:** This configuration demonstrates a minimal configuration needed to
+    /// boot an example EMR Cluster. It is not meant to display best practices. Please
+    /// use at your own risk.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainVpc = new Aws.Ec2.Vpc("mainVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "168.31.0.0/16",
+    ///             EnableDnsHostnames = true,
+    ///             Tags = 
+    ///             {
+    ///                 { "name", "emr_test" },
+    ///             },
+    ///         });
+    ///         var mainSubnet = new Aws.Ec2.Subnet("mainSubnet", new Aws.Ec2.SubnetArgs
+    ///         {
+    ///             VpcId = mainVpc.Id,
+    ///             CidrBlock = "168.31.0.0/20",
+    ///             Tags = 
+    ///             {
+    ///                 { "name", "emr_test" },
+    ///             },
+    ///         });
+    ///         // IAM role for EMR Service
+    ///         var iamEmrServiceRole = new Aws.Iam.Role("iamEmrServiceRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2008-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Sid"": """",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""elasticmapreduce.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         // IAM Role for EC2 Instance Profile
+    ///         var iamEmrProfileRole = new Aws.Iam.Role("iamEmrProfileRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2008-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Sid"": """",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""ec2.amazonaws.com""
+    ///       },
+    ///       ""Action"": ""sts:AssumeRole""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var emrProfile = new Aws.Iam.InstanceProfile("emrProfile", new Aws.Iam.InstanceProfileArgs
+    ///         {
+    ///             Roles = 
+    ///             {
+    ///                 iamEmrProfileRole.Name,
+    ///             },
+    ///         });
+    ///         var cluster = new Aws.Emr.Cluster("cluster", new Aws.Emr.ClusterArgs
+    ///         {
+    ///             ReleaseLabel = "emr-4.6.0",
+    ///             Applications = 
+    ///             {
+    ///                 "Spark",
+    ///             },
+    ///             Ec2Attributes = new Aws.Emr.Inputs.ClusterEc2AttributesArgs
+    ///             {
+    ///                 SubnetId = mainSubnet.Id,
+    ///                 EmrManagedMasterSecurityGroup = aws_security_group.Allow_all.Id,
+    ///                 EmrManagedSlaveSecurityGroup = aws_security_group.Allow_all.Id,
+    ///                 InstanceProfile = emrProfile.Arn,
+    ///             },
+    ///             MasterInstanceType = "m5.xlarge",
+    ///             CoreInstanceType = "m5.xlarge",
+    ///             CoreInstanceCount = 1,
+    ///             Tags = 
+    ///             {
+    ///                 { "role", "rolename" },
+    ///                 { "dns_zone", "env_zone" },
+    ///                 { "env", "env" },
+    ///                 { "name", "name-env" },
+    ///             },
+    ///             BootstrapActions = 
+    ///             {
+    ///                 new Aws.Emr.Inputs.ClusterBootstrapActionArgs
+    ///                 {
+    ///                     Path = "s3://elasticmapreduce/bootstrap-actions/run-if",
+    ///                     Name = "runif",
+    ///                     Args = 
+    ///                     {
+    ///                         "instance.isMaster=true",
+    ///                         "echo running on master node",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ConfigurationsJson = @"  [
+    ///     {
+    ///       ""Classification"": ""hadoop-env"",
+    ///       ""Configurations"": [
+    ///         {
+    ///           ""Classification"": ""export"",
+    ///           ""Properties"": {
+    ///             ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+    ///           }
+    ///         }
+    ///       ],
+    ///       ""Properties"": {}
+    ///     },
+    ///     {
+    ///       ""Classification"": ""spark-env"",
+    ///       ""Configurations"": [
+    ///         {
+    ///           ""Classification"": ""export"",
+    ///           ""Properties"": {
+    ///             ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+    ///           }
+    ///         }
+    ///       ],
+    ///       ""Properties"": {}
+    ///     }
+    ///   ]
+    /// ",
+    ///             ServiceRole = iamEmrServiceRole.Arn,
+    ///         });
+    ///         var allowAccess = new Aws.Ec2.SecurityGroup("allowAccess", new Aws.Ec2.SecurityGroupArgs
+    ///         {
+    ///             Description = "Allow inbound traffic",
+    ///             VpcId = mainVpc.Id,
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
+    ///                     CidrBlocks = mainVpc.CidrBlock,
+    ///                 },
+    ///             },
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
+    ///                     CidrBlocks = 
+    ///                     {
+    ///                         "0.0.0.0/0",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "name", "emr_test" },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_subnet.main",
+    ///             },
+    ///         });
+    ///         var gw = new Aws.Ec2.InternetGateway("gw", new Aws.Ec2.InternetGatewayArgs
+    ///         {
+    ///             VpcId = mainVpc.Id,
+    ///         });
+    ///         var routeTable = new Aws.Ec2.RouteTable("routeTable", new Aws.Ec2.RouteTableArgs
+    ///         {
+    ///             VpcId = mainVpc.Id,
+    ///             Routes = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.RouteTableRouteArgs
+    ///                 {
+    ///                     CidrBlock = "0.0.0.0/0",
+    ///                     GatewayId = gw.Id,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var mainRouteTableAssociation = new Aws.Ec2.MainRouteTableAssociation("mainRouteTableAssociation", new Aws.Ec2.MainRouteTableAssociationArgs
+    ///         {
+    ///             VpcId = mainVpc.Id,
+    ///             RouteTableId = routeTable.Id,
+    ///         });
+    ///         //##
+    ///         var iamEmrServicePolicy = new Aws.Iam.RolePolicy("iamEmrServicePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = iamEmrServiceRole.Id,
+    ///             Policy = @"{
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": [{
+    ///         ""Effect"": ""Allow"",
+    ///         ""Resource"": ""*"",
+    ///         ""Action"": [
+    ///             ""ec2:AuthorizeSecurityGroupEgress"",
+    ///             ""ec2:AuthorizeSecurityGroupIngress"",
+    ///             ""ec2:CancelSpotInstanceRequests"",
+    ///             ""ec2:CreateNetworkInterface"",
+    ///             ""ec2:CreateSecurityGroup"",
+    ///             ""ec2:CreateTags"",
+    ///             ""ec2:DeleteNetworkInterface"",
+    ///             ""ec2:DeleteSecurityGroup"",
+    ///             ""ec2:DeleteTags"",
+    ///             ""ec2:DescribeAvailabilityZones"",
+    ///             ""ec2:DescribeAccountAttributes"",
+    ///             ""ec2:DescribeDhcpOptions"",
+    ///             ""ec2:DescribeInstanceStatus"",
+    ///             ""ec2:DescribeInstances"",
+    ///             ""ec2:DescribeKeyPairs"",
+    ///             ""ec2:DescribeNetworkAcls"",
+    ///             ""ec2:DescribeNetworkInterfaces"",
+    ///             ""ec2:DescribePrefixLists"",
+    ///             ""ec2:DescribeRouteTables"",
+    ///             ""ec2:DescribeSecurityGroups"",
+    ///             ""ec2:DescribeSpotInstanceRequests"",
+    ///             ""ec2:DescribeSpotPriceHistory"",
+    ///             ""ec2:DescribeSubnets"",
+    ///             ""ec2:DescribeVpcAttribute"",
+    ///             ""ec2:DescribeVpcEndpoints"",
+    ///             ""ec2:DescribeVpcEndpointServices"",
+    ///             ""ec2:DescribeVpcs"",
+    ///             ""ec2:DetachNetworkInterface"",
+    ///             ""ec2:ModifyImageAttribute"",
+    ///             ""ec2:ModifyInstanceAttribute"",
+    ///             ""ec2:RequestSpotInstances"",
+    ///             ""ec2:RevokeSecurityGroupEgress"",
+    ///             ""ec2:RunInstances"",
+    ///             ""ec2:TerminateInstances"",
+    ///             ""ec2:DeleteVolume"",
+    ///             ""ec2:DescribeVolumeStatus"",
+    ///             ""ec2:DescribeVolumes"",
+    ///             ""ec2:DetachVolume"",
+    ///             ""iam:GetRole"",
+    ///             ""iam:GetRolePolicy"",
+    ///             ""iam:ListInstanceProfiles"",
+    ///             ""iam:ListRolePolicies"",
+    ///             ""iam:PassRole"",
+    ///             ""s3:CreateBucket"",
+    ///             ""s3:Get*"",
+    ///             ""s3:List*"",
+    ///             ""sdb:BatchPutAttributes"",
+    ///             ""sdb:Select"",
+    ///             ""sqs:CreateQueue"",
+    ///             ""sqs:Delete*"",
+    ///             ""sqs:GetQueue*"",
+    ///             ""sqs:PurgeQueue"",
+    ///             ""sqs:ReceiveMessage""
+    ///         ]
+    ///     }]
+    /// }
+    /// ",
+    ///         });
+    ///         var iamEmrProfilePolicy = new Aws.Iam.RolePolicy("iamEmrProfilePolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = iamEmrProfileRole.Id,
+    ///             Policy = @"{
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": [{
+    ///         ""Effect"": ""Allow"",
+    ///         ""Resource"": ""*"",
+    ///         ""Action"": [
+    ///             ""cloudwatch:*"",
+    ///             ""dynamodb:*"",
+    ///             ""ec2:Describe*"",
+    ///             ""elasticmapreduce:Describe*"",
+    ///             ""elasticmapreduce:ListBootstrapActions"",
+    ///             ""elasticmapreduce:ListClusters"",
+    ///             ""elasticmapreduce:ListInstanceGroups"",
+    ///             ""elasticmapreduce:ListInstances"",
+    ///             ""elasticmapreduce:ListSteps"",
+    ///             ""kinesis:CreateStream"",
+    ///             ""kinesis:DeleteStream"",
+    ///             ""kinesis:DescribeStream"",
+    ///             ""kinesis:GetRecords"",
+    ///             ""kinesis:GetShardIterator"",
+    ///             ""kinesis:MergeShards"",
+    ///             ""kinesis:PutRecord"",
+    ///             ""kinesis:SplitShard"",
+    ///             ""rds:Describe*"",
+    ///             ""s3:*"",
+    ///             ""sdb:*"",
+    ///             ""sns:*"",
+    ///             ""sqs:*""
+    ///         ]
+    ///     }]
+    /// }
+    /// ",
     ///         });
     ///     }
     /// 

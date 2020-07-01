@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = dms.NewCertificate(ctx, "test", &dms.CertificateArgs{
+// 		_, err := dms.NewCertificate(ctx, "test", &dms.CertificateArgs{
 // 			CertificateId:  pulumi.String("test-dms-certificate-tf"),
 // 			CertificatePem: pulumi.String("..."),
 // 		})

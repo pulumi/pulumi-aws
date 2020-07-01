@@ -20,10 +20,10 @@ import * as utilities from "../utilities";
  * const analytics = new aws.s3.Bucket("analytics", {});
  * const example_entire_bucket = new aws.s3.AnalyticsConfiguration("example-entire-bucket", {
  *     bucket: example.bucket,
- *     storage_class_analysis: {
- *         data_export: {
+ *     storageClassAnalysis: {
+ *         dataExport: {
  *             destination: {
- *                 s3_bucket_destination: {
+ *                 s3BucketDestination: {
  *                     bucketArn: analytics.arn,
  *                 },
  *             },

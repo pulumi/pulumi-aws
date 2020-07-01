@@ -28,7 +28,7 @@ import (
 // 			return err
 // 		}
 // 		group, err := inspector.NewResourceGroup(ctx, "group", &inspector.ResourceGroupArgs{
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"test": pulumi.String("test"),
 // 			},
 // 		})

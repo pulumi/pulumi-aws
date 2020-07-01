@@ -98,6 +98,12 @@ namespace Pulumi.Aws.Ec2
     ///             CidrBlock = "10.0.0.0/24",
     ///             MapPublicIpOnLaunch = true,
     ///             VpcId = @default.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_internet_gateway.gw",
+    ///             },
     ///         });
     ///         var foo = new Aws.Ec2.Instance("foo", new Aws.Ec2.InstanceArgs
     ///         {
@@ -111,6 +117,12 @@ namespace Pulumi.Aws.Ec2
     ///             AssociateWithPrivateIp = "10.0.0.12",
     ///             Instance = foo.Id,
     ///             Vpc = true,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_internet_gateway.gw",
+    ///             },
     ///         });
     ///     }
     /// 

@@ -27,12 +27,12 @@ namespace Pulumi.Aws.ElasticSearch
     ///         {
     ///             ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
     ///             {
-    ///                 ClusterConfig = "r4.large.elasticsearch",
+    ///                 InstanceType = "r4.large.elasticsearch",
     ///             },
     ///             ElasticsearchVersion = "1.5",
     ///             SnapshotOptions = new Aws.ElasticSearch.Inputs.DomainSnapshotOptionsArgs
     ///             {
-    ///                 SnapshotOptions = 23,
+    ///                 AutomatedSnapshotStartHour = 23,
     ///             },
     ///             Tags = 
     ///             {
@@ -216,12 +216,12 @@ namespace Pulumi.Aws.ElasticSearch
     ///             },
     ///             ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
     ///             {
-    ///                 ClusterConfig = "m4.large.elasticsearch",
+    ///                 InstanceType = "m4.large.elasticsearch",
     ///             },
     ///             ElasticsearchVersion = "6.3",
     ///             SnapshotOptions = new Aws.ElasticSearch.Inputs.DomainSnapshotOptionsArgs
     ///             {
-    ///                 SnapshotOptions = 23,
+    ///                 AutomatedSnapshotStartHour = 23,
     ///             },
     ///             Tags = 
     ///             {
@@ -238,6 +238,12 @@ namespace Pulumi.Aws.ElasticSearch
     ///                     selectedSubnetIds.Apply(selectedSubnetIds =&gt; selectedSubnetIds.Ids[0]),
     ///                     selectedSubnetIds.Apply(selectedSubnetIds =&gt; selectedSubnetIds.Ids[1]),
     ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_iam_service_linked_role.es",
     ///             },
     ///         });
     ///     }

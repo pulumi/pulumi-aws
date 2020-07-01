@@ -55,7 +55,9 @@ import (
 // 		}
 // 		_, err = ses.NewDomainIdentityVerification(ctx, "exampleVerification", &ses.DomainIdentityVerificationArgs{
 // 			Domain: example.ID(),
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_route53_record.example_amazonses_verification_record",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

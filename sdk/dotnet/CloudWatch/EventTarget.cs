@@ -138,16 +138,16 @@ namespace Pulumi.Aws.CloudWatch
     ///                     {
     ///                         "ssm:SendCommand",
     ///                     },
-    ///                     Condition = 
+    ///                     Conditions = 
     ///                     {
-    ///                         
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                         {
-    ///                             { "test", "StringEquals" },
-    ///                             { "values", 
+    ///                             Test = "StringEquals",
+    ///                             Values = 
     ///                             {
     ///                                 "*",
-    ///                             } },
-    ///                             { "variable", "ec2:ResourceTag/Terminate" },
+    ///                             },
+    ///                             Variable = "ec2:ResourceTag/Terminate",
     ///                         },
     ///                     },
     ///                     Effect = "Allow",

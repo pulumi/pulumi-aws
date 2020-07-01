@@ -35,7 +35,9 @@ import (
 // 		testDeployment, err := apigateway.NewDeployment(ctx, "testDeployment", &apigateway.DeploymentArgs{
 // 			RestApi:   testRestApi.ID(),
 // 			StageName: pulumi.String("dev"),
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_api_gateway_integration.test",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -82,7 +84,7 @@ import (
 // 		}
 // 		_, err = apigateway.NewIntegration(ctx, "testIntegration", &apigateway.IntegrationArgs{
 // 			HttpMethod: testMethod.HttpMethod,
-// 			RequestTemplates: pulumi.Map{
+// 			RequestTemplates: pulumi.StringMap{
 // 				"application/xml": pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v", "{\n", "   \"body\" : ", "$", "input.json('", "$", "')\n", "}\n", "\n")),
 // 			},
 // 			ResourceId: testResource.ID(),

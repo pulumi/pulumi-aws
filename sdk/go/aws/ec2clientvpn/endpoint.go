@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ec2clientvpn.NewEndpoint(ctx, "example", &ec2clientvpn.EndpointArgs{
+// 		_, err := ec2clientvpn.NewEndpoint(ctx, "example", &ec2clientvpn.EndpointArgs{
 // 			AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
 // 				&ec2clientvpn.EndpointAuthenticationOptionArgs{
 // 					RootCertificateChainArn: pulumi.String(aws_acm_certificate.Root_cert.Arn),

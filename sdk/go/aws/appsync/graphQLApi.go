@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 		_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 // 			AuthenticationType: pulumi.String("API_KEY"),
 // 		})
 // 		if err != nil {
@@ -47,7 +47,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 		_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 // 			AuthenticationType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
 // 			UserPoolConfig: &appsync.GraphQLApiUserPoolConfigArgs{
 // 				AwsRegion:     pulumi.String(data.Aws_region.Current.Name),
@@ -74,7 +74,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 		_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 // 			AuthenticationType: pulumi.String("AWS_IAM"),
 // 		})
 // 		if err != nil {
@@ -98,7 +98,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 		_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 // 			AuthenticationType: pulumi.String("AWS_IAM"),
 // 			Schema: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "schema {\n", "	query: Query\n", "}\n", "type Query {\n", "  test: Int\n", "}\n", "\n")),
 // 		})
@@ -121,7 +121,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 		_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 // 			AuthenticationType: pulumi.String("OPENID_CONNECT"),
 // 			OpenidConnectConfig: &appsync.GraphQLApiOpenidConnectConfigArgs{
 // 				Issuer: pulumi.String("https://example.com"),
@@ -146,7 +146,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 		_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 // 			AdditionalAuthenticationProviders: appsync.GraphQLApiAdditionalAuthenticationProviderArray{
 // 				&appsync.GraphQLApiAdditionalAuthenticationProviderArgs{
 // 					AuthenticationType: pulumi.String("AWS_IAM"),

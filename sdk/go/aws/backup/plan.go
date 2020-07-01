@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = backup.NewPlan(ctx, "example", &backup.PlanArgs{
+// 		_, err := backup.NewPlan(ctx, "example", &backup.PlanArgs{
 // 			Rules: backup.PlanRuleArray{
 // 				&backup.PlanRuleArgs{
 // 					RuleName:        pulumi.String("tf_example_backup_rule"),

@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = directconnect.NewPublicVirtualInterface(ctx, "foo", &directconnect.PublicVirtualInterfaceArgs{
+// 		_, err := directconnect.NewPublicVirtualInterface(ctx, "foo", &directconnect.PublicVirtualInterfaceArgs{
 // 			AddressFamily:   pulumi.String("ipv4"),
 // 			AmazonAddress:   pulumi.String("175.45.176.2/30"),
 // 			BgpAsn:          pulumi.Int(65352),

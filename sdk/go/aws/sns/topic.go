@@ -23,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = sns.NewTopic(ctx, "userUpdates", nil)
+// 		_, err := sns.NewTopic(ctx, "userUpdates", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -45,7 +45,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
+// 		_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
 // 			DeliveryPolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"http\": {\n", "    \"defaultHealthyRetryPolicy\": {\n", "      \"minDelayTarget\": 20,\n", "      \"maxDelayTarget\": 20,\n", "      \"numRetries\": 3,\n", "      \"numMaxDelayRetries\": 0,\n", "      \"numNoDelayRetries\": 0,\n", "      \"numMinDelayRetries\": 0,\n", "      \"backoffFunction\": \"linear\"\n", "    },\n", "    \"disableSubscriptionOverrides\": false,\n", "    \"defaultThrottlePolicy\": {\n", "      \"maxReceivesPerSecond\": 1\n", "    }\n", "  }\n", "}\n", "\n")),
 // 		})
 // 		if err != nil {
@@ -68,7 +68,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
+// 		_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
 // 			KmsMasterKeyId: pulumi.String("alias/aws/sns"),
 // 		})
 // 		if err != nil {

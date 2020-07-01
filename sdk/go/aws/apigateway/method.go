@@ -94,7 +94,7 @@ import (
 // 			Authorization: pulumi.String("COGNITO_USER_POOLS"),
 // 			AuthorizerId:  thisAuthorizer.ID(),
 // 			HttpMethod:    pulumi.String("ANY"),
-// 			RequestParameters: pulumi.Map{
+// 			RequestParameters: pulumi.BoolMap{
 // 				"method.request.path.proxy": pulumi.Bool(true),
 // 			},
 // 			ResourceId: thisResource.ID(),

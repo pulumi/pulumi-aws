@@ -28,7 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = organizations.NewAccount(ctx, "account", &organizations.AccountArgs{
+// 		_, err := organizations.NewAccount(ctx, "account", &organizations.AccountArgs{
 // 			Email: pulumi.String("john@doe.org"),
 // 		})
 // 		if err != nil {

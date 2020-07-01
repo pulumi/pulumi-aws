@@ -78,26 +78,26 @@ namespace Pulumi.Aws.Dlm
     ///                 {
     ///                     "VOLUME",
     ///                 },
-    ///                 Schedule = 
+    ///                 Schedules = 
     ///                 {
-    ///                     
+    ///                     new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleArgs
     ///                     {
-    ///                         { "copyTags", false },
-    ///                         { "createRule", 
+    ///                         CopyTags = false,
+    ///                         CreateRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs
     ///                         {
-    ///                             { "interval", 24 },
-    ///                             { "intervalUnit", "HOURS" },
-    ///                             { "times", "23:45" },
-    ///                         } },
-    ///                         { "name", "2 weeks of daily snapshots" },
-    ///                         { "retainRule", 
+    ///                             Interval = 24,
+    ///                             IntervalUnit = "HOURS",
+    ///                             Times = "23:45",
+    ///                         },
+    ///                         Name = "2 weeks of daily snapshots",
+    ///                         RetainRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs
     ///                         {
-    ///                             { "count", 14 },
-    ///                         } },
-    ///                         { "tagsToAdd", 
+    ///                             Count = 14,
+    ///                         },
+    ///                         TagsToAdd = 
     ///                         {
     ///                             { "SnapshotCreator", "DLM" },
-    ///                         } },
+    ///                         },
     ///                     },
     ///                 },
     ///                 TargetTags = 

@@ -30,6 +30,35 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// }
     /// ```
+    /// ### Enabling SMS and Software Token Multi-Factor Authentication
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ... other configuration ...
+    ///         var example = new Aws.Cognito.UserPool("example", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///             MfaConfiguration = "ON",
+    ///             SmsAuthenticationMessage = "Your code is {####}",
+    ///             SmsConfiguration = new Aws.Cognito.Inputs.UserPoolSmsConfigurationArgs
+    ///             {
+    ///                 ExternalId = "example",
+    ///                 SnsCallerArn = aws_iam_role.Example.Arn,
+    ///             },
+    ///             SoftwareTokenMfaConfiguration = new Aws.Cognito.Inputs.UserPoolSoftwareTokenMfaConfigurationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class UserPool : Pulumi.CustomResource
     {

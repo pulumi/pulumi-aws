@@ -44,7 +44,9 @@ import (
 // 			Description:       pulumi.String("Test"),
 // 			IamRole:           testRole.ID(),
 // 			RegistrationLimit: pulumi.Int(5),
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_iam_role_policy_attachment.test_attach",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

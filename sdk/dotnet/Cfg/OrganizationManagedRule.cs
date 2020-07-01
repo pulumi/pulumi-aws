@@ -37,6 +37,12 @@ namespace Pulumi.Aws.Cfg
     ///         var exampleOrganizationManagedRule = new Aws.Cfg.OrganizationManagedRule("exampleOrganizationManagedRule", new Aws.Cfg.OrganizationManagedRuleArgs
     ///         {
     ///             RuleIdentifier = "IAM_PASSWORD_POLICY",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_organizations_organization.example",
+    ///             },
     ///         });
     ///     }
     /// 

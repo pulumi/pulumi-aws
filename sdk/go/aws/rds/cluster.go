@@ -41,7 +41,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = rds.NewCluster(ctx, "default", &rds.ClusterArgs{
+// 		_, err := rds.NewCluster(ctx, "_default", &rds.ClusterArgs{
 // 			AvailabilityZones: pulumi.StringArray{
 // 				pulumi.String("us-west-2a"),
 // 				pulumi.String("us-west-2b"),
@@ -75,7 +75,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = rds.NewCluster(ctx, "default", &rds.ClusterArgs{
+// 		_, err := rds.NewCluster(ctx, "_default", &rds.ClusterArgs{
 // 			AvailabilityZones: pulumi.StringArray{
 // 				pulumi.String("us-west-2a"),
 // 				pulumi.String("us-west-2b"),
@@ -107,7 +107,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = rds.NewCluster(ctx, "postgresql", &rds.ClusterArgs{
+// 		_, err := rds.NewCluster(ctx, "postgresql", &rds.ClusterArgs{
 // 			AvailabilityZones: pulumi.StringArray{
 // 				pulumi.String("us-west-2a"),
 // 				pulumi.String("us-west-2b"),
@@ -142,7 +142,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = rds.NewCluster(ctx, "example", &rds.ClusterArgs{
+// 		_, err := rds.NewCluster(ctx, "example", &rds.ClusterArgs{
 // 			ClusterIdentifier: pulumi.String("example"),
 // 			DbSubnetGroupName: pulumi.String(aws_db_subnet_group.Example.Name),
 // 			EngineMode:        pulumi.String("multimaster"),

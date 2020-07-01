@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = cfg.NewConfigurationAggregator(ctx, "account", &cfg.ConfigurationAggregatorArgs{
+// 		_, err := cfg.NewConfigurationAggregator(ctx, "account", &cfg.ConfigurationAggregatorArgs{
 // 			AccountAggregationSource: &cfg.ConfigurationAggregatorAccountAggregationSourceArgs{
 // 				AccountIds: pulumi.StringArray{
 // 					pulumi.String("123456789012"),
@@ -67,7 +67,9 @@ import (
 // 				AllRegions: pulumi.Bool(true),
 // 				RoleArn:    organizationRole.Arn,
 // 			},
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_iam_role_policy_attachment.organization",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

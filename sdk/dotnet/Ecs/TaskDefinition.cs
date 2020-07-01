@@ -11,6 +11,41 @@ namespace Pulumi.Aws.Ecs
 {
     /// <summary>
     /// Manages a revision of an ECS task definition to be used in `aws.ecs.Service`.
+    /// 
+    /// ## Example Usage
+    /// ### With AppMesh Proxy
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var service = new Aws.Ecs.TaskDefinition("service", new Aws.Ecs.TaskDefinitionArgs
+    ///         {
+    ///             Family = "service",
+    ///             ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///             ProxyConfiguration = new Aws.Ecs.Inputs.TaskDefinitionProxyConfigurationArgs
+    ///             {
+    ///                 Type = "APPMESH",
+    ///                 ContainerName = "applicationContainerName",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "AppPorts", "8080" },
+    ///                     { "EgressIgnoredIPs", "169.254.170.2,169.254.169.254" },
+    ///                     { "IgnoredUID", "1337" },
+    ///                     { "ProxyEgressPort", "15001" },
+    ///                     { "ProxyIngressPort", "15000" },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TaskDefinition : Pulumi.CustomResource
     {

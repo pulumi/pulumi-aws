@@ -127,18 +127,18 @@ namespace Pulumi.Aws.CodeBuild
     ///             Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
     ///             {
     ///                 ComputeType = "BUILD_GENERAL1_SMALL",
-    ///                 EnvironmentVariable = 
+    ///                 EnvironmentVariables = 
     ///                 {
-    ///                     
+    ///                     new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
     ///                     {
-    ///                         { "name", "SOME_KEY1" },
-    ///                         { "value", "SOME_VALUE1" },
+    ///                         Name = "SOME_KEY1",
+    ///                         Value = "SOME_VALUE1",
     ///                     },
-    ///                     
+    ///                     new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
     ///                     {
-    ///                         { "name", "SOME_KEY2" },
-    ///                         { "type", "PARAMETER_STORE" },
-    ///                         { "value", "SOME_VALUE2" },
+    ///                         Name = "SOME_KEY2",
+    ///                         Type = "PARAMETER_STORE",
+    ///                         Value = "SOME_VALUE2",
     ///                     },
     ///                 },
     ///                 Image = "aws/codebuild/standard:1.0",
@@ -209,12 +209,12 @@ namespace Pulumi.Aws.CodeBuild
     ///             Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
     ///             {
     ///                 ComputeType = "BUILD_GENERAL1_SMALL",
-    ///                 EnvironmentVariable = 
+    ///                 EnvironmentVariables = 
     ///                 {
-    ///                     
+    ///                     new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
     ///                     {
-    ///                         { "name", "SOME_KEY1" },
-    ///                         { "value", "SOME_VALUE1" },
+    ///                         Name = "SOME_KEY1",
+    ///                         Value = "SOME_VALUE1",
     ///                     },
     ///                 },
     ///                 Image = "aws/codebuild/standard:1.0",

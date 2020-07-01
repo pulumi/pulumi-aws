@@ -23,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = apigateway.NewClientCertificate(ctx, "demo", &apigateway.ClientCertificateArgs{
+// 		_, err := apigateway.NewClientCertificate(ctx, "demo", &apigateway.ClientCertificateArgs{
 // 			Description: pulumi.String("My client certificate"),
 // 		})
 // 		if err != nil {

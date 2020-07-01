@@ -13,6 +13,43 @@ namespace Pulumi.Aws.S3
     /// Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
     /// 
     /// ## Example Usage
+    /// ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.S3.Bucket("example", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var analytics = new Aws.S3.Bucket("analytics", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var example_entire_bucket = new Aws.S3.AnalyticsConfiguration("example-entire-bucket", new Aws.S3.AnalyticsConfigurationArgs
+    ///         {
+    ///             Bucket = example.BucketName,
+    ///             StorageClassAnalysis = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisArgs
+    ///             {
+    ///                 DataExport = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs
+    ///                 {
+    ///                     Destination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs
+    ///                     {
+    ///                         S3BucketDestination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs
+    ///                         {
+    ///                             BucketArn = analytics.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Add analytics configuration with S3 bucket object filter
     /// 
     /// ```csharp

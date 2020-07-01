@@ -51,9 +51,9 @@ import (
 // 				},
 // 			},
 // 			Sns: &iot.TopicRuleSnsArgs{
-// 				Sns: pulumi.String("RAW"),
-// 				Sns: role.Arn,
-// 				Sns: mytopic.Arn,
+// 				MessageFormat: pulumi.String("RAW"),
+// 				RoleArn:       role.Arn,
+// 				TargetArn:     mytopic.Arn,
 // 			},
 // 			Sql:        pulumi.String("SELECT * FROM 'topic/test'"),
 // 			SqlVersion: pulumi.String("2016-03-23"),

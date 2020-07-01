@@ -31,7 +31,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = autoscaling.NewAttachment(ctx, "asgAttachmentBar", &autoscaling.AttachmentArgs{
+// 		_, err := autoscaling.NewAttachment(ctx, "asgAttachmentBar", &autoscaling.AttachmentArgs{
 // 			AutoscalingGroupName: pulumi.String(aws_autoscaling_group.Asg.Id),
 // 			Elb:                  pulumi.String(aws_elb.Bar.Id),
 // 		})
@@ -53,7 +53,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = autoscaling.NewAttachment(ctx, "asgAttachmentBar", &autoscaling.AttachmentArgs{
+// 		_, err := autoscaling.NewAttachment(ctx, "asgAttachmentBar", &autoscaling.AttachmentArgs{
 // 			AlbTargetGroupArn:    pulumi.String(aws_alb_target_group.Test.Arn),
 // 			AutoscalingGroupName: pulumi.String(aws_autoscaling_group.Asg.Id),
 // 		})

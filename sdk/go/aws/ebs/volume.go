@@ -24,10 +24,10 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
+// 		_, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			Size:             pulumi.Int(40),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("HelloWorld"),
 // 			},
 // 		})

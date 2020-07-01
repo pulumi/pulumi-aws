@@ -98,7 +98,7 @@ import (
 // 			ComputeEnvironmentName: pulumi.String("sample"),
 // 			ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
 // 				InstanceRole: ecsInstanceRoleInstanceProfile.Arn,
-// 				InstanceType: pulumi.StringArray{
+// 				InstanceTypes: pulumi.StringArray{
 // 					pulumi.String("c4.large"),
 // 				},
 // 				MaxVcpus: pulumi.Int(16),
@@ -113,7 +113,9 @@ import (
 // 			},
 // 			ServiceRole: awsBatchServiceRoleRole.Arn,
 // 			Type:        pulumi.String("MANAGED"),
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_iam_role_policy_attachment.aws_batch_service_role",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

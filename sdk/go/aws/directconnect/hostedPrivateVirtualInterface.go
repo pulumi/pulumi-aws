@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = directconnect.NewHostedPrivateVirtualInterface(ctx, "foo", &directconnect.HostedPrivateVirtualInterfaceArgs{
+// 		_, err := directconnect.NewHostedPrivateVirtualInterface(ctx, "foo", &directconnect.HostedPrivateVirtualInterfaceArgs{
 // 			AddressFamily: pulumi.String("ipv4"),
 // 			BgpAsn:        pulumi.Int(65352),
 // 			ConnectionId:  pulumi.String("dxcon-zzzzzzzz"),

@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+// 		_, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
 // 			Description: pulumi.String("This is my API for demonstration purposes"),
 // 		})
 // 		if err != nil {
@@ -48,7 +48,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
+// 		_, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
 // 			EndpointConfiguration: &apigateway.RestApiEndpointConfigurationArgs{
 // 				Types: pulumi.String("REGIONAL"),
 // 			},

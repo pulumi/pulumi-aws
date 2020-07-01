@@ -72,64 +72,64 @@ import (
 // 			RoleArn: codepipelineRole.Arn,
 // 			Stages: codepipeline.PipelineStageArray{
 // 				&codepipeline.PipelineStageArgs{
-// 					Action: pulumi.MapArray{
-// 						pulumi.Map{
-// 							"category": pulumi.String("Source"),
-// 							"configuration": pulumi.Map{
+// 					Actions: codepipeline.PipelineStageActionArray{
+// 						&codepipeline.PipelineStageActionArgs{
+// 							Category: pulumi.String("Source"),
+// 							Configuration: pulumi.StringMap{
 // 								"Branch": pulumi.String("master"),
 // 								"Owner":  pulumi.String("my-organization"),
 // 								"Repo":   pulumi.String("test"),
 // 							},
-// 							"name": pulumi.String("Source"),
-// 							"outputArtifacts": pulumi.StringArray{
+// 							Name: pulumi.String("Source"),
+// 							OutputArtifacts: pulumi.StringArray{
 // 								pulumi.String("source_output"),
 // 							},
-// 							"owner":    pulumi.String("ThirdParty"),
-// 							"provider": pulumi.String("GitHub"),
-// 							"version":  pulumi.String("1"),
+// 							Owner:    pulumi.String("ThirdParty"),
+// 							Provider: pulumi.String("GitHub"),
+// 							Version:  pulumi.String("1"),
 // 						},
 // 					},
 // 					Name: pulumi.String("Source"),
 // 				},
 // 				&codepipeline.PipelineStageArgs{
-// 					Action: pulumi.MapArray{
-// 						pulumi.Map{
-// 							"category": pulumi.String("Build"),
-// 							"configuration": pulumi.Map{
+// 					Actions: codepipeline.PipelineStageActionArray{
+// 						&codepipeline.PipelineStageActionArgs{
+// 							Category: pulumi.String("Build"),
+// 							Configuration: pulumi.StringMap{
 // 								"ProjectName": pulumi.String("test"),
 // 							},
-// 							"inputArtifacts": pulumi.StringArray{
+// 							InputArtifacts: pulumi.StringArray{
 // 								pulumi.String("source_output"),
 // 							},
-// 							"name": pulumi.String("Build"),
-// 							"outputArtifacts": pulumi.StringArray{
+// 							Name: pulumi.String("Build"),
+// 							OutputArtifacts: pulumi.StringArray{
 // 								pulumi.String("build_output"),
 // 							},
-// 							"owner":    pulumi.String("AWS"),
-// 							"provider": pulumi.String("CodeBuild"),
-// 							"version":  pulumi.String("1"),
+// 							Owner:    pulumi.String("AWS"),
+// 							Provider: pulumi.String("CodeBuild"),
+// 							Version:  pulumi.String("1"),
 // 						},
 // 					},
 // 					Name: pulumi.String("Build"),
 // 				},
 // 				&codepipeline.PipelineStageArgs{
-// 					Action: pulumi.MapArray{
-// 						pulumi.Map{
-// 							"category": pulumi.String("Deploy"),
-// 							"configuration": pulumi.Map{
+// 					Actions: codepipeline.PipelineStageActionArray{
+// 						&codepipeline.PipelineStageActionArgs{
+// 							Category: pulumi.String("Deploy"),
+// 							Configuration: pulumi.StringMap{
 // 								"ActionMode":     pulumi.String("REPLACE_ON_FAILURE"),
 // 								"Capabilities":   pulumi.String("CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM"),
 // 								"OutputFileName": pulumi.String("CreateStackOutput.json"),
 // 								"StackName":      pulumi.String("MyStack"),
 // 								"TemplatePath":   pulumi.String("build_output::sam-templated.yaml"),
 // 							},
-// 							"inputArtifacts": pulumi.StringArray{
+// 							InputArtifacts: pulumi.StringArray{
 // 								pulumi.String("build_output"),
 // 							},
-// 							"name":     pulumi.String("Deploy"),
-// 							"owner":    pulumi.String("AWS"),
-// 							"provider": pulumi.String("CloudFormation"),
-// 							"version":  pulumi.String("1"),
+// 							Name:     pulumi.String("Deploy"),
+// 							Owner:    pulumi.String("AWS"),
+// 							Provider: pulumi.String("CloudFormation"),
+// 							Version:  pulumi.String("1"),
 // 						},
 // 					},
 // 					Name: pulumi.String("Deploy"),

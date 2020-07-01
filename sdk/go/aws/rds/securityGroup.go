@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = rds.NewSecurityGroup(ctx, "default", &rds.SecurityGroupArgs{
+// 		_, err := rds.NewSecurityGroup(ctx, "_default", &rds.SecurityGroupArgs{
 // 			Ingress: rds.SecurityGroupIngressArray{
 // 				&rds.SecurityGroupIngressArgs{
 // 					Cidr: pulumi.String("10.0.0.0/24"),

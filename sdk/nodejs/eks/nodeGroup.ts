@@ -19,11 +19,17 @@ import * as utilities from "../utilities";
  *     clusterName: aws_eks_cluster.example.name,
  *     nodeRoleArn: aws_iam_role.example.arn,
  *     subnetIds: aws_subnet.example.map(__item => __item.id),
- *     scaling_config: {
+ *     scalingConfig: {
  *         desiredSize: 1,
  *         maxSize: 1,
  *         minSize: 1,
  *     },
+ * }, {
+ *     dependsOn: [
+ *         aws_iam_role_policy_attachment["example-AmazonEKSWorkerNodePolicy"],
+ *         aws_iam_role_policy_attachment["example-AmazonEKS_CNI_Policy"],
+ *         aws_iam_role_policy_attachment["example-AmazonEC2ContainerRegistryReadOnly"],
+ *     ],
  * });
  * ```
  * ### Ignoring Changes to Desired Size
@@ -35,7 +41,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ... other configurations ...
- * const example = new aws.eks.NodeGroup("example", {scaling_config: {
+ * const example = new aws.eks.NodeGroup("example", {scalingConfig: {
  *     desiredSize: 2,
  * }});
  * ```

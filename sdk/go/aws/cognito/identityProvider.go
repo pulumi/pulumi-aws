@@ -33,11 +33,11 @@ import (
 // 			return err
 // 		}
 // 		_, err = cognito.NewIdentityProvider(ctx, "exampleProvider", &cognito.IdentityProviderArgs{
-// 			AttributeMapping: pulumi.Map{
+// 			AttributeMapping: pulumi.StringMap{
 // 				"email":    pulumi.String("email"),
 // 				"username": pulumi.String("sub"),
 // 			},
-// 			ProviderDetails: pulumi.Map{
+// 			ProviderDetails: pulumi.StringMap{
 // 				"authorize_scopes": pulumi.String("email"),
 // 				"client_id":        pulumi.String("your client_id"),
 // 				"client_secret":    pulumi.String("your client_secret"),

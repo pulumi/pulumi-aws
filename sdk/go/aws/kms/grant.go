@@ -40,7 +40,7 @@ import (
 // 		_, err = kms.NewGrant(ctx, "grant", &kms.GrantArgs{
 // 			Constraints: kms.GrantConstraintArray{
 // 				&kms.GrantConstraintArgs{
-// 					EncryptionContextEquals: pulumi.Map{
+// 					EncryptionContextEquals: pulumi.StringMap{
 // 						"Department": pulumi.String("Finance"),
 // 					},
 // 				},

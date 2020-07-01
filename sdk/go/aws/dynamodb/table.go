@@ -29,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = dynamodb.NewTable(ctx, "basic-dynamodb-table", &dynamodb.TableArgs{
+// 		_, err := dynamodb.NewTable(ctx, "basic_dynamodb_table", &dynamodb.TableArgs{
 // 			Attributes: dynamodb.TableAttributeArray{
 // 				&dynamodb.TableAttributeArgs{
 // 					Name: pulumi.String("UserId"),
@@ -61,7 +61,7 @@ import (
 // 			HashKey:      pulumi.String("UserId"),
 // 			RangeKey:     pulumi.String("GameTitle"),
 // 			ReadCapacity: pulumi.Int(20),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Environment": pulumi.String("production"),
 // 				"Name":        pulumi.String("dynamodb-table-1"),
 // 			},
@@ -92,7 +92,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
+// 		_, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
 // 			Attributes: dynamodb.TableAttributeArray{
 // 				&dynamodb.TableAttributeArgs{
 // 					Name: pulumi.String("TestTableHashKey"),

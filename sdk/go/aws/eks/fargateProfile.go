@@ -49,7 +49,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSFargatePodExecutionRolePolicy", &iam.RolePolicyAttachmentArgs{
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "example_AmazonEKSFargatePodExecutionRolePolicy", &iam.RolePolicyAttachmentArgs{
 // 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy"),
 // 			Role:      example.Name,
 // 		})

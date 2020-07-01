@@ -33,7 +33,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
+// 		_, err := elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
 // 			Engine:             pulumi.String("memcached"),
 // 			NodeType:           pulumi.String("cache.m4.large"),
 // 			NumCacheNodes:      pulumi.Int(2),
@@ -59,7 +59,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
+// 		_, err := elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
 // 			Engine:             pulumi.String("redis"),
 // 			EngineVersion:      pulumi.String("3.2.10"),
 // 			NodeType:           pulumi.String("cache.m4.large"),
@@ -88,7 +88,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = elasticache.NewCluster(ctx, "replica", &elasticache.ClusterArgs{
+// 		_, err := elasticache.NewCluster(ctx, "replica", &elasticache.ClusterArgs{
 // 			ReplicationGroupId: pulumi.String(aws_elasticache_replication_group.Example.Id),
 // 		})
 // 		if err != nil {

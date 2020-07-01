@@ -84,12 +84,18 @@ namespace Pulumi.Aws.Ec2
     ///             CidrBlock = "10.0.0.0/16",
     ///             EnableDnsHostnames = true,
     ///             EnableDnsSupport = true,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.requester",
     ///         });
     ///         var peerVpc = new Aws.Ec2.Vpc("peerVpc", new Aws.Ec2.VpcArgs
     ///         {
     ///             CidrBlock = "10.1.0.0/16",
     ///             EnableDnsHostnames = true,
     ///             EnableDnsSupport = true,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.accepter",
     ///         });
     ///         var peerCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
     ///         var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peerVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
@@ -102,6 +108,9 @@ namespace Pulumi.Aws.Ec2
     ///                 { "Side", "Requester" },
     ///             },
     ///             VpcId = main.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.requester",
     ///         });
     ///         var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", new Aws.Ec2.VpcPeeringConnectionAccepterArgs
     ///         {
@@ -111,6 +120,9 @@ namespace Pulumi.Aws.Ec2
     ///                 { "Side", "Accepter" },
     ///             },
     ///             VpcPeeringConnectionId = peerVpcPeeringConnection.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.accepter",
     ///         });
     ///         var requesterPeeringConnectionOptions = new Aws.Ec2.PeeringConnectionOptions("requesterPeeringConnectionOptions", new Aws.Ec2.PeeringConnectionOptionsArgs
     ///         {
@@ -119,6 +131,9 @@ namespace Pulumi.Aws.Ec2
     ///                 AllowRemoteVpcDnsResolution = true,
     ///             },
     ///             VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.requester",
     ///         });
     ///         var accepterPeeringConnectionOptions = new Aws.Ec2.PeeringConnectionOptions("accepterPeeringConnectionOptions", new Aws.Ec2.PeeringConnectionOptionsArgs
     ///         {
@@ -127,6 +142,9 @@ namespace Pulumi.Aws.Ec2
     ///                 AllowRemoteVpcDnsResolution = true,
     ///             },
     ///             VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.accepter",
     ///         });
     ///     }
     /// 

@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ec2.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2.RouteTableAssociationArgs{
+// 		_, err := ec2.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2.RouteTableAssociationArgs{
 // 			SubnetId:     pulumi.String(aws_subnet.Foo.Id),
 // 			RouteTableId: pulumi.String(aws_route_table.Bar.Id),
 // 		})
@@ -47,7 +47,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ec2.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2.RouteTableAssociationArgs{
+// 		_, err := ec2.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2.RouteTableAssociationArgs{
 // 			GatewayId:    pulumi.String(aws_internet_gateway.Foo.Id),
 // 			RouteTableId: pulumi.String(aws_route_table.Bar.Id),
 // 		})

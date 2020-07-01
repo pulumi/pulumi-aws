@@ -34,8 +34,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ec2.NewDefaultVpcDhcpOptions(ctx, "default", &ec2.DefaultVpcDhcpOptionsArgs{
-// 			Tags: pulumi.Map{
+// 		_, err := ec2.NewDefaultVpcDhcpOptions(ctx, "_default", &ec2.DefaultVpcDhcpOptionsArgs{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("Default DHCP Option Set"),
 // 			},
 // 		})

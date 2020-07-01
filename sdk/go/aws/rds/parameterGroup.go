@@ -30,7 +30,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = rds.NewParameterGroup(ctx, "default", &rds.ParameterGroupArgs{
+// 		_, err := rds.NewParameterGroup(ctx, "_default", &rds.ParameterGroupArgs{
 // 			Family: pulumi.String("mysql5.6"),
 // 			Parameters: rds.ParameterGroupParameterArray{
 // 				&rds.ParameterGroupParameterArgs{

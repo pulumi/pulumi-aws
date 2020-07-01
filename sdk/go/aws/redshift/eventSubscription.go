@@ -49,7 +49,7 @@ import (
 // 				defaultCluster.ID(),
 // 			},
 // 			SourceType: pulumi.String("cluster"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("default"),
 // 			},
 // 		})

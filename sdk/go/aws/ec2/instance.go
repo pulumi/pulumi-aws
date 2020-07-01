@@ -53,7 +53,7 @@ import (
 // 		_, err = ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
 // 			Ami:          pulumi.String(ubuntu.Id),
 // 			InstanceType: pulumi.String("t2.micro"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("HelloWorld"),
 // 			},
 // 		})

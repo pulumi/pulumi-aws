@@ -37,11 +37,20 @@ namespace Pulumi.Aws.DirectConnect
     ///             ConnectionId = "dxcon-zzzzzzzz",
     ///             OwnerAccountId = accepterCallerIdentity.Apply(accepterCallerIdentity =&gt; accepterCallerIdentity.AccountId),
     ///             Vlan = 4094,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_dx_gateway.example",
+    ///             },
     ///         });
     ///         // Accepter's side of the VIF.
     ///         var example = new Aws.DirectConnect.Gateway("example", new Aws.DirectConnect.GatewayArgs
     ///         {
     ///             AmazonSideAsn = "64512",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.accepter",
     ///         });
     ///         var accepterHostedTransitVirtualInterfaceAcceptor = new Aws.DirectConnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor", new Aws.DirectConnect.HostedTransitVirtualInterfaceAcceptorArgs
     ///         {
@@ -51,6 +60,9 @@ namespace Pulumi.Aws.DirectConnect
     ///                 { "Side", "Accepter" },
     ///             },
     ///             VirtualInterfaceId = creator.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.accepter",
     ///         });
     ///     }
     /// 

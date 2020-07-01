@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = servicequotas.NewServiceQuota(ctx, "example", &servicequotas.ServiceQuotaArgs{
+// 		_, err := servicequotas.NewServiceQuota(ctx, "example", &servicequotas.ServiceQuotaArgs{
 // 			QuotaCode:   pulumi.String("L-F678F1CE"),
 // 			ServiceCode: pulumi.String("vpc"),
 // 			Value:       pulumi.Float64(75),

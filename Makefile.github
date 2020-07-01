@@ -10,9 +10,6 @@ TFGEN           := pulumi-tfgen-${PACK}
 PROVIDER        := pulumi-resource-${PACK}
 VERSION         := $(shell pulumictl get version)
 
-LATEST_RESOURCE_PROVIDER_VERSION := $(shell pulumictl get latest-plugin pulumi-${PACK})
-PROVIDER_VERSION := ${LATEST_RESOURCE_PROVIDER_VERSION:v%=%}
-
 WORKING_DIR     := $(shell pwd)
 
 .PHONY: development provider build_sdks build_nodejs build_dotnet build_go build_python cleanup
@@ -80,7 +77,6 @@ clean::
 
 install_plugins::
 	[ -x $(shell which pulumi) ] || curl -fsSL https://get.pulumi.com | sh
-	pulumi plugin install resource $(PACK) $(PROVIDER_VERSION)
 	pulumi plugin install resource tls 2.0.0
 	pulumi plugin install resource github 1.0.0
 

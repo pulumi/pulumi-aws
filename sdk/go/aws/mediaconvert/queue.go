@@ -23,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = mediaconvert.NewQueue(ctx, "test", nil)
+// 		_, err := mediaconvert.NewQueue(ctx, "test", nil)
 // 		if err != nil {
 // 			return err
 // 		}

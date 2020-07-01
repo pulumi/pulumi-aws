@@ -27,9 +27,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ec2.NewSubnet(ctx, "main", &ec2.SubnetArgs{
+// 		_, err := ec2.NewSubnet(ctx, "main", &ec2.SubnetArgs{
 // 			CidrBlock: pulumi.String("10.0.1.0/24"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("Main"),
 // 			},
 // 			VpcId: pulumi.String(aws_vpc.Main.Id),

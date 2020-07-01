@@ -11,6 +11,166 @@ import (
 )
 
 // Manages AWS Managed Streaming for Kafka cluster
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/kinesis"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/kms"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/msk"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
+// 			CidrBlock: pulumi.String("192.168.0.0/22"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt0 := "available"
+// 		azs, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+// 			State: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		subnetAz1, err := ec2.NewSubnet(ctx, "subnetAz1", &ec2.SubnetArgs{
+// 			AvailabilityZone: pulumi.String(azs.Names[0]),
+// 			CidrBlock:        pulumi.String("192.168.0.0/24"),
+// 			VpcId:            vpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		subnetAz2, err := ec2.NewSubnet(ctx, "subnetAz2", &ec2.SubnetArgs{
+// 			AvailabilityZone: pulumi.String(azs.Names[1]),
+// 			CidrBlock:        pulumi.String("192.168.1.0/24"),
+// 			VpcId:            vpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		subnetAz3, err := ec2.NewSubnet(ctx, "subnetAz3", &ec2.SubnetArgs{
+// 			AvailabilityZone: pulumi.String(azs.Names[2]),
+// 			CidrBlock:        pulumi.String("192.168.2.0/24"),
+// 			VpcId:            vpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		sg, err := ec2.NewSecurityGroup(ctx, "sg", &ec2.SecurityGroupArgs{
+// 			VpcId: vpc.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		kms, err := kms.NewKey(ctx, "kms", &kms.KeyArgs{
+// 			Description: pulumi.String("example"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		test, err := cloudwatch.NewLogGroup(ctx, "test", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
+// 			Acl: pulumi.String("private"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "\"Version\": \"2012-10-17\",\n", "\"Statement\": [\n", "  {\n", "    \"Action\": \"sts:AssumeRole\",\n", "    \"Principal\": {\n", "      \"Service\": \"firehose.amazonaws.com\"\n", "    },\n", "    \"Effect\": \"Allow\",\n", "    \"Sid\": \"\"\n", "  }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
+// 			Destination: pulumi.String("s3"),
+// 			S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
+// 				RoleArn:   firehoseRole.Arn,
+// 				BucketArn: bucket.Arn,
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"LogDeliveryEnabled": pulumi.String("placeholder"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		example, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
+// 			ClusterName:         pulumi.String("example"),
+// 			KafkaVersion:        pulumi.String("2.1.0"),
+// 			NumberOfBrokerNodes: pulumi.Int(3),
+// 			BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
+// 				InstanceType:  pulumi.String("kafka.m5.large"),
+// 				EbsVolumeSize: pulumi.Int(1000),
+// 				ClientSubnets: pulumi.StringArray{
+// 					subnetAz1.ID(),
+// 					subnetAz2.ID(),
+// 					subnetAz3.ID(),
+// 				},
+// 				SecurityGroups: pulumi.StringArray{
+// 					sg.ID(),
+// 				},
+// 			},
+// 			EncryptionInfo: &msk.ClusterEncryptionInfoArgs{
+// 				EncryptionAtRestKmsKeyArn: kms.Arn,
+// 			},
+// 			OpenMonitoring: &msk.ClusterOpenMonitoringArgs{
+// 				Prometheus: &msk.ClusterOpenMonitoringPrometheusArgs{
+// 					JmxExporter: &msk.ClusterOpenMonitoringPrometheusJmxExporterArgs{
+// 						EnabledInBroker: pulumi.Bool(true),
+// 					},
+// 					NodeExporter: &msk.ClusterOpenMonitoringPrometheusNodeExporterArgs{
+// 						EnabledInBroker: pulumi.Bool(true),
+// 					},
+// 				},
+// 			},
+// 			LoggingInfo: &msk.ClusterLoggingInfoArgs{
+// 				BrokerLogs: &msk.ClusterLoggingInfoBrokerLogsArgs{
+// 					CloudwatchLogs: &msk.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs{
+// 						Enabled:  pulumi.Bool(true),
+// 						LogGroup: test.Name,
+// 					},
+// 					Firehose: &msk.ClusterLoggingInfoBrokerLogsFirehoseArgs{
+// 						Enabled:        pulumi.Bool(true),
+// 						DeliveryStream: testStream.Name,
+// 					},
+// 					S3: &msk.ClusterLoggingInfoBrokerLogsS3Args{
+// 						Enabled: pulumi.Bool(true),
+// 						Bucket:  bucket.ID(),
+// 						Prefix:  pulumi.String("logs/msk-"),
+// 					},
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"foo": pulumi.String("bar"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("zookeeperConnectString", example.ZookeeperConnectString)
+// 		ctx.Export("bootstrapBrokers", example.BootstrapBrokers)
+// 		ctx.Export("bootstrapBrokersTls", example.BootstrapBrokersTls)
+// 		return nil
+// 	})
+// }
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = route53.NewZone(ctx, "primary", nil)
+// 		_, err := route53.NewZone(ctx, "primary", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -53,14 +53,14 @@ import (
 // 			return err
 // 		}
 // 		dev, err := route53.NewZone(ctx, "dev", &route53.ZoneArgs{
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Environment": pulumi.String("dev"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = route53.NewRecord(ctx, "dev-ns", &route53.RecordArgs{
+// 		_, err = route53.NewRecord(ctx, "dev_ns", &route53.RecordArgs{
 // 			Name: pulumi.String("dev.example.com"),
 // 			Records: pulumi.StringArray{
 // 				dev.NameServers.ApplyT(func(nameServers []string) (string, error) {
@@ -103,7 +103,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = route53.NewZone(ctx, "private", &route53.ZoneArgs{
+// 		_, err := route53.NewZone(ctx, "private", &route53.ZoneArgs{
 // 			Vpcs: route53.ZoneVpcArray{
 // 				&route53.ZoneVpcArgs{
 // 					VpcId: pulumi.String(aws_vpc.Example.Id),

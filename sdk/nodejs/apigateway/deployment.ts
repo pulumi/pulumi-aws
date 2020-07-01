@@ -44,6 +44,8 @@ import {RestApi} from "./index";
  *     variables: {
  *         answer: "42",
  *     },
+ * }, {
+ *     dependsOn: [myDemoIntegration],
  * });
  * ```
  */

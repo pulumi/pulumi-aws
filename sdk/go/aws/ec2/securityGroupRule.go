@@ -38,7 +38,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ec2.NewSecurityGroupRule(ctx, "example", &ec2.SecurityGroupRuleArgs{
+// 		_, err := ec2.NewSecurityGroupRule(ctx, "example", &ec2.SecurityGroupRuleArgs{
 // 			Type:            pulumi.String("ingress"),
 // 			FromPort:        pulumi.Int(0),
 // 			ToPort:          pulumi.Int(65535),

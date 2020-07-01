@@ -43,7 +43,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ec2.NewRouteTable(ctx, "routeTable", &ec2.RouteTableArgs{
+// 		_, err := ec2.NewRouteTable(ctx, "routeTable", &ec2.RouteTableArgs{
 // 			Routes: ec2.RouteTableRouteArray{
 // 				&ec2.RouteTableRouteArgs{
 // 					CidrBlock: pulumi.String("10.0.1.0/24"),
@@ -54,7 +54,7 @@ import (
 // 					Ipv6CidrBlock:       pulumi.String("::/0"),
 // 				},
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("main"),
 // 			},
 // 			VpcId: pulumi.String(aws_vpc.Default.Id),

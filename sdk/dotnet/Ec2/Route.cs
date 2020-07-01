@@ -33,6 +33,12 @@ namespace Pulumi.Aws.Ec2
     ///             RouteTableId = "rtb-4fbb3ac4",
     ///             DestinationCidrBlock = "10.0.1.0/22",
     ///             VpcPeeringConnectionId = "pcx-45ff3dc1",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_route_table.testing",
+    ///             },
     ///         });
     ///     }
     /// 

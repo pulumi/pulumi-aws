@@ -64,7 +64,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = lb.NewTargetGroup(ctx, "ip-example", &lb.TargetGroupArgs{
+// 		_, err = lb.NewTargetGroup(ctx, "ip_example", &lb.TargetGroupArgs{
 // 			Port:       pulumi.Int(80),
 // 			Protocol:   pulumi.String("HTTP"),
 // 			TargetType: pulumi.String("ip"),
@@ -89,7 +89,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = lb.NewTargetGroup(ctx, "lambda-example", &lb.TargetGroupArgs{
+// 		_, err := lb.NewTargetGroup(ctx, "lambda_example", &lb.TargetGroupArgs{
 // 			TargetType: pulumi.String("lambda"),
 // 		})
 // 		if err != nil {

@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ec2.NewCapacityReservation(ctx, "default", &ec2.CapacityReservationArgs{
+// 		_, err := ec2.NewCapacityReservation(ctx, "_default", &ec2.CapacityReservationArgs{
 // 			AvailabilityZone: pulumi.String("eu-west-1a"),
 // 			InstanceCount:    pulumi.Int(1),
 // 			InstancePlatform: pulumi.String("Linux/UNIX"),

@@ -29,7 +29,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = s3.NewBucketMetric(ctx, "example-entire-bucket", &s3.BucketMetricArgs{
+// 		_, err = s3.NewBucketMetric(ctx, "example_entire_bucket", &s3.BucketMetricArgs{
 // 			Bucket: example.Bucket,
 // 		})
 // 		if err != nil {
@@ -55,11 +55,11 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
+// 		_, err = s3.NewBucketMetric(ctx, "example_filtered", &s3.BucketMetricArgs{
 // 			Bucket: example.Bucket,
 // 			Filter: &s3.BucketMetricFilterArgs{
 // 				Prefix: pulumi.String("documents/"),
-// 				Tags: pulumi.Map{
+// 				Tags: pulumi.StringMap{
 // 					"class":    pulumi.String("blue"),
 // 					"priority": pulumi.String("high"),
 // 				},

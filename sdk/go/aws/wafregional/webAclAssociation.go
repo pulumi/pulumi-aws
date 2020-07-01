@@ -226,7 +226,9 @@ import (
 // 		}
 // 		testDeployment, err := apigateway.NewDeployment(ctx, "testDeployment", &apigateway.DeploymentArgs{
 // 			RestApi: testRestApi.ID(),
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"aws_api_gateway_integration_response.test",
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

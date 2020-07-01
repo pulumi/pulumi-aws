@@ -58,50 +58,50 @@ namespace Pulumi.Aws.Ssm
     ///                 {
     ///                     ApproveAfterDays = 7,
     ///                     ComplianceLevel = "HIGH",
-    ///                     PatchFilter = 
+    ///                     PatchFilters = 
     ///                     {
-    ///                         
+    ///                         new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
     ///                         {
-    ///                             { "key", "PRODUCT" },
-    ///                             { "values", 
+    ///                             Key = "PRODUCT",
+    ///                             Values = 
     ///                             {
     ///                                 "WindowsServer2016",
-    ///                             } },
+    ///                             },
     ///                         },
-    ///                         
+    ///                         new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
     ///                         {
-    ///                             { "key", "CLASSIFICATION" },
-    ///                             { "values", 
+    ///                             Key = "CLASSIFICATION",
+    ///                             Values = 
     ///                             {
     ///                                 "CriticalUpdates",
     ///                                 "SecurityUpdates",
     ///                                 "Updates",
-    ///                             } },
+    ///                             },
     ///                         },
-    ///                         
+    ///                         new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
     ///                         {
-    ///                             { "key", "MSRC_SEVERITY" },
-    ///                             { "values", 
+    ///                             Key = "MSRC_SEVERITY",
+    ///                             Values = 
     ///                             {
     ///                                 "Critical",
     ///                                 "Important",
     ///                                 "Moderate",
-    ///                             } },
+    ///                             },
     ///                         },
     ///                     },
     ///                 },
     ///                 new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
     ///                 {
     ///                     ApproveAfterDays = 7,
-    ///                     PatchFilter = 
+    ///                     PatchFilters = 
     ///                     {
-    ///                         
+    ///                         new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
     ///                         {
-    ///                             { "key", "PRODUCT" },
-    ///                             { "values", 
+    ///                             Key = "PRODUCT",
+    ///                             Values = 
     ///                             {
     ///                                 "WindowsServer2012",
-    ///                             } },
+    ///                             },
     ///                         },
     ///                     },
     ///                 },
@@ -166,49 +166,49 @@ namespace Pulumi.Aws.Ssm
     ///                 new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
     ///                 {
     ///                     ApproveAfterDays = 7,
-    ///                     PatchFilter = 
+    ///                     PatchFilters = 
     ///                     {
-    ///                         
+    ///                         new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
     ///                         {
-    ///                             { "key", "CLASSIFICATION" },
-    ///                             { "values", 
+    ///                             Key = "CLASSIFICATION",
+    ///                             Values = 
     ///                             {
     ///                                 "CriticalUpdates",
     ///                                 "SecurityUpdates",
-    ///                             } },
+    ///                             },
     ///                         },
-    ///                         
+    ///                         new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
     ///                         {
-    ///                             { "key", "MSRC_SEVERITY" },
-    ///                             { "values", 
+    ///                             Key = "MSRC_SEVERITY",
+    ///                             Values = 
     ///                             {
     ///                                 "Critical",
     ///                                 "Important",
-    ///                             } },
+    ///                             },
     ///                         },
     ///                     },
     ///                 },
     ///                 new Aws.Ssm.Inputs.PatchBaselineApprovalRuleArgs
     ///                 {
     ///                     ApproveAfterDays = 7,
-    ///                     PatchFilter = 
+    ///                     PatchFilters = 
     ///                     {
-    ///                         
+    ///                         new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
     ///                         {
-    ///                             { "key", "PATCH_SET" },
-    ///                             { "values", 
+    ///                             Key = "PATCH_SET",
+    ///                             Values = 
     ///                             {
     ///                                 "APPLICATION",
-    ///                             } },
+    ///                             },
     ///                         },
-    ///                         
+    ///                         new Aws.Ssm.Inputs.PatchBaselineApprovalRulePatchFilterArgs
     ///                         {
-    ///                             { "key", "PRODUCT" },
-    ///                             { "values", 
+    ///                             Key = "PRODUCT",
+    ///                             Values = 
     ///                             {
     ///                                 "Office 2013",
     ///                                 "Office 2016",
-    ///                             } },
+    ///                             },
     ///                         },
     ///                     },
     ///                 },

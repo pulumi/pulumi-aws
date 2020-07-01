@@ -24,19 +24,21 @@ import * as utilities from "../utilities";
  *     taskDefinition: aws_ecs_task_definition.mongo.arn,
  *     desiredCount: 3,
  *     iamRole: aws_iam_role.foo.arn,
- *     ordered_placement_strategy: [{
+ *     orderedPlacementStrategies: [{
  *         type: "binpack",
  *         field: "cpu",
  *     }],
- *     load_balancer: [{
+ *     loadBalancers: [{
  *         targetGroupArn: aws_lb_target_group.foo.arn,
  *         containerName: "mongo",
  *         containerPort: 8080,
  *     }],
- *     placement_constraints: [{
+ *     placementConstraints: [{
  *         type: "memberOf",
  *         expression: "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
  *     }],
+ * }, {
+ *     dependsOn: ["aws_iam_role_policy.foo"],
  * });
  * ```
  * ### Ignoring Changes to Desired Count

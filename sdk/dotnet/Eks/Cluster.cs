@@ -77,6 +77,12 @@ namespace Pulumi.Aws.Eks
     ///                 "api",
     ///                 "audit",
     ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "aws_cloudwatch_log_group.example",
+    ///             },
     ///         });
     ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
     ///         {

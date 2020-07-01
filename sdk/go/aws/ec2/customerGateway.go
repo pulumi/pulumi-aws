@@ -24,10 +24,10 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = ec2.NewCustomerGateway(ctx, "main", &ec2.CustomerGatewayArgs{
+// 		_, err := ec2.NewCustomerGateway(ctx, "main", &ec2.CustomerGatewayArgs{
 // 			BgpAsn:    pulumi.Int(65000),
 // 			IpAddress: pulumi.String("172.83.124.10"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("main-customer-gateway"),
 // 			},
 // 			Type: pulumi.String("ipsec.1"),

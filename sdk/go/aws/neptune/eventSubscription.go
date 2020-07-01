@@ -68,7 +68,7 @@ import (
 // 				example.ID(),
 // 			},
 // 			SourceType: pulumi.String("db-instance"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"env": pulumi.String("test"),
 // 			},
 // 		})

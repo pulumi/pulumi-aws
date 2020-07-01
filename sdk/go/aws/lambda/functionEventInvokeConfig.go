@@ -13,6 +13,38 @@ import (
 // Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
 //
 // ## Example Usage
+// ### Destination Configuration
+//
+// > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
+// 			FunctionName: pulumi.String(aws_lambda_alias.Example.Function_name),
+// 			DestinationConfig: &lambda.FunctionEventInvokeConfigDestinationConfigArgs{
+// 				OnFailure: &lambda.FunctionEventInvokeConfigDestinationConfigOnFailureArgs{
+// 					Destination: pulumi.String(aws_sqs_queue.Example.Arn),
+// 				},
+// 				OnSuccess: &lambda.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs{
+// 					Destination: pulumi.String(aws_sns_topic.Example.Arn),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Error Handling Configuration
 //
 // ```go
@@ -25,7 +57,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
+// 		_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
 // 			FunctionName:             pulumi.String(aws_lambda_alias.Example.Function_name),
 // 			MaximumEventAgeInSeconds: pulumi.Int(60),
 // 			MaximumRetryAttempts:     pulumi.Int(0),
@@ -49,7 +81,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
+// 		_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
 // 			FunctionName: pulumi.String(aws_lambda_alias.Example.Function_name),
 // 			Qualifier:    pulumi.String(aws_lambda_alias.Example.Name),
 // 		})
@@ -74,7 +106,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
+// 		_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
 // 			FunctionName: pulumi.String(aws_lambda_function.Example.Function_name),
 // 			Qualifier:    pulumi.String(fmt.Sprintf("%v%v", "$", "LATEST")),
 // 		})
@@ -97,7 +129,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
+// 		_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
 // 			FunctionName: pulumi.String(aws_lambda_function.Example.Function_name),
 // 			Qualifier:    pulumi.String(aws_lambda_function.Example.Version),
 // 		})

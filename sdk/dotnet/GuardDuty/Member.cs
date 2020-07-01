@@ -29,6 +29,9 @@ namespace Pulumi.Aws.GuardDuty
     ///         var memberDetector = new Aws.GuardDuty.Detector("memberDetector", new Aws.GuardDuty.DetectorArgs
     ///         {
     ///             Enable = true,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = "aws.dev",
     ///         });
     ///         var memberMember = new Aws.GuardDuty.Member("memberMember", new Aws.GuardDuty.MemberArgs
     ///         {
