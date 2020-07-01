@@ -43,6 +43,14 @@ export module InstanceTypes {
     export const C5_9XLarge: InstanceType = "c5.9xlarge";
     export const C5_Large: InstanceType = "c5.large";
     export const C5_XLarge: InstanceType = "c5.xlarge";
+    export const C5a_12XLarge: InstanceType = "c5a.12xlarge";
+    export const C5a_16XLarge: InstanceType = "c5a.16xlarge";
+    export const C5a_2XLarge: InstanceType = "c5a.2xlarge";
+    export const C5a_24XLarge: InstanceType = "c5a.24xlarge";
+    export const C5a_4XLarge: InstanceType = "c5a.4xlarge";
+    export const C5a_8XLarge: InstanceType = "c5a.8xlarge";
+    export const C5a_Large: InstanceType = "c5a.large";
+    export const C5a_XLarge: InstanceType = "c5a.xlarge";
     export const C5d_18XLarge: InstanceType = "c5d.18xlarge";
     export const C5d_2XLarge: InstanceType = "c5d.2xlarge";
     export const C5d_4XLarge: InstanceType = "c5d.4xlarge";
@@ -204,8 +212,16 @@ export type InstanceType =
     "c5.2xlarge" |
     "c5.large" |
     "c5.9xlarge" |
-    "c5d.18xlarge" |
     "c5.xlarge" |
+    "c5a.12xlarge" |
+    "c5a.16xlarge" |
+    "c5a.2xlarge" |
+    "c5a.24xlarge" |
+    "c5a.4xlarge" |
+    "c5a.8xlarge" |
+    "c5a.large" |
+    "c5a.xlarge" |
+    "c5d.18xlarge" |
     "c5d.4xlarge" |
     "c5d.2xlarge" |
     "c5d.large" |
