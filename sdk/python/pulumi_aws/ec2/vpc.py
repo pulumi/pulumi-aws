@@ -58,7 +58,8 @@ class Vpc(pulumi.CustomResource):
     """
     instance_tenancy: pulumi.Output[str]
     """
-    A tenancy option for instances launched into the VPC
+    A tenancy option for instances launched into the VPC. Default is `default`, which
+    makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
     """
     ipv6_association_id: pulumi.Output[str]
     """
@@ -105,7 +106,7 @@ class Vpc(pulumi.CustomResource):
 
         main = aws.ec2.Vpc("main",
             cidr_block="10.0.0.0/16",
-            instance_tenancy="dedicated",
+            instance_tenancy="default",
             tags={
                 "Name": "main",
             })
@@ -124,7 +125,8 @@ class Vpc(pulumi.CustomResource):
                Only valid in regions and accounts that support EC2 Classic.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
-        :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC
+        :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC. Default is `default`, which
+               makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -193,7 +195,8 @@ class Vpc(pulumi.CustomResource):
                Only valid in regions and accounts that support EC2 Classic.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
-        :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC
+        :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC. Default is `default`, which
+               makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
         :param pulumi.Input[str] ipv6_association_id: The association ID for the IPv6 CIDR block.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
         :param pulumi.Input[str] main_route_table_id: The ID of the main route table associated with

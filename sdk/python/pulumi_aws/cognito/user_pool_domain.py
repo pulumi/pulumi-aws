@@ -20,7 +20,7 @@ class UserPoolDomain(pulumi.CustomResource):
     """
     cloudfront_distribution_arn: pulumi.Output[str]
     """
-    The ARN of the CloudFront distribution.
+    The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
     """
     domain: pulumi.Output[str]
     """
@@ -60,11 +60,21 @@ class UserPoolDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cognito.UserPool("example")
+        example_user_pool = aws.cognito.UserPool("exampleUserPool")
         main = aws.cognito.UserPoolDomain("main",
             certificate_arn=aws_acm_certificate["cert"]["arn"],
             domain="example-domain.example.com",
-            user_pool_id=example.id)
+            user_pool_id=example_user_pool.id)
+        example_zone = aws.route53.get_zone(name="example.com")
+        auth_cognito__a = aws.route53.Record("auth-cognito-A",
+            aliases=[{
+                "evaluateTargetHealth": False,
+                "name": main.cloudfront_distribution_arn,
+                "zone_id": "Z2FDTNDATAQYW2",
+            }],
+            name=main.domain,
+            type="A",
+            zone_id=example_zone.zone_id)
         ```
 
         :param str resource_name: The name of the resource.
@@ -118,7 +128,7 @@ class UserPoolDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The AWS account ID for the user pool owner.
         :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        :param pulumi.Input[str] cloudfront_distribution_arn: The ARN of the CloudFront distribution.
+        :param pulumi.Input[str] cloudfront_distribution_arn: The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
         :param pulumi.Input[str] domain: The domain string.
         :param pulumi.Input[str] s3_bucket: The S3 bucket where the static files for this domain are stored.
         :param pulumi.Input[str] user_pool_id: The user pool ID.

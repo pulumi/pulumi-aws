@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.ec2.CustomerGateway("main", {
- *     bgpAsn: 65000,
+ *     bgpAsn: "65000",
  *     ipAddress: "172.83.124.10",
  *     tags: {
  *         Name: "main-customer-gateway",
@@ -58,7 +58,7 @@ export class CustomerGateway extends pulumi.CustomResource {
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
-    public readonly bgpAsn!: pulumi.Output<number>;
+    public readonly bgpAsn!: pulumi.Output<string>;
     /**
      * The IP address of the gateway's Internet-routable external interface.
      */
@@ -129,7 +129,7 @@ export interface CustomerGatewayState {
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
-    readonly bgpAsn?: pulumi.Input<number>;
+    readonly bgpAsn?: pulumi.Input<string>;
     /**
      * The IP address of the gateway's Internet-routable external interface.
      */
@@ -152,7 +152,7 @@ export interface CustomerGatewayArgs {
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
-    readonly bgpAsn: pulumi.Input<number>;
+    readonly bgpAsn: pulumi.Input<string>;
     /**
      * The IP address of the gateway's Internet-routable external interface.
      */

@@ -28,7 +28,7 @@ class Member(pulumi.CustomResource):
     """
     member_status: pulumi.Output[str]
     """
-    The status of the relationship between the member account and its master account.
+    The status of the member account relationship.
     """
     def __init__(__self__, resource_name, opts=None, account_id=None, email=None, invite=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -99,7 +99,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[str] email: The email of the member AWS account.
         :param pulumi.Input[bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         :param pulumi.Input[str] master_id: The ID of the master Security Hub AWS account.
-        :param pulumi.Input[str] member_status: The status of the relationship between the member account and its master account.
+        :param pulumi.Input[str] member_status: The status of the member account relationship.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

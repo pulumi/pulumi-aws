@@ -51,7 +51,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
 // 			CidrBlock:       pulumi.String("10.0.0.0/16"),
-// 			InstanceTenancy: pulumi.String("dedicated"),
+// 			InstanceTenancy: pulumi.String("default"),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("main"),
 // 			},
@@ -92,7 +92,8 @@ type Vpc struct {
 	EnableDnsHostnames pulumi.BoolOutput `pulumi:"enableDnsHostnames"`
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport pulumi.BoolPtrOutput `pulumi:"enableDnsSupport"`
-	// A tenancy option for instances launched into the VPC
+	// A tenancy option for instances launched into the VPC. Default is `default`, which
+	// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
 	InstanceTenancy pulumi.StringPtrOutput `pulumi:"instanceTenancy"`
 	// The association ID for the IPv6 CIDR block.
 	Ipv6AssociationId pulumi.StringOutput `pulumi:"ipv6AssociationId"`
@@ -165,7 +166,8 @@ type vpcState struct {
 	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport *bool `pulumi:"enableDnsSupport"`
-	// A tenancy option for instances launched into the VPC
+	// A tenancy option for instances launched into the VPC. Default is `default`, which
+	// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
 	InstanceTenancy *string `pulumi:"instanceTenancy"`
 	// The association ID for the IPv6 CIDR block.
 	Ipv6AssociationId *string `pulumi:"ipv6AssociationId"`
@@ -208,7 +210,8 @@ type VpcState struct {
 	EnableDnsHostnames pulumi.BoolPtrInput
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport pulumi.BoolPtrInput
-	// A tenancy option for instances launched into the VPC
+	// A tenancy option for instances launched into the VPC. Default is `default`, which
+	// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
 	InstanceTenancy pulumi.StringPtrInput
 	// The association ID for the IPv6 CIDR block.
 	Ipv6AssociationId pulumi.StringPtrInput
@@ -246,7 +249,8 @@ type vpcArgs struct {
 	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport *bool `pulumi:"enableDnsSupport"`
-	// A tenancy option for instances launched into the VPC
+	// A tenancy option for instances launched into the VPC. Default is `default`, which
+	// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
 	InstanceTenancy *string `pulumi:"instanceTenancy"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -271,7 +275,8 @@ type VpcArgs struct {
 	EnableDnsHostnames pulumi.BoolPtrInput
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport pulumi.BoolPtrInput
-	// A tenancy option for instances launched into the VPC
+	// A tenancy option for instances launched into the VPC. Default is `default`, which
+	// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
 	InstanceTenancy pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput

@@ -80,6 +80,10 @@ namespace Pulumi.Aws.ElasticSearch
         /// </summary>
         public readonly ImmutableDictionary<string, string> AdvancedOptions;
         /// <summary>
+        /// Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDomainAdvancedSecurityOptionResult> AdvancedSecurityOptions;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the domain.
         /// </summary>
         public readonly string Arn;
@@ -157,6 +161,8 @@ namespace Pulumi.Aws.ElasticSearch
 
             ImmutableDictionary<string, string> advancedOptions,
 
+            ImmutableArray<Outputs.GetDomainAdvancedSecurityOptionResult> advancedSecurityOptions,
+
             string arn,
 
             ImmutableArray<Outputs.GetDomainClusterConfigResult> clusterConfigs,
@@ -197,6 +203,7 @@ namespace Pulumi.Aws.ElasticSearch
         {
             AccessPolicies = accessPolicies;
             AdvancedOptions = advancedOptions;
+            AdvancedSecurityOptions = advancedSecurityOptions;
             Arn = arn;
             ClusterConfigs = clusterConfigs;
             CognitoOptions = cognitoOptions;

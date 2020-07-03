@@ -10,6 +10,348 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type DomainAdvancedSecurityOptions struct {
+	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+	Enabled bool `pulumi:"enabled"`
+	// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+	InternalUserDatabaseEnabled *bool `pulumi:"internalUserDatabaseEnabled"`
+	// Credentials for the master user: username and password, or ARN
+	MasterUserOptions *DomainAdvancedSecurityOptionsMasterUserOptions `pulumi:"masterUserOptions"`
+}
+
+// DomainAdvancedSecurityOptionsInput is an input type that accepts DomainAdvancedSecurityOptionsArgs and DomainAdvancedSecurityOptionsOutput values.
+// You can construct a concrete instance of `DomainAdvancedSecurityOptionsInput` via:
+//
+//          DomainAdvancedSecurityOptionsArgs{...}
+type DomainAdvancedSecurityOptionsInput interface {
+	pulumi.Input
+
+	ToDomainAdvancedSecurityOptionsOutput() DomainAdvancedSecurityOptionsOutput
+	ToDomainAdvancedSecurityOptionsOutputWithContext(context.Context) DomainAdvancedSecurityOptionsOutput
+}
+
+type DomainAdvancedSecurityOptionsArgs struct {
+	// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+	InternalUserDatabaseEnabled pulumi.BoolPtrInput `pulumi:"internalUserDatabaseEnabled"`
+	// Credentials for the master user: username and password, or ARN
+	MasterUserOptions DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput `pulumi:"masterUserOptions"`
+}
+
+func (DomainAdvancedSecurityOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdvancedSecurityOptions)(nil)).Elem()
+}
+
+func (i DomainAdvancedSecurityOptionsArgs) ToDomainAdvancedSecurityOptionsOutput() DomainAdvancedSecurityOptionsOutput {
+	return i.ToDomainAdvancedSecurityOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainAdvancedSecurityOptionsArgs) ToDomainAdvancedSecurityOptionsOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsOutput)
+}
+
+func (i DomainAdvancedSecurityOptionsArgs) ToDomainAdvancedSecurityOptionsPtrOutput() DomainAdvancedSecurityOptionsPtrOutput {
+	return i.ToDomainAdvancedSecurityOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAdvancedSecurityOptionsArgs) ToDomainAdvancedSecurityOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsOutput).ToDomainAdvancedSecurityOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainAdvancedSecurityOptionsPtrInput is an input type that accepts DomainAdvancedSecurityOptionsArgs, DomainAdvancedSecurityOptionsPtr and DomainAdvancedSecurityOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainAdvancedSecurityOptionsPtrInput` via:
+//
+//          DomainAdvancedSecurityOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainAdvancedSecurityOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainAdvancedSecurityOptionsPtrOutput() DomainAdvancedSecurityOptionsPtrOutput
+	ToDomainAdvancedSecurityOptionsPtrOutputWithContext(context.Context) DomainAdvancedSecurityOptionsPtrOutput
+}
+
+type domainAdvancedSecurityOptionsPtrType DomainAdvancedSecurityOptionsArgs
+
+func DomainAdvancedSecurityOptionsPtr(v *DomainAdvancedSecurityOptionsArgs) DomainAdvancedSecurityOptionsPtrInput {
+	return (*domainAdvancedSecurityOptionsPtrType)(v)
+}
+
+func (*domainAdvancedSecurityOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdvancedSecurityOptions)(nil)).Elem()
+}
+
+func (i *domainAdvancedSecurityOptionsPtrType) ToDomainAdvancedSecurityOptionsPtrOutput() DomainAdvancedSecurityOptionsPtrOutput {
+	return i.ToDomainAdvancedSecurityOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAdvancedSecurityOptionsPtrType) ToDomainAdvancedSecurityOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainAdvancedSecurityOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdvancedSecurityOptions)(nil)).Elem()
+}
+
+func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsOutput() DomainAdvancedSecurityOptionsOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsPtrOutput() DomainAdvancedSecurityOptionsPtrOutput {
+	return o.ToDomainAdvancedSecurityOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptions) *DomainAdvancedSecurityOptions {
+		return &v
+	}).(DomainAdvancedSecurityOptionsPtrOutput)
+}
+
+// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+func (o DomainAdvancedSecurityOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+func (o DomainAdvancedSecurityOptionsOutput) InternalUserDatabaseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptions) *bool { return v.InternalUserDatabaseEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Credentials for the master user: username and password, or ARN
+func (o DomainAdvancedSecurityOptionsOutput) MasterUserOptions() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptions) *DomainAdvancedSecurityOptionsMasterUserOptions {
+		return v.MasterUserOptions
+	}).(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAdvancedSecurityOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdvancedSecurityOptions)(nil)).Elem()
+}
+
+func (o DomainAdvancedSecurityOptionsPtrOutput) ToDomainAdvancedSecurityOptionsPtrOutput() DomainAdvancedSecurityOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsPtrOutput) ToDomainAdvancedSecurityOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsPtrOutput) Elem() DomainAdvancedSecurityOptionsOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) DomainAdvancedSecurityOptions { return *v }).(DomainAdvancedSecurityOptionsOutput)
+}
+
+// Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+func (o DomainAdvancedSecurityOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+func (o DomainAdvancedSecurityOptionsPtrOutput) InternalUserDatabaseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InternalUserDatabaseEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Credentials for the master user: username and password, or ARN
+func (o DomainAdvancedSecurityOptionsPtrOutput) MasterUserOptions() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) *DomainAdvancedSecurityOptionsMasterUserOptions {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserOptions
+	}).(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsMasterUserOptions struct {
+	// ARN for the master user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`)
+	MasterUserArn *string `pulumi:"masterUserArn"`
+	// The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+	MasterUserName *string `pulumi:"masterUserName"`
+	// The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+	MasterUserPassword *string `pulumi:"masterUserPassword"`
+}
+
+// DomainAdvancedSecurityOptionsMasterUserOptionsInput is an input type that accepts DomainAdvancedSecurityOptionsMasterUserOptionsArgs and DomainAdvancedSecurityOptionsMasterUserOptionsOutput values.
+// You can construct a concrete instance of `DomainAdvancedSecurityOptionsMasterUserOptionsInput` via:
+//
+//          DomainAdvancedSecurityOptionsMasterUserOptionsArgs{...}
+type DomainAdvancedSecurityOptionsMasterUserOptionsInput interface {
+	pulumi.Input
+
+	ToDomainAdvancedSecurityOptionsMasterUserOptionsOutput() DomainAdvancedSecurityOptionsMasterUserOptionsOutput
+	ToDomainAdvancedSecurityOptionsMasterUserOptionsOutputWithContext(context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsOutput
+}
+
+type DomainAdvancedSecurityOptionsMasterUserOptionsArgs struct {
+	// ARN for the master user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`)
+	MasterUserArn pulumi.StringPtrInput `pulumi:"masterUserArn"`
+	// The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+	MasterUserName pulumi.StringPtrInput `pulumi:"masterUserName"`
+	// The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+	MasterUserPassword pulumi.StringPtrInput `pulumi:"masterUserPassword"`
+}
+
+func (DomainAdvancedSecurityOptionsMasterUserOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdvancedSecurityOptionsMasterUserOptions)(nil)).Elem()
+}
+
+func (i DomainAdvancedSecurityOptionsMasterUserOptionsArgs) ToDomainAdvancedSecurityOptionsMasterUserOptionsOutput() DomainAdvancedSecurityOptionsMasterUserOptionsOutput {
+	return i.ToDomainAdvancedSecurityOptionsMasterUserOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainAdvancedSecurityOptionsMasterUserOptionsArgs) ToDomainAdvancedSecurityOptionsMasterUserOptionsOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsMasterUserOptionsOutput)
+}
+
+func (i DomainAdvancedSecurityOptionsMasterUserOptionsArgs) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return i.ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAdvancedSecurityOptionsMasterUserOptionsArgs) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsMasterUserOptionsOutput).ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput is an input type that accepts DomainAdvancedSecurityOptionsMasterUserOptionsArgs, DomainAdvancedSecurityOptionsMasterUserOptionsPtr and DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput` via:
+//
+//          DomainAdvancedSecurityOptionsMasterUserOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput
+	ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput
+}
+
+type domainAdvancedSecurityOptionsMasterUserOptionsPtrType DomainAdvancedSecurityOptionsMasterUserOptionsArgs
+
+func DomainAdvancedSecurityOptionsMasterUserOptionsPtr(v *DomainAdvancedSecurityOptionsMasterUserOptionsArgs) DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput {
+	return (*domainAdvancedSecurityOptionsMasterUserOptionsPtrType)(v)
+}
+
+func (*domainAdvancedSecurityOptionsMasterUserOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdvancedSecurityOptionsMasterUserOptions)(nil)).Elem()
+}
+
+func (i *domainAdvancedSecurityOptionsMasterUserOptionsPtrType) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return i.ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAdvancedSecurityOptionsMasterUserOptionsPtrType) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsMasterUserOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAdvancedSecurityOptionsMasterUserOptions)(nil)).Elem()
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsOutput() DomainAdvancedSecurityOptionsMasterUserOptionsOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return o.ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsMasterUserOptions) *DomainAdvancedSecurityOptionsMasterUserOptions {
+		return &v
+	}).(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput)
+}
+
+// ARN for the master user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`)
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) MasterUserArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsMasterUserOptions) *string { return v.MasterUserArn }).(pulumi.StringPtrOutput)
+}
+
+// The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) MasterUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsMasterUserOptions) *string { return v.MasterUserName }).(pulumi.StringPtrOutput)
+}
+
+// The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) MasterUserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsMasterUserOptions) *string { return v.MasterUserPassword }).(pulumi.StringPtrOutput)
+}
+
+type DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAdvancedSecurityOptionsMasterUserOptions)(nil)).Elem()
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput() DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) Elem() DomainAdvancedSecurityOptionsMasterUserOptionsOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsMasterUserOptions) DomainAdvancedSecurityOptionsMasterUserOptions {
+		return *v
+	}).(DomainAdvancedSecurityOptionsMasterUserOptionsOutput)
+}
+
+// ARN for the master user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`)
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) MasterUserArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsMasterUserOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) MasterUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsMasterUserOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) MasterUserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsMasterUserOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserPassword
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainClusterConfig struct {
 	// Number of dedicated master nodes in the cluster
 	DedicatedMasterCount *int `pulumi:"dedicatedMasterCount"`
@@ -1687,6 +2029,112 @@ func (o DomainVpcOptionsPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetDomainAdvancedSecurityOption struct {
+	// Whether node to node encryption is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// Whether the internal user database is enabled.
+	InternalUserDatabaseEnabled bool `pulumi:"internalUserDatabaseEnabled"`
+}
+
+// GetDomainAdvancedSecurityOptionInput is an input type that accepts GetDomainAdvancedSecurityOptionArgs and GetDomainAdvancedSecurityOptionOutput values.
+// You can construct a concrete instance of `GetDomainAdvancedSecurityOptionInput` via:
+//
+//          GetDomainAdvancedSecurityOptionArgs{...}
+type GetDomainAdvancedSecurityOptionInput interface {
+	pulumi.Input
+
+	ToGetDomainAdvancedSecurityOptionOutput() GetDomainAdvancedSecurityOptionOutput
+	ToGetDomainAdvancedSecurityOptionOutputWithContext(context.Context) GetDomainAdvancedSecurityOptionOutput
+}
+
+type GetDomainAdvancedSecurityOptionArgs struct {
+	// Whether node to node encryption is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Whether the internal user database is enabled.
+	InternalUserDatabaseEnabled pulumi.BoolInput `pulumi:"internalUserDatabaseEnabled"`
+}
+
+func (GetDomainAdvancedSecurityOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainAdvancedSecurityOption)(nil)).Elem()
+}
+
+func (i GetDomainAdvancedSecurityOptionArgs) ToGetDomainAdvancedSecurityOptionOutput() GetDomainAdvancedSecurityOptionOutput {
+	return i.ToGetDomainAdvancedSecurityOptionOutputWithContext(context.Background())
+}
+
+func (i GetDomainAdvancedSecurityOptionArgs) ToGetDomainAdvancedSecurityOptionOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAdvancedSecurityOptionOutput)
+}
+
+// GetDomainAdvancedSecurityOptionArrayInput is an input type that accepts GetDomainAdvancedSecurityOptionArray and GetDomainAdvancedSecurityOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainAdvancedSecurityOptionArrayInput` via:
+//
+//          GetDomainAdvancedSecurityOptionArray{ GetDomainAdvancedSecurityOptionArgs{...} }
+type GetDomainAdvancedSecurityOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainAdvancedSecurityOptionArrayOutput() GetDomainAdvancedSecurityOptionArrayOutput
+	ToGetDomainAdvancedSecurityOptionArrayOutputWithContext(context.Context) GetDomainAdvancedSecurityOptionArrayOutput
+}
+
+type GetDomainAdvancedSecurityOptionArray []GetDomainAdvancedSecurityOptionInput
+
+func (GetDomainAdvancedSecurityOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainAdvancedSecurityOption)(nil)).Elem()
+}
+
+func (i GetDomainAdvancedSecurityOptionArray) ToGetDomainAdvancedSecurityOptionArrayOutput() GetDomainAdvancedSecurityOptionArrayOutput {
+	return i.ToGetDomainAdvancedSecurityOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainAdvancedSecurityOptionArray) ToGetDomainAdvancedSecurityOptionArrayOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAdvancedSecurityOptionArrayOutput)
+}
+
+type GetDomainAdvancedSecurityOptionOutput struct{ *pulumi.OutputState }
+
+func (GetDomainAdvancedSecurityOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainAdvancedSecurityOption)(nil)).Elem()
+}
+
+func (o GetDomainAdvancedSecurityOptionOutput) ToGetDomainAdvancedSecurityOptionOutput() GetDomainAdvancedSecurityOptionOutput {
+	return o
+}
+
+func (o GetDomainAdvancedSecurityOptionOutput) ToGetDomainAdvancedSecurityOptionOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionOutput {
+	return o
+}
+
+// Whether node to node encryption is enabled.
+func (o GetDomainAdvancedSecurityOptionOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Whether the internal user database is enabled.
+func (o GetDomainAdvancedSecurityOptionOutput) InternalUserDatabaseEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.InternalUserDatabaseEnabled }).(pulumi.BoolOutput)
+}
+
+type GetDomainAdvancedSecurityOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainAdvancedSecurityOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainAdvancedSecurityOption)(nil)).Elem()
+}
+
+func (o GetDomainAdvancedSecurityOptionArrayOutput) ToGetDomainAdvancedSecurityOptionArrayOutput() GetDomainAdvancedSecurityOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainAdvancedSecurityOptionArrayOutput) ToGetDomainAdvancedSecurityOptionArrayOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainAdvancedSecurityOptionArrayOutput) Index(i pulumi.IntInput) GetDomainAdvancedSecurityOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainAdvancedSecurityOption {
+		return vs[0].([]GetDomainAdvancedSecurityOption)[vs[1].(int)]
+	}).(GetDomainAdvancedSecurityOptionOutput)
+}
+
 type GetDomainClusterConfig struct {
 	// Number of dedicated master nodes in the cluster.
 	DedicatedMasterCount int `pulumi:"dedicatedMasterCount"`
@@ -2758,6 +3206,10 @@ func (o GetDomainVpcOptionArrayOutput) Index(i pulumi.IntInput) GetDomainVpcOpti
 }
 
 func init() {
+	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsOutput{})
+	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsOutput{})
+	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigZoneAwarenessConfigOutput{})
@@ -2778,6 +3230,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainSnapshotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainVpcOptionsOutput{})
 	pulumi.RegisterOutputType(DomainVpcOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionOutput{})
+	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigZoneAwarenessConfigOutput{})

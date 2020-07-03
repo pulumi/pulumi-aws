@@ -61,6 +61,10 @@ export interface GetDomainResult {
      */
     readonly advancedOptions: {[key: string]: string};
     /**
+     * Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:
+     */
+    readonly advancedSecurityOptions: outputs.elasticsearch.GetDomainAdvancedSecurityOption[];
+    /**
      * The Amazon Resource Name (ARN) of the domain.
      */
     readonly arn: string;

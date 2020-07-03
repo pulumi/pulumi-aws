@@ -21,6 +21,17 @@ class Domain(pulumi.CustomResource):
     may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
     domain on every apply.
     """
+    advanced_security_options: pulumi.Output[dict]
+    """
+    Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+
+      * `enabled` (`bool`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+      * `internalUserDatabaseEnabled` (`bool`) - Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+      * `masterUserOptions` (`dict`) - Credentials for the master user: username and password, or ARN
+        * `masterUserArn` (`str`) - ARN for the master user. Only specify if `internal_user_database_enabled` is not set or set to `false`)
+        * `masterUserName` (`str`) - The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+        * `masterUserPassword` (`str`) - The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+    """
     arn: pulumi.Output[str]
     """
     Amazon Resource Name (ARN) of the domain.
@@ -124,7 +135,7 @@ class Domain(pulumi.CustomResource):
       * `subnet_ids` (`list`) - List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
       * `vpc_id` (`str`)
     """
-    def __init__(__self__, resource_name, opts=None, access_policies=None, advanced_options=None, cluster_config=None, cognito_options=None, domain_endpoint_options=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, log_publishing_options=None, node_to_node_encryption=None, snapshot_options=None, tags=None, vpc_options=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_policies=None, advanced_options=None, advanced_security_options=None, cluster_config=None, cognito_options=None, domain_endpoint_options=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, log_publishing_options=None, node_to_node_encryption=None, snapshot_options=None, tags=None, vpc_options=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an AWS Elasticsearch Domain.
 
@@ -285,6 +296,7 @@ class Domain(pulumi.CustomResource):
                Note that the values for these configuration options must be strings (wrapped in quotes) or they
                may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
                domain on every apply.
+        :param pulumi.Input[dict] advanced_security_options: Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
         :param pulumi.Input[dict] cluster_config: Cluster configuration of the domain, see below.
         :param pulumi.Input[dict] domain_endpoint_options: Domain endpoint HTTP(S) related options. See below.
         :param pulumi.Input[str] domain_name: Name of the domain.
@@ -296,6 +308,15 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[dict] snapshot_options: Snapshot related options, see below.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource
         :param pulumi.Input[dict] vpc_options: VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
+
+        The **advanced_security_options** object supports the following:
+
+          * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+          * `internalUserDatabaseEnabled` (`pulumi.Input[bool]`) - Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+          * `masterUserOptions` (`pulumi.Input[dict]`) - Credentials for the master user: username and password, or ARN
+            * `masterUserArn` (`pulumi.Input[str]`) - ARN for the master user. Only specify if `internal_user_database_enabled` is not set or set to `false`)
+            * `masterUserName` (`pulumi.Input[str]`) - The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+            * `masterUserPassword` (`pulumi.Input[str]`) - The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
 
         The **cluster_config** object supports the following:
 
@@ -379,6 +400,7 @@ class Domain(pulumi.CustomResource):
 
             __props__['access_policies'] = access_policies
             __props__['advanced_options'] = advanced_options
+            __props__['advanced_security_options'] = advanced_security_options
             __props__['cluster_config'] = cluster_config
             __props__['cognito_options'] = cognito_options
             __props__['domain_endpoint_options'] = domain_endpoint_options
@@ -402,7 +424,7 @@ class Domain(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_policies=None, advanced_options=None, arn=None, cluster_config=None, cognito_options=None, domain_endpoint_options=None, domain_id=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, endpoint=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryption=None, snapshot_options=None, tags=None, vpc_options=None):
+    def get(resource_name, id, opts=None, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cluster_config=None, cognito_options=None, domain_endpoint_options=None, domain_id=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encrypt_at_rest=None, endpoint=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryption=None, snapshot_options=None, tags=None, vpc_options=None):
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -415,6 +437,7 @@ class Domain(pulumi.CustomResource):
                Note that the values for these configuration options must be strings (wrapped in quotes) or they
                may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
                domain on every apply.
+        :param pulumi.Input[dict] advanced_security_options: Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the domain.
         :param pulumi.Input[dict] cluster_config: Cluster configuration of the domain, see below.
         :param pulumi.Input[dict] domain_endpoint_options: Domain endpoint HTTP(S) related options. See below.
@@ -432,6 +455,15 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[dict] snapshot_options: Snapshot related options, see below.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource
         :param pulumi.Input[dict] vpc_options: VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
+
+        The **advanced_security_options** object supports the following:
+
+          * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+          * `internalUserDatabaseEnabled` (`pulumi.Input[bool]`) - Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+          * `masterUserOptions` (`pulumi.Input[dict]`) - Credentials for the master user: username and password, or ARN
+            * `masterUserArn` (`pulumi.Input[str]`) - ARN for the master user. Only specify if `internal_user_database_enabled` is not set or set to `false`)
+            * `masterUserName` (`pulumi.Input[str]`) - The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+            * `masterUserPassword` (`pulumi.Input[str]`) - The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
 
         The **cluster_config** object supports the following:
 
@@ -502,6 +534,7 @@ class Domain(pulumi.CustomResource):
 
         __props__["access_policies"] = access_policies
         __props__["advanced_options"] = advanced_options
+        __props__["advanced_security_options"] = advanced_security_options
         __props__["arn"] = arn
         __props__["cluster_config"] = cluster_config
         __props__["cognito_options"] = cognito_options

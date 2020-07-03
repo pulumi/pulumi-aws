@@ -25,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ec2.NewCustomerGateway(ctx, "main", &ec2.CustomerGatewayArgs{
-// 			BgpAsn:    pulumi.Int(65000),
+// 			BgpAsn:    pulumi.String("65000"),
 // 			IpAddress: pulumi.String("172.83.124.10"),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("main-customer-gateway"),
@@ -45,7 +45,7 @@ type CustomerGateway struct {
 	// The ARN of the customer gateway.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
+	BgpAsn pulumi.StringOutput `pulumi:"bgpAsn"`
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
@@ -95,7 +95,7 @@ type customerGatewayState struct {
 	// The ARN of the customer gateway.
 	Arn *string `pulumi:"arn"`
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn *int `pulumi:"bgpAsn"`
+	BgpAsn *string `pulumi:"bgpAsn"`
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
@@ -109,7 +109,7 @@ type CustomerGatewayState struct {
 	// The ARN of the customer gateway.
 	Arn pulumi.StringPtrInput
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn pulumi.IntPtrInput
+	BgpAsn pulumi.StringPtrInput
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress pulumi.StringPtrInput
 	// Tags to apply to the gateway.
@@ -125,7 +125,7 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 
 type customerGatewayArgs struct {
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn int `pulumi:"bgpAsn"`
+	BgpAsn string `pulumi:"bgpAsn"`
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress string `pulumi:"ipAddress"`
 	// Tags to apply to the gateway.
@@ -138,7 +138,7 @@ type customerGatewayArgs struct {
 // The set of arguments for constructing a CustomerGateway resource.
 type CustomerGatewayArgs struct {
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn pulumi.IntInput
+	BgpAsn pulumi.StringInput
 	// The IP address of the gateway's Internet-routable external interface.
 	IpAddress pulumi.StringInput
 	// Tags to apply to the gateway.

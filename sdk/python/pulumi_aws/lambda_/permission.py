@@ -59,6 +59,7 @@ class Permission(pulumi.CustomResource):
         Gives an external source (like a CloudWatch Event Rule, SNS, or S3) permission to access the Lambda function.
 
         ## Example Usage
+        ### Basic Example
 
         ```python
         import pulumi
@@ -95,7 +96,7 @@ class Permission(pulumi.CustomResource):
             qualifier=test_alias.name,
             source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily")
         ```
-        ## Usage with SNS
+        ### Usage with SNS
 
         ```python
         import pulumi
@@ -132,8 +133,7 @@ class Permission(pulumi.CustomResource):
             protocol="lambda",
             topic=default_topic.arn)
         ```
-
-        ## Specify Lambda permissions for API Gateway REST API
+        ### Specify Lambda permissions for API Gateway REST API
 
         ```python
         import pulumi

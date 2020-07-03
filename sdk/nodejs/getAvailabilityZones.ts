@@ -78,6 +78,8 @@ export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pul
         "allAvailabilityZones": args.allAvailabilityZones,
         "blacklistedNames": args.blacklistedNames,
         "blacklistedZoneIds": args.blacklistedZoneIds,
+        "excludeNames": args.excludeNames,
+        "excludeZoneIds": args.excludeZoneIds,
         "filters": args.filters,
         "groupNames": args.groupNames,
         "state": args.state,
@@ -93,13 +95,25 @@ export interface GetAvailabilityZonesArgs {
      */
     readonly allAvailabilityZones?: boolean;
     /**
-     * List of blacklisted Availability Zone names.
+     * List of Availability Zone names to exclude. Use `excludeNames` instead.
+     *
+     * @deprecated use `exclude_names` instead
      */
     readonly blacklistedNames?: string[];
     /**
-     * List of blacklisted Availability Zone IDs.
+     * List of Availability Zone IDs to exclude. Use `excludeZoneIds` instead.
+     *
+     * @deprecated use `exclude_zone_ids` instead
      */
     readonly blacklistedZoneIds?: string[];
+    /**
+     * List of Availability Zone names to exclude.
+     */
+    readonly excludeNames?: string[];
+    /**
+     * List of Availability Zone IDs to exclude.
+     */
+    readonly excludeZoneIds?: string[];
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
@@ -119,8 +133,16 @@ export interface GetAvailabilityZonesArgs {
  */
 export interface GetAvailabilityZonesResult {
     readonly allAvailabilityZones?: boolean;
+    /**
+     * @deprecated use `exclude_names` instead
+     */
     readonly blacklistedNames?: string[];
+    /**
+     * @deprecated use `exclude_zone_ids` instead
+     */
     readonly blacklistedZoneIds?: string[];
+    readonly excludeNames?: string[];
+    readonly excludeZoneIds?: string[];
     readonly filters?: outputs.GetAvailabilityZonesFilter[];
     readonly groupNames?: string[];
     /**

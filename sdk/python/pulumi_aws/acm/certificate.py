@@ -57,7 +57,7 @@ class Certificate(pulumi.CustomResource):
     """
     subject_alternative_names: pulumi.Output[list]
     """
-    A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+    A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
     """
     tags: pulumi.Output[dict]
     """
@@ -69,7 +69,7 @@ class Certificate(pulumi.CustomResource):
     """
     validation_method: pulumi.Output[str]
     """
-    Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+    Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
     """
     def __init__(__self__, resource_name, opts=None, certificate_authority_arn=None, certificate_body=None, certificate_chain=None, domain_name=None, options=None, private_key=None, subject_alternative_names=None, tags=None, validation_method=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -141,9 +141,9 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[dict] options: Configuration block used to set certificate options. Detailed below.
                * Importing an existing certificate
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
-        :param pulumi.Input[list] subject_alternative_names: A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        :param pulumi.Input[list] subject_alternative_names: A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 
         The **options** object supports the following:
 
@@ -205,10 +205,10 @@ class Certificate(pulumi.CustomResource):
                * Importing an existing certificate
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
         :param pulumi.Input[str] status: Status of the certificate.
-        :param pulumi.Input[list] subject_alternative_names: A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        :param pulumi.Input[list] subject_alternative_names: A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[list] validation_emails: A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
-        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+        :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 
         The **domain_validation_options** object supports the following:
 

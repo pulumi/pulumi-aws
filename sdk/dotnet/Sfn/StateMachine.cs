@@ -47,6 +47,12 @@ namespace Pulumi.Aws.Sfn
     public partial class StateMachine : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the state machine.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The date the state machine was created.
         /// </summary>
         [Output("creationDate")]
@@ -165,6 +171,12 @@ namespace Pulumi.Aws.Sfn
 
     public sealed class StateMachineState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the state machine.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The date the state machine was created.
         /// </summary>

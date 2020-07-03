@@ -54,6 +54,8 @@ type LookupDomainResult struct {
 	AccessPolicies string `pulumi:"accessPolicies"`
 	// Key-value string pairs to specify advanced configuration options.
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
+	// Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:
+	AdvancedSecurityOptions []GetDomainAdvancedSecurityOption `pulumi:"advancedSecurityOptions"`
 	// The Amazon Resource Name (ARN) of the domain.
 	Arn string `pulumi:"arn"`
 	// Cluster configuration of the domain.

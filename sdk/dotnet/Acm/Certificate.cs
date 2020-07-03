@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Acm
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        /// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         /// </summary>
         [Output("subjectAlternativeNames")]
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Acm
         public Output<ImmutableArray<string>> ValidationEmails { get; private set; } = null!;
 
         /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
         /// </summary>
         [Output("validationMethod")]
         public Output<string> ValidationMethod { get; private set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        /// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Acm
         }
 
         /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
         /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        /// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.Acm
         }
 
         /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
         /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }

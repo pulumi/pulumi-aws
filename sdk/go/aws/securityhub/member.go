@@ -53,7 +53,7 @@ type Member struct {
 	Invite pulumi.BoolPtrOutput `pulumi:"invite"`
 	// The ID of the master Security Hub AWS account.
 	MasterId pulumi.StringOutput `pulumi:"masterId"`
-	// The status of the relationship between the member account and its master account.
+	// The status of the member account relationship.
 	MemberStatus pulumi.StringOutput `pulumi:"memberStatus"`
 }
 
@@ -99,7 +99,7 @@ type memberState struct {
 	Invite *bool `pulumi:"invite"`
 	// The ID of the master Security Hub AWS account.
 	MasterId *string `pulumi:"masterId"`
-	// The status of the relationship between the member account and its master account.
+	// The status of the member account relationship.
 	MemberStatus *string `pulumi:"memberStatus"`
 }
 
@@ -112,7 +112,7 @@ type MemberState struct {
 	Invite pulumi.BoolPtrInput
 	// The ID of the master Security Hub AWS account.
 	MasterId pulumi.StringPtrInput
-	// The status of the relationship between the member account and its master account.
+	// The status of the member account relationship.
 	MemberStatus pulumi.StringPtrInput
 }
 

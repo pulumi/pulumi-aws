@@ -269,6 +269,12 @@ namespace Pulumi.Aws.ElasticSearch
         public Output<ImmutableDictionary<string, string>> AdvancedOptions { get; private set; } = null!;
 
         /// <summary>
+        /// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+        /// </summary>
+        [Output("advancedSecurityOptions")]
+        public Output<Outputs.DomainAdvancedSecurityOptions> AdvancedSecurityOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the domain.
         /// </summary>
         [Output("arn")]
@@ -431,6 +437,12 @@ namespace Pulumi.Aws.ElasticSearch
         }
 
         /// <summary>
+        /// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+        /// </summary>
+        [Input("advancedSecurityOptions")]
+        public Input<Inputs.DomainAdvancedSecurityOptionsArgs>? AdvancedSecurityOptions { get; set; }
+
+        /// <summary>
         /// Cluster configuration of the domain, see below.
         /// </summary>
         [Input("clusterConfig")]
@@ -538,6 +550,12 @@ namespace Pulumi.Aws.ElasticSearch
             get => _advancedOptions ?? (_advancedOptions = new InputMap<string>());
             set => _advancedOptions = value;
         }
+
+        /// <summary>
+        /// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+        /// </summary>
+        [Input("advancedSecurityOptions")]
+        public Input<Inputs.DomainAdvancedSecurityOptionsGetArgs>? AdvancedSecurityOptions { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the domain.

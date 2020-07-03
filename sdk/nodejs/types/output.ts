@@ -9537,6 +9537,36 @@ export namespace elasticloadbalancingv2 {
 }
 
 export namespace elasticsearch {
+    export interface DomainAdvancedSecurityOptions {
+        /**
+         * Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+         */
+        enabled: boolean;
+        /**
+         * Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+         */
+        internalUserDatabaseEnabled?: boolean;
+        /**
+         * Credentials for the master user: username and password, or ARN
+         */
+        masterUserOptions?: outputs.elasticsearch.DomainAdvancedSecurityOptionsMasterUserOptions;
+    }
+
+    export interface DomainAdvancedSecurityOptionsMasterUserOptions {
+        /**
+         * ARN for the master user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`)
+         */
+        masterUserArn?: string;
+        /**
+         * The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+         */
+        masterUserName?: string;
+        /**
+         * The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+         */
+        masterUserPassword?: string;
+    }
+
     export interface DomainClusterConfig {
         /**
          * Number of dedicated master nodes in the cluster
@@ -9690,6 +9720,17 @@ export namespace elasticsearch {
          */
         subnetIds?: string[];
         vpcId: string;
+    }
+
+    export interface GetDomainAdvancedSecurityOption {
+        /**
+         * Whether node to node encryption is enabled.
+         */
+        enabled: boolean;
+        /**
+         * Whether the internal user database is enabled.
+         */
+        internalUserDatabaseEnabled: boolean;
     }
 
     export interface GetDomainClusterConfig {

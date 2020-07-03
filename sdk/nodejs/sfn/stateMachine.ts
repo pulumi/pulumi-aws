@@ -59,6 +59,10 @@ export class StateMachine extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the state machine.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The date the state machine was created.
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class StateMachine extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as StateMachineState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
             inputs["definition"] = state ? state.definition : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -113,6 +118,7 @@ export class StateMachine extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
@@ -131,6 +137,10 @@ export class StateMachine extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StateMachine resources.
  */
 export interface StateMachineState {
+    /**
+     * The ARN of the state machine.
+     */
+    readonly arn?: pulumi.Input<string>;
     /**
      * The date the state machine was created.
      */
