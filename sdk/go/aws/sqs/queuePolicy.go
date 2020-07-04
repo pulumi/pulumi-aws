@@ -106,7 +106,7 @@ func (QueuePolicyState) ElementType() reflect.Type {
 
 type queuePolicyArgs struct {
 	// The JSON policy for the SQS queue.
-	Policy interface{} `pulumi:"policy"`
+	Policy string `pulumi:"policy"`
 	// The URL of the SQS Queue to which to attach the policy
 	QueueUrl string `pulumi:"queueUrl"`
 }
@@ -114,7 +114,7 @@ type queuePolicyArgs struct {
 // The set of arguments for constructing a QueuePolicy resource.
 type QueuePolicyArgs struct {
 	// The JSON policy for the SQS queue.
-	Policy pulumi.Input
+	Policy pulumi.StringInput
 	// The URL of the SQS Queue to which to attach the policy
 	QueueUrl pulumi.StringInput
 }
