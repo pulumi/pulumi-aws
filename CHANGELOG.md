@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 _(none)_
+* Add the ability to specify aws.queue.QueuePolicy `policy` as iam.PolicyDocument
 
 ---
 
