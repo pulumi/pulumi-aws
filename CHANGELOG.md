@@ -6,6 +6,7 @@ CHANGELOG
   ** Please Note the following **
   * `ec2.CustomerGateway.bgpAsn` has changed from an `int` to `string` to allow 4-byte ASNs
 * Add `C5A` instance type family to `aws.ec2.InstanceTypes`.
+* Add the ability to specify aws.queue.QueuePolicy `policy` as iam.PolicyDocument
 
 ---
 

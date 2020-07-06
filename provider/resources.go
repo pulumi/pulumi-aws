@@ -2013,7 +2013,16 @@ func Provider() tfbridge.ProviderInfo {
 					"name": tfbridge.AutoName("name", 80),
 				},
 			},
-			"aws_sqs_queue_policy": {Tok: awsResource(sqsMod, "QueuePolicy")},
+			"aws_sqs_queue_policy": {
+				Tok: awsResource(sqsMod, "QueuePolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
+					},
+				},
+			},
 			// Storage Gateway
 			"aws_storagegateway_gateway":             {Tok: awsResource(storagegatewayMod, "Gateway")},
 			"aws_storagegateway_cache":               {Tok: awsResource(storagegatewayMod, "Cache")},

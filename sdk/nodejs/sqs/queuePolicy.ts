@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {PolicyDocument} from "../iam";
+
 /**
  * Allows you to set a policy of an SQS Queue
  * while referencing ARN of the queue within the policy.
@@ -119,7 +121,7 @@ export interface QueuePolicyState {
     /**
      * The JSON policy for the SQS queue.
      */
-    readonly policy?: pulumi.Input<string>;
+    readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The URL of the SQS Queue to which to attach the policy
      */
@@ -133,7 +135,7 @@ export interface QueuePolicyArgs {
     /**
      * The JSON policy for the SQS queue.
      */
-    readonly policy: pulumi.Input<string>;
+    readonly policy: pulumi.Input<string | PolicyDocument>;
     /**
      * The URL of the SQS Queue to which to attach the policy
      */
