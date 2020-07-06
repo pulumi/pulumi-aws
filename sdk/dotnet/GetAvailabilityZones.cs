@@ -135,8 +135,9 @@ namespace Pulumi.Aws
         private List<string>? _blacklistedNames;
 
         /// <summary>
-        /// List of blacklisted Availability Zone names.
+        /// List of Availability Zone names to exclude. Use `exclude_names` instead.
         /// </summary>
+        [Obsolete(@"use `exclude_names` instead")]
         public List<string> BlacklistedNames
         {
             get => _blacklistedNames ?? (_blacklistedNames = new List<string>());
@@ -147,12 +148,37 @@ namespace Pulumi.Aws
         private List<string>? _blacklistedZoneIds;
 
         /// <summary>
-        /// List of blacklisted Availability Zone IDs.
+        /// List of Availability Zone IDs to exclude. Use `exclude_zone_ids` instead.
         /// </summary>
+        [Obsolete(@"use `exclude_zone_ids` instead")]
         public List<string> BlacklistedZoneIds
         {
             get => _blacklistedZoneIds ?? (_blacklistedZoneIds = new List<string>());
             set => _blacklistedZoneIds = value;
+        }
+
+        [Input("excludeNames")]
+        private List<string>? _excludeNames;
+
+        /// <summary>
+        /// List of Availability Zone names to exclude.
+        /// </summary>
+        public List<string> ExcludeNames
+        {
+            get => _excludeNames ?? (_excludeNames = new List<string>());
+            set => _excludeNames = value;
+        }
+
+        [Input("excludeZoneIds")]
+        private List<string>? _excludeZoneIds;
+
+        /// <summary>
+        /// List of Availability Zone IDs to exclude.
+        /// </summary>
+        public List<string> ExcludeZoneIds
+        {
+            get => _excludeZoneIds ?? (_excludeZoneIds = new List<string>());
+            set => _excludeZoneIds = value;
         }
 
         [Input("filters")]
@@ -196,6 +222,8 @@ namespace Pulumi.Aws
         public readonly bool? AllAvailabilityZones;
         public readonly ImmutableArray<string> BlacklistedNames;
         public readonly ImmutableArray<string> BlacklistedZoneIds;
+        public readonly ImmutableArray<string> ExcludeNames;
+        public readonly ImmutableArray<string> ExcludeZoneIds;
         public readonly ImmutableArray<Outputs.GetAvailabilityZonesFilterResult> Filters;
         public readonly ImmutableArray<string> GroupNames;
         /// <summary>
@@ -220,6 +248,10 @@ namespace Pulumi.Aws
 
             ImmutableArray<string> blacklistedZoneIds,
 
+            ImmutableArray<string> excludeNames,
+
+            ImmutableArray<string> excludeZoneIds,
+
             ImmutableArray<Outputs.GetAvailabilityZonesFilterResult> filters,
 
             ImmutableArray<string> groupNames,
@@ -235,6 +267,8 @@ namespace Pulumi.Aws
             AllAvailabilityZones = allAvailabilityZones;
             BlacklistedNames = blacklistedNames;
             BlacklistedZoneIds = blacklistedZoneIds;
+            ExcludeNames = excludeNames;
+            ExcludeZoneIds = excludeZoneIds;
             Filters = filters;
             GroupNames = groupNames;
             Id = id;

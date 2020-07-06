@@ -12,7 +12,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, access_policies=None, advanced_options=None, arn=None, cluster_configs=None, cognito_options=None, created=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encryption_at_rests=None, endpoint=None, id=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, processing=None, snapshot_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cluster_configs=None, cognito_options=None, created=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encryption_at_rests=None, endpoint=None, id=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, processing=None, snapshot_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, str):
             raise TypeError("Expected argument 'access_policies' to be a str")
         __self__.access_policies = access_policies
@@ -24,6 +24,12 @@ class GetDomainResult:
         __self__.advanced_options = advanced_options
         """
         Key-value string pairs to specify advanced configuration options.
+        """
+        if advanced_security_options and not isinstance(advanced_security_options, list):
+            raise TypeError("Expected argument 'advanced_security_options' to be a list")
+        __self__.advanced_security_options = advanced_security_options
+        """
+        Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:
         """
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
@@ -142,6 +148,7 @@ class AwaitableGetDomainResult(GetDomainResult):
         return GetDomainResult(
             access_policies=self.access_policies,
             advanced_options=self.advanced_options,
+            advanced_security_options=self.advanced_security_options,
             arn=self.arn,
             cluster_configs=self.cluster_configs,
             cognito_options=self.cognito_options,
@@ -193,6 +200,7 @@ def get_domain(domain_name=None,tags=None,opts=None):
     return AwaitableGetDomainResult(
         access_policies=__ret__.get('accessPolicies'),
         advanced_options=__ret__.get('advancedOptions'),
+        advanced_security_options=__ret__.get('advancedSecurityOptions'),
         arn=__ret__.get('arn'),
         cluster_configs=__ret__.get('clusterConfigs'),
         cognito_options=__ret__.get('cognitoOptions'),

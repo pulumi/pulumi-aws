@@ -45,14 +45,33 @@ namespace Pulumi.Aws.Cognito
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Aws.Cognito.UserPool("example", new Aws.Cognito.UserPoolArgs
+    ///         var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new Aws.Cognito.UserPoolArgs
     ///         {
     ///         });
     ///         var main = new Aws.Cognito.UserPoolDomain("main", new Aws.Cognito.UserPoolDomainArgs
     ///         {
     ///             CertificateArn = aws_acm_certificate.Cert.Arn,
     ///             Domain = "example-domain.example.com",
-    ///             UserPoolId = example.Id,
+    ///             UserPoolId = exampleUserPool.Id,
+    ///         });
+    ///         var exampleZone = Output.Create(Aws.Route53.GetZone.InvokeAsync(new Aws.Route53.GetZoneArgs
+    ///         {
+    ///             Name = "example.com",
+    ///         }));
+    ///         var auth_cognito_A = new Aws.Route53.Record("auth-cognito-A", new Aws.Route53.RecordArgs
+    ///         {
+    ///             Aliases = 
+    ///             {
+    ///                 new Aws.Route53.Inputs.RecordAliasArgs
+    ///                 {
+    ///                     EvaluateTargetHealth = false,
+    ///                     Name = main.CloudfrontDistributionArn,
+    ///                     ZoneId = "Z2FDTNDATAQYW2",
+    ///                 },
+    ///             },
+    ///             Name = main.Domain,
+    ///             Type = "A",
+    ///             ZoneId = exampleZone.Apply(exampleZone =&gt; exampleZone.ZoneId),
     ///         });
     ///     }
     /// 
@@ -74,7 +93,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string?> CertificateArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the CloudFront distribution.
+        /// The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
         /// </summary>
         [Output("cloudfrontDistributionArn")]
         public Output<string> CloudfrontDistributionArn { get; private set; } = null!;
@@ -187,7 +206,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? CertificateArn { get; set; }
 
         /// <summary>
-        /// The ARN of the CloudFront distribution.
+        /// The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
         /// </summary>
         [Input("cloudfrontDistributionArn")]
         public Input<string>? CloudfrontDistributionArn { get; set; }

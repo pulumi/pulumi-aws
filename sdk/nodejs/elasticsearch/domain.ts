@@ -209,6 +209,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly advancedOptions!: pulumi.Output<{[key: string]: string}>;
     /**
+     * Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+     */
+    public readonly advancedSecurityOptions!: pulumi.Output<outputs.elasticsearch.DomainAdvancedSecurityOptions>;
+    /**
      * Amazon Resource Name (ARN) of the domain.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -286,6 +290,7 @@ export class Domain extends pulumi.CustomResource {
             const state = argsOrState as DomainState | undefined;
             inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
             inputs["advancedOptions"] = state ? state.advancedOptions : undefined;
+            inputs["advancedSecurityOptions"] = state ? state.advancedSecurityOptions : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["clusterConfig"] = state ? state.clusterConfig : undefined;
             inputs["cognitoOptions"] = state ? state.cognitoOptions : undefined;
@@ -306,6 +311,7 @@ export class Domain extends pulumi.CustomResource {
             const args = argsOrState as DomainArgs | undefined;
             inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
             inputs["advancedOptions"] = args ? args.advancedOptions : undefined;
+            inputs["advancedSecurityOptions"] = args ? args.advancedSecurityOptions : undefined;
             inputs["clusterConfig"] = args ? args.clusterConfig : undefined;
             inputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
             inputs["domainEndpointOptions"] = args ? args.domainEndpointOptions : undefined;
@@ -349,6 +355,10 @@ export interface DomainState {
      * domain on every apply.
      */
     readonly advancedOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+     */
+    readonly advancedSecurityOptions?: pulumi.Input<inputs.elasticsearch.DomainAdvancedSecurityOptions>;
     /**
      * Amazon Resource Name (ARN) of the domain.
      */
@@ -429,6 +439,10 @@ export interface DomainArgs {
      * domain on every apply.
      */
     readonly advancedOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+     */
+    readonly advancedSecurityOptions?: pulumi.Input<inputs.elasticsearch.DomainAdvancedSecurityOptions>;
     /**
      * Cluster configuration of the domain, see below.
      */

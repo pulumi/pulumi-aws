@@ -37,7 +37,7 @@ import (
 // 			return err
 // 		}
 // 		customerGateway, err := ec2.NewCustomerGateway(ctx, "customerGateway", &ec2.CustomerGatewayArgs{
-// 			BgpAsn:    pulumi.Int(65000),
+// 			BgpAsn:    pulumi.String("65000"),
 // 			IpAddress: pulumi.String("172.0.0.1"),
 // 			Type:      pulumi.String("ipsec.1"),
 // 		})

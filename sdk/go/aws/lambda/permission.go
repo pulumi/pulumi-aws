@@ -12,7 +12,8 @@ import (
 
 // Gives an external source (like a CloudWatch Event Rule, SNS, or S3) permission to access the Lambda function.
 //
-// ## Specify Lambda permissions for API Gateway REST API
+// ## Example Usage
+// ### Specify Lambda permissions for API Gateway REST API
 //
 // ```go
 // package main

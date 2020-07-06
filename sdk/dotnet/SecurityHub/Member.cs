@@ -69,7 +69,7 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> MasterId { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the relationship between the member account and its master account.
+        /// The status of the member account relationship.
         /// </summary>
         [Output("memberStatus")]
         public Output<string> MemberStatus { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? MasterId { get; set; }
 
         /// <summary>
-        /// The status of the relationship between the member account and its master account.
+        /// The status of the member account relationship.
         /// </summary>
         [Input("memberStatus")]
         public Input<string>? MemberStatus { get; set; }

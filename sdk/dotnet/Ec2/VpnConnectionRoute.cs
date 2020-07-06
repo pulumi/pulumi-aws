@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var customerGateway = new Aws.Ec2.CustomerGateway("customerGateway", new Aws.Ec2.CustomerGatewayArgs
     ///         {
-    ///             BgpAsn = 65000,
+    ///             BgpAsn = "65000",
     ///             IpAddress = "172.0.0.1",
     ///             Type = "ipsec.1",
     ///         });

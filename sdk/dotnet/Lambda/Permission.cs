@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Lambda
     /// Gives an external source (like a CloudWatch Event Rule, SNS, or S3) permission to access the Lambda function.
     /// 
     /// ## Example Usage
+    /// ### Basic Example
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -65,7 +66,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
-    /// ## Usage with SNS
+    /// ### Usage with SNS
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -120,8 +121,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
-    /// 
-    /// ## Specify Lambda permissions for API Gateway REST API
+    /// ### Specify Lambda permissions for API Gateway REST API
     /// 
     /// ```csharp
     /// using Pulumi;

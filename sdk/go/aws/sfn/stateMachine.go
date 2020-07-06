@@ -40,6 +40,8 @@ import (
 type StateMachine struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the state machine.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The date the state machine was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The Amazon States Language definition of the state machine.
@@ -88,6 +90,8 @@ func GetStateMachine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StateMachine resources.
 type stateMachineState struct {
+	// The ARN of the state machine.
+	Arn *string `pulumi:"arn"`
 	// The date the state machine was created.
 	CreationDate *string `pulumi:"creationDate"`
 	// The Amazon States Language definition of the state machine.
@@ -103,6 +107,8 @@ type stateMachineState struct {
 }
 
 type StateMachineState struct {
+	// The ARN of the state machine.
+	Arn pulumi.StringPtrInput
 	// The date the state machine was created.
 	CreationDate pulumi.StringPtrInput
 	// The Amazon States Language definition of the state machine.

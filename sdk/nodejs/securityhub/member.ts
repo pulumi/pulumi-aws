@@ -66,7 +66,7 @@ export class Member extends pulumi.CustomResource {
      */
     public /*out*/ readonly masterId!: pulumi.Output<string>;
     /**
-     * The status of the relationship between the member account and its master account.
+     * The status of the member account relationship.
      */
     public /*out*/ readonly memberStatus!: pulumi.Output<string>;
 
@@ -133,7 +133,7 @@ export interface MemberState {
      */
     readonly masterId?: pulumi.Input<string>;
     /**
-     * The status of the relationship between the member account and its master account.
+     * The status of the member account relationship.
      */
     readonly memberStatus?: pulumi.Input<string>;
 }

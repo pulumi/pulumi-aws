@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * const main = new aws.ec2.Vpc("main", {
  *     cidrBlock: "10.0.0.0/16",
- *     instanceTenancy: "dedicated",
+ *     instanceTenancy: "default",
  *     tags: {
  *         Name: "main",
  *     },
@@ -110,7 +110,8 @@ export class Vpc extends pulumi.CustomResource {
      */
     public readonly enableDnsSupport!: pulumi.Output<boolean | undefined>;
     /**
-     * A tenancy option for instances launched into the VPC
+     * A tenancy option for instances launched into the VPC. Default is `default`, which
+     * makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
      */
     public readonly instanceTenancy!: pulumi.Output<string | undefined>;
     /**
@@ -250,7 +251,8 @@ export interface VpcState {
      */
     readonly enableDnsSupport?: pulumi.Input<boolean>;
     /**
-     * A tenancy option for instances launched into the VPC
+     * A tenancy option for instances launched into the VPC. Default is `default`, which
+     * makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
      */
     readonly instanceTenancy?: pulumi.Input<string>;
     /**
@@ -311,7 +313,8 @@ export interface VpcArgs {
      */
     readonly enableDnsSupport?: pulumi.Input<boolean>;
     /**
-     * A tenancy option for instances launched into the VPC
+     * A tenancy option for instances launched into the VPC. Default is `default`, which
+     * makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
      */
     readonly instanceTenancy?: pulumi.Input<string>;
     /**

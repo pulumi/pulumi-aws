@@ -26,11 +26,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cognito.UserPool("example", {});
+ * const exampleUserPool = new aws.cognito.UserPool("example", {});
  * const main = new aws.cognito.UserPoolDomain("main", {
  *     certificateArn: aws_acm_certificate_cert.arn,
  *     domain: "example-domain.example.com",
- *     userPoolId: example.id,
+ *     userPoolId: exampleUserPool.id,
+ * });
+ * const exampleZone = pulumi.output(aws.route53.getZone({
+ *     name: "example.com",
+ * }, { async: true }));
+ * const auth_cognito_A = new aws.route53.Record("auth-cognito-A", {
+ *     aliases: [{
+ *         evaluateTargetHealth: false,
+ *         name: main.cloudfrontDistributionArn,
+ *         // This zone_id is fixed
+ *         zoneId: "Z2FDTNDATAQYW2",
+ *     }],
+ *     name: main.domain,
+ *     type: "A",
+ *     zoneId: exampleZone.zoneId!,
  * });
  * ```
  */
@@ -71,7 +85,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
      */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the CloudFront distribution.
+     * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      */
     public /*out*/ readonly cloudfrontDistributionArn!: pulumi.Output<string>;
     /**
@@ -150,7 +164,7 @@ export interface UserPoolDomainState {
      */
     readonly certificateArn?: pulumi.Input<string>;
     /**
-     * The ARN of the CloudFront distribution.
+     * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      */
     readonly cloudfrontDistributionArn?: pulumi.Input<string>;
     /**

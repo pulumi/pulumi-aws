@@ -8466,6 +8466,36 @@ export namespace elasticloadbalancingv2 {
 }
 
 export namespace elasticsearch {
+    export interface DomainAdvancedSecurityOptions {
+        /**
+         * Specifies whether Amazon Cognito authentication with Kibana is enabled or not
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+         */
+        internalUserDatabaseEnabled?: pulumi.Input<boolean>;
+        /**
+         * Credentials for the master user: username and password, or ARN
+         */
+        masterUserOptions?: pulumi.Input<inputs.elasticsearch.DomainAdvancedSecurityOptionsMasterUserOptions>;
+    }
+
+    export interface DomainAdvancedSecurityOptionsMasterUserOptions {
+        /**
+         * ARN for the master user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`)
+         */
+        masterUserArn?: pulumi.Input<string>;
+        /**
+         * The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+         */
+        masterUserName?: pulumi.Input<string>;
+        /**
+         * The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+         */
+        masterUserPassword?: pulumi.Input<string>;
+    }
+
     export interface DomainClusterConfig {
         /**
          * Number of dedicated master nodes in the cluster

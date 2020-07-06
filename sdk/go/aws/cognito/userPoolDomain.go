@@ -47,19 +47,42 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cognito"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/route53"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := cognito.NewUserPool(ctx, "example", nil)
+// 		exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
+// 		main, err := cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
 // 			CertificateArn: pulumi.String(aws_acm_certificate.Cert.Arn),
 // 			Domain:         pulumi.String("example-domain.example.com"),
-// 			UserPoolId:     example.ID(),
+// 			UserPoolId:     exampleUserPool.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt0 := "example.com"
+// 		exampleZone, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "auth_cognito_A", &route53.RecordArgs{
+// 			Aliases: route53.RecordAliasArray{
+// 				&route53.RecordAliasArgs{
+// 					EvaluateTargetHealth: pulumi.Bool(false),
+// 					Name:                 main.CloudfrontDistributionArn,
+// 					ZoneId:               pulumi.String("Z2FDTNDATAQYW2"),
+// 				},
+// 			},
+// 			Name:   main.Domain,
+// 			Type:   pulumi.String("A"),
+// 			ZoneId: pulumi.String(exampleZone.ZoneId),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -75,7 +98,7 @@ type UserPoolDomain struct {
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
-	// The ARN of the CloudFront distribution.
+	// The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
 	CloudfrontDistributionArn pulumi.StringOutput `pulumi:"cloudfrontDistributionArn"`
 	// The domain string.
 	Domain pulumi.StringOutput `pulumi:"domain"`
@@ -125,7 +148,7 @@ type userPoolDomainState struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
 	CertificateArn *string `pulumi:"certificateArn"`
-	// The ARN of the CloudFront distribution.
+	// The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
 	CloudfrontDistributionArn *string `pulumi:"cloudfrontDistributionArn"`
 	// The domain string.
 	Domain *string `pulumi:"domain"`
@@ -142,7 +165,7 @@ type UserPoolDomainState struct {
 	AwsAccountId pulumi.StringPtrInput
 	// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
 	CertificateArn pulumi.StringPtrInput
-	// The ARN of the CloudFront distribution.
+	// The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
 	CloudfrontDistributionArn pulumi.StringPtrInput
 	// The domain string.
 	Domain pulumi.StringPtrInput

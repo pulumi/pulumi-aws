@@ -126,13 +126,13 @@ type Certificate struct {
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// Status of the certificate.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
 	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails pulumi.StringArrayOutput `pulumi:"validationEmails"`
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod pulumi.StringOutput `pulumi:"validationMethod"`
 }
 
@@ -184,13 +184,13 @@ type certificateState struct {
 	PrivateKey *string `pulumi:"privateKey"`
 	// Status of the certificate.
 	Status *string `pulumi:"status"`
-	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails []string `pulumi:"validationEmails"`
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod *string `pulumi:"validationMethod"`
 }
 
@@ -215,13 +215,13 @@ type CertificateState struct {
 	PrivateKey pulumi.StringPtrInput
 	// Status of the certificate.
 	Status pulumi.StringPtrInput
-	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
 	SubjectAlternativeNames pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
 	ValidationEmails pulumi.StringArrayInput
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod pulumi.StringPtrInput
 }
 
@@ -244,11 +244,11 @@ type certificateArgs struct {
 	Options *CertificateOptions `pulumi:"options"`
 	// The certificate's PEM-formatted private key
 	PrivateKey *string `pulumi:"privateKey"`
-	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod *string `pulumi:"validationMethod"`
 }
 
@@ -268,11 +268,11 @@ type CertificateArgs struct {
 	Options CertificateOptionsPtrInput
 	// The certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrInput
-	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
 	SubjectAlternativeNames pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod pulumi.StringPtrInput
 }
 

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ec2
     ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
     ///         {
     ///             CidrBlock = "10.0.0.0/16",
-    ///             InstanceTenancy = "dedicated",
+    ///             InstanceTenancy = "default",
     ///             Tags = 
     ///             {
     ///                 { "Name", "main" },
@@ -128,7 +128,8 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> EnableDnsSupport { get; private set; } = null!;
 
         /// <summary>
-        /// A tenancy option for instances launched into the VPC
+        /// A tenancy option for instances launched into the VPC. Default is `default`, which
+        /// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
         /// </summary>
         [Output("instanceTenancy")]
         public Output<string?> InstanceTenancy { get; private set; } = null!;
@@ -253,7 +254,8 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnableDnsSupport { get; set; }
 
         /// <summary>
-        /// A tenancy option for instances launched into the VPC
+        /// A tenancy option for instances launched into the VPC. Default is `default`, which
+        /// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
         /// </summary>
         [Input("instanceTenancy")]
         public Input<string>? InstanceTenancy { get; set; }
@@ -346,7 +348,8 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnableDnsSupport { get; set; }
 
         /// <summary>
-        /// A tenancy option for instances launched into the VPC
+        /// A tenancy option for instances launched into the VPC. Default is `default`, which
+        /// makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
         /// </summary>
         [Input("instanceTenancy")]
         public Input<string>? InstanceTenancy { get; set; }

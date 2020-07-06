@@ -10,6 +10,10 @@ from .. import utilities, tables
 
 
 class StateMachine(pulumi.CustomResource):
+    arn: pulumi.Output[str]
+    """
+    The ARN of the state machine.
+    """
     creation_date: pulumi.Output[str]
     """
     The date the state machine was created.
@@ -93,6 +97,7 @@ class StateMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__['role_arn'] = role_arn
             __props__['tags'] = tags
+            __props__['arn'] = None
             __props__['creation_date'] = None
             __props__['status'] = None
         super(StateMachine, __self__).__init__(
@@ -102,7 +107,7 @@ class StateMachine(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, creation_date=None, definition=None, name=None, role_arn=None, status=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, creation_date=None, definition=None, name=None, role_arn=None, status=None, tags=None):
         """
         Get an existing StateMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -110,6 +115,7 @@ class StateMachine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the state machine.
         :param pulumi.Input[str] creation_date: The date the state machine was created.
         :param pulumi.Input[str] definition: The Amazon States Language definition of the state machine.
         :param pulumi.Input[str] name: The name of the state machine.
@@ -121,6 +127,7 @@ class StateMachine(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["arn"] = arn
         __props__["creation_date"] = creation_date
         __props__["definition"] = definition
         __props__["name"] = name

@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {});
  * const exampleCustomerGateway = new aws.ec2.CustomerGateway("example", {
- *     bgpAsn: 65000,
+ *     bgpAsn: "65000",
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *     vpcId: vpc.id,
  * });
  * const customerGateway = new aws.ec2.CustomerGateway("customer_gateway", {
- *     bgpAsn: 65000,
+ *     bgpAsn: "65000",
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });

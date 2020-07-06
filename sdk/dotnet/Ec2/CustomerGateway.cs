@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var main = new Aws.Ec2.CustomerGateway("main", new Aws.Ec2.CustomerGatewayArgs
     ///         {
-    ///             BgpAsn = 65000,
+    ///             BgpAsn = "65000",
     ///             IpAddress = "172.83.124.10",
     ///             Tags = 
     ///             {
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ec2
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
         [Output("bgpAsn")]
-        public Output<int> BgpAsn { get; private set; } = null!;
+        public Output<string> BgpAsn { get; private set; } = null!;
 
         /// <summary>
         /// The IP address of the gateway's Internet-routable external interface.
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Ec2
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
         [Input("bgpAsn", required: true)]
-        public Input<int> BgpAsn { get; set; } = null!;
+        public Input<string> BgpAsn { get; set; } = null!;
 
         /// <summary>
         /// The IP address of the gateway's Internet-routable external interface.
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Ec2
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         /// </summary>
         [Input("bgpAsn")]
-        public Input<int>? BgpAsn { get; set; }
+        public Input<string>? BgpAsn { get; set; }
 
         /// <summary>
         /// The IP address of the gateway's Internet-routable external interface.

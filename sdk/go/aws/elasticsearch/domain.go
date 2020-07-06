@@ -129,6 +129,8 @@ type Domain struct {
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
 	AdvancedOptions pulumi.StringMapOutput `pulumi:"advancedOptions"`
+	// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+	AdvancedSecurityOptions DomainAdvancedSecurityOptionsOutput `pulumi:"advancedSecurityOptions"`
 	// Amazon Resource Name (ARN) of the domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Cluster configuration of the domain, see below.
@@ -199,6 +201,8 @@ type domainState struct {
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
+	// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
 	// Amazon Resource Name (ARN) of the domain.
 	Arn *string `pulumi:"arn"`
 	// Cluster configuration of the domain, see below.
@@ -242,6 +246,8 @@ type DomainState struct {
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
 	AdvancedOptions pulumi.StringMapInput
+	// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput
 	// Amazon Resource Name (ARN) of the domain.
 	Arn pulumi.StringPtrInput
 	// Cluster configuration of the domain, see below.
@@ -289,6 +295,8 @@ type domainArgs struct {
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
+	// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
 	// Cluster configuration of the domain, see below.
 	ClusterConfig  *DomainClusterConfig  `pulumi:"clusterConfig"`
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
@@ -323,6 +331,8 @@ type DomainArgs struct {
 	// may be wrong and cause a perpetual diff, causing this provider to want to recreate your Elasticsearch
 	// domain on every apply.
 	AdvancedOptions pulumi.StringMapInput
+	// Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
+	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput
 	// Cluster configuration of the domain, see below.
 	ClusterConfig  DomainClusterConfigPtrInput
 	CognitoOptions DomainCognitoOptionsPtrInput

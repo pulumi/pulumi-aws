@@ -137,7 +137,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
      */
     public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
     /**
@@ -149,7 +149,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly validationEmails!: pulumi.Output<string[]>;
     /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
      */
     public readonly validationMethod!: pulumi.Output<string>;
 
@@ -248,7 +248,7 @@ export interface CertificateState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
      */
     readonly subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -260,7 +260,7 @@ export interface CertificateState {
      */
     readonly validationEmails?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
      */
     readonly validationMethod?: pulumi.Input<string>;
 }
@@ -296,7 +296,7 @@ export interface CertificateArgs {
      */
     readonly privateKey?: pulumi.Input<string>;
     /**
-     * A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+     * A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
      */
     readonly subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -304,7 +304,7 @@ export interface CertificateArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into state managed by this provider.
+     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
      */
     readonly validationMethod?: pulumi.Input<string>;
 }
