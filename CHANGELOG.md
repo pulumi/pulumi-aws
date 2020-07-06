@@ -5,6 +5,7 @@ CHANGELOG
 * Upgrade to v2.69.0 of the AWS Terraform Provider
   ** Please Note the following **
   * `ec2.CustomerGateway.bgpAsn` has changed from an `int` to `string` to allow 4-byte ASNs
+* Add `C5A` instance type family to `aws.ec2.InstanceTypes`.
 
 ---
 
