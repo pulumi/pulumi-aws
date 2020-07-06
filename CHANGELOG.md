@@ -3,6 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to v2.69.0 of the AWS Terraform Provider
+  ** Please Note the following **
+  * `ec2.CustomerGateway.bgpAsn` has changed from an `int` to `string` to allow 4-byte ASNs
 
 ---
 
@@ -77,8 +79,8 @@ CHANGELOG
 * Add Principals.BatchPrincipal
 * Add Principals.SpotFleetPrincipal
 * Switch deprecated Buffer constructor to Buffer.from in LogGroup.onDecodedEvent
-* Update `dynamodb.TableEventSubscriptionArgs` to include latest Lambda Event Source Mapping parameters 
-* Update `kinesis.TableEventSubscriptionArgs` to include latest Lambda Event Source Mapping parameters 
+* Update `dynamodb.TableEventSubscriptionArgs` to include latest Lambda Event Source Mapping parameters
+* Update `kinesis.TableEventSubscriptionArgs` to include latest Lambda Event Source Mapping parameters
 * Upgrade to pulumi-terraform-bridge v2.1.0
 * Regenerate datasource examples to be async
 
@@ -118,7 +120,7 @@ CHANGELOG
 ## 1.25.0 (2020-03-09)
 * Upgrade to v2.52.0 of the AWS Terraform Provider
 * Ensure that resource types are primitive types and move any
-  existing direct type references to be AltTypes 
+  existing direct type references to be AltTypes
 
 ## 1.24.0 (2020-03-03)
 * Upgrade to v2.51.0 of the AWS Terraform Provider
