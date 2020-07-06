@@ -2,13 +2,16 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.12.0 (2020-07-06)
 * Upgrade to v2.69.0 of the AWS Terraform Provider
   ** Please Note the following **
   * `ec2.CustomerGateway.bgpAsn` has changed from an `int` to `string` to allow 4-byte ASNs
 * Add `C5A` instance type family to `aws.ec2.InstanceTypes`.
 * Add the ability to specify aws.queue.QueuePolicy `policy` as iam.PolicyDocument
-
----
 
 ## 2.11.0 (2020-06-26)
 * Upgrade to v2.68.0 of the AWS Terraform Provider
