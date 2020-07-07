@@ -78,7 +78,7 @@ jobs:
       fail-fast: true
       matrix:
         dotnetversion:
-        - 3.1.201
+        - 3.1.301
         goversion:
         - 1.14.x
         language:
@@ -208,7 +208,7 @@ jobs:
       fail-fast: true
       matrix:
         dotnetversion:
-        - 3.1.201
+        - 3.1.301
         goversion:
         - 1.14.x
         language:
