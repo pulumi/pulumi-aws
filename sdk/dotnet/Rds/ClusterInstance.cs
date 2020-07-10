@@ -56,6 +56,8 @@ namespace Pulumi.Aws.Rds
     ///             clusterInstances.Add(new Aws.Rds.ClusterInstance($"clusterInstances-{range.Value}", new Aws.Rds.ClusterInstanceArgs
     ///             {
     ///                 ClusterIdentifier = @default.Id,
+    ///                 Engine = @default.Engine,
+    ///                 EngineVersion = @default.EngineVersion,
     ///                 Identifier = $"aurora-cluster-demo-{range.Value}",
     ///                 InstanceClass = "db.r4.large",
     ///             }));

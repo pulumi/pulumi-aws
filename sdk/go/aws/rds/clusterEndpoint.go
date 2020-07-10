@@ -44,6 +44,8 @@ import (
 // 		test1, err := rds.NewClusterInstance(ctx, "test1", &rds.ClusterInstanceArgs{
 // 			ApplyImmediately:  pulumi.Bool(true),
 // 			ClusterIdentifier: _default.ID(),
+// 			Engine:            _default.Engine,
+// 			EngineVersion:     _default.EngineVersion,
 // 			Identifier:        pulumi.String("test1"),
 // 			InstanceClass:     pulumi.String("db.t2.small"),
 // 		})
@@ -53,6 +55,8 @@ import (
 // 		test2, err := rds.NewClusterInstance(ctx, "test2", &rds.ClusterInstanceArgs{
 // 			ApplyImmediately:  pulumi.Bool(true),
 // 			ClusterIdentifier: _default.ID(),
+// 			Engine:            _default.Engine,
+// 			EngineVersion:     _default.EngineVersion,
 // 			Identifier:        pulumi.String("test2"),
 // 			InstanceClass:     pulumi.String("db.t2.small"),
 // 		})
@@ -62,6 +66,8 @@ import (
 // 		test3, err := rds.NewClusterInstance(ctx, "test3", &rds.ClusterInstanceArgs{
 // 			ApplyImmediately:  pulumi.Bool(true),
 // 			ClusterIdentifier: _default.ID(),
+// 			Engine:            _default.Engine,
+// 			EngineVersion:     _default.EngineVersion,
 // 			Identifier:        pulumi.String("test3"),
 // 			InstanceClass:     pulumi.String("db.t2.small"),
 // 		})

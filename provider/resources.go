@@ -1107,6 +1107,8 @@ func Provider() tfbridge.ProviderInfo {
 			// EC2 Client VPN
 			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},
 			"aws_ec2_client_vpn_network_association": {Tok: awsResource(ec2ClientVpnMod, "NetworkAssociation")},
+			"aws_ec2_client_vpn_authorization_rule":  {Tok: awsResource(ec2ClientVpnMod, "AuthorizationRule")},
+			"aws_ec2_client_vpn_route":               {Tok: awsResource(ec2ClientVpnMod, "Route")},
 			// EC2 Transit Gateway
 			"aws_ec2_transit_gateway": {
 				Tok: awsResource(ec2TransitGatewayMod, "TransitGateway"),

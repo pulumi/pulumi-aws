@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.LaunchTemplateCreditSpecification?> CreditSpecification { get; private set; } = null!;
 
         /// <summary>
-        /// The default version of the launch template.
+        /// Default Version of the launch template.
         /// </summary>
         [Output("defaultVersion")]
         public Output<int> DefaultVersion { get; private set; } = null!;
@@ -210,6 +210,12 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to update Default Version each update. Conflicts with `default_version`.
+        /// </summary>
+        [Output("updateDefaultVersion")]
+        public Output<bool?> UpdateDefaultVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The Base64-encoded user data to provide when launching the instance.
         /// </summary>
         [Output("userData")]
@@ -298,6 +304,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("creditSpecification")]
         public Input<Inputs.LaunchTemplateCreditSpecificationArgs>? CreditSpecification { get; set; }
+
+        /// <summary>
+        /// Default Version of the launch template.
+        /// </summary>
+        [Input("defaultVersion")]
+        public Input<int>? DefaultVersion { get; set; }
 
         /// <summary>
         /// Description of the launch template.
@@ -487,6 +499,12 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// Whether to update Default Version each update. Conflicts with `default_version`.
+        /// </summary>
+        [Input("updateDefaultVersion")]
+        public Input<bool>? UpdateDefaultVersion { get; set; }
+
+        /// <summary>
         /// The Base64-encoded user data to provide when launching the instance.
         /// </summary>
         [Input("userData")]
@@ -550,7 +568,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.LaunchTemplateCreditSpecificationGetArgs>? CreditSpecification { get; set; }
 
         /// <summary>
-        /// The default version of the launch template.
+        /// Default Version of the launch template.
         /// </summary>
         [Input("defaultVersion")]
         public Input<int>? DefaultVersion { get; set; }
@@ -747,6 +765,12 @@ namespace Pulumi.Aws.Ec2
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Whether to update Default Version each update. Conflicts with `default_version`.
+        /// </summary>
+        [Input("updateDefaultVersion")]
+        public Input<bool>? UpdateDefaultVersion { get; set; }
 
         /// <summary>
         /// The Base64-encoded user data to provide when launching the instance.

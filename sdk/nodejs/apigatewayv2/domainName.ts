@@ -29,6 +29,31 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Associated Route 53 Resource Record
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleDomainName = new aws.apigatewayv2.DomainName("example", {
+ *     domainName: "http-api.example.com",
+ *     domainNameConfiguration: {
+ *         certificateArn: aws_acm_certificate_example.arn,
+ *         endpointType: "REGIONAL",
+ *         securityPolicy: "TLS_1_2",
+ *     },
+ * });
+ * const exampleRecord = new aws.route53.Record("example", {
+ *     aliases: [{
+ *         evaluateTargetHealth: false,
+ *         name: exampleDomainName.domainNameConfiguration.targetDomainName,
+ *         zoneId: exampleDomainName.domainNameConfiguration.hostedZoneId,
+ *     }],
+ *     name: exampleDomainName.domainName,
+ *     type: "A",
+ *     zoneId: aws_route53_zone_example.zoneId,
+ * });
+ * ```
  */
 export class DomainName extends pulumi.CustomResource {
     /**

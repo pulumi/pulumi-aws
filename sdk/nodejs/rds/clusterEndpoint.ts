@@ -30,18 +30,24 @@ import * as utilities from "../utilities";
  * const test1 = new aws.rds.ClusterInstance("test1", {
  *     applyImmediately: true,
  *     clusterIdentifier: defaultCluster.id,
+ *     engine: defaultCluster.engine,
+ *     engineVersion: defaultCluster.engineVersion,
  *     identifier: "test1",
  *     instanceClass: "db.t2.small",
  * });
  * const test2 = new aws.rds.ClusterInstance("test2", {
  *     applyImmediately: true,
  *     clusterIdentifier: defaultCluster.id,
+ *     engine: defaultCluster.engine,
+ *     engineVersion: defaultCluster.engineVersion,
  *     identifier: "test2",
  *     instanceClass: "db.t2.small",
  * });
  * const test3 = new aws.rds.ClusterInstance("test3", {
  *     applyImmediately: true,
  *     clusterIdentifier: defaultCluster.id,
+ *     engine: defaultCluster.engine,
+ *     engineVersion: defaultCluster.engineVersion,
  *     identifier: "test3",
  *     instanceClass: "db.t2.small",
  * });

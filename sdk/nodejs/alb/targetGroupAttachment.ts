@@ -74,7 +74,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The Availability Zone where the IP address of the target is to be registered.
+     * The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
@@ -137,7 +137,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
  */
 export interface TargetGroupAttachmentState {
     /**
-     * The Availability Zone where the IP address of the target is to be registered.
+     * The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**
@@ -159,7 +159,7 @@ export interface TargetGroupAttachmentState {
  */
 export interface TargetGroupAttachmentArgs {
     /**
-     * The Availability Zone where the IP address of the target is to be registered.
+     * The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
      */
     readonly availabilityZone?: pulumi.Input<string>;
     /**

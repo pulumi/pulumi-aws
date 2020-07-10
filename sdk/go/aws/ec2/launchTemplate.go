@@ -25,7 +25,7 @@ type LaunchTemplate struct {
 	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
 	CreditSpecification LaunchTemplateCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
-	// The default version of the launch template.
+	// Default Version of the launch template.
 	DefaultVersion pulumi.IntOutput `pulumi:"defaultVersion"`
 	// Description of the launch template.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -84,6 +84,8 @@ type LaunchTemplate struct {
 	TagSpecifications LaunchTemplateTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
 	// A map of tags to assign to the launch template.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
+	UpdateDefaultVersion pulumi.BoolPtrOutput `pulumi:"updateDefaultVersion"`
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// A list of security group IDs to associate with.
@@ -130,7 +132,7 @@ type launchTemplateState struct {
 	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
 	CreditSpecification *LaunchTemplateCreditSpecification `pulumi:"creditSpecification"`
-	// The default version of the launch template.
+	// Default Version of the launch template.
 	DefaultVersion *int `pulumi:"defaultVersion"`
 	// Description of the launch template.
 	Description *string `pulumi:"description"`
@@ -189,6 +191,8 @@ type launchTemplateState struct {
 	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
 	// A map of tags to assign to the launch template.
 	Tags map[string]string `pulumi:"tags"`
+	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
+	UpdateDefaultVersion *bool `pulumi:"updateDefaultVersion"`
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData *string `pulumi:"userData"`
 	// A list of security group IDs to associate with.
@@ -208,7 +212,7 @@ type LaunchTemplateState struct {
 	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
 	CreditSpecification LaunchTemplateCreditSpecificationPtrInput
-	// The default version of the launch template.
+	// Default Version of the launch template.
 	DefaultVersion pulumi.IntPtrInput
 	// Description of the launch template.
 	Description pulumi.StringPtrInput
@@ -267,6 +271,8 @@ type LaunchTemplateState struct {
 	TagSpecifications LaunchTemplateTagSpecificationArrayInput
 	// A map of tags to assign to the launch template.
 	Tags pulumi.StringMapInput
+	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
+	UpdateDefaultVersion pulumi.BoolPtrInput
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData pulumi.StringPtrInput
 	// A list of security group IDs to associate with.
@@ -288,6 +294,8 @@ type launchTemplateArgs struct {
 	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
 	CreditSpecification *LaunchTemplateCreditSpecification `pulumi:"creditSpecification"`
+	// Default Version of the launch template.
+	DefaultVersion *int `pulumi:"defaultVersion"`
 	// Description of the launch template.
 	Description *string `pulumi:"description"`
 	// If `true`, enables [EC2 Instance
@@ -343,6 +351,8 @@ type launchTemplateArgs struct {
 	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
 	// A map of tags to assign to the launch template.
 	Tags map[string]string `pulumi:"tags"`
+	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
+	UpdateDefaultVersion *bool `pulumi:"updateDefaultVersion"`
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData *string `pulumi:"userData"`
 	// A list of security group IDs to associate with.
@@ -361,6 +371,8 @@ type LaunchTemplateArgs struct {
 	// Customize the credit specification of the instance. See Credit
 	// Specification below for more details.
 	CreditSpecification LaunchTemplateCreditSpecificationPtrInput
+	// Default Version of the launch template.
+	DefaultVersion pulumi.IntPtrInput
 	// Description of the launch template.
 	Description pulumi.StringPtrInput
 	// If `true`, enables [EC2 Instance
@@ -416,6 +428,8 @@ type LaunchTemplateArgs struct {
 	TagSpecifications LaunchTemplateTagSpecificationArrayInput
 	// A map of tags to assign to the launch template.
 	Tags pulumi.StringMapInput
+	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
+	UpdateDefaultVersion pulumi.BoolPtrInput
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData pulumi.StringPtrInput
 	// A list of security group IDs to associate with.

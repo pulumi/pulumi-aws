@@ -101,7 +101,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -216,7 +216,7 @@ export interface EndpointState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource.
+     * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -258,7 +258,7 @@ export interface EndpointArgs {
      */
     readonly splitTunnel?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the resource.
+     * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
