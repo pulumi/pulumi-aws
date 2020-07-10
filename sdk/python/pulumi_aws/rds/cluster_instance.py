@@ -174,6 +174,8 @@ class ClusterInstance(pulumi.CustomResource):
         for range in [{"value": i} for i in range(0, 2)]:
             cluster_instances.append(aws.rds.ClusterInstance(f"clusterInstances-{range['value']}",
                 cluster_identifier=default.id,
+                engine=default.engine,
+                engine_version=default.engine_version,
                 identifier=f"aurora-cluster-demo-{range['value']}",
                 instance_class="db.r4.large"))
         ```

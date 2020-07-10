@@ -83,7 +83,7 @@ namespace Pulumi.Aws.LB
     public partial class TargetGroupAttachment : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered.
+        /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.LB
     public sealed class TargetGroupAttachmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered.
+        /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.LB
     public sealed class TargetGroupAttachmentState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered.
+        /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }

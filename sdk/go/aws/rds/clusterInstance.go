@@ -57,6 +57,8 @@ import (
 // 		for key0, val0 := range 2 {
 // 			__res, err := rds.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &rds.ClusterInstanceArgs{
 // 				ClusterIdentifier: _default.ID(),
+// 				Engine:            _default.Engine,
+// 				EngineVersion:     _default.EngineVersion,
 // 				Identifier:        pulumi.String(fmt.Sprintf("%v%v", "aurora-cluster-demo-", val0)),
 // 				InstanceClass:     pulumi.String("db.r4.large"),
 // 			})

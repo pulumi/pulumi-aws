@@ -95,7 +95,7 @@ import (
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 
-	// The Availability Zone where the IP address of the target is to be registered.
+	// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
@@ -145,7 +145,7 @@ func GetTargetGroupAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TargetGroupAttachment resources.
 type targetGroupAttachmentState struct {
-	// The Availability Zone where the IP address of the target is to be registered.
+	// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
 	Port *int `pulumi:"port"`
@@ -156,7 +156,7 @@ type targetGroupAttachmentState struct {
 }
 
 type TargetGroupAttachmentState struct {
-	// The Availability Zone where the IP address of the target is to be registered.
+	// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
 	AvailabilityZone pulumi.StringPtrInput
 	// The port on which targets receive traffic.
 	Port pulumi.IntPtrInput
@@ -171,7 +171,7 @@ func (TargetGroupAttachmentState) ElementType() reflect.Type {
 }
 
 type targetGroupAttachmentArgs struct {
-	// The Availability Zone where the IP address of the target is to be registered.
+	// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
 	Port *int `pulumi:"port"`
@@ -183,7 +183,7 @@ type targetGroupAttachmentArgs struct {
 
 // The set of arguments for constructing a TargetGroupAttachment resource.
 type TargetGroupAttachmentArgs struct {
-	// The Availability Zone where the IP address of the target is to be registered.
+	// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
 	AvailabilityZone pulumi.StringPtrInput
 	// The port on which targets receive traffic.
 	Port pulumi.IntPtrInput

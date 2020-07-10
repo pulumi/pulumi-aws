@@ -60,9 +60,9 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly creditSpecification!: pulumi.Output<outputs.ec2.LaunchTemplateCreditSpecification | undefined>;
     /**
-     * The default version of the launch template.
+     * Default Version of the launch template.
      */
-    public /*out*/ readonly defaultVersion!: pulumi.Output<number>;
+    public readonly defaultVersion!: pulumi.Output<number>;
     /**
      * Description of the launch template.
      */
@@ -171,6 +171,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Whether to update Default Version each update. Conflicts with `defaultVersion`.
+     */
+    public readonly updateDefaultVersion!: pulumi.Output<boolean | undefined>;
+    /**
      * The Base64-encoded user data to provide when launching the instance.
      */
     public readonly userData!: pulumi.Output<string | undefined>;
@@ -222,6 +226,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
             inputs["tagSpecifications"] = state ? state.tagSpecifications : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["updateDefaultVersion"] = state ? state.updateDefaultVersion : undefined;
             inputs["userData"] = state ? state.userData : undefined;
             inputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
@@ -230,6 +235,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["capacityReservationSpecification"] = args ? args.capacityReservationSpecification : undefined;
             inputs["cpuOptions"] = args ? args.cpuOptions : undefined;
             inputs["creditSpecification"] = args ? args.creditSpecification : undefined;
+            inputs["defaultVersion"] = args ? args.defaultVersion : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
             inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
@@ -254,10 +260,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
             inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
             inputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["updateDefaultVersion"] = args ? args.updateDefaultVersion : undefined;
             inputs["userData"] = args ? args.userData : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["defaultVersion"] = undefined /*out*/;
             inputs["latestVersion"] = undefined /*out*/;
         }
         if (!opts) {
@@ -298,7 +304,7 @@ export interface LaunchTemplateState {
      */
     readonly creditSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCreditSpecification>;
     /**
-     * The default version of the launch template.
+     * Default Version of the launch template.
      */
     readonly defaultVersion?: pulumi.Input<number>;
     /**
@@ -409,6 +415,10 @@ export interface LaunchTemplateState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Whether to update Default Version each update. Conflicts with `defaultVersion`.
+     */
+    readonly updateDefaultVersion?: pulumi.Input<boolean>;
+    /**
      * The Base64-encoded user data to provide when launching the instance.
      */
     readonly userData?: pulumi.Input<string>;
@@ -440,6 +450,10 @@ export interface LaunchTemplateArgs {
      * Specification below for more details.
      */
     readonly creditSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCreditSpecification>;
+    /**
+     * Default Version of the launch template.
+     */
+    readonly defaultVersion?: pulumi.Input<number>;
     /**
      * Description of the launch template.
      */
@@ -543,6 +557,10 @@ export interface LaunchTemplateArgs {
      * A map of tags to assign to the launch template.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether to update Default Version each update. Conflicts with `defaultVersion`.
+     */
+    readonly updateDefaultVersion?: pulumi.Input<boolean>;
     /**
      * The Base64-encoded user data to provide when launching the instance.
      */

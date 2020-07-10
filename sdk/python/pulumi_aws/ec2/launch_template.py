@@ -63,7 +63,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     default_version: pulumi.Output[float]
     """
-    The default version of the launch template.
+    Default Version of the launch template.
     """
     description: pulumi.Output[str]
     """
@@ -222,6 +222,10 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     A map of tags to assign to the launch template.
     """
+    update_default_version: pulumi.Output[bool]
+    """
+    Whether to update Default Version each update. Conflicts with `default_version`.
+    """
     user_data: pulumi.Output[str]
     """
     The Base64-encoded user data to provide when launching the instance.
@@ -230,7 +234,7 @@ class LaunchTemplate(pulumi.CustomResource):
     """
     A list of security group IDs to associate with.
     """
-    def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, hibernation_options=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, metadata_options=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, hibernation_options=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, license_specifications=None, metadata_options=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, update_default_version=None, user_data=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
 
@@ -242,6 +246,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[dict] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[dict] credit_specification: Customize the credit specification of the instance. See Credit
                Specification below for more details.
+        :param pulumi.Input[float] default_version: Default Version of the launch template.
         :param pulumi.Input[str] description: Description of the launch template.
         :param pulumi.Input[bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
@@ -273,6 +278,7 @@ class LaunchTemplate(pulumi.CustomResource):
                `vpc_security_group_ids` instead.
         :param pulumi.Input[list] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details.
         :param pulumi.Input[dict] tags: A map of tags to assign to the launch template.
+        :param pulumi.Input[bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
 
@@ -406,6 +412,7 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__['capacity_reservation_specification'] = capacity_reservation_specification
             __props__['cpu_options'] = cpu_options
             __props__['credit_specification'] = credit_specification
+            __props__['default_version'] = default_version
             __props__['description'] = description
             __props__['disable_api_termination'] = disable_api_termination
             __props__['ebs_optimized'] = ebs_optimized
@@ -430,10 +437,10 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__['security_group_names'] = security_group_names
             __props__['tag_specifications'] = tag_specifications
             __props__['tags'] = tags
+            __props__['update_default_version'] = update_default_version
             __props__['user_data'] = user_data
             __props__['vpc_security_group_ids'] = vpc_security_group_ids
             __props__['arn'] = None
-            __props__['default_version'] = None
             __props__['latest_version'] = None
         super(LaunchTemplate, __self__).__init__(
             'aws:ec2/launchTemplate:LaunchTemplate',
@@ -442,7 +449,7 @@ class LaunchTemplate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, hibernation_options=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, metadata_options=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def get(resource_name, id, opts=None, arn=None, block_device_mappings=None, capacity_reservation_specification=None, cpu_options=None, credit_specification=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerator=None, hibernation_options=None, iam_instance_profile=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, metadata_options=None, monitoring=None, name=None, name_prefix=None, network_interfaces=None, placement=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, update_default_version=None, user_data=None, vpc_security_group_ids=None):
         """
         Get an existing LaunchTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -457,7 +464,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[dict] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[dict] credit_specification: Customize the credit specification of the instance. See Credit
                Specification below for more details.
-        :param pulumi.Input[float] default_version: The default version of the launch template.
+        :param pulumi.Input[float] default_version: Default Version of the launch template.
         :param pulumi.Input[str] description: Description of the launch template.
         :param pulumi.Input[bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
@@ -490,6 +497,7 @@ class LaunchTemplate(pulumi.CustomResource):
                `vpc_security_group_ids` instead.
         :param pulumi.Input[list] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details.
         :param pulumi.Input[dict] tags: A map of tags to assign to the launch template.
+        :param pulumi.Input[bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[list] vpc_security_group_ids: A list of security group IDs to associate with.
 
@@ -637,6 +645,7 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__["security_group_names"] = security_group_names
         __props__["tag_specifications"] = tag_specifications
         __props__["tags"] = tags
+        __props__["update_default_version"] = update_default_version
         __props__["user_data"] = user_data
         __props__["vpc_security_group_ids"] = vpc_security_group_ids
         return LaunchTemplate(resource_name, opts=opts, __props__=__props__)
