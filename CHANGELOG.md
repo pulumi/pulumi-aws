@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update `aws.Tags` interface to reflect changes from version `2.10.0`
+_(none)_
 
 ---
+
+## 2.13.1 (2020-07-22)
+* Update `aws.Tags` interface to reflect changes from version `2.10.0`
 
 ## 2.13.0 (2020-07-10)
 * Upgrade to v2.70.0 of the AWS Terraform Provider
