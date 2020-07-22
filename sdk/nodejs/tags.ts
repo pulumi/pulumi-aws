@@ -12,10 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as pulumi from "@pulumi/pulumi";
+
 /**
  * Tags represents a set of key-value string pairs to which can be applied
  * to an AWS resource.
  */
 export interface Tags {
-    [name: string]: string;
+    [name: string]: pulumi.Input<string>;
 }

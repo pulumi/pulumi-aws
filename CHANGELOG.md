@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Update `aws.Tags` interface to reflect changes from version `2.10.0`
 
 ---
 
