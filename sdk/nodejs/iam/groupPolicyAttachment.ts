@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
+import {ARN} from "../arn";
 import {Group} from "./index";
 
 /**

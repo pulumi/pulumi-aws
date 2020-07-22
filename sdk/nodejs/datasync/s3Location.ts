@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
+import {ARN} from "../arn";
 
 /**
  * Manages an S3 Location within AWS DataSync.

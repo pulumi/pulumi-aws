@@ -6,7 +6,7 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-import {Region} from "./index";
+import {Region} from "./region";
 
 /**
  * The provider type for the aws package. By default, resources use package-wide configuration
