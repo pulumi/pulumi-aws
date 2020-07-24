@@ -12,7 +12,7 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, arn=None, aws_account_id=None, creation_date=None, customer_master_key_spec=None, deletion_date=None, description=None, enabled=None, expiration_model=None, grant_tokens=None, id=None, key_id=None, key_manager=None, key_state=None, key_usage=None, origin=None, valid_to=None):
+    def __init__(__self__, arn=None, aws_account_id=None, creation_date=None, customer_main_key_spec=None, deletion_date=None, description=None, enabled=None, expiration_model=None, grant_tokens=None, id=None, key_id=None, key_manager=None, key_state=None, key_usage=None, origin=None, valid_to=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         __self__.arn = arn
@@ -22,9 +22,9 @@ class GetKeyResult:
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         __self__.creation_date = creation_date
-        if customer_master_key_spec and not isinstance(customer_master_key_spec, str):
-            raise TypeError("Expected argument 'customer_master_key_spec' to be a str")
-        __self__.customer_master_key_spec = customer_master_key_spec
+        if customer_main_key_spec and not isinstance(customer_main_key_spec, str):
+            raise TypeError("Expected argument 'customer_main_key_spec' to be a str")
+        __self__.customer_main_key_spec = customer_main_key_spec
         if deletion_date and not isinstance(deletion_date, str):
             raise TypeError("Expected argument 'deletion_date' to be a str")
         __self__.deletion_date = deletion_date
@@ -73,7 +73,7 @@ class AwaitableGetKeyResult(GetKeyResult):
             arn=self.arn,
             aws_account_id=self.aws_account_id,
             creation_date=self.creation_date,
-            customer_master_key_spec=self.customer_master_key_spec,
+            customer_main_key_spec=self.customer_main_key_spec,
             deletion_date=self.deletion_date,
             description=self.description,
             enabled=self.enabled,
@@ -126,7 +126,7 @@ def get_key(grant_tokens=None,key_id=None,opts=None):
         arn=__ret__.get('arn'),
         aws_account_id=__ret__.get('awsAccountId'),
         creation_date=__ret__.get('creationDate'),
-        customer_master_key_spec=__ret__.get('customerMasterKeySpec'),
+        customer_main_key_spec=__ret__.get('customerMainKeySpec'),
         deletion_date=__ret__.get('deletionDate'),
         description=__ret__.get('description'),
         enabled=__ret__.get('enabled'),

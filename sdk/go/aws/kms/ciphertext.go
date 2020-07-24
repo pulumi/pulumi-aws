@@ -11,7 +11,7 @@ import (
 )
 
 // The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
-// by using an AWS KMS customer master key. The value returned by this resource
+// by using an AWS KMS customer main key. The value returned by this resource
 // is stable across every apply. For a changing ciphertext value each apply, see
 // the `kms.Ciphertext` data source.
 //
@@ -56,7 +56,7 @@ type Ciphertext struct {
 	CiphertextBlob pulumi.StringOutput `pulumi:"ciphertextBlob"`
 	// An optional mapping that makes up the encryption context.
 	Context pulumi.StringMapOutput `pulumi:"context"`
-	// Globally unique key ID for the customer master key.
+	// Globally unique key ID for the customer main key.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext pulumi.StringOutput `pulumi:"plaintext"`
@@ -100,7 +100,7 @@ type ciphertextState struct {
 	CiphertextBlob *string `pulumi:"ciphertextBlob"`
 	// An optional mapping that makes up the encryption context.
 	Context map[string]string `pulumi:"context"`
-	// Globally unique key ID for the customer master key.
+	// Globally unique key ID for the customer main key.
 	KeyId *string `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext *string `pulumi:"plaintext"`
@@ -111,7 +111,7 @@ type CiphertextState struct {
 	CiphertextBlob pulumi.StringPtrInput
 	// An optional mapping that makes up the encryption context.
 	Context pulumi.StringMapInput
-	// Globally unique key ID for the customer master key.
+	// Globally unique key ID for the customer main key.
 	KeyId pulumi.StringPtrInput
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext pulumi.StringPtrInput
@@ -124,7 +124,7 @@ func (CiphertextState) ElementType() reflect.Type {
 type ciphertextArgs struct {
 	// An optional mapping that makes up the encryption context.
 	Context map[string]string `pulumi:"context"`
-	// Globally unique key ID for the customer master key.
+	// Globally unique key ID for the customer main key.
 	KeyId string `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext string `pulumi:"plaintext"`
@@ -134,7 +134,7 @@ type ciphertextArgs struct {
 type CiphertextArgs struct {
 	// An optional mapping that makes up the encryption context.
 	Context pulumi.StringMapInput
-	// Globally unique key ID for the customer master key.
+	// Globally unique key ID for the customer main key.
 	KeyId pulumi.StringInput
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext pulumi.StringInput

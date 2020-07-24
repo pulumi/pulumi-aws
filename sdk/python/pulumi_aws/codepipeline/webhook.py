@@ -74,7 +74,7 @@ class Webhook(pulumi.CustomResource):
                     "actions": [{
                         "category": "Source",
                         "configuration": {
-                            "Branch": "master",
+                            "Branch": "main",
                             "Owner": "my-organization",
                             "Repo": "test",
                         },

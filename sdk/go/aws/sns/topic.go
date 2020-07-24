@@ -69,7 +69,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
-// 			KmsMasterKeyId: pulumi.String("alias/aws/sns"),
+// 			KmsMainKeyId: pulumi.String("alias/aws/sns"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -103,8 +103,8 @@ type Topic struct {
 	HttpSuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"httpSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	HttpSuccessFeedbackSampleRate pulumi.IntPtrOutput `pulumi:"httpSuccessFeedbackSampleRate"`
-	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
-	KmsMasterKeyId pulumi.StringPtrOutput `pulumi:"kmsMasterKeyId"`
+	// The ID of an AWS-managed customer main key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+	KmsMainKeyId pulumi.StringPtrOutput `pulumi:"kmsMainKeyId"`
 	// IAM role for failure feedback
 	LambdaFailureFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"lambdaFailureFeedbackRoleArn"`
 	// The IAM role permitted to receive success feedback for this topic
@@ -173,8 +173,8 @@ type topicState struct {
 	HttpSuccessFeedbackRoleArn *string `pulumi:"httpSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	HttpSuccessFeedbackSampleRate *int `pulumi:"httpSuccessFeedbackSampleRate"`
-	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
-	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
+	// The ID of an AWS-managed customer main key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+	KmsMainKeyId *string `pulumi:"kmsMainKeyId"`
 	// IAM role for failure feedback
 	LambdaFailureFeedbackRoleArn *string `pulumi:"lambdaFailureFeedbackRoleArn"`
 	// The IAM role permitted to receive success feedback for this topic
@@ -216,8 +216,8 @@ type TopicState struct {
 	HttpSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	HttpSuccessFeedbackSampleRate pulumi.IntPtrInput
-	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
-	KmsMasterKeyId pulumi.StringPtrInput
+	// The ID of an AWS-managed customer main key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+	KmsMainKeyId pulumi.StringPtrInput
 	// IAM role for failure feedback
 	LambdaFailureFeedbackRoleArn pulumi.StringPtrInput
 	// The IAM role permitted to receive success feedback for this topic
@@ -261,8 +261,8 @@ type topicArgs struct {
 	HttpSuccessFeedbackRoleArn *string `pulumi:"httpSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	HttpSuccessFeedbackSampleRate *int `pulumi:"httpSuccessFeedbackSampleRate"`
-	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
-	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
+	// The ID of an AWS-managed customer main key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+	KmsMainKeyId *string `pulumi:"kmsMainKeyId"`
 	// IAM role for failure feedback
 	LambdaFailureFeedbackRoleArn *string `pulumi:"lambdaFailureFeedbackRoleArn"`
 	// The IAM role permitted to receive success feedback for this topic
@@ -303,8 +303,8 @@ type TopicArgs struct {
 	HttpSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	HttpSuccessFeedbackSampleRate pulumi.IntPtrInput
-	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
-	KmsMasterKeyId pulumi.StringPtrInput
+	// The ID of an AWS-managed customer main key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+	KmsMainKeyId pulumi.StringPtrInput
 	// IAM role for failure feedback
 	LambdaFailureFeedbackRoleArn pulumi.StringPtrInput
 	// The IAM role permitted to receive success feedback for this topic

@@ -84,7 +84,7 @@ class Cluster(pulumi.CustomResource):
     """
     engine_mode: pulumi.Output[str]
     """
-    The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+    The database engine mode. Valid values: `global`, `multimain`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
     """
     engine_version: pulumi.Output[str]
     """
@@ -114,13 +114,13 @@ class Cluster(pulumi.CustomResource):
     """
     The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
     """
-    master_password: pulumi.Output[str]
+    main_password: pulumi.Output[str]
     """
-    Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+    Password for the main DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
     """
-    master_username: pulumi.Output[str]
+    main_username: pulumi.Output[str]
     """
-    Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+    Username for the main DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
     """
     port: pulumi.Output[float]
     """
@@ -178,7 +178,7 @@ class Cluster(pulumi.CustomResource):
     """
     List of VPC security groups to associate with the Cluster
     """
-    def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, copy_tags_to_snapshot=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, deletion_protection=None, enable_http_endpoint=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, global_cluster_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, s3_import=None, scaling_configuration=None, skip_final_snapshot=None, snapshot_identifier=None, source_region=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, copy_tags_to_snapshot=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, deletion_protection=None, enable_http_endpoint=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, global_cluster_identifier=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, main_password=None, main_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, replication_source_identifier=None, s3_import=None, scaling_configuration=None, skip_final_snapshot=None, snapshot_identifier=None, source_region=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the `rds.ClusterInstance` resource. To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the `rds.Instance` resource.
 
@@ -217,8 +217,8 @@ class Cluster(pulumi.CustomResource):
             database_name="mydb",
             engine="aurora-mysql",
             engine_version="5.7.mysql_aurora.2.03.2",
-            master_password="bar",
-            master_username="foo",
+            main_password="bar",
+            main_username="foo",
             preferred_backup_window="07:00-09:00")
         ```
         ### Aurora MySQL 1.x (MySQL 5.6)
@@ -236,8 +236,8 @@ class Cluster(pulumi.CustomResource):
             backup_retention_period=5,
             cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
-            master_password="bar",
-            master_username="foo",
+            main_password="bar",
+            main_username="foo",
             preferred_backup_window="07:00-09:00")
         ```
         ### Aurora with PostgreSQL engine
@@ -256,13 +256,13 @@ class Cluster(pulumi.CustomResource):
             cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
             engine="aurora-postgresql",
-            master_password="bar",
-            master_username="foo",
+            main_password="bar",
+            main_username="foo",
             preferred_backup_window="07:00-09:00")
         ```
-        ### Aurora Multi-Master Cluster
+        ### Aurora Multi-Main Cluster
 
-        > More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
+        > More information about Aurora Multi-Main Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
 
         ```python
         import pulumi
@@ -271,9 +271,9 @@ class Cluster(pulumi.CustomResource):
         example = aws.rds.Cluster("example",
             cluster_identifier="example",
             db_subnet_group_name=aws_db_subnet_group["example"]["name"],
-            engine_mode="multimaster",
-            master_password="barbarbarbar",
-            master_username="foo",
+            engine_mode="multimain",
+            main_password="barbarbarbar",
+            main_username="foo",
             skip_final_snapshot=True)
         ```
 
@@ -294,15 +294,15 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[list] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
-        :param pulumi.Input[str] engine_mode: The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        :param pulumi.Input[str] engine_mode: The database engine mode. Valid values: `global`, `multimain`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `rds.GlobalCluster`.
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
         :param pulumi.Input[list] iam_roles: A List of ARNs for the IAM roles to associate to the RDS Cluster.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
-        :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        :param pulumi.Input[str] main_password: Password for the main DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[str] main_username: Username for the main DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[float] port: The port on which the DB accepts connections
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
@@ -370,8 +370,8 @@ class Cluster(pulumi.CustomResource):
             __props__['iam_database_authentication_enabled'] = iam_database_authentication_enabled
             __props__['iam_roles'] = iam_roles
             __props__['kms_key_id'] = kms_key_id
-            __props__['master_password'] = master_password
-            __props__['master_username'] = master_username
+            __props__['main_password'] = main_password
+            __props__['main_username'] = main_username
             __props__['port'] = port
             __props__['preferred_backup_window'] = preferred_backup_window
             __props__['preferred_maintenance_window'] = preferred_maintenance_window
@@ -396,7 +396,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, cluster_resource_id=None, copy_tags_to_snapshot=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, deletion_protection=None, enable_http_endpoint=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, global_cluster_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, s3_import=None, scaling_configuration=None, skip_final_snapshot=None, snapshot_identifier=None, source_region=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
+    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, cluster_resource_id=None, copy_tags_to_snapshot=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, deletion_protection=None, enable_http_endpoint=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, global_cluster_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, kms_key_id=None, main_password=None, main_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, s3_import=None, scaling_configuration=None, skip_final_snapshot=None, snapshot_identifier=None, source_region=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -422,7 +422,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[list] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[str] endpoint: The DNS address of the RDS instance
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
-        :param pulumi.Input[str] engine_mode: The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        :param pulumi.Input[str] engine_mode: The database engine mode. Valid values: `global`, `multimain`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `rds.GlobalCluster`.
@@ -430,8 +430,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
         :param pulumi.Input[list] iam_roles: A List of ARNs for the IAM roles to associate to the RDS Cluster.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
-        :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        :param pulumi.Input[str] main_password: Password for the main DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        :param pulumi.Input[str] main_username: Username for the main DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[float] port: The port on which the DB accepts connections
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
@@ -492,8 +492,8 @@ class Cluster(pulumi.CustomResource):
         __props__["iam_database_authentication_enabled"] = iam_database_authentication_enabled
         __props__["iam_roles"] = iam_roles
         __props__["kms_key_id"] = kms_key_id
-        __props__["master_password"] = master_password
-        __props__["master_username"] = master_username
+        __props__["main_password"] = main_password
+        __props__["main_username"] = main_username
         __props__["port"] = port
         __props__["preferred_backup_window"] = preferred_backup_window
         __props__["preferred_maintenance_window"] = preferred_maintenance_window

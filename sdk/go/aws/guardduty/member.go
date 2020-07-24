@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		master, err := guardduty.NewDetector(ctx, "master", &guardduty.DetectorArgs{
+// 		main, err := guardduty.NewDetector(ctx, "main", &guardduty.DetectorArgs{
 // 			Enable: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
@@ -38,7 +38,7 @@ import (
 // 		}
 // 		_, err = guardduty.NewMember(ctx, "memberMember", &guardduty.MemberArgs{
 // 			AccountId:         memberDetector.AccountId,
-// 			DetectorId:        master.ID(),
+// 			DetectorId:        main.ID(),
 // 			Email:             pulumi.String("required@example.com"),
 // 			Invite:            pulumi.Bool(true),
 // 			InvitationMessage: pulumi.String("please accept guardduty invitation"),
@@ -65,7 +65,7 @@ type Member struct {
 	InvitationMessage pulumi.StringPtrOutput `pulumi:"invitationMessage"`
 	// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
 	Invite pulumi.BoolPtrOutput `pulumi:"invite"`
-	// The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+	// The status of the relationship between the member account and its main account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
 	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
 }
 
@@ -118,7 +118,7 @@ type memberState struct {
 	InvitationMessage *string `pulumi:"invitationMessage"`
 	// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
 	Invite *bool `pulumi:"invite"`
-	// The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+	// The status of the relationship between the member account and its main account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
 	RelationshipStatus *string `pulumi:"relationshipStatus"`
 }
 
@@ -135,7 +135,7 @@ type MemberState struct {
 	InvitationMessage pulumi.StringPtrInput
 	// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
 	Invite pulumi.BoolPtrInput
-	// The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+	// The status of the relationship between the member account and its main account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
 	RelationshipStatus pulumi.StringPtrInput
 }
 

@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a resource-based access control mechanism for a KMS customer master key.
+// Provides a resource-based access control mechanism for a KMS customer main key.
 //
 // ## Example Usage
 //
@@ -73,7 +73,7 @@ type Grant struct {
 	GrantToken pulumi.StringOutput `pulumi:"grantToken"`
 	// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	GranteePrincipal pulumi.StringOutput `pulumi:"granteePrincipal"`
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+	// The unique identifier for the customer main key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// A friendly name for identifying the grant.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -133,7 +133,7 @@ type grantState struct {
 	GrantToken *string `pulumi:"grantToken"`
 	// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	GranteePrincipal *string `pulumi:"granteePrincipal"`
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+	// The unique identifier for the customer main key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
 	KeyId *string `pulumi:"keyId"`
 	// A friendly name for identifying the grant.
 	Name *string `pulumi:"name"`
@@ -157,7 +157,7 @@ type GrantState struct {
 	GrantToken pulumi.StringPtrInput
 	// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	GranteePrincipal pulumi.StringPtrInput
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+	// The unique identifier for the customer main key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
 	KeyId pulumi.StringPtrInput
 	// A friendly name for identifying the grant.
 	Name pulumi.StringPtrInput
@@ -181,7 +181,7 @@ type grantArgs struct {
 	GrantCreationTokens []string `pulumi:"grantCreationTokens"`
 	// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	GranteePrincipal string `pulumi:"granteePrincipal"`
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+	// The unique identifier for the customer main key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
 	KeyId string `pulumi:"keyId"`
 	// A friendly name for identifying the grant.
 	Name *string `pulumi:"name"`
@@ -202,7 +202,7 @@ type GrantArgs struct {
 	GrantCreationTokens pulumi.StringArrayInput
 	// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the state may not always be refreshed to reflect what is true in AWS.
 	GranteePrincipal pulumi.StringInput
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+	// The unique identifier for the customer main key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
 	KeyId pulumi.StringInput
 	// A friendly name for identifying the grant.
 	Name pulumi.StringPtrInput

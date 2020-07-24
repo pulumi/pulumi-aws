@@ -14,7 +14,7 @@ class Key(pulumi.CustomResource):
     """
     The Amazon Resource Name (ARN) of the key.
     """
-    customer_master_key_spec: pulumi.Output[str]
+    customer_main_key_spec: pulumi.Output[str]
     """
     Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
     Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
@@ -54,9 +54,9 @@ class Key(pulumi.CustomResource):
     """
     A map of tags to assign to the object.
     """
-    def __init__(__self__, resource_name, opts=None, customer_master_key_spec=None, deletion_window_in_days=None, description=None, enable_key_rotation=None, is_enabled=None, key_usage=None, policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, customer_main_key_spec=None, deletion_window_in_days=None, description=None, enable_key_rotation=None, is_enabled=None, key_usage=None, policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a KMS customer master key.
+        Provides a KMS customer main key.
 
         ## Example Usage
 
@@ -71,7 +71,7 @@ class Key(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+        :param pulumi.Input[str] customer_main_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
                Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         :param pulumi.Input[float] deletion_window_in_days: Duration in days after which the key is deleted
                after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
@@ -101,7 +101,7 @@ class Key(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['customer_master_key_spec'] = customer_master_key_spec
+            __props__['customer_main_key_spec'] = customer_main_key_spec
             __props__['deletion_window_in_days'] = deletion_window_in_days
             __props__['description'] = description
             __props__['enable_key_rotation'] = enable_key_rotation
@@ -118,7 +118,7 @@ class Key(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, customer_master_key_spec=None, deletion_window_in_days=None, description=None, enable_key_rotation=None, is_enabled=None, key_id=None, key_usage=None, policy=None, tags=None):
+    def get(resource_name, id, opts=None, arn=None, customer_main_key_spec=None, deletion_window_in_days=None, description=None, enable_key_rotation=None, is_enabled=None, key_id=None, key_usage=None, policy=None, tags=None):
         """
         Get an existing Key resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -127,7 +127,7 @@ class Key(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the key.
-        :param pulumi.Input[str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+        :param pulumi.Input[str] customer_main_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
                Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         :param pulumi.Input[float] deletion_window_in_days: Duration in days after which the key is deleted
                after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
@@ -146,7 +146,7 @@ class Key(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["arn"] = arn
-        __props__["customer_master_key_spec"] = customer_master_key_spec
+        __props__["customer_main_key_spec"] = customer_main_key_spec
         __props__["deletion_window_in_days"] = deletion_window_in_days
         __props__["description"] = description
         __props__["enable_key_rotation"] = enable_key_rotation

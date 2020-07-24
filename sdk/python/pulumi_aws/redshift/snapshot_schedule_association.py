@@ -30,8 +30,8 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
             cluster_identifier="tf-redshift-cluster",
             cluster_type="single-node",
             database_name="mydb",
-            master_password="Mustbe8characters",
-            master_username="foo",
+            main_password="Mustbe8characters",
+            main_username="foo",
             node_type="dc1.large")
         default_snapshot_schedule = aws.redshift.SnapshotSchedule("defaultSnapshotSchedule",
             definitions=["rate(12 hours)"],

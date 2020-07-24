@@ -12,7 +12,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, allow_version_upgrade=None, automated_snapshot_retention_period=None, availability_zone=None, bucket_name=None, cluster_identifier=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, id=None, kms_key_id=None, master_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
+    def __init__(__self__, allow_version_upgrade=None, automated_snapshot_retention_period=None, availability_zone=None, bucket_name=None, cluster_identifier=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, id=None, kms_key_id=None, main_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
         if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
             raise TypeError("Expected argument 'allow_version_upgrade' to be a bool")
         __self__.allow_version_upgrade = allow_version_upgrade
@@ -136,11 +136,11 @@ class GetClusterResult:
         """
         The KMS encryption key associated to the cluster
         """
-        if master_username and not isinstance(master_username, str):
-            raise TypeError("Expected argument 'master_username' to be a str")
-        __self__.master_username = master_username
+        if main_username and not isinstance(main_username, str):
+            raise TypeError("Expected argument 'main_username' to be a str")
+        __self__.main_username = main_username
         """
-        Username for the master DB user
+        Username for the main DB user
         """
         if node_type and not isinstance(node_type, str):
             raise TypeError("Expected argument 'node_type' to be a str")
@@ -223,7 +223,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             iam_roles=self.iam_roles,
             id=self.id,
             kms_key_id=self.kms_key_id,
-            master_username=self.master_username,
+            main_username=self.main_username,
             node_type=self.node_type,
             number_of_nodes=self.number_of_nodes,
             port=self.port,
@@ -302,7 +302,7 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
         iam_roles=__ret__.get('iamRoles'),
         id=__ret__.get('id'),
         kms_key_id=__ret__.get('kmsKeyId'),
-        master_username=__ret__.get('masterUsername'),
+        main_username=__ret__.get('mainUsername'),
         node_type=__ret__.get('nodeType'),
         number_of_nodes=__ret__.get('numberOfNodes'),
         port=__ret__.get('port'),

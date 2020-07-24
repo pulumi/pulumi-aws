@@ -54,7 +54,7 @@ class Project(pulumi.CustomResource):
     """
     encryption_key: pulumi.Output[str]
     """
-    The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+    The AWS Key Management Service (AWS KMS) customer main key (CMK) to be used for encrypting the build project's build output artifacts.
     """
     environment: pulumi.Output[dict]
     """
@@ -301,7 +301,7 @@ class Project(pulumi.CustomResource):
                 "location": "https://github.com/mitchellh/packer.git",
                 "type": "GITHUB",
             },
-            source_version="master",
+            source_version="main",
             tags={
                 "Environment": "Test",
             },
@@ -358,7 +358,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[float] build_timeout: How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         :param pulumi.Input[dict] cache: Information about the cache storage for the project. Cache blocks are documented below.
         :param pulumi.Input[str] description: A short description of the project.
-        :param pulumi.Input[str] encryption_key: The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+        :param pulumi.Input[str] encryption_key: The AWS Key Management Service (AWS KMS) customer main key (CMK) to be used for encrypting the build project's build output artifacts.
         :param pulumi.Input[dict] environment: Information about the project's build environment. Environment blocks are documented below.
         :param pulumi.Input[dict] logs_config: Configuration for the builds to store log data to CloudWatch or S3.
         :param pulumi.Input[str] name: The projects name.
@@ -536,7 +536,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[float] build_timeout: How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         :param pulumi.Input[dict] cache: Information about the cache storage for the project. Cache blocks are documented below.
         :param pulumi.Input[str] description: A short description of the project.
-        :param pulumi.Input[str] encryption_key: The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+        :param pulumi.Input[str] encryption_key: The AWS Key Management Service (AWS KMS) customer main key (CMK) to be used for encrypting the build project's build output artifacts.
         :param pulumi.Input[dict] environment: Information about the project's build environment. Environment blocks are documented below.
         :param pulumi.Input[dict] logs_config: Configuration for the builds to store log data to CloudWatch or S3.
         :param pulumi.Input[str] name: The projects name.

@@ -33,7 +33,7 @@ class Alias(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, name=None, name_prefix=None, target_key_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
+        Provides an alias for a KMS customer main key. AWS Console enforces 1-to-1 mapping between aliases & keys,
         but API (hence this provider too) allows you to create as many aliases as
         the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
 

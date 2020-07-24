@@ -88,14 +88,14 @@ class Cluster(pulumi.CustomResource):
     """
     The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
     """
-    master_password: pulumi.Output[str]
+    main_password: pulumi.Output[str]
     """
-    Password for the master DB user. Note that this may
+    Password for the main DB user. Note that this may
     show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
     """
-    master_username: pulumi.Output[str]
+    main_username: pulumi.Output[str]
     """
-    Username for the master DB user.
+    Username for the main DB user.
     """
     port: pulumi.Output[float]
     """
@@ -132,7 +132,7 @@ class Cluster(pulumi.CustomResource):
     List of VPC security groups to associate
     with the Cluster
     """
-    def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, deletion_protection=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, apply_immediately=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, deletion_protection=None, enabled_cloudwatch_logs_exports=None, engine=None, engine_version=None, final_snapshot_identifier=None, kms_key_id=None, main_password=None, main_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a DocDB Cluster.
 
@@ -156,8 +156,8 @@ class Cluster(pulumi.CustomResource):
             backup_retention_period=5,
             cluster_identifier="my-docdb-cluster",
             engine="docdb",
-            master_password="mustbeeightchars",
-            master_username="foo",
+            main_password="mustbeeightchars",
+            main_username="foo",
             preferred_backup_window="07:00-09:00",
             skip_final_snapshot=True)
         ```
@@ -184,9 +184,9 @@ class Cluster(pulumi.CustomResource):
                when this DB cluster is deleted. If omitted, no final snapshot will be
                made.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may
+        :param pulumi.Input[str] main_password: Password for the main DB user. Note that this may
                show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
-        :param pulumi.Input[str] master_username: Username for the master DB user.
+        :param pulumi.Input[str] main_username: Username for the main DB user.
         :param pulumi.Input[float] port: The port on which the DB accepts connections
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
                Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
@@ -228,8 +228,8 @@ class Cluster(pulumi.CustomResource):
             __props__['engine_version'] = engine_version
             __props__['final_snapshot_identifier'] = final_snapshot_identifier
             __props__['kms_key_id'] = kms_key_id
-            __props__['master_password'] = master_password
-            __props__['master_username'] = master_username
+            __props__['main_password'] = main_password
+            __props__['main_username'] = main_username
             __props__['port'] = port
             __props__['preferred_backup_window'] = preferred_backup_window
             __props__['preferred_maintenance_window'] = preferred_maintenance_window
@@ -250,7 +250,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, cluster_resource_id=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, deletion_protection=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, kms_key_id=None, master_password=None, master_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
+    def get(resource_name, id, opts=None, apply_immediately=None, arn=None, availability_zones=None, backup_retention_period=None, cluster_identifier=None, cluster_identifier_prefix=None, cluster_members=None, cluster_resource_id=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, deletion_protection=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, kms_key_id=None, main_password=None, main_username=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, skip_final_snapshot=None, snapshot_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -282,9 +282,9 @@ class Cluster(pulumi.CustomResource):
                made.
         :param pulumi.Input[str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may
+        :param pulumi.Input[str] main_password: Password for the main DB user. Note that this may
                show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
-        :param pulumi.Input[str] master_username: Username for the master DB user.
+        :param pulumi.Input[str] main_username: Username for the main DB user.
         :param pulumi.Input[float] port: The port on which the DB accepts connections
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
                Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
@@ -318,8 +318,8 @@ class Cluster(pulumi.CustomResource):
         __props__["final_snapshot_identifier"] = final_snapshot_identifier
         __props__["hosted_zone_id"] = hosted_zone_id
         __props__["kms_key_id"] = kms_key_id
-        __props__["master_password"] = master_password
-        __props__["master_username"] = master_username
+        __props__["main_password"] = main_password
+        __props__["main_username"] = main_username
         __props__["port"] = port
         __props__["preferred_backup_window"] = preferred_backup_window
         __props__["preferred_maintenance_window"] = preferred_maintenance_window

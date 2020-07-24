@@ -4173,7 +4173,7 @@ type LaunchTemplateBlockDeviceMappingEbs struct {
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
 	// This must be set with a `volumeType` of `"io1"`.
 	Iops *int `pulumi:"iops"`
-	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+	// The ARN of the AWS Key Management Service (AWS KMS) customer main key (CMK) to use when creating the encrypted volume.
 	// `encrypted` must be set to `true` when this is set.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
@@ -4205,7 +4205,7 @@ type LaunchTemplateBlockDeviceMappingEbsArgs struct {
 	// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
 	// This must be set with a `volumeType` of `"io1"`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+	// The ARN of the AWS Key Management Service (AWS KMS) customer main key (CMK) to use when creating the encrypted volume.
 	// `encrypted` must be set to `true` when this is set.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
@@ -4311,7 +4311,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+// The ARN of the AWS Key Management Service (AWS KMS) customer main key (CMK) to use when creating the encrypted volume.
 // `encrypted` must be set to `true` when this is set.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -4383,7 +4383,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Iops() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+// The ARN of the AWS Key Management Service (AWS KMS) customer main key (CMK) to use when creating the encrypted volume.
 // `encrypted` must be set to `true` when this is set.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {

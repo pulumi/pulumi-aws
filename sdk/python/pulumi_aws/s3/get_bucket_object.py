@@ -128,7 +128,7 @@ class GetBucketObjectResult:
             raise TypeError("Expected argument 'sse_kms_key_id' to be a str")
         __self__.sse_kms_key_id = sse_kms_key_id
         """
-        If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
+        If present, specifies the ID of the Key Management Service (KMS) main encryption key that was used for the object.
         """
         if storage_class and not isinstance(storage_class, str):
             raise TypeError("Expected argument 'storage_class' to be a str")

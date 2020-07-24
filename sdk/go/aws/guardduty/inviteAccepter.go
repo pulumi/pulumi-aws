@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct master account on read, and disassociate with the master account upon removal.
+// Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct main account on read, and disassociate with the main account upon removal.
 //
 // ## Example Usage
 //
@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		master, err := guardduty.NewDetector(ctx, "master", nil)
+// 		main, err := guardduty.NewDetector(ctx, "main", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -34,7 +34,7 @@ import (
 // 		}
 // 		_, err = guardduty.NewMember(ctx, "dev", &guardduty.MemberArgs{
 // 			AccountId:  memberDetector.AccountId,
-// 			DetectorId: master.ID(),
+// 			DetectorId: main.ID(),
 // 			Email:      pulumi.String("required@example.com"),
 // 			Invite:     pulumi.Bool(true),
 // 		})
@@ -43,7 +43,7 @@ import (
 // 		}
 // 		_, err = guardduty.NewInviteAccepter(ctx, "memberInviteAccepter", &guardduty.InviteAccepterArgs{
 // 			DetectorId:      memberDetector.ID(),
-// 			MasterAccountId: master.AccountId,
+// 			MainAccountId: main.AccountId,
 // 		}, pulumi.Provider("aws.dev"), pulumi.DependsOn([]pulumi.Resource{
 // 			"aws_guardduty_member.dev",
 // 		}))
@@ -59,8 +59,8 @@ type InviteAccepter struct {
 
 	// The detector ID of the member GuardDuty account.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
-	// AWS account ID for master account.
-	MasterAccountId pulumi.StringOutput `pulumi:"masterAccountId"`
+	// AWS account ID for main account.
+	MainAccountId pulumi.StringOutput `pulumi:"mainAccountId"`
 }
 
 // NewInviteAccepter registers a new resource with the given unique name, arguments, and options.
@@ -69,8 +69,8 @@ func NewInviteAccepter(ctx *pulumi.Context,
 	if args == nil || args.DetectorId == nil {
 		return nil, errors.New("missing required argument 'DetectorId'")
 	}
-	if args == nil || args.MasterAccountId == nil {
-		return nil, errors.New("missing required argument 'MasterAccountId'")
+	if args == nil || args.MainAccountId == nil {
+		return nil, errors.New("missing required argument 'MainAccountId'")
 	}
 	if args == nil {
 		args = &InviteAccepterArgs{}
@@ -99,15 +99,15 @@ func GetInviteAccepter(ctx *pulumi.Context,
 type inviteAccepterState struct {
 	// The detector ID of the member GuardDuty account.
 	DetectorId *string `pulumi:"detectorId"`
-	// AWS account ID for master account.
-	MasterAccountId *string `pulumi:"masterAccountId"`
+	// AWS account ID for main account.
+	MainAccountId *string `pulumi:"mainAccountId"`
 }
 
 type InviteAccepterState struct {
 	// The detector ID of the member GuardDuty account.
 	DetectorId pulumi.StringPtrInput
-	// AWS account ID for master account.
-	MasterAccountId pulumi.StringPtrInput
+	// AWS account ID for main account.
+	MainAccountId pulumi.StringPtrInput
 }
 
 func (InviteAccepterState) ElementType() reflect.Type {
@@ -117,16 +117,16 @@ func (InviteAccepterState) ElementType() reflect.Type {
 type inviteAccepterArgs struct {
 	// The detector ID of the member GuardDuty account.
 	DetectorId string `pulumi:"detectorId"`
-	// AWS account ID for master account.
-	MasterAccountId string `pulumi:"masterAccountId"`
+	// AWS account ID for main account.
+	MainAccountId string `pulumi:"mainAccountId"`
 }
 
 // The set of arguments for constructing a InviteAccepter resource.
 type InviteAccepterArgs struct {
 	// The detector ID of the member GuardDuty account.
 	DetectorId pulumi.StringInput
-	// AWS account ID for master account.
-	MasterAccountId pulumi.StringInput
+	// AWS account ID for main account.
+	MainAccountId pulumi.StringInput
 }
 
 func (InviteAccepterArgs) ElementType() reflect.Type {

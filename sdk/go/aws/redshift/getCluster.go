@@ -116,8 +116,8 @@ type LookupClusterResult struct {
 	Id string `pulumi:"id"`
 	// The KMS encryption key associated to the cluster
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	// Username for the master DB user
-	MasterUsername string `pulumi:"masterUsername"`
+	// Username for the main DB user
+	MainUsername string `pulumi:"mainUsername"`
 	// The cluster node type
 	NodeType string `pulumi:"nodeType"`
 	// The number of nodes in the cluster

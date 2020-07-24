@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
+// Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer main key from AWS KMS in a destination region.
 //
 // Note that the grant must exist in the destination region, and not in the region of the cluster.
 //
@@ -50,7 +50,7 @@ type SnapshotCopyGrant struct {
 
 	// Amazon Resource Name (ARN) of snapshot copy grant
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+	// The unique identifier for the customer main key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName pulumi.StringOutput `pulumi:"snapshotCopyGrantName"`
@@ -91,7 +91,7 @@ func GetSnapshotCopyGrant(ctx *pulumi.Context,
 type snapshotCopyGrantState struct {
 	// Amazon Resource Name (ARN) of snapshot copy grant
 	Arn *string `pulumi:"arn"`
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+	// The unique identifier for the customer main key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName *string `pulumi:"snapshotCopyGrantName"`
@@ -102,7 +102,7 @@ type snapshotCopyGrantState struct {
 type SnapshotCopyGrantState struct {
 	// Amazon Resource Name (ARN) of snapshot copy grant
 	Arn pulumi.StringPtrInput
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+	// The unique identifier for the customer main key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
 	KmsKeyId pulumi.StringPtrInput
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName pulumi.StringPtrInput
@@ -115,7 +115,7 @@ func (SnapshotCopyGrantState) ElementType() reflect.Type {
 }
 
 type snapshotCopyGrantArgs struct {
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+	// The unique identifier for the customer main key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName string `pulumi:"snapshotCopyGrantName"`
@@ -125,7 +125,7 @@ type snapshotCopyGrantArgs struct {
 
 // The set of arguments for constructing a SnapshotCopyGrant resource.
 type SnapshotCopyGrantArgs struct {
-	// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+	// The unique identifier for the customer main key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
 	KmsKeyId pulumi.StringPtrInput
 	// A friendly name for identifying the grant.
 	SnapshotCopyGrantName pulumi.StringInput

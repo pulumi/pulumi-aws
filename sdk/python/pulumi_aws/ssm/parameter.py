@@ -85,7 +85,7 @@ class Parameter(pulumi.CustomResource):
             instance_class="db.t2.micro",
             name="mydb",
             parameter_group_name="default.mysql5.7",
-            password=var["database_master_password"],
+            password=var["database_main_password"],
             storage_type="gp2",
             username="foo")
         secret = aws.ssm.Parameter("secret",
@@ -94,7 +94,7 @@ class Parameter(pulumi.CustomResource):
                 "environment": var["environment"],
             },
             type="SecureString",
-            value=var["database_master_password"])
+            value=var["database_main_password"])
         ```
 
         > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.

@@ -105,7 +105,7 @@ class Application(pulumi.CustomResource):
 
         foo_app = aws.opsworks.Application("foo-app",
             app_sources=[{
-                "revision": "master",
+                "revision": "main",
                 "type": "git",
                 "url": "https://github.com/example.git",
             }],

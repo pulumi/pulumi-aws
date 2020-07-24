@@ -54,7 +54,7 @@ type Stream struct {
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
 	// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
 	EnforceConsumerDeletion pulumi.BoolPtrOutput `pulumi:"enforceConsumerDeletion"`
-	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned main key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -106,7 +106,7 @@ type streamState struct {
 	EncryptionType *string `pulumi:"encryptionType"`
 	// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
 	EnforceConsumerDeletion *bool `pulumi:"enforceConsumerDeletion"`
-	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned main key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name *string `pulumi:"name"`
@@ -128,7 +128,7 @@ type StreamState struct {
 	EncryptionType pulumi.StringPtrInput
 	// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
 	EnforceConsumerDeletion pulumi.BoolPtrInput
-	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned main key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId pulumi.StringPtrInput
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput
@@ -154,7 +154,7 @@ type streamArgs struct {
 	EncryptionType *string `pulumi:"encryptionType"`
 	// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
 	EnforceConsumerDeletion *bool `pulumi:"enforceConsumerDeletion"`
-	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned main key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name *string `pulumi:"name"`
@@ -177,7 +177,7 @@ type StreamArgs struct {
 	EncryptionType pulumi.StringPtrInput
 	// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
 	EnforceConsumerDeletion pulumi.BoolPtrInput
-	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+	// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned main key by specifying the alias `alias/aws/kinesis`.
 	KmsKeyId pulumi.StringPtrInput
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput

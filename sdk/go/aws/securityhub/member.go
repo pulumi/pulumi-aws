@@ -51,8 +51,8 @@ type Member struct {
 	Email pulumi.StringOutput `pulumi:"email"`
 	// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
 	Invite pulumi.BoolPtrOutput `pulumi:"invite"`
-	// The ID of the master Security Hub AWS account.
-	MasterId pulumi.StringOutput `pulumi:"masterId"`
+	// The ID of the main Security Hub AWS account.
+	MainId pulumi.StringOutput `pulumi:"mainId"`
 	// The status of the member account relationship.
 	MemberStatus pulumi.StringOutput `pulumi:"memberStatus"`
 }
@@ -97,8 +97,8 @@ type memberState struct {
 	Email *string `pulumi:"email"`
 	// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
 	Invite *bool `pulumi:"invite"`
-	// The ID of the master Security Hub AWS account.
-	MasterId *string `pulumi:"masterId"`
+	// The ID of the main Security Hub AWS account.
+	MainId *string `pulumi:"mainId"`
 	// The status of the member account relationship.
 	MemberStatus *string `pulumi:"memberStatus"`
 }
@@ -110,8 +110,8 @@ type MemberState struct {
 	Email pulumi.StringPtrInput
 	// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
 	Invite pulumi.BoolPtrInput
-	// The ID of the master Security Hub AWS account.
-	MasterId pulumi.StringPtrInput
+	// The ID of the main Security Hub AWS account.
+	MainId pulumi.StringPtrInput
 	// The status of the member account relationship.
 	MemberStatus pulumi.StringPtrInput
 }

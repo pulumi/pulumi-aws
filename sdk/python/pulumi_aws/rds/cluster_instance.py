@@ -168,8 +168,8 @@ class ClusterInstance(pulumi.CustomResource):
             ],
             cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
-            master_password="barbut8chars",
-            master_username="foo")
+            main_password="barbut8chars",
+            main_username="foo")
         cluster_instances = []
         for range in [{"value": i} for i in range(0, 2)]:
             cluster_instances.append(aws.rds.ClusterInstance(f"clusterInstances-{range['value']}",

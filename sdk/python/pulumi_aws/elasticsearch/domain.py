@@ -27,10 +27,10 @@ class Domain(pulumi.CustomResource):
 
       * `enabled` (`bool`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
       * `internalUserDatabaseEnabled` (`bool`) - Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
-      * `masterUserOptions` (`dict`) - Credentials for the master user: username and password, or ARN
-        * `masterUserArn` (`str`) - ARN for the master user. Only specify if `internal_user_database_enabled` is not set or set to `false`)
-        * `masterUserName` (`str`) - The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
-        * `masterUserPassword` (`str`) - The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+      * `mainUserOptions` (`dict`) - Credentials for the main user: username and password, or ARN
+        * `mainUserArn` (`str`) - ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`)
+        * `mainUserName` (`str`) - The main user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+        * `mainUserPassword` (`str`) - The main user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
     """
     arn: pulumi.Output[str]
     """
@@ -40,9 +40,9 @@ class Domain(pulumi.CustomResource):
     """
     Cluster configuration of the domain, see below.
 
-      * `dedicatedMasterCount` (`float`) - Number of dedicated master nodes in the cluster
-      * `dedicatedMasterEnabled` (`bool`) - Indicates whether dedicated master nodes are enabled for the cluster.
-      * `dedicatedMasterType` (`str`) - Instance type of the dedicated master nodes in the cluster.
+      * `dedicatedMainCount` (`float`) - Number of dedicated main nodes in the cluster
+      * `dedicatedMainEnabled` (`bool`) - Indicates whether dedicated main nodes are enabled for the cluster.
+      * `dedicatedMainType` (`str`) - Instance type of the dedicated main nodes in the cluster.
       * `instance_count` (`float`) - Number of instances in the cluster.
       * `instance_type` (`str`) - Instance type of data nodes in the cluster.
       * `warmCount` (`float`) - The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
@@ -313,16 +313,16 @@ class Domain(pulumi.CustomResource):
 
           * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
           * `internalUserDatabaseEnabled` (`pulumi.Input[bool]`) - Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
-          * `masterUserOptions` (`pulumi.Input[dict]`) - Credentials for the master user: username and password, or ARN
-            * `masterUserArn` (`pulumi.Input[str]`) - ARN for the master user. Only specify if `internal_user_database_enabled` is not set or set to `false`)
-            * `masterUserName` (`pulumi.Input[str]`) - The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
-            * `masterUserPassword` (`pulumi.Input[str]`) - The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+          * `mainUserOptions` (`pulumi.Input[dict]`) - Credentials for the main user: username and password, or ARN
+            * `mainUserArn` (`pulumi.Input[str]`) - ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`)
+            * `mainUserName` (`pulumi.Input[str]`) - The main user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+            * `mainUserPassword` (`pulumi.Input[str]`) - The main user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
 
         The **cluster_config** object supports the following:
 
-          * `dedicatedMasterCount` (`pulumi.Input[float]`) - Number of dedicated master nodes in the cluster
-          * `dedicatedMasterEnabled` (`pulumi.Input[bool]`) - Indicates whether dedicated master nodes are enabled for the cluster.
-          * `dedicatedMasterType` (`pulumi.Input[str]`) - Instance type of the dedicated master nodes in the cluster.
+          * `dedicatedMainCount` (`pulumi.Input[float]`) - Number of dedicated main nodes in the cluster
+          * `dedicatedMainEnabled` (`pulumi.Input[bool]`) - Indicates whether dedicated main nodes are enabled for the cluster.
+          * `dedicatedMainType` (`pulumi.Input[str]`) - Instance type of the dedicated main nodes in the cluster.
           * `instance_count` (`pulumi.Input[float]`) - Number of instances in the cluster.
           * `instance_type` (`pulumi.Input[str]`) - Instance type of data nodes in the cluster.
           * `warmCount` (`pulumi.Input[float]`) - The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
@@ -460,16 +460,16 @@ class Domain(pulumi.CustomResource):
 
           * `enabled` (`pulumi.Input[bool]`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
           * `internalUserDatabaseEnabled` (`pulumi.Input[bool]`) - Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
-          * `masterUserOptions` (`pulumi.Input[dict]`) - Credentials for the master user: username and password, or ARN
-            * `masterUserArn` (`pulumi.Input[str]`) - ARN for the master user. Only specify if `internal_user_database_enabled` is not set or set to `false`)
-            * `masterUserName` (`pulumi.Input[str]`) - The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
-            * `masterUserPassword` (`pulumi.Input[str]`) - The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+          * `mainUserOptions` (`pulumi.Input[dict]`) - Credentials for the main user: username and password, or ARN
+            * `mainUserArn` (`pulumi.Input[str]`) - ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`)
+            * `mainUserName` (`pulumi.Input[str]`) - The main user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+            * `mainUserPassword` (`pulumi.Input[str]`) - The main user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
 
         The **cluster_config** object supports the following:
 
-          * `dedicatedMasterCount` (`pulumi.Input[float]`) - Number of dedicated master nodes in the cluster
-          * `dedicatedMasterEnabled` (`pulumi.Input[bool]`) - Indicates whether dedicated master nodes are enabled for the cluster.
-          * `dedicatedMasterType` (`pulumi.Input[str]`) - Instance type of the dedicated master nodes in the cluster.
+          * `dedicatedMainCount` (`pulumi.Input[float]`) - Number of dedicated main nodes in the cluster
+          * `dedicatedMainEnabled` (`pulumi.Input[bool]`) - Indicates whether dedicated main nodes are enabled for the cluster.
+          * `dedicatedMainType` (`pulumi.Input[str]`) - Instance type of the dedicated main nodes in the cluster.
           * `instance_count` (`pulumi.Input[float]`) - Number of instances in the cluster.
           * `instance_type` (`pulumi.Input[str]`) - Instance type of data nodes in the cluster.
           * `warmCount` (`pulumi.Input[float]`) - The number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.

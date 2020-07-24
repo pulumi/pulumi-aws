@@ -8,7 +8,7 @@ import (
 )
 
 // The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
-// by using an AWS KMS customer master key. The value returned by this data source
+// by using an AWS KMS customer main key. The value returned by this data source
 // changes every apply. For a stable ciphertext value, see the `kms.Ciphertext`
 // resource.
 //
@@ -50,7 +50,7 @@ func GetCipherText(ctx *pulumi.Context, args *GetCipherTextArgs, opts ...pulumi.
 type GetCipherTextArgs struct {
 	// An optional mapping that makes up the encryption context.
 	Context map[string]string `pulumi:"context"`
-	// Globally unique key ID for the customer master key.
+	// Globally unique key ID for the customer main key.
 	KeyId string `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext string `pulumi:"plaintext"`

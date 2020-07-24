@@ -12,12 +12,12 @@ class GetOrganizationResult:
     """
     A collection of values returned by getOrganization.
     """
-    def __init__(__self__, accounts=None, arn=None, aws_service_access_principals=None, enabled_policy_types=None, feature_set=None, id=None, master_account_arn=None, master_account_email=None, master_account_id=None, non_master_accounts=None, roots=None):
+    def __init__(__self__, accounts=None, arn=None, aws_service_access_principals=None, enabled_policy_types=None, feature_set=None, id=None, main_account_arn=None, main_account_email=None, main_account_id=None, non_main_accounts=None, roots=None):
         if accounts and not isinstance(accounts, list):
             raise TypeError("Expected argument 'accounts' to be a list")
         __self__.accounts = accounts
         """
-        List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
+        List of organization accounts including the main account. For a list excluding the main account, see the `non_main_accounts` attribute. All elements have these attributes:
         """
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
@@ -49,29 +49,29 @@ class GetOrganizationResult:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if master_account_arn and not isinstance(master_account_arn, str):
-            raise TypeError("Expected argument 'master_account_arn' to be a str")
-        __self__.master_account_arn = master_account_arn
+        if main_account_arn and not isinstance(main_account_arn, str):
+            raise TypeError("Expected argument 'main_account_arn' to be a str")
+        __self__.main_account_arn = main_account_arn
         """
-        The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
+        The Amazon Resource Name (ARN) of the account that is designated as the main account for the organization.
         """
-        if master_account_email and not isinstance(master_account_email, str):
-            raise TypeError("Expected argument 'master_account_email' to be a str")
-        __self__.master_account_email = master_account_email
+        if main_account_email and not isinstance(main_account_email, str):
+            raise TypeError("Expected argument 'main_account_email' to be a str")
+        __self__.main_account_email = main_account_email
         """
-        The email address that is associated with the AWS account that is designated as the master account for the organization.
+        The email address that is associated with the AWS account that is designated as the main account for the organization.
         """
-        if master_account_id and not isinstance(master_account_id, str):
-            raise TypeError("Expected argument 'master_account_id' to be a str")
-        __self__.master_account_id = master_account_id
+        if main_account_id and not isinstance(main_account_id, str):
+            raise TypeError("Expected argument 'main_account_id' to be a str")
+        __self__.main_account_id = main_account_id
         """
-        The unique identifier (ID) of the master account of an organization.
+        The unique identifier (ID) of the main account of an organization.
         """
-        if non_master_accounts and not isinstance(non_master_accounts, list):
-            raise TypeError("Expected argument 'non_master_accounts' to be a list")
-        __self__.non_master_accounts = non_master_accounts
+        if non_main_accounts and not isinstance(non_main_accounts, list):
+            raise TypeError("Expected argument 'non_main_accounts' to be a list")
+        __self__.non_main_accounts = non_main_accounts
         """
-        List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
+        List of organization accounts excluding the main account. For a list including the main account, see the `accounts` attribute. All elements have these attributes:
         """
         if roots and not isinstance(roots, list):
             raise TypeError("Expected argument 'roots' to be a list")
@@ -91,10 +91,10 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
             enabled_policy_types=self.enabled_policy_types,
             feature_set=self.feature_set,
             id=self.id,
-            master_account_arn=self.master_account_arn,
-            master_account_email=self.master_account_email,
-            master_account_id=self.master_account_id,
-            non_master_accounts=self.non_master_accounts,
+            main_account_arn=self.main_account_arn,
+            main_account_email=self.main_account_email,
+            main_account_id=self.main_account_id,
+            non_main_accounts=self.non_main_accounts,
             roots=self.roots)
 
 def get_organization(opts=None):
@@ -157,8 +157,8 @@ def get_organization(opts=None):
         enabled_policy_types=__ret__.get('enabledPolicyTypes'),
         feature_set=__ret__.get('featureSet'),
         id=__ret__.get('id'),
-        master_account_arn=__ret__.get('masterAccountArn'),
-        master_account_email=__ret__.get('masterAccountEmail'),
-        master_account_id=__ret__.get('masterAccountId'),
-        non_master_accounts=__ret__.get('nonMasterAccounts'),
+        main_account_arn=__ret__.get('mainAccountArn'),
+        main_account_email=__ret__.get('mainAccountEmail'),
+        main_account_id=__ret__.get('mainAccountId'),
+        non_main_accounts=__ret__.get('nonMainAccounts'),
         roots=__ret__.get('roots'))

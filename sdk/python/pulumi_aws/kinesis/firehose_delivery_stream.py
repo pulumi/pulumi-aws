@@ -334,8 +334,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             cluster_identifier="tf-redshift-cluster-%d",
             cluster_type="single-node",
             database_name="test",
-            master_password="T3stPass",
-            master_username="testuser",
+            main_password="T3stPass",
+            main_username="testuser",
             node_type="dc1.large")
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="redshift",

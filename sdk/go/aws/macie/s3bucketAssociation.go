@@ -49,7 +49,7 @@ type S3BucketAssociation struct {
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
 	// The configuration of how Amazon Macie classifies the S3 objects.
 	ClassificationType S3BucketAssociationClassificationTypeOutput `pulumi:"classificationType"`
-	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current main account.
 	MemberAccountId pulumi.StringPtrOutput `pulumi:"memberAccountId"`
 	// Object key prefix identifying one or more S3 objects to which the association applies.
 	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
@@ -90,7 +90,7 @@ type s3bucketAssociationState struct {
 	BucketName *string `pulumi:"bucketName"`
 	// The configuration of how Amazon Macie classifies the S3 objects.
 	ClassificationType *S3BucketAssociationClassificationType `pulumi:"classificationType"`
-	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current main account.
 	MemberAccountId *string `pulumi:"memberAccountId"`
 	// Object key prefix identifying one or more S3 objects to which the association applies.
 	Prefix *string `pulumi:"prefix"`
@@ -101,7 +101,7 @@ type S3BucketAssociationState struct {
 	BucketName pulumi.StringPtrInput
 	// The configuration of how Amazon Macie classifies the S3 objects.
 	ClassificationType S3BucketAssociationClassificationTypePtrInput
-	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current main account.
 	MemberAccountId pulumi.StringPtrInput
 	// Object key prefix identifying one or more S3 objects to which the association applies.
 	Prefix pulumi.StringPtrInput
@@ -116,7 +116,7 @@ type s3bucketAssociationArgs struct {
 	BucketName string `pulumi:"bucketName"`
 	// The configuration of how Amazon Macie classifies the S3 objects.
 	ClassificationType *S3BucketAssociationClassificationType `pulumi:"classificationType"`
-	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current main account.
 	MemberAccountId *string `pulumi:"memberAccountId"`
 	// Object key prefix identifying one or more S3 objects to which the association applies.
 	Prefix *string `pulumi:"prefix"`
@@ -128,7 +128,7 @@ type S3BucketAssociationArgs struct {
 	BucketName pulumi.StringInput
 	// The configuration of how Amazon Macie classifies the S3 objects.
 	ClassificationType S3BucketAssociationClassificationTypePtrInput
-	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+	// The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current main account.
 	MemberAccountId pulumi.StringPtrInput
 	// Object key prefix identifying one or more S3 objects to which the association applies.
 	Prefix pulumi.StringPtrInput

@@ -12,7 +12,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, main_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         __self__.address = address
@@ -154,11 +154,11 @@ class GetInstanceResult:
         """
         License model information for this DB instance.
         """
-        if master_username and not isinstance(master_username, str):
-            raise TypeError("Expected argument 'master_username' to be a str")
-        __self__.master_username = master_username
+        if main_username and not isinstance(main_username, str):
+            raise TypeError("Expected argument 'main_username' to be a str")
+        __self__.main_username = main_username
         """
-        Contains the master username for the DB instance.
+        Contains the main username for the DB instance.
         """
         if monitoring_interval and not isinstance(monitoring_interval, float):
             raise TypeError("Expected argument 'monitoring_interval' to be a float")
@@ -277,7 +277,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             iops=self.iops,
             kms_key_id=self.kms_key_id,
             license_model=self.license_model,
-            master_username=self.master_username,
+            main_username=self.main_username,
             monitoring_interval=self.monitoring_interval,
             monitoring_role_arn=self.monitoring_role_arn,
             multi_az=self.multi_az,
@@ -346,7 +346,7 @@ def get_instance(db_instance_identifier=None,tags=None,opts=None):
         iops=__ret__.get('iops'),
         kms_key_id=__ret__.get('kmsKeyId'),
         license_model=__ret__.get('licenseModel'),
-        master_username=__ret__.get('masterUsername'),
+        main_username=__ret__.get('mainUsername'),
         monitoring_interval=__ret__.get('monitoringInterval'),
         monitoring_role_arn=__ret__.get('monitoringRoleArn'),
         multi_az=__ret__.get('multiAz'),

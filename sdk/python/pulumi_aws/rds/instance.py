@@ -215,7 +215,7 @@ class Instance(pulumi.CustomResource):
     password: pulumi.Output[str]
     """
     (Required unless a `snapshot_identifier` or `replicate_source_db`
-    is provided) Password for the master DB user. Note that this may show up in
+    is provided) Password for the main DB user. Note that this may show up in
     logs, and it will be stored in the state file.
     """
     performance_insights_enabled: pulumi.Output[bool]
@@ -318,7 +318,7 @@ class Instance(pulumi.CustomResource):
     username: pulumi.Output[str]
     """
     (Required unless a `snapshot_identifier` or `replicate_source_db`
-    is provided) Username for the master DB user.
+    is provided) Username for the main DB user.
     """
     vpc_security_group_ids: pulumi.Output[list]
     """
@@ -470,7 +470,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
         :param pulumi.Input[str] password: (Required unless a `snapshot_identifier` or `replicate_source_db`
-               is provided) Password for the master DB user. Note that this may show up in
+               is provided) Password for the main DB user. Note that this may show up in
                logs, and it will be stored in the state file.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -513,7 +513,7 @@ class Instance(pulumi.CustomResource):
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
-               is provided) Username for the master DB user.
+               is provided) Username for the main DB user.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to
                associate.
 
@@ -706,7 +706,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
         :param pulumi.Input[str] password: (Required unless a `snapshot_identifier` or `replicate_source_db`
-               is provided) Password for the master DB user. Note that this may show up in
+               is provided) Password for the main DB user. Note that this may show up in
                logs, and it will be stored in the state file.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights are enabled. Defaults to false.
         :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
@@ -751,7 +751,7 @@ class Instance(pulumi.CustomResource):
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
-               is provided) Username for the master DB user.
+               is provided) Username for the main DB user.
         :param pulumi.Input[list] vpc_security_group_ids: List of VPC security groups to
                associate.
 

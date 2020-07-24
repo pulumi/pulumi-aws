@@ -43,7 +43,7 @@ import (
 // 						&codepipeline.PipelineStageActionArgs{
 // 							Category: pulumi.String("Source"),
 // 							Configuration: pulumi.StringMap{
-// 								"Branch": pulumi.String("master"),
+// 								"Branch": pulumi.String("main"),
 // 								"Owner":  pulumi.String("my-organization"),
 // 								"Repo":   pulumi.String("test"),
 // 							},

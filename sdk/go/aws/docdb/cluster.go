@@ -37,8 +37,8 @@ import (
 // 			BackupRetentionPeriod: pulumi.Int(5),
 // 			ClusterIdentifier:     pulumi.String("my-docdb-cluster"),
 // 			Engine:                pulumi.String("docdb"),
-// 			MasterPassword:        pulumi.String("mustbeeightchars"),
-// 			MasterUsername:        pulumi.String("foo"),
+// 			MainPassword:        pulumi.String("mustbeeightchars"),
+// 			MainUsername:        pulumi.String("foo"),
 // 			PreferredBackupWindow: pulumi.String("07:00-09:00"),
 // 			SkipFinalSnapshot:     pulumi.Bool(true),
 // 		})
@@ -94,11 +94,11 @@ type Cluster struct {
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// Password for the master DB user. Note that this may
+	// Password for the main DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
-	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
-	// Username for the master DB user.
-	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
+	MainPassword pulumi.StringPtrOutput `pulumi:"mainPassword"`
+	// Username for the main DB user.
+	MainUsername pulumi.StringOutput `pulumi:"mainUsername"`
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
@@ -190,11 +190,11 @@ type clusterState struct {
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Password for the master DB user. Note that this may
+	// Password for the main DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
-	MasterPassword *string `pulumi:"masterPassword"`
-	// Username for the master DB user.
-	MasterUsername *string `pulumi:"masterUsername"`
+	MainPassword *string `pulumi:"mainPassword"`
+	// Username for the main DB user.
+	MainUsername *string `pulumi:"mainUsername"`
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
@@ -259,11 +259,11 @@ type ClusterState struct {
 	HostedZoneId pulumi.StringPtrInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
-	// Password for the master DB user. Note that this may
+	// Password for the main DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
-	MasterPassword pulumi.StringPtrInput
-	// Username for the master DB user.
-	MasterUsername pulumi.StringPtrInput
+	MainPassword pulumi.StringPtrInput
+	// Username for the main DB user.
+	MainUsername pulumi.StringPtrInput
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
@@ -324,11 +324,11 @@ type clusterArgs struct {
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Password for the master DB user. Note that this may
+	// Password for the main DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
-	MasterPassword *string `pulumi:"masterPassword"`
-	// Username for the master DB user.
-	MasterUsername *string `pulumi:"masterUsername"`
+	MainPassword *string `pulumi:"mainPassword"`
+	// Username for the main DB user.
+	MainUsername *string `pulumi:"mainUsername"`
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
@@ -384,11 +384,11 @@ type ClusterArgs struct {
 	FinalSnapshotIdentifier pulumi.StringPtrInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
-	// Password for the master DB user. Note that this may
+	// Password for the main DB user. Note that this may
 	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
-	MasterPassword pulumi.StringPtrInput
-	// Username for the master DB user.
-	MasterUsername pulumi.StringPtrInput
+	MainPassword pulumi.StringPtrInput
+	// Username for the main DB user.
+	MainUsername pulumi.StringPtrInput
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC

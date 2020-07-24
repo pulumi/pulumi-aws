@@ -16,7 +16,7 @@ class SnapshotCopyGrant(pulumi.CustomResource):
     """
     kms_key_id: pulumi.Output[str]
     """
-    The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+    The unique identifier for the customer main key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
     """
     snapshot_copy_grant_name: pulumi.Output[str]
     """
@@ -28,7 +28,7 @@ class SnapshotCopyGrant(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, kms_key_id=None, snapshot_copy_grant_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
+        Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer main key from AWS KMS in a destination region.
 
         Note that the grant must exist in the destination region, and not in the region of the cluster.
 
@@ -47,7 +47,7 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kms_key_id: The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+        :param pulumi.Input[str] kms_key_id: The unique identifier for the customer main key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
         :param pulumi.Input[str] snapshot_copy_grant_name: A friendly name for identifying the grant.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         """
@@ -90,7 +90,7 @@ class SnapshotCopyGrant(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of snapshot copy grant
-        :param pulumi.Input[str] kms_key_id: The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+        :param pulumi.Input[str] kms_key_id: The unique identifier for the customer main key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
         :param pulumi.Input[str] snapshot_copy_grant_name: A friendly name for identifying the grant.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         """

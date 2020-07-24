@@ -34,7 +34,7 @@ import (
 // 					Value: pulumi.String("yes"),
 // 				},
 // 				&elasticache.ParameterGroupParameterArgs{
-// 					Name:  pulumi.String("min-slaves-to-write"),
+// 					Name:  pulumi.String("min-subordinates-to-write"),
 // 					Value: pulumi.String("2"),
 // 				},
 // 			},

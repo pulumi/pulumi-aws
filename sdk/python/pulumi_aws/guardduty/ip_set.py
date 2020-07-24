@@ -42,7 +42,7 @@ class IPSet(pulumi.CustomResource):
         """
         Provides a resource to manage a GuardDuty IPSet.
 
-        > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
+        > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the main account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
 
         ## Example Usage
 
@@ -50,7 +50,7 @@ class IPSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        master = aws.guardduty.Detector("master", enable=True)
+        main = aws.guardduty.Detector("main", enable=True)
         bucket = aws.s3.Bucket("bucket", acl="private")
         my_ip_set_bucket_object = aws.s3.BucketObject("myIPSetBucketObject",
             acl="public-read",
@@ -61,7 +61,7 @@ class IPSet(pulumi.CustomResource):
             key="MyIPSet")
         my_ip_set_ip_set = aws.guardduty.IPSet("myIPSetIPSet",
             activate=True,
-            detector_id=master.id,
+            detector_id=main.id,
             format="TXT",
             location=pulumi.Output.all(my_ip_set_bucket_object.bucket, my_ip_set_bucket_object.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"))
         ```

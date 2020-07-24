@@ -25,7 +25,7 @@ class S3BucketAssociation(pulumi.CustomResource):
     """
     member_account_id: pulumi.Output[str]
     """
-    The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+    The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current main account.
     """
     prefix: pulumi.Output[str]
     """
@@ -57,7 +57,7 @@ class S3BucketAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket_name: The name of the S3 bucket that you want to associate with Amazon Macie.
         :param pulumi.Input[dict] classification_type: The configuration of how Amazon Macie classifies the S3 objects.
-        :param pulumi.Input[str] member_account_id: The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+        :param pulumi.Input[str] member_account_id: The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current main account.
         :param pulumi.Input[str] prefix: Object key prefix identifying one or more S3 objects to which the association applies.
 
         The **classification_type** object supports the following:
@@ -107,7 +107,7 @@ class S3BucketAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket_name: The name of the S3 bucket that you want to associate with Amazon Macie.
         :param pulumi.Input[dict] classification_type: The configuration of how Amazon Macie classifies the S3 objects.
-        :param pulumi.Input[str] member_account_id: The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current master account.
+        :param pulumi.Input[str] member_account_id: The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current main account.
         :param pulumi.Input[str] prefix: Object key prefix identifying one or more S3 objects to which the association applies.
 
         The **classification_type** object supports the following:

@@ -70,7 +70,7 @@ type LookupClusterResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id                          string            `pulumi:"id"`
 	KmsKeyId                    string            `pulumi:"kmsKeyId"`
-	MasterUsername              string            `pulumi:"masterUsername"`
+	MainUsername              string            `pulumi:"mainUsername"`
 	Port                        int               `pulumi:"port"`
 	PreferredBackupWindow       string            `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow  string            `pulumi:"preferredMaintenanceWindow"`

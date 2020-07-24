@@ -12,7 +12,7 @@ from .. import utilities, tables
 class Organization(pulumi.CustomResource):
     accounts: pulumi.Output[list]
     """
-    List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
+    List of organization accounts including the main account. For a list excluding the main account, see the `non_main_accounts` attribute. All elements have these attributes:
 
       * `arn` (`str`) - ARN of the root
       * `email` (`str`) - Email of the account
@@ -36,21 +36,21 @@ class Organization(pulumi.CustomResource):
     """
     Specify "ALL" (default) or "CONSOLIDATED_BILLING".
     """
-    master_account_arn: pulumi.Output[str]
+    main_account_arn: pulumi.Output[str]
     """
-    ARN of the master account
+    ARN of the main account
     """
-    master_account_email: pulumi.Output[str]
+    main_account_email: pulumi.Output[str]
     """
-    Email address of the master account
+    Email address of the main account
     """
-    master_account_id: pulumi.Output[str]
+    main_account_id: pulumi.Output[str]
     """
-    Identifier of the master account
+    Identifier of the main account
     """
-    non_master_accounts: pulumi.Output[list]
+    non_main_accounts: pulumi.Output[list]
     """
-    List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
+    List of organization accounts excluding the main account. For a list including the main account, see the `accounts` attribute. All elements have these attributes:
 
       * `arn` (`str`) - ARN of the root
       * `email` (`str`) - Email of the account
@@ -115,10 +115,10 @@ class Organization(pulumi.CustomResource):
             __props__['feature_set'] = feature_set
             __props__['accounts'] = None
             __props__['arn'] = None
-            __props__['master_account_arn'] = None
-            __props__['master_account_email'] = None
-            __props__['master_account_id'] = None
-            __props__['non_master_accounts'] = None
+            __props__['main_account_arn'] = None
+            __props__['main_account_email'] = None
+            __props__['main_account_id'] = None
+            __props__['non_main_accounts'] = None
             __props__['roots'] = None
         super(Organization, __self__).__init__(
             'aws:organizations/organization:Organization',
@@ -127,7 +127,7 @@ class Organization(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, accounts=None, arn=None, aws_service_access_principals=None, enabled_policy_types=None, feature_set=None, master_account_arn=None, master_account_email=None, master_account_id=None, non_master_accounts=None, roots=None):
+    def get(resource_name, id, opts=None, accounts=None, arn=None, aws_service_access_principals=None, enabled_policy_types=None, feature_set=None, main_account_arn=None, main_account_email=None, main_account_id=None, non_main_accounts=None, roots=None):
         """
         Get an existing Organization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -135,15 +135,15 @@ class Organization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] accounts: List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
+        :param pulumi.Input[list] accounts: List of organization accounts including the main account. For a list excluding the main account, see the `non_main_accounts` attribute. All elements have these attributes:
         :param pulumi.Input[str] arn: ARN of the root
         :param pulumi.Input[list] aws_service_access_principals: List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
         :param pulumi.Input[list] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         :param pulumi.Input[str] feature_set: Specify "ALL" (default) or "CONSOLIDATED_BILLING".
-        :param pulumi.Input[str] master_account_arn: ARN of the master account
-        :param pulumi.Input[str] master_account_email: Email address of the master account
-        :param pulumi.Input[str] master_account_id: Identifier of the master account
-        :param pulumi.Input[list] non_master_accounts: List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
+        :param pulumi.Input[str] main_account_arn: ARN of the main account
+        :param pulumi.Input[str] main_account_email: Email address of the main account
+        :param pulumi.Input[str] main_account_id: Identifier of the main account
+        :param pulumi.Input[list] non_main_accounts: List of organization accounts excluding the main account. For a list including the main account, see the `accounts` attribute. All elements have these attributes:
         :param pulumi.Input[list] roots: List of organization roots. All elements have these attributes:
 
         The **accounts** object supports the following:
@@ -154,7 +154,7 @@ class Organization(pulumi.CustomResource):
           * `name` (`pulumi.Input[str]`) - The name of the policy type
           * `status` (`pulumi.Input[str]`) - The status of the policy type as it relates to the associated root
 
-        The **non_master_accounts** object supports the following:
+        The **non_main_accounts** object supports the following:
 
           * `arn` (`pulumi.Input[str]`) - ARN of the root
           * `email` (`pulumi.Input[str]`) - Email of the account
@@ -180,10 +180,10 @@ class Organization(pulumi.CustomResource):
         __props__["aws_service_access_principals"] = aws_service_access_principals
         __props__["enabled_policy_types"] = enabled_policy_types
         __props__["feature_set"] = feature_set
-        __props__["master_account_arn"] = master_account_arn
-        __props__["master_account_email"] = master_account_email
-        __props__["master_account_id"] = master_account_id
-        __props__["non_master_accounts"] = non_master_accounts
+        __props__["main_account_arn"] = main_account_arn
+        __props__["main_account_email"] = main_account_email
+        __props__["main_account_id"] = main_account_id
+        __props__["non_main_accounts"] = non_main_accounts
         __props__["roots"] = roots
         return Organization(resource_name, opts=opts, __props__=__props__)
 

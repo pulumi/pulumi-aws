@@ -14,7 +14,7 @@ import (
 //
 // > *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
 //
-// > *NOTE:* For an organization trail, this resource must be in the master account of the organization.
+// > *NOTE:* For an organization trail, this resource must be in the main account of the organization.
 //
 // ## Example Usage
 // ### Basic
@@ -203,7 +203,7 @@ type Trail struct {
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
 	IsMultiRegionTrail pulumi.BoolPtrOutput `pulumi:"isMultiRegionTrail"`
-	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the main account and all member accounts. Can only be created in the organization main account. Defaults to `false`.
 	IsOrganizationTrail pulumi.BoolPtrOutput `pulumi:"isOrganizationTrail"`
 	// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
@@ -276,7 +276,7 @@ type trailState struct {
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
 	IsMultiRegionTrail *bool `pulumi:"isMultiRegionTrail"`
-	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the main account and all member accounts. Can only be created in the organization main account. Defaults to `false`.
 	IsOrganizationTrail *bool `pulumi:"isOrganizationTrail"`
 	// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -319,7 +319,7 @@ type TrailState struct {
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
 	IsMultiRegionTrail pulumi.BoolPtrInput
-	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the main account and all member accounts. Can only be created in the organization main account. Defaults to `false`.
 	IsOrganizationTrail pulumi.BoolPtrInput
 	// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
 	KmsKeyId pulumi.StringPtrInput
@@ -362,7 +362,7 @@ type trailArgs struct {
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
 	IsMultiRegionTrail *bool `pulumi:"isMultiRegionTrail"`
-	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the main account and all member accounts. Can only be created in the organization main account. Defaults to `false`.
 	IsOrganizationTrail *bool `pulumi:"isOrganizationTrail"`
 	// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -402,7 +402,7 @@ type TrailArgs struct {
 	// Specifies whether the trail is created in the current
 	// region or in all regions. Defaults to `false`.
 	IsMultiRegionTrail pulumi.BoolPtrInput
-	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+	// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the main account and all member accounts. Can only be created in the organization main account. Defaults to `false`.
 	IsOrganizationTrail pulumi.BoolPtrInput
 	// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
 	KmsKeyId pulumi.StringPtrInput

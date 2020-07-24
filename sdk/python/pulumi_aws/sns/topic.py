@@ -46,9 +46,9 @@ class Topic(pulumi.CustomResource):
     """
     Percentage of success to sample
     """
-    kms_master_key_id: pulumi.Output[str]
+    kms_main_key_id: pulumi.Output[str]
     """
-    The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+    The ID of an AWS-managed customer main key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
     """
     lambda_failure_feedback_role_arn: pulumi.Output[str]
     """
@@ -90,7 +90,7 @@ class Topic(pulumi.CustomResource):
     """
     Key-value map of resource tags
     """
-    def __init__(__self__, resource_name, opts=None, application_failure_feedback_role_arn=None, application_success_feedback_role_arn=None, application_success_feedback_sample_rate=None, delivery_policy=None, display_name=None, http_failure_feedback_role_arn=None, http_success_feedback_role_arn=None, http_success_feedback_sample_rate=None, kms_master_key_id=None, lambda_failure_feedback_role_arn=None, lambda_success_feedback_role_arn=None, lambda_success_feedback_sample_rate=None, name=None, name_prefix=None, policy=None, sqs_failure_feedback_role_arn=None, sqs_success_feedback_role_arn=None, sqs_success_feedback_sample_rate=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, application_failure_feedback_role_arn=None, application_success_feedback_role_arn=None, application_success_feedback_sample_rate=None, delivery_policy=None, display_name=None, http_failure_feedback_role_arn=None, http_success_feedback_role_arn=None, http_success_feedback_sample_rate=None, kms_main_key_id=None, lambda_failure_feedback_role_arn=None, lambda_success_feedback_role_arn=None, lambda_success_feedback_sample_rate=None, name=None, name_prefix=None, policy=None, sqs_failure_feedback_role_arn=None, sqs_success_feedback_role_arn=None, sqs_success_feedback_sample_rate=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SNS topic resource
 
@@ -135,7 +135,7 @@ class Topic(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user_updates = aws.sns.Topic("userUpdates", kms_master_key_id="alias/aws/sns")
+        user_updates = aws.sns.Topic("userUpdates", kms_main_key_id="alias/aws/sns")
         ```
 
         ## Message Delivery Status Arguments
@@ -152,7 +152,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] http_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] http_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[float] http_success_feedback_sample_rate: Percentage of success to sample
-        :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+        :param pulumi.Input[str] kms_main_key_id: The ID of an AWS-managed customer main key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
         :param pulumi.Input[str] lambda_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] lambda_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[float] lambda_success_feedback_sample_rate: Percentage of success to sample
@@ -189,7 +189,7 @@ class Topic(pulumi.CustomResource):
             __props__['http_failure_feedback_role_arn'] = http_failure_feedback_role_arn
             __props__['http_success_feedback_role_arn'] = http_success_feedback_role_arn
             __props__['http_success_feedback_sample_rate'] = http_success_feedback_sample_rate
-            __props__['kms_master_key_id'] = kms_master_key_id
+            __props__['kms_main_key_id'] = kms_main_key_id
             __props__['lambda_failure_feedback_role_arn'] = lambda_failure_feedback_role_arn
             __props__['lambda_success_feedback_role_arn'] = lambda_success_feedback_role_arn
             __props__['lambda_success_feedback_sample_rate'] = lambda_success_feedback_sample_rate
@@ -208,7 +208,7 @@ class Topic(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, application_failure_feedback_role_arn=None, application_success_feedback_role_arn=None, application_success_feedback_sample_rate=None, arn=None, delivery_policy=None, display_name=None, http_failure_feedback_role_arn=None, http_success_feedback_role_arn=None, http_success_feedback_sample_rate=None, kms_master_key_id=None, lambda_failure_feedback_role_arn=None, lambda_success_feedback_role_arn=None, lambda_success_feedback_sample_rate=None, name=None, name_prefix=None, policy=None, sqs_failure_feedback_role_arn=None, sqs_success_feedback_role_arn=None, sqs_success_feedback_sample_rate=None, tags=None):
+    def get(resource_name, id, opts=None, application_failure_feedback_role_arn=None, application_success_feedback_role_arn=None, application_success_feedback_sample_rate=None, arn=None, delivery_policy=None, display_name=None, http_failure_feedback_role_arn=None, http_success_feedback_role_arn=None, http_success_feedback_sample_rate=None, kms_main_key_id=None, lambda_failure_feedback_role_arn=None, lambda_success_feedback_role_arn=None, lambda_success_feedback_sample_rate=None, name=None, name_prefix=None, policy=None, sqs_failure_feedback_role_arn=None, sqs_success_feedback_role_arn=None, sqs_success_feedback_sample_rate=None, tags=None):
         """
         Get an existing Topic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -225,7 +225,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] http_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] http_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[float] http_success_feedback_sample_rate: Percentage of success to sample
-        :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+        :param pulumi.Input[str] kms_main_key_id: The ID of an AWS-managed customer main key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
         :param pulumi.Input[str] lambda_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] lambda_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[float] lambda_success_feedback_sample_rate: Percentage of success to sample
@@ -250,7 +250,7 @@ class Topic(pulumi.CustomResource):
         __props__["http_failure_feedback_role_arn"] = http_failure_feedback_role_arn
         __props__["http_success_feedback_role_arn"] = http_success_feedback_role_arn
         __props__["http_success_feedback_sample_rate"] = http_success_feedback_sample_rate
-        __props__["kms_master_key_id"] = kms_master_key_id
+        __props__["kms_main_key_id"] = kms_main_key_id
         __props__["lambda_failure_feedback_role_arn"] = lambda_failure_feedback_role_arn
         __props__["lambda_success_feedback_role_arn"] = lambda_success_feedback_role_arn
         __props__["lambda_success_feedback_sample_rate"] = lambda_success_feedback_sample_rate

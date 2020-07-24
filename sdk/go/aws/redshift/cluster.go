@@ -30,8 +30,8 @@ import (
 // 			ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
 // 			ClusterType:       pulumi.String("single-node"),
 // 			DatabaseName:      pulumi.String("mydb"),
-// 			MasterPassword:    pulumi.String("Mustbe8characters"),
-// 			MasterUsername:    pulumi.String("foo"),
+// 			MainPassword:    pulumi.String("Mustbe8characters"),
+// 			MainUsername:    pulumi.String("foo"),
 // 			NodeType:          pulumi.String("dc1.large"),
 // 		})
 // 		if err != nil {
@@ -91,12 +91,12 @@ type Cluster struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Logging, documented below.
 	Logging ClusterLoggingPtrOutput `pulumi:"logging"`
-	// Password for the master DB user.
+	// Password for the main DB user.
 	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
 	// contain at least one uppercase letter, one lowercase letter, and one number.
-	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
-	// Username for the master DB user.
-	MasterUsername pulumi.StringPtrOutput `pulumi:"masterUsername"`
+	MainPassword pulumi.StringPtrOutput `pulumi:"mainPassword"`
+	// Username for the main DB user.
+	MainUsername pulumi.StringPtrOutput `pulumi:"mainUsername"`
 	// The node type to be provisioned for the cluster.
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -206,12 +206,12 @@ type clusterState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Logging, documented below.
 	Logging *ClusterLogging `pulumi:"logging"`
-	// Password for the master DB user.
+	// Password for the main DB user.
 	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
 	// contain at least one uppercase letter, one lowercase letter, and one number.
-	MasterPassword *string `pulumi:"masterPassword"`
-	// Username for the master DB user.
-	MasterUsername *string `pulumi:"masterUsername"`
+	MainPassword *string `pulumi:"mainPassword"`
+	// Username for the main DB user.
+	MainUsername *string `pulumi:"mainUsername"`
 	// The node type to be provisioned for the cluster.
 	NodeType *string `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -288,12 +288,12 @@ type ClusterState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Logging, documented below.
 	Logging ClusterLoggingPtrInput
-	// Password for the master DB user.
+	// Password for the main DB user.
 	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
 	// contain at least one uppercase letter, one lowercase letter, and one number.
-	MasterPassword pulumi.StringPtrInput
-	// Username for the master DB user.
-	MasterUsername pulumi.StringPtrInput
+	MainPassword pulumi.StringPtrInput
+	// Username for the main DB user.
+	MainUsername pulumi.StringPtrInput
 	// The node type to be provisioned for the cluster.
 	NodeType pulumi.StringPtrInput
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -370,12 +370,12 @@ type clusterArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Logging, documented below.
 	Logging *ClusterLogging `pulumi:"logging"`
-	// Password for the master DB user.
+	// Password for the main DB user.
 	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
 	// contain at least one uppercase letter, one lowercase letter, and one number.
-	MasterPassword *string `pulumi:"masterPassword"`
-	// Username for the master DB user.
-	MasterUsername *string `pulumi:"masterUsername"`
+	MainPassword *string `pulumi:"mainPassword"`
+	// Username for the main DB user.
+	MainUsername *string `pulumi:"mainUsername"`
 	// The node type to be provisioned for the cluster.
 	NodeType string `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -449,12 +449,12 @@ type ClusterArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Logging, documented below.
 	Logging ClusterLoggingPtrInput
-	// Password for the master DB user.
+	// Password for the main DB user.
 	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
 	// contain at least one uppercase letter, one lowercase letter, and one number.
-	MasterPassword pulumi.StringPtrInput
-	// Username for the master DB user.
-	MasterUsername pulumi.StringPtrInput
+	MainPassword pulumi.StringPtrInput
+	// Username for the main DB user.
+	MainUsername pulumi.StringPtrInput
 	// The node type to be provisioned for the cluster.
 	NodeType pulumi.StringInput
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.

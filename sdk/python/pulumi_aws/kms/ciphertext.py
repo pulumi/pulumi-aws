@@ -20,7 +20,7 @@ class Ciphertext(pulumi.CustomResource):
     """
     key_id: pulumi.Output[str]
     """
-    Globally unique key ID for the customer master key.
+    Globally unique key ID for the customer main key.
     """
     plaintext: pulumi.Output[str]
     """
@@ -29,7 +29,7 @@ class Ciphertext(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, context=None, key_id=None, plaintext=None, __props__=None, __name__=None, __opts__=None):
         """
         The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
-        by using an AWS KMS customer master key. The value returned by this resource
+        by using an AWS KMS customer main key. The value returned by this resource
         is stable across every apply. For a changing ciphertext value each apply, see
         the `kms.Ciphertext` data source.
 
@@ -57,7 +57,7 @@ class Ciphertext(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] context: An optional mapping that makes up the encryption context.
-        :param pulumi.Input[str] key_id: Globally unique key ID for the customer master key.
+        :param pulumi.Input[str] key_id: Globally unique key ID for the customer main key.
         :param pulumi.Input[str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         """
         if __name__ is not None:
@@ -102,7 +102,7 @@ class Ciphertext(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ciphertext_blob: Base64 encoded ciphertext
         :param pulumi.Input[dict] context: An optional mapping that makes up the encryption context.
-        :param pulumi.Input[str] key_id: Globally unique key ID for the customer master key.
+        :param pulumi.Input[str] key_id: Globally unique key ID for the customer main key.
         :param pulumi.Input[str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -40,7 +40,7 @@ import (
 // 							Type:    pulumi.String("EVENT"),
 // 						},
 // 						&codebuild.WebhookFilterGroupFilterArgs{
-// 							Pattern: pulumi.String("master"),
+// 							Pattern: pulumi.String("main"),
 // 							Type:    pulumi.String("HEAD_REF"),
 // 						},
 // 					},

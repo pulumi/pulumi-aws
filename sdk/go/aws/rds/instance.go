@@ -222,7 +222,7 @@ type Instance struct {
 	// associate.
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Password for the master DB user. Note that this may show up in
+	// is provided) Password for the main DB user. Note that this may show up in
 	// logs, and it will be stored in the state file.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -285,7 +285,7 @@ type Instance struct {
 	// for more information.
 	Timezone pulumi.StringOutput `pulumi:"timezone"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user.
+	// is provided) Username for the main DB user.
 	Username pulumi.StringOutput `pulumi:"username"`
 	// List of VPC security groups to
 	// associate.
@@ -450,7 +450,7 @@ type instanceState struct {
 	// associate.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Password for the master DB user. Note that this may show up in
+	// is provided) Password for the main DB user. Note that this may show up in
 	// logs, and it will be stored in the state file.
 	Password *string `pulumi:"password"`
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -513,7 +513,7 @@ type instanceState struct {
 	// for more information.
 	Timezone *string `pulumi:"timezone"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user.
+	// is provided) Username for the main DB user.
 	Username *string `pulumi:"username"`
 	// List of VPC security groups to
 	// associate.
@@ -648,7 +648,7 @@ type InstanceState struct {
 	// associate.
 	ParameterGroupName pulumi.StringPtrInput
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Password for the master DB user. Note that this may show up in
+	// is provided) Password for the main DB user. Note that this may show up in
 	// logs, and it will be stored in the state file.
 	Password pulumi.StringPtrInput
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -711,7 +711,7 @@ type InstanceState struct {
 	// for more information.
 	Timezone pulumi.StringPtrInput
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user.
+	// is provided) Username for the main DB user.
 	Username pulumi.StringPtrInput
 	// List of VPC security groups to
 	// associate.
@@ -841,7 +841,7 @@ type instanceArgs struct {
 	// associate.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Password for the master DB user. Note that this may show up in
+	// is provided) Password for the main DB user. Note that this may show up in
 	// logs, and it will be stored in the state file.
 	Password *string `pulumi:"password"`
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -899,7 +899,7 @@ type instanceArgs struct {
 	// for more information.
 	Timezone *string `pulumi:"timezone"`
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user.
+	// is provided) Username for the main DB user.
 	Username *string `pulumi:"username"`
 	// List of VPC security groups to
 	// associate.
@@ -1026,7 +1026,7 @@ type InstanceArgs struct {
 	// associate.
 	ParameterGroupName pulumi.StringPtrInput
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Password for the master DB user. Note that this may show up in
+	// is provided) Password for the main DB user. Note that this may show up in
 	// logs, and it will be stored in the state file.
 	Password pulumi.StringPtrInput
 	// Specifies whether Performance Insights are enabled. Defaults to false.
@@ -1084,7 +1084,7 @@ type InstanceArgs struct {
 	// for more information.
 	Timezone pulumi.StringPtrInput
 	// (Required unless a `snapshotIdentifier` or `replicateSourceDb`
-	// is provided) Username for the master DB user.
+	// is provided) Username for the main DB user.
 	Username pulumi.StringPtrInput
 	// List of VPC security groups to
 	// associate.

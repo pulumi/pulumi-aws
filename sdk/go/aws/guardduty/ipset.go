@@ -12,7 +12,7 @@ import (
 
 // Provides a resource to manage a GuardDuty IPSet.
 //
-// > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
+// > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the main account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
 //
 // ## Example Usage
 //
@@ -29,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		master, err := guardduty.NewDetector(ctx, "master", &guardduty.DetectorArgs{
+// 		main, err := guardduty.NewDetector(ctx, "main", &guardduty.DetectorArgs{
 // 			Enable: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
@@ -52,7 +52,7 @@ import (
 // 		}
 // 		_, err = guardduty.NewIPSet(ctx, "myIPSetIPSet", &guardduty.IPSetArgs{
 // 			Activate:   pulumi.Bool(true),
-// 			DetectorId: master.ID(),
+// 			DetectorId: main.ID(),
 // 			Format:     pulumi.String("TXT"),
 // 			Location: pulumi.All(myIPSetBucketObject.Bucket, myIPSetBucketObject.Key).ApplyT(func(_args []interface{}) (string, error) {
 // 				bucket := _args[0].(string)

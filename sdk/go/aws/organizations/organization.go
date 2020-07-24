@@ -40,7 +40,7 @@ import (
 type Organization struct {
 	pulumi.CustomResourceState
 
-	// List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
+	// List of organization accounts including the main account. For a list excluding the main account, see the `nonMainAccounts` attribute. All elements have these attributes:
 	Accounts OrganizationAccountArrayOutput `pulumi:"accounts"`
 	// ARN of the root
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -50,14 +50,14 @@ type Organization struct {
 	EnabledPolicyTypes pulumi.StringArrayOutput `pulumi:"enabledPolicyTypes"`
 	// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
 	FeatureSet pulumi.StringPtrOutput `pulumi:"featureSet"`
-	// ARN of the master account
-	MasterAccountArn pulumi.StringOutput `pulumi:"masterAccountArn"`
-	// Email address of the master account
-	MasterAccountEmail pulumi.StringOutput `pulumi:"masterAccountEmail"`
-	// Identifier of the master account
-	MasterAccountId pulumi.StringOutput `pulumi:"masterAccountId"`
-	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-	NonMasterAccounts OrganizationNonMasterAccountArrayOutput `pulumi:"nonMasterAccounts"`
+	// ARN of the main account
+	MainAccountArn pulumi.StringOutput `pulumi:"mainAccountArn"`
+	// Email address of the main account
+	MainAccountEmail pulumi.StringOutput `pulumi:"mainAccountEmail"`
+	// Identifier of the main account
+	MainAccountId pulumi.StringOutput `pulumi:"mainAccountId"`
+	// List of organization accounts excluding the main account. For a list including the main account, see the `accounts` attribute. All elements have these attributes:
+	NonMainAccounts OrganizationNonMainAccountArrayOutput `pulumi:"nonMainAccounts"`
 	// List of organization roots. All elements have these attributes:
 	Roots OrganizationRootArrayOutput `pulumi:"roots"`
 }
@@ -90,7 +90,7 @@ func GetOrganization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Organization resources.
 type organizationState struct {
-	// List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
+	// List of organization accounts including the main account. For a list excluding the main account, see the `nonMainAccounts` attribute. All elements have these attributes:
 	Accounts []OrganizationAccount `pulumi:"accounts"`
 	// ARN of the root
 	Arn *string `pulumi:"arn"`
@@ -100,20 +100,20 @@ type organizationState struct {
 	EnabledPolicyTypes []string `pulumi:"enabledPolicyTypes"`
 	// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
 	FeatureSet *string `pulumi:"featureSet"`
-	// ARN of the master account
-	MasterAccountArn *string `pulumi:"masterAccountArn"`
-	// Email address of the master account
-	MasterAccountEmail *string `pulumi:"masterAccountEmail"`
-	// Identifier of the master account
-	MasterAccountId *string `pulumi:"masterAccountId"`
-	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-	NonMasterAccounts []OrganizationNonMasterAccount `pulumi:"nonMasterAccounts"`
+	// ARN of the main account
+	MainAccountArn *string `pulumi:"mainAccountArn"`
+	// Email address of the main account
+	MainAccountEmail *string `pulumi:"mainAccountEmail"`
+	// Identifier of the main account
+	MainAccountId *string `pulumi:"mainAccountId"`
+	// List of organization accounts excluding the main account. For a list including the main account, see the `accounts` attribute. All elements have these attributes:
+	NonMainAccounts []OrganizationNonMainAccount `pulumi:"nonMainAccounts"`
 	// List of organization roots. All elements have these attributes:
 	Roots []OrganizationRoot `pulumi:"roots"`
 }
 
 type OrganizationState struct {
-	// List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
+	// List of organization accounts including the main account. For a list excluding the main account, see the `nonMainAccounts` attribute. All elements have these attributes:
 	Accounts OrganizationAccountArrayInput
 	// ARN of the root
 	Arn pulumi.StringPtrInput
@@ -123,14 +123,14 @@ type OrganizationState struct {
 	EnabledPolicyTypes pulumi.StringArrayInput
 	// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
 	FeatureSet pulumi.StringPtrInput
-	// ARN of the master account
-	MasterAccountArn pulumi.StringPtrInput
-	// Email address of the master account
-	MasterAccountEmail pulumi.StringPtrInput
-	// Identifier of the master account
-	MasterAccountId pulumi.StringPtrInput
-	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-	NonMasterAccounts OrganizationNonMasterAccountArrayInput
+	// ARN of the main account
+	MainAccountArn pulumi.StringPtrInput
+	// Email address of the main account
+	MainAccountEmail pulumi.StringPtrInput
+	// Identifier of the main account
+	MainAccountId pulumi.StringPtrInput
+	// List of organization accounts excluding the main account. For a list including the main account, see the `accounts` attribute. All elements have these attributes:
+	NonMainAccounts OrganizationNonMainAccountArrayInput
 	// List of organization roots. All elements have these attributes:
 	Roots OrganizationRootArrayInput
 }

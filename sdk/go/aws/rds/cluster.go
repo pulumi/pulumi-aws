@@ -52,8 +52,8 @@ import (
 // 			DatabaseName:          pulumi.String("mydb"),
 // 			Engine:                pulumi.String("aurora-mysql"),
 // 			EngineVersion:         pulumi.String("5.7.mysql_aurora.2.03.2"),
-// 			MasterPassword:        pulumi.String("bar"),
-// 			MasterUsername:        pulumi.String("foo"),
+// 			MainPassword:        pulumi.String("bar"),
+// 			MainUsername:        pulumi.String("foo"),
 // 			PreferredBackupWindow: pulumi.String("07:00-09:00"),
 // 		})
 // 		if err != nil {
@@ -84,8 +84,8 @@ import (
 // 			BackupRetentionPeriod: pulumi.Int(5),
 // 			ClusterIdentifier:     pulumi.String("aurora-cluster-demo"),
 // 			DatabaseName:          pulumi.String("mydb"),
-// 			MasterPassword:        pulumi.String("bar"),
-// 			MasterUsername:        pulumi.String("foo"),
+// 			MainPassword:        pulumi.String("bar"),
+// 			MainUsername:        pulumi.String("foo"),
 // 			PreferredBackupWindow: pulumi.String("07:00-09:00"),
 // 		})
 // 		if err != nil {
@@ -117,8 +117,8 @@ import (
 // 			ClusterIdentifier:     pulumi.String("aurora-cluster-demo"),
 // 			DatabaseName:          pulumi.String("mydb"),
 // 			Engine:                pulumi.String("aurora-postgresql"),
-// 			MasterPassword:        pulumi.String("bar"),
-// 			MasterUsername:        pulumi.String("foo"),
+// 			MainPassword:        pulumi.String("bar"),
+// 			MainUsername:        pulumi.String("foo"),
 // 			PreferredBackupWindow: pulumi.String("07:00-09:00"),
 // 		})
 // 		if err != nil {
@@ -128,9 +128,9 @@ import (
 // 	})
 // }
 // ```
-// ### Aurora Multi-Master Cluster
+// ### Aurora Multi-Main Cluster
 //
-// > More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
+// > More information about Aurora Multi-Main Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
 //
 // ```go
 // package main
@@ -145,9 +145,9 @@ import (
 // 		_, err := rds.NewCluster(ctx, "example", &rds.ClusterArgs{
 // 			ClusterIdentifier: pulumi.String("example"),
 // 			DbSubnetGroupName: pulumi.String(aws_db_subnet_group.Example.Name),
-// 			EngineMode:        pulumi.String("multimaster"),
-// 			MasterPassword:    pulumi.String("barbarbarbar"),
-// 			MasterUsername:    pulumi.String("foo"),
+// 			EngineMode:        pulumi.String("multimain"),
+// 			MainPassword:    pulumi.String("barbarbarbar"),
+// 			MainUsername:    pulumi.String("foo"),
 // 			SkipFinalSnapshot: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
@@ -196,7 +196,7 @@ type Cluster struct {
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
-	// The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+	// The database engine mode. Valid values: `global`, `multimain`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
 	EngineMode pulumi.StringPtrOutput `pulumi:"engineMode"`
 	// The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
@@ -212,10 +212,10 @@ type Cluster struct {
 	IamRoles pulumi.StringArrayOutput `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
-	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
-	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
-	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
+	// Password for the main DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+	MainPassword pulumi.StringPtrOutput `pulumi:"mainPassword"`
+	// Username for the main DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+	MainUsername pulumi.StringOutput `pulumi:"mainUsername"`
 	// The port on which the DB accepts connections
 	Port pulumi.IntOutput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
@@ -308,7 +308,7 @@ type clusterState struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine *string `pulumi:"engine"`
-	// The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+	// The database engine mode. Valid values: `global`, `multimain`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
 	EngineMode *string `pulumi:"engineMode"`
 	// The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
 	EngineVersion *string `pulumi:"engineVersion"`
@@ -324,10 +324,10 @@ type clusterState struct {
 	IamRoles []string `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
-	MasterPassword *string `pulumi:"masterPassword"`
-	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
-	MasterUsername *string `pulumi:"masterUsername"`
+	// Password for the main DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+	MainPassword *string `pulumi:"mainPassword"`
+	// Username for the main DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+	MainUsername *string `pulumi:"mainUsername"`
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
@@ -393,7 +393,7 @@ type ClusterState struct {
 	Endpoint pulumi.StringPtrInput
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine pulumi.StringPtrInput
-	// The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+	// The database engine mode. Valid values: `global`, `multimain`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
 	EngineMode pulumi.StringPtrInput
 	// The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
 	EngineVersion pulumi.StringPtrInput
@@ -409,10 +409,10 @@ type ClusterState struct {
 	IamRoles pulumi.StringArrayInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
-	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
-	MasterPassword pulumi.StringPtrInput
-	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
-	MasterUsername pulumi.StringPtrInput
+	// Password for the main DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+	MainPassword pulumi.StringPtrInput
+	// Username for the main DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+	MainUsername pulumi.StringPtrInput
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
@@ -476,7 +476,7 @@ type clusterArgs struct {
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine *string `pulumi:"engine"`
-	// The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+	// The database engine mode. Valid values: `global`, `multimain`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
 	EngineMode *string `pulumi:"engineMode"`
 	// The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
 	EngineVersion *string `pulumi:"engineVersion"`
@@ -490,10 +490,10 @@ type clusterArgs struct {
 	IamRoles []string `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
-	MasterPassword *string `pulumi:"masterPassword"`
-	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
-	MasterUsername *string `pulumi:"masterUsername"`
+	// Password for the main DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+	MainPassword *string `pulumi:"mainPassword"`
+	// Username for the main DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+	MainUsername *string `pulumi:"mainUsername"`
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
@@ -551,7 +551,7 @@ type ClusterArgs struct {
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
 	Engine pulumi.StringPtrInput
-	// The database engine mode. Valid values: `global`, `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+	// The database engine mode. Valid values: `global`, `multimain`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
 	EngineMode pulumi.StringPtrInput
 	// The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
 	EngineVersion pulumi.StringPtrInput
@@ -565,10 +565,10 @@ type ClusterArgs struct {
 	IamRoles pulumi.StringArrayInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
-	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
-	MasterPassword pulumi.StringPtrInput
-	// Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
-	MasterUsername pulumi.StringPtrInput
+	// Password for the main DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+	MainPassword pulumi.StringPtrInput
+	// Username for the main DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+	MainUsername pulumi.StringPtrInput
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00

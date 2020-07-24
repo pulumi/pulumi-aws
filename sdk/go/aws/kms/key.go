@@ -9,7 +9,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a KMS customer master key.
+// Provides a KMS customer main key.
 //
 // ## Example Usage
 //
@@ -41,7 +41,7 @@ type Key struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
 	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
-	CustomerMasterKeySpec pulumi.StringPtrOutput `pulumi:"customerMasterKeySpec"`
+	CustomerMainKeySpec pulumi.StringPtrOutput `pulumi:"customerMainKeySpec"`
 	// Duration in days after which the key is deleted
 	// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
 	DeletionWindowInDays pulumi.IntPtrOutput `pulumi:"deletionWindowInDays"`
@@ -95,7 +95,7 @@ type keyState struct {
 	Arn *string `pulumi:"arn"`
 	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
 	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
-	CustomerMasterKeySpec *string `pulumi:"customerMasterKeySpec"`
+	CustomerMainKeySpec *string `pulumi:"customerMainKeySpec"`
 	// Duration in days after which the key is deleted
 	// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
 	DeletionWindowInDays *int `pulumi:"deletionWindowInDays"`
@@ -122,7 +122,7 @@ type KeyState struct {
 	Arn pulumi.StringPtrInput
 	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
 	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
-	CustomerMasterKeySpec pulumi.StringPtrInput
+	CustomerMainKeySpec pulumi.StringPtrInput
 	// Duration in days after which the key is deleted
 	// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
 	DeletionWindowInDays pulumi.IntPtrInput
@@ -151,7 +151,7 @@ func (KeyState) ElementType() reflect.Type {
 type keyArgs struct {
 	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
 	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
-	CustomerMasterKeySpec *string `pulumi:"customerMasterKeySpec"`
+	CustomerMainKeySpec *string `pulumi:"customerMainKeySpec"`
 	// Duration in days after which the key is deleted
 	// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
 	DeletionWindowInDays *int `pulumi:"deletionWindowInDays"`
@@ -175,7 +175,7 @@ type keyArgs struct {
 type KeyArgs struct {
 	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
 	// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
-	CustomerMasterKeySpec pulumi.StringPtrInput
+	CustomerMainKeySpec pulumi.StringPtrInput
 	// Duration in days after which the key is deleted
 	// after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
 	DeletionWindowInDays pulumi.IntPtrInput

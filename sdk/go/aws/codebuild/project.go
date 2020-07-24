@@ -28,7 +28,7 @@ type Project struct {
 	Cache ProjectCachePtrOutput `pulumi:"cache"`
 	// A short description of the project.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+	// The AWS Key Management Service (AWS KMS) customer main key (CMK) to be used for encrypting the build project's build output artifacts.
 	EncryptionKey pulumi.StringOutput `pulumi:"encryptionKey"`
 	// Information about the project's build environment. Environment blocks are documented below.
 	Environment ProjectEnvironmentOutput `pulumi:"environment"`
@@ -108,7 +108,7 @@ type projectState struct {
 	Cache *ProjectCache `pulumi:"cache"`
 	// A short description of the project.
 	Description *string `pulumi:"description"`
-	// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+	// The AWS Key Management Service (AWS KMS) customer main key (CMK) to be used for encrypting the build project's build output artifacts.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// Information about the project's build environment. Environment blocks are documented below.
 	Environment *ProjectEnvironment `pulumi:"environment"`
@@ -149,7 +149,7 @@ type ProjectState struct {
 	Cache ProjectCachePtrInput
 	// A short description of the project.
 	Description pulumi.StringPtrInput
-	// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+	// The AWS Key Management Service (AWS KMS) customer main key (CMK) to be used for encrypting the build project's build output artifacts.
 	EncryptionKey pulumi.StringPtrInput
 	// Information about the project's build environment. Environment blocks are documented below.
 	Environment ProjectEnvironmentPtrInput
@@ -190,7 +190,7 @@ type projectArgs struct {
 	Cache *ProjectCache `pulumi:"cache"`
 	// A short description of the project.
 	Description *string `pulumi:"description"`
-	// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+	// The AWS Key Management Service (AWS KMS) customer main key (CMK) to be used for encrypting the build project's build output artifacts.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// Information about the project's build environment. Environment blocks are documented below.
 	Environment ProjectEnvironment `pulumi:"environment"`
@@ -228,7 +228,7 @@ type ProjectArgs struct {
 	Cache ProjectCachePtrInput
 	// A short description of the project.
 	Description pulumi.StringPtrInput
-	// The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
+	// The AWS Key Management Service (AWS KMS) customer main key (CMK) to be used for encrypting the build project's build output artifacts.
 	EncryptionKey pulumi.StringPtrInput
 	// Information about the project's build environment. Environment blocks are documented below.
 	Environment ProjectEnvironmentInput

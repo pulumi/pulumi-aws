@@ -86,7 +86,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 // 			KmsDataKeyReusePeriodSeconds: pulumi.Int(300),
-// 			KmsMasterKeyId:               pulumi.String("alias/aws/sqs"),
+// 			KmsMainKeyId:               pulumi.String("alias/aws/sqs"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -108,8 +108,8 @@ type Queue struct {
 	FifoQueue pulumi.BoolPtrOutput `pulumi:"fifoQueue"`
 	// The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
 	KmsDataKeyReusePeriodSeconds pulumi.IntOutput `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	// The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
-	KmsMasterKeyId pulumi.StringPtrOutput `pulumi:"kmsMasterKeyId"`
+	// The ID of an AWS-managed customer main key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
+	KmsMainKeyId pulumi.StringPtrOutput `pulumi:"kmsMainKeyId"`
 	// The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
 	MaxMessageSize pulumi.IntPtrOutput `pulumi:"maxMessageSize"`
 	// The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
@@ -168,8 +168,8 @@ type queueState struct {
 	FifoQueue *bool `pulumi:"fifoQueue"`
 	// The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
 	KmsDataKeyReusePeriodSeconds *int `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	// The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
-	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
+	// The ID of an AWS-managed customer main key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
+	KmsMainKeyId *string `pulumi:"kmsMainKeyId"`
 	// The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
 	MaxMessageSize *int `pulumi:"maxMessageSize"`
 	// The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
@@ -201,8 +201,8 @@ type QueueState struct {
 	FifoQueue pulumi.BoolPtrInput
 	// The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
 	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput
-	// The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
-	KmsMasterKeyId pulumi.StringPtrInput
+	// The ID of an AWS-managed customer main key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
+	KmsMainKeyId pulumi.StringPtrInput
 	// The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
 	MaxMessageSize pulumi.IntPtrInput
 	// The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
@@ -236,8 +236,8 @@ type queueArgs struct {
 	FifoQueue *bool `pulumi:"fifoQueue"`
 	// The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
 	KmsDataKeyReusePeriodSeconds *int `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	// The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
-	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
+	// The ID of an AWS-managed customer main key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
+	KmsMainKeyId *string `pulumi:"kmsMainKeyId"`
 	// The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
 	MaxMessageSize *int `pulumi:"maxMessageSize"`
 	// The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
@@ -268,8 +268,8 @@ type QueueArgs struct {
 	FifoQueue pulumi.BoolPtrInput
 	// The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
 	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput
-	// The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
-	KmsMasterKeyId pulumi.StringPtrInput
+	// The ID of an AWS-managed customer main key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
+	KmsMainKeyId pulumi.StringPtrInput
 	// The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
 	MaxMessageSize pulumi.IntPtrInput
 	// The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).

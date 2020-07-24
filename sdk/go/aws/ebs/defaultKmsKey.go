@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a resource to manage the default customer master key (CMK) that your AWS account uses to encrypt EBS volumes.
+// Provides a resource to manage the default customer main key (CMK) that your AWS account uses to encrypt EBS volumes.
 //
 // Your AWS account has an AWS-managed default CMK that is used for encrypting an EBS volume when no CMK is specified in the API call that creates the volume.
 // By using the `ebs.DefaultKmsKey` resource, you can specify a customer-managed CMK to use in place of the AWS-managed default CMK.
@@ -44,7 +44,7 @@ import (
 type DefaultKmsKey struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+	// The ARN of the AWS Key Management Service (AWS KMS) customer main key (CMK) to use to encrypt the EBS volume.
 	KeyArn pulumi.StringOutput `pulumi:"keyArn"`
 }
 
@@ -79,12 +79,12 @@ func GetDefaultKmsKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultKmsKey resources.
 type defaultKmsKeyState struct {
-	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+	// The ARN of the AWS Key Management Service (AWS KMS) customer main key (CMK) to use to encrypt the EBS volume.
 	KeyArn *string `pulumi:"keyArn"`
 }
 
 type DefaultKmsKeyState struct {
-	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+	// The ARN of the AWS Key Management Service (AWS KMS) customer main key (CMK) to use to encrypt the EBS volume.
 	KeyArn pulumi.StringPtrInput
 }
 
@@ -93,13 +93,13 @@ func (DefaultKmsKeyState) ElementType() reflect.Type {
 }
 
 type defaultKmsKeyArgs struct {
-	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+	// The ARN of the AWS Key Management Service (AWS KMS) customer main key (CMK) to use to encrypt the EBS volume.
 	KeyArn string `pulumi:"keyArn"`
 }
 
 // The set of arguments for constructing a DefaultKmsKey resource.
 type DefaultKmsKeyArgs struct {
-	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+	// The ARN of the AWS Key Management Service (AWS KMS) customer main key (CMK) to use to encrypt the EBS volume.
 	KeyArn pulumi.StringInput
 }
 

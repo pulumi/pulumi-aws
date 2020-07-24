@@ -4417,8 +4417,8 @@ func (o BucketServerSideEncryptionConfigurationRulePtrOutput) ApplyServerSideEnc
 }
 
 type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault struct {
-	// The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
-	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
+	// The AWS KMS main key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS main key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
+	KmsMainKeyId *string `pulumi:"kmsMainKeyId"`
 	// The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
 	SseAlgorithm string `pulumi:"sseAlgorithm"`
 }
@@ -4435,8 +4435,8 @@ type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefau
 }
 
 type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs struct {
-	// The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
-	KmsMasterKeyId pulumi.StringPtrInput `pulumi:"kmsMasterKeyId"`
+	// The AWS KMS main key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS main key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
+	KmsMainKeyId pulumi.StringPtrInput `pulumi:"kmsMainKeyId"`
 	// The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
 	SseAlgorithm pulumi.StringInput `pulumi:"sseAlgorithm"`
 }
@@ -4518,10 +4518,10 @@ func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput)
 }
 
-// The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
-func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
+// The AWS KMS main key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS main key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
+func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput) KmsMainKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault) *string {
-		return v.KmsMasterKeyId
+		return v.KmsMainKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4552,13 +4552,13 @@ func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput)
 }
 
-// The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
-func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
+// The AWS KMS main key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS main key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
+func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput) KmsMainKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault) *string {
 		if v == nil {
 			return nil
 		}
-		return v.KmsMasterKeyId
+		return v.KmsMainKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5407,7 +5407,7 @@ func (o InventoryDestinationBucketEncryptionPtrOutput) SseS3() InventoryDestinat
 }
 
 type InventoryDestinationBucketEncryptionSseKms struct {
-	// The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+	// The ARN of the KMS customer main key (CMK) used to encrypt the inventory file.
 	KeyId string `pulumi:"keyId"`
 }
 
@@ -5423,7 +5423,7 @@ type InventoryDestinationBucketEncryptionSseKmsInput interface {
 }
 
 type InventoryDestinationBucketEncryptionSseKmsArgs struct {
-	// The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+	// The ARN of the KMS customer main key (CMK) used to encrypt the inventory file.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 }
 
@@ -5504,7 +5504,7 @@ func (o InventoryDestinationBucketEncryptionSseKmsOutput) ToInventoryDestination
 	}).(InventoryDestinationBucketEncryptionSseKmsPtrOutput)
 }
 
-// The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+// The ARN of the KMS customer main key (CMK) used to encrypt the inventory file.
 func (o InventoryDestinationBucketEncryptionSseKmsOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v InventoryDestinationBucketEncryptionSseKms) string { return v.KeyId }).(pulumi.StringOutput)
 }
@@ -5529,7 +5529,7 @@ func (o InventoryDestinationBucketEncryptionSseKmsPtrOutput) Elem() InventoryDes
 	}).(InventoryDestinationBucketEncryptionSseKmsOutput)
 }
 
-// The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
+// The ARN of the KMS customer main key (CMK) used to encrypt the inventory file.
 func (o InventoryDestinationBucketEncryptionSseKmsPtrOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InventoryDestinationBucketEncryptionSseKms) *string {
 		if v == nil {

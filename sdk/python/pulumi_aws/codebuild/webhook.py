@@ -64,7 +64,7 @@ class Webhook(pulumi.CustomResource):
                         "type": "EVENT",
                     },
                     {
-                        "pattern": "master",
+                        "pattern": "main",
                         "type": "HEAD_REF",
                     },
                 ],

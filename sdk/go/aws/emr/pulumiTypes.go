@@ -134,7 +134,7 @@ type ClusterCoreInstanceGroup struct {
 	EbsConfigs []ClusterCoreInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
 	// The ID of the EMR Cluster
 	Id *string `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple main nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple main nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount *int `pulumi:"instanceCount"`
 	// EC2 instance type for all instances in the instance group.
 	InstanceType string `pulumi:"instanceType"`
@@ -162,7 +162,7 @@ type ClusterCoreInstanceGroupArgs struct {
 	EbsConfigs ClusterCoreInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
 	// The ID of the EMR Cluster
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple main nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple main nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// EC2 instance type for all instances in the instance group.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
@@ -267,7 +267,7 @@ func (o ClusterCoreInstanceGroupOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple main nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple main nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 func (o ClusterCoreInstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -340,7 +340,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple main nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple main nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 func (o ClusterCoreInstanceGroupPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *int {
 		if v == nil {
@@ -495,17 +495,17 @@ func (o ClusterCoreInstanceGroupEbsConfigArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type ClusterEc2Attributes struct {
-	// String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
-	AdditionalMasterSecurityGroups *string `pulumi:"additionalMasterSecurityGroups"`
-	// String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string
-	AdditionalSlaveSecurityGroups *string `pulumi:"additionalSlaveSecurityGroups"`
-	// Identifier of the Amazon EC2 EMR-Managed security group for the master node
-	EmrManagedMasterSecurityGroup *string `pulumi:"emrManagedMasterSecurityGroup"`
-	// Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes
-	EmrManagedSlaveSecurityGroup *string `pulumi:"emrManagedSlaveSecurityGroup"`
+	// String containing a comma separated list of additional Amazon EC2 security group IDs for the main node
+	AdditionalMainSecurityGroups *string `pulumi:"additionalMainSecurityGroups"`
+	// String containing a comma separated list of additional Amazon EC2 security group IDs for the subordinate nodes as a comma separated string
+	AdditionalSubordinateSecurityGroups *string `pulumi:"additionalSubordinateSecurityGroups"`
+	// Identifier of the Amazon EC2 EMR-Managed security group for the main node
+	EmrManagedMainSecurityGroup *string `pulumi:"emrManagedMainSecurityGroup"`
+	// Identifier of the Amazon EC2 EMR-Managed security group for the subordinate nodes
+	EmrManagedSubordinateSecurityGroup *string `pulumi:"emrManagedSubordinateSecurityGroup"`
 	// Instance Profile for EC2 instances of the cluster assume this role
 	InstanceProfile string `pulumi:"instanceProfile"`
-	// Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`
+	// Amazon EC2 key pair that can be used to ssh to the main node as the user called `hadoop`
 	KeyName *string `pulumi:"keyName"`
 	// Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet
 	ServiceAccessSecurityGroup *string `pulumi:"serviceAccessSecurityGroup"`
@@ -525,17 +525,17 @@ type ClusterEc2AttributesInput interface {
 }
 
 type ClusterEc2AttributesArgs struct {
-	// String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
-	AdditionalMasterSecurityGroups pulumi.StringPtrInput `pulumi:"additionalMasterSecurityGroups"`
-	// String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string
-	AdditionalSlaveSecurityGroups pulumi.StringPtrInput `pulumi:"additionalSlaveSecurityGroups"`
-	// Identifier of the Amazon EC2 EMR-Managed security group for the master node
-	EmrManagedMasterSecurityGroup pulumi.StringPtrInput `pulumi:"emrManagedMasterSecurityGroup"`
-	// Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes
-	EmrManagedSlaveSecurityGroup pulumi.StringPtrInput `pulumi:"emrManagedSlaveSecurityGroup"`
+	// String containing a comma separated list of additional Amazon EC2 security group IDs for the main node
+	AdditionalMainSecurityGroups pulumi.StringPtrInput `pulumi:"additionalMainSecurityGroups"`
+	// String containing a comma separated list of additional Amazon EC2 security group IDs for the subordinate nodes as a comma separated string
+	AdditionalSubordinateSecurityGroups pulumi.StringPtrInput `pulumi:"additionalSubordinateSecurityGroups"`
+	// Identifier of the Amazon EC2 EMR-Managed security group for the main node
+	EmrManagedMainSecurityGroup pulumi.StringPtrInput `pulumi:"emrManagedMainSecurityGroup"`
+	// Identifier of the Amazon EC2 EMR-Managed security group for the subordinate nodes
+	EmrManagedSubordinateSecurityGroup pulumi.StringPtrInput `pulumi:"emrManagedSubordinateSecurityGroup"`
 	// Instance Profile for EC2 instances of the cluster assume this role
 	InstanceProfile pulumi.StringInput `pulumi:"instanceProfile"`
-	// Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`
+	// Amazon EC2 key pair that can be used to ssh to the main node as the user called `hadoop`
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet
 	ServiceAccessSecurityGroup pulumi.StringPtrInput `pulumi:"serviceAccessSecurityGroup"`
@@ -620,24 +620,24 @@ func (o ClusterEc2AttributesOutput) ToClusterEc2AttributesPtrOutputWithContext(c
 	}).(ClusterEc2AttributesPtrOutput)
 }
 
-// String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
-func (o ClusterEc2AttributesOutput) AdditionalMasterSecurityGroups() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.AdditionalMasterSecurityGroups }).(pulumi.StringPtrOutput)
+// String containing a comma separated list of additional Amazon EC2 security group IDs for the main node
+func (o ClusterEc2AttributesOutput) AdditionalMainSecurityGroups() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.AdditionalMainSecurityGroups }).(pulumi.StringPtrOutput)
 }
 
-// String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string
-func (o ClusterEc2AttributesOutput) AdditionalSlaveSecurityGroups() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.AdditionalSlaveSecurityGroups }).(pulumi.StringPtrOutput)
+// String containing a comma separated list of additional Amazon EC2 security group IDs for the subordinate nodes as a comma separated string
+func (o ClusterEc2AttributesOutput) AdditionalSubordinateSecurityGroups() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.AdditionalSubordinateSecurityGroups }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the Amazon EC2 EMR-Managed security group for the master node
-func (o ClusterEc2AttributesOutput) EmrManagedMasterSecurityGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.EmrManagedMasterSecurityGroup }).(pulumi.StringPtrOutput)
+// Identifier of the Amazon EC2 EMR-Managed security group for the main node
+func (o ClusterEc2AttributesOutput) EmrManagedMainSecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.EmrManagedMainSecurityGroup }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes
-func (o ClusterEc2AttributesOutput) EmrManagedSlaveSecurityGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.EmrManagedSlaveSecurityGroup }).(pulumi.StringPtrOutput)
+// Identifier of the Amazon EC2 EMR-Managed security group for the subordinate nodes
+func (o ClusterEc2AttributesOutput) EmrManagedSubordinateSecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.EmrManagedSubordinateSecurityGroup }).(pulumi.StringPtrOutput)
 }
 
 // Instance Profile for EC2 instances of the cluster assume this role
@@ -645,7 +645,7 @@ func (o ClusterEc2AttributesOutput) InstanceProfile() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) string { return v.InstanceProfile }).(pulumi.StringOutput)
 }
 
-// Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`
+// Amazon EC2 key pair that can be used to ssh to the main node as the user called `hadoop`
 func (o ClusterEc2AttributesOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
@@ -678,43 +678,43 @@ func (o ClusterEc2AttributesPtrOutput) Elem() ClusterEc2AttributesOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) ClusterEc2Attributes { return *v }).(ClusterEc2AttributesOutput)
 }
 
-// String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
-func (o ClusterEc2AttributesPtrOutput) AdditionalMasterSecurityGroups() pulumi.StringPtrOutput {
+// String containing a comma separated list of additional Amazon EC2 security group IDs for the main node
+func (o ClusterEc2AttributesPtrOutput) AdditionalMainSecurityGroups() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
 			return nil
 		}
-		return v.AdditionalMasterSecurityGroups
+		return v.AdditionalMainSecurityGroups
 	}).(pulumi.StringPtrOutput)
 }
 
-// String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string
-func (o ClusterEc2AttributesPtrOutput) AdditionalSlaveSecurityGroups() pulumi.StringPtrOutput {
+// String containing a comma separated list of additional Amazon EC2 security group IDs for the subordinate nodes as a comma separated string
+func (o ClusterEc2AttributesPtrOutput) AdditionalSubordinateSecurityGroups() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
 			return nil
 		}
-		return v.AdditionalSlaveSecurityGroups
+		return v.AdditionalSubordinateSecurityGroups
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the Amazon EC2 EMR-Managed security group for the master node
-func (o ClusterEc2AttributesPtrOutput) EmrManagedMasterSecurityGroup() pulumi.StringPtrOutput {
+// Identifier of the Amazon EC2 EMR-Managed security group for the main node
+func (o ClusterEc2AttributesPtrOutput) EmrManagedMainSecurityGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
 			return nil
 		}
-		return v.EmrManagedMasterSecurityGroup
+		return v.EmrManagedMainSecurityGroup
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes
-func (o ClusterEc2AttributesPtrOutput) EmrManagedSlaveSecurityGroup() pulumi.StringPtrOutput {
+// Identifier of the Amazon EC2 EMR-Managed security group for the subordinate nodes
+func (o ClusterEc2AttributesPtrOutput) EmrManagedSubordinateSecurityGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
 			return nil
 		}
-		return v.EmrManagedSlaveSecurityGroup
+		return v.EmrManagedSubordinateSecurityGroup
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -728,7 +728,7 @@ func (o ClusterEc2AttributesPtrOutput) InstanceProfile() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`
+// Amazon EC2 key pair that can be used to ssh to the main node as the user called `hadoop`
 func (o ClusterEc2AttributesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) *string {
 		if v == nil {
@@ -767,7 +767,7 @@ type ClusterInstanceGroup struct {
 	EbsConfigs []ClusterInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
 	// The ID of the EMR Cluster
 	Id *string `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple main nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple main nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount *int `pulumi:"instanceCount"`
 	// The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
 	InstanceRole string `pulumi:"instanceRole"`
@@ -797,7 +797,7 @@ type ClusterInstanceGroupArgs struct {
 	EbsConfigs ClusterInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
 	// The ID of the EMR Cluster
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple main nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple main nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
 	InstanceRole pulumi.StringInput `pulumi:"instanceRole"`
@@ -878,7 +878,7 @@ func (o ClusterInstanceGroupOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple main nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple main nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 func (o ClusterInstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -1249,14 +1249,14 @@ func (o ClusterKerberosAttributesPtrOutput) Realm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type ClusterMasterInstanceGroup struct {
+type ClusterMainInstanceGroup struct {
 	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 	BidPrice *string `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-	EbsConfigs []ClusterMasterInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
+	EbsConfigs []ClusterMainInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
 	// The ID of the EMR Cluster
 	Id *string `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple main nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple main nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount *int `pulumi:"instanceCount"`
 	// EC2 instance type for all instances in the instance group.
 	InstanceType string `pulumi:"instanceType"`
@@ -1264,25 +1264,25 @@ type ClusterMasterInstanceGroup struct {
 	Name *string `pulumi:"name"`
 }
 
-// ClusterMasterInstanceGroupInput is an input type that accepts ClusterMasterInstanceGroupArgs and ClusterMasterInstanceGroupOutput values.
-// You can construct a concrete instance of `ClusterMasterInstanceGroupInput` via:
+// ClusterMainInstanceGroupInput is an input type that accepts ClusterMainInstanceGroupArgs and ClusterMainInstanceGroupOutput values.
+// You can construct a concrete instance of `ClusterMainInstanceGroupInput` via:
 //
-//          ClusterMasterInstanceGroupArgs{...}
-type ClusterMasterInstanceGroupInput interface {
+//          ClusterMainInstanceGroupArgs{...}
+type ClusterMainInstanceGroupInput interface {
 	pulumi.Input
 
-	ToClusterMasterInstanceGroupOutput() ClusterMasterInstanceGroupOutput
-	ToClusterMasterInstanceGroupOutputWithContext(context.Context) ClusterMasterInstanceGroupOutput
+	ToClusterMainInstanceGroupOutput() ClusterMainInstanceGroupOutput
+	ToClusterMainInstanceGroupOutputWithContext(context.Context) ClusterMainInstanceGroupOutput
 }
 
-type ClusterMasterInstanceGroupArgs struct {
+type ClusterMainInstanceGroupArgs struct {
 	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-	EbsConfigs ClusterMasterInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
+	EbsConfigs ClusterMainInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
 	// The ID of the EMR Cluster
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple main nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple main nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
 	// EC2 instance type for all instances in the instance group.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
@@ -1290,134 +1290,134 @@ type ClusterMasterInstanceGroupArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (ClusterMasterInstanceGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterMasterInstanceGroup)(nil)).Elem()
+func (ClusterMainInstanceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMainInstanceGroup)(nil)).Elem()
 }
 
-func (i ClusterMasterInstanceGroupArgs) ToClusterMasterInstanceGroupOutput() ClusterMasterInstanceGroupOutput {
-	return i.ToClusterMasterInstanceGroupOutputWithContext(context.Background())
+func (i ClusterMainInstanceGroupArgs) ToClusterMainInstanceGroupOutput() ClusterMainInstanceGroupOutput {
+	return i.ToClusterMainInstanceGroupOutputWithContext(context.Background())
 }
 
-func (i ClusterMasterInstanceGroupArgs) ToClusterMasterInstanceGroupOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceGroupOutput)
+func (i ClusterMainInstanceGroupArgs) ToClusterMainInstanceGroupOutputWithContext(ctx context.Context) ClusterMainInstanceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMainInstanceGroupOutput)
 }
 
-func (i ClusterMasterInstanceGroupArgs) ToClusterMasterInstanceGroupPtrOutput() ClusterMasterInstanceGroupPtrOutput {
-	return i.ToClusterMasterInstanceGroupPtrOutputWithContext(context.Background())
+func (i ClusterMainInstanceGroupArgs) ToClusterMainInstanceGroupPtrOutput() ClusterMainInstanceGroupPtrOutput {
+	return i.ToClusterMainInstanceGroupPtrOutputWithContext(context.Background())
 }
 
-func (i ClusterMasterInstanceGroupArgs) ToClusterMasterInstanceGroupPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceGroupOutput).ToClusterMasterInstanceGroupPtrOutputWithContext(ctx)
+func (i ClusterMainInstanceGroupArgs) ToClusterMainInstanceGroupPtrOutputWithContext(ctx context.Context) ClusterMainInstanceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMainInstanceGroupOutput).ToClusterMainInstanceGroupPtrOutputWithContext(ctx)
 }
 
-// ClusterMasterInstanceGroupPtrInput is an input type that accepts ClusterMasterInstanceGroupArgs, ClusterMasterInstanceGroupPtr and ClusterMasterInstanceGroupPtrOutput values.
-// You can construct a concrete instance of `ClusterMasterInstanceGroupPtrInput` via:
+// ClusterMainInstanceGroupPtrInput is an input type that accepts ClusterMainInstanceGroupArgs, ClusterMainInstanceGroupPtr and ClusterMainInstanceGroupPtrOutput values.
+// You can construct a concrete instance of `ClusterMainInstanceGroupPtrInput` via:
 //
-//          ClusterMasterInstanceGroupArgs{...}
+//          ClusterMainInstanceGroupArgs{...}
 //
 //  or:
 //
 //          nil
-type ClusterMasterInstanceGroupPtrInput interface {
+type ClusterMainInstanceGroupPtrInput interface {
 	pulumi.Input
 
-	ToClusterMasterInstanceGroupPtrOutput() ClusterMasterInstanceGroupPtrOutput
-	ToClusterMasterInstanceGroupPtrOutputWithContext(context.Context) ClusterMasterInstanceGroupPtrOutput
+	ToClusterMainInstanceGroupPtrOutput() ClusterMainInstanceGroupPtrOutput
+	ToClusterMainInstanceGroupPtrOutputWithContext(context.Context) ClusterMainInstanceGroupPtrOutput
 }
 
-type clusterMasterInstanceGroupPtrType ClusterMasterInstanceGroupArgs
+type clusterMainInstanceGroupPtrType ClusterMainInstanceGroupArgs
 
-func ClusterMasterInstanceGroupPtr(v *ClusterMasterInstanceGroupArgs) ClusterMasterInstanceGroupPtrInput {
-	return (*clusterMasterInstanceGroupPtrType)(v)
+func ClusterMainInstanceGroupPtr(v *ClusterMainInstanceGroupArgs) ClusterMainInstanceGroupPtrInput {
+	return (*clusterMainInstanceGroupPtrType)(v)
 }
 
-func (*clusterMasterInstanceGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterMasterInstanceGroup)(nil)).Elem()
+func (*clusterMainInstanceGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterMainInstanceGroup)(nil)).Elem()
 }
 
-func (i *clusterMasterInstanceGroupPtrType) ToClusterMasterInstanceGroupPtrOutput() ClusterMasterInstanceGroupPtrOutput {
-	return i.ToClusterMasterInstanceGroupPtrOutputWithContext(context.Background())
+func (i *clusterMainInstanceGroupPtrType) ToClusterMainInstanceGroupPtrOutput() ClusterMainInstanceGroupPtrOutput {
+	return i.ToClusterMainInstanceGroupPtrOutputWithContext(context.Background())
 }
 
-func (i *clusterMasterInstanceGroupPtrType) ToClusterMasterInstanceGroupPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceGroupPtrOutput)
+func (i *clusterMainInstanceGroupPtrType) ToClusterMainInstanceGroupPtrOutputWithContext(ctx context.Context) ClusterMainInstanceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMainInstanceGroupPtrOutput)
 }
 
-type ClusterMasterInstanceGroupOutput struct{ *pulumi.OutputState }
+type ClusterMainInstanceGroupOutput struct{ *pulumi.OutputState }
 
-func (ClusterMasterInstanceGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterMasterInstanceGroup)(nil)).Elem()
+func (ClusterMainInstanceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMainInstanceGroup)(nil)).Elem()
 }
 
-func (o ClusterMasterInstanceGroupOutput) ToClusterMasterInstanceGroupOutput() ClusterMasterInstanceGroupOutput {
+func (o ClusterMainInstanceGroupOutput) ToClusterMainInstanceGroupOutput() ClusterMainInstanceGroupOutput {
 	return o
 }
 
-func (o ClusterMasterInstanceGroupOutput) ToClusterMasterInstanceGroupOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupOutput {
+func (o ClusterMainInstanceGroupOutput) ToClusterMainInstanceGroupOutputWithContext(ctx context.Context) ClusterMainInstanceGroupOutput {
 	return o
 }
 
-func (o ClusterMasterInstanceGroupOutput) ToClusterMasterInstanceGroupPtrOutput() ClusterMasterInstanceGroupPtrOutput {
-	return o.ToClusterMasterInstanceGroupPtrOutputWithContext(context.Background())
+func (o ClusterMainInstanceGroupOutput) ToClusterMainInstanceGroupPtrOutput() ClusterMainInstanceGroupPtrOutput {
+	return o.ToClusterMainInstanceGroupPtrOutputWithContext(context.Background())
 }
 
-func (o ClusterMasterInstanceGroupOutput) ToClusterMasterInstanceGroupPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupPtrOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceGroup) *ClusterMasterInstanceGroup {
+func (o ClusterMainInstanceGroupOutput) ToClusterMainInstanceGroupPtrOutputWithContext(ctx context.Context) ClusterMainInstanceGroupPtrOutput {
+	return o.ApplyT(func(v ClusterMainInstanceGroup) *ClusterMainInstanceGroup {
 		return &v
-	}).(ClusterMasterInstanceGroupPtrOutput)
+	}).(ClusterMainInstanceGroupPtrOutput)
 }
 
 // Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-func (o ClusterMasterInstanceGroupOutput) BidPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceGroup) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
+func (o ClusterMainInstanceGroupOutput) BidPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterMainInstanceGroup) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-func (o ClusterMasterInstanceGroupOutput) EbsConfigs() ClusterMasterInstanceGroupEbsConfigArrayOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceGroup) []ClusterMasterInstanceGroupEbsConfig { return v.EbsConfigs }).(ClusterMasterInstanceGroupEbsConfigArrayOutput)
+func (o ClusterMainInstanceGroupOutput) EbsConfigs() ClusterMainInstanceGroupEbsConfigArrayOutput {
+	return o.ApplyT(func(v ClusterMainInstanceGroup) []ClusterMainInstanceGroupEbsConfig { return v.EbsConfigs }).(ClusterMainInstanceGroupEbsConfigArrayOutput)
 }
 
 // The ID of the EMR Cluster
-func (o ClusterMasterInstanceGroupOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o ClusterMainInstanceGroupOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterMainInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
-func (o ClusterMasterInstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceGroup) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
+// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple main nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple main nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+func (o ClusterMainInstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterMainInstanceGroup) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
 // EC2 instance type for all instances in the instance group.
-func (o ClusterMasterInstanceGroupOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceGroup) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o ClusterMainInstanceGroupOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterMainInstanceGroup) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
 // The name of the step.
-func (o ClusterMasterInstanceGroupOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ClusterMainInstanceGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterMainInstanceGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type ClusterMasterInstanceGroupPtrOutput struct{ *pulumi.OutputState }
+type ClusterMainInstanceGroupPtrOutput struct{ *pulumi.OutputState }
 
-func (ClusterMasterInstanceGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterMasterInstanceGroup)(nil)).Elem()
+func (ClusterMainInstanceGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterMainInstanceGroup)(nil)).Elem()
 }
 
-func (o ClusterMasterInstanceGroupPtrOutput) ToClusterMasterInstanceGroupPtrOutput() ClusterMasterInstanceGroupPtrOutput {
+func (o ClusterMainInstanceGroupPtrOutput) ToClusterMainInstanceGroupPtrOutput() ClusterMainInstanceGroupPtrOutput {
 	return o
 }
 
-func (o ClusterMasterInstanceGroupPtrOutput) ToClusterMasterInstanceGroupPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupPtrOutput {
+func (o ClusterMainInstanceGroupPtrOutput) ToClusterMainInstanceGroupPtrOutputWithContext(ctx context.Context) ClusterMainInstanceGroupPtrOutput {
 	return o
 }
 
-func (o ClusterMasterInstanceGroupPtrOutput) Elem() ClusterMasterInstanceGroupOutput {
-	return o.ApplyT(func(v *ClusterMasterInstanceGroup) ClusterMasterInstanceGroup { return *v }).(ClusterMasterInstanceGroupOutput)
+func (o ClusterMainInstanceGroupPtrOutput) Elem() ClusterMainInstanceGroupOutput {
+	return o.ApplyT(func(v *ClusterMainInstanceGroup) ClusterMainInstanceGroup { return *v }).(ClusterMainInstanceGroupOutput)
 }
 
 // Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-func (o ClusterMasterInstanceGroupPtrOutput) BidPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *string {
+func (o ClusterMainInstanceGroupPtrOutput) BidPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterMainInstanceGroup) *string {
 		if v == nil {
 			return nil
 		}
@@ -1426,18 +1426,18 @@ func (o ClusterMasterInstanceGroupPtrOutput) BidPrice() pulumi.StringPtrOutput {
 }
 
 // Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-func (o ClusterMasterInstanceGroupPtrOutput) EbsConfigs() ClusterMasterInstanceGroupEbsConfigArrayOutput {
-	return o.ApplyT(func(v *ClusterMasterInstanceGroup) []ClusterMasterInstanceGroupEbsConfig {
+func (o ClusterMainInstanceGroupPtrOutput) EbsConfigs() ClusterMainInstanceGroupEbsConfigArrayOutput {
+	return o.ApplyT(func(v *ClusterMainInstanceGroup) []ClusterMainInstanceGroupEbsConfig {
 		if v == nil {
 			return nil
 		}
 		return v.EbsConfigs
-	}).(ClusterMasterInstanceGroupEbsConfigArrayOutput)
+	}).(ClusterMainInstanceGroupEbsConfigArrayOutput)
 }
 
 // The ID of the EMR Cluster
-func (o ClusterMasterInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *string {
+func (o ClusterMainInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterMainInstanceGroup) *string {
 		if v == nil {
 			return nil
 		}
@@ -1445,9 +1445,9 @@ func (o ClusterMasterInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
-func (o ClusterMasterInstanceGroupPtrOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *int {
+// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple main nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple main nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+func (o ClusterMainInstanceGroupPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterMainInstanceGroup) *int {
 		if v == nil {
 			return nil
 		}
@@ -1456,8 +1456,8 @@ func (o ClusterMasterInstanceGroupPtrOutput) InstanceCount() pulumi.IntPtrOutput
 }
 
 // EC2 instance type for all instances in the instance group.
-func (o ClusterMasterInstanceGroupPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *string {
+func (o ClusterMainInstanceGroupPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterMainInstanceGroup) *string {
 		if v == nil {
 			return nil
 		}
@@ -1466,8 +1466,8 @@ func (o ClusterMasterInstanceGroupPtrOutput) InstanceType() pulumi.StringPtrOutp
 }
 
 // The name of the step.
-func (o ClusterMasterInstanceGroupPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *string {
+func (o ClusterMainInstanceGroupPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterMainInstanceGroup) *string {
 		if v == nil {
 			return nil
 		}
@@ -1475,7 +1475,7 @@ func (o ClusterMasterInstanceGroupPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type ClusterMasterInstanceGroupEbsConfig struct {
+type ClusterMainInstanceGroupEbsConfig struct {
 	// The number of I/O operations per second (IOPS) that the volume supports
 	Iops *int `pulumi:"iops"`
 	// The volume size, in gibibytes (GiB).
@@ -1486,18 +1486,18 @@ type ClusterMasterInstanceGroupEbsConfig struct {
 	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
 }
 
-// ClusterMasterInstanceGroupEbsConfigInput is an input type that accepts ClusterMasterInstanceGroupEbsConfigArgs and ClusterMasterInstanceGroupEbsConfigOutput values.
-// You can construct a concrete instance of `ClusterMasterInstanceGroupEbsConfigInput` via:
+// ClusterMainInstanceGroupEbsConfigInput is an input type that accepts ClusterMainInstanceGroupEbsConfigArgs and ClusterMainInstanceGroupEbsConfigOutput values.
+// You can construct a concrete instance of `ClusterMainInstanceGroupEbsConfigInput` via:
 //
-//          ClusterMasterInstanceGroupEbsConfigArgs{...}
-type ClusterMasterInstanceGroupEbsConfigInput interface {
+//          ClusterMainInstanceGroupEbsConfigArgs{...}
+type ClusterMainInstanceGroupEbsConfigInput interface {
 	pulumi.Input
 
-	ToClusterMasterInstanceGroupEbsConfigOutput() ClusterMasterInstanceGroupEbsConfigOutput
-	ToClusterMasterInstanceGroupEbsConfigOutputWithContext(context.Context) ClusterMasterInstanceGroupEbsConfigOutput
+	ToClusterMainInstanceGroupEbsConfigOutput() ClusterMainInstanceGroupEbsConfigOutput
+	ToClusterMainInstanceGroupEbsConfigOutputWithContext(context.Context) ClusterMainInstanceGroupEbsConfigOutput
 }
 
-type ClusterMasterInstanceGroupEbsConfigArgs struct {
+type ClusterMainInstanceGroupEbsConfigArgs struct {
 	// The number of I/O operations per second (IOPS) that the volume supports
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// The volume size, in gibibytes (GiB).
@@ -1508,95 +1508,95 @@ type ClusterMasterInstanceGroupEbsConfigArgs struct {
 	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
 }
 
-func (ClusterMasterInstanceGroupEbsConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterMasterInstanceGroupEbsConfig)(nil)).Elem()
+func (ClusterMainInstanceGroupEbsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMainInstanceGroupEbsConfig)(nil)).Elem()
 }
 
-func (i ClusterMasterInstanceGroupEbsConfigArgs) ToClusterMasterInstanceGroupEbsConfigOutput() ClusterMasterInstanceGroupEbsConfigOutput {
-	return i.ToClusterMasterInstanceGroupEbsConfigOutputWithContext(context.Background())
+func (i ClusterMainInstanceGroupEbsConfigArgs) ToClusterMainInstanceGroupEbsConfigOutput() ClusterMainInstanceGroupEbsConfigOutput {
+	return i.ToClusterMainInstanceGroupEbsConfigOutputWithContext(context.Background())
 }
 
-func (i ClusterMasterInstanceGroupEbsConfigArgs) ToClusterMasterInstanceGroupEbsConfigOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupEbsConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceGroupEbsConfigOutput)
+func (i ClusterMainInstanceGroupEbsConfigArgs) ToClusterMainInstanceGroupEbsConfigOutputWithContext(ctx context.Context) ClusterMainInstanceGroupEbsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMainInstanceGroupEbsConfigOutput)
 }
 
-// ClusterMasterInstanceGroupEbsConfigArrayInput is an input type that accepts ClusterMasterInstanceGroupEbsConfigArray and ClusterMasterInstanceGroupEbsConfigArrayOutput values.
-// You can construct a concrete instance of `ClusterMasterInstanceGroupEbsConfigArrayInput` via:
+// ClusterMainInstanceGroupEbsConfigArrayInput is an input type that accepts ClusterMainInstanceGroupEbsConfigArray and ClusterMainInstanceGroupEbsConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterMainInstanceGroupEbsConfigArrayInput` via:
 //
-//          ClusterMasterInstanceGroupEbsConfigArray{ ClusterMasterInstanceGroupEbsConfigArgs{...} }
-type ClusterMasterInstanceGroupEbsConfigArrayInput interface {
+//          ClusterMainInstanceGroupEbsConfigArray{ ClusterMainInstanceGroupEbsConfigArgs{...} }
+type ClusterMainInstanceGroupEbsConfigArrayInput interface {
 	pulumi.Input
 
-	ToClusterMasterInstanceGroupEbsConfigArrayOutput() ClusterMasterInstanceGroupEbsConfigArrayOutput
-	ToClusterMasterInstanceGroupEbsConfigArrayOutputWithContext(context.Context) ClusterMasterInstanceGroupEbsConfigArrayOutput
+	ToClusterMainInstanceGroupEbsConfigArrayOutput() ClusterMainInstanceGroupEbsConfigArrayOutput
+	ToClusterMainInstanceGroupEbsConfigArrayOutputWithContext(context.Context) ClusterMainInstanceGroupEbsConfigArrayOutput
 }
 
-type ClusterMasterInstanceGroupEbsConfigArray []ClusterMasterInstanceGroupEbsConfigInput
+type ClusterMainInstanceGroupEbsConfigArray []ClusterMainInstanceGroupEbsConfigInput
 
-func (ClusterMasterInstanceGroupEbsConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterMasterInstanceGroupEbsConfig)(nil)).Elem()
+func (ClusterMainInstanceGroupEbsConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMainInstanceGroupEbsConfig)(nil)).Elem()
 }
 
-func (i ClusterMasterInstanceGroupEbsConfigArray) ToClusterMasterInstanceGroupEbsConfigArrayOutput() ClusterMasterInstanceGroupEbsConfigArrayOutput {
-	return i.ToClusterMasterInstanceGroupEbsConfigArrayOutputWithContext(context.Background())
+func (i ClusterMainInstanceGroupEbsConfigArray) ToClusterMainInstanceGroupEbsConfigArrayOutput() ClusterMainInstanceGroupEbsConfigArrayOutput {
+	return i.ToClusterMainInstanceGroupEbsConfigArrayOutputWithContext(context.Background())
 }
 
-func (i ClusterMasterInstanceGroupEbsConfigArray) ToClusterMasterInstanceGroupEbsConfigArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupEbsConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceGroupEbsConfigArrayOutput)
+func (i ClusterMainInstanceGroupEbsConfigArray) ToClusterMainInstanceGroupEbsConfigArrayOutputWithContext(ctx context.Context) ClusterMainInstanceGroupEbsConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMainInstanceGroupEbsConfigArrayOutput)
 }
 
-type ClusterMasterInstanceGroupEbsConfigOutput struct{ *pulumi.OutputState }
+type ClusterMainInstanceGroupEbsConfigOutput struct{ *pulumi.OutputState }
 
-func (ClusterMasterInstanceGroupEbsConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterMasterInstanceGroupEbsConfig)(nil)).Elem()
+func (ClusterMainInstanceGroupEbsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMainInstanceGroupEbsConfig)(nil)).Elem()
 }
 
-func (o ClusterMasterInstanceGroupEbsConfigOutput) ToClusterMasterInstanceGroupEbsConfigOutput() ClusterMasterInstanceGroupEbsConfigOutput {
+func (o ClusterMainInstanceGroupEbsConfigOutput) ToClusterMainInstanceGroupEbsConfigOutput() ClusterMainInstanceGroupEbsConfigOutput {
 	return o
 }
 
-func (o ClusterMasterInstanceGroupEbsConfigOutput) ToClusterMasterInstanceGroupEbsConfigOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupEbsConfigOutput {
+func (o ClusterMainInstanceGroupEbsConfigOutput) ToClusterMainInstanceGroupEbsConfigOutputWithContext(ctx context.Context) ClusterMainInstanceGroupEbsConfigOutput {
 	return o
 }
 
 // The number of I/O operations per second (IOPS) that the volume supports
-func (o ClusterMasterInstanceGroupEbsConfigOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceGroupEbsConfig) *int { return v.Iops }).(pulumi.IntPtrOutput)
+func (o ClusterMainInstanceGroupEbsConfigOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterMainInstanceGroupEbsConfig) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 // The volume size, in gibibytes (GiB).
-func (o ClusterMasterInstanceGroupEbsConfigOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceGroupEbsConfig) int { return v.Size }).(pulumi.IntOutput)
+func (o ClusterMainInstanceGroupEbsConfigOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterMainInstanceGroupEbsConfig) int { return v.Size }).(pulumi.IntOutput)
 }
 
 // The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-func (o ClusterMasterInstanceGroupEbsConfigOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceGroupEbsConfig) string { return v.Type }).(pulumi.StringOutput)
+func (o ClusterMainInstanceGroupEbsConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterMainInstanceGroupEbsConfig) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
-func (o ClusterMasterInstanceGroupEbsConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceGroupEbsConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
+func (o ClusterMainInstanceGroupEbsConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterMainInstanceGroupEbsConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
 }
 
-type ClusterMasterInstanceGroupEbsConfigArrayOutput struct{ *pulumi.OutputState }
+type ClusterMainInstanceGroupEbsConfigArrayOutput struct{ *pulumi.OutputState }
 
-func (ClusterMasterInstanceGroupEbsConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterMasterInstanceGroupEbsConfig)(nil)).Elem()
+func (ClusterMainInstanceGroupEbsConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMainInstanceGroupEbsConfig)(nil)).Elem()
 }
 
-func (o ClusterMasterInstanceGroupEbsConfigArrayOutput) ToClusterMasterInstanceGroupEbsConfigArrayOutput() ClusterMasterInstanceGroupEbsConfigArrayOutput {
+func (o ClusterMainInstanceGroupEbsConfigArrayOutput) ToClusterMainInstanceGroupEbsConfigArrayOutput() ClusterMainInstanceGroupEbsConfigArrayOutput {
 	return o
 }
 
-func (o ClusterMasterInstanceGroupEbsConfigArrayOutput) ToClusterMasterInstanceGroupEbsConfigArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupEbsConfigArrayOutput {
+func (o ClusterMainInstanceGroupEbsConfigArrayOutput) ToClusterMainInstanceGroupEbsConfigArrayOutputWithContext(ctx context.Context) ClusterMainInstanceGroupEbsConfigArrayOutput {
 	return o
 }
 
-func (o ClusterMasterInstanceGroupEbsConfigArrayOutput) Index(i pulumi.IntInput) ClusterMasterInstanceGroupEbsConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterMasterInstanceGroupEbsConfig {
-		return vs[0].([]ClusterMasterInstanceGroupEbsConfig)[vs[1].(int)]
-	}).(ClusterMasterInstanceGroupEbsConfigOutput)
+func (o ClusterMainInstanceGroupEbsConfigArrayOutput) Index(i pulumi.IntInput) ClusterMainInstanceGroupEbsConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterMainInstanceGroupEbsConfig {
+		return vs[0].([]ClusterMainInstanceGroupEbsConfig)[vs[1].(int)]
+	}).(ClusterMainInstanceGroupEbsConfigOutput)
 }
 
 type ClusterStep struct {
@@ -1932,10 +1932,10 @@ func init() {
 	pulumi.RegisterOutputType(ClusterInstanceGroupEbsConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterKerberosAttributesOutput{})
 	pulumi.RegisterOutputType(ClusterKerberosAttributesPtrOutput{})
-	pulumi.RegisterOutputType(ClusterMasterInstanceGroupOutput{})
-	pulumi.RegisterOutputType(ClusterMasterInstanceGroupPtrOutput{})
-	pulumi.RegisterOutputType(ClusterMasterInstanceGroupEbsConfigOutput{})
-	pulumi.RegisterOutputType(ClusterMasterInstanceGroupEbsConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterMainInstanceGroupOutput{})
+	pulumi.RegisterOutputType(ClusterMainInstanceGroupPtrOutput{})
+	pulumi.RegisterOutputType(ClusterMainInstanceGroupEbsConfigOutput{})
+	pulumi.RegisterOutputType(ClusterMainInstanceGroupEbsConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterStepOutput{})
 	pulumi.RegisterOutputType(ClusterStepArrayOutput{})
 	pulumi.RegisterOutputType(ClusterStepHadoopJarStepOutput{})

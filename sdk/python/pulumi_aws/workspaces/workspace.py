@@ -48,7 +48,7 @@ class Workspace(pulumi.CustomResource):
     """
     volume_encryption_key: pulumi.Output[str]
     """
-    The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+    The symmetric AWS KMS customer main key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
     """
     workspace_properties: pulumi.Output[dict]
     """
@@ -75,7 +75,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: The tags for the WorkSpace.
         :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
-        :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer main key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         :param pulumi.Input[dict] workspace_properties: The WorkSpace properties.
 
         The **workspace_properties** object supports the following:
@@ -144,7 +144,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: The tags for the WorkSpace.
         :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
-        :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer main key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         :param pulumi.Input[dict] workspace_properties: The WorkSpace properties.
 
         The **workspace_properties** object supports the following:

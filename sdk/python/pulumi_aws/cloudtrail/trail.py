@@ -61,7 +61,7 @@ class Trail(pulumi.CustomResource):
     """
     is_organization_trail: pulumi.Output[bool]
     """
-    Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+    Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the main account and all member accounts. Can only be created in the organization main account. Defaults to `false`.
     """
     kms_key_id: pulumi.Output[str]
     """
@@ -95,7 +95,7 @@ class Trail(pulumi.CustomResource):
 
         > *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
 
-        > *NOTE:* For an organization trail, this resource must be in the master account of the organization.
+        > *NOTE:* For an organization trail, this resource must be in the main account of the organization.
 
         ## Example Usage
         ### Basic
@@ -210,7 +210,7 @@ class Trail(pulumi.CustomResource):
                from global services such as IAM to the log files. Defaults to `true`.
         :param pulumi.Input[bool] is_multi_region_trail: Specifies whether the trail is created in the current
                region or in all regions. Defaults to `false`.
-        :param pulumi.Input[bool] is_organization_trail: Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+        :param pulumi.Input[bool] is_organization_trail: Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the main account and all member accounts. Can only be created in the organization main account. Defaults to `false`.
         :param pulumi.Input[str] kms_key_id: Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[str] name: Specifies the name of the trail.
         :param pulumi.Input[str] s3_bucket_name: Specifies the name of the S3 bucket designated for publishing log files.
@@ -294,7 +294,7 @@ class Trail(pulumi.CustomResource):
                from global services such as IAM to the log files. Defaults to `true`.
         :param pulumi.Input[bool] is_multi_region_trail: Specifies whether the trail is created in the current
                region or in all regions. Defaults to `false`.
-        :param pulumi.Input[bool] is_organization_trail: Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+        :param pulumi.Input[bool] is_organization_trail: Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the main account and all member accounts. Can only be created in the organization main account. Defaults to `false`.
         :param pulumi.Input[str] kms_key_id: Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[str] name: Specifies the name of the trail.
         :param pulumi.Input[str] s3_bucket_name: Specifies the name of the S3 bucket designated for publishing log files.

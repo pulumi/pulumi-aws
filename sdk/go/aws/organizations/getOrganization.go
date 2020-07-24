@@ -79,7 +79,7 @@ func LookupOrganization(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*Look
 
 // A collection of values returned by getOrganization.
 type LookupOrganizationResult struct {
-	// List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
+	// List of organization accounts including the main account. For a list excluding the main account, see the `nonMainAccounts` attribute. All elements have these attributes:
 	Accounts []GetOrganizationAccount `pulumi:"accounts"`
 	// ARN of the root
 	Arn string `pulumi:"arn"`
@@ -91,14 +91,14 @@ type LookupOrganizationResult struct {
 	FeatureSet string `pulumi:"featureSet"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization.
-	MasterAccountArn string `pulumi:"masterAccountArn"`
-	// The email address that is associated with the AWS account that is designated as the master account for the organization.
-	MasterAccountEmail string `pulumi:"masterAccountEmail"`
-	// The unique identifier (ID) of the master account of an organization.
-	MasterAccountId string `pulumi:"masterAccountId"`
-	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-	NonMasterAccounts []GetOrganizationNonMasterAccount `pulumi:"nonMasterAccounts"`
+	// The Amazon Resource Name (ARN) of the account that is designated as the main account for the organization.
+	MainAccountArn string `pulumi:"mainAccountArn"`
+	// The email address that is associated with the AWS account that is designated as the main account for the organization.
+	MainAccountEmail string `pulumi:"mainAccountEmail"`
+	// The unique identifier (ID) of the main account of an organization.
+	MainAccountId string `pulumi:"mainAccountId"`
+	// List of organization accounts excluding the main account. For a list including the main account, see the `accounts` attribute. All elements have these attributes:
+	NonMainAccounts []GetOrganizationNonMainAccount `pulumi:"nonMainAccounts"`
 	// List of organization roots. All elements have these attributes:
 	Roots []GetOrganizationRoot `pulumi:"roots"`
 }

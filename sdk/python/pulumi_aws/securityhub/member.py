@@ -22,9 +22,9 @@ class Member(pulumi.CustomResource):
     """
     Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
     """
-    master_id: pulumi.Output[str]
+    main_id: pulumi.Output[str]
     """
-    The ID of the master Security Hub AWS account.
+    The ID of the main Security Hub AWS account.
     """
     member_status: pulumi.Output[str]
     """
@@ -78,7 +78,7 @@ class Member(pulumi.CustomResource):
                 raise TypeError("Missing required property 'email'")
             __props__['email'] = email
             __props__['invite'] = invite
-            __props__['master_id'] = None
+            __props__['main_id'] = None
             __props__['member_status'] = None
         super(Member, __self__).__init__(
             'aws:securityhub/member:Member',
@@ -87,7 +87,7 @@ class Member(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_id=None, email=None, invite=None, master_id=None, member_status=None):
+    def get(resource_name, id, opts=None, account_id=None, email=None, invite=None, main_id=None, member_status=None):
         """
         Get an existing Member resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -98,7 +98,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: The ID of the member AWS account.
         :param pulumi.Input[str] email: The email of the member AWS account.
         :param pulumi.Input[bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
-        :param pulumi.Input[str] master_id: The ID of the master Security Hub AWS account.
+        :param pulumi.Input[str] main_id: The ID of the main Security Hub AWS account.
         :param pulumi.Input[str] member_status: The status of the member account relationship.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -108,7 +108,7 @@ class Member(pulumi.CustomResource):
         __props__["account_id"] = account_id
         __props__["email"] = email
         __props__["invite"] = invite
-        __props__["master_id"] = master_id
+        __props__["main_id"] = main_id
         __props__["member_status"] = member_status
         return Member(resource_name, opts=opts, __props__=__props__)
 

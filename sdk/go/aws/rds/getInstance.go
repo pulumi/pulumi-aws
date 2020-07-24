@@ -96,8 +96,8 @@ type LookupInstanceResult struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// License model information for this DB instance.
 	LicenseModel string `pulumi:"licenseModel"`
-	// Contains the master username for the DB instance.
-	MasterUsername string `pulumi:"masterUsername"`
+	// Contains the main username for the DB instance.
+	MainUsername string `pulumi:"mainUsername"`
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
 	MonitoringInterval int `pulumi:"monitoringInterval"`
 	// The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.

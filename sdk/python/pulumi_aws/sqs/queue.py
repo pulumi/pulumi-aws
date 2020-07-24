@@ -30,9 +30,9 @@ class Queue(pulumi.CustomResource):
     """
     The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
     """
-    kms_master_key_id: pulumi.Output[str]
+    kms_main_key_id: pulumi.Output[str]
     """
-    The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
+    The ID of an AWS-managed customer main key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
     """
     max_message_size: pulumi.Output[float]
     """
@@ -70,7 +70,7 @@ class Queue(pulumi.CustomResource):
     """
     The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
     """
-    def __init__(__self__, resource_name, opts=None, content_based_deduplication=None, delay_seconds=None, fifo_queue=None, kms_data_key_reuse_period_seconds=None, kms_master_key_id=None, max_message_size=None, message_retention_seconds=None, name=None, name_prefix=None, policy=None, receive_wait_time_seconds=None, redrive_policy=None, tags=None, visibility_timeout_seconds=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content_based_deduplication=None, delay_seconds=None, fifo_queue=None, kms_data_key_reuse_period_seconds=None, kms_main_key_id=None, max_message_size=None, message_retention_seconds=None, name=None, name_prefix=None, policy=None, receive_wait_time_seconds=None, redrive_policy=None, tags=None, visibility_timeout_seconds=None, __props__=None, __name__=None, __opts__=None):
         """
         ## Example Usage
 
@@ -111,7 +111,7 @@ class Queue(pulumi.CustomResource):
 
         queue = aws.sqs.Queue("queue",
             kms_data_key_reuse_period_seconds=300,
-            kms_master_key_id="alias/aws/sqs")
+            kms_main_key_id="alias/aws/sqs")
         ```
 
         :param str resource_name: The name of the resource.
@@ -120,7 +120,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[float] delay_seconds: The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
         :param pulumi.Input[bool] fifo_queue: Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
         :param pulumi.Input[float] kms_data_key_reuse_period_seconds: The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
-        :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
+        :param pulumi.Input[str] kms_main_key_id: The ID of an AWS-managed customer main key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
         :param pulumi.Input[float] max_message_size: The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
         :param pulumi.Input[float] message_retention_seconds: The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
         :param pulumi.Input[str] name: This is the human-readable name of the queue. If omitted, this provider will assign a random name.
@@ -152,7 +152,7 @@ class Queue(pulumi.CustomResource):
             __props__['delay_seconds'] = delay_seconds
             __props__['fifo_queue'] = fifo_queue
             __props__['kms_data_key_reuse_period_seconds'] = kms_data_key_reuse_period_seconds
-            __props__['kms_master_key_id'] = kms_master_key_id
+            __props__['kms_main_key_id'] = kms_main_key_id
             __props__['max_message_size'] = max_message_size
             __props__['message_retention_seconds'] = message_retention_seconds
             __props__['name'] = name
@@ -170,7 +170,7 @@ class Queue(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, content_based_deduplication=None, delay_seconds=None, fifo_queue=None, kms_data_key_reuse_period_seconds=None, kms_master_key_id=None, max_message_size=None, message_retention_seconds=None, name=None, name_prefix=None, policy=None, receive_wait_time_seconds=None, redrive_policy=None, tags=None, visibility_timeout_seconds=None):
+    def get(resource_name, id, opts=None, arn=None, content_based_deduplication=None, delay_seconds=None, fifo_queue=None, kms_data_key_reuse_period_seconds=None, kms_main_key_id=None, max_message_size=None, message_retention_seconds=None, name=None, name_prefix=None, policy=None, receive_wait_time_seconds=None, redrive_policy=None, tags=None, visibility_timeout_seconds=None):
         """
         Get an existing Queue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -183,7 +183,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[float] delay_seconds: The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
         :param pulumi.Input[bool] fifo_queue: Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
         :param pulumi.Input[float] kms_data_key_reuse_period_seconds: The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
-        :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
+        :param pulumi.Input[str] kms_main_key_id: The ID of an AWS-managed customer main key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
         :param pulumi.Input[float] max_message_size: The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
         :param pulumi.Input[float] message_retention_seconds: The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
         :param pulumi.Input[str] name: This is the human-readable name of the queue. If omitted, this provider will assign a random name.
@@ -203,7 +203,7 @@ class Queue(pulumi.CustomResource):
         __props__["delay_seconds"] = delay_seconds
         __props__["fifo_queue"] = fifo_queue
         __props__["kms_data_key_reuse_period_seconds"] = kms_data_key_reuse_period_seconds
-        __props__["kms_master_key_id"] = kms_master_key_id
+        __props__["kms_main_key_id"] = kms_main_key_id
         __props__["max_message_size"] = max_message_size
         __props__["message_retention_seconds"] = message_retention_seconds
         __props__["name"] = name

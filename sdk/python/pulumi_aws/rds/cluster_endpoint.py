@@ -62,8 +62,8 @@ class ClusterEndpoint(pulumi.CustomResource):
             backup_retention_period=5,
             cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
-            master_password="bar",
-            master_username="foo",
+            main_password="bar",
+            main_username="foo",
             preferred_backup_window="07:00-09:00")
         test1 = aws.rds.ClusterInstance("test1",
             apply_immediately=True,

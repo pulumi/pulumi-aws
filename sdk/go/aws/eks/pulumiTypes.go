@@ -292,7 +292,7 @@ func (o ClusterEncryptionConfigPtrOutput) Resources() pulumi.StringArrayOutput {
 }
 
 type ClusterEncryptionConfigProvider struct {
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer main key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 	KeyArn string `pulumi:"keyArn"`
 }
 
@@ -308,7 +308,7 @@ type ClusterEncryptionConfigProviderInput interface {
 }
 
 type ClusterEncryptionConfigProviderArgs struct {
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+	// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer main key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 	KeyArn pulumi.StringInput `pulumi:"keyArn"`
 }
 
@@ -389,7 +389,7 @@ func (o ClusterEncryptionConfigProviderOutput) ToClusterEncryptionConfigProvider
 	}).(ClusterEncryptionConfigProviderPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer main key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 func (o ClusterEncryptionConfigProviderOutput) KeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterEncryptionConfigProvider) string { return v.KeyArn }).(pulumi.StringOutput)
 }
@@ -412,7 +412,7 @@ func (o ClusterEncryptionConfigProviderPtrOutput) Elem() ClusterEncryptionConfig
 	return o.ApplyT(func(v *ClusterEncryptionConfigProvider) ClusterEncryptionConfigProvider { return *v }).(ClusterEncryptionConfigProviderOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+// Amazon Resource Name (ARN) of the Key Management Service (KMS) customer main key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 func (o ClusterEncryptionConfigProviderPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionConfigProvider) *string {
 		if v == nil {

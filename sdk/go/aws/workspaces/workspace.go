@@ -35,7 +35,7 @@ type Workspace struct {
 	UserName pulumi.StringOutput `pulumi:"userName"`
 	// Indicates whether the data stored on the user volume is encrypted.
 	UserVolumeEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"userVolumeEncryptionEnabled"`
-	// The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+	// The symmetric AWS KMS customer main key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
 	VolumeEncryptionKey pulumi.StringPtrOutput `pulumi:"volumeEncryptionKey"`
 	// The WorkSpace properties.
 	WorkspaceProperties WorkspaceWorkspacePropertiesOutput `pulumi:"workspaceProperties"`
@@ -96,7 +96,7 @@ type workspaceState struct {
 	UserName *string `pulumi:"userName"`
 	// Indicates whether the data stored on the user volume is encrypted.
 	UserVolumeEncryptionEnabled *bool `pulumi:"userVolumeEncryptionEnabled"`
-	// The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+	// The symmetric AWS KMS customer main key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
 	VolumeEncryptionKey *string `pulumi:"volumeEncryptionKey"`
 	// The WorkSpace properties.
 	WorkspaceProperties *WorkspaceWorkspaceProperties `pulumi:"workspaceProperties"`
@@ -121,7 +121,7 @@ type WorkspaceState struct {
 	UserName pulumi.StringPtrInput
 	// Indicates whether the data stored on the user volume is encrypted.
 	UserVolumeEncryptionEnabled pulumi.BoolPtrInput
-	// The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+	// The symmetric AWS KMS customer main key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
 	VolumeEncryptionKey pulumi.StringPtrInput
 	// The WorkSpace properties.
 	WorkspaceProperties WorkspaceWorkspacePropertiesPtrInput
@@ -144,7 +144,7 @@ type workspaceArgs struct {
 	UserName string `pulumi:"userName"`
 	// Indicates whether the data stored on the user volume is encrypted.
 	UserVolumeEncryptionEnabled *bool `pulumi:"userVolumeEncryptionEnabled"`
-	// The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+	// The symmetric AWS KMS customer main key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
 	VolumeEncryptionKey *string `pulumi:"volumeEncryptionKey"`
 	// The WorkSpace properties.
 	WorkspaceProperties *WorkspaceWorkspaceProperties `pulumi:"workspaceProperties"`
@@ -164,7 +164,7 @@ type WorkspaceArgs struct {
 	UserName pulumi.StringInput
 	// Indicates whether the data stored on the user volume is encrypted.
 	UserVolumeEncryptionEnabled pulumi.BoolPtrInput
-	// The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+	// The symmetric AWS KMS customer main key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
 	VolumeEncryptionKey pulumi.StringPtrInput
 	// The WorkSpace properties.
 	WorkspaceProperties WorkspaceWorkspacePropertiesPtrInput

@@ -106,15 +106,15 @@ class Cluster(pulumi.CustomResource):
       * `enable` (`bool`) - Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
       * `s3_key_prefix` (`str`) - The prefix applied to the log file names.
     """
-    master_password: pulumi.Output[str]
+    main_password: pulumi.Output[str]
     """
-    Password for the master DB user.
+    Password for the main DB user.
     Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
     contain at least one uppercase letter, one lowercase letter, and one number.
     """
-    master_username: pulumi.Output[str]
+    main_username: pulumi.Output[str]
     """
-    Username for the master DB user.
+    Username for the main DB user.
     """
     node_type: pulumi.Output[str]
     """
@@ -170,7 +170,7 @@ class Cluster(pulumi.CustomResource):
     """
     A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
     """
-    def __init__(__self__, resource_name, opts=None, allow_version_upgrade=None, automated_snapshot_retention_period=None, availability_zone=None, cluster_identifier=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, elastic_ip=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, final_snapshot_identifier=None, iam_roles=None, kms_key_id=None, logging=None, master_password=None, master_username=None, node_type=None, number_of_nodes=None, owner_account=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, skip_final_snapshot=None, snapshot_cluster_identifier=None, snapshot_copy=None, snapshot_identifier=None, tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allow_version_upgrade=None, automated_snapshot_retention_period=None, availability_zone=None, cluster_identifier=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, elastic_ip=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, final_snapshot_identifier=None, iam_roles=None, kms_key_id=None, logging=None, main_password=None, main_username=None, node_type=None, number_of_nodes=None, owner_account=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, skip_final_snapshot=None, snapshot_cluster_identifier=None, snapshot_copy=None, snapshot_identifier=None, tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Redshift Cluster Resource.
 
@@ -186,8 +186,8 @@ class Cluster(pulumi.CustomResource):
             cluster_identifier="tf-redshift-cluster",
             cluster_type="single-node",
             database_name="mydb",
-            master_password="Mustbe8characters",
-            master_username="foo",
+            main_password="Mustbe8characters",
+            main_username="foo",
             node_type="dc1.large")
         ```
 
@@ -216,10 +216,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[list] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[dict] logging: Logging, documented below.
-        :param pulumi.Input[str] master_password: Password for the master DB user.
+        :param pulumi.Input[str] main_password: Password for the main DB user.
                Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
                contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[str] master_username: Username for the master DB user.
+        :param pulumi.Input[str] main_username: Username for the main DB user.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
         :param pulumi.Input[float] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
@@ -287,8 +287,8 @@ class Cluster(pulumi.CustomResource):
             __props__['iam_roles'] = iam_roles
             __props__['kms_key_id'] = kms_key_id
             __props__['logging'] = logging
-            __props__['master_password'] = master_password
-            __props__['master_username'] = master_username
+            __props__['main_password'] = main_password
+            __props__['main_username'] = main_username
             if node_type is None:
                 raise TypeError("Missing required property 'node_type'")
             __props__['node_type'] = node_type
@@ -312,7 +312,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allow_version_upgrade=None, arn=None, automated_snapshot_retention_period=None, availability_zone=None, cluster_identifier=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, dns_name=None, elastic_ip=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, final_snapshot_identifier=None, iam_roles=None, kms_key_id=None, logging=None, master_password=None, master_username=None, node_type=None, number_of_nodes=None, owner_account=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, skip_final_snapshot=None, snapshot_cluster_identifier=None, snapshot_copy=None, snapshot_identifier=None, tags=None, vpc_security_group_ids=None):
+    def get(resource_name, id, opts=None, allow_version_upgrade=None, arn=None, automated_snapshot_retention_period=None, availability_zone=None, cluster_identifier=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, dns_name=None, elastic_ip=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, final_snapshot_identifier=None, iam_roles=None, kms_key_id=None, logging=None, main_password=None, main_username=None, node_type=None, number_of_nodes=None, owner_account=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, skip_final_snapshot=None, snapshot_cluster_identifier=None, snapshot_copy=None, snapshot_identifier=None, tags=None, vpc_security_group_ids=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -345,10 +345,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[list] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[dict] logging: Logging, documented below.
-        :param pulumi.Input[str] master_password: Password for the master DB user.
+        :param pulumi.Input[str] main_password: Password for the main DB user.
                Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
                contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[str] master_username: Username for the master DB user.
+        :param pulumi.Input[str] main_username: Username for the main DB user.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
         :param pulumi.Input[float] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
@@ -403,8 +403,8 @@ class Cluster(pulumi.CustomResource):
         __props__["iam_roles"] = iam_roles
         __props__["kms_key_id"] = kms_key_id
         __props__["logging"] = logging
-        __props__["master_password"] = master_password
-        __props__["master_username"] = master_username
+        __props__["main_password"] = main_password
+        __props__["main_username"] = main_username
         __props__["node_type"] = node_type
         __props__["number_of_nodes"] = number_of_nodes
         __props__["owner_account"] = owner_account

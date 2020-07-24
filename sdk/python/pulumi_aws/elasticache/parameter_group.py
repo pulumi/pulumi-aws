@@ -49,7 +49,7 @@ class ParameterGroup(pulumi.CustomResource):
                     "value": "yes",
                 },
                 {
-                    "name": "min-slaves-to-write",
+                    "name": "min-subordinates-to-write",
                     "value": "2",
                 },
             ])

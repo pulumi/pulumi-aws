@@ -161,7 +161,7 @@ class Bucket(pulumi.CustomResource):
 
       * `rule` (`dict`) - A single object for server-side encryption by default configuration. (documented below)
         * `applyServerSideEncryptionByDefault` (`dict`) - A single object for setting server-side encryption by default. (documented below)
-          * `kms_master_key_id` (`str`) - The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
+          * `kms_main_key_id` (`str`) - The AWS KMS main key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS main key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
           * `sseAlgorithm` (`str`) - The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
     """
     tags: pulumi.Output[dict]
@@ -441,7 +441,7 @@ class Bucket(pulumi.CustomResource):
         mybucket = aws.s3.Bucket("mybucket", server_side_encryption_configuration={
             "rule": {
                 "applyServerSideEncryptionByDefault": {
-                    "kms_master_key_id": mykey.arn,
+                    "kms_main_key_id": mykey.arn,
                     "sseAlgorithm": "aws:kms",
                 },
             },
@@ -585,7 +585,7 @@ class Bucket(pulumi.CustomResource):
 
           * `rule` (`pulumi.Input[dict]`) - A single object for server-side encryption by default configuration. (documented below)
             * `applyServerSideEncryptionByDefault` (`pulumi.Input[dict]`) - A single object for setting server-side encryption by default. (documented below)
-              * `kms_master_key_id` (`pulumi.Input[str]`) - The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
+              * `kms_main_key_id` (`pulumi.Input[str]`) - The AWS KMS main key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS main key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
               * `sseAlgorithm` (`pulumi.Input[str]`) - The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
 
         The **versioning** object supports the following:
@@ -771,7 +771,7 @@ class Bucket(pulumi.CustomResource):
 
           * `rule` (`pulumi.Input[dict]`) - A single object for server-side encryption by default configuration. (documented below)
             * `applyServerSideEncryptionByDefault` (`pulumi.Input[dict]`) - A single object for setting server-side encryption by default. (documented below)
-              * `kms_master_key_id` (`pulumi.Input[str]`) - The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
+              * `kms_main_key_id` (`pulumi.Input[str]`) - The AWS KMS main key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS main key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
               * `sseAlgorithm` (`pulumi.Input[str]`) - The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
 
         The **versioning** object supports the following:
