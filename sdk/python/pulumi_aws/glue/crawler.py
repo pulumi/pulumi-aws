@@ -96,10 +96,10 @@ class Crawler(pulumi.CustomResource):
 
         example = aws.glue.Crawler("example",
             database_name=aws_glue_catalog_database["example"]["name"],
+            role=aws_iam_role["example"]["arn"],
             dynamodb_targets=[{
                 "path": "table-name",
-            }],
-            role=aws_iam_role["example"]["arn"])
+            }])
         ```
         ### JDBC Target
 
@@ -109,11 +109,11 @@ class Crawler(pulumi.CustomResource):
 
         example = aws.glue.Crawler("example",
             database_name=aws_glue_catalog_database["example"]["name"],
+            role=aws_iam_role["example"]["arn"],
             jdbc_targets=[{
                 "connectionName": aws_glue_connection["example"]["name"],
                 "path": "database-name/%",
-            }],
-            role=aws_iam_role["example"]["arn"])
+            }])
         ```
         ### S3 Target
 
@@ -135,23 +135,22 @@ class Crawler(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Crawler("example",
+            database_name=aws_glue_catalog_database["example"]["name"],
+            role=aws_iam_role["example"]["arn"],
             catalog_targets=[{
                 "database_name": aws_glue_catalog_database["example"]["name"],
                 "tables": [aws_glue_catalog_table["example"]["name"]],
             }],
+            schema_change_policy={
+                "deleteBehavior": "LOG",
+            },
             configuration=\"\"\"{
           "Version":1.0,
           "Grouping": {
             "TableGroupingPolicy": "CombineCompatibleSchemas"
           }
         }
-
-        \"\"\",
-            database_name=aws_glue_catalog_database["example"]["name"],
-            role=aws_iam_role["example"]["arn"],
-            schema_change_policy={
-                "deleteBehavior": "LOG",
-            })
+        \"\"\")
         ```
 
         :param str resource_name: The name of the resource.

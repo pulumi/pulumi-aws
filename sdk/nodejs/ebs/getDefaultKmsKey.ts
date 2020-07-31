@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const current = pulumi.output(aws.ebs.getDefaultKmsKey({ async: true }));
+ * const current = aws.ebs.getDefaultKmsKey({});
  * const example = new aws.ebs.Volume("example", {
  *     availabilityZone: "us-west-2a",
  *     encrypted: true,
- *     kmsKeyId: current.keyArn,
+ *     kmsKeyId: current.then(current => current.keyArn),
  * });
  * ```
  */

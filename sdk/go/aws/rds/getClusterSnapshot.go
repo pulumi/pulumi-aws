@@ -11,6 +11,48 @@ import (
 //
 // > **NOTE:** This data source does not apply to snapshots created on DB Instances.
 // See the `rds.Snapshot` data source for DB Instance snapshots.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "development_cluster"
+// 		opt1 := true
+// 		developmentFinalSnapshot, err := rds.LookupClusterSnapshot(ctx, &rds.LookupClusterSnapshotArgs{
+// 			DbClusterIdentifier: &opt0,
+// 			MostRecent:          &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		auroraCluster, err := rds.NewCluster(ctx, "auroraCluster", &rds.ClusterArgs{
+// 			ClusterIdentifier:  pulumi.String("development_cluster"),
+// 			SnapshotIdentifier: pulumi.String(developmentFinalSnapshot.Id),
+// 			DbSubnetGroupName:  pulumi.String("my_db_subnet_group"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = rds.NewClusterInstance(ctx, "auroraClusterInstance", &rds.ClusterInstanceArgs{
+// 			ClusterIdentifier: auroraCluster.ID(),
+// 			InstanceClass:     pulumi.String("db.t2.small"),
+// 			DbSubnetGroupName: pulumi.String("my_db_subnet_group"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupClusterSnapshot(ctx *pulumi.Context, args *LookupClusterSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupClusterSnapshotResult, error) {
 	var rv LookupClusterSnapshotResult
 	err := ctx.Invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", args, &rv, opts...)

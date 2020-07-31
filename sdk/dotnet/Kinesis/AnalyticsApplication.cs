@@ -33,12 +33,12 @@ namespace Pulumi.Aws.Kinesis
     ///         {
     ///             Inputs = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsArgs
     ///             {
+    ///                 NamePrefix = "test_prefix",
     ///                 KinesisStream = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsKinesisStreamArgs
     ///                 {
     ///                     ResourceArn = testStream.Arn,
     ///                     RoleArn = aws_iam_role.Test.Arn,
     ///                 },
-    ///                 NamePrefix = "test_prefix",
     ///                 Parallelism = new Aws.Kinesis.Inputs.AnalyticsApplicationInputsParallelismArgs
     ///                 {
     ///                     Count = 1,

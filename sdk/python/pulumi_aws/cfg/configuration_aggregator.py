@@ -73,16 +73,15 @@ class ConfigurationAggregator(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
+        organization_role_policy_attachment = aws.iam.RolePolicyAttachment("organizationRolePolicyAttachment",
+            role=organization_role.name,
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
         organization_configuration_aggregator = aws.cfg.ConfigurationAggregator("organizationConfigurationAggregator", organization_aggregation_source={
             "allRegions": True,
             "role_arn": organization_role.arn,
         },
-        opts=ResourceOptions(depends_on=["aws_iam_role_policy_attachment.organization"]))
-        organization_role_policy_attachment = aws.iam.RolePolicyAttachment("organizationRolePolicyAttachment",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
-            role=organization_role.name)
+        opts=ResourceOptions(depends_on=[organization_role_policy_attachment]))
         ```
 
         :param str resource_name: The name of the resource.

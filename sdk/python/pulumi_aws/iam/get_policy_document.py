@@ -68,25 +68,25 @@ def get_policy_document(override_json=None,policy_id=None,source_json=None,state
 
     example_policy_document = aws.iam.get_policy_document(statements=[
         {
+            "sid": "1",
             "actions": [
                 "s3:ListAllMyBuckets",
                 "s3:GetBucketLocation",
             ],
             "resources": ["arn:aws:s3:::*"],
-            "sid": "1",
         },
         {
             "actions": ["s3:ListBucket"],
+            "resources": [f"arn:aws:s3:::{var['s3_bucket_name']}"],
             "conditions": [{
                 "test": "StringLike",
+                "variable": "s3:prefix",
                 "values": [
                     "",
                     "home/",
                     "home/&{aws:username}/",
                 ],
-                "variable": "s3:prefix",
             }],
-            "resources": [f"arn:aws:s3:::{var['s3_bucket_name']}"],
         },
         {
             "actions": ["s3:*"],
@@ -135,19 +135,19 @@ def get_policy_document(override_json=None,policy_id=None,source_json=None,state
         "actions": ["sts:AssumeRole"],
         "principals": [
             {
-                "identifiers": ["firehose.amazonaws.com"],
                 "type": "Service",
+                "identifiers": ["firehose.amazonaws.com"],
             },
             {
-                "identifiers": [var["trusted_role_arn"]],
                 "type": "AWS",
+                "identifiers": [var["trusted_role_arn"]],
             },
             {
+                "type": "Federated",
                 "identifiers": [
                     f"arn:aws:iam::{var['account_id']}:saml-provider/{var['provider_name']}",
                     "cognito-identity.amazonaws.com",
                 ],
-                "type": "Federated",
             },
         ],
     }])
@@ -167,24 +167,24 @@ def get_policy_document(override_json=None,policy_id=None,source_json=None,state
             "resources": ["*"],
         },
         {
+            "sid": "SidToOverwrite",
             "actions": ["s3:*"],
             "resources": ["*"],
-            "sid": "SidToOverwrite",
         },
     ])
     source_json_example = aws.iam.get_policy_document(source_json=source.json,
         statements=[{
+            "sid": "SidToOverwrite",
             "actions": ["s3:*"],
             "resources": [
                 "arn:aws:s3:::somebucket",
                 "arn:aws:s3:::somebucket/*",
             ],
-            "sid": "SidToOverwrite",
         }])
     override = aws.iam.get_policy_document(statements=[{
+        "sid": "SidToOverwrite",
         "actions": ["s3:*"],
         "resources": ["*"],
-        "sid": "SidToOverwrite",
     }])
     override_json_example = aws.iam.get_policy_document(override_json=override.json,
         statements=[
@@ -193,12 +193,12 @@ def get_policy_document(override_json=None,policy_id=None,source_json=None,state
                 "resources": ["*"],
             },
             {
+                "sid": "SidToOverwrite",
                 "actions": ["s3:*"],
                 "resources": [
                     "arn:aws:s3:::somebucket",
                     "arn:aws:s3:::somebucket/*",
                 ],
-                "sid": "SidToOverwrite",
             },
         ])
     ```
@@ -226,17 +226,17 @@ def get_policy_document(override_json=None,policy_id=None,source_json=None,state
     import pulumi_aws as aws
 
     source = aws.iam.get_policy_document(statements=[{
+        "sid": "OverridePlaceholder",
         "actions": ["ec2:DescribeAccountAttributes"],
         "resources": ["*"],
-        "sid": "OverridePlaceholder",
     }])
     override = aws.iam.get_policy_document(statements=[{
+        "sid": "OverridePlaceholder",
         "actions": ["s3:GetObject"],
         "resources": ["*"],
-        "sid": "OverridePlaceholder",
     }])
-    politik = aws.iam.get_policy_document(override_json=override.json,
-        source_json=source.json)
+    politik = aws.iam.get_policy_document(source_json=source.json,
+        override_json=override.json)
     ```
 
     `data.aws_iam_policy_document.politik.json` will evaluate to:

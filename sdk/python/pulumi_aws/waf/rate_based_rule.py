@@ -61,14 +61,14 @@ class RateBasedRule(pulumi.CustomResource):
         }])
         wafrule = aws.waf.RateBasedRule("wafrule",
             metric_name="tfWAFRule",
+            rate_key="IP",
+            rate_limit=100,
             predicates=[{
                 "dataId": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }],
-            rate_key="IP",
-            rate_limit=100,
-            opts=ResourceOptions(depends_on=["aws_waf_ipset.ipset"]))
+            opts=ResourceOptions(depends_on=[ipset]))
         ```
 
         :param str resource_name: The name of the resource.

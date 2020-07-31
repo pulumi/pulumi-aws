@@ -41,18 +41,19 @@ class MailFrom(pulumi.CustomResource):
             mail_from_domain=example_domain_identity.domain.apply(lambda domain: f"bounce.{domain}"))
         # Example Route53 MX record
         example_ses_domain_mail_from_mx = aws.route53.Record("exampleSesDomainMailFromMx",
+            zone_id=aws_route53_zone["example"]["id"],
             name=example_mail_from.mail_from_domain,
-            records=["10 feedback-smtp.us-east-1.amazonses.com"],
-            ttl="600",
             type="MX",
-            zone_id=aws_route53_zone["example"]["id"])
+            ttl="600",
+            records=["10 feedback-smtp.us-east-1.amazonses.com"])
+        # Change to the region in which `aws_ses_domain_identity.example` is created
         # Example Route53 TXT record for SPF
         example_ses_domain_mail_from_txt = aws.route53.Record("exampleSesDomainMailFromTxt",
+            zone_id=aws_route53_zone["example"]["id"],
             name=example_mail_from.mail_from_domain,
-            records=["v=spf1 include:amazonses.com -all"],
-            ttl="600",
             type="TXT",
-            zone_id=aws_route53_zone["example"]["id"])
+            ttl="600",
+            records=["v=spf1 include:amazonses.com -all"])
         ```
 
         :param str resource_name: The name of the resource.

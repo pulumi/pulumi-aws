@@ -38,10 +38,10 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var main = new Aws.Ec2.VpnConnection("main", new Aws.Ec2.VpnConnectionArgs
     ///         {
-    ///             CustomerGatewayId = customerGateway.Id,
-    ///             StaticRoutesOnly = true,
-    ///             Type = "ipsec.1",
     ///             VpnGatewayId = vpnGateway.Id,
+    ///             CustomerGatewayId = customerGateway.Id,
+    ///             Type = "ipsec.1",
+    ///             StaticRoutesOnly = true,
     ///         });
     ///         var office = new Aws.Ec2.VpnConnectionRoute("office", new Aws.Ec2.VpnConnectionRouteArgs
     ///         {

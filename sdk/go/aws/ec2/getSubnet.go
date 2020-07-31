@@ -37,17 +37,17 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewSecurityGroup(ctx, "subnet", &ec2.SecurityGroupArgs{
+// 			VpcId: pulumi.String(selected.VpcId),
 // 			Ingress: ec2.SecurityGroupIngressArray{
 // 				&ec2.SecurityGroupIngressArgs{
 // 					CidrBlocks: pulumi.StringArray{
 // 						pulumi.String(selected.CidrBlock),
 // 					},
 // 					FromPort: pulumi.Int(80),
-// 					Protocol: pulumi.String("tcp"),
 // 					ToPort:   pulumi.Int(80),
+// 					Protocol: pulumi.String("tcp"),
 // 				},
 // 			},
-// 			VpcId: pulumi.String(selected.VpcId),
 // 		})
 // 		if err != nil {
 // 			return err

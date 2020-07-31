@@ -24,9 +24,9 @@ namespace Pulumi.Aws.DirectConnect
     ///     {
     ///         var peer = new Aws.DirectConnect.BgpPeer("peer", new Aws.DirectConnect.BgpPeerArgs
     ///         {
+    ///             VirtualInterfaceId = aws_dx_private_virtual_interface.Foo.Id,
     ///             AddressFamily = "ipv6",
     ///             BgpAsn = 65351,
-    ///             VirtualInterfaceId = aws_dx_private_virtual_interface.Foo.Id,
     ///         });
     ///     }
     /// 

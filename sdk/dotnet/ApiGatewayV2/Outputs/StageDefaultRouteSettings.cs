@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
         public readonly bool? DetailedMetricsEnabled;
         /// <summary>
         /// The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        /// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+        /// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         public readonly string? LoggingLevel;
         /// <summary>

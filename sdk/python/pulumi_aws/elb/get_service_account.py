@@ -70,14 +70,13 @@ def get_service_account(region=None,opts=None):
         }}
       ]
     }}
-
     \"\"\")
     bar = aws.elb.LoadBalancer("bar",
+        availability_zones=["us-west-2a"],
         access_logs={
             "bucket": elb_logs.bucket,
             "interval": 5,
         },
-        availability_zones=["us-west-2a"],
         listeners=[{
             "instance_port": 8000,
             "instanceProtocol": "http",

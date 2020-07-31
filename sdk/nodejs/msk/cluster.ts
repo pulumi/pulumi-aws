@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.msk.Cluster("example", {
  *     clusterName: "example",
- *     kafkaVersion: "2.1.0",
+ *     kafkaVersion: "2.4.1",
  *     numberOfBrokerNodes: 3,
  *     brokerNodeGroupInfo: {
  *         instanceType: "kafka.m5.large",
@@ -111,7 +111,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * export const zookeeperConnectString = example.zookeeperConnectString;
- * export const bootstrapBrokers = example.bootstrapBrokers;
  * export const bootstrapBrokersTls = example.bootstrapBrokersTls;
  * ```
  */

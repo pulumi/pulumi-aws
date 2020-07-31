@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database_example.name,
+ *     databaseName: aws_glue_catalog_database.example.name,
+ *     role: aws_iam_role.example.arn,
  *     dynamodbTargets: [{
  *         path: "table-name",
  *     }],
- *     role: aws_iam_role_example.arn,
  * });
  * ```
  * ### JDBC Target
@@ -31,12 +31,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database_example.name,
+ *     databaseName: aws_glue_catalog_database.example.name,
+ *     role: aws_iam_role.example.arn,
  *     jdbcTargets: [{
- *         connectionName: aws_glue_connection_example.name,
- *         path: "database-name/%",
+ *         connectionName: aws_glue_connection.example.name,
+ *         path: `database-name/%`,
  *     }],
- *     role: aws_iam_role_example.arn,
  * });
  * ```
  * ### S3 Target
@@ -46,10 +46,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: aws_glue_catalog_database_example.name,
- *     role: aws_iam_role_example.arn,
+ *     databaseName: aws_glue_catalog_database.example.name,
+ *     role: aws_iam_role.example.arn,
  *     s3Targets: [{
- *         path: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}`,
+ *         path: `s3://${aws_s3_bucket.example.bucket}`,
  *     }],
  * });
  * ```
@@ -60,10 +60,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
+ *     databaseName: aws_glue_catalog_database.example.name,
+ *     role: aws_iam_role.example.arn,
  *     catalogTargets: [{
- *         databaseName: aws_glue_catalog_database_example.name,
- *         tables: [aws_glue_catalog_table_example.name],
+ *         databaseName: aws_glue_catalog_database.example.name,
+ *         tables: [aws_glue_catalog_table.example.name],
  *     }],
+ *     schemaChangePolicy: {
+ *         deleteBehavior: "LOG",
+ *     },
  *     configuration: `{
  *   "Version":1.0,
  *   "Grouping": {
@@ -71,11 +76,6 @@ import * as utilities from "../utilities";
  *   }
  * }
  * `,
- *     databaseName: aws_glue_catalog_database_example.name,
- *     role: aws_iam_role_example.arn,
- *     schemaChangePolicy: {
- *         deleteBehavior: "LOG",
- *     },
  * });
  * ```
  */

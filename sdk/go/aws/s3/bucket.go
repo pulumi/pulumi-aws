@@ -242,13 +242,12 @@ import (
 // 			return err
 // 		}
 // 		replicationRole, err := iam.NewRole(ctx, "replicationRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"s3.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n", "\n")),
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"s3.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		destination, err := s3.NewBucket(ctx, "destination", &s3.BucketArgs{
-// 			Region: pulumi.String("eu-west-1"),
 // 			Versioning: &s3.BucketVersioningArgs{
 // 				Enabled: pulumi.Bool(true),
 // 			},
@@ -257,26 +256,25 @@ import (
 // 			return err
 // 		}
 // 		bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
-// 			Acl:    pulumi.String("private"),
-// 			Region: pulumi.String("eu-central-1"),
+// 			Acl: pulumi.String("private"),
+// 			Versioning: &s3.BucketVersioningArgs{
+// 				Enabled: pulumi.Bool(true),
+// 			},
 // 			ReplicationConfiguration: &s3.BucketReplicationConfigurationArgs{
 // 				Role: replicationRole.Arn,
 // 				Rules: s3.BucketReplicationConfigurationRuleArray{
 // 					&s3.BucketReplicationConfigurationRuleArgs{
+// 						Id:     pulumi.String("foobar"),
+// 						Prefix: pulumi.String("foo"),
+// 						Status: pulumi.String("Enabled"),
 // 						Destination: &s3.BucketReplicationConfigurationRuleDestinationArgs{
 // 							Bucket:       destination.Arn,
 // 							StorageClass: pulumi.String("STANDARD"),
 // 						},
-// 						Id:     pulumi.String("foobar"),
-// 						Prefix: pulumi.String("foo"),
-// 						Status: pulumi.String("Enabled"),
 // 					},
 // 				},
 // 			},
-// 			Versioning: &s3.BucketVersioningArgs{
-// 				Enabled: pulumi.Bool(true),
-// 			},
-// 		}, pulumi.Provider("aws.central"))
+// 		}, pulumi.Provider(aws.Central))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -285,15 +283,15 @@ import (
 // 				bucketArn := _args[0].(string)
 // 				bucketArn1 := _args[1].(string)
 // 				destinationArn := _args[2].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"s3:GetReplicationConfiguration\",\n", "        \"s3:ListBucket\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"", bucketArn, "\"\n", "      ]\n", "    },\n", "    {\n", "      \"Action\": [\n", "        \"s3:GetObjectVersion\",\n", "        \"s3:GetObjectVersionAcl\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"", bucketArn1, "/*\"\n", "      ]\n", "    },\n", "    {\n", "      \"Action\": [\n", "        \"s3:ReplicateObject\",\n", "        \"s3:ReplicateDelete\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"", destinationArn, "/*\"\n", "    }\n", "  ]\n", "}\n", "\n"), nil
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"s3:GetReplicationConfiguration\",\n", "        \"s3:ListBucket\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"", bucketArn, "\"\n", "      ]\n", "    },\n", "    {\n", "      \"Action\": [\n", "        \"s3:GetObjectVersion\",\n", "        \"s3:GetObjectVersionAcl\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"", bucketArn1, "/*\"\n", "      ]\n", "    },\n", "    {\n", "      \"Action\": [\n", "        \"s3:ReplicateObject\",\n", "        \"s3:ReplicateDelete\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"", destinationArn, "/*\"\n", "    }\n", "  ]\n", "}\n"), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = iam.NewRolePolicyAttachment(ctx, "replicationRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-// 			PolicyArn: replicationPolicy.Arn,
 // 			Role:      replicationRole.Name,
+// 			PolicyArn: replicationPolicy.Arn,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -316,8 +314,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		mykey, err := kms.NewKey(ctx, "mykey", &kms.KeyArgs{
-// 			DeletionWindowInDays: pulumi.Int(10),
 // 			Description:          pulumi.String("This key is used to encrypt bucket objects"),
+// 			DeletionWindowInDays: pulumi.Int(10),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -359,19 +357,19 @@ import (
 // 		_, err = s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
 // 			Grants: s3.BucketGrantArray{
 // 				&s3.BucketGrantArgs{
-// 					Id: pulumi.String(currentUser.Id),
+// 					Id:   pulumi.String(currentUser.Id),
+// 					Type: pulumi.String("CanonicalUser"),
 // 					Permissions: pulumi.StringArray{
 // 						pulumi.String("FULL_CONTROL"),
 // 					},
-// 					Type: pulumi.String("CanonicalUser"),
 // 				},
 // 				&s3.BucketGrantArgs{
+// 					Type: pulumi.String("Group"),
 // 					Permissions: pulumi.StringArray{
 // 						pulumi.String("READ"),
 // 						pulumi.String("WRITE"),
 // 					},
-// 					Type: pulumi.String("Group"),
-// 					Uri:  pulumi.String("http://acs.amazonaws.com/groups/s3/LogDelivery"),
+// 					Uri: pulumi.String("http://acs.amazonaws.com/groups/s3/LogDelivery"),
 // 				},
 // 			},
 // 		})
@@ -415,7 +413,7 @@ type Bucket struct {
 	ObjectLockConfiguration BucketObjectLockConfigurationPtrOutput `pulumi:"objectLockConfiguration"`
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy pulumi.StringPtrOutput `pulumi:"policy"`
-	// If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
+	// The AWS region this bucket resides in.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
 	ReplicationConfiguration BucketReplicationConfigurationPtrOutput `pulumi:"replicationConfiguration"`
@@ -496,7 +494,7 @@ type bucketState struct {
 	ObjectLockConfiguration *BucketObjectLockConfiguration `pulumi:"objectLockConfiguration"`
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy *string `pulumi:"policy"`
-	// If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
+	// The AWS region this bucket resides in.
 	Region *string `pulumi:"region"`
 	// A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
 	ReplicationConfiguration *BucketReplicationConfiguration `pulumi:"replicationConfiguration"`
@@ -550,7 +548,7 @@ type BucketState struct {
 	ObjectLockConfiguration BucketObjectLockConfigurationPtrInput
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy pulumi.StringPtrInput
-	// If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
+	// The AWS region this bucket resides in.
 	Region pulumi.StringPtrInput
 	// A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
 	ReplicationConfiguration BucketReplicationConfigurationPtrInput
@@ -604,8 +602,6 @@ type bucketArgs struct {
 	ObjectLockConfiguration *BucketObjectLockConfiguration `pulumi:"objectLockConfiguration"`
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy interface{} `pulumi:"policy"`
-	// If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
-	Region *string `pulumi:"region"`
 	// A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
 	ReplicationConfiguration *BucketReplicationConfiguration `pulumi:"replicationConfiguration"`
 	// Specifies who should bear the cost of Amazon S3 data transfer.
@@ -655,8 +651,6 @@ type BucketArgs struct {
 	ObjectLockConfiguration BucketObjectLockConfigurationPtrInput
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy pulumi.Input
-	// If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
-	Region pulumi.StringPtrInput
 	// A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
 	ReplicationConfiguration BucketReplicationConfigurationPtrInput
 	// Specifies who should bear the cost of Amazon S3 data transfer.

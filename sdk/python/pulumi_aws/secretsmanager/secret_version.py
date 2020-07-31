@@ -51,6 +51,26 @@ class SecretVersion(pulumi.CustomResource):
             secret_id=aws_secretsmanager_secret["example"]["id"],
             secret_string="example-string-to-protect")
         ```
+        ### Key-Value Pairs
+
+        Secrets Manager also accepts key-value pairs in JSON.
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        config = pulumi.Config()
+        example = config.get_object("example")
+        if example is None:
+            example = {
+                "key1": "value1",
+                "key2": "value2",
+            }
+        example_secret_version = aws.secretsmanager.SecretVersion("exampleSecretVersion",
+            secret_id=aws_secretsmanager_secret["example"]["id"],
+            secret_string=json.dumps(example))
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

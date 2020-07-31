@@ -27,6 +27,9 @@ namespace Pulumi.Aws.DynamoDB
     ///     {
     ///         var exampleTable = new Aws.DynamoDB.Table("exampleTable", new Aws.DynamoDB.TableArgs
     ///         {
+    ///             ReadCapacity = 10,
+    ///             WriteCapacity = 10,
+    ///             HashKey = "exampleHashKey",
     ///             Attributes = 
     ///             {
     ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -35,12 +38,10 @@ namespace Pulumi.Aws.DynamoDB
     ///                     Type = "S",
     ///                 },
     ///             },
-    ///             HashKey = "exampleHashKey",
-    ///             ReadCapacity = 10,
-    ///             WriteCapacity = 10,
     ///         });
     ///         var exampleTableItem = new Aws.DynamoDB.TableItem("exampleTableItem", new Aws.DynamoDB.TableItemArgs
     ///         {
+    ///             TableName = exampleTable.Name,
     ///             HashKey = exampleTable.HashKey,
     ///             Item = @"{
     ///   ""exampleHashKey"": {""S"": ""something""},
@@ -49,9 +50,7 @@ namespace Pulumi.Aws.DynamoDB
     ///   ""three"": {""N"": ""33333""},
     ///   ""four"": {""N"": ""44444""}
     /// }
-    /// 
     /// ",
-    ///             TableName = exampleTable.Name,
     ///         });
     ///     }
     /// 

@@ -115,13 +115,13 @@ def get_subnet(availability_zone=None,availability_zone_id=None,cidr_block=None,
     subnet_id = config.require_object("subnetId")
     selected = aws.ec2.get_subnet(id=subnet_id)
     subnet = aws.ec2.SecurityGroup("subnet",
+        vpc_id=selected.vpc_id,
         ingress=[{
             "cidr_blocks": [selected.cidr_block],
             "from_port": 80,
-            "protocol": "tcp",
             "to_port": 80,
-        }],
-        vpc_id=selected.vpc_id)
+            "protocol": "tcp",
+        }])
     ```
 
 

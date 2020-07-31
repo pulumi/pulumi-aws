@@ -47,6 +47,8 @@ import (
 // 		}
 // 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu_tang_ssl", &elb.LoadBalancerPolicyArgs{
 // 			LoadBalancerName: wu_tang.Name,
+// 			PolicyName:       pulumi.String("wu-tang-ssl"),
+// 			PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
 // 			PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
 // 				&elb.LoadBalancerPolicyPolicyAttributeArgs{
 // 					Name:  pulumi.String("ECDHE-ECDSA-AES128-GCM-SHA256"),
@@ -57,8 +59,6 @@ import (
 // 					Value: pulumi.String("true"),
 // 				},
 // 			},
-// 			PolicyName:     pulumi.String("wu-tang-ssl"),
-// 			PolicyTypeName: pulumi.String("SSLNegotiationPolicyType"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -113,14 +113,14 @@ import (
 // 		}
 // 		_, err = elb.NewLoadBalancerPolicy(ctx, "wu_tang_ssl_tls_1_1", &elb.LoadBalancerPolicyArgs{
 // 			LoadBalancerName: wu_tang.Name,
+// 			PolicyName:       pulumi.String("wu-tang-ssl"),
+// 			PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
 // 			PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
 // 				&elb.LoadBalancerPolicyPolicyAttributeArgs{
 // 					Name:  pulumi.String("Reference-Security-Policy"),
 // 					Value: pulumi.String("ELBSecurityPolicy-TLS-1-1-2017-01"),
 // 				},
 // 			},
-// 			PolicyName:     pulumi.String("wu-tang-ssl"),
-// 			PolicyTypeName: pulumi.String("SSLNegotiationPolicyType"),
 // 		})
 // 		if err != nil {
 // 			return err

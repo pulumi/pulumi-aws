@@ -40,8 +40,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = lightsail.NewStaticIpAttachment(ctx, "testStaticIpAttachment", &lightsail.StaticIpAttachmentArgs{
-// 			InstanceName: testInstance.ID(),
 // 			StaticIpName: testStaticIp.ID(),
+// 			InstanceName: testInstance.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

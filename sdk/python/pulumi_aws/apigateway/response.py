@@ -42,15 +42,15 @@ class Response(pulumi.CustomResource):
 
         main = aws.apigateway.RestApi("main")
         test = aws.apigateway.Response("test",
-            response_parameters={
-                "gatewayresponse.header.Authorization": "'Basic'",
-            },
+            rest_api_id=main.id,
+            status_code="401",
+            response_type="UNAUTHORIZED",
             response_templates={
                 "application/json": "{'message':$context.error.messageString}",
             },
-            response_type="UNAUTHORIZED",
-            rest_api_id=main.id,
-            status_code="401")
+            response_parameters={
+                "gatewayresponse.header.Authorization": "'Basic'",
+            })
         ```
 
         :param str resource_name: The name of the resource.

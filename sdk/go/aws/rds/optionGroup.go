@@ -30,8 +30,9 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := rds.NewOptionGroup(ctx, "example", &rds.OptionGroupArgs{
-// 			EngineName:         pulumi.String("sqlserver-ee"),
-// 			MajorEngineVersion: pulumi.String("11.00"),
+// 			OptionGroupDescription: pulumi.String("Option Group"),
+// 			EngineName:             pulumi.String("sqlserver-ee"),
+// 			MajorEngineVersion:     pulumi.String("11.00"),
 // 			Options: rds.OptionGroupOptionArray{
 // 				&rds.OptionGroupOptionArgs{
 // 					OptionName: pulumi.String("Timezone"),
@@ -55,7 +56,6 @@ import (
 // 					OptionName: pulumi.String("TDE"),
 // 				},
 // 			},
-// 			OptionGroupDescription: pulumi.String("Option Group"),
 // 		})
 // 		if err != nil {
 // 			return err

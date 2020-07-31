@@ -25,11 +25,11 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := cloudwatch.NewLogSubscriptionFilter(ctx, "testLambdafunctionLogfilter", &cloudwatch.LogSubscriptionFilterArgs{
+// 			RoleArn:        pulumi.String(aws_iam_role.Iam_for_lambda.Arn),
+// 			LogGroup:       pulumi.String("/aws/lambda/example_lambda_name"),
+// 			FilterPattern:  pulumi.String("logtype test"),
 // 			DestinationArn: pulumi.String(aws_kinesis_stream.Test_logstream.Arn),
 // 			Distribution:   pulumi.String("Random"),
-// 			FilterPattern:  pulumi.String("logtype test"),
-// 			LogGroup:       pulumi.String("/aws/lambda/example_lambda_name"),
-// 			RoleArn:        pulumi.String(aws_iam_role.Iam_for_lambda.Arn),
 // 		})
 // 		if err != nil {
 // 			return err

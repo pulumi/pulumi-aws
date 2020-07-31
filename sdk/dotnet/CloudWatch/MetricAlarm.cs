@@ -50,29 +50,29 @@ namespace Pulumi.Aws.CloudWatch
     ///     {
     ///         var batPolicy = new Aws.AutoScaling.Policy("batPolicy", new Aws.AutoScaling.PolicyArgs
     ///         {
-    ///             AdjustmentType = "ChangeInCapacity",
-    ///             AutoscalingGroupName = aws_autoscaling_group.Bar.Name,
-    ///             Cooldown = 300,
     ///             ScalingAdjustment = 4,
+    ///             AdjustmentType = "ChangeInCapacity",
+    ///             Cooldown = 300,
+    ///             AutoscalingGroupName = aws_autoscaling_group.Bar.Name,
     ///         });
     ///         var batMetricAlarm = new Aws.CloudWatch.MetricAlarm("batMetricAlarm", new Aws.CloudWatch.MetricAlarmArgs
     ///         {
-    ///             AlarmActions = 
-    ///             {
-    ///                 batPolicy.Arn,
-    ///             },
-    ///             AlarmDescription = "This metric monitors ec2 cpu utilization",
     ///             ComparisonOperator = "GreaterThanOrEqualToThreshold",
-    ///             Dimensions = 
-    ///             {
-    ///                 { "AutoScalingGroupName", aws_autoscaling_group.Bar.Name },
-    ///             },
     ///             EvaluationPeriods = 2,
     ///             MetricName = "CPUUtilization",
     ///             Namespace = "AWS/EC2",
     ///             Period = 120,
     ///             Statistic = "Average",
     ///             Threshold = 80,
+    ///             Dimensions = 
+    ///             {
+    ///                 { "AutoScalingGroupName", aws_autoscaling_group.Bar.Name },
+    ///             },
+    ///             AlarmDescription = "This metric monitors ec2 cpu utilization",
+    ///             AlarmActions = 
+    ///             {
+    ///                 batPolicy.Arn,
+    ///             },
     ///         });
     ///     }
     /// 
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     public MyStack()
     ///     {
-    ///         var xxxNlbHealthyhosts = new Aws.CloudWatch.MetricAlarm("xxxNlbHealthyhosts", new Aws.CloudWatch.MetricAlarmArgs
+    ///         var nlbHealthyhosts = new Aws.CloudWatch.MetricAlarm("nlbHealthyhosts", new Aws.CloudWatch.MetricAlarmArgs
     ///         {
     ///             ComparisonOperator = "LessThanThreshold",
     ///             EvaluationPeriods = 1,
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.CloudWatch
     ///             Period = 60,
     ///             Statistic = "Average",
     ///             Threshold = @var.Logstash_servers_count,
-    ///             AlarmDescription = "Number of XXXX nodes healthy in Target Group",
+    ///             AlarmDescription = "Number of healthy nodes in Target Group",
     ///             ActionsEnabled = true,
     ///             AlarmActions = 
     ///             {

@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Iam
     ///         });
     ///         var lbRo = new Aws.Iam.UserPolicy("lbRo", new Aws.Iam.UserPolicyArgs
     ///         {
+    ///             User = lbUser.Name,
     ///             Policy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -40,9 +41,7 @@ namespace Pulumi.Aws.Iam
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
-    ///             User = lbUser.Name,
     ///         });
     ///         var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new Aws.Iam.AccessKeyArgs
     ///         {

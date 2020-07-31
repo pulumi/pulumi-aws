@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const bar = new aws.dax.Cluster("bar", {
  *     clusterName: "cluster-example",
- *     iamRoleArn: aws_iam_role_example.arn,
+ *     iamRoleArn: data.aws_iam_role.example.arn,
  *     nodeType: "dax.r4.large",
  *     replicationFactor: 1,
  * });

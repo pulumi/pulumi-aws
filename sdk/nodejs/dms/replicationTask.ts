@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  *
  * // Create a new replication task
  * const test = new aws.dms.ReplicationTask("test", {
- *     cdcStartTime: "1.48434688e+09",
+ *     cdcStartTime: 1484346880,
  *     migrationType: "full-load",
- *     replicationInstanceArn: aws_dms_replication_instance_test_dms_replication_instance_tf.replicationInstanceArn,
+ *     replicationInstanceArn: aws_dms_replication_instance["test-dms-replication-instance-tf"].replication_instance_arn,
  *     replicationTaskId: "test-dms-replication-task-tf",
  *     replicationTaskSettings: "...",
- *     sourceEndpointArn: aws_dms_endpoint_test_dms_source_endpoint_tf.endpointArn,
- *     tableMappings: "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}",
+ *     sourceEndpointArn: aws_dms_endpoint["test-dms-source-endpoint-tf"].endpoint_arn,
+ *     tableMappings: `{"rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","object-locator":{"schema-name":"%","table-name":"%"},"rule-action":"include"}]}`,
  *     tags: {
  *         Name: "test",
  *     },
- *     targetEndpointArn: aws_dms_endpoint_test_dms_target_endpoint_tf.endpointArn,
+ *     targetEndpointArn: aws_dms_endpoint["test-dms-target-endpoint-tf"].endpoint_arn,
  * });
  * ```
  */

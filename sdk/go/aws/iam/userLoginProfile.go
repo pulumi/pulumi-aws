@@ -27,15 +27,15 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleUser, err := iam.NewUser(ctx, "exampleUser", &iam.UserArgs{
-// 			ForceDestroy: pulumi.Bool(true),
 // 			Path:         pulumi.String("/"),
+// 			ForceDestroy: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleUserLoginProfile, err := iam.NewUserLoginProfile(ctx, "exampleUserLoginProfile", &iam.UserLoginProfileArgs{
-// 			PgpKey: pulumi.String("keybase:some_person_that_exists"),
 // 			User:   exampleUser.Name,
+// 			PgpKey: pulumi.String("keybase:some_person_that_exists"),
 // 		})
 // 		if err != nil {
 // 			return err

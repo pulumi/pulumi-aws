@@ -22,16 +22,16 @@ import * as utilities from "../utilities";
  * const group1 = new aws.iam.Group("group1", {});
  * const group2 = new aws.iam.Group("group2", {});
  * const example1 = new aws.iam.UserGroupMembership("example1", {
+ *     user: user1.name,
  *     groups: [
  *         group1.name,
  *         group2.name,
  *     ],
- *     user: user1.name,
  * });
  * const group3 = new aws.iam.Group("group3", {});
  * const example2 = new aws.iam.UserGroupMembership("example2", {
- *     groups: [group3.name],
  *     user: user1.name,
+ *     groups: [group3.name],
  * });
  * ```
  */

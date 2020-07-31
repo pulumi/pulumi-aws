@@ -30,8 +30,8 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
 
         example = aws.iot.Thing("example")
         cert = aws.iot.Certificate("cert",
-            active=True,
-            csr=(lambda path: open(path).read())("csr.pem"))
+            csr=(lambda path: open(path).read())("csr.pem"),
+            active=True)
         att = aws.iot.ThingPrincipalAttachment("att",
             principal=cert.arn,
             thing=example.name)

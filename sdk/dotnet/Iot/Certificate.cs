@@ -26,8 +26,8 @@ namespace Pulumi.Aws.Iot
     ///     {
     ///         var cert = new Aws.Iot.Certificate("cert", new Aws.Iot.CertificateArgs
     ///         {
-    ///             Active = true,
     ///             Csr = File.ReadAllText("/my/csr.pem"),
+    ///             Active = true,
     ///         });
     ///     }
     /// 

@@ -821,6 +821,139 @@ func (o GetBundleUserStorageArrayOutput) Index(i pulumi.IntInput) GetBundleUserS
 	}).(GetBundleUserStorageOutput)
 }
 
+type GetDirectorySelfServicePermission struct {
+	// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
+	ChangeComputeType bool `pulumi:"changeComputeType"`
+	// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
+	IncreaseVolumeSize bool `pulumi:"increaseVolumeSize"`
+	// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
+	RebuildWorkspace bool `pulumi:"rebuildWorkspace"`
+	// Whether WorkSpaces directory users can restart their workspace.
+	RestartWorkspace bool `pulumi:"restartWorkspace"`
+	// Whether WorkSpaces directory users can switch the running mode of their workspace.
+	SwitchRunningMode bool `pulumi:"switchRunningMode"`
+}
+
+// GetDirectorySelfServicePermissionInput is an input type that accepts GetDirectorySelfServicePermissionArgs and GetDirectorySelfServicePermissionOutput values.
+// You can construct a concrete instance of `GetDirectorySelfServicePermissionInput` via:
+//
+//          GetDirectorySelfServicePermissionArgs{...}
+type GetDirectorySelfServicePermissionInput interface {
+	pulumi.Input
+
+	ToGetDirectorySelfServicePermissionOutput() GetDirectorySelfServicePermissionOutput
+	ToGetDirectorySelfServicePermissionOutputWithContext(context.Context) GetDirectorySelfServicePermissionOutput
+}
+
+type GetDirectorySelfServicePermissionArgs struct {
+	// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
+	ChangeComputeType pulumi.BoolInput `pulumi:"changeComputeType"`
+	// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
+	IncreaseVolumeSize pulumi.BoolInput `pulumi:"increaseVolumeSize"`
+	// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
+	RebuildWorkspace pulumi.BoolInput `pulumi:"rebuildWorkspace"`
+	// Whether WorkSpaces directory users can restart their workspace.
+	RestartWorkspace pulumi.BoolInput `pulumi:"restartWorkspace"`
+	// Whether WorkSpaces directory users can switch the running mode of their workspace.
+	SwitchRunningMode pulumi.BoolInput `pulumi:"switchRunningMode"`
+}
+
+func (GetDirectorySelfServicePermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectorySelfServicePermission)(nil)).Elem()
+}
+
+func (i GetDirectorySelfServicePermissionArgs) ToGetDirectorySelfServicePermissionOutput() GetDirectorySelfServicePermissionOutput {
+	return i.ToGetDirectorySelfServicePermissionOutputWithContext(context.Background())
+}
+
+func (i GetDirectorySelfServicePermissionArgs) ToGetDirectorySelfServicePermissionOutputWithContext(ctx context.Context) GetDirectorySelfServicePermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectorySelfServicePermissionOutput)
+}
+
+// GetDirectorySelfServicePermissionArrayInput is an input type that accepts GetDirectorySelfServicePermissionArray and GetDirectorySelfServicePermissionArrayOutput values.
+// You can construct a concrete instance of `GetDirectorySelfServicePermissionArrayInput` via:
+//
+//          GetDirectorySelfServicePermissionArray{ GetDirectorySelfServicePermissionArgs{...} }
+type GetDirectorySelfServicePermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetDirectorySelfServicePermissionArrayOutput() GetDirectorySelfServicePermissionArrayOutput
+	ToGetDirectorySelfServicePermissionArrayOutputWithContext(context.Context) GetDirectorySelfServicePermissionArrayOutput
+}
+
+type GetDirectorySelfServicePermissionArray []GetDirectorySelfServicePermissionInput
+
+func (GetDirectorySelfServicePermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectorySelfServicePermission)(nil)).Elem()
+}
+
+func (i GetDirectorySelfServicePermissionArray) ToGetDirectorySelfServicePermissionArrayOutput() GetDirectorySelfServicePermissionArrayOutput {
+	return i.ToGetDirectorySelfServicePermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDirectorySelfServicePermissionArray) ToGetDirectorySelfServicePermissionArrayOutputWithContext(ctx context.Context) GetDirectorySelfServicePermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectorySelfServicePermissionArrayOutput)
+}
+
+type GetDirectorySelfServicePermissionOutput struct{ *pulumi.OutputState }
+
+func (GetDirectorySelfServicePermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectorySelfServicePermission)(nil)).Elem()
+}
+
+func (o GetDirectorySelfServicePermissionOutput) ToGetDirectorySelfServicePermissionOutput() GetDirectorySelfServicePermissionOutput {
+	return o
+}
+
+func (o GetDirectorySelfServicePermissionOutput) ToGetDirectorySelfServicePermissionOutputWithContext(ctx context.Context) GetDirectorySelfServicePermissionOutput {
+	return o
+}
+
+// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
+func (o GetDirectorySelfServicePermissionOutput) ChangeComputeType() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDirectorySelfServicePermission) bool { return v.ChangeComputeType }).(pulumi.BoolOutput)
+}
+
+// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
+func (o GetDirectorySelfServicePermissionOutput) IncreaseVolumeSize() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDirectorySelfServicePermission) bool { return v.IncreaseVolumeSize }).(pulumi.BoolOutput)
+}
+
+// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
+func (o GetDirectorySelfServicePermissionOutput) RebuildWorkspace() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDirectorySelfServicePermission) bool { return v.RebuildWorkspace }).(pulumi.BoolOutput)
+}
+
+// Whether WorkSpaces directory users can restart their workspace.
+func (o GetDirectorySelfServicePermissionOutput) RestartWorkspace() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDirectorySelfServicePermission) bool { return v.RestartWorkspace }).(pulumi.BoolOutput)
+}
+
+// Whether WorkSpaces directory users can switch the running mode of their workspace.
+func (o GetDirectorySelfServicePermissionOutput) SwitchRunningMode() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDirectorySelfServicePermission) bool { return v.SwitchRunningMode }).(pulumi.BoolOutput)
+}
+
+type GetDirectorySelfServicePermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDirectorySelfServicePermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectorySelfServicePermission)(nil)).Elem()
+}
+
+func (o GetDirectorySelfServicePermissionArrayOutput) ToGetDirectorySelfServicePermissionArrayOutput() GetDirectorySelfServicePermissionArrayOutput {
+	return o
+}
+
+func (o GetDirectorySelfServicePermissionArrayOutput) ToGetDirectorySelfServicePermissionArrayOutputWithContext(ctx context.Context) GetDirectorySelfServicePermissionArrayOutput {
+	return o
+}
+
+func (o GetDirectorySelfServicePermissionArrayOutput) Index(i pulumi.IntInput) GetDirectorySelfServicePermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDirectorySelfServicePermission {
+		return vs[0].([]GetDirectorySelfServicePermission)[vs[1].(int)]
+	}).(GetDirectorySelfServicePermissionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsOutput{})
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsPtrOutput{})
@@ -834,4 +967,6 @@ func init() {
 	pulumi.RegisterOutputType(GetBundleRootStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetBundleUserStorageOutput{})
 	pulumi.RegisterOutputType(GetBundleUserStorageArrayOutput{})
+	pulumi.RegisterOutputType(GetDirectorySelfServicePermissionOutput{})
+	pulumi.RegisterOutputType(GetDirectorySelfServicePermissionArrayOutput{})
 }

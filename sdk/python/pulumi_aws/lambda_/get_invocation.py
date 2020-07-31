@@ -12,7 +12,7 @@ class GetInvocationResult:
     """
     A collection of values returned by getInvocation.
     """
-    def __init__(__self__, function_name=None, id=None, input=None, qualifier=None, result=None, result_map=None):
+    def __init__(__self__, function_name=None, id=None, input=None, qualifier=None, result=None):
         if function_name and not isinstance(function_name, str):
             raise TypeError("Expected argument 'function_name' to be a str")
         __self__.function_name = function_name
@@ -34,16 +34,6 @@ class GetInvocationResult:
         """
         String result of the lambda function invocation.
         """
-        if result_map and not isinstance(result_map, dict):
-            raise TypeError("Expected argument 'result_map' to be a dict")
-        if result_map is not None:
-            warnings.warn("use `result` attribute with jsondecode() function", DeprecationWarning)
-            pulumi.log.warn("result_map is deprecated: use `result` attribute with jsondecode() function")
-
-        __self__.result_map = result_map
-        """
-        (**DEPRECATED**) This field is set only if result is a map of primitive types, where the map is string keys and string values.
-        """
 class AwaitableGetInvocationResult(GetInvocationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -54,8 +44,7 @@ class AwaitableGetInvocationResult(GetInvocationResult):
             id=self.id,
             input=self.input,
             qualifier=self.qualifier,
-            result=self.result,
-            result_map=self.result_map)
+            result=self.result)
 
 def get_invocation(function_name=None,input=None,qualifier=None,opts=None):
     """
@@ -86,5 +75,4 @@ def get_invocation(function_name=None,input=None,qualifier=None,opts=None):
         id=__ret__.get('id'),
         input=__ret__.get('input'),
         qualifier=__ret__.get('qualifier'),
-        result=__ret__.get('result'),
-        result_map=__ret__.get('resultMap'))
+        result=__ret__.get('result'))

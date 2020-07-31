@@ -27,17 +27,17 @@ namespace Pulumi.Aws.ApiGateway
     ///         });
     ///         var test = new Aws.ApiGateway.Response("test", new Aws.ApiGateway.ResponseArgs
     ///         {
-    ///             ResponseParameters = 
-    ///             {
-    ///                 { "gatewayresponse.header.Authorization", "'Basic'" },
-    ///             },
+    ///             RestApiId = main.Id,
+    ///             StatusCode = "401",
+    ///             ResponseType = "UNAUTHORIZED",
     ///             ResponseTemplates = 
     ///             {
     ///                 { "application/json", "{'message':$context.error.messageString}" },
     ///             },
-    ///             ResponseType = "UNAUTHORIZED",
-    ///             RestApiId = main.Id,
-    ///             StatusCode = "401",
+    ///             ResponseParameters = 
+    ///             {
+    ///                 { "gatewayresponse.header.Authorization", "'Basic'" },
+    ///             },
     ///         });
     ///     }
     /// 

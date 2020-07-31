@@ -24,8 +24,8 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var mainRouteTableAssociation = new Aws.Ec2.MainRouteTableAssociation("mainRouteTableAssociation", new Aws.Ec2.MainRouteTableAssociationArgs
     ///         {
-    ///             RouteTableId = aws_route_table.Bar.Id,
     ///             VpcId = aws_vpc.Foo.Id,
+    ///             RouteTableId = aws_route_table.Bar.Id,
     ///         });
     ///     }
     /// 

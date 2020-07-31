@@ -39,14 +39,14 @@ namespace Pulumi.Aws.Ses
     ///             var range = new { Value = rangeIndex };
     ///             exampleAmazonsesDkimRecord.Add(new Aws.Route53.Record($"exampleAmazonsesDkimRecord-{range.Value}", new Aws.Route53.RecordArgs
     ///             {
+    ///                 ZoneId = "ABCDEFGHIJ123",
     ///                 Name = exampleDomainDkim.DkimTokens[range.Value].Apply(dkimTokens =&gt; $"{dkimTokens}._domainkey.example.com"),
+    ///                 Type = "CNAME",
+    ///                 Ttl = 600,
     ///                 Records = 
     ///                 {
     ///                     exampleDomainDkim.DkimTokens[range.Value].Apply(dkimTokens =&gt; $"{dkimTokens}.dkim.amazonses.com"),
     ///                 },
-    ///                 Ttl = 600,
-    ///                 Type = "CNAME",
-    ///                 ZoneId = "ABCDEFGHIJ123",
     ///             }));
     ///         }
     ///     }

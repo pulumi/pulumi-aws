@@ -36,8 +36,8 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
 
         example = aws.worklink.Fleet("example")
         test = aws.worklink.WebsiteCertificateAuthorityAssociation("test",
-            certificate=(lambda path: open(path).read())("certificate.pem"),
-            fleet_arn=aws_worklink_fleet["test"]["arn"])
+            fleet_arn=aws_worklink_fleet["test"]["arn"],
+            certificate=(lambda path: open(path).read())("certificate.pem"))
         ```
 
         :param str resource_name: The name of the resource.

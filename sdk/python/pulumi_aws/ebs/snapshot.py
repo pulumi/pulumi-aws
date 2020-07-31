@@ -67,10 +67,10 @@ class Snapshot(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
+            volume_id=example.id,
             tags={
                 "Name": "HelloWorld_snap",
-            },
-            volume_id=example.id)
+            })
         ```
 
         :param str resource_name: The name of the resource.

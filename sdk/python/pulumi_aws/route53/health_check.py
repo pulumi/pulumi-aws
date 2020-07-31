@@ -131,12 +131,12 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi_aws as aws
 
         parent = aws.route53.HealthCheck("parent",
+            type="CALCULATED",
             child_health_threshold=1,
             child_healthchecks=[aws_route53_health_check["child"]["id"]],
             tags={
                 "Name": "tf-test-calculated-health-check",
-            },
-            type="CALCULATED")
+            })
         ```
         ### CloudWatch Alarm Check
 
@@ -145,19 +145,19 @@ class HealthCheck(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foobar = aws.cloudwatch.MetricAlarm("foobar",
-            alarm_description="This metric monitors ec2 cpu utilization",
             comparison_operator="GreaterThanOrEqualToThreshold",
             evaluation_periods="2",
             metric_name="CPUUtilization",
             namespace="AWS/EC2",
             period="120",
             statistic="Average",
-            threshold="80")
+            threshold="80",
+            alarm_description="This metric monitors ec2 cpu utilization")
         foo = aws.route53.HealthCheck("foo",
+            type="CLOUDWATCH_METRIC",
             cloudwatch_alarm_name=foobar.name,
             cloudwatch_alarm_region="us-west-2",
-            insufficient_data_health_status="Healthy",
-            type="CLOUDWATCH_METRIC")
+            insufficient_data_health_status="Healthy")
         ```
 
         :param str resource_name: The name of the resource.

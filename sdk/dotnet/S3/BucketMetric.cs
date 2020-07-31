@@ -55,8 +55,8 @@ namespace Pulumi.Aws.S3
     ///                 Prefix = "documents/",
     ///                 Tags = 
     ///                 {
-    ///                     { "class", "blue" },
     ///                     { "priority", "high" },
+    ///                     { "class", "blue" },
     ///                 },
     ///             },
     ///         });

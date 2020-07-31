@@ -97,11 +97,11 @@ class Record(pulumi.CustomResource):
         import pulumi_aws as aws
 
         www = aws.route53.Record("www",
+            zone_id=aws_route53_zone["primary"]["zone_id"],
             name="www.example.com",
-            records=[aws_eip["lb"]["public_ip"]],
-            ttl="300",
             type="A",
-            zone_id=aws_route53_zone["primary"]["zone_id"])
+            ttl="300",
+            records=[aws_eip["lb"]["public_ip"]])
         ```
         ### Weighted routing policy
         Other routing policies are configured similarly. See [AWS Route53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
@@ -111,25 +111,25 @@ class Record(pulumi.CustomResource):
         import pulumi_aws as aws
 
         www_dev = aws.route53.Record("www-dev",
+            zone_id=aws_route53_zone["primary"]["zone_id"],
             name="www",
-            records=["dev.example.com"],
-            set_identifier="dev",
-            ttl="5",
             type="CNAME",
+            ttl="5",
             weighted_routing_policies=[{
                 "weight": 10,
             }],
-            zone_id=aws_route53_zone["primary"]["zone_id"])
+            set_identifier="dev",
+            records=["dev.example.com"])
         www_live = aws.route53.Record("www-live",
+            zone_id=aws_route53_zone["primary"]["zone_id"],
             name="www",
-            records=["live.example.com"],
-            set_identifier="live",
-            ttl="5",
             type="CNAME",
+            ttl="5",
             weighted_routing_policies=[{
                 "weight": 90,
             }],
-            zone_id=aws_route53_zone["primary"]["zone_id"])
+            set_identifier="live",
+            records=["live.example.com"])
         ```
         ### Alias record
         See [related part of AWS Route53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
@@ -151,14 +151,14 @@ class Record(pulumi.CustomResource):
                 "lbProtocol": "http",
             }])
         www = aws.route53.Record("www",
-            aliases=[{
-                "evaluateTargetHealth": True,
-                "name": main.dns_name,
-                "zone_id": main.zone_id,
-            }],
+            zone_id=aws_route53_zone["primary"]["zone_id"],
             name="example.com",
             type="A",
-            zone_id=aws_route53_zone["primary"]["zone_id"])
+            aliases=[{
+                "name": main.dns_name,
+                "zone_id": main.zone_id,
+                "evaluateTargetHealth": True,
+            }])
         ```
         ### NS and SOA Record Management
 
@@ -172,15 +172,15 @@ class Record(pulumi.CustomResource):
         example_record = aws.route53.Record("exampleRecord",
             allow_overwrite=True,
             name="test.example.com",
+            ttl=30,
+            type="NS",
+            zone_id=example_zone.zone_id,
             records=[
                 example_zone.name_servers[0],
                 example_zone.name_servers[1],
                 example_zone.name_servers[2],
                 example_zone.name_servers[3],
-            ],
-            ttl=30,
-            type="NS",
-            zone_id=example_zone.zone_id)
+            ])
         ```
 
         :param str resource_name: The name of the resource.

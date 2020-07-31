@@ -58,7 +58,7 @@ class Rule(pulumi.CustomResource):
                 "negated": False,
                 "type": "IPMatch",
             }],
-            opts=ResourceOptions(depends_on=["aws_waf_ipset.ipset"]))
+            opts=ResourceOptions(depends_on=[ipset]))
         ```
 
         :param str resource_name: The name of the resource.

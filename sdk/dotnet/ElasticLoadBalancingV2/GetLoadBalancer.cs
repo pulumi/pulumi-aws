@@ -90,6 +90,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public readonly string DnsName;
         public readonly bool DropInvalidHeaderFields;
         public readonly bool EnableDeletionProtection;
+        public readonly bool EnableHttp2;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -119,6 +120,8 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
             bool dropInvalidHeaderFields,
 
             bool enableDeletionProtection,
+
+            bool enableHttp2,
 
             string id,
 
@@ -150,6 +153,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
             DnsName = dnsName;
             DropInvalidHeaderFields = dropInvalidHeaderFields;
             EnableDeletionProtection = enableDeletionProtection;
+            EnableHttp2 = enableHttp2;
             Id = id;
             IdleTimeout = idleTimeout;
             Internal = @internal;

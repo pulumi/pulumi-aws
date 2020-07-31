@@ -104,19 +104,19 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultSecurityGroup("default",
-            egress=[{
-                "cidr_blocks": ["0.0.0.0/0"],
-                "from_port": 0,
-                "protocol": "-1",
-                "to_port": 0,
-            }],
+            vpc_id=mainvpc.id,
             ingress=[{
-                "from_port": 0,
                 "protocol": -1,
                 "self": True,
+                "from_port": 0,
                 "to_port": 0,
             }],
-            vpc_id=mainvpc.id)
+            egress=[{
+                "from_port": 0,
+                "to_port": 0,
+                "protocol": "-1",
+                "cidr_blocks": ["0.0.0.0/0"],
+            }])
         ```
 
         ## Example config to deny all Egress traffic, allowing Ingress
@@ -130,13 +130,13 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultSecurityGroup("default",
+            vpc_id=mainvpc.id,
             ingress=[{
-                "from_port": 0,
                 "protocol": -1,
                 "self": True,
+                "from_port": 0,
                 "to_port": 0,
-            }],
-            vpc_id=mainvpc.id)
+            }])
         ```
 
         ## Usage

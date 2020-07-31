@@ -28,41 +28,42 @@ namespace Pulumi.Aws.DirectConnect
     ///         var accepter = new Aws.Provider("accepter", new Aws.ProviderArgs
     ///         {
     ///         });
+    ///         // Accepter's credentials.
     ///         var accepterCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         // Creator's side of the VIF
-    ///         var creator = new Aws.DirectConnect.HostedTransitVirtualInterface("creator", new Aws.DirectConnect.HostedTransitVirtualInterfaceArgs
-    ///         {
-    ///             AddressFamily = "ipv4",
-    ///             BgpAsn = 65352,
-    ///             ConnectionId = "dxcon-zzzzzzzz",
-    ///             OwnerAccountId = accepterCallerIdentity.Apply(accepterCallerIdentity =&gt; accepterCallerIdentity.AccountId),
-    ///             Vlan = 4094,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 "aws_dx_gateway.example",
-    ///             },
-    ///         });
     ///         // Accepter's side of the VIF.
     ///         var example = new Aws.DirectConnect.Gateway("example", new Aws.DirectConnect.GatewayArgs
     ///         {
     ///             AmazonSideAsn = "64512",
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.accepter",
+    ///             Provider = aws.Accepter,
+    ///         });
+    ///         // Creator's side of the VIF
+    ///         var creator = new Aws.DirectConnect.HostedTransitVirtualInterface("creator", new Aws.DirectConnect.HostedTransitVirtualInterfaceArgs
+    ///         {
+    ///             ConnectionId = "dxcon-zzzzzzzz",
+    ///             OwnerAccountId = accepterCallerIdentity.Apply(accepterCallerIdentity =&gt; accepterCallerIdentity.AccountId),
+    ///             Vlan = 4094,
+    ///             AddressFamily = "ipv4",
+    ///             BgpAsn = 65352,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 example,
+    ///             },
     ///         });
     ///         var accepterHostedTransitVirtualInterfaceAcceptor = new Aws.DirectConnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor", new Aws.DirectConnect.HostedTransitVirtualInterfaceAcceptorArgs
     ///         {
+    ///             VirtualInterfaceId = creator.Id,
     ///             DxGatewayId = example.Id,
     ///             Tags = 
     ///             {
     ///                 { "Side", "Accepter" },
     ///             },
-    ///             VirtualInterfaceId = creator.Id,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.accepter",
+    ///             Provider = aws.Accepter,
     ///         });
     ///     }
     /// 

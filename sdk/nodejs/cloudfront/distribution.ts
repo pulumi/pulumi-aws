@@ -27,19 +27,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("b", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
  *     tags: {
  *         Name: "My bucket",
  *     },
  * });
  * const s3OriginId = "myS3Origin";
- * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
+ * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
+ *     origins: [{
+ *         domainName: bucket.bucketRegionalDomainName,
+ *         originId: s3OriginId,
+ *         s3OriginConfig: {
+ *             originAccessIdentity: "origin-access-identity/cloudfront/ABCDEFG1234567",
+ *         },
+ *     }],
+ *     enabled: true,
+ *     isIpv6Enabled: true,
+ *     comment: "Some comment",
+ *     defaultRootObject: "index.html",
+ *     loggingConfig: {
+ *         includeCookies: false,
+ *         bucket: "mylogs.s3.amazonaws.com",
+ *         prefix: "myprefix",
+ *     },
  *     aliases: [
  *         "mysite.example.com",
  *         "yoursite.example.com",
  *     ],
- *     comment: "Some comment",
  *     defaultCacheBehavior: {
  *         allowedMethods: [
  *             "DELETE",
@@ -54,29 +69,21 @@ import * as utilities from "../utilities";
  *             "GET",
  *             "HEAD",
  *         ],
- *         defaultTtl: 3600,
+ *         targetOriginId: s3OriginId,
  *         forwardedValues: {
+ *             queryString: false,
  *             cookies: {
  *                 forward: "none",
  *             },
- *             queryString: false,
  *         },
- *         maxTtl: 86400,
- *         minTtl: 0,
- *         targetOriginId: s3OriginId,
  *         viewerProtocolPolicy: "allow-all",
- *     },
- *     defaultRootObject: "index.html",
- *     enabled: true,
- *     isIpv6Enabled: true,
- *     loggingConfig: {
- *         bucket: "mylogs.s3.amazonaws.com",
- *         includeCookies: false,
- *         prefix: "myprefix",
+ *         minTtl: 0,
+ *         defaultTtl: 3600,
+ *         maxTtl: 86400,
  *     },
  *     orderedCacheBehaviors: [
- *         // Cache behavior with precedence 0
  *         {
+ *             pathPattern: "/content/immutable/*",
  *             allowedMethods: [
  *                 "GET",
  *                 "HEAD",
@@ -87,23 +94,22 @@ import * as utilities from "../utilities";
  *                 "HEAD",
  *                 "OPTIONS",
  *             ],
- *             compress: true,
- *             defaultTtl: 86400,
+ *             targetOriginId: s3OriginId,
  *             forwardedValues: {
+ *                 queryString: false,
+ *                 headers: ["Origin"],
  *                 cookies: {
  *                     forward: "none",
  *                 },
- *                 headers: ["Origin"],
- *                 queryString: false,
  *             },
- *             maxTtl: 31536000,
  *             minTtl: 0,
- *             pathPattern: "/content/immutable/*",
- *             targetOriginId: s3OriginId,
+ *             defaultTtl: 86400,
+ *             maxTtl: 31536000,
+ *             compress: true,
  *             viewerProtocolPolicy: "redirect-to-https",
  *         },
- *         // Cache behavior with precedence 1
  *         {
+ *             pathPattern: "/content/*",
  *             allowedMethods: [
  *                 "GET",
  *                 "HEAD",
@@ -113,38 +119,30 @@ import * as utilities from "../utilities";
  *                 "GET",
  *                 "HEAD",
  *             ],
- *             compress: true,
- *             defaultTtl: 3600,
+ *             targetOriginId: s3OriginId,
  *             forwardedValues: {
+ *                 queryString: false,
  *                 cookies: {
  *                     forward: "none",
  *                 },
- *                 queryString: false,
  *             },
- *             maxTtl: 86400,
  *             minTtl: 0,
- *             pathPattern: "/content/*",
- *             targetOriginId: s3OriginId,
+ *             defaultTtl: 3600,
+ *             maxTtl: 86400,
+ *             compress: true,
  *             viewerProtocolPolicy: "redirect-to-https",
  *         },
  *     ],
- *     origins: [{
- *         domainName: bucket.bucketRegionalDomainName,
- *         originId: s3OriginId,
- *         s3OriginConfig: {
- *             originAccessIdentity: "origin-access-identity/cloudfront/ABCDEFG1234567",
- *         },
- *     }],
  *     priceClass: "PriceClass_200",
  *     restrictions: {
  *         geoRestriction: {
+ *             restrictionType: "whitelist",
  *             locations: [
  *                 "US",
  *                 "CA",
  *                 "GB",
  *                 "DE",
  *             ],
- *             restrictionType: "whitelist",
  *         },
  *     },
  *     tags: {
@@ -162,28 +160,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
- *     defaultCacheBehavior: {
- *         // ... other configuration ...
- *         targetOriginId: "groupS3",
- *     },
- *     origins: [
- *         {
- *             domainName: aws_s3_bucket_primary.bucketRegionalDomainName,
- *             originId: "primaryS3",
- *             s3OriginConfig: {
- *                 originAccessIdentity: aws_cloudfront_origin_access_identity_default.cloudfrontAccessIdentityPath,
- *             },
- *         },
- *         {
- *             domainName: aws_s3_bucket_failover.bucketRegionalDomainName,
- *             originId: "failoverS3",
- *             s3OriginConfig: {
- *                 originAccessIdentity: aws_cloudfront_origin_access_identity_default.cloudfrontAccessIdentityPath,
- *             },
- *         },
- *     ],
+ * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
  *     originGroups: [{
+ *         originId: "groupS3",
  *         failoverCriteria: {
  *             statusCodes: [
  *                 403,
@@ -200,9 +179,28 @@ import * as utilities from "../utilities";
  *                 originId: "failoverS3",
  *             },
  *         ],
- *         originId: "groupS3",
  *     }],
+ *     origins: [
+ *         {
+ *             domainName: aws_s3_bucket.primary.bucket_regional_domain_name,
+ *             originId: "primaryS3",
+ *             s3OriginConfig: {
+ *                 originAccessIdentity: aws_cloudfront_origin_access_identity["default"].cloudfront_access_identity_path,
+ *             },
+ *         },
+ *         {
+ *             domainName: aws_s3_bucket.failover.bucket_regional_domain_name,
+ *             originId: "failoverS3",
+ *             s3OriginConfig: {
+ *                 originAccessIdentity: aws_cloudfront_origin_access_identity["default"].cloudfront_access_identity_path,
+ *             },
+ *         },
+ *     ],
+ *     defaultCacheBehavior: {
+ *         targetOriginId: "groupS3",
+ *     },
  * });
+ * // ... other configuration ...
  * ```
  */
 export class Distribution extends pulumi.CustomResource {
@@ -233,12 +231,6 @@ export class Distribution extends pulumi.CustomResource {
         return obj['__pulumiType'] === Distribution.__pulumiType;
     }
 
-    /**
-     * The key pair IDs that CloudFront is aware of for
-     * each trusted signer, if the distribution is set up to serve private content
-     * with signed URLs.
-     */
-    public /*out*/ readonly activeTrustedSigners!: pulumi.Output<{[key: string]: string}>;
     /**
      * Extra CNAMEs (alternate domain names), if any, for
      * this distribution.
@@ -361,6 +353,11 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     */
+    public /*out*/ readonly trustedSigners!: pulumi.Output<outputs.cloudfront.DistributionTrustedSigner[]>;
+    /**
      * The SSL
      * configuration for this distribution (maximum
      * one).
@@ -393,7 +390,6 @@ export class Distribution extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DistributionState | undefined;
-            inputs["activeTrustedSigners"] = state ? state.activeTrustedSigners : undefined;
             inputs["aliases"] = state ? state.aliases : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["callerReference"] = state ? state.callerReference : undefined;
@@ -418,6 +414,7 @@ export class Distribution extends pulumi.CustomResource {
             inputs["retainOnDelete"] = state ? state.retainOnDelete : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["trustedSigners"] = state ? state.trustedSigners : undefined;
             inputs["viewerCertificate"] = state ? state.viewerCertificate : undefined;
             inputs["waitForDeployment"] = state ? state.waitForDeployment : undefined;
             inputs["webAclId"] = state ? state.webAclId : undefined;
@@ -457,7 +454,6 @@ export class Distribution extends pulumi.CustomResource {
             inputs["viewerCertificate"] = args ? args.viewerCertificate : undefined;
             inputs["waitForDeployment"] = args ? args.waitForDeployment : undefined;
             inputs["webAclId"] = args ? args.webAclId : undefined;
-            inputs["activeTrustedSigners"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["callerReference"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
@@ -466,6 +462,7 @@ export class Distribution extends pulumi.CustomResource {
             inputs["inProgressValidationBatches"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["trustedSigners"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -482,12 +479,6 @@ export class Distribution extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Distribution resources.
  */
 export interface DistributionState {
-    /**
-     * The key pair IDs that CloudFront is aware of for
-     * each trusted signer, if the distribution is set up to serve private content
-     * with signed URLs.
-     */
-    readonly activeTrustedSigners?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Extra CNAMEs (alternate domain names), if any, for
      * this distribution.
@@ -609,6 +600,11 @@ export interface DistributionState {
      * A map of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+     * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     */
+    readonly trustedSigners?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTrustedSigner>[]>;
     /**
      * The SSL
      * configuration for this distribution (maximum

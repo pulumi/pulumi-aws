@@ -87,7 +87,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             from_port=0,
             to_port=65535,
             protocol="tcp",
-            cidr_blocks=aws_vpc["example"]["cidr_block"],
+            cidr_blocks=[aws_vpc["example"]["cidr_block"]],
             security_group_id="sg-123456")
         ```
         ## Usage with prefix list IDs
@@ -102,13 +102,14 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         # ...
         my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
+        # ...
         allow_all = aws.ec2.SecurityGroupRule("allowAll",
-            from_port=0,
-            prefix_list_ids=[my_endpoint.prefix_list_id],
-            protocol="-1",
-            security_group_id="sg-123456",
+            type="egress",
             to_port=0,
-            type="egress")
+            protocol="-1",
+            prefix_list_ids=[my_endpoint.prefix_list_id],
+            from_port=0,
+            security_group_id="sg-123456")
         ```
 
         :param str resource_name: The name of the resource.

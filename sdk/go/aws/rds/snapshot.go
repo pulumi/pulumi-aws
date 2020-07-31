@@ -26,15 +26,15 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		bar, err := rds.NewInstance(ctx, "bar", &rds.InstanceArgs{
 // 			AllocatedStorage:      pulumi.Int(10),
-// 			BackupRetentionPeriod: pulumi.Int(0),
 // 			Engine:                pulumi.String("MySQL"),
 // 			EngineVersion:         pulumi.String("5.6.21"),
 // 			InstanceClass:         pulumi.String("db.t2.micro"),
-// 			MaintenanceWindow:     pulumi.String("Fri:09:00-Fri:09:30"),
 // 			Name:                  pulumi.String("baz"),
-// 			ParameterGroupName:    pulumi.String("default.mysql5.6"),
 // 			Password:              pulumi.String("barbarbarbar"),
 // 			Username:              pulumi.String("foo"),
+// 			MaintenanceWindow:     pulumi.String("Fri:09:00-Fri:09:30"),
+// 			BackupRetentionPeriod: pulumi.Int(0),
+// 			ParameterGroupName:    pulumi.String("default.mysql5.6"),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -40,13 +40,20 @@ namespace Pulumi.Aws.Iot
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var rule = new Aws.Iot.TopicRule("rule", new Aws.Iot.TopicRuleArgs
     ///         {
     ///             Description = "Example rule",
     ///             Enabled = true,
+    ///             Sql = "SELECT * FROM 'topic/test'",
+    ///             SqlVersion = "2016-03-23",
+    ///             Sns = new Aws.Iot.Inputs.TopicRuleSnsArgs
+    ///             {
+    ///                 MessageFormat = "RAW",
+    ///                 RoleArn = role.Arn,
+    ///                 TargetArn = mytopic.Arn,
+    ///             },
     ///             ErrorAction = new Aws.Iot.Inputs.TopicRuleErrorActionArgs
     ///             {
     ///                 Sns = new Aws.Iot.Inputs.TopicRuleErrorActionSnsArgs
@@ -56,17 +63,10 @@ namespace Pulumi.Aws.Iot
     ///                     TargetArn = myerrortopic.Arn,
     ///                 },
     ///             },
-    ///             Sns = new Aws.Iot.Inputs.TopicRuleSnsArgs
-    ///             {
-    ///                 MessageFormat = "RAW",
-    ///                 RoleArn = role.Arn,
-    ///                 TargetArn = mytopic.Arn,
-    ///             },
-    ///             Sql = "SELECT * FROM 'topic/test'",
-    ///             SqlVersion = "2016-03-23",
     ///         });
     ///         var iamPolicyForLambda = new Aws.Iam.RolePolicy("iamPolicyForLambda", new Aws.Iam.RolePolicyArgs
     ///         {
+    ///             Role = role.Id,
     ///             Policy = mytopic.Arn.Apply(arn =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -79,9 +79,7 @@ namespace Pulumi.Aws.Iot
     ///     }}
     ///   ]
     /// }}
-    /// 
     /// "),
-    ///             Role = role.Id,
     ///         });
     ///     }
     /// 

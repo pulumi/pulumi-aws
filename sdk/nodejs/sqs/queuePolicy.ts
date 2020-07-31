@@ -16,8 +16,9 @@ import {PolicyDocument} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const queue = new aws.sqs.Queue("q", {});
+ * const queue = new aws.sqs.Queue("queue", {});
  * const test = new aws.sqs.QueuePolicy("test", {
+ *     queueUrl: queue.id,
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Id": "sqspolicy",
@@ -30,14 +31,13 @@ import {PolicyDocument} from "../iam";
  *       "Resource": "${queue.arn}",
  *       "Condition": {
  *         "ArnEquals": {
- *           "aws:SourceArn": "${aws_sns_topic_example.arn}"
+ *           "aws:SourceArn": "${aws_sns_topic.example.arn}"
  *         }
  *       }
  *     }
  *   ]
  * }
  * `,
- *     queueUrl: queue.id,
  * });
  * ```
  */

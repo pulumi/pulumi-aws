@@ -42,11 +42,11 @@ namespace Pulumi.Aws.Transfer
     /// 		}
     /// 	]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var fooRolePolicy = new Aws.Iam.RolePolicy("fooRolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
+    ///             Role = fooRole.Id,
     ///             Policy = @"{
     /// 	""Version"": ""2012-10-17"",
     /// 	""Statement"": [
@@ -60,15 +60,13 @@ namespace Pulumi.Aws.Transfer
     /// 		}
     /// 	]
     /// }
-    /// 
     /// ",
-    ///             Role = fooRole.Id,
     ///         });
     ///         var fooUser = new Aws.Transfer.User("fooUser", new Aws.Transfer.UserArgs
     ///         {
-    ///             Role = fooRole.Arn,
     ///             ServerId = fooServer.Id,
     ///             UserName = "tftestuser",
+    ///             Role = fooRole.Arn,
     ///         });
     ///     }
     /// 

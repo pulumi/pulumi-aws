@@ -19,8 +19,6 @@ class UserPool(pulumi.CustomResource):
         * `emailMessage` (`str`) - The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
         * `emailSubject` (`str`) - The subject line for the email message template. Conflicts with `email_verification_subject` argument.
         * `smsMessage` (`str`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
-
-      * `unusedAccountValidityDays` (`float`) - **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
     """
     alias_attributes: pulumi.Output[list]
     """
@@ -237,8 +235,6 @@ class UserPool(pulumi.CustomResource):
             * `emailSubject` (`pulumi.Input[str]`) - The subject line for the email message template. Conflicts with `email_verification_subject` argument.
             * `smsMessage` (`pulumi.Input[str]`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
 
-          * `unusedAccountValidityDays` (`pulumi.Input[float]`) - **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
-
         The **device_configuration** object supports the following:
 
           * `challengeRequiredOnNewDevice` (`pulumi.Input[bool]`) - Indicates whether a challenge is required on a new device. Only applicable to a new device.
@@ -404,8 +400,6 @@ class UserPool(pulumi.CustomResource):
             * `emailMessage` (`pulumi.Input[str]`) - The email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
             * `emailSubject` (`pulumi.Input[str]`) - The subject line for the email message template. Conflicts with `email_verification_subject` argument.
             * `smsMessage` (`pulumi.Input[str]`) - The SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
-
-          * `unusedAccountValidityDays` (`pulumi.Input[float]`) - **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
 
         The **device_configuration** object supports the following:
 

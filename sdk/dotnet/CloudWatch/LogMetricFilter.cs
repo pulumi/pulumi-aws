@@ -27,6 +27,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         });
     ///         var yada = new Aws.CloudWatch.LogMetricFilter("yada", new Aws.CloudWatch.LogMetricFilterArgs
     ///         {
+    ///             Pattern = "",
     ///             LogGroupName = dada.Name,
     ///             MetricTransformation = new Aws.CloudWatch.Inputs.LogMetricFilterMetricTransformationArgs
     ///             {
@@ -34,7 +35,6 @@ namespace Pulumi.Aws.CloudWatch
     ///                 Namespace = "YourNamespace",
     ///                 Value = "1",
     ///             },
-    ///             Pattern = "",
     ///         });
     ///     }
     /// 

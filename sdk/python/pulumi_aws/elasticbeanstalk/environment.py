@@ -170,19 +170,19 @@ class Environment(pulumi.CustomResource):
         tftest = aws.elasticbeanstalk.Application("tftest", description="tf-test-desc")
         tfenvtest = aws.elasticbeanstalk.Environment("tfenvtest",
             application=tftest.name,
+            solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
             settings=[
                 {
-                    "name": "VPCId",
                     "namespace": "aws:ec2:vpc",
+                    "name": "VPCId",
                     "value": "vpc-xxxxxxxx",
                 },
                 {
-                    "name": "Subnets",
                     "namespace": "aws:ec2:vpc",
+                    "name": "Subnets",
                     "value": "subnet-xxxxxxxx",
                 },
-            ],
-            solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")
+            ])
         ```
 
         :param str resource_name: The name of the resource.

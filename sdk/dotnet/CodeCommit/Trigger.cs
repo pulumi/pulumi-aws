@@ -33,12 +33,12 @@ namespace Pulumi.Aws.CodeCommit
     ///             {
     ///                 new Aws.CodeCommit.Inputs.TriggerTriggerArgs
     ///                 {
-    ///                     DestinationArn = aws_sns_topic.Test.Arn,
+    ///                     Name = "all",
     ///                     Events = 
     ///                     {
     ///                         "all",
     ///                     },
-    ///                     Name = "all",
+    ///                     DestinationArn = aws_sns_topic.Test.Arn,
     ///                 },
     ///             },
     ///         });

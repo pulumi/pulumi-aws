@@ -43,15 +43,15 @@ import (
 // 				pulumi.String("us-west-2a"),
 // 			},
 // 			HealthCheckType: pulumi.String("EC2"),
+// 			TerminationPolicies: pulumi.StringArray{
+// 				pulumi.String("OldestInstance"),
+// 			},
 // 			Tags: autoscaling.GroupTagArray{
 // 				&autoscaling.GroupTagArgs{
 // 					Key:               pulumi.String("Foo"),
-// 					PropagateAtLaunch: pulumi.Bool(true),
 // 					Value:             pulumi.String("foo-bar"),
+// 					PropagateAtLaunch: pulumi.Bool(true),
 // 				},
-// 			},
-// 			TerminationPolicies: pulumi.StringArray{
-// 				pulumi.String("OldestInstance"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -62,7 +62,7 @@ import (
 // 			DefaultResult:         pulumi.String("CONTINUE"),
 // 			HeartbeatTimeout:      pulumi.Int(2000),
 // 			LifecycleTransition:   pulumi.String("autoscaling:EC2_INSTANCE_LAUNCHING"),
-// 			NotificationMetadata:  pulumi.String(fmt.Sprintf("%v%v%v%v", "{\n", "  \"foo\": \"bar\"\n", "}\n", "\n")),
+// 			NotificationMetadata:  pulumi.String(fmt.Sprintf("%v%v%v", "{\n", "  \"foo\": \"bar\"\n", "}\n")),
 // 			NotificationTargetArn: pulumi.String("arn:aws:sqs:us-east-1:444455556666:queue1*"),
 // 			RoleArn:               pulumi.String("arn:aws:iam::123456789012:role/S3Access"),
 // 		})

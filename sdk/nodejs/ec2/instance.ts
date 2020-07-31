@@ -19,23 +19,23 @@ import {InstanceType} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ubuntu = pulumi.output(aws.getAmi({
+ * const ubuntu = aws.getAmi({
+ *     mostRecent: true,
  *     filters: [
  *         {
  *             name: "name",
- *             values: ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+ *             values: ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
  *         },
  *         {
  *             name: "virtualization-type",
  *             values: ["hvm"],
  *         },
  *     ],
- *     mostRecent: true,
- *     owners: ["099720109477"], // Canonical
- * }, { async: true }));
+ *     owners: ["099720109477"],
+ * });
  * const web = new aws.ec2.Instance("web", {
- *     ami: ubuntu.id,
- *     instanceType: "t2.micro",
+ *     ami: ubuntu.then(ubuntu => ubuntu.id),
+ *     instanceType: "t3.micro",
  *     tags: {
  *         Name: "HelloWorld",
  *     },
@@ -225,6 +225,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.InstanceRootBlockDevice>;
     /**
+     * A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     */
+    public readonly secondaryPrivateIps!: pulumi.Output<string[]>;
+    /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      *
      * @deprecated Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
@@ -309,6 +313,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["publicDns"] = state ? state.publicDns : undefined;
             inputs["publicIp"] = state ? state.publicIp : undefined;
             inputs["rootBlockDevice"] = state ? state.rootBlockDevice : undefined;
+            inputs["secondaryPrivateIps"] = state ? state.secondaryPrivateIps : undefined;
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
             inputs["sourceDestCheck"] = state ? state.sourceDestCheck : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
@@ -351,6 +356,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["placementGroup"] = args ? args.placementGroup : undefined;
             inputs["privateIp"] = args ? args.privateIp : undefined;
             inputs["rootBlockDevice"] = args ? args.rootBlockDevice : undefined;
+            inputs["secondaryPrivateIps"] = args ? args.secondaryPrivateIps : undefined;
             inputs["securityGroups"] = args ? args.securityGroups : undefined;
             inputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
@@ -539,6 +545,10 @@ export interface InstanceState {
      */
     readonly rootBlockDevice?: pulumi.Input<inputs.ec2.InstanceRootBlockDevice>;
     /**
+     * A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     */
+    readonly secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      *
      * @deprecated Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
@@ -698,6 +708,10 @@ export interface InstanceArgs {
      * device of the instance. See Block Devices below for details.
      */
     readonly rootBlockDevice?: pulumi.Input<inputs.ec2.InstanceRootBlockDevice>;
+    /**
+     * A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     */
+    readonly secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      *

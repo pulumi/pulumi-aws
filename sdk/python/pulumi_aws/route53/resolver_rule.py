@@ -75,14 +75,14 @@ class ResolverRule(pulumi.CustomResource):
 
         fwd = aws.route53.ResolverRule("fwd",
             domain_name="example.com",
-            resolver_endpoint_id=aws_route53_resolver_endpoint["foo"]["id"],
             rule_type="FORWARD",
-            tags={
-                "Environment": "Prod",
-            },
+            resolver_endpoint_id=aws_route53_resolver_endpoint["foo"]["id"],
             target_ips=[{
                 "ip": "123.45.67.89",
-            }])
+            }],
+            tags={
+                "Environment": "Prod",
+            })
         ```
 
         :param str resource_name: The name of the resource.

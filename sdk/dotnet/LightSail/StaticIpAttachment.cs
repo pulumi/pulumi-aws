@@ -36,8 +36,8 @@ namespace Pulumi.Aws.LightSail
     ///         });
     ///         var testStaticIpAttachment = new Aws.LightSail.StaticIpAttachment("testStaticIpAttachment", new Aws.LightSail.StaticIpAttachmentArgs
     ///         {
-    ///             InstanceName = testInstance.Id,
     ///             StaticIpName = testStaticIp.Id,
+    ///             InstanceName = testInstance.Id,
     ///         });
     ///     }
     /// 

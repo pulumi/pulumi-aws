@@ -53,12 +53,12 @@ class NamedQuery(pulumi.CustomResource):
             },
         })
         hoge_database = aws.athena.Database("hogeDatabase",
-            bucket=hoge_bucket.id,
-            name="users")
+            name="users",
+            bucket=hoge_bucket.id)
         foo = aws.athena.NamedQuery("foo",
+            workgroup=test_workgroup.id,
             database=hoge_database.name,
-            query=hoge_database.name.apply(lambda name: f"SELECT * FROM {name} limit 10;"),
-            workgroup=test_workgroup.id)
+            query=hoge_database.name.apply(lambda name: f"SELECT * FROM {name} limit 10;"))
         ```
 
         :param str resource_name: The name of the resource.

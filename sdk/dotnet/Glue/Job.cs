@@ -27,11 +27,11 @@ namespace Pulumi.Aws.Glue
     ///     {
     ///         var example = new Aws.Glue.Job("example", new Aws.Glue.JobArgs
     ///         {
+    ///             RoleArn = aws_iam_role.Example.Arn,
     ///             Command = new Aws.Glue.Inputs.JobCommandArgs
     ///             {
     ///                 ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.py",
     ///             },
-    ///             RoleArn = aws_iam_role.Example.Arn,
     ///         });
     ///     }
     /// 
@@ -49,6 +49,7 @@ namespace Pulumi.Aws.Glue
     ///     {
     ///         var example = new Aws.Glue.Job("example", new Aws.Glue.JobArgs
     ///         {
+    ///             RoleArn = aws_iam_role.Example.Arn,
     ///             Command = new Aws.Glue.Inputs.JobCommandArgs
     ///             {
     ///                 ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.scala",
@@ -57,7 +58,6 @@ namespace Pulumi.Aws.Glue
     ///             {
     ///                 { "--job-language", "scala" },
     ///             },
-    ///             RoleArn = aws_iam_role.Example.Arn,
     ///         });
     ///     }
     /// 
@@ -77,6 +77,7 @@ namespace Pulumi.Aws.Glue
     ///         {
     ///             RetentionInDays = 14,
     ///         });
+    ///         // ... other configuration ...
     ///         var exampleJob = new Aws.Glue.Job("exampleJob", new Aws.Glue.JobArgs
     ///         {
     ///             DefaultArguments = 
@@ -94,12 +95,6 @@ namespace Pulumi.Aws.Glue
     /// </summary>
     public partial class Job : Pulumi.CustomResource
     {
-        /// <summary>
-        /// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-        /// </summary>
-        [Output("allocatedCapacity")]
-        public Output<int> AllocatedCapacity { get; private set; } = null!;
-
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Job
         /// </summary>
@@ -249,12 +244,6 @@ namespace Pulumi.Aws.Glue
     public sealed class JobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-        /// </summary>
-        [Input("allocatedCapacity")]
-        public Input<int>? AllocatedCapacity { get; set; }
-
-        /// <summary>
         /// The command of the job. Defined below.
         /// </summary>
         [Input("command", required: true)]
@@ -375,12 +364,6 @@ namespace Pulumi.Aws.Glue
 
     public sealed class JobState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-        /// </summary>
-        [Input("allocatedCapacity")]
-        public Input<int>? AllocatedCapacity { get; set; }
-
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue Job
         /// </summary>

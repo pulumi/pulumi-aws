@@ -45,8 +45,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultRouteTable = new aws.ec2.DefaultRouteTable("r", {
- *     defaultRouteTableId: aws_vpc_foo.defaultRouteTableId,
+ * const defaultRouteTable = new aws.ec2.DefaultRouteTable("defaultRouteTable", {
+ *     defaultRouteTableId: aws_vpc.foo.default_route_table_id,
  *     routes: [{}],
  *     tags: {
  *         Name: "default table",

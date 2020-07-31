@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.all([aws_dx_gateway_example.id, aws_ec2_transit_gateway_example.id]).apply(([aws_dx_gateway_exampleId, aws_ec2_transit_gateway_exampleId]) => aws.ec2transitgateway.getDirectConnectGatewayAttachment({
- *     dxGatewayId: aws_dx_gateway_exampleId,
- *     transitGatewayId: aws_ec2_transit_gateway_exampleId,
- * }, { async: true }));
+ * const example = aws.ec2transitgateway.getDirectConnectGatewayAttachment({
+ *     transitGatewayId: aws_ec2_transit_gateway.example.id,
+ *     dxGatewayId: aws_dx_gateway.example.id,
+ * });
  * ```
  */
 export function getDirectConnectGatewayAttachment(args?: GetDirectConnectGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectConnectGatewayAttachmentResult> {

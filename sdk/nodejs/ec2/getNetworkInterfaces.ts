@@ -15,9 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleNetworkInterfaces = pulumi.output(aws.ec2.getNetworkInterfaces({ async: true }));
- *
- * export const example = exampleNetworkInterfaces.ids;
+ * const exampleNetworkInterfaces = aws.ec2.getNetworkInterfaces({});
+ * export const example = exampleNetworkInterfaces.then(exampleNetworkInterfaces => exampleNetworkInterfaces.ids);
  * ```
  *
  * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
@@ -26,13 +25,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.ec2.getNetworkInterfaces({
+ * const example = aws.ec2.getNetworkInterfaces({
  *     tags: {
  *         Name: "test",
  *     },
- * }, { async: true }));
- *
- * export const example1 = example.ids;
+ * });
+ * export const example1 = example.then(example => example.ids);
  * ```
  *
  * The following example retrieves a network interface ids which associated
@@ -42,14 +40,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleNetworkInterfaces = aws_subnet_test.id.apply(id => aws.ec2.getNetworkInterfaces({
+ * const exampleNetworkInterfaces = aws.ec2.getNetworkInterfaces({
  *     filters: [{
  *         name: "subnet-id",
- *         values: [id],
+ *         values: [aws_subnet.test.id],
  *     }],
- * }, { async: true }));
- *
- * export const example = exampleNetworkInterfaces.ids;
+ * });
+ * export const example = exampleNetworkInterfaces.then(exampleNetworkInterfaces => exampleNetworkInterfaces.ids);
  * ```
  */
 export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacesResult> {

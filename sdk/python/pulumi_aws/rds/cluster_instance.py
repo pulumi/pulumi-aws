@@ -161,23 +161,23 @@ class ClusterInstance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.rds.Cluster("default",
+            cluster_identifier="aurora-cluster-demo",
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
                 "us-west-2c",
             ],
-            cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
-            master_password="barbut8chars",
-            master_username="foo")
+            master_username="foo",
+            master_password="barbut8chars")
         cluster_instances = []
         for range in [{"value": i} for i in range(0, 2)]:
             cluster_instances.append(aws.rds.ClusterInstance(f"clusterInstances-{range['value']}",
-                cluster_identifier=default.id,
-                engine=default.engine,
-                engine_version=default.engine_version,
                 identifier=f"aurora-cluster-demo-{range['value']}",
-                instance_class="db.r4.large"))
+                cluster_identifier=default.id,
+                instance_class="db.r4.large",
+                engine=default.engine,
+                engine_version=default.engine_version))
         ```
 
         :param str resource_name: The name of the resource.

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Rds
     ///             GlobalClusterIdentifier = "example",
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.primary",
+    ///             Provider = aws.Primary,
     ///         });
     ///         var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new Aws.Rds.ClusterArgs
     ///         {
@@ -45,14 +45,14 @@ namespace Pulumi.Aws.Rds
     ///             GlobalClusterIdentifier = example.Id,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.primary",
+    ///             Provider = aws.Primary,
     ///         });
     ///         var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
     ///         {
     ///             ClusterIdentifier = primaryCluster.Id,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.primary",
+    ///             Provider = aws.Primary,
     ///         });
     ///         var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new Aws.Rds.ClusterArgs
     ///         {
@@ -60,10 +60,10 @@ namespace Pulumi.Aws.Rds
     ///             GlobalClusterIdentifier = example.Id,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.secondary",
+    ///             Provider = aws.Secondary,
     ///             DependsOn = 
     ///             {
-    ///                 "aws_rds_cluster_instance.primary",
+    ///                 primaryClusterInstance,
     ///             },
     ///         });
     ///         var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Rds
     ///             ClusterIdentifier = secondaryCluster.Id,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.secondary",
+    ///             Provider = aws.Secondary,
     ///         });
     ///     }
     /// 

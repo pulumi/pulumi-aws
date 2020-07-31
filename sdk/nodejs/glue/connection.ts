@@ -34,14 +34,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.glue.Connection("example", {
  *     connectionProperties: {
- *         JDBC_CONNECTION_URL: pulumi.interpolate`jdbc:mysql://${aws_rds_cluster_example.endpoint}/exampledatabase`,
+ *         JDBC_CONNECTION_URL: `jdbc:mysql://${aws_rds_cluster.example.endpoint}/exampledatabase`,
  *         PASSWORD: "examplepassword",
  *         USERNAME: "exampleusername",
  *     },
  *     physicalConnectionRequirements: {
- *         availabilityZone: aws_subnet_example.availabilityZone,
- *         securityGroupIdLists: [aws_security_group_example.id],
- *         subnetId: aws_subnet_example.id,
+ *         availabilityZone: aws_subnet.example.availability_zone,
+ *         securityGroupIdLists: [aws_security_group.example.id],
+ *         subnetId: aws_subnet.example.id,
  *     },
  * });
  * ```

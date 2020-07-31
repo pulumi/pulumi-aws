@@ -126,14 +126,14 @@ class CertificateAuthority(pulumi.CustomResource):
                 "s3:PutObject",
                 "s3:PutObjectAcl",
             ],
-            "principals": [{
-                "identifiers": ["acm-pca.amazonaws.com"],
-                "type": "Service",
-            }],
             "resources": [
                 example_bucket_arn,
                 f"{example_bucket_arn1}/*",
             ],
+            "principals": [{
+                "identifiers": ["acm-pca.amazonaws.com"],
+                "type": "Service",
+            }],
         }]))
         example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
             bucket=example_bucket.id,
@@ -154,7 +154,7 @@ class CertificateAuthority(pulumi.CustomResource):
                     "s3_bucket_name": example_bucket.id,
                 },
             },
-            opts=ResourceOptions(depends_on=["aws_s3_bucket_policy.example"]))
+            opts=ResourceOptions(depends_on=[example_bucket_policy]))
         ```
 
         :param str resource_name: The name of the resource.

@@ -28,29 +28,29 @@ namespace Pulumi.Aws.ApiGateway
     ///         });
     ///         var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new Aws.ApiGateway.ResourceArgs
     ///         {
+    ///             RestApi = myDemoAPI.Id,
     ///             ParentId = myDemoAPI.RootResourceId,
     ///             PathPart = "mydemoresource",
-    ///             RestApi = myDemoAPI.Id,
     ///         });
     ///         var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new Aws.ApiGateway.MethodArgs
     ///         {
-    ///             Authorization = "NONE",
-    ///             HttpMethod = "GET",
-    ///             ResourceId = myDemoResource.Id,
     ///             RestApi = myDemoAPI.Id,
+    ///             ResourceId = myDemoResource.Id,
+    ///             HttpMethod = "GET",
+    ///             Authorization = "NONE",
     ///         });
     ///         var myDemoIntegration = new Aws.ApiGateway.Integration("myDemoIntegration", new Aws.ApiGateway.IntegrationArgs
     ///         {
-    ///             HttpMethod = myDemoMethod.HttpMethod,
-    ///             ResourceId = myDemoResource.Id,
     ///             RestApi = myDemoAPI.Id,
+    ///             ResourceId = myDemoResource.Id,
+    ///             HttpMethod = myDemoMethod.HttpMethod,
     ///             Type = "MOCK",
     ///         });
     ///         var response200 = new Aws.ApiGateway.MethodResponse("response200", new Aws.ApiGateway.MethodResponseArgs
     ///         {
-    ///             HttpMethod = myDemoMethod.HttpMethod,
-    ///             ResourceId = myDemoResource.Id,
     ///             RestApi = myDemoAPI.Id,
+    ///             ResourceId = myDemoResource.Id,
+    ///             HttpMethod = myDemoMethod.HttpMethod,
     ///             StatusCode = "200",
     ///         });
     ///     }

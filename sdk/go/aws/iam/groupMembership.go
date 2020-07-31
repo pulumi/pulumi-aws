@@ -44,11 +44,11 @@ import (
 // 			return err
 // 		}
 // 		_, err = iam.NewGroupMembership(ctx, "team", &iam.GroupMembershipArgs{
-// 			Group: group.Name,
 // 			Users: pulumi.StringArray{
 // 				userOne.Name,
 // 				userTwo.Name,
 // 			},
+// 			Group: group.Name,
 // 		})
 // 		if err != nil {
 // 			return err

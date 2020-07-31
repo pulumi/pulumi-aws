@@ -26,7 +26,10 @@ namespace Pulumi.Aws.Fsx
     ///         {
     ///             ImportPath = $"s3://{aws_s3_bucket.Example.Bucket}",
     ///             StorageCapacity = 1200,
-    ///             SubnetIds = aws_subnet.Example.Id,
+    ///             SubnetIds = 
+    ///             {
+    ///                 aws_subnet.Example.Id,
+    ///             },
     ///         });
     ///     }
     /// 
@@ -40,6 +43,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+        /// </summary>
+        [Output("deploymentType")]
+        public Output<string?> DeploymentType { get; private set; } = null!;
 
         /// <summary>
         /// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
@@ -76,6 +85,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
+
+        /// <summary>
+        /// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+        /// </summary>
+        [Output("perUnitStorageThroughput")]
+        public Output<int?> PerUnitStorageThroughput { get; private set; } = null!;
 
         /// <summary>
         /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -160,6 +175,12 @@ namespace Pulumi.Aws.Fsx
     public sealed class LustreFileSystemArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+        /// </summary>
+        [Input("deploymentType")]
+        public Input<string>? DeploymentType { get; set; }
+
+        /// <summary>
         /// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
         /// </summary>
         [Input("exportPath")]
@@ -176,6 +197,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("importedFileChunkSize")]
         public Input<int>? ImportedFileChunkSize { get; set; }
+
+        /// <summary>
+        /// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+        /// </summary>
+        [Input("perUnitStorageThroughput")]
+        public Input<int>? PerUnitStorageThroughput { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -233,6 +260,12 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+        /// </summary>
+        [Input("deploymentType")]
+        public Input<string>? DeploymentType { get; set; }
+
+        /// <summary>
         /// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
         /// </summary>
         [Input("dnsName")]
@@ -273,6 +306,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
+
+        /// <summary>
+        /// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+        /// </summary>
+        [Input("perUnitStorageThroughput")]
+        public Input<int>? PerUnitStorageThroughput { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

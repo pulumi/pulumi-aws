@@ -49,11 +49,11 @@ namespace Pulumi.Aws.WafRegional
     ///         });
     ///         var wafacl = new Aws.WafRegional.WebAcl("wafacl", new Aws.WafRegional.WebAclArgs
     ///         {
+    ///             MetricName = "tfWebACL",
     ///             DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///             {
     ///                 Type = "ALLOW",
     ///             },
-    ///             MetricName = "tfWebACL",
     ///             Rules = 
     ///             {
     ///                 new Aws.WafRegional.Inputs.WebAclRuleArgs
@@ -84,22 +84,22 @@ namespace Pulumi.Aws.WafRegional
     ///     {
     ///         var example = new Aws.WafRegional.WebAcl("example", new Aws.WafRegional.WebAclArgs
     ///         {
+    ///             MetricName = "example",
     ///             DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///             {
     ///                 Type = "ALLOW",
     ///             },
-    ///             MetricName = "example",
     ///             Rules = 
     ///             {
     ///                 new Aws.WafRegional.Inputs.WebAclRuleArgs
     ///                 {
+    ///                     Priority = 1,
+    ///                     RuleId = aws_wafregional_rule_group.Example.Id,
+    ///                     Type = "GROUP",
     ///                     OverrideAction = new Aws.WafRegional.Inputs.WebAclRuleOverrideActionArgs
     ///                     {
     ///                         Type = "NONE",
     ///                     },
-    ///                     Priority = 1,
-    ///                     RuleId = aws_wafregional_rule_group.Example.Id,
-    ///                     Type = "GROUP",
     ///                 },
     ///             },
     ///         });
@@ -119,6 +119,7 @@ namespace Pulumi.Aws.WafRegional
     /// {
     ///     public MyStack()
     ///     {
+    ///         // ... other configuration ...
     ///         var example = new Aws.WafRegional.WebAcl("example", new Aws.WafRegional.WebAclArgs
     ///         {
     ///             LoggingConfiguration = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationArgs
@@ -126,16 +127,16 @@ namespace Pulumi.Aws.WafRegional
     ///                 LogDestination = aws_kinesis_firehose_delivery_stream.Example.Arn,
     ///                 RedactedFields = new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
     ///                 {
-    ///                     FieldToMatch = 
+    ///                     FieldToMatches = 
     ///                     {
-    ///                         
+    ///                         new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs
     ///                         {
-    ///                             { "type", "URI" },
+    ///                             Type = "URI",
     ///                         },
-    ///                         
+    ///                         new Aws.WafRegional.Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs
     ///                         {
-    ///                             { "data", "referer" },
-    ///                             { "type", "HEADER" },
+    ///                             Data = "referer",
+    ///                             Type = "HEADER",
     ///                         },
     ///                     },
     ///                 },

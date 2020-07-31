@@ -34,12 +34,12 @@ class LogService(pulumi.CustomResource):
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
-            "effect": "Allow",
             "principals": [{
                 "identifiers": ["ds.amazonaws.com"],
                 "type": "Service",
             }],
-            "resources": [arn],
+            "resources": [f"{arn}:*"],
+            "effect": "Allow",
         }]))
         ad_log_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("ad-log-policyLogResourcePolicy",
             policy_document=ad_log_policy_policy_document.json,

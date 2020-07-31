@@ -51,11 +51,11 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         var example = Output.Create(Aws.Ec2.GetNetworkAcls.InvokeAsync(new Aws.Ec2.GetNetworkAclsArgs
         ///         {
+        ///             VpcId = @var.Vpc_id,
         ///             Tags = 
         ///             {
         ///                 { "Tier", "Private" },
         ///             },
-        ///             VpcId = @var.Vpc_id,
         ///         }));
         ///     }
         /// 
@@ -75,6 +75,7 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         var example = Output.Create(Aws.Ec2.GetNetworkAcls.InvokeAsync(new Aws.Ec2.GetNetworkAclsArgs
         ///         {
+        ///             VpcId = @var.Vpc_id,
         ///             Filters = 
         ///             {
         ///                 new Aws.Ec2.Inputs.GetNetworkAclsFilterArgs
@@ -86,7 +87,6 @@ namespace Pulumi.Aws.Ec2
         ///                     },
         ///                 },
         ///             },
-        ///             VpcId = @var.Vpc_id,
         ///         }));
         ///     }
         /// 

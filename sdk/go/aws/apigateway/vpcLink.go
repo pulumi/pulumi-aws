@@ -42,7 +42,9 @@ import (
 // 		}
 // 		_, err = apigateway.NewVpcLink(ctx, "exampleVpcLink", &apigateway.VpcLinkArgs{
 // 			Description: pulumi.String("example description"),
-// 			TargetArn:   exampleLoadBalancer.Arn,
+// 			TargetArn: pulumi.String(pulumi.String{
+// 				exampleLoadBalancer.Arn,
+// 			}),
 // 		})
 // 		if err != nil {
 // 			return err

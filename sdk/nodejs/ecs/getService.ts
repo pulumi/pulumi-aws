@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws_ecs_cluster_example.arn.apply(arn => aws.ecs.getService({
- *     clusterArn: arn,
+ * const example = aws.ecs.getService({
  *     serviceName: "example",
- * }, { async: true }));
+ *     clusterArn: data.aws_ecs_cluster.example.arn,
+ * });
  * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {

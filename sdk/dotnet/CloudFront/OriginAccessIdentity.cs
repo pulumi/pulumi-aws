@@ -82,42 +82,20 @@ namespace Pulumi.Aws.CloudFront
     ///                     {
     ///                         "s3:GetObject",
     ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
-    ///                         {
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 aws_cloudfront_origin_access_identity.Origin_access_identity.Iam_arn,
-    ///                             },
-    ///                             Type = "AWS",
-    ///                         },
-    ///                     },
     ///                     Resources = 
     ///                     {
     ///                         $"{aws_s3_bucket.Example.Arn}/*",
     ///                     },
-    ///                 },
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
-    ///                 {
-    ///                     Actions = 
-    ///                     {
-    ///                         "s3:ListBucket",
-    ///                     },
     ///                     Principals = 
     ///                     {
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
     ///                         {
+    ///                             Type = "AWS",
     ///                             Identifiers = 
     ///                             {
     ///                                 aws_cloudfront_origin_access_identity.Origin_access_identity.Iam_arn,
     ///                             },
-    ///                             Type = "AWS",
     ///                         },
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         aws_s3_bucket.Example.Arn,
     ///                     },
     ///                 },
     ///             },

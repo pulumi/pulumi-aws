@@ -49,9 +49,9 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
                 "lbProtocol": "http",
             }])
         foo = aws.elb.LoadBalancerCookieStickinessPolicy("foo",
-            cookie_expiration_period=600,
+            load_balancer=lb.id,
             lb_port=80,
-            load_balancer=lb.id)
+            cookie_expiration_period=600)
         ```
 
         :param str resource_name: The name of the resource.

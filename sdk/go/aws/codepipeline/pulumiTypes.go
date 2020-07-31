@@ -457,7 +457,7 @@ func (o PipelineStageArrayOutput) Index(i pulumi.IntInput) PipelineStageOutput {
 type PipelineStageAction struct {
 	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
 	Category string `pulumi:"category"`
-	// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+	// A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
 	Configuration map[string]string `pulumi:"configuration"`
 	// A list of artifact names to be worked on.
 	InputArtifacts []string `pulumi:"inputArtifacts"`
@@ -495,7 +495,7 @@ type PipelineStageActionInput interface {
 type PipelineStageActionArgs struct {
 	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
 	Category pulumi.StringInput `pulumi:"category"`
-	// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+	// A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
 	Configuration pulumi.StringMapInput `pulumi:"configuration"`
 	// A list of artifact names to be worked on.
 	InputArtifacts pulumi.StringArrayInput `pulumi:"inputArtifacts"`
@@ -575,7 +575,7 @@ func (o PipelineStageActionOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageAction) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+// A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
 func (o PipelineStageActionOutput) Configuration() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipelineStageAction) map[string]string { return v.Configuration }).(pulumi.StringMapOutput)
 }

@@ -17,10 +17,9 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const layerName = config.require("layerName");
- *
- * const existing = pulumi.output(aws.lambda.getLayerVersion({
+ * const existing = aws.lambda.getLayerVersion({
  *     layerName: layerName,
- * }, { async: true }));
+ * });
  * ```
  */
 export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> {

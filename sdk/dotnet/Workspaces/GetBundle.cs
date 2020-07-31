@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Workspaces
     public static class GetBundle
     {
         /// <summary>
-        /// Use this data source to get information about a WorkSpaces Bundle.
+        /// Retrieve information about an AWS WorkSpaces bundle.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

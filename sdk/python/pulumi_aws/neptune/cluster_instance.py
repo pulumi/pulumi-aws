@@ -124,20 +124,20 @@ class ClusterInstance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.neptune.Cluster("default",
-            apply_immediately=True,
-            backup_retention_period=5,
             cluster_identifier="neptune-cluster-demo",
             engine="neptune",
-            iam_database_authentication_enabled=True,
+            backup_retention_period=5,
             preferred_backup_window="07:00-09:00",
-            skip_final_snapshot=True)
+            skip_final_snapshot=True,
+            iam_database_authentication_enabled=True,
+            apply_immediately=True)
         example = []
         for range in [{"value": i} for i in range(0, 2)]:
             example.append(aws.neptune.ClusterInstance(f"example-{range['value']}",
-                apply_immediately=True,
                 cluster_identifier=default.id,
                 engine="neptune",
-                instance_class="db.r4.large"))
+                instance_class="db.r4.large",
+                apply_immediately=True))
         ```
 
         :param str resource_name: The name of the resource.

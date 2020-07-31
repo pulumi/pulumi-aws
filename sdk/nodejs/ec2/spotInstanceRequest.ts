@@ -226,6 +226,10 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.SpotInstanceRequestRootBlockDevice>;
     /**
+     * A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     */
+    public readonly secondaryPrivateIps!: pulumi.Output<string[]>;
+    /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
@@ -349,6 +353,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["publicDns"] = state ? state.publicDns : undefined;
             inputs["publicIp"] = state ? state.publicIp : undefined;
             inputs["rootBlockDevice"] = state ? state.rootBlockDevice : undefined;
+            inputs["secondaryPrivateIps"] = state ? state.secondaryPrivateIps : undefined;
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
             inputs["sourceDestCheck"] = state ? state.sourceDestCheck : undefined;
             inputs["spotBidStatus"] = state ? state.spotBidStatus : undefined;
@@ -402,6 +407,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["placementGroup"] = args ? args.placementGroup : undefined;
             inputs["privateIp"] = args ? args.privateIp : undefined;
             inputs["rootBlockDevice"] = args ? args.rootBlockDevice : undefined;
+            inputs["secondaryPrivateIps"] = args ? args.secondaryPrivateIps : undefined;
             inputs["securityGroups"] = args ? args.securityGroups : undefined;
             inputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
             inputs["spotPrice"] = args ? args.spotPrice : undefined;
@@ -593,6 +599,10 @@ export interface SpotInstanceRequestState {
      * device of the instance. See Block Devices below for details.
      */
     readonly rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice>;
+    /**
+     * A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     */
+    readonly secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */
@@ -804,6 +814,10 @@ export interface SpotInstanceRequestArgs {
      * device of the instance. See Block Devices below for details.
      */
     readonly rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice>;
+    /**
+     * A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+     */
+    readonly secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
      */

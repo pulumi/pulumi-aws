@@ -29,7 +29,9 @@ import (
 // 		_, err := fsx.NewLustreFileSystem(ctx, "example", &fsx.LustreFileSystemArgs{
 // 			ImportPath:      pulumi.String(fmt.Sprintf("%v%v", "s3://", aws_s3_bucket.Example.Bucket)),
 // 			StorageCapacity: pulumi.Int(1200),
-// 			SubnetIds:       pulumi.String(aws_subnet.Example.Id),
+// 			SubnetIds: pulumi.String(pulumi.String{
+// 				pulumi.String(aws_subnet.Example.Id),
+// 			}),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -43,6 +45,8 @@ type LustreFileSystem struct {
 
 	// Amazon Resource Name of the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+	DeploymentType pulumi.StringPtrOutput `pulumi:"deploymentType"`
 	// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
@@ -55,6 +59,8 @@ type LustreFileSystem struct {
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+	PerUnitStorageThroughput pulumi.IntPtrOutput `pulumi:"perUnitStorageThroughput"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
@@ -105,6 +111,8 @@ func GetLustreFileSystem(ctx *pulumi.Context,
 type lustreFileSystemState struct {
 	// Amazon Resource Name of the file system.
 	Arn *string `pulumi:"arn"`
+	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+	DeploymentType *string `pulumi:"deploymentType"`
 	// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
 	DnsName *string `pulumi:"dnsName"`
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
@@ -117,6 +125,8 @@ type lustreFileSystemState struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// AWS account identifier that created the file system.
 	OwnerId *string `pulumi:"ownerId"`
+	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+	PerUnitStorageThroughput *int `pulumi:"perUnitStorageThroughput"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
@@ -134,6 +144,8 @@ type lustreFileSystemState struct {
 type LustreFileSystemState struct {
 	// Amazon Resource Name of the file system.
 	Arn pulumi.StringPtrInput
+	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+	DeploymentType pulumi.StringPtrInput
 	// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
 	DnsName pulumi.StringPtrInput
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
@@ -146,6 +158,8 @@ type LustreFileSystemState struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringPtrInput
+	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+	PerUnitStorageThroughput pulumi.IntPtrInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
@@ -165,12 +179,16 @@ func (LustreFileSystemState) ElementType() reflect.Type {
 }
 
 type lustreFileSystemArgs struct {
+	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+	DeploymentType *string `pulumi:"deploymentType"`
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
 	ExportPath *string `pulumi:"exportPath"`
 	// S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
 	ImportPath *string `pulumi:"importPath"`
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
 	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
+	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+	PerUnitStorageThroughput *int `pulumi:"perUnitStorageThroughput"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
@@ -185,12 +203,16 @@ type lustreFileSystemArgs struct {
 
 // The set of arguments for constructing a LustreFileSystem resource.
 type LustreFileSystemArgs struct {
+	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+	DeploymentType pulumi.StringPtrInput
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
 	ExportPath pulumi.StringPtrInput
 	// S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
 	ImportPath pulumi.StringPtrInput
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
 	ImportedFileChunkSize pulumi.IntPtrInput
+	// - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+	PerUnitStorageThroughput pulumi.IntPtrInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.

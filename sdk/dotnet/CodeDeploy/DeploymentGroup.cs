@@ -39,7 +39,6 @@ namespace Pulumi.Aws.CodeDeploy
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var aWSCodeDeployRole = new Aws.Iam.RolePolicyAttachment("aWSCodeDeployRole", new Aws.Iam.RolePolicyAttachmentArgs
@@ -55,24 +54,9 @@ namespace Pulumi.Aws.CodeDeploy
     ///         });
     ///         var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("exampleDeploymentGroup", new Aws.CodeDeploy.DeploymentGroupArgs
     ///         {
-    ///             AlarmConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAlarmConfigurationArgs
-    ///             {
-    ///                 Alarms = 
-    ///                 {
-    ///                     "my-alarm-name",
-    ///                 },
-    ///                 Enabled = true,
-    ///             },
     ///             AppName = exampleApplication.Name,
-    ///             AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Events = 
-    ///                 {
-    ///                     "DEPLOYMENT_FAILURE",
-    ///                 },
-    ///             },
     ///             DeploymentGroupName = "example-group",
+    ///             ServiceRoleArn = exampleRole.Arn,
     ///             Ec2TagSets = 
     ///             {
     ///                 new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagSetArgs
@@ -94,7 +78,6 @@ namespace Pulumi.Aws.CodeDeploy
     ///                     },
     ///                 },
     ///             },
-    ///             ServiceRoleArn = exampleRole.Arn,
     ///             TriggerConfigurations = 
     ///             {
     ///                 new Aws.CodeDeploy.Inputs.DeploymentGroupTriggerConfigurationArgs
@@ -106,6 +89,22 @@ namespace Pulumi.Aws.CodeDeploy
     ///                     TriggerName = "example-trigger",
     ///                     TriggerTargetArn = exampleTopic.Arn,
     ///                 },
+    ///             },
+    ///             AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Events = 
+    ///                 {
+    ///                     "DEPLOYMENT_FAILURE",
+    ///                 },
+    ///             },
+    ///             AlarmConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAlarmConfigurationArgs
+    ///             {
+    ///                 Alarms = 
+    ///                 {
+    ///                     "my-alarm-name",
+    ///                 },
+    ///                 Enabled = true,
     ///             },
     ///         });
     ///     }
@@ -129,6 +128,9 @@ namespace Pulumi.Aws.CodeDeploy
     ///         var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("exampleDeploymentGroup", new Aws.CodeDeploy.DeploymentGroupArgs
     ///         {
     ///             AppName = exampleApplication.Name,
+    ///             DeploymentConfigName = "CodeDeployDefault.ECSAllAtOnce",
+    ///             DeploymentGroupName = "example",
+    ///             ServiceRoleArn = aws_iam_role.Example.Arn,
     ///             AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
     ///             {
     ///                 Enabled = true,
@@ -149,8 +151,6 @@ namespace Pulumi.Aws.CodeDeploy
     ///                     TerminationWaitTimeInMinutes = 5,
     ///                 },
     ///             },
-    ///             DeploymentConfigName = "CodeDeployDefault.ECSAllAtOnce",
-    ///             DeploymentGroupName = "example",
     ///             DeploymentStyle = new Aws.CodeDeploy.Inputs.DeploymentGroupDeploymentStyleArgs
     ///             {
     ///                 DeploymentOption = "WITH_TRAFFIC_CONTROL",
@@ -172,20 +172,19 @@ namespace Pulumi.Aws.CodeDeploy
     ///                             aws_lb_listener.Example.Arn,
     ///                         },
     ///                     },
-    ///                     TargetGroup = 
+    ///                     TargetGroups = 
     ///                     {
-    ///                         
+    ///                         new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs
     ///                         {
-    ///                             { "name", aws_lb_target_group.Blue.Name },
+    ///                             Name = aws_lb_target_group.Blue.Name,
     ///                         },
-    ///                         
+    ///                         new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs
     ///                         {
-    ///                             { "name", aws_lb_target_group.Green.Name },
+    ///                             Name = aws_lb_target_group.Green.Name,
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///             ServiceRoleArn = aws_iam_role.Example.Arn,
     ///         });
     ///     }
     /// 
@@ -207,6 +206,23 @@ namespace Pulumi.Aws.CodeDeploy
     ///         var exampleDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("exampleDeploymentGroup", new Aws.CodeDeploy.DeploymentGroupArgs
     ///         {
     ///             AppName = exampleApplication.Name,
+    ///             DeploymentGroupName = "example-group",
+    ///             ServiceRoleArn = aws_iam_role.Example.Arn,
+    ///             DeploymentStyle = new Aws.CodeDeploy.Inputs.DeploymentGroupDeploymentStyleArgs
+    ///             {
+    ///                 DeploymentOption = "WITH_TRAFFIC_CONTROL",
+    ///                 DeploymentType = "BLUE_GREEN",
+    ///             },
+    ///             LoadBalancerInfo = new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoArgs
+    ///             {
+    ///                 ElbInfos = 
+    ///                 {
+    ///                     new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoElbInfoArgs
+    ///                     {
+    ///                         Name = aws_elb.Example.Name,
+    ///                     },
+    ///                 },
+    ///             },
     ///             BlueGreenDeploymentConfig = new Aws.CodeDeploy.Inputs.DeploymentGroupBlueGreenDeploymentConfigArgs
     ///             {
     ///                 DeploymentReadyOption = new Aws.CodeDeploy.Inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs
@@ -223,23 +239,6 @@ namespace Pulumi.Aws.CodeDeploy
     ///                     Action = "KEEP_ALIVE",
     ///                 },
     ///             },
-    ///             DeploymentGroupName = "example-group",
-    ///             DeploymentStyle = new Aws.CodeDeploy.Inputs.DeploymentGroupDeploymentStyleArgs
-    ///             {
-    ///                 DeploymentOption = "WITH_TRAFFIC_CONTROL",
-    ///                 DeploymentType = "BLUE_GREEN",
-    ///             },
-    ///             LoadBalancerInfo = new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoArgs
-    ///             {
-    ///                 ElbInfos = 
-    ///                 {
-    ///                     new Aws.CodeDeploy.Inputs.DeploymentGroupLoadBalancerInfoElbInfoArgs
-    ///                     {
-    ///                         Name = aws_elb.Example.Name,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ServiceRoleArn = aws_iam_role.Example.Arn,
     ///         });
     ///     }
     /// 

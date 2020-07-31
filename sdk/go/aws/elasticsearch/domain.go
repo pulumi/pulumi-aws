@@ -69,7 +69,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
-// 			AccessPolicies: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"es:*\",\n", "      \"Principal\": \"*\",\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"arn:aws:es:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":domain/", domain, "/*\",\n", "      \"Condition\": {\n", "        \"IpAddress\": {\"aws:SourceIp\": [\"66.193.100.22/32\"]}\n", "      }\n", "    }\n", "  ]\n", "}\n", "\n")),
+// 			AccessPolicies: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"es:*\",\n", "      \"Principal\": \"*\",\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"arn:aws:es:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":domain/", domain, "/*\",\n", "      \"Condition\": {\n", "        \"IpAddress\": {\"aws:SourceIp\": [\"66.193.100.22/32\"]}\n", "      }\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -98,8 +98,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "exampleLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-// 			PolicyDocument: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"es.amazonaws.com\"\n", "      },\n", "      \"Action\": [\n", "        \"logs:PutLogEvents\",\n", "        \"logs:PutLogEventsBatch\",\n", "        \"logs:CreateLogStream\"\n", "      ],\n", "      \"Resource\": \"arn:aws:logs:*\"\n", "    }\n", "  ]\n", "}\n", "\n")),
 // 			PolicyName:     pulumi.String("example"),
+// 			PolicyDocument: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"es.amazonaws.com\"\n", "      },\n", "      \"Action\": [\n", "        \"logs:PutLogEvents\",\n", "        \"logs:PutLogEventsBatch\",\n", "        \"logs:CreateLogStream\"\n", "      ],\n", "      \"Resource\": \"arn:aws:logs:*\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -154,7 +154,7 @@ type Domain struct {
 	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
 	KibanaEndpoint pulumi.StringOutput `pulumi:"kibanaEndpoint"`
-	// Options for publishing slow logs to CloudWatch Logs.
+	// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
 	LogPublishingOptions DomainLogPublishingOptionArrayOutput `pulumi:"logPublishingOptions"`
 	// Node-to-node encryption options. See below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionOutput `pulumi:"nodeToNodeEncryption"`
@@ -226,7 +226,7 @@ type domainState struct {
 	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
 	KibanaEndpoint *string `pulumi:"kibanaEndpoint"`
-	// Options for publishing slow logs to CloudWatch Logs.
+	// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Node-to-node encryption options. See below.
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
@@ -271,7 +271,7 @@ type DomainState struct {
 	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
 	KibanaEndpoint pulumi.StringPtrInput
-	// Options for publishing slow logs to CloudWatch Logs.
+	// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
 	// Node-to-node encryption options. See below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput
@@ -310,7 +310,7 @@ type domainArgs struct {
 	ElasticsearchVersion *string `pulumi:"elasticsearchVersion"`
 	// Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
 	EncryptAtRest *DomainEncryptAtRest `pulumi:"encryptAtRest"`
-	// Options for publishing slow logs to CloudWatch Logs.
+	// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Node-to-node encryption options. See below.
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
@@ -346,7 +346,7 @@ type DomainArgs struct {
 	ElasticsearchVersion pulumi.StringPtrInput
 	// Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
 	EncryptAtRest DomainEncryptAtRestPtrInput
-	// Options for publishing slow logs to CloudWatch Logs.
+	// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
 	// Node-to-node encryption options. See below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput

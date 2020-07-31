@@ -33,8 +33,8 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
             size=40)
         example_snapshot = aws.ebs.Snapshot("exampleSnapshot", volume_id=example.id)
         example_perm = aws.ec2.SnapshotCreateVolumePermission("examplePerm",
-            account_id="12345678",
-            snapshot_id=example_snapshot.id)
+            snapshot_id=example_snapshot.id,
+            account_id="12345678")
         ```
 
         :param str resource_name: The name of the resource.

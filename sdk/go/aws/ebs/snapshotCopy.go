@@ -35,17 +35,17 @@ import (
 // 			return err
 // 		}
 // 		exampleSnapshot, err := ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
+// 			VolumeId: example.ID(),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("HelloWorld_snap"),
 // 			},
-// 			VolumeId: example.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ebs.NewSnapshotCopy(ctx, "exampleCopy", &ebs.SnapshotCopyArgs{
-// 			SourceRegion:     pulumi.String("us-west-2"),
 // 			SourceSnapshotId: exampleSnapshot.ID(),
+// 			SourceRegion:     pulumi.String("us-west-2"),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("HelloWorld_copy_snap"),
 // 			},

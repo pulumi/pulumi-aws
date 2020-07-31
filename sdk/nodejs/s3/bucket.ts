@@ -32,14 +32,14 @@ import {CannedAcl} from "./index";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
- * const bucket = new aws.s3.Bucket("b", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "public-read",
- *     policy: fs.readFileSync("policy.json", "utf-8"),
+ *     policy: fs.readFileSync("policy.json"),
  *     website: {
- *         errorDocument: "error.html",
  *         indexDocument: "index.html",
+ *         errorDocument: "error.html",
  *         routingRules: `[{
  *     "Condition": {
  *         "KeyPrefixEquals": "docs/"
@@ -91,10 +91,8 @@ import {CannedAcl} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const logBucket = new aws.s3.Bucket("log_bucket", {
- *     acl: "log-delivery-write",
- * });
- * const bucket = new aws.s3.Bucket("b", {
+ * const logBucket = new aws.s3.Bucket("logBucket", {acl: "log-delivery-write"});
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     acl: "private",
  *     loggings: [{
  *         targetBucket: logBucket.id,
@@ -173,11 +171,8 @@ import {CannedAcl} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const central = new aws.Provider("central", {
- *     region: "eu-central-1",
- * });
- * const replicationRole = new aws.iam.Role("replication", {
- *     assumeRolePolicy: `{
+ * const central = new aws.Provider("central", {region: "eu-central-1"});
+ * const replicationRole = new aws.iam.Role("replicationRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -190,35 +185,31 @@ import {CannedAcl} from "./index";
  *     }
  *   ]
  * }
- * `,
- * });
- * const destination = new aws.s3.Bucket("destination", {
- *     region: "eu-west-1",
+ * `});
+ * const destination = new aws.s3.Bucket("destination", {versioning: {
+ *     enabled: true,
+ * }});
+ * const bucket = new aws.s3.Bucket("bucket", {
+ *     acl: "private",
  *     versioning: {
  *         enabled: true,
  *     },
- * });
- * const bucket = new aws.s3.Bucket("bucket", {
- *     acl: "private",
- *     region: "eu-central-1",
  *     replicationConfiguration: {
  *         role: replicationRole.arn,
  *         rules: [{
+ *             id: "foobar",
+ *             prefix: "foo",
+ *             status: "Enabled",
  *             destination: {
  *                 bucket: destination.arn,
  *                 storageClass: "STANDARD",
  *             },
- *             id: "foobar",
- *             prefix: "foo",
- *             status: "Enabled",
  *         }],
  *     },
- *     versioning: {
- *         enabled: true,
- *     },
- * }, { provider: central });
- * const replicationPolicy = new aws.iam.Policy("replication", {
- *     policy: pulumi.interpolate`{
+ * }, {
+ *     provider: aws.central,
+ * });
+ * const replicationPolicy = new aws.iam.Policy("replicationPolicy", {policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -251,11 +242,10 @@ import {CannedAcl} from "./index";
  *     }
  *   ]
  * }
- * `,
- * });
- * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replication", {
- *     policyArn: replicationPolicy.arn,
+ * `});
+ * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment", {
  *     role: replicationRole.name,
+ *     policyArn: replicationPolicy.arn,
  * });
  * ```
  * ### Enable Default Server Side Encryption
@@ -265,19 +255,17 @@ import {CannedAcl} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const mykey = new aws.kms.Key("mykey", {
- *     deletionWindowInDays: 10,
  *     description: "This key is used to encrypt bucket objects",
+ *     deletionWindowInDays: 10,
  * });
- * const mybucket = new aws.s3.Bucket("mybucket", {
- *     serverSideEncryptionConfiguration: {
- *         rule: {
- *             applyServerSideEncryptionByDefault: {
- *                 kmsMasterKeyId: mykey.arn,
- *                 sseAlgorithm: "aws:kms",
- *             },
+ * const mybucket = new aws.s3.Bucket("mybucket", {serverSideEncryptionConfiguration: {
+ *     rule: {
+ *         applyServerSideEncryptionByDefault: {
+ *             kmsMasterKeyId: mykey.arn,
+ *             sseAlgorithm: "aws:kms",
  *         },
  *     },
- * });
+ * }});
  * ```
  * ### Using ACL policy grants
  *
@@ -285,24 +273,22 @@ import {CannedAcl} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentUser = pulumi.output(aws.getCanonicalUserId({ async: true }));
- * const bucket = new aws.s3.Bucket("bucket", {
- *     grants: [
- *         {
- *             id: currentUser.id,
- *             permissions: ["FULL_CONTROL"],
- *             type: "CanonicalUser",
- *         },
- *         {
- *             permissions: [
- *                 "READ",
- *                 "WRITE",
- *             ],
- *             type: "Group",
- *             uri: "http://acs.amazonaws.com/groups/s3/LogDelivery",
- *         },
- *     ],
- * });
+ * const currentUser = aws.getCanonicalUserId({});
+ * const bucket = new aws.s3.Bucket("bucket", {grants: [
+ *     {
+ *         id: currentUser.then(currentUser => currentUser.id),
+ *         type: "CanonicalUser",
+ *         permissions: ["FULL_CONTROL"],
+ *     },
+ *     {
+ *         type: "Group",
+ *         permissions: [
+ *             "READ",
+ *             "WRITE",
+ *         ],
+ *         uri: "http://acs.amazonaws.com/groups/s3/LogDelivery",
+ *     },
+ * ]});
  * ```
  */
 export class Bucket extends pulumi.CustomResource {
@@ -394,9 +380,9 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string | undefined>;
     /**
-     * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
+     * The AWS region this bucket resides in.
      */
-    public readonly region!: pulumi.Output<string>;
+    public /*out*/ readonly region!: pulumi.Output<string>;
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
@@ -484,7 +470,6 @@ export class Bucket extends pulumi.CustomResource {
             inputs["loggings"] = args ? args.loggings : undefined;
             inputs["objectLockConfiguration"] = args ? args.objectLockConfiguration : undefined;
             inputs["policy"] = args ? args.policy : undefined;
-            inputs["region"] = args ? args.region : undefined;
             inputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
             inputs["requestPayer"] = args ? args.requestPayer : undefined;
             inputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
@@ -495,6 +480,7 @@ export class Bucket extends pulumi.CustomResource {
             inputs["websiteEndpoint"] = args ? args.websiteEndpoint : undefined;
             inputs["bucketDomainName"] = undefined /*out*/;
             inputs["bucketRegionalDomainName"] = undefined /*out*/;
+            inputs["region"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -572,7 +558,7 @@ export interface BucketState {
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
     /**
-     * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
+     * The AWS region this bucket resides in.
      */
     readonly region?: pulumi.Input<string>;
     /**
@@ -668,10 +654,6 @@ export interface BucketArgs {
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
      */
     readonly policy?: pulumi.Input<string | PolicyDocument>;
-    /**
-     * If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
-     */
-    readonly region?: pulumi.Input<string>;
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */

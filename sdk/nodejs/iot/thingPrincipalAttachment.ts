@@ -14,12 +14,12 @@ import {ARN} from "..";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
  * const example = new aws.iot.Thing("example", {});
  * const cert = new aws.iot.Certificate("cert", {
+ *     csr: fs.readFileSync("csr.pem"),
  *     active: true,
- *     csr: fs.readFileSync("csr.pem", "utf-8"),
  * });
  * const att = new aws.iot.ThingPrincipalAttachment("att", {
  *     principal: cert.arn,

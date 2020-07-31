@@ -13,8 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRole = new aws.iam.Role("test_role", {
- *     assumeRolePolicy: `  {
+ * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: `  {
  *     "Version": "2012-10-17",
  *     "Statement": {
  *       "Effect": "Allow",
@@ -22,17 +21,18 @@ import * as utilities from "../utilities";
  *       "Action": "sts:AssumeRole"
  *     }
  *   }
- * `,
- * });
- * const testAttach = new aws.iam.RolePolicyAttachment("test_attach", {
- *     policyArn: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
+ * `});
+ * const testAttach = new aws.iam.RolePolicyAttachment("testAttach", {
  *     role: testRole.name,
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
  * });
  * const foo = new aws.ssm.Activation("foo", {
  *     description: "Test",
  *     iamRole: testRole.id,
- *     registrationLimit: 5,
- * }, { dependsOn: [testAttach] });
+ *     registrationLimit: "5",
+ * }, {
+ *     dependsOn: [testAttach],
+ * });
  * ```
  */
 export class Activation extends pulumi.CustomResource {

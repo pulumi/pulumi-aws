@@ -31,15 +31,16 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var main = new Aws.Ec2.NetworkAcl("main", new Aws.Ec2.NetworkAclArgs
     ///         {
+    ///             VpcId = aws_vpc.Main.Id,
     ///             Egress = 
     ///             {
     ///                 new Aws.Ec2.Inputs.NetworkAclEgressArgs
     ///                 {
+    ///                     Protocol = "tcp",
+    ///                     RuleNo = 200,
     ///                     Action = "allow",
     ///                     CidrBlock = "10.3.0.0/18",
     ///                     FromPort = 443,
-    ///                     Protocol = "tcp",
-    ///                     RuleNo = 200,
     ///                     ToPort = 443,
     ///                 },
     ///             },
@@ -47,11 +48,11 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 new Aws.Ec2.Inputs.NetworkAclIngressArgs
     ///                 {
+    ///                     Protocol = "tcp",
+    ///                     RuleNo = 100,
     ///                     Action = "allow",
     ///                     CidrBlock = "10.3.0.0/18",
     ///                     FromPort = 80,
-    ///                     Protocol = "tcp",
-    ///                     RuleNo = 100,
     ///                     ToPort = 80,
     ///                 },
     ///             },
@@ -59,7 +60,6 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 { "Name", "main" },
     ///             },
-    ///             VpcId = aws_vpc.Main.Id,
     ///         });
     ///     }
     /// 

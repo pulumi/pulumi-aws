@@ -30,7 +30,6 @@ namespace Pulumi.Aws.CloudWatch
     ///     ""AWS Console Sign In via CloudTrail""
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var awsLogins = new Aws.Sns.Topic("awsLogins", new Aws.Sns.TopicArgs
@@ -38,8 +37,8 @@ namespace Pulumi.Aws.CloudWatch
     ///         });
     ///         var sns = new Aws.CloudWatch.EventTarget("sns", new Aws.CloudWatch.EventTargetArgs
     ///         {
-    ///             Arn = awsLogins.Arn,
     ///             Rule = console.Name,
+    ///             Arn = awsLogins.Arn,
     ///         });
     ///         var snsTopicPolicy = awsLogins.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
     ///         {
@@ -47,20 +46,20 @@ namespace Pulumi.Aws.CloudWatch
     ///             {
     ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///                 {
+    ///                     Effect = "Allow",
     ///                     Actions = 
     ///                     {
     ///                         "SNS:Publish",
     ///                     },
-    ///                     Effect = "Allow",
     ///                     Principals = 
     ///                     {
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
     ///                         {
+    ///                             Type = "Service",
     ///                             Identifiers = 
     ///                             {
     ///                                 "events.amazonaws.com",
     ///                             },
-    ///                             Type = "Service",
     ///                         },
     ///                     },
     ///                     Resources = 

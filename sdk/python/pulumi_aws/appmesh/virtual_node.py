@@ -140,8 +140,8 @@ class VirtualNode(pulumi.CustomResource):
                         "attributes": {
                             "stack": "blue",
                         },
-                        "namespaceName": example.name,
                         "service_name": "serviceb1",
+                        "namespaceName": example.name,
                     },
                 },
             })
@@ -161,17 +161,17 @@ class VirtualNode(pulumi.CustomResource):
                     },
                 }],
                 "listener": {
-                    "health_check": {
-                        "healthyThreshold": 2,
-                        "intervalMillis": 5000,
-                        "path": "/ping",
-                        "protocol": "http",
-                        "timeoutMillis": 2000,
-                        "unhealthyThreshold": 2,
-                    },
                     "portMapping": {
                         "port": 8080,
                         "protocol": "http",
+                    },
+                    "health_check": {
+                        "protocol": "http",
+                        "path": "/ping",
+                        "healthyThreshold": 2,
+                        "unhealthyThreshold": 2,
+                        "timeoutMillis": 2000,
+                        "intervalMillis": 5000,
                     },
                 },
                 "serviceDiscovery": {
@@ -201,16 +201,16 @@ class VirtualNode(pulumi.CustomResource):
                         "protocol": "http",
                     },
                 },
+                "serviceDiscovery": {
+                    "dns": {
+                        "hostname": "serviceb.simpleapp.local",
+                    },
+                },
                 "logging": {
                     "accessLog": {
                         "file": {
                             "path": "/dev/stdout",
                         },
-                    },
-                },
-                "serviceDiscovery": {
-                    "dns": {
-                        "hostname": "serviceb.simpleapp.local",
                     },
                 },
             })

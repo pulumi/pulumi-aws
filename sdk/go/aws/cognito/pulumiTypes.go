@@ -486,10 +486,6 @@ type UserPoolAdminCreateUserConfig struct {
 	AllowAdminCreateUserOnly *bool `pulumi:"allowAdminCreateUserOnly"`
 	// The invite message template structure.
 	InviteMessageTemplate *UserPoolAdminCreateUserConfigInviteMessageTemplate `pulumi:"inviteMessageTemplate"`
-	// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
-	//
-	// Deprecated: Use password_policy.temporary_password_validity_days instead
-	UnusedAccountValidityDays *int `pulumi:"unusedAccountValidityDays"`
 }
 
 // UserPoolAdminCreateUserConfigInput is an input type that accepts UserPoolAdminCreateUserConfigArgs and UserPoolAdminCreateUserConfigOutput values.
@@ -508,10 +504,6 @@ type UserPoolAdminCreateUserConfigArgs struct {
 	AllowAdminCreateUserOnly pulumi.BoolPtrInput `pulumi:"allowAdminCreateUserOnly"`
 	// The invite message template structure.
 	InviteMessageTemplate UserPoolAdminCreateUserConfigInviteMessageTemplatePtrInput `pulumi:"inviteMessageTemplate"`
-	// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
-	//
-	// Deprecated: Use password_policy.temporary_password_validity_days instead
-	UnusedAccountValidityDays pulumi.IntPtrInput `pulumi:"unusedAccountValidityDays"`
 }
 
 func (UserPoolAdminCreateUserConfigArgs) ElementType() reflect.Type {
@@ -603,13 +595,6 @@ func (o UserPoolAdminCreateUserConfigOutput) InviteMessageTemplate() UserPoolAdm
 	}).(UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput)
 }
 
-// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
-//
-// Deprecated: Use password_policy.temporary_password_validity_days instead
-func (o UserPoolAdminCreateUserConfigOutput) UnusedAccountValidityDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v UserPoolAdminCreateUserConfig) *int { return v.UnusedAccountValidityDays }).(pulumi.IntPtrOutput)
-}
-
 type UserPoolAdminCreateUserConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (UserPoolAdminCreateUserConfigPtrOutput) ElementType() reflect.Type {
@@ -646,18 +631,6 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) InviteMessageTemplate() UserPool
 		}
 		return v.InviteMessageTemplate
 	}).(UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput)
-}
-
-// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
-//
-// Deprecated: Use password_policy.temporary_password_validity_days instead
-func (o UserPoolAdminCreateUserConfigPtrOutput) UnusedAccountValidityDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *UserPoolAdminCreateUserConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.UnusedAccountValidityDays
-	}).(pulumi.IntPtrOutput)
 }
 
 type UserPoolAdminCreateUserConfigInviteMessageTemplate struct {

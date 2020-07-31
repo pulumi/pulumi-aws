@@ -25,8 +25,8 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var examplekms = new Aws.Kms.Key("examplekms", new Aws.Kms.KeyArgs
     ///         {
-    ///             DeletionWindowInDays = 7,
     ///             Description = "KMS key 1",
+    ///             DeletionWindowInDays = 7,
     ///         });
     ///         var examplebucket = new Aws.S3.Bucket("examplebucket", new Aws.S3.BucketArgs
     ///         {
@@ -34,10 +34,10 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var examplebucketObject = new Aws.S3.BucketObject("examplebucketObject", new Aws.S3.BucketObjectArgs
     ///         {
-    ///             Bucket = examplebucket.Id,
     ///             Key = "someobject",
-    ///             KmsKeyId = examplekms.Arn,
+    ///             Bucket = examplebucket.Id,
     ///             Source = new FileAsset("index.html"),
+    ///             KmsKeyId = examplekms.Arn,
     ///         });
     ///     }
     /// 
@@ -59,10 +59,10 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var examplebucketObject = new Aws.S3.BucketObject("examplebucketObject", new Aws.S3.BucketObjectArgs
     ///         {
-    ///             Bucket = examplebucket.Id,
     ///             Key = "someobject",
-    ///             ServerSideEncryption = "aws:kms",
+    ///             Bucket = examplebucket.Id,
     ///             Source = new FileAsset("index.html"),
+    ///             ServerSideEncryption = "aws:kms",
     ///         });
     ///     }
     /// 
@@ -84,10 +84,10 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var examplebucketObject = new Aws.S3.BucketObject("examplebucketObject", new Aws.S3.BucketObjectArgs
     ///         {
-    ///             Bucket = examplebucket.Id,
     ///             Key = "someobject",
-    ///             ServerSideEncryption = "AES256",
+    ///             Bucket = examplebucket.Id,
     ///             Source = new FileAsset("index.html"),
+    ///             ServerSideEncryption = "AES256",
     ///         });
     ///     }
     /// 
@@ -106,24 +106,24 @@ namespace Pulumi.Aws.S3
     ///         var examplebucket = new Aws.S3.Bucket("examplebucket", new Aws.S3.BucketArgs
     ///         {
     ///             Acl = "private",
-    ///             ObjectLockConfiguration = new Aws.S3.Inputs.BucketObjectLockConfigurationArgs
-    ///             {
-    ///                 ObjectLockEnabled = "Enabled",
-    ///             },
     ///             Versioning = new Aws.S3.Inputs.BucketVersioningArgs
     ///             {
     ///                 Enabled = true,
     ///             },
+    ///             ObjectLockConfiguration = new Aws.S3.Inputs.BucketObjectLockConfigurationArgs
+    ///             {
+    ///                 ObjectLockEnabled = "Enabled",
+    ///             },
     ///         });
     ///         var examplebucketObject = new Aws.S3.BucketObject("examplebucketObject", new Aws.S3.BucketObjectArgs
     ///         {
-    ///             Bucket = examplebucket.Id,
-    ///             ForceDestroy = true,
     ///             Key = "someobject",
+    ///             Bucket = examplebucket.Id,
+    ///             Source = new FileAsset("important.txt"),
     ///             ObjectLockLegalHoldStatus = "ON",
     ///             ObjectLockMode = "GOVERNANCE",
     ///             ObjectLockRetainUntilDate = "2021-12-31T23:59:60Z",
-    ///             Source = new FileAsset("important.txt"),
+    ///             ForceDestroy = true,
     ///         });
     ///     }
     /// 

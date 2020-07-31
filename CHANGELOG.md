@@ -2,6 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Upgrade to v3.0.0 of the AWS Terraform Provider
+  **Please Note:**
+  * A number of `deprecated` properties on resources have been removed. You can check the full list in the
+  [upstream CHANGELOG](https://github.com/pulumi/terraform-provider-aws/blob/upstream-v3.0.0/CHANGELOG.md#300-july-31-2020)
+  * Some of the v3.0.0 highlights:
+    * Improved Credential Ordering
+    * Major changes to the `aws.acm.Certificate` to fix a number of issues regarding perpetual diffs of propertes
+    * Enabling drift detection of `loadBalancers` and `targetGroupArns` in `aws.autoscaling.Group`
 * Add ManagedPolicies.AWSXRayDaemonWriteAccess
 
 ---

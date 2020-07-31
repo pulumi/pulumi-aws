@@ -41,13 +41,13 @@ namespace Pulumi.Aws.Ec2
         ///         }));
         ///         var route = Output.Create(Aws.Ec2.GetRoute.InvokeAsync(new Aws.Ec2.GetRouteArgs
         ///         {
-        ///             DestinationCidrBlock = "10.0.1.0/24",
         ///             RouteTableId = aws_route_table.Selected.Id,
+        ///             DestinationCidrBlock = "10.0.1.0/24",
         ///         }));
-        ///         var @interface = Output.Create(Aws.Ec2.GetNetworkInterface.InvokeAsync(new Aws.Ec2.GetNetworkInterfaceArgs
+        ///         var @interface = route.Apply(route =&gt; Output.Create(Aws.Ec2.GetNetworkInterface.InvokeAsync(new Aws.Ec2.GetNetworkInterfaceArgs
         ///         {
-        ///             NetworkInterfaceId = route.Apply(route =&gt; route.NetworkInterfaceId),
-        ///         }));
+        ///             Id = route.NetworkInterfaceId,
+        ///         })));
         ///     }
         /// 
         /// }

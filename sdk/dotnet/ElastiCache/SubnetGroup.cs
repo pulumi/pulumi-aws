@@ -36,13 +36,13 @@ namespace Pulumi.Aws.ElastiCache
     ///         });
     ///         var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new Aws.Ec2.SubnetArgs
     ///         {
-    ///             AvailabilityZone = "us-west-2a",
+    ///             VpcId = fooVpc.Id,
     ///             CidrBlock = "10.0.0.0/24",
+    ///             AvailabilityZone = "us-west-2a",
     ///             Tags = 
     ///             {
     ///                 { "Name", "tf-test" },
     ///             },
-    ///             VpcId = fooVpc.Id,
     ///         });
     ///         var bar = new Aws.ElastiCache.SubnetGroup("bar", new Aws.ElastiCache.SubnetGroupArgs
     ///         {

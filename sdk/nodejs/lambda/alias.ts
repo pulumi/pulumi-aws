@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testLambdaAlias = new aws.lambda.Alias("test_lambda_alias", {
+ * const testLambdaAlias = new aws.lambda.Alias("testLambdaAlias", {
  *     description: "a sample description",
- *     functionName: aws_lambda_function_lambda_function_test.arn,
+ *     functionName: aws_lambda_function.lambda_function_test.arn,
  *     functionVersion: "1",
  *     routingConfig: {
  *         additionalVersionWeights: {
@@ -67,7 +67,7 @@ export class Alias extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The function ARN of the Lambda function for which you want to create an alias.
+     * Lambda Function name or ARN.
      */
     public readonly functionName!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface AliasState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The function ARN of the Lambda function for which you want to create an alias.
+     * Lambda Function name or ARN.
      */
     readonly functionName?: pulumi.Input<string>;
     /**
@@ -176,7 +176,7 @@ export interface AliasArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The function ARN of the Lambda function for which you want to create an alias.
+     * Lambda Function name or ARN.
      */
     readonly functionName: pulumi.Input<string>;
     /**

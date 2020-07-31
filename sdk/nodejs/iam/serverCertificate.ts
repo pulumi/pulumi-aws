@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
- * const testCert = new aws.iam.ServerCertificate("test_cert", {
- *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
- *     privateKey: fs.readFileSync("test-key.pem", "utf-8"),
+ * const testCert = new aws.iam.ServerCertificate("testCert", {
+ *     certificateBody: fs.readFileSync("self-ca-cert.pem"),
+ *     privateKey: fs.readFileSync("test-key.pem"),
  * });
  * ```
  *
@@ -63,12 +63,12 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
- * const testCert = new aws.iam.ServerCertificate("test_cert", {
- *     certificateBody: fs.readFileSync("self-ca-cert.pem", "utf-8"),
+ * const testCert = new aws.iam.ServerCertificate("testCert", {
  *     namePrefix: "example-cert",
- *     privateKey: fs.readFileSync("test-key.pem", "utf-8"),
+ *     certificateBody: fs.readFileSync("self-ca-cert.pem"),
+ *     privateKey: fs.readFileSync("test-key.pem"),
  * });
  * const ourapp = new aws.elb.LoadBalancer("ourapp", {
  *     availabilityZones: ["us-west-2a"],

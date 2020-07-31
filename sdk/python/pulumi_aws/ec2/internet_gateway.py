@@ -37,10 +37,10 @@ class InternetGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         gw = aws.ec2.InternetGateway("gw",
+            vpc_id=aws_vpc["main"]["id"],
             tags={
                 "Name": "main",
-            },
-            vpc_id=aws_vpc["main"]["id"])
+            })
         ```
 
         :param str resource_name: The name of the resource.

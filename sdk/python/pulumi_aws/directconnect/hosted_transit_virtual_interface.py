@@ -76,10 +76,10 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directconnect.HostedTransitVirtualInterface("example",
-            address_family="ipv4",
-            bgp_asn=65352,
             connection_id=aws_dx_connection["example"]["id"],
-            vlan=4094)
+            vlan=4094,
+            address_family="ipv4",
+            bgp_asn=65352)
         ```
 
         :param str resource_name: The name of the resource.

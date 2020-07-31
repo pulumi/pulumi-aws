@@ -13,19 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const role = new aws.iam.Role("role", {
- *     policy: `{
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
  *       "Effect": "Allow",
- *       "Principal": {"Service": "credentials.iot.amazonaws.com"},
+ *       "Principal": {"Service": "credentials.iot.amazonaws.com",
  *       "Action": "sts:AssumeRole"
  *     }
  *   ]
  * }
- * `,
- * });
+ * `});
  * const alias = new aws.iot.RoleAlias("alias", {
  *     alias: "Thermostat-dynamodb-access-role-alias",
  *     roleArn: role.arn,

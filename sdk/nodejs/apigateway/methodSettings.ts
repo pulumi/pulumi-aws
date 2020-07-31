@@ -17,49 +17,49 @@ import {RestApi} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testRestApi = new aws.apigateway.RestApi("test", {
- *     description: "This is my API for demonstration purposes",
- * });
- * const testResource = new aws.apigateway.Resource("test", {
+ * const testRestApi = new aws.apigateway.RestApi("testRestApi", {description: "This is my API for demonstration purposes"});
+ * const testResource = new aws.apigateway.Resource("testResource", {
+ *     restApi: testRestApi.id,
  *     parentId: testRestApi.rootResourceId,
  *     pathPart: "mytestresource",
- *     restApi: testRestApi.id,
  * });
- * const testMethod = new aws.apigateway.Method("test", {
- *     authorization: "NONE",
- *     httpMethod: "GET",
+ * const testMethod = new aws.apigateway.Method("testMethod", {
+ *     restApi: testRestApi.id,
  *     resourceId: testResource.id,
- *     restApi: testRestApi.id,
+ *     httpMethod: "GET",
+ *     authorization: "NONE",
  * });
- * const testIntegration = new aws.apigateway.Integration("test", {
+ * const testIntegration = new aws.apigateway.Integration("testIntegration", {
+ *     restApi: testRestApi.id,
+ *     resourceId: testResource.id,
  *     httpMethod: testMethod.httpMethod,
+ *     type: "MOCK",
  *     requestTemplates: {
  *         "application/xml": `{
  *    "body" : $input.json('$')
  * }
  * `,
  *     },
- *     resourceId: testResource.id,
- *     restApi: testRestApi.id,
- *     type: "MOCK",
  * });
- * const testDeployment = new aws.apigateway.Deployment("test", {
+ * const testDeployment = new aws.apigateway.Deployment("testDeployment", {
  *     restApi: testRestApi.id,
  *     stageName: "dev",
- * }, { dependsOn: [testIntegration] });
- * const testStage = new aws.apigateway.Stage("test", {
- *     deployment: testDeployment.id,
- *     restApi: testRestApi.id,
- *     stageName: "prod",
+ * }, {
+ *     dependsOn: [testIntegration],
  * });
- * const methodSettings = new aws.apigateway.MethodSettings("s", {
- *     methodPath: pulumi.interpolate`${testResource.pathPart}/${testMethod.httpMethod}`,
+ * const testStage = new aws.apigateway.Stage("testStage", {
+ *     stageName: "prod",
  *     restApi: testRestApi.id,
- *     settings: {
- *         loggingLevel: "INFO",
- *         metricsEnabled: true,
- *     },
+ *     deployment: testDeployment.id,
+ * });
+ * const methodSettings = new aws.apigateway.MethodSettings("methodSettings", {
+ *     restApi: testRestApi.id,
  *     stageName: testStage.stageName,
+ *     methodPath: pulumi.interpolate`${testResource.pathPart}/${testMethod.httpMethod}`,
+ *     settings: {
+ *         metricsEnabled: true,
+ *         loggingLevel: "INFO",
+ *     },
  * });
  * ```
  */

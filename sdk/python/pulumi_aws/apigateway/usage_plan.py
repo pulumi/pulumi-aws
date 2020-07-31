@@ -63,6 +63,7 @@ class UsagePlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         myapi = aws.apigateway.RestApi("myapi")
+        # ...
         dev = aws.apigateway.Deployment("dev",
             rest_api=myapi.id,
             stage_name="dev")
@@ -70,6 +71,8 @@ class UsagePlan(pulumi.CustomResource):
             rest_api=myapi.id,
             stage_name="prod")
         my_usage_plan = aws.apigateway.UsagePlan("myUsagePlan",
+            description="my description",
+            product_code="MYCODE",
             api_stages=[
                 {
                     "api_id": myapi.id,
@@ -80,8 +83,6 @@ class UsagePlan(pulumi.CustomResource):
                     "stage": prod.stage_name,
                 },
             ],
-            description="my description",
-            product_code="MYCODE",
             quota_settings={
                 "limit": 20,
                 "offset": 2,

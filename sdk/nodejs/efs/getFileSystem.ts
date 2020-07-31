@@ -17,10 +17,9 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const fileSystemId = config.get("fileSystemId") || "";
- *
- * const byId = pulumi.output(aws.efs.getFileSystem({
+ * const byId = aws.efs.getFileSystem({
  *     fileSystemId: fileSystemId,
- * }, { async: true }));
+ * });
  * ```
  */
 export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {

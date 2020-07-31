@@ -17,8 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const cloudwatchRole = new aws.iam.Role("cloudwatch", {
- *     assumeRolePolicy: `{
+ * const cloudwatchRole = new aws.iam.Role("cloudwatchRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -31,12 +30,10 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const demo = new aws.apigateway.Account("demo", {
- *     cloudwatchRoleArn: cloudwatchRole.arn,
- * });
- * const cloudwatchRolePolicy = new aws.iam.RolePolicy("cloudwatch", {
+ * `});
+ * const demo = new aws.apigateway.Account("demo", {cloudwatchRoleArn: cloudwatchRole.arn});
+ * const cloudwatchRolePolicy = new aws.iam.RolePolicy("cloudwatchRolePolicy", {
+ *     role: cloudwatchRole.id,
  *     policy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
@@ -56,7 +53,6 @@ import * as utilities from "../utilities";
  *     ]
  * }
  * `,
- *     role: cloudwatchRole.id,
  * });
  * ```
  */

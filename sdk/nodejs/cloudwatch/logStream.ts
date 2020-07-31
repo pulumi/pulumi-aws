@@ -14,9 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const yada = new aws.cloudwatch.LogGroup("yada", {});
- * const foo = new aws.cloudwatch.LogStream("foo", {
- *     logGroupName: yada.name,
- * });
+ * const foo = new aws.cloudwatch.LogStream("foo", {logGroupName: yada.name});
  * ```
  */
 export class LogStream extends pulumi.CustomResource {

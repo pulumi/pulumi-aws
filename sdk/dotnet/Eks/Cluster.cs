@@ -37,7 +37,6 @@ namespace Pulumi.Aws.Eks
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var example_AmazonEKSClusterPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy", new Aws.Iam.RolePolicyAttachmentArgs
@@ -70,6 +69,11 @@ namespace Pulumi.Aws.Eks
     ///     {
     ///         var config = new Config();
     ///         var clusterName = config.Get("clusterName") ?? "example";
+    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///             RetentionInDays = 7,
+    ///         });
+    ///         // ... potentially other configuration ...
     ///         var exampleCluster = new Aws.Eks.Cluster("exampleCluster", new Aws.Eks.ClusterArgs
     ///         {
     ///             EnabledClusterLogTypes = 
@@ -81,13 +85,10 @@ namespace Pulumi.Aws.Eks
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_cloudwatch_log_group.example",
+    ///                 exampleLogGroup,
     ///             },
     ///         });
-    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///             RetentionInDays = 7,
-    ///         });
+    ///         // ... other configuration ...
     ///     }
     /// 
     /// }

@@ -27,9 +27,9 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var exampleBucketPublicAccessBlock = new Aws.S3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", new Aws.S3.BucketPublicAccessBlockArgs
     ///         {
+    ///             Bucket = exampleBucket.Id,
     ///             BlockPublicAcls = true,
     ///             BlockPublicPolicy = true,
-    ///             Bucket = exampleBucket.Id,
     ///         });
     ///     }
     /// 

@@ -43,13 +43,13 @@ class Stage(pulumi.CustomResource):
         Defaults to `false`. Supported only for WebSocket APIs.
       * `detailedMetricsEnabled` (`bool`) - Whether detailed metrics are enabled for the default route. Defaults to `false`.
       * `loggingLevel` (`str`) - The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+        Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
       * `throttlingBurstLimit` (`float`) - The throttling burst limit for the default route.
       * `throttlingRateLimit` (`float`) - The throttling rate limit for the default route.
     """
     deployment_id: pulumi.Output[str]
     """
-    The deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
+    The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
     """
     description: pulumi.Output[str]
     """
@@ -79,7 +79,7 @@ class Stage(pulumi.CustomResource):
         Defaults to `false`. Supported only for WebSocket APIs.
       * `detailedMetricsEnabled` (`bool`) - Whether detailed metrics are enabled for the route. Defaults to `false`.
       * `loggingLevel` (`str`) - The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+        Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
       * `route_key` (`str`) - Route key.
       * `throttlingBurstLimit` (`float`) - The throttling burst limit for the route.
       * `throttlingRateLimit` (`float`) - The throttling rate limit for the route.
@@ -116,7 +116,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] client_certificate_id: The identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
                Supported only for WebSocket APIs.
         :param pulumi.Input[dict] default_route_settings: The default route settings for the stage.
-        :param pulumi.Input[str] deployment_id: The deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
+        :param pulumi.Input[str] deployment_id: The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
         :param pulumi.Input[str] description: The description for the stage.
         :param pulumi.Input[str] name: The name of the stage.
         :param pulumi.Input[list] route_settings: Route settings for the stage.
@@ -134,7 +134,7 @@ class Stage(pulumi.CustomResource):
             Defaults to `false`. Supported only for WebSocket APIs.
           * `detailedMetricsEnabled` (`pulumi.Input[bool]`) - Whether detailed metrics are enabled for the default route. Defaults to `false`.
           * `loggingLevel` (`pulumi.Input[str]`) - The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-            Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+            Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
           * `throttlingBurstLimit` (`pulumi.Input[float]`) - The throttling burst limit for the default route.
           * `throttlingRateLimit` (`pulumi.Input[float]`) - The throttling rate limit for the default route.
 
@@ -144,7 +144,7 @@ class Stage(pulumi.CustomResource):
             Defaults to `false`. Supported only for WebSocket APIs.
           * `detailedMetricsEnabled` (`pulumi.Input[bool]`) - Whether detailed metrics are enabled for the route. Defaults to `false`.
           * `loggingLevel` (`pulumi.Input[str]`) - The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-            Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+            Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
           * `route_key` (`pulumi.Input[str]`) - Route key.
           * `throttlingBurstLimit` (`pulumi.Input[float]`) - The throttling burst limit for the route.
           * `throttlingRateLimit` (`pulumi.Input[float]`) - The throttling rate limit for the route.
@@ -205,7 +205,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] client_certificate_id: The identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
                Supported only for WebSocket APIs.
         :param pulumi.Input[dict] default_route_settings: The default route settings for the stage.
-        :param pulumi.Input[str] deployment_id: The deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
+        :param pulumi.Input[str] deployment_id: The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
         :param pulumi.Input[str] description: The description for the stage.
         :param pulumi.Input[str] execution_arn: The ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
                or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
@@ -229,7 +229,7 @@ class Stage(pulumi.CustomResource):
             Defaults to `false`. Supported only for WebSocket APIs.
           * `detailedMetricsEnabled` (`pulumi.Input[bool]`) - Whether detailed metrics are enabled for the default route. Defaults to `false`.
           * `loggingLevel` (`pulumi.Input[str]`) - The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-            Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+            Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
           * `throttlingBurstLimit` (`pulumi.Input[float]`) - The throttling burst limit for the default route.
           * `throttlingRateLimit` (`pulumi.Input[float]`) - The throttling rate limit for the default route.
 
@@ -239,7 +239,7 @@ class Stage(pulumi.CustomResource):
             Defaults to `false`. Supported only for WebSocket APIs.
           * `detailedMetricsEnabled` (`pulumi.Input[bool]`) - Whether detailed metrics are enabled for the route. Defaults to `false`.
           * `loggingLevel` (`pulumi.Input[str]`) - The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-            Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+            Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
           * `route_key` (`pulumi.Input[str]`) - Route key.
           * `throttlingBurstLimit` (`pulumi.Input[float]`) - The throttling burst limit for the route.
           * `throttlingRateLimit` (`pulumi.Input[float]`) - The throttling rate limit for the route.

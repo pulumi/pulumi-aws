@@ -24,11 +24,10 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const lbTgArn = config.get("lbTgArn") || "";
  * const lbTgName = config.get("lbTgName") || "";
- *
- * const test = pulumi.output(aws.lb.getTargetGroup({
+ * const test = aws.lb.getTargetGroup({
  *     arn: lbTgArn,
  *     name: lbTgName,
- * }, { async: true }));
+ * });
  * ```
  */
 export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {

@@ -80,9 +80,9 @@ class Server(pulumi.CustomResource):
         		}
         	]
         }
-
         \"\"\")
         foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
+            role=foo_role.id,
             policy=\"\"\"{
         	"Version": "2012-10-17",
         	"Statement": [
@@ -96,15 +96,13 @@ class Server(pulumi.CustomResource):
         		}
         	]
         }
-
-        \"\"\",
-            role=foo_role.id)
+        \"\"\")
         foo_server = aws.transfer.Server("fooServer",
             identity_provider_type="SERVICE_MANAGED",
             logging_role=foo_role.arn,
             tags={
-                "ENV": "test",
                 "NAME": "tf-acc-test-transfer-server",
+                "ENV": "test",
             })
         ```
 

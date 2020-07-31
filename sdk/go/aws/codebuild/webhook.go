@@ -32,21 +32,21 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
+// 			ProjectName: pulumi.String(aws_codebuild_project.Example.Name),
 // 			FilterGroups: codebuild.WebhookFilterGroupArray{
 // 				&codebuild.WebhookFilterGroupArgs{
 // 					Filters: codebuild.WebhookFilterGroupFilterArray{
 // 						&codebuild.WebhookFilterGroupFilterArgs{
-// 							Pattern: pulumi.String("PUSH"),
 // 							Type:    pulumi.String("EVENT"),
+// 							Pattern: pulumi.String("PUSH"),
 // 						},
 // 						&codebuild.WebhookFilterGroupFilterArgs{
-// 							Pattern: pulumi.String("master"),
 // 							Type:    pulumi.String("HEAD_REF"),
+// 							Pattern: pulumi.String("master"),
 // 						},
 // 					},
 // 				},
 // 			},
-// 			ProjectName: pulumi.String(aws_codebuild_project.Example.Name),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -80,16 +80,16 @@ import (
 // 		}
 // 		_, err = github.NewRepositoryWebhook(ctx, "exampleRepositoryWebhook", &github.RepositoryWebhookArgs{
 // 			Active: pulumi.Bool(true),
-// 			Configuration: &github.RepositoryWebhookConfigurationArgs{
-// 				ContentType: pulumi.String("json"),
-// 				InsecureSsl: pulumi.Bool(false),
-// 				Secret:      exampleWebhook.Secret,
-// 				Url:         exampleWebhook.PayloadUrl,
-// 			},
 // 			Events: pulumi.StringArray{
 // 				pulumi.String("push"),
 // 			},
 // 			Repository: pulumi.String(github_repository.Example.Name),
+// 			Configuration: &github.RepositoryWebhookConfigurationArgs{
+// 				Url:         exampleWebhook.PayloadUrl,
+// 				Secret:      exampleWebhook.Secret,
+// 				ContentType: pulumi.String("json"),
+// 				InsecureSsl: pulumi.Bool(false),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

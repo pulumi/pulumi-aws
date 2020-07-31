@@ -24,6 +24,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///     {
     ///         var example = new Aws.GlobalAccelerator.EndpointGroup("example", new Aws.GlobalAccelerator.EndpointGroupArgs
     ///         {
+    ///             ListenerArn = aws_globalaccelerator_listener.Example.Id,
     ///             EndpointConfigurations = 
     ///             {
     ///                 new Aws.GlobalAccelerator.Inputs.EndpointGroupEndpointConfigurationArgs
@@ -32,7 +33,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///                     Weight = 100,
     ///                 },
     ///             },
-    ///             ListenerArn = aws_globalaccelerator_listener.Example.Id,
     ///         });
     ///     }
     /// 

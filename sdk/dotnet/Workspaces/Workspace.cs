@@ -14,6 +14,46 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// &gt; **NOTE:** During deletion of an `aws.workspaces.Workspace` resource, the service role `workspaces_DefaultRole` must be attached to the
     /// policy `arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess`, or it will leak the ENI that the Workspaces service creates for the Workspace.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var valueWindows10 = Output.Create(Aws.Workspaces.GetBundle.InvokeAsync(new Aws.Workspaces.GetBundleArgs
+    ///         {
+    ///             BundleId = "wsb-bh8rsxt14",
+    ///         }));
+    ///         var example = new Aws.Workspaces.Workspace("example", new Aws.Workspaces.WorkspaceArgs
+    ///         {
+    ///             DirectoryId = aws_workspaces_directory.Example.Id,
+    ///             BundleId = valueWindows10.Apply(valueWindows10 =&gt; valueWindows10.Id),
+    ///             UserName = "john.doe",
+    ///             RootVolumeEncryptionEnabled = true,
+    ///             UserVolumeEncryptionEnabled = true,
+    ///             VolumeEncryptionKey = "alias/aws/workspaces",
+    ///             WorkspaceProperties = new Aws.Workspaces.Inputs.WorkspaceWorkspacePropertiesArgs
+    ///             {
+    ///                 ComputeTypeName = "VALUE",
+    ///                 UserVolumeSizeGib = 10,
+    ///                 RootVolumeSizeGib = 80,
+    ///                 RunningMode = "AUTO_STOP",
+    ///                 RunningModeAutoStopTimeoutInMinutes = 60,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Department", "IT" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {

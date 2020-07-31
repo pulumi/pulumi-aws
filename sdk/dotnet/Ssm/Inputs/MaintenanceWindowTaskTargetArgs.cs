@@ -17,6 +17,10 @@ namespace Pulumi.Aws.Ssm.Inputs
 
         [Input("values", required: true)]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// The array of strings.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

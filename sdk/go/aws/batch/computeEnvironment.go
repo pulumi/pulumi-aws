@@ -35,14 +35,14 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		ecsInstanceRoleRole, err := iam.NewRole(ctx, "ecsInstanceRoleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "	{\n", "	    \"Action\": \"sts:AssumeRole\",\n", "	    \"Effect\": \"Allow\",\n", "	    \"Principal\": {\n", "		\"Service\": \"ec2.amazonaws.com\"\n", "	    }\n", "	}\n", "    ]\n", "}\n", "\n")),
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "	{\n", "	    \"Action\": \"sts:AssumeRole\",\n", "	    \"Effect\": \"Allow\",\n", "	    \"Principal\": {\n", "		\"Service\": \"ec2.amazonaws.com\"\n", "	    }\n", "	}\n", "    ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = iam.NewRolePolicyAttachment(ctx, "ecsInstanceRoleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"),
 // 			Role:      ecsInstanceRoleRole.Name,
+// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -54,14 +54,14 @@ import (
 // 			return err
 // 		}
 // 		awsBatchServiceRoleRole, err := iam.NewRole(ctx, "awsBatchServiceRoleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "	{\n", "	    \"Action\": \"sts:AssumeRole\",\n", "	    \"Effect\": \"Allow\",\n", "	    \"Principal\": {\n", "		\"Service\": \"batch.amazonaws.com\"\n", "	    }\n", "	}\n", "    ]\n", "}\n", "\n")),
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "	{\n", "	    \"Action\": \"sts:AssumeRole\",\n", "	    \"Effect\": \"Allow\",\n", "	    \"Principal\": {\n", "		\"Service\": \"batch.amazonaws.com\"\n", "	    }\n", "	}\n", "    ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "awsBatchServiceRoleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole"),
+// 		awsBatchServiceRoleRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "awsBatchServiceRoleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
 // 			Role:      awsBatchServiceRoleRole.Name,
+// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -69,12 +69,12 @@ import (
 // 		sampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "sampleSecurityGroup", &ec2.SecurityGroupArgs{
 // 			Egress: ec2.SecurityGroupEgressArray{
 // 				&ec2.SecurityGroupEgressArgs{
+// 					FromPort: pulumi.Int(0),
+// 					ToPort:   pulumi.Int(0),
+// 					Protocol: pulumi.String("-1"),
 // 					CidrBlocks: pulumi.StringArray{
 // 						pulumi.String("0.0.0.0/0"),
 // 					},
-// 					FromPort: pulumi.Int(0),
-// 					Protocol: pulumi.String("-1"),
-// 					ToPort:   pulumi.Int(0),
 // 				},
 // 			},
 // 		})
@@ -88,8 +88,8 @@ import (
 // 			return err
 // 		}
 // 		sampleSubnet, err := ec2.NewSubnet(ctx, "sampleSubnet", &ec2.SubnetArgs{
-// 			CidrBlock: pulumi.String("10.1.1.0/24"),
 // 			VpcId:     sampleVpc.ID(),
+// 			CidrBlock: pulumi.String("10.1.1.0/24"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -114,7 +114,7 @@ import (
 // 			ServiceRole: awsBatchServiceRoleRole.Arn,
 // 			Type:        pulumi.String("MANAGED"),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_iam_role_policy_attachment.aws_batch_service_role",
+// 			awsBatchServiceRoleRolePolicyAttachment,
 // 		}))
 // 		if err != nil {
 // 			return err

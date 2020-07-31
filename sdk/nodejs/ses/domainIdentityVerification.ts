@@ -19,19 +19,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ses.DomainIdentity("example", {
- *     domain: "example.com",
- * });
- * const exampleAmazonsesVerificationRecord = new aws.route53.Record("example_amazonses_verification_record", {
+ * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
+ * const exampleAmazonsesVerificationRecord = new aws.route53.Record("exampleAmazonsesVerificationRecord", {
+ *     zoneId: aws_route53_zone.example.zone_id,
  *     name: pulumi.interpolate`_amazonses.${example.id}`,
- *     records: [example.verificationToken],
- *     ttl: 600,
  *     type: "TXT",
- *     zoneId: aws_route53_zone_example.zoneId,
+ *     ttl: "600",
+ *     records: [example.verificationToken],
  * });
- * const exampleVerification = new aws.ses.DomainIdentityVerification("example_verification", {
- *     domain: example.id,
- * }, { dependsOn: [exampleAmazonsesVerificationRecord] });
+ * const exampleVerification = new aws.ses.DomainIdentityVerification("exampleVerification", {domain: example.id}, {
+ *     dependsOn: [exampleAmazonsesVerificationRecord],
+ * });
  * ```
  */
 export class DomainIdentityVerification extends pulumi.CustomResource {

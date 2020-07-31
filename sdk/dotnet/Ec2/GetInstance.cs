@@ -243,6 +243,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceRootBlockDeviceResult> RootBlockDevices;
         /// <summary>
+        /// The secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
+        /// </summary>
+        public readonly ImmutableArray<string> SecondaryPrivateIps;
+        /// <summary>
         /// The associated security groups.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
@@ -339,6 +343,8 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetInstanceRootBlockDeviceResult> rootBlockDevices,
 
+            ImmutableArray<string> secondaryPrivateIps,
+
             ImmutableArray<string> securityGroups,
 
             bool sourceDestCheck,
@@ -386,6 +392,7 @@ namespace Pulumi.Aws.Ec2
             PublicDns = publicDns;
             PublicIp = publicIp;
             RootBlockDevices = rootBlockDevices;
+            SecondaryPrivateIps = secondaryPrivateIps;
             SecurityGroups = securityGroups;
             SourceDestCheck = sourceDestCheck;
             SubnetId = subnetId;

@@ -62,14 +62,13 @@ namespace Pulumi.Aws.CloudTrail
     ///         }}
     ///     ]
     /// }}
-    /// 
     /// "),
     ///         });
     ///         var foobar = new Aws.CloudTrail.Trail("foobar", new Aws.CloudTrail.TrailArgs
     ///         {
-    ///             IncludeGlobalServiceEvents = false,
     ///             S3BucketName = foo.Id,
     ///             S3KeyPrefix = "prefix",
+    ///             IncludeGlobalServiceEvents = false,
     ///         });
     ///     }
     /// 

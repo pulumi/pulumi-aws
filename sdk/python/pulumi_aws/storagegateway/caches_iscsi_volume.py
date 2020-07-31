@@ -76,7 +76,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
         ## Example Usage
 
-        > **NOTE:** These examples are referencing the `storagegateway.Cache` resource `gateway_arn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = ["aws_storagegateway_cache.example"]`) to ensure proper ordering.
+        > **NOTE:** These examples are referencing the `storagegateway.Cache` resource `gateway_arn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = [aws_storagegateway_cache.example]`) to ensure proper ordering.
         ### Create Empty Cached iSCSI Volume
 
         ```python

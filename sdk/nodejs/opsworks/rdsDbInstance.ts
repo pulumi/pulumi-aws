@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myInstance = new aws.opsworks.RdsDbInstance("my_instance", {
- *     dbPassword: "somePass",
+ * const myInstance = new aws.opsworks.RdsDbInstance("myInstance", {
+ *     stackId: aws_opsworks_stack.my_stack.id,
+ *     rdsDbInstanceArn: aws_db_instance.my_instance.arn,
  *     dbUser: "someUser",
- *     rdsDbInstanceArn: aws_db_instance_my_instance.arn,
- *     stackId: aws_opsworks_stack_my_stack.id,
+ *     dbPassword: "somePass",
  * });
  * ```
  */

@@ -45,13 +45,13 @@ class LogMetricFilter(pulumi.CustomResource):
 
         dada = aws.cloudwatch.LogGroup("dada")
         yada = aws.cloudwatch.LogMetricFilter("yada",
+            pattern="",
             log_group_name=dada.name,
             metric_transformation={
                 "name": "EventCount",
                 "namespace": "YourNamespace",
                 "value": "1",
-            },
-            pattern="")
+            })
         ```
 
         :param str resource_name: The name of the resource.

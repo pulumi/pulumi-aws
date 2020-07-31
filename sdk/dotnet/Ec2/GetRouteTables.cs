@@ -39,6 +39,7 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         var rts = await Aws.Ec2.GetRouteTables.InvokeAsync(new Aws.Ec2.GetRouteTablesArgs
         ///         {
+        ///             VpcId = @var.Vpc_id,
         ///             Filters = 
         ///             {
         ///                 new Aws.Ec2.Inputs.GetRouteTablesFilterArgs
@@ -50,7 +51,6 @@ namespace Pulumi.Aws.Ec2
         ///                     },
         ///                 },
         ///             },
-        ///             VpcId = @var.Vpc_id,
         ///         });
         ///         var route = new List&lt;Aws.Ec2.Route&gt;();
         ///         for (var rangeIndex = 0; rangeIndex &lt; rts.Ids.Length; rangeIndex++)
@@ -58,8 +58,8 @@ namespace Pulumi.Aws.Ec2
         ///             var range = new { Value = rangeIndex };
         ///             route.Add(new Aws.Ec2.Route($"route-{range.Value}", new Aws.Ec2.RouteArgs
         ///             {
-        ///                 DestinationCidrBlock = "10.0.1.0/22",
         ///                 RouteTableId = rts.Ids[range.Value],
+        ///                 DestinationCidrBlock = "10.0.1.0/22",
         ///                 VpcPeeringConnectionId = "pcx-0e9a7a9ecd137dc54",
         ///             }));
         ///         }

@@ -31,18 +31,18 @@ import (
 // 			return err
 // 		}
 // 		myDemoResource, err := apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
+// 			RestApi:  myDemoAPI.ID(),
 // 			ParentId: myDemoAPI.RootResourceId,
 // 			PathPart: pulumi.String("mydemoresource"),
-// 			RestApi:  myDemoAPI.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
-// 			Authorization: pulumi.String("NONE"),
-// 			HttpMethod:    pulumi.String("GET"),
-// 			ResourceId:    myDemoResource.ID(),
 // 			RestApi:       myDemoAPI.ID(),
+// 			ResourceId:    myDemoResource.ID(),
+// 			HttpMethod:    pulumi.String("GET"),
+// 			Authorization: pulumi.String("NONE"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -75,30 +75,30 @@ import (
 // 			return err
 // 		}
 // 		thisResource, err := apigateway.NewResource(ctx, "thisResource", &apigateway.ResourceArgs{
+// 			RestApi:  thisRestApi.ID(),
 // 			ParentId: thisRestApi.RootResourceId,
 // 			PathPart: pulumi.String("{proxy+}"),
-// 			RestApi:  thisRestApi.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		thisAuthorizer, err := apigateway.NewAuthorizer(ctx, "thisAuthorizer", &apigateway.AuthorizerArgs{
-// 			ProviderArns: toPulumiStringArray(thisUserPools.Arns),
-// 			RestApi:      thisRestApi.ID(),
 // 			Type:         pulumi.String("COGNITO_USER_POOLS"),
+// 			RestApi:      thisRestApi.ID(),
+// 			ProviderArns: toPulumiStringArray(thisUserPools.Arns),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = apigateway.NewMethod(ctx, "any", &apigateway.MethodArgs{
+// 			RestApi:       thisRestApi.ID(),
+// 			ResourceId:    thisResource.ID(),
+// 			HttpMethod:    pulumi.String("ANY"),
 // 			Authorization: pulumi.String("COGNITO_USER_POOLS"),
 // 			AuthorizerId:  thisAuthorizer.ID(),
-// 			HttpMethod:    pulumi.String("ANY"),
 // 			RequestParameters: pulumi.BoolMap{
 // 				"method.request.path.proxy": pulumi.Bool(true),
 // 			},
-// 			ResourceId: thisResource.ID(),
-// 			RestApi:    thisRestApi.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

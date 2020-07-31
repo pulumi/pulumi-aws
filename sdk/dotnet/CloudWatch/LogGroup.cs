@@ -38,7 +38,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class LogGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the log group.
+        /// The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class LogGroupState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the log group.
+        /// The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -36,7 +36,7 @@ class Member(pulumi.CustomResource):
     """
     relationship_status: pulumi.Output[str]
     """
-    The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+    The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
     """
     def __init__(__self__, resource_name, opts=None, account_id=None, detector_id=None, disable_email_notification=None, email=None, invitation_message=None, invite=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -48,12 +48,12 @@ class Member(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        master = aws.guardduty.Detector("master", enable=True)
+        primary = aws.guardduty.Detector("primary", enable=True)
         member_detector = aws.guardduty.Detector("memberDetector", enable=True,
-        opts=ResourceOptions(provider="aws.dev"))
+        opts=ResourceOptions(provider=aws["dev"]))
         member_member = aws.guardduty.Member("memberMember",
             account_id=member_detector.account_id,
-            detector_id=master.id,
+            detector_id=primary.id,
             email="required@example.com",
             invite=True,
             invitation_message="please accept guardduty invitation")
@@ -119,7 +119,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[str] email: Email address for member account.
         :param pulumi.Input[str] invitation_message: Message for invitation.
         :param pulumi.Input[bool] invite: Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
-        :param pulumi.Input[str] relationship_status: The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+        :param pulumi.Input[str] relationship_status: The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

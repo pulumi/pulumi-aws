@@ -36,17 +36,16 @@ class RoleAlias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        role = aws.iam.Role("role", policy=\"\"\"{
+        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
             {
               "Effect": "Allow",
-              "Principal": {"Service": "credentials.iot.amazonaws.com"},
+              "Principal": {"Service": "credentials.iot.amazonaws.com",
               "Action": "sts:AssumeRole"
             }
           ]
         }
-
         \"\"\")
         alias = aws.iot.RoleAlias("alias",
             alias="Thermostat-dynamodb-access-role-alias",

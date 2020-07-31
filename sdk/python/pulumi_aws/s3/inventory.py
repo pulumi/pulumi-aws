@@ -74,15 +74,15 @@ class Inventory(pulumi.CustomResource):
         inventory = aws.s3.Bucket("inventory")
         test_inventory = aws.s3.Inventory("testInventory",
             bucket=test_bucket.id,
-            destination={
-                "bucket": {
-                    "bucketArn": inventory.arn,
-                    "format": "ORC",
-                },
-            },
             included_object_versions="All",
             schedule={
                 "frequency": "Daily",
+            },
+            destination={
+                "bucket": {
+                    "format": "ORC",
+                    "bucketArn": inventory.arn,
+                },
             })
         ```
         ### Add inventory configuration with S3 bucket object prefix
@@ -95,19 +95,19 @@ class Inventory(pulumi.CustomResource):
         inventory = aws.s3.Bucket("inventory")
         test_prefix = aws.s3.Inventory("test-prefix",
             bucket=test.id,
-            destination={
-                "bucket": {
-                    "bucketArn": inventory.arn,
-                    "format": "ORC",
-                    "prefix": "inventory",
-                },
+            included_object_versions="All",
+            schedule={
+                "frequency": "Daily",
             },
             filter={
                 "prefix": "documents/",
             },
-            included_object_versions="All",
-            schedule={
-                "frequency": "Daily",
+            destination={
+                "bucket": {
+                    "format": "ORC",
+                    "bucketArn": inventory.arn,
+                    "prefix": "inventory",
+                },
             })
         ```
 

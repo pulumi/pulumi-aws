@@ -29,8 +29,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		privateS3VpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "privateS3VpcEndpoint", &ec2.VpcEndpointArgs{
-// 			ServiceName: pulumi.String("com.amazonaws.us-west-2.s3"),
 // 			VpcId:       pulumi.String(aws_vpc.Foo.Id),
+// 			ServiceName: pulumi.String("com.amazonaws.us-west-2.s3"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -42,16 +42,16 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewNetworkAclRule(ctx, "privateS3NetworkAclRule", &ec2.NetworkAclRuleArgs{
+// 			NetworkAclId: bar.ID(),
+// 			RuleNumber:   pulumi.Int(200),
+// 			Egress:       pulumi.Bool(false),
+// 			Protocol:     pulumi.String("tcp"),
+// 			RuleAction:   pulumi.String("allow"),
 // 			CidrBlock: privateS3PrefixList.ApplyT(func(privateS3PrefixList aws.GetPrefixListResult) (string, error) {
 // 				return privateS3PrefixList.CidrBlocks[0], nil
 // 			}).(pulumi.StringOutput),
-// 			Egress:       pulumi.Bool(false),
-// 			FromPort:     pulumi.Int(443),
-// 			NetworkAclId: bar.ID(),
-// 			Protocol:     pulumi.String("tcp"),
-// 			RuleAction:   pulumi.String("allow"),
-// 			RuleNumber:   pulumi.Int(200),
-// 			ToPort:       pulumi.Int(443),
+// 			FromPort: pulumi.Int(443),
+// 			ToPort:   pulumi.Int(443),
 // 		})
 // 		if err != nil {
 // 			return err

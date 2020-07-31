@@ -41,10 +41,14 @@ class Provider(pulumi.ProviderResource):
 
         The **assume_role** object supports the following:
 
+          * `duration_seconds` (`pulumi.Input[float]`)
           * `external_id` (`pulumi.Input[str]`)
           * `policy` (`pulumi.Input[str]`)
+          * `policy_arns` (`pulumi.Input[list]`)
           * `role_arn` (`pulumi.Input[str]`)
           * `session_name` (`pulumi.Input[str]`)
+          * `tags` (`pulumi.Input[dict]`)
+          * `transitive_tag_keys` (`pulumi.Input[list]`)
 
         The **endpoints** object supports the following:
 
@@ -122,7 +126,6 @@ class Provider(pulumi.ProviderResource):
           * `iotevents` (`pulumi.Input[str]`)
           * `kafka` (`pulumi.Input[str]`)
           * `kinesis` (`pulumi.Input[str]`)
-          * `kinesis_analytics` (`pulumi.Input[str]`)
           * `kinesisanalytics` (`pulumi.Input[str]`)
           * `kinesisanalyticsv2` (`pulumi.Input[str]`)
           * `kinesisvideo` (`pulumi.Input[str]`)
@@ -152,7 +155,6 @@ class Provider(pulumi.ProviderResource):
           * `pricing` (`pulumi.Input[str]`)
           * `qldb` (`pulumi.Input[str]`)
           * `quicksight` (`pulumi.Input[str]`)
-          * `r53` (`pulumi.Input[str]`)
           * `ram` (`pulumi.Input[str]`)
           * `rds` (`pulumi.Input[str]`)
           * `redshift` (`pulumi.Input[str]`)

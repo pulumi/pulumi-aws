@@ -160,6 +160,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultNetworkAcl("default", default_network_acl_id=mainvpc.default_network_acl_id)
+        # no rules defined, deny all traffic in this ACL
         ```
 
         :param str resource_name: The name of the resource.

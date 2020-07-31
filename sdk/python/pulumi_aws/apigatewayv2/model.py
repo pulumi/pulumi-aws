@@ -52,7 +52,6 @@ class Model(pulumi.CustomResource):
             "id": { "type": "string" }
           }
         }
-
         \"\"\")
         ```
 

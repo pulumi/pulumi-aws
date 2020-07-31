@@ -41,8 +41,8 @@ class Database(pulumi.CustomResource):
 
         hoge_bucket = aws.s3.Bucket("hogeBucket")
         hoge_database = aws.athena.Database("hogeDatabase",
-            bucket=hoge_bucket.bucket,
-            name="database_name")
+            name="database_name",
+            bucket=hoge_bucket.bucket)
         ```
 
         :param str resource_name: The name of the resource.

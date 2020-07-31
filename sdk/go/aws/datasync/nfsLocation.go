@@ -27,13 +27,13 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datasync.NewNfsLocation(ctx, "example", &datasync.NfsLocationArgs{
+// 			ServerHostname: pulumi.String("nfs.example.com"),
+// 			Subdirectory:   pulumi.String("/exported/path"),
 // 			OnPremConfig: &datasync.NfsLocationOnPremConfigArgs{
 // 				AgentArns: pulumi.StringArray{
 // 					pulumi.String(aws_datasync_agent.Example.Arn),
 // 				},
 // 			},
-// 			ServerHostname: pulumi.String("nfs.example.com"),
-// 			Subdirectory:   pulumi.String("/exported/path"),
 // 		})
 // 		if err != nil {
 // 			return err

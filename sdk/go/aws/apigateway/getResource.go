@@ -29,8 +29,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = apigateway.LookupResource(ctx, &apigateway.LookupResourceArgs{
-// 			Path:      "/endpoint/path",
 // 			RestApiId: myRestApi.Id,
+// 			Path:      "/endpoint/path",
 // 		}, nil)
 // 		if err != nil {
 // 			return err

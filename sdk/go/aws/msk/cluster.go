@@ -113,7 +113,7 @@ import (
 // 		}
 // 		example, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
 // 			ClusterName:         pulumi.String("example"),
-// 			KafkaVersion:        pulumi.String("2.1.0"),
+// 			KafkaVersion:        pulumi.String("2.4.1"),
 // 			NumberOfBrokerNodes: pulumi.Int(3),
 // 			BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
 // 				InstanceType:  pulumi.String("kafka.m5.large"),
@@ -165,7 +165,6 @@ import (
 // 			return err
 // 		}
 // 		ctx.Export("zookeeperConnectString", example.ZookeeperConnectString)
-// 		ctx.Export("bootstrapBrokers", example.BootstrapBrokers)
 // 		ctx.Export("bootstrapBrokersTls", example.BootstrapBrokersTls)
 // 		return nil
 // 	})

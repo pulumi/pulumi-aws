@@ -109,7 +109,7 @@ def get_layer_version(compatible_runtime=None,layer_name=None,version=None,opts=
     import pulumi_aws as aws
 
     config = pulumi.Config()
-    layer_name = config.require_object("layerName")
+    layer_name = config.require("layerName")
     existing = aws.lambda.get_layer_version(layer_name=layer_name)
     ```
 

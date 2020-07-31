@@ -13,23 +13,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDomainIdentity = new aws.ses.DomainIdentity("example", {
- *     domain: "example.com",
- * });
+ * const exampleDomainIdentity = new aws.ses.DomainIdentity("exampleDomainIdentity", {domain: "example.com"});
  * const examplePolicyDocument = exampleDomainIdentity.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
  *             "SES:SendEmail",
  *             "SES:SendRawEmail",
  *         ],
+ *         resources: [arn],
  *         principals: [{
  *             identifiers: ["*"],
  *             type: "AWS",
  *         }],
- *         resources: [arn],
  *     }],
- * }, { async: true }));
- * const exampleIdentityPolicy = new aws.ses.IdentityPolicy("example", {
+ * }));
+ * const exampleIdentityPolicy = new aws.ses.IdentityPolicy("exampleIdentityPolicy", {
  *     identity: exampleDomainIdentity.arn,
  *     policy: examplePolicyDocument.json,
  * });

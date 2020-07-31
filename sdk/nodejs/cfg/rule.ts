@@ -20,8 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const role = new aws.iam.Role("r", {
- *     assumeRolePolicy: `{
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -34,18 +33,16 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
+ * `});
+ * const foo = new aws.cfg.Recorder("foo", {roleArn: role.arn});
+ * const rule = new aws.cfg.Rule("rule", {source: {
+ *     owner: "AWS",
+ *     sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
+ * }}, {
+ *     dependsOn: [foo],
  * });
- * const foo = new aws.cfg.Recorder("foo", {
- *     roleArn: role.arn,
- * });
- * const rule = new aws.cfg.Rule("r", {
- *     source: {
- *         owner: "AWS",
- *         sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
- *     },
- * }, { dependsOn: [foo] });
- * const rolePolicy = new aws.iam.RolePolicy("p", {
+ * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
+ *     role: role.id,
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -58,7 +55,6 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     role: role.id,
  * });
  * ```
  * ### Custom Rules
@@ -69,19 +65,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRecorder = new aws.cfg.Recorder("example", {});
- * const exampleFunction = new aws.lambda.Function("example", {});
- * const examplePermission = new aws.lambda.Permission("example", {
+ * const exampleRecorder = new aws.cfg.Recorder("exampleRecorder", {});
+ * // ... other configuration ...
+ * const exampleFunction = new aws.lambda.Function("exampleFunction", {});
+ * // ... other configuration ...
+ * const examplePermission = new aws.lambda.Permission("examplePermission", {
  *     action: "lambda:InvokeFunction",
- *     function: exampleFunction.arn,
+ *     "function": exampleFunction.arn,
  *     principal: "config.amazonaws.com",
  * });
- * const exampleRule = new aws.cfg.Rule("example", {
- *     source: {
- *         owner: "CUSTOM_LAMBDA",
- *         sourceIdentifier: exampleFunction.arn,
- *     },
- * }, { dependsOn: [exampleRecorder, examplePermission] });
+ * // ... other configuration ...
+ * const exampleRule = new aws.cfg.Rule("exampleRule", {source: {
+ *     owner: "CUSTOM_LAMBDA",
+ *     sourceIdentifier: exampleFunction.arn,
+ * }}, {
+ *     dependsOn: [
+ *         exampleRecorder,
+ *         examplePermission,
+ *     ],
+ * });
  * ```
  */
 export class Rule extends pulumi.CustomResource {

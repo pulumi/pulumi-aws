@@ -26,14 +26,14 @@ namespace Pulumi.Aws.DataSync
     ///     {
     ///         var example = new Aws.DataSync.LocationSmb("example", new Aws.DataSync.LocationSmbArgs
     ///         {
+    ///             ServerHostname = "smb.example.com",
+    ///             Subdirectory = "/exported/path",
+    ///             User = "Guest",
+    ///             Password = "ANotGreatPassword",
     ///             AgentArns = 
     ///             {
     ///                 aws_datasync_agent.Example.Arn,
     ///             },
-    ///             Password = "ANotGreatPassword",
-    ///             ServerHostname = "smb.example.com",
-    ///             Subdirectory = "/exported/path",
-    ///             User = "Guest",
     ///         });
     ///     }
     /// 

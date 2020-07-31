@@ -24,35 +24,6 @@ import (
 //
 // > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 //
-// ## Example Usage
-//
-// Basic usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewSecurityGroupRule(ctx, "example", &ec2.SecurityGroupRuleArgs{
-// 			Type:            pulumi.String("ingress"),
-// 			FromPort:        pulumi.Int(0),
-// 			ToPort:          pulumi.Int(65535),
-// 			Protocol:        pulumi.String("tcp"),
-// 			CidrBlocks:      aws_vpc.Example.Cidr_block,
-// 			SecurityGroupId: pulumi.String("sg-123456"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 // ## Usage with prefix list IDs
 //
 // Prefix list IDs are manged by AWS internally. Prefix list IDs
@@ -74,14 +45,14 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewSecurityGroupRule(ctx, "allowAll", &ec2.SecurityGroupRuleArgs{
-// 			FromPort: pulumi.Int(0),
+// 			Type:     pulumi.String("egress"),
+// 			ToPort:   pulumi.Int(0),
+// 			Protocol: pulumi.String("-1"),
 // 			PrefixListIds: pulumi.StringArray{
 // 				myEndpoint.PrefixListId,
 // 			},
-// 			Protocol:        pulumi.String("-1"),
+// 			FromPort:        pulumi.Int(0),
 // 			SecurityGroupId: pulumi.String("sg-123456"),
-// 			ToPort:          pulumi.Int(0),
-// 			Type:            pulumi.String("egress"),
 // 		})
 // 		if err != nil {
 // 			return err

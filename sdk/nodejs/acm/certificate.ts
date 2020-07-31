@@ -47,15 +47,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as tls from "@pulumi/tls";
  *
- * const examplePrivateKey = new tls.PrivateKey("example", {
- *     algorithm: "RSA",
- * });
- * const exampleSelfSignedCert = new tls.SelfSignedCert("example", {
- *     allowedUses: [
- *         "key_encipherment",
- *         "digital_signature",
- *         "server_auth",
- *     ],
+ * const examplePrivateKey = new tls.PrivateKey("examplePrivateKey", {algorithm: "RSA"});
+ * const exampleSelfSignedCert = new tls.SelfSignedCert("exampleSelfSignedCert", {
  *     keyAlgorithm: "RSA",
  *     privateKeyPem: examplePrivateKey.privateKeyPem,
  *     subjects: [{
@@ -63,11 +56,40 @@ import * as utilities from "../utilities";
  *         organization: "ACME Examples, Inc",
  *     }],
  *     validityPeriodHours: 12,
+ *     allowedUses: [
+ *         "key_encipherment",
+ *         "digital_signature",
+ *         "server_auth",
+ *     ],
  * });
  * const cert = new aws.acm.Certificate("cert", {
- *     certificateBody: exampleSelfSignedCert.certPem,
  *     privateKey: examplePrivateKey.privateKeyPem,
+ *     certificateBody: exampleSelfSignedCert.certPem,
  * });
+ * ```
+ * ### Referencing domainValidationOptions With forEach Based Resources
+ *
+ * See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example: aws.route53.Record[];
+ * for (const range of Object.entries(.reduce((__obj, dvo) => { ...__obj, [dvo.domainName]: {
+ *     name: dvo.resourceRecordName,
+ *     record: dvo.resourceRecordValue,
+ *     type: dvo.resourceRecordType,
+ * } })).map(([k, v]) => {key: k, value: v})) {
+ *     example.push(new aws.route53.Record(`example-${range.key}`, {
+ *         allowOverwrite: true,
+ *         name: range.value.name,
+ *         records: [range.value.record],
+ *         ttl: 60,
+ *         type: range.value.type,
+ *         zoneId: aws_route53_zone.example.zone_id,
+ *     }));
+ * }
  * ```
  */
 export class Certificate extends pulumi.CustomResource {
@@ -120,7 +142,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
-     * A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
      */
     public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.acm.CertificateDomainValidationOption[]>;
     /**
@@ -137,7 +159,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+     * Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
      */
     public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
     /**
@@ -231,7 +253,7 @@ export interface CertificateState {
      */
     readonly domainName?: pulumi.Input<string>;
     /**
-     * A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
      */
     readonly domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateDomainValidationOption>[]>;
     /**
@@ -248,7 +270,7 @@ export interface CertificateState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+     * Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
      */
     readonly subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -296,7 +318,7 @@ export interface CertificateArgs {
      */
     readonly privateKey?: pulumi.Input<string>;
     /**
-     * A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+     * Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
      */
     readonly subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**

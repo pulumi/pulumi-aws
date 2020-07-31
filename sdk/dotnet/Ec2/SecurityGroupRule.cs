@@ -42,7 +42,10 @@ namespace Pulumi.Aws.Ec2
     ///             FromPort = 0,
     ///             ToPort = 65535,
     ///             Protocol = "tcp",
-    ///             CidrBlocks = aws_vpc.Example.Cidr_block,
+    ///             CidrBlocks = 
+    ///             {
+    ///                 aws_vpc.Example.Cidr_block,
+    ///             },
     ///             SecurityGroupId = "sg-123456",
     ///         });
     ///     }
@@ -67,17 +70,18 @@ namespace Pulumi.Aws.Ec2
     ///         var myEndpoint = new Aws.Ec2.VpcEndpoint("myEndpoint", new Aws.Ec2.VpcEndpointArgs
     ///         {
     ///         });
+    ///         // ...
     ///         var allowAll = new Aws.Ec2.SecurityGroupRule("allowAll", new Aws.Ec2.SecurityGroupRuleArgs
     ///         {
-    ///             FromPort = 0,
+    ///             Type = "egress",
+    ///             ToPort = 0,
+    ///             Protocol = "-1",
     ///             PrefixListIds = 
     ///             {
     ///                 myEndpoint.PrefixListId,
     ///             },
-    ///             Protocol = "-1",
+    ///             FromPort = 0,
     ///             SecurityGroupId = "sg-123456",
-    ///             ToPort = 0,
-    ///             Type = "egress",
     ///         });
     ///     }
     /// 

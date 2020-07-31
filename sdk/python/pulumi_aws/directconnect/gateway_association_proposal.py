@@ -34,11 +34,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
     """
     AWS Account identifier of the Direct Connect Gateway's owner.
     """
-    vpn_gateway_id: pulumi.Output[str]
-    """
-    *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
-    """
-    def __init__(__self__, resource_name, opts=None, allowed_prefixes=None, associated_gateway_id=None, dx_gateway_id=None, dx_gateway_owner_account_id=None, vpn_gateway_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allowed_prefixes=None, associated_gateway_id=None, dx_gateway_id=None, dx_gateway_owner_account_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the `directconnect.GatewayAssociation` resource.
 
@@ -49,9 +45,9 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.directconnect.GatewayAssociationProposal("example",
-            associated_gateway_id=aws_vpn_gateway["example"]["id"],
             dx_gateway_id=aws_dx_gateway["example"]["id"],
-            dx_gateway_owner_account_id=aws_dx_gateway["example"]["owner_account_id"])
+            dx_gateway_owner_account_id=aws_dx_gateway["example"]["owner_account_id"],
+            associated_gateway_id=aws_vpn_gateway["example"]["id"])
         ```
 
         A full example of how to create a VPN Gateway in one AWS account, create a Direct Connect Gateway in a second AWS account, and associate the VPN Gateway with the Direct Connect Gateway via the `directconnect.GatewayAssociationProposal` and `directconnect.GatewayAssociation` resources can be found in [the `./examples/dx-gateway-cross-account-vgw-association` directory within the Github Repository](https://github.com/providers/provider-aws/tree/master/examples/dx-gateway-cross-account-vgw-association).
@@ -62,7 +58,6 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         :param pulumi.Input[str] associated_gateway_id: The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         :param pulumi.Input[str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
-        :param pulumi.Input[str] vpn_gateway_id: *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,6 +77,8 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['allowed_prefixes'] = allowed_prefixes
+            if associated_gateway_id is None:
+                raise TypeError("Missing required property 'associated_gateway_id'")
             __props__['associated_gateway_id'] = associated_gateway_id
             if dx_gateway_id is None:
                 raise TypeError("Missing required property 'dx_gateway_id'")
@@ -89,10 +86,6 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             if dx_gateway_owner_account_id is None:
                 raise TypeError("Missing required property 'dx_gateway_owner_account_id'")
             __props__['dx_gateway_owner_account_id'] = dx_gateway_owner_account_id
-            if vpn_gateway_id is not None:
-                warnings.warn("use 'associated_gateway_id' argument instead", DeprecationWarning)
-                pulumi.log.warn("vpn_gateway_id is deprecated: use 'associated_gateway_id' argument instead")
-            __props__['vpn_gateway_id'] = vpn_gateway_id
             __props__['associated_gateway_owner_account_id'] = None
             __props__['associated_gateway_type'] = None
         super(GatewayAssociationProposal, __self__).__init__(
@@ -102,7 +95,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allowed_prefixes=None, associated_gateway_id=None, associated_gateway_owner_account_id=None, associated_gateway_type=None, dx_gateway_id=None, dx_gateway_owner_account_id=None, vpn_gateway_id=None):
+    def get(resource_name, id, opts=None, allowed_prefixes=None, associated_gateway_id=None, associated_gateway_owner_account_id=None, associated_gateway_type=None, dx_gateway_id=None, dx_gateway_owner_account_id=None):
         """
         Get an existing GatewayAssociationProposal resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -116,7 +109,6 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         :param pulumi.Input[str] associated_gateway_type: The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
         :param pulumi.Input[str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
-        :param pulumi.Input[str] vpn_gateway_id: *Deprecated:* Use `associated_gateway_id` instead. Virtual Gateway identifier to associate with the Direct Connect Gateway.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -128,7 +120,6 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         __props__["associated_gateway_type"] = associated_gateway_type
         __props__["dx_gateway_id"] = dx_gateway_id
         __props__["dx_gateway_owner_account_id"] = dx_gateway_owner_account_id
-        __props__["vpn_gateway_id"] = vpn_gateway_id
         return GatewayAssociationProposal(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -23,6 +23,84 @@ import (
 // servers reboots.
 //
 // ## Example Usage
+// ### Redis Cluster Mode Disabled
+//
+// To create a single shard primary with single read replica:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := elasticache.NewReplicationGroup(ctx, "example", &elasticache.ReplicationGroupArgs{
+// 			AutomaticFailoverEnabled: pulumi.Bool(true),
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-west-2a"),
+// 				pulumi.String("us-west-2b"),
+// 			},
+// 			NodeType:                    pulumi.String("cache.m4.large"),
+// 			NumberCacheClusters:         pulumi.Int(2),
+// 			ParameterGroupName:          pulumi.String("default.redis3.2"),
+// 			Port:                        pulumi.Int(6379),
+// 			ReplicationGroupDescription: pulumi.String("test description"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// You have two options for adjusting the number of replicas:
+//
+// * Adjusting `numberCacheClusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g. preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
+// * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `elasticache.Cluster` resource and its `replicationGroupId` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `numberCacheCluster` attribute.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := elasticache.NewReplicationGroup(ctx, "example", &elasticache.ReplicationGroupArgs{
+// 			AutomaticFailoverEnabled: pulumi.Bool(true),
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-west-2a"),
+// 				pulumi.String("us-west-2b"),
+// 			},
+// 			ReplicationGroupDescription: pulumi.String("test description"),
+// 			NodeType:                    pulumi.String("cache.m4.large"),
+// 			NumberCacheClusters:         pulumi.Int(2),
+// 			ParameterGroupName:          pulumi.String("default.redis3.2"),
+// 			Port:                        pulumi.Int(6379),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		var replica []*elasticache.Cluster
+// 		for key0, _ := range 1 == true {
+// 			__res, err := elasticache.NewCluster(ctx, fmt.Sprintf("replica-%v", key0), &elasticache.ClusterArgs{
+// 				ReplicationGroupId: example.ID(),
+// 			})
+// 			if err != nil {
+// 				return err
+// 			}
+// 			replica = append(replica, __res)
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Redis Cluster Mode Enabled
 //
 // To create two shards with a primary and a single read replica each:

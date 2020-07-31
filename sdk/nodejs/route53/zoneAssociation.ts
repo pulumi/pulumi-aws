@@ -22,24 +22,17 @@ import * as utilities from "../utilities";
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
  * });
- * const secondaryVpc = new aws.ec2.Vpc("secondary", {
+ * const secondaryVpc = new aws.ec2.Vpc("secondaryVpc", {
  *     cidrBlock: "10.7.0.0/16",
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
  * });
- * const example = new aws.route53.Zone("example", {
- *     // NOTE: The aws_route53_zone vpc argument accepts multiple configuration
- *     //       blocks. The below usage of the single vpc configuration, the
- *     //       lifecycle configuration, and the aws_route53_zone_association
- *     //       resource is for illustrative purposes (e.g. for a separate
- *     //       cross-account authorization process, which is not shown here).
- *     vpcs: [{
- *         vpcId: primary.id,
- *     }],
- * }, { ignoreChanges: ["vpcId", "vpcRegion", "vpcs"] });
- * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondary", {
- *     vpcId: secondaryVpc.id,
+ * const example = new aws.route53.Zone("example", {vpcs: [{
+ *     vpcId: primary.id,
+ * }]});
+ * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondaryZoneAssociation", {
  *     zoneId: example.zoneId,
+ *     vpcId: secondaryVpc.id,
  * });
  * ```
  */

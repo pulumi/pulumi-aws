@@ -45,10 +45,10 @@ class S3Location(pulumi.CustomResource):
 
         example = aws.datasync.S3Location("example",
             s3_bucket_arn=aws_s3_bucket["example"]["arn"],
+            subdirectory="/example/prefix",
             s3_config={
                 "bucketAccessRoleArn": aws_iam_role["example"]["arn"],
-            },
-            subdirectory="/example/prefix")
+            })
         ```
 
         :param str resource_name: The name of the resource.

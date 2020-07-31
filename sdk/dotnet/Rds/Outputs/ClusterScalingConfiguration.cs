@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly int? MaxCapacity;
         /// <summary>
-        /// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
+        /// The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
         /// </summary>
         public readonly int? MinCapacity;
         /// <summary>

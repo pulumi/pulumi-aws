@@ -41,35 +41,35 @@ import (
 // 		}
 // 		example, err := rds.NewGlobalCluster(ctx, "example", &rds.GlobalClusterArgs{
 // 			GlobalClusterIdentifier: pulumi.String("example"),
-// 		}, pulumi.Provider("aws.primary"))
+// 		}, pulumi.Provider(aws.Primary))
 // 		if err != nil {
 // 			return err
 // 		}
 // 		primaryCluster, err := rds.NewCluster(ctx, "primaryCluster", &rds.ClusterArgs{
 // 			EngineMode:              pulumi.String("global"),
 // 			GlobalClusterIdentifier: example.ID(),
-// 		}, pulumi.Provider("aws.primary"))
+// 		}, pulumi.Provider(aws.Primary))
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = rds.NewClusterInstance(ctx, "primaryClusterInstance", &rds.ClusterInstanceArgs{
+// 		primaryClusterInstance, err := rds.NewClusterInstance(ctx, "primaryClusterInstance", &rds.ClusterInstanceArgs{
 // 			ClusterIdentifier: primaryCluster.ID(),
-// 		}, pulumi.Provider("aws.primary"))
+// 		}, pulumi.Provider(aws.Primary))
 // 		if err != nil {
 // 			return err
 // 		}
 // 		secondaryCluster, err := rds.NewCluster(ctx, "secondaryCluster", &rds.ClusterArgs{
 // 			EngineMode:              pulumi.String("global"),
 // 			GlobalClusterIdentifier: example.ID(),
-// 		}, pulumi.Provider("aws.secondary"), pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_rds_cluster_instance.primary",
+// 		}, pulumi.Provider(aws.Secondary), pulumi.DependsOn([]pulumi.Resource{
+// 			primaryClusterInstance,
 // 		}))
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = rds.NewClusterInstance(ctx, "secondaryClusterInstance", &rds.ClusterInstanceArgs{
 // 			ClusterIdentifier: secondaryCluster.ID(),
-// 		}, pulumi.Provider("aws.secondary"))
+// 		}, pulumi.Provider(aws.Secondary))
 // 		if err != nil {
 // 			return err
 // 		}

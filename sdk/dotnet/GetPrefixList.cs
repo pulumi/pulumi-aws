@@ -34,8 +34,8 @@ namespace Pulumi.Aws
         ///     {
         ///         var privateS3VpcEndpoint = new Aws.Ec2.VpcEndpoint("privateS3VpcEndpoint", new Aws.Ec2.VpcEndpointArgs
         ///         {
-        ///             ServiceName = "com.amazonaws.us-west-2.s3",
         ///             VpcId = aws_vpc.Foo.Id,
+        ///             ServiceName = "com.amazonaws.us-west-2.s3",
         ///         });
         ///         var privateS3PrefixList = privateS3VpcEndpoint.PrefixListId.Apply(prefixListId =&gt; Aws.GetPrefixList.InvokeAsync(new Aws.GetPrefixListArgs
         ///         {
@@ -47,13 +47,13 @@ namespace Pulumi.Aws
         ///         });
         ///         var privateS3NetworkAclRule = new Aws.Ec2.NetworkAclRule("privateS3NetworkAclRule", new Aws.Ec2.NetworkAclRuleArgs
         ///         {
-        ///             CidrBlock = privateS3PrefixList.Apply(privateS3PrefixList =&gt; privateS3PrefixList.CidrBlocks[0]),
-        ///             Egress = false,
-        ///             FromPort = 443,
         ///             NetworkAclId = bar.Id,
+        ///             RuleNumber = 200,
+        ///             Egress = false,
         ///             Protocol = "tcp",
         ///             RuleAction = "allow",
-        ///             RuleNumber = 200,
+        ///             CidrBlock = privateS3PrefixList.Apply(privateS3PrefixList =&gt; privateS3PrefixList.CidrBlocks[0]),
+        ///             FromPort = 443,
         ///             ToPort = 443,
         ///         });
         ///     }

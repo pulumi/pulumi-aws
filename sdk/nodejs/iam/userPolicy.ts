@@ -15,10 +15,9 @@ import {PolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const lbUser = new aws.iam.User("lb", {
- *     path: "/system/",
- * });
- * const lbRo = new aws.iam.UserPolicy("lb_ro", {
+ * const lbUser = new aws.iam.User("lbUser", {path: "/system/"});
+ * const lbRo = new aws.iam.UserPolicy("lbRo", {
+ *     user: lbUser.name,
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -32,11 +31,8 @@ import {PolicyDocument} from "./index";
  *   ]
  * }
  * `,
- *     user: lbUser.name,
  * });
- * const lbAccessKey = new aws.iam.AccessKey("lb", {
- *     user: lbUser.name,
- * });
+ * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {user: lbUser.name});
  * ```
  */
 export class UserPolicy extends pulumi.CustomResource {

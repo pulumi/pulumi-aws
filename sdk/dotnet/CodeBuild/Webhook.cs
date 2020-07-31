@@ -31,6 +31,7 @@ namespace Pulumi.Aws.CodeBuild
     ///     {
     ///         var example = new Aws.CodeBuild.Webhook("example", new Aws.CodeBuild.WebhookArgs
     ///         {
+    ///             ProjectName = aws_codebuild_project.Example.Name,
     ///             FilterGroups = 
     ///             {
     ///                 new Aws.CodeBuild.Inputs.WebhookFilterGroupArgs
@@ -39,18 +40,17 @@ namespace Pulumi.Aws.CodeBuild
     ///                     {
     ///                         new Aws.CodeBuild.Inputs.WebhookFilterGroupFilterArgs
     ///                         {
-    ///                             Pattern = "PUSH",
     ///                             Type = "EVENT",
+    ///                             Pattern = "PUSH",
     ///                         },
     ///                         new Aws.CodeBuild.Inputs.WebhookFilterGroupFilterArgs
     ///                         {
-    ///                             Pattern = "master",
     ///                             Type = "HEAD_REF",
+    ///                             Pattern = "master",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///             ProjectName = aws_codebuild_project.Example.Name,
     ///         });
     ///     }
     /// 
@@ -78,18 +78,18 @@ namespace Pulumi.Aws.CodeBuild
     ///         var exampleRepositoryWebhook = new Github.RepositoryWebhook("exampleRepositoryWebhook", new Github.RepositoryWebhookArgs
     ///         {
     ///             Active = true,
-    ///             Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
-    ///             {
-    ///                 ContentType = "json",
-    ///                 InsecureSsl = false,
-    ///                 Secret = exampleWebhook.Secret,
-    ///                 Url = exampleWebhook.PayloadUrl,
-    ///             },
     ///             Events = 
     ///             {
     ///                 "push",
     ///             },
     ///             Repository = github_repository.Example.Name,
+    ///             Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
+    ///             {
+    ///                 Url = exampleWebhook.PayloadUrl,
+    ///                 Secret = exampleWebhook.Secret,
+    ///                 ContentType = "json",
+    ///                 InsecureSsl = false,
+    ///             },
     ///         });
     ///     }
     /// 

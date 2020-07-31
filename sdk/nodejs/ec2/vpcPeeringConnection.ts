@@ -28,9 +28,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ec2.VpcPeeringConnection("foo", {
- *     peerOwnerId: var_peer_owner_id,
- *     peerVpcId: aws_vpc_bar.id,
- *     vpcId: aws_vpc_foo.id,
+ *     peerOwnerId: _var.peer_owner_id,
+ *     peerVpcId: aws_vpc.bar.id,
+ *     vpcId: aws_vpc.foo.id,
  * });
  * ```
  *
@@ -41,15 +41,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ec2.VpcPeeringConnection("foo", {
+ *     peerOwnerId: _var.peer_owner_id,
+ *     peerVpcId: aws_vpc.bar.id,
+ *     vpcId: aws_vpc.foo.id,
  *     accepter: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
- *     peerOwnerId: var_peer_owner_id,
- *     peerVpcId: aws_vpc_bar.id,
  *     requester: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
- *     vpcId: aws_vpc_foo.id,
  * });
  * ```
  *
@@ -59,20 +59,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooVpc = new aws.ec2.Vpc("foo", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const bar = new aws.ec2.Vpc("bar", {
- *     cidrBlock: "10.2.0.0/16",
- * });
- * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("foo", {
- *     autoAccept: true,
- *     peerOwnerId: var_peer_owner_id,
+ * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"});
+ * const bar = new aws.ec2.Vpc("bar", {cidrBlock: "10.2.0.0/16"});
+ * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection", {
+ *     peerOwnerId: _var.peer_owner_id,
  *     peerVpcId: bar.id,
+ *     vpcId: fooVpc.id,
+ *     autoAccept: true,
  *     tags: {
  *         Name: "VPC Peering between foo and bar",
  *     },
- *     vpcId: fooVpc.id,
  * });
  * ```
  *
@@ -83,10 +79,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"}, {
- *     provider: "aws.us-west-2",
+ *     provider: aws["us-west-2"],
  * });
  * const bar = new aws.ec2.Vpc("bar", {cidrBlock: "10.2.0.0/16"}, {
- *     provider: "aws.us-east-1",
+ *     provider: aws["us-east-1"],
  * });
  * const fooVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection", {
  *     peerOwnerId: _var.peer_owner_id,

@@ -74,10 +74,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<Outputs.StageDefaultRouteSettings?> DefaultRouteSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
+        /// The deployment identifier of the stage. Use the [`aws.apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
         /// </summary>
         [Output("deploymentId")]
-        public Output<string?> DeploymentId { get; private set; } = null!;
+        public Output<string> DeploymentId { get; private set; } = null!;
 
         /// <summary>
         /// The description for the stage.
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<Inputs.StageDefaultRouteSettingsArgs>? DefaultRouteSettings { get; set; }
 
         /// <summary>
-        /// The deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
+        /// The deployment identifier of the stage. Use the [`aws.apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
         /// </summary>
         [Input("deploymentId")]
         public Input<string>? DeploymentId { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<Inputs.StageDefaultRouteSettingsGetArgs>? DefaultRouteSettings { get; set; }
 
         /// <summary>
-        /// The deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
+        /// The deployment identifier of the stage. Use the [`aws.apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
         /// </summary>
         [Input("deploymentId")]
         public Input<string>? DeploymentId { get; set; }

@@ -40,7 +40,10 @@ namespace Pulumi.Aws.ApiGateway
     ///         var exampleVpcLink = new Aws.ApiGateway.VpcLink("exampleVpcLink", new Aws.ApiGateway.VpcLinkArgs
     ///         {
     ///             Description = "example description",
-    ///             TargetArn = exampleLoadBalancer.Arn,
+    ///             TargetArn = 
+    ///             {
+    ///                 exampleLoadBalancer.Arn,
+    ///             },
     ///         });
     ///     }
     /// 

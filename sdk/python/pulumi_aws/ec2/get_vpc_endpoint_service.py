@@ -133,8 +133,8 @@ def get_vpc_endpoint_service(filters=None,service=None,service_name=None,tags=No
     foo = aws.ec2.Vpc("foo", cidr_block="10.0.0.0/16")
     # Create a VPC endpoint
     ep = aws.ec2.VpcEndpoint("ep",
-        service_name=s3.service_name,
-        vpc_id=foo.id)
+        vpc_id=foo.id,
+        service_name=s3.service_name)
     ```
     ### Non-AWS Service
 

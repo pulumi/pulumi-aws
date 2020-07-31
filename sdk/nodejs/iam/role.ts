@@ -43,18 +43,18 @@ import {PolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const instance_assume_role_policy = pulumi.output(aws.iam.getPolicyDocument({
+ * const instance-assume-role-policy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
- *             identifiers: ["ec2.amazonaws.com"],
  *             type: "Service",
+ *             identifiers: ["ec2.amazonaws.com"],
  *         }],
  *     }],
- * }, { async: true }));
+ * });
  * const instance = new aws.iam.Role("instance", {
- *     assumeRolePolicy: instance_assume_role_policy.json,
  *     path: "/system/",
+ *     assumeRolePolicy: instance_assume_role_policy.then(instance_assume_role_policy => instance_assume_role_policy.json),
  * });
  * ```
  */

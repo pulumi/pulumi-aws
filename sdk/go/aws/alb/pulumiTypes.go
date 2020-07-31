@@ -3099,10 +3099,6 @@ func (o ListenerRuleActionRedirectPtrOutput) StatusCode() pulumi.StringPtrOutput
 }
 
 type ListenerRuleCondition struct {
-	// The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
-	//
-	// Deprecated: use 'host_header' or 'path_pattern' attribute instead
-	Field *string `pulumi:"field"`
 	// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
 	HostHeader *ListenerRuleConditionHostHeader `pulumi:"hostHeader"`
 	// HTTP headers to match. HTTP Header block fields documented below.
@@ -3115,10 +3111,6 @@ type ListenerRuleCondition struct {
 	QueryStrings []ListenerRuleConditionQueryString `pulumi:"queryStrings"`
 	// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
 	SourceIp *ListenerRuleConditionSourceIp `pulumi:"sourceIp"`
-	// List of exactly one pattern to match. Required when `field` is set.
-	//
-	// Deprecated: use 'host_header' or 'path_pattern' attribute instead
-	Values *string `pulumi:"values"`
 }
 
 // ListenerRuleConditionInput is an input type that accepts ListenerRuleConditionArgs and ListenerRuleConditionOutput values.
@@ -3133,10 +3125,6 @@ type ListenerRuleConditionInput interface {
 }
 
 type ListenerRuleConditionArgs struct {
-	// The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
-	//
-	// Deprecated: use 'host_header' or 'path_pattern' attribute instead
-	Field pulumi.StringPtrInput `pulumi:"field"`
 	// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
 	HostHeader ListenerRuleConditionHostHeaderPtrInput `pulumi:"hostHeader"`
 	// HTTP headers to match. HTTP Header block fields documented below.
@@ -3149,10 +3137,6 @@ type ListenerRuleConditionArgs struct {
 	QueryStrings ListenerRuleConditionQueryStringArrayInput `pulumi:"queryStrings"`
 	// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
 	SourceIp ListenerRuleConditionSourceIpPtrInput `pulumi:"sourceIp"`
-	// List of exactly one pattern to match. Required when `field` is set.
-	//
-	// Deprecated: use 'host_header' or 'path_pattern' attribute instead
-	Values pulumi.StringPtrInput `pulumi:"values"`
 }
 
 func (ListenerRuleConditionArgs) ElementType() reflect.Type {
@@ -3206,13 +3190,6 @@ func (o ListenerRuleConditionOutput) ToListenerRuleConditionOutputWithContext(ct
 	return o
 }
 
-// The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
-//
-// Deprecated: use 'host_header' or 'path_pattern' attribute instead
-func (o ListenerRuleConditionOutput) Field() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ListenerRuleCondition) *string { return v.Field }).(pulumi.StringPtrOutput)
-}
-
 // Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
 func (o ListenerRuleConditionOutput) HostHeader() ListenerRuleConditionHostHeaderPtrOutput {
 	return o.ApplyT(func(v ListenerRuleCondition) *ListenerRuleConditionHostHeader { return v.HostHeader }).(ListenerRuleConditionHostHeaderPtrOutput)
@@ -3243,13 +3220,6 @@ func (o ListenerRuleConditionOutput) SourceIp() ListenerRuleConditionSourceIpPtr
 	return o.ApplyT(func(v ListenerRuleCondition) *ListenerRuleConditionSourceIp { return v.SourceIp }).(ListenerRuleConditionSourceIpPtrOutput)
 }
 
-// List of exactly one pattern to match. Required when `field` is set.
-//
-// Deprecated: use 'host_header' or 'path_pattern' attribute instead
-func (o ListenerRuleConditionOutput) Values() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ListenerRuleCondition) *string { return v.Values }).(pulumi.StringPtrOutput)
-}
-
 type ListenerRuleConditionArrayOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleConditionArrayOutput) ElementType() reflect.Type {
@@ -3271,7 +3241,7 @@ func (o ListenerRuleConditionArrayOutput) Index(i pulumi.IntInput) ListenerRuleC
 }
 
 type ListenerRuleConditionHostHeader struct {
-	// List of exactly one pattern to match. Required when `field` is set.
+	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 	Values []string `pulumi:"values"`
 }
 
@@ -3287,7 +3257,7 @@ type ListenerRuleConditionHostHeaderInput interface {
 }
 
 type ListenerRuleConditionHostHeaderArgs struct {
-	// List of exactly one pattern to match. Required when `field` is set.
+	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3368,7 +3338,7 @@ func (o ListenerRuleConditionHostHeaderOutput) ToListenerRuleConditionHostHeader
 	}).(ListenerRuleConditionHostHeaderPtrOutput)
 }
 
-// List of exactly one pattern to match. Required when `field` is set.
+// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 func (o ListenerRuleConditionHostHeaderOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionHostHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3391,7 +3361,7 @@ func (o ListenerRuleConditionHostHeaderPtrOutput) Elem() ListenerRuleConditionHo
 	return o.ApplyT(func(v *ListenerRuleConditionHostHeader) ListenerRuleConditionHostHeader { return *v }).(ListenerRuleConditionHostHeaderOutput)
 }
 
-// List of exactly one pattern to match. Required when `field` is set.
+// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 func (o ListenerRuleConditionHostHeaderPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionHostHeader) []string {
 		if v == nil {
@@ -3552,7 +3522,7 @@ func (o ListenerRuleConditionHttpHeaderPtrOutput) Values() pulumi.StringArrayOut
 }
 
 type ListenerRuleConditionHttpRequestMethod struct {
-	// List of exactly one pattern to match. Required when `field` is set.
+	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 	Values []string `pulumi:"values"`
 }
 
@@ -3568,7 +3538,7 @@ type ListenerRuleConditionHttpRequestMethodInput interface {
 }
 
 type ListenerRuleConditionHttpRequestMethodArgs struct {
-	// List of exactly one pattern to match. Required when `field` is set.
+	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3649,7 +3619,7 @@ func (o ListenerRuleConditionHttpRequestMethodOutput) ToListenerRuleConditionHtt
 	}).(ListenerRuleConditionHttpRequestMethodPtrOutput)
 }
 
-// List of exactly one pattern to match. Required when `field` is set.
+// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 func (o ListenerRuleConditionHttpRequestMethodOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionHttpRequestMethod) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3672,7 +3642,7 @@ func (o ListenerRuleConditionHttpRequestMethodPtrOutput) Elem() ListenerRuleCond
 	return o.ApplyT(func(v *ListenerRuleConditionHttpRequestMethod) ListenerRuleConditionHttpRequestMethod { return *v }).(ListenerRuleConditionHttpRequestMethodOutput)
 }
 
-// List of exactly one pattern to match. Required when `field` is set.
+// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 func (o ListenerRuleConditionHttpRequestMethodPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionHttpRequestMethod) []string {
 		if v == nil {
@@ -3683,7 +3653,7 @@ func (o ListenerRuleConditionHttpRequestMethodPtrOutput) Values() pulumi.StringA
 }
 
 type ListenerRuleConditionPathPattern struct {
-	// List of exactly one pattern to match. Required when `field` is set.
+	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 	Values []string `pulumi:"values"`
 }
 
@@ -3699,7 +3669,7 @@ type ListenerRuleConditionPathPatternInput interface {
 }
 
 type ListenerRuleConditionPathPatternArgs struct {
-	// List of exactly one pattern to match. Required when `field` is set.
+	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3780,7 +3750,7 @@ func (o ListenerRuleConditionPathPatternOutput) ToListenerRuleConditionPathPatte
 	}).(ListenerRuleConditionPathPatternPtrOutput)
 }
 
-// List of exactly one pattern to match. Required when `field` is set.
+// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 func (o ListenerRuleConditionPathPatternOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionPathPattern) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3803,7 +3773,7 @@ func (o ListenerRuleConditionPathPatternPtrOutput) Elem() ListenerRuleConditionP
 	return o.ApplyT(func(v *ListenerRuleConditionPathPattern) ListenerRuleConditionPathPattern { return *v }).(ListenerRuleConditionPathPatternOutput)
 }
 
-// List of exactly one pattern to match. Required when `field` is set.
+// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 func (o ListenerRuleConditionPathPatternPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionPathPattern) []string {
 		if v == nil {
@@ -3920,7 +3890,7 @@ func (o ListenerRuleConditionQueryStringArrayOutput) Index(i pulumi.IntInput) Li
 }
 
 type ListenerRuleConditionSourceIp struct {
-	// List of exactly one pattern to match. Required when `field` is set.
+	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 	Values []string `pulumi:"values"`
 }
 
@@ -3936,7 +3906,7 @@ type ListenerRuleConditionSourceIpInput interface {
 }
 
 type ListenerRuleConditionSourceIpArgs struct {
-	// List of exactly one pattern to match. Required when `field` is set.
+	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4017,7 +3987,7 @@ func (o ListenerRuleConditionSourceIpOutput) ToListenerRuleConditionSourceIpPtrO
 	}).(ListenerRuleConditionSourceIpPtrOutput)
 }
 
-// List of exactly one pattern to match. Required when `field` is set.
+// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 func (o ListenerRuleConditionSourceIpOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionSourceIp) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4040,7 +4010,7 @@ func (o ListenerRuleConditionSourceIpPtrOutput) Elem() ListenerRuleConditionSour
 	return o.ApplyT(func(v *ListenerRuleConditionSourceIp) ListenerRuleConditionSourceIp { return *v }).(ListenerRuleConditionSourceIpOutput)
 }
 
-// List of exactly one pattern to match. Required when `field` is set.
+// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 func (o ListenerRuleConditionSourceIpPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionSourceIp) []string {
 		if v == nil {

@@ -15,24 +15,31 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const accepter = new aws.Provider("accepter", {});
- * const accepterCallerIdentity = pulumi.output(aws.getCallerIdentity({ provider: accepter, async: true }));
+ * // Accepter's credentials.
+ * const accepterCallerIdentity = aws.getCallerIdentity({});
  * // Accepter's side of the VIF.
- * const vpnGw = new aws.ec2.VpnGateway("vpn_gw", {}, { provider: accepter });
+ * const vpnGw = new aws.ec2.VpnGateway("vpnGw", {}, {
+ *     provider: aws.accepter,
+ * });
  * // Creator's side of the VIF
  * const creator = new aws.directconnect.HostedPrivateVirtualInterface("creator", {
+ *     connectionId: "dxcon-zzzzzzzz",
+ *     ownerAccountId: accepterCallerIdentity.then(accepterCallerIdentity => accepterCallerIdentity.accountId),
+ *     vlan: 4094,
  *     addressFamily: "ipv4",
  *     bgpAsn: 65352,
- *     connectionId: "dxcon-zzzzzzzz",
- *     ownerAccountId: accepterCallerIdentity.accountId,
- *     vlan: 4094,
- * }, { dependsOn: [vpnGw] });
- * const accepterHostedPrivateVirtualInterfaceAccepter = new aws.directconnect.HostedPrivateVirtualInterfaceAccepter("accepter", {
+ * }, {
+ *     dependsOn: [vpnGw],
+ * });
+ * const accepterHostedPrivateVirtualInterfaceAccepter = new aws.directconnect.HostedPrivateVirtualInterfaceAccepter("accepterHostedPrivateVirtualInterfaceAccepter", {
+ *     virtualInterfaceId: creator.id,
+ *     vpnGatewayId: vpnGw.id,
  *     tags: {
  *         Side: "Accepter",
  *     },
- *     virtualInterfaceId: creator.id,
- *     vpnGatewayId: vpnGw.id,
- * }, { provider: accepter });
+ * }, {
+ *     provider: aws.accepter,
+ * });
  * ```
  */
 export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource {

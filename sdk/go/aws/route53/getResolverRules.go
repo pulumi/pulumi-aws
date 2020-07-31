@@ -11,7 +11,7 @@ import (
 //
 // ## Example Usage
 //
-// The following example shows how to get Route53 Resolver rules based on tags.
+// Retrieving the default resolver rule.
 //
 // ```go
 // package main
@@ -23,12 +23,37 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "Route 53 Resolver"
+// 		opt1 := "RECURSIVE"
+// 		opt2 := "NOT_SHARED"
 // 		_, err := route53.GetResolverRules(ctx, &route53.GetResolverRulesArgs{
-// 			Tags: []map[string]interface{}{
-// 				map[string]interface{}{
-// 					"Environment": "dev",
-// 				},
-// 			},
+// 			OwnerId:     &opt0,
+// 			RuleType:    &opt1,
+// 			ShareStatus: &opt2,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "FORWARD"
+// 		opt1 := "SHARED_WITH_ME"
+// 		_, err := route53.GetResolverRules(ctx, &route53.GetResolverRulesArgs{
+// 			RuleType:    &opt0,
+// 			ShareStatus: &opt1,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -54,8 +79,7 @@ type GetResolverRulesArgs struct {
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 	// The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
 	RuleType *string `pulumi:"ruleType"`
-	// Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account.
-	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+	// Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
 	ShareStatus *string `pulumi:"shareStatus"`
 }
 

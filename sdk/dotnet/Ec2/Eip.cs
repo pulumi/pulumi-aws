@@ -50,24 +50,24 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var multi_ip = new Aws.Ec2.NetworkInterface("multi-ip", new Aws.Ec2.NetworkInterfaceArgs
     ///         {
+    ///             SubnetId = aws_subnet.Main.Id,
     ///             PrivateIps = 
     ///             {
     ///                 "10.0.0.10",
     ///                 "10.0.0.11",
     ///             },
-    ///             SubnetId = aws_subnet.Main.Id,
     ///         });
     ///         var one = new Aws.Ec2.Eip("one", new Aws.Ec2.EipArgs
     ///         {
-    ///             AssociateWithPrivateIp = "10.0.0.10",
-    ///             NetworkInterface = multi_ip.Id,
     ///             Vpc = true,
+    ///             NetworkInterface = multi_ip.Id,
+    ///             AssociateWithPrivateIp = "10.0.0.10",
     ///         });
     ///         var two = new Aws.Ec2.Eip("two", new Aws.Ec2.EipArgs
     ///         {
-    ///             AssociateWithPrivateIp = "10.0.0.11",
-    ///             NetworkInterface = multi_ip.Id,
     ///             Vpc = true,
+    ///             NetworkInterface = multi_ip.Id,
+    ///             AssociateWithPrivateIp = "10.0.0.11",
     ///         });
     ///     }
     /// 
@@ -95,14 +95,14 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var tfTestSubnet = new Aws.Ec2.Subnet("tfTestSubnet", new Aws.Ec2.SubnetArgs
     ///         {
+    ///             VpcId = @default.Id,
     ///             CidrBlock = "10.0.0.0/24",
     ///             MapPublicIpOnLaunch = true,
-    ///             VpcId = @default.Id,
     ///         }, new CustomResourceOptions
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_internet_gateway.gw",
+    ///                 gw,
     ///             },
     ///         });
     ///         var foo = new Aws.Ec2.Instance("foo", new Aws.Ec2.InstanceArgs
@@ -114,14 +114,14 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var bar = new Aws.Ec2.Eip("bar", new Aws.Ec2.EipArgs
     ///         {
-    ///             AssociateWithPrivateIp = "10.0.0.12",
-    ///             Instance = foo.Id,
     ///             Vpc = true,
+    ///             Instance = foo.Id,
+    ///             AssociateWithPrivateIp = "10.0.0.12",
     ///         }, new CustomResourceOptions
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_internet_gateway.gw",
+    ///                 gw,
     ///             },
     ///         });
     ///     }

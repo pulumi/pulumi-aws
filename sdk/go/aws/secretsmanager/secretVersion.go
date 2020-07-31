@@ -38,6 +38,38 @@ import (
 // 	})
 // }
 // ```
+// ### Key-Value Pairs
+//
+// Secrets Manager also accepts key-value pairs in JSON.
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/json"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/secretsmanager"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tmpJSON0, err := json.Marshal(example)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json0 := string(tmpJSON0)
+// 		_, err := secretsmanager.NewSecretVersion(ctx, "exampleSecretVersion", &secretsmanager.SecretVersionArgs{
+// 			SecretId:     pulumi.String(aws_secretsmanager_secret.Example.Id),
+// 			SecretString: pulumi.String(json0),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SecretVersion struct {
 	pulumi.CustomResourceState
 

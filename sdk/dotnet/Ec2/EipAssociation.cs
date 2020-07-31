@@ -44,8 +44,8 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var eipAssoc = new Aws.Ec2.EipAssociation("eipAssoc", new Aws.Ec2.EipAssociationArgs
     ///         {
-    ///             AllocationId = example.Id,
     ///             InstanceId = web.Id,
+    ///             AllocationId = example.Id,
     ///         });
     ///     }
     /// 

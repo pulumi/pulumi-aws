@@ -85,28 +85,29 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         import pulumi_pulumi as pulumi
 
         peer = pulumi.providers.Aws("peer", region="us-west-2")
+        # Accepter's credentials.
         main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
         peer_vpc = aws.ec2.Vpc("peerVpc", cidr_block="10.1.0.0/16",
-        opts=ResourceOptions(provider="aws.peer"))
+        opts=ResourceOptions(provider=aws["peer"]))
         peer_caller_identity = aws.get_caller_identity()
         # Requester's side of the connection.
         peer_vpc_peering_connection = aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection",
-            auto_accept=False,
+            vpc_id=main.id,
+            peer_vpc_id=peer_vpc.id,
             peer_owner_id=peer_caller_identity.account_id,
             peer_region="us-west-2",
-            peer_vpc_id=peer_vpc.id,
+            auto_accept=False,
             tags={
                 "Side": "Requester",
-            },
-            vpc_id=main.id)
+            })
         # Accepter's side of the connection.
         peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter",
+            vpc_peering_connection_id=peer_vpc_peering_connection.id,
             auto_accept=True,
             tags={
                 "Side": "Accepter",
             },
-            vpc_peering_connection_id=peer_vpc_peering_connection.id,
-            opts=ResourceOptions(provider="aws.peer"))
+            opts=ResourceOptions(provider=aws["peer"]))
         ```
 
         :param str resource_name: The name of the resource.

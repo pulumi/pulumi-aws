@@ -82,11 +82,6 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        rule = aws.cfg.Rule("rule", source={
-            "owner": "AWS",
-            "sourceIdentifier": "S3_BUCKET_VERSIONING_ENABLED",
-        },
-        opts=ResourceOptions(depends_on=["aws_config_configuration_recorder.foo"]))
         role = aws.iam.Role("role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -100,10 +95,15 @@ class Rule(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         foo = aws.cfg.Recorder("foo", role_arn=role.arn)
+        rule = aws.cfg.Rule("rule", source={
+            "owner": "AWS",
+            "sourceIdentifier": "S3_BUCKET_VERSIONING_ENABLED",
+        },
+        opts=ResourceOptions(depends_on=[foo]))
         role_policy = aws.iam.RolePolicy("rolePolicy",
+            role=role.id,
             policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -115,9 +115,7 @@ class Rule(pulumi.CustomResource):
           	}
           ]
         }
-
-        \"\"\",
-            role=role.id)
+        \"\"\")
         ```
         ### Custom Rules
 
@@ -128,18 +126,21 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_recorder = aws.cfg.Recorder("exampleRecorder")
+        # ... other configuration ...
         example_function = aws.lambda_.Function("exampleFunction")
+        # ... other configuration ...
         example_permission = aws.lambda_.Permission("examplePermission",
             action="lambda:InvokeFunction",
             function=example_function.arn,
             principal="config.amazonaws.com")
+        # ... other configuration ...
         example_rule = aws.cfg.Rule("exampleRule", source={
             "owner": "CUSTOM_LAMBDA",
             "sourceIdentifier": example_function.arn,
         },
         opts=ResourceOptions(depends_on=[
-                "aws_config_configuration_recorder.example",
-                "aws_lambda_permission.example",
+                example_recorder,
+                example_permission,
             ]))
         ```
 

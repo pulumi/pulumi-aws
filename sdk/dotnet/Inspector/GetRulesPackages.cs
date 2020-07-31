@@ -43,9 +43,9 @@ namespace Pulumi.Aws.Inspector
         ///         });
         ///         var assessmentAssessmentTemplate = new Aws.Inspector.AssessmentTemplate("assessmentAssessmentTemplate", new Aws.Inspector.AssessmentTemplateArgs
         ///         {
+        ///             TargetArn = assessmentAssessmentTarget.Arn,
         ///             Duration = 60,
         ///             RulesPackageArns = rules.Apply(rules =&gt; rules.Arns),
-        ///             TargetArn = assessmentAssessmentTarget.Arn,
         ///         });
         ///     }
         /// 

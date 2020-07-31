@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const custlayer = new aws.opsworks.CustomLayer("custlayer", {
  *     shortName: "awesome",
- *     stackId: aws_opsworks_stack_main.id,
+ *     stackId: aws_opsworks_stack.main.id,
  * });
  * ```
  */

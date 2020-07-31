@@ -16,6 +16,44 @@ namespace Pulumi.Aws.Rds
         /// 
         /// &gt; **NOTE:** This data source does not apply to snapshots created on DB Instances. 
         /// See the `aws.rds.Snapshot` data source for DB Instance snapshots.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var developmentFinalSnapshot = Output.Create(Aws.Rds.GetClusterSnapshot.InvokeAsync(new Aws.Rds.GetClusterSnapshotArgs
+        ///         {
+        ///             DbClusterIdentifier = "development_cluster",
+        ///             MostRecent = true,
+        ///         }));
+        ///         // Use the last snapshot of the dev database before it was destroyed to create
+        ///         // a new dev database.
+        ///         var auroraCluster = new Aws.Rds.Cluster("auroraCluster", new Aws.Rds.ClusterArgs
+        ///         {
+        ///             ClusterIdentifier = "development_cluster",
+        ///             SnapshotIdentifier = developmentFinalSnapshot.Apply(developmentFinalSnapshot =&gt; developmentFinalSnapshot.Id),
+        ///             DbSubnetGroupName = "my_db_subnet_group",
+        ///         });
+        ///         var auroraClusterInstance = new Aws.Rds.ClusterInstance("auroraClusterInstance", new Aws.Rds.ClusterInstanceArgs
+        ///         {
+        ///             ClusterIdentifier = auroraCluster.Id,
+        ///             InstanceClass = "db.t2.small",
+        ///             DbSubnetGroupName = "my_db_subnet_group",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterSnapshotResult> InvokeAsync(GetClusterSnapshotArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterSnapshotResult>("aws:rds/getClusterSnapshot:getClusterSnapshot", args ?? new GetClusterSnapshotArgs(), options.WithVersion());

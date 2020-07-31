@@ -35,10 +35,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
+// 			VolumeId: example.ID(),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("HelloWorld_snap"),
 // 			},
-// 			VolumeId: example.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

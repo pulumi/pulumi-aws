@@ -16,8 +16,8 @@ import {PolicyDocument} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("b", {});
- * const bucketPolicy = new aws.s3.BucketPolicy("b", {
+ * const bucket = new aws.s3.Bucket("bucket", {});
+ * const bucketPolicy = new aws.s3.BucketPolicy("bucketPolicy", {
  *     bucket: bucket.id,
  *     policy: `{
  *   "Version": "2012-10-17",

@@ -64,7 +64,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
+// 		exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
 // 			Bucket: exampleBucket.ID(),
 // 			Policy: acmpcaBucketAccess.ApplyT(func(acmpcaBucketAccess iam.GetPolicyDocumentResult) (string, error) {
 // 				return acmpcaBucketAccess.Json, nil
@@ -90,7 +90,7 @@ import (
 // 				},
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_s3_bucket_policy.example",
+// 			exampleBucketPolicy,
 // 		}))
 // 		if err != nil {
 // 			return err

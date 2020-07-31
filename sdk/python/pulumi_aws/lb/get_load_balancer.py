@@ -12,7 +12,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, dns_name=None, drop_invalid_header_fields=None, enable_deletion_protection=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, dns_name=None, drop_invalid_header_fields=None, enable_deletion_protection=None, enable_http2=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         __self__.access_logs = access_logs
@@ -31,6 +31,9 @@ class GetLoadBalancerResult:
         if enable_deletion_protection and not isinstance(enable_deletion_protection, bool):
             raise TypeError("Expected argument 'enable_deletion_protection' to be a bool")
         __self__.enable_deletion_protection = enable_deletion_protection
+        if enable_http2 and not isinstance(enable_http2, bool):
+            raise TypeError("Expected argument 'enable_http2' to be a bool")
+        __self__.enable_http2 = enable_http2
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -82,6 +85,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             dns_name=self.dns_name,
             drop_invalid_header_fields=self.drop_invalid_header_fields,
             enable_deletion_protection=self.enable_deletion_protection,
+            enable_http2=self.enable_http2,
             id=self.id,
             idle_timeout=self.idle_timeout,
             internal=self.internal,
@@ -145,6 +149,7 @@ def get_load_balancer(arn=None,name=None,tags=None,opts=None):
         dns_name=__ret__.get('dnsName'),
         drop_invalid_header_fields=__ret__.get('dropInvalidHeaderFields'),
         enable_deletion_protection=__ret__.get('enableDeletionProtection'),
+        enable_http2=__ret__.get('enableHttp2'),
         id=__ret__.get('id'),
         idle_timeout=__ret__.get('idleTimeout'),
         internal=__ret__.get('internal'),

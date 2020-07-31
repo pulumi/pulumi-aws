@@ -67,10 +67,10 @@ def get_network_acls(filters=None,tags=None,vpc_id=None,opts=None):
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_acls(tags={
+    example = aws.ec2.get_network_acls(vpc_id=var["vpc_id"],
+        tags={
             "Tier": "Private",
-        },
-        vpc_id=var["vpc_id"])
+        })
     ```
 
     The following example retrieves a network ACL id in a VPC which associated
@@ -80,11 +80,11 @@ def get_network_acls(filters=None,tags=None,vpc_id=None,opts=None):
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_acls(filters=[{
+    example = aws.ec2.get_network_acls(vpc_id=var["vpc_id"],
+        filters=[{
             "name": "association.subnet-id",
             "values": [aws_subnet["test"]["id"]],
-        }],
-        vpc_id=var["vpc_id"])
+        }])
     ```
 
 

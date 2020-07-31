@@ -51,8 +51,8 @@ class BucketMetric(pulumi.CustomResource):
             filter={
                 "prefix": "documents/",
                 "tags": {
-                    "class": "blue",
                     "priority": "high",
+                    "class": "blue",
                 },
             })
         ```

@@ -42,15 +42,15 @@ class BasePathMapping(pulumi.CustomResource):
             rest_api=aws_api_gateway_rest_api["MyDemoAPI"]["id"],
             stage_name="live")
         example_domain_name = aws.apigateway.DomainName("exampleDomainName",
+            domain_name="example.com",
+            certificate_name="example-api",
             certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
             certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            certificate_name="example-api",
-            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"),
-            domain_name="example.com")
+            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
         test = aws.apigateway.BasePathMapping("test",
             rest_api=aws_api_gateway_rest_api["MyDemoAPI"]["id"],
-            domain_name=example_domain_name.domain_name,
-            stage_name=example_deployment.stage_name)
+            stage_name=example_deployment.stage_name,
+            domain_name=example_domain_name.domain_name)
         ```
 
         :param str resource_name: The name of the resource.

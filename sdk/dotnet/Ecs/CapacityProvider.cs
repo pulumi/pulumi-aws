@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Ecs
     /// <summary>
     /// Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
     /// 
+    /// &gt; **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `min_size` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -22,11 +24,23 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     public MyStack()
     ///     {
-    ///         var test = new Aws.Ecs.CapacityProvider("test", new Aws.Ecs.CapacityProviderArgs
+    ///         // ... other configuration, including potentially other tags ...
+    ///         var testGroup = new Aws.AutoScaling.Group("testGroup", new Aws.AutoScaling.GroupArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///                 {
+    ///                     Key = "AmazonECSManaged",
+    ///                     PropagateAtLaunch = true,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var testCapacityProvider = new Aws.Ecs.CapacityProvider("testCapacityProvider", new Aws.Ecs.CapacityProviderArgs
     ///         {
     ///             AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
     ///             {
-    ///                 AutoScalingGroupArn = aws_autoscaling_group.Test.Arn,
+    ///                 AutoScalingGroupArn = testGroup.Arn,
     ///                 ManagedTerminationProtection = "ENABLED",
     ///                 ManagedScaling = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs
     ///                 {

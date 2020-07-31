@@ -28,17 +28,17 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-// 			AssignGeneratedIpv6CidrBlock: pulumi.Bool(true),
 // 			CidrBlock:                    pulumi.String("10.1.0.0/16"),
+// 			AssignGeneratedIpv6CidrBlock: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ec2.NewEgressOnlyInternetGateway(ctx, "exampleEgressOnlyInternetGateway", &ec2.EgressOnlyInternetGatewayArgs{
+// 			VpcId: exampleVpc.ID(),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("main"),
 // 			},
-// 			VpcId: exampleVpc.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

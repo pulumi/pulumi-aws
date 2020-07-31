@@ -41,8 +41,8 @@ namespace Pulumi.Aws.DirectConnect
     ///         });
     ///         var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new Aws.DirectConnect.GatewayAssociationArgs
     ///         {
-    ///             AssociatedGatewayId = exampleVpnGateway.Id,
     ///             DxGatewayId = exampleGateway.Id,
+    ///             AssociatedGatewayId = exampleVpnGateway.Id,
     ///         });
     ///     }
     /// 
@@ -67,13 +67,13 @@ namespace Pulumi.Aws.DirectConnect
     ///         });
     ///         var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new Aws.DirectConnect.GatewayAssociationArgs
     ///         {
+    ///             DxGatewayId = exampleGateway.Id,
+    ///             AssociatedGatewayId = exampleTransitGateway.Id,
     ///             AllowedPrefixes = 
     ///             {
     ///                 "10.255.255.0/30",
     ///                 "10.255.255.8/30",
     ///             },
-    ///             AssociatedGatewayId = exampleTransitGateway.Id,
-    ///             DxGatewayId = exampleGateway.Id,
     ///         });
     ///     }
     /// 
@@ -103,13 +103,13 @@ namespace Pulumi.Aws.DirectConnect
     ///         });
     ///         var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new Aws.DirectConnect.GatewayAssociationArgs
     ///         {
+    ///             DxGatewayId = exampleGateway.Id,
+    ///             AssociatedGatewayId = exampleVpnGateway.Id,
     ///             AllowedPrefixes = 
     ///             {
     ///                 "210.52.109.0/24",
     ///                 "175.45.176.0/22",
     ///             },
-    ///             AssociatedGatewayId = exampleVpnGateway.Id,
-    ///             DxGatewayId = exampleGateway.Id,
     ///         });
     ///     }
     /// 
@@ -170,13 +170,6 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Output("proposalId")]
         public Output<string?> ProposalId { get; private set; } = null!;
-
-        /// <summary>
-        /// *Deprecated:* Use `associated_gateway_id` instead. The ID of the VGW with which to associate the gateway.
-        /// Used for single account Direct Connect gateway associations.
-        /// </summary>
-        [Output("vpnGatewayId")]
-        public Output<string?> VpnGatewayId { get; private set; } = null!;
 
 
         /// <summary>
@@ -263,13 +256,6 @@ namespace Pulumi.Aws.DirectConnect
         [Input("proposalId")]
         public Input<string>? ProposalId { get; set; }
 
-        /// <summary>
-        /// *Deprecated:* Use `associated_gateway_id` instead. The ID of the VGW with which to associate the gateway.
-        /// Used for single account Direct Connect gateway associations.
-        /// </summary>
-        [Input("vpnGatewayId")]
-        public Input<string>? VpnGatewayId { get; set; }
-
         public GatewayAssociationArgs()
         {
         }
@@ -333,13 +319,6 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("proposalId")]
         public Input<string>? ProposalId { get; set; }
-
-        /// <summary>
-        /// *Deprecated:* Use `associated_gateway_id` instead. The ID of the VGW with which to associate the gateway.
-        /// Used for single account Direct Connect gateway associations.
-        /// </summary>
-        [Input("vpnGatewayId")]
-        public Input<string>? VpnGatewayId { get; set; }
 
         public GatewayAssociationState()
         {

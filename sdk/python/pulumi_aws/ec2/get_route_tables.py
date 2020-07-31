@@ -60,16 +60,16 @@ def get_route_tables(filters=None,tags=None,vpc_id=None,opts=None):
     import pulumi
     import pulumi_aws as aws
 
-    rts = aws.ec2.get_route_tables(filters=[{
+    rts = aws.ec2.get_route_tables(vpc_id=var["vpc_id"],
+        filters=[{
             "name": "tag:kubernetes.io/kops/role",
             "values": ["private*"],
-        }],
-        vpc_id=var["vpc_id"])
+        }])
     route = []
     for range in [{"value": i} for i in range(0, len(rts.ids))]:
         route.append(aws.ec2.Route(f"route-{range['value']}",
-            destination_cidr_block="10.0.1.0/22",
             route_table_id=rts.ids[range["value"]],
+            destination_cidr_block="10.0.1.0/22",
             vpc_peering_connection_id="pcx-0e9a7a9ecd137dc54"))
     ```
 

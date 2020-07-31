@@ -151,6 +151,8 @@ type SpotInstanceRequest struct {
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
 	RootBlockDevice SpotInstanceRequestRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
+	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+	SecondaryPrivateIps pulumi.StringArrayOutput `pulumi:"secondaryPrivateIps"`
 	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when
@@ -318,6 +320,8 @@ type spotInstanceRequestState struct {
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
 	RootBlockDevice *SpotInstanceRequestRootBlockDevice `pulumi:"rootBlockDevice"`
+	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when
@@ -452,6 +456,8 @@ type SpotInstanceRequestState struct {
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
 	RootBlockDevice SpotInstanceRequestRootBlockDevicePtrInput
+	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+	SecondaryPrivateIps pulumi.StringArrayInput
 	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
 	SecurityGroups pulumi.StringArrayInput
 	// Controls if traffic is routed to the instance when
@@ -576,6 +582,8 @@ type spotInstanceRequestArgs struct {
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
 	RootBlockDevice *SpotInstanceRequestRootBlockDevice `pulumi:"rootBlockDevice"`
+	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when
@@ -686,6 +694,8 @@ type SpotInstanceRequestArgs struct {
 	// Customize details about the root block
 	// device of the instance. See Block Devices below for details.
 	RootBlockDevice SpotInstanceRequestRootBlockDevicePtrInput
+	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+	SecondaryPrivateIps pulumi.StringArrayInput
 	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
 	SecurityGroups pulumi.StringArrayInput
 	// Controls if traffic is routed to the instance when

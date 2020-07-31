@@ -17,18 +17,18 @@ import * as utilities from "../utilities";
  *
  * const foo = new aws.route53.ResolverEndpoint("foo", {
  *     direction: "INBOUND",
+ *     securityGroupIds: [
+ *         aws_security_group.sg1.id,
+ *         aws_security_group.sg2.id,
+ *     ],
  *     ipAddresses: [
  *         {
- *             subnetId: aws_subnet_sn1.id,
+ *             subnetId: aws_subnet.sn1.id,
  *         },
  *         {
+ *             subnetId: aws_subnet.sn2.id,
  *             ip: "10.0.64.4",
- *             subnetId: aws_subnet_sn2.id,
  *         },
- *     ],
- *     securityGroupIds: [
- *         aws_security_group_sg1.id,
- *         aws_security_group_sg2.id,
  *     ],
  *     tags: {
  *         Environment: "Prod",

@@ -76,6 +76,7 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         var parent = new Aws.Route53.HealthCheck("parent", new Aws.Route53.HealthCheckArgs
     ///         {
+    ///             Type = "CALCULATED",
     ///             ChildHealthThreshold = 1,
     ///             ChildHealthchecks = 
     ///             {
@@ -85,7 +86,6 @@ namespace Pulumi.Aws.Route53
     ///             {
     ///                 { "Name", "tf-test-calculated-health-check" },
     ///             },
-    ///             Type = "CALCULATED",
     ///         });
     ///     }
     /// 
@@ -103,7 +103,6 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         var foobar = new Aws.CloudWatch.MetricAlarm("foobar", new Aws.CloudWatch.MetricAlarmArgs
     ///         {
-    ///             AlarmDescription = "This metric monitors ec2 cpu utilization",
     ///             ComparisonOperator = "GreaterThanOrEqualToThreshold",
     ///             EvaluationPeriods = 2,
     ///             MetricName = "CPUUtilization",
@@ -111,13 +110,14 @@ namespace Pulumi.Aws.Route53
     ///             Period = 120,
     ///             Statistic = "Average",
     ///             Threshold = 80,
+    ///             AlarmDescription = "This metric monitors ec2 cpu utilization",
     ///         });
     ///         var foo = new Aws.Route53.HealthCheck("foo", new Aws.Route53.HealthCheckArgs
     ///         {
+    ///             Type = "CLOUDWATCH_METRIC",
     ///             CloudwatchAlarmName = foobar.Name,
     ///             CloudwatchAlarmRegion = "us-west-2",
     ///             InsufficientDataHealthStatus = "Healthy",
-    ///             Type = "CLOUDWATCH_METRIC",
     ///         });
     ///     }
     /// 

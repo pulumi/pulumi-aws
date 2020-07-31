@@ -34,6 +34,9 @@ import (
 // 						"logs:PutLogEvents",
 // 						"logs:PutLogEventsBatch",
 // 					},
+// 					Resources: []string{
+// 						"arn:aws:logs:*",
+// 					},
 // 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // 						iam.GetPolicyDocumentStatementPrincipal{
 // 							Identifiers: []string{
@@ -41,9 +44,6 @@ import (
 // 							},
 // 							Type: "Service",
 // 						},
-// 					},
-// 					Resources: []string{
-// 						"arn:aws:logs:*",
 // 					},
 // 				},
 // 			},
@@ -82,6 +82,9 @@ import (
 // 						"logs:CreateLogStream",
 // 						"logs:PutLogEvents",
 // 					},
+// 					Resources: []string{
+// 						"arn:aws:logs:*:*:log-group:/aws/route53/*",
+// 					},
 // 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // 						iam.GetPolicyDocumentStatementPrincipal{
 // 							Identifiers: []string{
@@ -89,9 +92,6 @@ import (
 // 							},
 // 							Type: "Service",
 // 						},
-// 					},
-// 					Resources: []string{
-// 						"arn:aws:logs:*:*:log-group:/aws/route53/*",
 // 					},
 // 				},
 // 			},

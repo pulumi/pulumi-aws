@@ -16,11 +16,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const subnetId = config.require("subnetId");
- *
- * const defaultNatGateway = aws_subnet_public.id.apply(id => aws.ec2.getNatGateway({
- *     subnetId: id,
- * }, { async: true }));
+ * const subnetId = config.requireObject("subnetId");
+ * const default = aws.ec2.getNatGateway({
+ *     subnetId: aws_subnet["public"].id,
+ * });
  * ```
  *
  * Usage with tags:
@@ -29,12 +28,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultNatGateway = aws_subnet_public.id.apply(id => aws.ec2.getNatGateway({
- *     subnetId: id,
+ * const default = aws.ec2.getNatGateway({
+ *     subnetId: aws_subnet["public"].id,
  *     tags: {
  *         Name: "gw NAT",
  *     },
- * }, { async: true }));
+ * });
  * ```
  */
 export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {

@@ -47,25 +47,25 @@ namespace Pulumi.Aws.Ssm
     ///         var @default = new Aws.Rds.Instance("default", new Aws.Rds.InstanceArgs
     ///         {
     ///             AllocatedStorage = 10,
-    ///             DbSubnetGroupName = "my_database_subnet_group",
+    ///             StorageType = "gp2",
     ///             Engine = "mysql",
     ///             EngineVersion = "5.7.16",
     ///             InstanceClass = "db.t2.micro",
     ///             Name = "mydb",
-    ///             ParameterGroupName = "default.mysql5.7",
-    ///             Password = @var.Database_master_password,
-    ///             StorageType = "gp2",
     ///             Username = "foo",
+    ///             Password = @var.Database_master_password,
+    ///             DbSubnetGroupName = "my_database_subnet_group",
+    ///             ParameterGroupName = "default.mysql5.7",
     ///         });
     ///         var secret = new Aws.Ssm.Parameter("secret", new Aws.Ssm.ParameterArgs
     ///         {
     ///             Description = "The parameter description",
+    ///             Type = "SecureString",
+    ///             Value = @var.Database_master_password,
     ///             Tags = 
     ///             {
     ///                 { "environment", @var.Environment },
     ///             },
-    ///             Type = "SecureString",
-    ///             Value = @var.Database_master_password,
     ///         });
     ///     }
     /// 

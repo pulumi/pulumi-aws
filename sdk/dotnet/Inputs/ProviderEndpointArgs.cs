@@ -234,9 +234,6 @@ namespace Pulumi.Aws.Inputs
         [Input("kinesis")]
         public Input<string>? Kinesis { get; set; }
 
-        [Input("kinesisAnalytics")]
-        public Input<string>? KinesisAnalytics { get; set; }
-
         [Input("kinesisanalytics")]
         public Input<string>? Kinesisanalytics { get; set; }
 
@@ -323,9 +320,6 @@ namespace Pulumi.Aws.Inputs
 
         [Input("quicksight")]
         public Input<string>? Quicksight { get; set; }
-
-        [Input("r53")]
-        public Input<string>? R53 { get; set; }
 
         [Input("ram")]
         public Input<string>? Ram { get; set; }

@@ -114,8 +114,8 @@ namespace Pulumi.Aws.AppMesh
     ///                         {
     ///                             { "stack", "blue" },
     ///                         },
-    ///                         NamespaceName = example.Name,
     ///                         ServiceName = "serviceb1",
+    ///                         NamespaceName = example.Name,
     ///                     },
     ///                 },
     ///             },
@@ -151,19 +151,19 @@ namespace Pulumi.Aws.AppMesh
     ///                 },
     ///                 Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
     ///                 {
-    ///                     HealthCheck = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerHealthCheckArgs
-    ///                     {
-    ///                         HealthyThreshold = 2,
-    ///                         IntervalMillis = 5000,
-    ///                         Path = "/ping",
-    ///                         Protocol = "http",
-    ///                         TimeoutMillis = 2000,
-    ///                         UnhealthyThreshold = 2,
-    ///                     },
     ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
     ///                     {
     ///                         Port = 8080,
     ///                         Protocol = "http",
+    ///                     },
+    ///                     HealthCheck = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerHealthCheckArgs
+    ///                     {
+    ///                         Protocol = "http",
+    ///                         Path = "/ping",
+    ///                         HealthyThreshold = 2,
+    ///                         UnhealthyThreshold = 2,
+    ///                         TimeoutMillis = 2000,
+    ///                         IntervalMillis = 5000,
     ///                     },
     ///                 },
     ///                 ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
@@ -212,6 +212,13 @@ namespace Pulumi.Aws.AppMesh
     ///                         Protocol = "http",
     ///                     },
     ///                 },
+    ///                 ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
+    ///                 {
+    ///                     Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
+    ///                     {
+    ///                         Hostname = "serviceb.simpleapp.local",
+    ///                     },
+    ///                 },
     ///                 Logging = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingArgs
     ///                 {
     ///                     AccessLog = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingAccessLogArgs
@@ -220,13 +227,6 @@ namespace Pulumi.Aws.AppMesh
     ///                         {
     ///                             Path = "/dev/stdout",
     ///                         },
-    ///                     },
-    ///                 },
-    ///                 ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
-    ///                 {
-    ///                     Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
-    ///                     {
-    ///                         Hostname = "serviceb.simpleapp.local",
     ///                     },
     ///                 },
     ///             },

@@ -247,21 +247,21 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
     test_cluster = aws.redshift.get_cluster(cluster_identifier="test-cluster")
     test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
         destination="redshift",
+        s3_configuration={
+            "role_arn": aws_iam_role["firehose_role"]["arn"],
+            "bucketArn": aws_s3_bucket["bucket"]["arn"],
+            "bufferSize": 10,
+            "bufferInterval": 400,
+            "compressionFormat": "GZIP",
+        },
         redshift_configuration={
+            "role_arn": aws_iam_role["firehose_role"]["arn"],
             "clusterJdbcurl": f"jdbc:redshift://{test_cluster.endpoint}/{test_cluster.database_name}",
+            "username": "testuser",
+            "password": "T3stPass",
+            "dataTableName": "test-table",
             "copyOptions": "delimiter '|'",
             "dataTableColumns": "test-col",
-            "dataTableName": "test-table",
-            "password": "T3stPass",
-            "role_arn": aws_iam_role["firehose_role"]["arn"],
-            "username": "testuser",
-        },
-        s3_configuration={
-            "bucketArn": aws_s3_bucket["bucket"]["arn"],
-            "bufferInterval": 400,
-            "bufferSize": 10,
-            "compressionFormat": "GZIP",
-            "role_arn": aws_iam_role["firehose_role"]["arn"],
         })
     ```
 

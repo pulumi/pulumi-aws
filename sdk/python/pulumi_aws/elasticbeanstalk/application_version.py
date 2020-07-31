@@ -71,8 +71,8 @@ class ApplicationVersion(pulumi.CustomResource):
         default_application = aws.elasticbeanstalk.Application("defaultApplication", description="tf-test-desc")
         default_application_version = aws.elasticbeanstalk.ApplicationVersion("defaultApplicationVersion",
             application="tf-test-name",
-            bucket=default_bucket.id,
             description="application version",
+            bucket=default_bucket.id,
             key=default_bucket_object.id)
         ```
 

@@ -48,8 +48,8 @@ namespace Pulumi.Aws.ElasticBeanstalk
     ///         var defaultApplicationVersion = new Aws.ElasticBeanstalk.ApplicationVersion("defaultApplicationVersion", new Aws.ElasticBeanstalk.ApplicationVersionArgs
     ///         {
     ///             Application = "tf-test-name",
-    ///             Bucket = defaultBucket.Id,
     ///             Description = "application version",
+    ///             Bucket = defaultBucket.Id,
     ///             Key = defaultBucketObject.Id,
     ///         });
     ///     }

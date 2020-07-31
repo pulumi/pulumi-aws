@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`.
+        /// The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, and `SECRETS_MANAGER`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

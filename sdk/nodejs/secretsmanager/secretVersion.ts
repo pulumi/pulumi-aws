@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.secretsmanager.SecretVersion("example", {
- *     secretId: aws_secretsmanager_secret_example.id,
+ *     secretId: aws_secretsmanager_secret.example.id,
  *     secretString: "example-string-to-protect",
  * });
  * ```
@@ -30,19 +30,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * // The map here can come from other supported configurations
- * // like locals, resource attribute, map() built-in, etc.
- * const example = config.get("example") || {
+ * const example = config.getObject("example") || {
  *     key1: "value1",
  *     key2: "value2",
  * };
- *
- * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("example", {
- *     secretId: aws_secretsmanager_secret_example.id,
- *     secretString: (() => {
- *         throw "tf2pulumi error: NYI: call to jsonencode";
- *         return (() => { throw "NYI: call to jsonencode"; })();
- *     })(),
+ * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("exampleSecretVersion", {
+ *     secretId: aws_secretsmanager_secret.example.id,
+ *     secretString: JSON.stringify(example),
  * });
  * ```
  */

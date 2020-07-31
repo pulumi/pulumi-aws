@@ -164,7 +164,7 @@ class Service(pulumi.CustomResource):
                 "type": "memberOf",
                 "expression": "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
             }],
-            opts=ResourceOptions(depends_on=["aws_iam_role_policy.foo"]))
+            opts=ResourceOptions(depends_on=[aws_iam_role_policy["foo"]]))
         ```
         ### Ignoring Changes to Desired Count
 
@@ -174,11 +174,8 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ecs.Service("example",
-            desired_count=2,
-            lifecycle={
-                "ignoreChanges": ["desiredCount"],
-            })
+        # ... other configurations ...
+        example = aws.ecs.Service("example", desired_count=2)
         ```
         ### Daemon Scheduling Strategy
 
@@ -188,8 +185,8 @@ class Service(pulumi.CustomResource):
 
         bar = aws.ecs.Service("bar",
             cluster=aws_ecs_cluster["foo"]["id"],
-            scheduling_strategy="DAEMON",
-            task_definition=aws_ecs_task_definition["bar"]["arn"])
+            task_definition=aws_ecs_task_definition["bar"]["arn"],
+            scheduling_strategy="DAEMON")
         ```
         ### External Deployment Controller
 

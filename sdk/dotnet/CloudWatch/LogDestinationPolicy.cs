@@ -33,21 +33,21 @@ namespace Pulumi.Aws.CloudWatch
     ///             {
     ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///                 {
-    ///                     Actions = 
-    ///                     {
-    ///                         "logs:PutSubscriptionFilter",
-    ///                     },
     ///                     Effect = "Allow",
     ///                     Principals = 
     ///                     {
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
     ///                         {
+    ///                             Type = "AWS",
     ///                             Identifiers = 
     ///                             {
     ///                                 "123456789012",
     ///                             },
-    ///                             Type = "AWS",
     ///                         },
+    ///                     },
+    ///                     Actions = 
+    ///                     {
+    ///                         "logs:PutSubscriptionFilter",
     ///                     },
     ///                     Resources = 
     ///                     {
@@ -58,8 +58,8 @@ namespace Pulumi.Aws.CloudWatch
     ///         }));
     ///         var testDestinationPolicyLogDestinationPolicy = new Aws.CloudWatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", new Aws.CloudWatch.LogDestinationPolicyArgs
     ///         {
-    ///             AccessPolicy = testDestinationPolicyPolicyDocument.Apply(testDestinationPolicyPolicyDocument =&gt; testDestinationPolicyPolicyDocument.Json),
     ///             DestinationName = testDestination.Name,
+    ///             AccessPolicy = testDestinationPolicyPolicyDocument.Apply(testDestinationPolicyPolicyDocument =&gt; testDestinationPolicyPolicyDocument.Json),
     ///         });
     ///     }
     /// 

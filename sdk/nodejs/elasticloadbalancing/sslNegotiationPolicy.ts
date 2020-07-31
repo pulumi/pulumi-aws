@@ -26,6 +26,8 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const foo = new aws.elb.SslNegotiationPolicy("foo", {
+ *     loadBalancer: lb.id,
+ *     lbPort: 443,
  *     attributes: [
  *         {
  *             name: "Protocol-TLSv1",
@@ -56,8 +58,6 @@ import * as utilities from "../utilities";
  *             value: "false",
  *         },
  *     ],
- *     lbPort: 443,
- *     loadBalancer: lb.id,
  * });
  * ```
  *

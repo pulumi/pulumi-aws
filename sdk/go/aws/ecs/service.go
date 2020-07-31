@@ -52,8 +52,32 @@ import (
 // 				},
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_iam_role_policy.foo",
+// 			aws_iam_role_policy.Foo,
 // 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Ignoring Changes to Desired Count
+//
+// You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
+// 			DesiredCount: pulumi.Int(2),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
@@ -75,8 +99,8 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ecs.NewService(ctx, "bar", &ecs.ServiceArgs{
 // 			Cluster:            pulumi.String(aws_ecs_cluster.Foo.Id),
-// 			SchedulingStrategy: pulumi.String("DAEMON"),
 // 			TaskDefinition:     pulumi.String(aws_ecs_task_definition.Bar.Arn),
+// 			SchedulingStrategy: pulumi.String("DAEMON"),
 // 		})
 // 		if err != nil {
 // 			return err

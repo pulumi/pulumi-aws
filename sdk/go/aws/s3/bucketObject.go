@@ -27,8 +27,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		examplekms, err := kms.NewKey(ctx, "examplekms", &kms.KeyArgs{
-// 			DeletionWindowInDays: pulumi.Int(7),
 // 			Description:          pulumi.String("KMS key 1"),
+// 			DeletionWindowInDays: pulumi.Int(7),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -40,10 +40,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = s3.NewBucketObject(ctx, "examplebucketObject", &s3.BucketObjectArgs{
-// 			Bucket:   examplebucket.ID(),
 // 			Key:      pulumi.String("someobject"),
-// 			KmsKeyId: examplekms.Arn,
+// 			Bucket:   examplebucket.ID(),
 // 			Source:   pulumi.NewFileAsset("index.html"),
+// 			KmsKeyId: examplekms.Arn,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -71,10 +71,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = s3.NewBucketObject(ctx, "examplebucketObject", &s3.BucketObjectArgs{
-// 			Bucket:               examplebucket.ID(),
 // 			Key:                  pulumi.String("someobject"),
-// 			ServerSideEncryption: pulumi.String("aws:kms"),
+// 			Bucket:               examplebucket.ID(),
 // 			Source:               pulumi.NewFileAsset("index.html"),
+// 			ServerSideEncryption: pulumi.String("aws:kms"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -102,10 +102,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = s3.NewBucketObject(ctx, "examplebucketObject", &s3.BucketObjectArgs{
-// 			Bucket:               examplebucket.ID(),
 // 			Key:                  pulumi.String("someobject"),
-// 			ServerSideEncryption: pulumi.String("AES256"),
+// 			Bucket:               examplebucket.ID(),
 // 			Source:               pulumi.NewFileAsset("index.html"),
+// 			ServerSideEncryption: pulumi.String("AES256"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -128,24 +128,24 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		examplebucket, err := s3.NewBucket(ctx, "examplebucket", &s3.BucketArgs{
 // 			Acl: pulumi.String("private"),
-// 			ObjectLockConfiguration: &s3.BucketObjectLockConfigurationArgs{
-// 				ObjectLockEnabled: pulumi.String("Enabled"),
-// 			},
 // 			Versioning: &s3.BucketVersioningArgs{
 // 				Enabled: pulumi.Bool(true),
+// 			},
+// 			ObjectLockConfiguration: &s3.BucketObjectLockConfigurationArgs{
+// 				ObjectLockEnabled: pulumi.String("Enabled"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = s3.NewBucketObject(ctx, "examplebucketObject", &s3.BucketObjectArgs{
-// 			Bucket:                    examplebucket.ID(),
-// 			ForceDestroy:              pulumi.Bool(true),
 // 			Key:                       pulumi.String("someobject"),
+// 			Bucket:                    examplebucket.ID(),
+// 			Source:                    pulumi.NewFileAsset("important.txt"),
 // 			ObjectLockLegalHoldStatus: pulumi.String("ON"),
 // 			ObjectLockMode:            pulumi.String("GOVERNANCE"),
 // 			ObjectLockRetainUntilDate: pulumi.String("2021-12-31T23:59:60Z"),
-// 			Source:                    pulumi.NewFileAsset("important.txt"),
+// 			ForceDestroy:              pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err

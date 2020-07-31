@@ -55,8 +55,8 @@ namespace Pulumi.Aws.Mq
     ///             {
     ///                 new Aws.Mq.Inputs.BrokerUserArgs
     ///                 {
-    ///                     Password = "MindTheGap",
     ///                     Username = "ExampleUser",
+    ///                     Password = "MindTheGap",
     ///                 },
     ///             },
     ///         });

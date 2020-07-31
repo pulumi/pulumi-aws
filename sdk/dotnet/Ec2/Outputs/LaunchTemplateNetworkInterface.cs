@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
         /// </summary>
-        public readonly bool? DeleteOnTermination;
+        public readonly string? DeleteOnTermination;
         /// <summary>
         /// Description of the network interface.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         private LaunchTemplateNetworkInterface(
             string? associatePublicIpAddress,
 
-            bool? deleteOnTermination,
+            string? deleteOnTermination,
 
             string? description,
 

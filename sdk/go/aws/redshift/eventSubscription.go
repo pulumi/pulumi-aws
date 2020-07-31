@@ -37,18 +37,18 @@ import (
 // 			return err
 // 		}
 // 		_, err = redshift.NewEventSubscription(ctx, "defaultEventSubscription", &redshift.EventSubscriptionArgs{
+// 			SnsTopicArn: defaultTopic.Arn,
+// 			SourceType:  pulumi.String("cluster"),
+// 			SourceIds: pulumi.StringArray{
+// 				defaultCluster.ID(),
+// 			},
+// 			Severity: pulumi.String("INFO"),
 // 			EventCategories: pulumi.StringArray{
 // 				pulumi.String("configuration"),
 // 				pulumi.String("management"),
 // 				pulumi.String("monitoring"),
 // 				pulumi.String("security"),
 // 			},
-// 			Severity:    pulumi.String("INFO"),
-// 			SnsTopicArn: defaultTopic.Arn,
-// 			SourceIds: pulumi.StringArray{
-// 				defaultCluster.ID(),
-// 			},
-// 			SourceType: pulumi.String("cluster"),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("default"),
 // 			},

@@ -15,71 +15,6 @@ namespace Pulumi.Aws.AutoScaling
     /// &gt; **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
     /// 
     /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var test = new Aws.Ec2.PlacementGroup("test", new Aws.Ec2.PlacementGroupArgs
-    ///         {
-    ///             Strategy = "cluster",
-    ///         });
-    ///         var bar = new Aws.AutoScaling.Group("bar", new Aws.AutoScaling.GroupArgs
-    ///         {
-    ///             DesiredCapacity = 4,
-    ///             ForceDelete = true,
-    ///             HealthCheckGracePeriod = 300,
-    ///             HealthCheckType = "ELB",
-    ///             InitialLifecycleHooks = 
-    ///             {
-    ///                 new Aws.AutoScaling.Inputs.GroupInitialLifecycleHookArgs
-    ///                 {
-    ///                     DefaultResult = "CONTINUE",
-    ///                     HeartbeatTimeout = 2000,
-    ///                     LifecycleTransition = "autoscaling:EC2_INSTANCE_LAUNCHING",
-    ///                     Name = "foobar",
-    ///                     NotificationMetadata = @"{
-    ///   ""foo"": ""bar""
-    /// }
-    /// 
-    /// ",
-    ///                     NotificationTargetArn = "arn:aws:sqs:us-east-1:444455556666:queue1*",
-    ///                     RoleArn = "arn:aws:iam::123456789012:role/S3Access",
-    ///                 },
-    ///             },
-    ///             LaunchConfiguration = aws_launch_configuration.Foobar.Name,
-    ///             MaxSize = 5,
-    ///             MinSize = 2,
-    ///             PlacementGroup = test.Id,
-    ///             Tags = 
-    ///             {
-    ///                 new Aws.AutoScaling.Inputs.GroupTagArgs
-    ///                 {
-    ///                     Key = "foo",
-    ///                     PropagateAtLaunch = true,
-    ///                     Value = "bar",
-    ///                 },
-    ///                 new Aws.AutoScaling.Inputs.GroupTagArgs
-    ///                 {
-    ///                     Key = "lorem",
-    ///                     PropagateAtLaunch = false,
-    ///                     Value = "ipsum",
-    ///                 },
-    ///             },
-    ///             VpcZoneIdentifiers = 
-    ///             {
-    ///                 aws_subnet.Example1.Id,
-    ///                 aws_subnet.Example2.Id,
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// ### With Latest Version Of Launch Template
     /// 
     /// ```csharp
@@ -92,9 +27,9 @@ namespace Pulumi.Aws.AutoScaling
     ///     {
     ///         var foobar = new Aws.Ec2.LaunchTemplate("foobar", new Aws.Ec2.LaunchTemplateArgs
     ///         {
+    ///             NamePrefix = "foobar",
     ///             ImageId = "ami-1a2b3c",
     ///             InstanceType = "t2.micro",
-    ///             NamePrefix = "foobar",
     ///         });
     ///         var bar = new Aws.AutoScaling.Group("bar", new Aws.AutoScaling.GroupArgs
     ///         {
@@ -103,13 +38,13 @@ namespace Pulumi.Aws.AutoScaling
     ///                 "us-east-1a",
     ///             },
     ///             DesiredCapacity = 1,
+    ///             MaxSize = 1,
+    ///             MinSize = 1,
     ///             LaunchTemplate = new Aws.AutoScaling.Inputs.GroupLaunchTemplateArgs
     ///             {
     ///                 Id = foobar.Id,
     ///                 Version = "$Latest",
     ///             },
-    ///             MaxSize = 1,
-    ///             MinSize = 1,
     ///         });
     ///     }
     /// 
@@ -127,9 +62,9 @@ namespace Pulumi.Aws.AutoScaling
     ///     {
     ///         var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
     ///         {
+    ///             NamePrefix = "example",
     ///             ImageId = data.Aws_ami.Example.Id,
     ///             InstanceType = "c5.large",
-    ///             NamePrefix = "example",
     ///         });
     ///         var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new Aws.AutoScaling.GroupArgs
     ///         {
@@ -148,17 +83,17 @@ namespace Pulumi.Aws.AutoScaling
     ///                     {
     ///                         LaunchTemplateId = exampleLaunchTemplate.Id,
     ///                     },
-    ///                     Override = 
+    ///                     Overrides = 
     ///                     {
-    ///                         
+    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
     ///                         {
-    ///                             { "instanceType", "c4.large" },
-    ///                             { "weightedCapacity", "3" },
+    ///                             InstanceType = "c4.large",
+    ///                             WeightedCapacity = "3",
     ///                         },
-    ///                         
+    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
     ///                         {
-    ///                             { "instanceType", "c3.large" },
-    ///                             { "weightedCapacity", "2" },
+    ///                             InstanceType = "c3.large",
+    ///                             WeightedCapacity = "2",
     ///                         },
     ///                     },
     ///                 },
@@ -239,7 +174,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
+        /// A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -422,7 +357,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<string>> TerminationPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// A list of subnet IDs to launch resources in.
+        /// A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         /// </summary>
         [Output("vpcZoneIdentifiers")]
         public Output<ImmutableArray<string>> VpcZoneIdentifiers { get; private set; } = null!;
@@ -497,7 +432,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
+        /// A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -734,7 +669,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _vpcZoneIdentifiers;
 
         /// <summary>
-        /// A list of subnet IDs to launch resources in.
+        /// A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         /// </summary>
         public InputList<string> VpcZoneIdentifiers
         {
@@ -779,7 +714,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
+        /// A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -1016,7 +951,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _vpcZoneIdentifiers;
 
         /// <summary>
-        /// A list of subnet IDs to launch resources in.
+        /// A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         /// </summary>
         public InputList<string> VpcZoneIdentifiers
         {

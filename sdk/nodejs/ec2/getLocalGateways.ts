@@ -17,13 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooLocalGateways = pulumi.output(aws.ec2.getLocalGateways({
+ * const fooLocalGateways = aws.ec2.getLocalGateways({
  *     tags: {
  *         service: "production",
  *     },
- * }, { async: true }));
- *
- * export const foo = fooLocalGateways.ids;
+ * });
+ * export const foo = fooLocalGateways.then(fooLocalGateways => fooLocalGateways.ids);
  * ```
  */
 export function getLocalGateways(args?: GetLocalGatewaysArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewaysResult> {

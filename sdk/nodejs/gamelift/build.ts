@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *         roleArn: aws_iam_role.test.arn,
  *     },
  * }, {
- *     dependsOn: ["aws_iam_role_policy.test"],
+ *     dependsOn: [aws_iam_role_policy.test],
  * });
  * ```
  */

@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+// 		exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -33,7 +33,7 @@ import (
 // 			Email:     pulumi.String("example@example.com"),
 // 			Invite:    pulumi.Bool(true),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_securityhub_account.example",
+// 			exampleAccount,
 // 		}))
 // 		if err != nil {
 // 			return err

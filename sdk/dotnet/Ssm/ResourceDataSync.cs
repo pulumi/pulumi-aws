@@ -24,7 +24,6 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         var hogeBucket = new Aws.S3.Bucket("hogeBucket", new Aws.S3.BucketArgs
     ///         {
-    ///             Region = "us-east-1",
     ///         });
     ///         var hogeBucketPolicy = new Aws.S3.BucketPolicy("hogeBucketPolicy", new Aws.S3.BucketPolicyArgs
     ///         {
@@ -57,7 +56,6 @@ namespace Pulumi.Aws.Ssm
     ///         }
     ///     ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var foo = new Aws.Ssm.ResourceDataSync("foo", new Aws.Ssm.ResourceDataSyncArgs

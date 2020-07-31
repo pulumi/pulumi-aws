@@ -41,10 +41,10 @@ class VpnGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         vpn_gw = aws.ec2.VpnGateway("vpnGw",
+            vpc_id=aws_vpc["main"]["id"],
             tags={
                 "Name": "main",
-            },
-            vpc_id=aws_vpc["main"]["id"])
+            })
         ```
 
         :param str resource_name: The name of the resource.

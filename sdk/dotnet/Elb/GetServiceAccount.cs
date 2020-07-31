@@ -49,19 +49,18 @@ namespace Pulumi.Aws.Elb
         ///     }}
         ///   ]
         /// }}
-        /// 
         /// "),
         ///         });
         ///         var bar = new Aws.Elb.LoadBalancer("bar", new Aws.Elb.LoadBalancerArgs
         ///         {
+        ///             AvailabilityZones = 
+        ///             {
+        ///                 "us-west-2a",
+        ///             },
         ///             AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
         ///             {
         ///                 Bucket = elbLogs.BucketName,
         ///                 Interval = 5,
-        ///             },
-        ///             AvailabilityZones = 
-        ///             {
-        ///                 "us-west-2a",
         ///             },
         ///             Listeners = 
         ///             {

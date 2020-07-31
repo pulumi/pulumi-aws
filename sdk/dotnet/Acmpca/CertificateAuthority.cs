@@ -72,6 +72,11 @@ namespace Pulumi.Aws.Acmpca
     ///                             "s3:PutObject",
     ///                             "s3:PutObjectAcl",
     ///                         },
+    ///                         Resources = 
+    ///                         {
+    ///                             exampleBucketArn,
+    ///                             $"{exampleBucketArn1}/*",
+    ///                         },
     ///                         Principals = 
     ///                         {
     ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
@@ -82,11 +87,6 @@ namespace Pulumi.Aws.Acmpca
     ///                                 },
     ///                                 Type = "Service",
     ///                             },
-    ///                         },
-    ///                         Resources = 
-    ///                         {
-    ///                             exampleBucketArn,
-    ///                             $"{exampleBucketArn1}/*",
     ///                         },
     ///                     },
     ///                 },
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Acmpca
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_s3_bucket_policy.example",
+    ///                 exampleBucketPolicy,
     ///             },
     ///         });
     ///     }

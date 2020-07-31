@@ -28,23 +28,23 @@ namespace Pulumi.Aws.RedShift
     ///         });
     ///         var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new Aws.Ec2.SubnetArgs
     ///         {
-    ///             AvailabilityZone = "us-west-2a",
     ///             CidrBlock = "10.1.1.0/24",
+    ///             AvailabilityZone = "us-west-2a",
+    ///             VpcId = fooVpc.Id,
     ///             Tags = 
     ///             {
     ///                 { "Name", "tf-dbsubnet-test-1" },
     ///             },
-    ///             VpcId = fooVpc.Id,
     ///         });
     ///         var bar = new Aws.Ec2.Subnet("bar", new Aws.Ec2.SubnetArgs
     ///         {
-    ///             AvailabilityZone = "us-west-2b",
     ///             CidrBlock = "10.1.2.0/24",
+    ///             AvailabilityZone = "us-west-2b",
+    ///             VpcId = fooVpc.Id,
     ///             Tags = 
     ///             {
     ///                 { "Name", "tf-dbsubnet-test-2" },
     ///             },
-    ///             VpcId = fooVpc.Id,
     ///         });
     ///         var fooSubnetGroup = new Aws.RedShift.SubnetGroup("fooSubnetGroup", new Aws.RedShift.SubnetGroupArgs
     ///         {

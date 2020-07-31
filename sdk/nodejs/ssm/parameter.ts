@@ -29,25 +29,25 @@ import {ParameterType} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultInstance = new aws.rds.Instance("default", {
+ * const _default = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
- *     dbSubnetGroupName: "my_database_subnet_group",
+ *     storageType: "gp2",
  *     engine: "mysql",
  *     engineVersion: "5.7.16",
  *     instanceClass: "db.t2.micro",
  *     name: "mydb",
- *     parameterGroupName: "default.mysql5.7",
- *     password: var_database_master_password,
- *     storageType: "gp2",
  *     username: "foo",
+ *     password: _var.database_master_password,
+ *     dbSubnetGroupName: "my_database_subnet_group",
+ *     parameterGroupName: "default.mysql5.7",
  * });
  * const secret = new aws.ssm.Parameter("secret", {
  *     description: "The parameter description",
- *     tags: {
- *         environment: var_environment,
- *     },
  *     type: "SecureString",
- *     value: var_database_master_password,
+ *     value: _var.database_master_password,
+ *     tags: {
+ *         environment: _var.environment,
+ *     },
  * });
  * ```
  *

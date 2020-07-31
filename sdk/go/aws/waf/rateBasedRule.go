@@ -37,6 +37,8 @@ import (
 // 		}
 // 		_, err = waf.NewRateBasedRule(ctx, "wafrule", &waf.RateBasedRuleArgs{
 // 			MetricName: pulumi.String("tfWAFRule"),
+// 			RateKey:    pulumi.String("IP"),
+// 			RateLimit:  pulumi.Int(100),
 // 			Predicates: waf.RateBasedRulePredicateArray{
 // 				&waf.RateBasedRulePredicateArgs{
 // 					DataId:  ipset.ID(),
@@ -44,10 +46,8 @@ import (
 // 					Type:    pulumi.String("IPMatch"),
 // 				},
 // 			},
-// 			RateKey:   pulumi.String("IP"),
-// 			RateLimit: pulumi.Int(100),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_waf_ipset.ipset",
+// 			ipset,
 // 		}))
 // 		if err != nil {
 // 			return err

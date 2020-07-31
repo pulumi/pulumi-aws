@@ -13,12 +13,6 @@ namespace Pulumi.Aws.LB.Inputs
     public sealed class ListenerRuleConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
-        /// </summary>
-        [Input("field")]
-        public Input<string>? Field { get; set; }
-
-        /// <summary>
         /// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
         /// </summary>
         [Input("hostHeader")]
@@ -59,12 +53,6 @@ namespace Pulumi.Aws.LB.Inputs
         /// </summary>
         [Input("sourceIp")]
         public Input<Inputs.ListenerRuleConditionSourceIpArgs>? SourceIp { get; set; }
-
-        /// <summary>
-        /// List of exactly one pattern to match. Required when `field` is set.
-        /// </summary>
-        [Input("values")]
-        public Input<string>? Values { get; set; }
 
         public ListenerRuleConditionArgs()
         {

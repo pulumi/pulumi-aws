@@ -103,7 +103,7 @@ class Domain(pulumi.CustomResource):
     """
     log_publishing_options: pulumi.Output[list]
     """
-    Options for publishing slow logs to CloudWatch Logs.
+    Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
 
       * `cloudwatch_log_group_arn` (`str`) - ARN of the Cloudwatch log group to which log needs to be published.
       * `enabled` (`bool`) - Specifies whether Amazon Cognito authentication with Kibana is enabled or not
@@ -186,7 +186,6 @@ class Domain(pulumi.CustomResource):
             }}
           ]
         }}
-
         \"\"\")
         ```
         ### Log Publishing to CloudWatch Logs
@@ -197,6 +196,7 @@ class Domain(pulumi.CustomResource):
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+            policy_name="example",
             policy_document=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -214,9 +214,8 @@ class Domain(pulumi.CustomResource):
             }
           ]
         }
-
-        \"\"\",
-            policy_name="example")
+        \"\"\")
+        # .. other configuration ...
         example_domain = aws.elasticsearch.Domain("exampleDomain", log_publishing_options=[{
             "cloudwatch_log_group_arn": example_log_group.arn,
             "logType": "INDEX_SLOW_LOGS",
@@ -236,23 +235,37 @@ class Domain(pulumi.CustomResource):
         selected_vpc = aws.ec2.get_vpc(tags={
             "Name": vpc,
         })
-        selected_subnet_ids = aws.ec2.get_subnet_ids(tags={
+        selected_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=selected_vpc.id,
+            tags={
                 "Tier": "private",
-            },
-            vpc_id=selected_vpc.id)
+            })
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
         es_security_group = aws.ec2.SecurityGroup("esSecurityGroup",
             description="Managed by Pulumi",
+            vpc_id=selected_vpc.id,
             ingress=[{
-                "cidr_blocks": [selected_vpc.cidr_block],
                 "from_port": 443,
-                "protocol": "tcp",
                 "to_port": 443,
-            }],
-            vpc_id=selected_vpc.id)
+                "protocol": "tcp",
+                "cidr_blocks": [selected_vpc.cidr_block],
+            }])
         es_service_linked_role = aws.iam.ServiceLinkedRole("esServiceLinkedRole", aws_service_name="es.amazonaws.com")
         es_domain = aws.elasticsearch.Domain("esDomain",
+            elasticsearch_version="6.3",
+            cluster_config={
+                "instance_type": "m4.large.elasticsearch",
+            },
+            vpc_options={
+                "subnet_ids": [
+                    selected_subnet_ids.ids[0],
+                    selected_subnet_ids.ids[1],
+                ],
+                "security_group_ids": [es_security_group.id],
+            },
+            advanced_options={
+                "rest.action.multi.allow_explicit_index": "true",
+            },
             access_policies=f\"\"\"{{
         	"Version": "2012-10-17",
         	"Statement": [
@@ -264,29 +277,14 @@ class Domain(pulumi.CustomResource):
         		}}
         	]
         }}
-
         \"\"\",
-            advanced_options={
-                "rest.action.multi.allow_explicit_index": "true",
-            },
-            cluster_config={
-                "instance_type": "m4.large.elasticsearch",
-            },
-            elasticsearch_version="6.3",
             snapshot_options={
                 "automatedSnapshotStartHour": 23,
             },
             tags={
                 "Domain": "TestDomain",
             },
-            vpc_options={
-                "security_group_ids": [es_security_group.id],
-                "subnet_ids": [
-                    selected_subnet_ids.ids[0],
-                    selected_subnet_ids.ids[1],
-                ],
-            },
-            opts=ResourceOptions(depends_on=["aws_iam_service_linked_role.es"]))
+            opts=ResourceOptions(depends_on=[es_service_linked_role]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -303,7 +301,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[dict] ebs_options: EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
         :param pulumi.Input[str] elasticsearch_version: The version of Elasticsearch to deploy. Defaults to `1.5`
         :param pulumi.Input[dict] encrypt_at_rest: Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
-        :param pulumi.Input[list] log_publishing_options: Options for publishing slow logs to CloudWatch Logs.
+        :param pulumi.Input[list] log_publishing_options: Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
         :param pulumi.Input[dict] node_to_node_encryption: Node-to-node encryption options. See below.
         :param pulumi.Input[dict] snapshot_options: Snapshot related options, see below.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource
@@ -450,7 +448,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] kibana_endpoint: Domain-specific endpoint for kibana without https scheme.
                * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
                * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
-        :param pulumi.Input[list] log_publishing_options: Options for publishing slow logs to CloudWatch Logs.
+        :param pulumi.Input[list] log_publishing_options: Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
         :param pulumi.Input[dict] node_to_node_encryption: Node-to-node encryption options. See below.
         :param pulumi.Input[dict] snapshot_options: Snapshot related options, see below.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource

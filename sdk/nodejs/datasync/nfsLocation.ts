@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.NfsLocation("example", {
- *     onPremConfig: {
- *         agentArns: [aws_datasync_agent_example.arn],
- *     },
  *     serverHostname: "nfs.example.com",
  *     subdirectory: "/exported/path",
+ *     onPremConfig: {
+ *         agentArns: [aws_datasync_agent.example.arn],
+ *     },
  * });
  * ```
  */

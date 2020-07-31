@@ -31,35 +31,35 @@ import (
 // 			return err
 // 		}
 // 		myDemoResource, err := apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
+// 			RestApi:  myDemoAPI.ID(),
 // 			ParentId: myDemoAPI.RootResourceId,
 // 			PathPart: pulumi.String("mydemoresource"),
-// 			RestApi:  myDemoAPI.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		myDemoMethod, err := apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
-// 			Authorization: pulumi.String("NONE"),
-// 			HttpMethod:    pulumi.String("GET"),
-// 			ResourceId:    myDemoResource.ID(),
 // 			RestApi:       myDemoAPI.ID(),
+// 			ResourceId:    myDemoResource.ID(),
+// 			HttpMethod:    pulumi.String("GET"),
+// 			Authorization: pulumi.String("NONE"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = apigateway.NewIntegration(ctx, "myDemoIntegration", &apigateway.IntegrationArgs{
-// 			HttpMethod: myDemoMethod.HttpMethod,
-// 			ResourceId: myDemoResource.ID(),
 // 			RestApi:    myDemoAPI.ID(),
+// 			ResourceId: myDemoResource.ID(),
+// 			HttpMethod: myDemoMethod.HttpMethod,
 // 			Type:       pulumi.String("MOCK"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = apigateway.NewMethodResponse(ctx, "response200", &apigateway.MethodResponseArgs{
-// 			HttpMethod: myDemoMethod.HttpMethod,
-// 			ResourceId: myDemoResource.ID(),
 // 			RestApi:    myDemoAPI.ID(),
+// 			ResourceId: myDemoResource.ID(),
+// 			HttpMethod: myDemoMethod.HttpMethod,
 // 			StatusCode: pulumi.String("200"),
 // 		})
 // 		if err != nil {

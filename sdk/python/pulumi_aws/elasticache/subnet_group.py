@@ -42,12 +42,12 @@ class SubnetGroup(pulumi.CustomResource):
                 "Name": "tf-test",
             })
         foo_subnet = aws.ec2.Subnet("fooSubnet",
-            availability_zone="us-west-2a",
+            vpc_id=foo_vpc.id,
             cidr_block="10.0.0.0/24",
+            availability_zone="us-west-2a",
             tags={
                 "Name": "tf-test",
-            },
-            vpc_id=foo_vpc.id)
+            })
         bar = aws.elasticache.SubnetGroup("bar", subnet_ids=[foo_subnet.id])
         ```
 

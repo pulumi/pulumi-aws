@@ -45,10 +45,10 @@ import (
 // 			return err
 // 		}
 // 		main, err := ec2.NewVpnConnection(ctx, "main", &ec2.VpnConnectionArgs{
-// 			CustomerGatewayId: customerGateway.ID(),
-// 			StaticRoutesOnly:  pulumi.Bool(true),
-// 			Type:              pulumi.String("ipsec.1"),
 // 			VpnGatewayId:      vpnGateway.ID(),
+// 			CustomerGatewayId: customerGateway.ID(),
+// 			Type:              pulumi.String("ipsec.1"),
+// 			StaticRoutesOnly:  pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err

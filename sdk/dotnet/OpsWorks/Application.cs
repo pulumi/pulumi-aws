@@ -25,45 +25,45 @@ namespace Pulumi.Aws.OpsWorks
     ///     {
     ///         var foo_app = new Aws.OpsWorks.Application("foo-app", new Aws.OpsWorks.ApplicationArgs
     ///         {
-    ///             AppSources = 
-    ///             {
-    ///                 new Aws.OpsWorks.Inputs.ApplicationAppSourceArgs
-    ///                 {
-    ///                     Revision = "master",
-    ///                     Type = "git",
-    ///                     Url = "https://github.com/example.git",
-    ///                 },
-    ///             },
-    ///             AutoBundleOnDeploy = "true",
+    ///             ShortName = "foobar",
+    ///             StackId = aws_opsworks_stack.Main.Id,
+    ///             Type = "rails",
     ///             Description = "This is a Rails application",
-    ///             DocumentRoot = "public",
     ///             Domains = 
     ///             {
     ///                 "example.com",
     ///                 "sub.example.com",
     ///             },
-    ///             EnableSsl = true,
     ///             Environments = 
     ///             {
     ///                 new Aws.OpsWorks.Inputs.ApplicationEnvironmentArgs
     ///                 {
     ///                     Key = "key",
-    ///                     Secure = false,
     ///                     Value = "value",
+    ///                     Secure = false,
     ///                 },
     ///             },
-    ///             RailsEnv = "staging",
-    ///             ShortName = "foobar",
+    ///             AppSources = 
+    ///             {
+    ///                 new Aws.OpsWorks.Inputs.ApplicationAppSourceArgs
+    ///                 {
+    ///                     Type = "git",
+    ///                     Revision = "master",
+    ///                     Url = "https://github.com/example.git",
+    ///                 },
+    ///             },
+    ///             EnableSsl = true,
     ///             SslConfigurations = 
     ///             {
     ///                 new Aws.OpsWorks.Inputs.ApplicationSslConfigurationArgs
     ///                 {
-    ///                     Certificate = File.ReadAllText("./foobar.crt"),
     ///                     PrivateKey = File.ReadAllText("./foobar.key"),
+    ///                     Certificate = File.ReadAllText("./foobar.crt"),
     ///                 },
     ///             },
-    ///             StackId = aws_opsworks_stack.Main.Id,
-    ///             Type = "rails",
+    ///             DocumentRoot = "public",
+    ///             AutoBundleOnDeploy = "true",
+    ///             RailsEnv = "staging",
     ///         });
     ///     }
     /// 

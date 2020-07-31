@@ -77,8 +77,8 @@ def get_server_certificate(latest=None,name=None,name_prefix=None,path_prefix=No
     import pulumi
     import pulumi_aws as aws
 
-    my_domain = aws.iam.get_server_certificate(latest=True,
-        name_prefix="my-domain.org")
+    my_domain = aws.iam.get_server_certificate(name_prefix="my-domain.org",
+        latest=True)
     elb = aws.elb.LoadBalancer("elb", listeners=[{
         "instance_port": 8000,
         "instanceProtocol": "https",

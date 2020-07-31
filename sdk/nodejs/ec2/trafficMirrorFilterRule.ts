@@ -24,30 +24,30 @@ import * as utilities from "../utilities";
  * });
  * const ruleout = new aws.ec2.TrafficMirrorFilterRule("ruleout", {
  *     description: "test rule",
- *     destinationCidrBlock: "10.0.0.0/8",
- *     ruleAction: "accept",
- *     ruleNumber: 1,
- *     sourceCidrBlock: "10.0.0.0/8",
- *     trafficDirection: "egress",
  *     trafficMirrorFilterId: filter.id,
+ *     destinationCidrBlock: "10.0.0.0/8",
+ *     sourceCidrBlock: "10.0.0.0/8",
+ *     ruleNumber: 1,
+ *     ruleAction: "accept",
+ *     trafficDirection: "egress",
  * });
  * const rulein = new aws.ec2.TrafficMirrorFilterRule("rulein", {
  *     description: "test rule",
+ *     trafficMirrorFilterId: filter.id,
  *     destinationCidrBlock: "10.0.0.0/8",
+ *     sourceCidrBlock: "10.0.0.0/8",
+ *     ruleNumber: 1,
+ *     ruleAction: "accept",
+ *     trafficDirection: "ingress",
+ *     protocol: 6,
  *     destinationPortRange: {
  *         fromPort: 22,
  *         toPort: 53,
  *     },
- *     protocol: 6,
- *     ruleAction: "accept",
- *     ruleNumber: 1,
- *     sourceCidrBlock: "10.0.0.0/8",
  *     sourcePortRange: {
  *         fromPort: 0,
  *         toPort: 10,
  *     },
- *     trafficDirection: "ingress",
- *     trafficMirrorFilterId: filter.id,
  * });
  * ```
  */

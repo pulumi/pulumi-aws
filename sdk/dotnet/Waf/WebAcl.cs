@@ -49,16 +49,16 @@ namespace Pulumi.Aws.Waf
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_waf_ipset.ipset",
+    ///                 ipset,
     ///             },
     ///         });
     ///         var wafAcl = new Aws.Waf.WebAcl("wafAcl", new Aws.Waf.WebAclArgs
     ///         {
+    ///             MetricName = "tfWebACL",
     ///             DefaultAction = new Aws.Waf.Inputs.WebAclDefaultActionArgs
     ///             {
     ///                 Type = "ALLOW",
     ///             },
-    ///             MetricName = "tfWebACL",
     ///             Rules = 
     ///             {
     ///                 new Aws.Waf.Inputs.WebAclRuleArgs
@@ -76,8 +76,8 @@ namespace Pulumi.Aws.Waf
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_waf_ipset.ipset",
-    ///                 "aws_waf_rule.wafrule",
+    ///                 ipset,
+    ///                 wafrule,
     ///             },
     ///         });
     ///     }
@@ -103,16 +103,16 @@ namespace Pulumi.Aws.Waf
     ///                 LogDestination = aws_kinesis_firehose_delivery_stream.Example.Arn,
     ///                 RedactedFields = new Aws.Waf.Inputs.WebAclLoggingConfigurationRedactedFieldsArgs
     ///                 {
-    ///                     FieldToMatch = 
+    ///                     FieldToMatches = 
     ///                     {
-    ///                         
+    ///                         new Aws.Waf.Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs
     ///                         {
-    ///                             { "type", "URI" },
+    ///                             Type = "URI",
     ///                         },
-    ///                         
+    ///                         new Aws.Waf.Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs
     ///                         {
-    ///                             { "data", "referer" },
-    ///                             { "type", "HEADER" },
+    ///                             Data = "referer",
+    ///                             Type = "HEADER",
     ///                         },
     ///                     },
     ///                 },

@@ -12,24 +12,10 @@ class GetAvailabilityZonesResult:
     """
     A collection of values returned by getAvailabilityZones.
     """
-    def __init__(__self__, all_availability_zones=None, blacklisted_names=None, blacklisted_zone_ids=None, exclude_names=None, exclude_zone_ids=None, filters=None, group_names=None, id=None, names=None, state=None, zone_ids=None):
+    def __init__(__self__, all_availability_zones=None, exclude_names=None, exclude_zone_ids=None, filters=None, group_names=None, id=None, names=None, state=None, zone_ids=None):
         if all_availability_zones and not isinstance(all_availability_zones, bool):
             raise TypeError("Expected argument 'all_availability_zones' to be a bool")
         __self__.all_availability_zones = all_availability_zones
-        if blacklisted_names and not isinstance(blacklisted_names, list):
-            raise TypeError("Expected argument 'blacklisted_names' to be a list")
-        if blacklisted_names is not None:
-            warnings.warn("use `exclude_names` instead", DeprecationWarning)
-            pulumi.log.warn("blacklisted_names is deprecated: use `exclude_names` instead")
-
-        __self__.blacklisted_names = blacklisted_names
-        if blacklisted_zone_ids and not isinstance(blacklisted_zone_ids, list):
-            raise TypeError("Expected argument 'blacklisted_zone_ids' to be a list")
-        if blacklisted_zone_ids is not None:
-            warnings.warn("use `exclude_zone_ids` instead", DeprecationWarning)
-            pulumi.log.warn("blacklisted_zone_ids is deprecated: use `exclude_zone_ids` instead")
-
-        __self__.blacklisted_zone_ids = blacklisted_zone_ids
         if exclude_names and not isinstance(exclude_names, list):
             raise TypeError("Expected argument 'exclude_names' to be a list")
         __self__.exclude_names = exclude_names
@@ -70,8 +56,6 @@ class AwaitableGetAvailabilityZonesResult(GetAvailabilityZonesResult):
             yield self
         return GetAvailabilityZonesResult(
             all_availability_zones=self.all_availability_zones,
-            blacklisted_names=self.blacklisted_names,
-            blacklisted_zone_ids=self.blacklisted_zone_ids,
             exclude_names=self.exclude_names,
             exclude_zone_ids=self.exclude_zone_ids,
             filters=self.filters,
@@ -81,7 +65,7 @@ class AwaitableGetAvailabilityZonesResult(GetAvailabilityZonesResult):
             state=self.state,
             zone_ids=self.zone_ids)
 
-def get_availability_zones(all_availability_zones=None,blacklisted_names=None,blacklisted_zone_ids=None,exclude_names=None,exclude_zone_ids=None,filters=None,group_names=None,state=None,opts=None):
+def get_availability_zones(all_availability_zones=None,exclude_names=None,exclude_zone_ids=None,filters=None,group_names=None,state=None,opts=None):
     """
     The Availability Zones data source allows access to the list of AWS
     Availability Zones which can be accessed by an AWS account within the region
@@ -137,8 +121,6 @@ def get_availability_zones(all_availability_zones=None,blacklisted_names=None,bl
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-    :param list blacklisted_names: List of Availability Zone names to exclude. Use `exclude_names` instead.
-    :param list blacklisted_zone_ids: List of Availability Zone IDs to exclude. Use `exclude_zone_ids` instead.
     :param list exclude_names: List of Availability Zone names to exclude.
     :param list exclude_zone_ids: List of Availability Zone IDs to exclude.
     :param list filters: Configuration block(s) for filtering. Detailed below.
@@ -156,8 +138,6 @@ def get_availability_zones(all_availability_zones=None,blacklisted_names=None,bl
 
 
     __args__['allAvailabilityZones'] = all_availability_zones
-    __args__['blacklistedNames'] = blacklisted_names
-    __args__['blacklistedZoneIds'] = blacklisted_zone_ids
     __args__['excludeNames'] = exclude_names
     __args__['excludeZoneIds'] = exclude_zone_ids
     __args__['filters'] = filters
@@ -171,8 +151,6 @@ def get_availability_zones(all_availability_zones=None,blacklisted_names=None,bl
 
     return AwaitableGetAvailabilityZonesResult(
         all_availability_zones=__ret__.get('allAvailabilityZones'),
-        blacklisted_names=__ret__.get('blacklistedNames'),
-        blacklisted_zone_ids=__ret__.get('blacklistedZoneIds'),
         exclude_names=__ret__.get('excludeNames'),
         exclude_zone_ids=__ret__.get('excludeZoneIds'),
         filters=__ret__.get('filters'),

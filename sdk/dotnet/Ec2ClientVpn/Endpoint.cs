@@ -25,23 +25,23 @@ namespace Pulumi.Aws.Ec2ClientVpn
     ///     {
     ///         var example = new Aws.Ec2ClientVpn.Endpoint("example", new Aws.Ec2ClientVpn.EndpointArgs
     ///         {
+    ///             Description = "clientvpn-example",
+    ///             ServerCertificateArn = aws_acm_certificate.Cert.Arn,
+    ///             ClientCidrBlock = "10.0.0.0/16",
     ///             AuthenticationOptions = 
     ///             {
     ///                 new Aws.Ec2ClientVpn.Inputs.EndpointAuthenticationOptionArgs
     ///                 {
-    ///                     RootCertificateChainArn = aws_acm_certificate.Root_cert.Arn,
     ///                     Type = "certificate-authentication",
+    ///                     RootCertificateChainArn = aws_acm_certificate.Root_cert.Arn,
     ///                 },
     ///             },
-    ///             ClientCidrBlock = "10.0.0.0/16",
     ///             ConnectionLogOptions = new Aws.Ec2ClientVpn.Inputs.EndpointConnectionLogOptionsArgs
     ///             {
+    ///                 Enabled = true,
     ///                 CloudwatchLogGroup = aws_cloudwatch_log_group.Lg.Name,
     ///                 CloudwatchLogStream = aws_cloudwatch_log_stream.Ls.Name,
-    ///                 Enabled = true,
     ///             },
-    ///             Description = "clientvpn-example",
-    ///             ServerCertificateArn = aws_acm_certificate.Cert.Arn,
     ///         });
     ///     }
     /// 

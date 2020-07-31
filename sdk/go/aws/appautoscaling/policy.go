@@ -100,6 +100,30 @@ import (
 // 	})
 // }
 // ```
+// ### Preserve desired count when updating an autoscaled ECS Service
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ecs.NewService(ctx, "ecsService", &ecs.ServiceArgs{
+// 			Cluster:        pulumi.String("clusterName"),
+// 			TaskDefinition: pulumi.String("taskDefinitionFamily:1"),
+// 			DesiredCount:   pulumi.Int(2),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Aurora Read Replica Autoscaling
 //
 // ```go
@@ -115,27 +139,27 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		replicasTarget, err := appautoscaling.NewTarget(ctx, "replicasTarget", &appautoscaling.TargetArgs{
-// 			MaxCapacity:       pulumi.Int(15),
-// 			MinCapacity:       pulumi.Int(1),
-// 			ResourceId:        pulumi.String(fmt.Sprintf("%v%v", "cluster:", aws_rds_cluster.Example.Id)),
-// 			ScalableDimension: pulumi.String("rds:cluster:ReadReplicaCount"),
 // 			ServiceNamespace:  pulumi.String("rds"),
+// 			ScalableDimension: pulumi.String("rds:cluster:ReadReplicaCount"),
+// 			ResourceId:        pulumi.String(fmt.Sprintf("%v%v", "cluster:", aws_rds_cluster.Example.Id)),
+// 			MinCapacity:       pulumi.Int(1),
+// 			MaxCapacity:       pulumi.Int(15),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = appautoscaling.NewPolicy(ctx, "replicasPolicy", &appautoscaling.PolicyArgs{
-// 			PolicyType:        pulumi.String("TargetTrackingScaling"),
-// 			ResourceId:        replicasTarget.ResourceId,
-// 			ScalableDimension: replicasTarget.ScalableDimension,
 // 			ServiceNamespace:  replicasTarget.ServiceNamespace,
+// 			ScalableDimension: replicasTarget.ScalableDimension,
+// 			ResourceId:        replicasTarget.ResourceId,
+// 			PolicyType:        pulumi.String("TargetTrackingScaling"),
 // 			TargetTrackingScalingPolicyConfiguration: &appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs{
 // 				PredefinedMetricSpecification: &appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs{
 // 					PredefinedMetricType: pulumi.String("RDSReaderAverageCPUUtilization"),
 // 				},
+// 				TargetValue:      pulumi.Float64(75),
 // 				ScaleInCooldown:  pulumi.Int(300),
 // 				ScaleOutCooldown: pulumi.Int(300),
-// 				TargetValue:      pulumi.Float64(75),
 // 			},
 // 		})
 // 		if err != nil {

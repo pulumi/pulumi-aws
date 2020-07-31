@@ -41,22 +41,22 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
     ///         {
-    ///             AutoAccept = true,
-    ///             PeerVpcId = bar.Id,
     ///             VpcId = fooVpc.Id,
+    ///             PeerVpcId = bar.Id,
+    ///             AutoAccept = true,
     ///         });
     ///         var fooPeeringConnectionOptions = new Aws.Ec2.PeeringConnectionOptions("fooPeeringConnectionOptions", new Aws.Ec2.PeeringConnectionOptionsArgs
     ///         {
+    ///             VpcPeeringConnectionId = fooVpcPeeringConnection.Id,
     ///             Accepter = new Aws.Ec2.Inputs.PeeringConnectionOptionsAccepterArgs
     ///             {
     ///                 AllowRemoteVpcDnsResolution = true,
     ///             },
     ///             Requester = new Aws.Ec2.Inputs.PeeringConnectionOptionsRequesterArgs
     ///             {
-    ///                 AllowClassicLinkToRemoteVpc = true,
     ///                 AllowVpcToRemoteClassicLink = true,
+    ///                 AllowClassicLinkToRemoteVpc = true,
     ///             },
-    ///             VpcPeeringConnectionId = fooVpcPeeringConnection.Id,
     ///         });
     ///     }
     /// 
@@ -76,75 +76,77 @@ namespace Pulumi.Aws.Ec2
     ///         var requester = new Aws.Provider("requester", new Aws.ProviderArgs
     ///         {
     ///         });
+    ///         // Requester's credentials.
     ///         var accepter = new Aws.Provider("accepter", new Aws.ProviderArgs
     ///         {
     ///         });
+    ///         // Accepter's credentials.
     ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
     ///         {
     ///             CidrBlock = "10.0.0.0/16",
-    ///             EnableDnsHostnames = true,
     ///             EnableDnsSupport = true,
+    ///             EnableDnsHostnames = true,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.requester",
+    ///             Provider = aws.Requester,
     ///         });
     ///         var peerVpc = new Aws.Ec2.Vpc("peerVpc", new Aws.Ec2.VpcArgs
     ///         {
     ///             CidrBlock = "10.1.0.0/16",
-    ///             EnableDnsHostnames = true,
     ///             EnableDnsSupport = true,
+    ///             EnableDnsHostnames = true,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.accepter",
+    ///             Provider = aws.Accepter,
     ///         });
     ///         var peerCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
     ///         var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peerVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
     ///         {
-    ///             AutoAccept = false,
-    ///             PeerOwnerId = peerCallerIdentity.Apply(peerCallerIdentity =&gt; peerCallerIdentity.AccountId),
+    ///             VpcId = main.Id,
     ///             PeerVpcId = peerVpc.Id,
+    ///             PeerOwnerId = peerCallerIdentity.Apply(peerCallerIdentity =&gt; peerCallerIdentity.AccountId),
+    ///             AutoAccept = false,
     ///             Tags = 
     ///             {
     ///                 { "Side", "Requester" },
     ///             },
-    ///             VpcId = main.Id,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.requester",
+    ///             Provider = aws.Requester,
     ///         });
     ///         var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", new Aws.Ec2.VpcPeeringConnectionAccepterArgs
     ///         {
+    ///             VpcPeeringConnectionId = peerVpcPeeringConnection.Id,
     ///             AutoAccept = true,
     ///             Tags = 
     ///             {
     ///                 { "Side", "Accepter" },
     ///             },
-    ///             VpcPeeringConnectionId = peerVpcPeeringConnection.Id,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.accepter",
+    ///             Provider = aws.Accepter,
     ///         });
     ///         var requesterPeeringConnectionOptions = new Aws.Ec2.PeeringConnectionOptions("requesterPeeringConnectionOptions", new Aws.Ec2.PeeringConnectionOptionsArgs
     ///         {
+    ///             VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
     ///             Requester = new Aws.Ec2.Inputs.PeeringConnectionOptionsRequesterArgs
     ///             {
     ///                 AllowRemoteVpcDnsResolution = true,
     ///             },
-    ///             VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.requester",
+    ///             Provider = aws.Requester,
     ///         });
     ///         var accepterPeeringConnectionOptions = new Aws.Ec2.PeeringConnectionOptions("accepterPeeringConnectionOptions", new Aws.Ec2.PeeringConnectionOptionsArgs
     ///         {
+    ///             VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
     ///             Accepter = new Aws.Ec2.Inputs.PeeringConnectionOptionsAccepterArgs
     ///             {
     ///                 AllowRemoteVpcDnsResolution = true,
     ///             },
-    ///             VpcPeeringConnectionId = peerVpcPeeringConnectionAccepter.Id,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.accepter",
+    ///             Provider = aws.Accepter,
     ///         });
     ///     }
     /// 

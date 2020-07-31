@@ -62,13 +62,12 @@ class UserGroup(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         main_user_group = aws.cognito.UserGroup("mainUserGroup",
+            user_pool_id=main_user_pool.id,
             description="Managed by Pulumi",
             precedence=42,
-            role_arn=group_role.arn,
-            user_pool_id=main_user_pool.id)
+            role_arn=group_role.arn)
         ```
 
         :param str resource_name: The name of the resource.

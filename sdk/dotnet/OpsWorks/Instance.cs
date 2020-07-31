@@ -24,13 +24,13 @@ namespace Pulumi.Aws.OpsWorks
     ///     {
     ///         var my_instance = new Aws.OpsWorks.Instance("my-instance", new Aws.OpsWorks.InstanceArgs
     ///         {
-    ///             InstanceType = "t2.micro",
+    ///             StackId = aws_opsworks_stack.Main.Id,
     ///             LayerIds = 
     ///             {
     ///                 aws_opsworks_custom_layer.My_layer.Id,
     ///             },
+    ///             InstanceType = "t2.micro",
     ///             Os = "Amazon Linux 2015.09",
-    ///             StackId = aws_opsworks_stack.Main.Id,
     ///             State = "stopped",
     ///         });
     ///     }

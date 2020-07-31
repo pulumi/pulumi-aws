@@ -27,6 +27,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := true
 // 		ubuntu, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+// 			MostRecent: &opt0,
 // 			Filters: []aws.GetAmiFilter{
 // 				aws.GetAmiFilter{
 // 					Name: "name",
@@ -41,7 +42,6 @@ import (
 // 					},
 // 				},
 // 			},
-// 			MostRecent: &opt0,
 // 			Owners: []string{
 // 				"099720109477",
 // 			},
@@ -84,6 +84,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := true
 // 		ubuntu, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+// 			MostRecent: &opt0,
 // 			Filters: []aws.GetAmiFilter{
 // 				aws.GetAmiFilter{
 // 					Name: "name",
@@ -98,7 +99,6 @@ import (
 // 					},
 // 				},
 // 			},
-// 			MostRecent: &opt0,
 // 			Owners: []string{
 // 				"099720109477",
 // 			},
@@ -107,17 +107,17 @@ import (
 // 			return err
 // 		}
 // 		asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+// 			NamePrefix:   pulumi.String("lc-example-"),
 // 			ImageId:      pulumi.String(ubuntu.Id),
 // 			InstanceType: pulumi.String("t2.micro"),
-// 			NamePrefix:   pulumi.String("lc-example-"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
 // 			LaunchConfiguration: asConf.Name,
-// 			MaxSize:             pulumi.Int(2),
 // 			MinSize:             pulumi.Int(1),
+// 			MaxSize:             pulumi.Int(2),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -154,6 +154,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := true
 // 		ubuntu, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+// 			MostRecent: &opt0,
 // 			Filters: []aws.GetAmiFilter{
 // 				aws.GetAmiFilter{
 // 					Name: "name",
@@ -168,7 +169,6 @@ import (
 // 					},
 // 				},
 // 			},
-// 			MostRecent: &opt0,
 // 			Owners: []string{
 // 				"099720109477",
 // 			},

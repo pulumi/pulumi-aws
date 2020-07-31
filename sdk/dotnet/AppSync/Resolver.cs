@@ -42,22 +42,39 @@ namespace Pulumi.Aws.AppSync
     /// 	query: Query
     /// 	mutation: Mutation
     /// }
-    /// 
     /// ",
     ///         });
     ///         var testDataSource = new Aws.AppSync.DataSource("testDataSource", new Aws.AppSync.DataSourceArgs
     ///         {
     ///             ApiId = testGraphQLApi.Id,
+    ///             Type = "HTTP",
     ///             HttpConfig = new Aws.AppSync.Inputs.DataSourceHttpConfigArgs
     ///             {
     ///                 Endpoint = "http://example.com",
     ///             },
-    ///             Type = "HTTP",
     ///         });
     ///         // UNIT type resolver (default)
     ///         var testResolver = new Aws.AppSync.Resolver("testResolver", new Aws.AppSync.ResolverArgs
     ///         {
     ///             ApiId = testGraphQLApi.Id,
+    ///             Field = "singlePost",
+    ///             Type = "Query",
+    ///             DataSource = testDataSource.Name,
+    ///             RequestTemplate = @"{
+    ///     ""version"": ""2018-05-29"",
+    ///     ""method"": ""GET"",
+    ///     ""resourcePath"": ""/"",
+    ///     ""params"":{
+    ///         ""headers"": $utils.http.copyheaders($ctx.request.headers)
+    ///     }
+    /// }
+    /// ",
+    ///             ResponseTemplate = @"#if($ctx.result.statusCode == 200)
+    ///     $ctx.result.body
+    /// #else
+    ///     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
+    /// #end
+    /// ",
     ///             CachingConfig = new Aws.AppSync.Inputs.ResolverCachingConfigArgs
     ///             {
     ///                 CachingKeys = 
@@ -67,32 +84,15 @@ namespace Pulumi.Aws.AppSync
     ///                 },
     ///                 Ttl = 60,
     ///             },
-    ///             DataSource = testDataSource.Name,
-    ///             Field = "singlePost",
-    ///             RequestTemplate = @"{
-    ///     ""version"": ""2018-05-29"",
-    ///     ""method"": ""GET"",
-    ///     ""resourcePath"": ""/"",
-    ///     ""params"":{
-    ///         ""headers"": $utils.http.copyheaders($ctx.request.headers)
-    ///     }
-    /// }
-    /// 
-    /// ",
-    ///             ResponseTemplate = @"#if($ctx.result.statusCode == 200)
-    ///     $ctx.result.body
-    /// #else
-    ///     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
-    /// #end
-    /// 
-    /// ",
-    ///             Type = "Query",
     ///         });
     ///         // PIPELINE type resolver
     ///         var mutationPipelineTest = new Aws.AppSync.Resolver("mutationPipelineTest", new Aws.AppSync.ResolverArgs
     ///         {
+    ///             Type = "Mutation",
     ///             ApiId = testGraphQLApi.Id,
     ///             Field = "pipelineTest",
+    ///             RequestTemplate = "{}",
+    ///             ResponseTemplate = "$util.toJson($ctx.result)",
     ///             Kind = "PIPELINE",
     ///             PipelineConfig = new Aws.AppSync.Inputs.ResolverPipelineConfigArgs
     ///             {
@@ -103,9 +103,6 @@ namespace Pulumi.Aws.AppSync
     ///                     aws_appsync_function.Test3.Function_id,
     ///                 },
     ///             },
-    ///             RequestTemplate = "{}",
-    ///             ResponseTemplate = "$util.toJson($ctx.result)",
-    ///             Type = "Mutation",
     ///         });
     ///     }
     /// 

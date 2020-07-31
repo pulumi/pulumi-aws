@@ -44,8 +44,8 @@ class Permission(pulumi.CustomResource):
             allow_ssh=True,
             allow_sudo=True,
             level="iam_only",
-            stack_id=aws_opsworks_stack["stack"]["id"],
-            user_arn=aws_iam_user["user"]["arn"])
+            user_arn=aws_iam_user["user"]["arn"],
+            stack_id=aws_opsworks_stack["stack"]["id"])
         ```
 
         :param str resource_name: The name of the resource.

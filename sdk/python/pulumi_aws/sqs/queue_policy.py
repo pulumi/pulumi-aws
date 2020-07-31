@@ -31,6 +31,7 @@ class QueuePolicy(pulumi.CustomResource):
 
         queue = aws.sqs.Queue("queue")
         test = aws.sqs.QueuePolicy("test",
+            queue_url=queue.id,
             policy=queue.arn.apply(lambda arn: f\"\"\"{{
           "Version": "2012-10-17",
           "Id": "sqspolicy",
@@ -49,9 +50,7 @@ class QueuePolicy(pulumi.CustomResource):
             }}
           ]
         }}
-
-        \"\"\"),
-            queue_url=queue.id)
+        \"\"\"))
         ```
 
         :param str resource_name: The name of the resource.

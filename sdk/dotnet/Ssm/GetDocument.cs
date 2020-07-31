@@ -30,8 +30,8 @@ namespace Pulumi.Aws.Ssm
         ///     {
         ///         var foo = Output.Create(Aws.Ssm.GetDocument.InvokeAsync(new Aws.Ssm.GetDocumentArgs
         ///         {
-        ///             DocumentFormat = "YAML",
         ///             Name = "AWS-GatherSoftwareInventory",
+        ///             DocumentFormat = "YAML",
         ///         }));
         ///         this.Content = foo.Apply(foo =&gt; foo.Content);
         ///     }
@@ -53,8 +53,8 @@ namespace Pulumi.Aws.Ssm
         ///     {
         ///         var test = Output.Create(Aws.Ssm.GetDocument.InvokeAsync(new Aws.Ssm.GetDocumentArgs
         ///         {
-        ///             DocumentFormat = "JSON",
         ///             Name = aws_ssm_document.Test.Name,
+        ///             DocumentFormat = "JSON",
         ///         }));
         ///     }
         /// 

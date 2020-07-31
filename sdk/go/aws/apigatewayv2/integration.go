@@ -67,12 +67,17 @@ type Integration struct {
 	PassthroughBehavior pulumi.StringPtrOutput `pulumi:"passthroughBehavior"`
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
 	PayloadFormatVersion pulumi.StringPtrOutput `pulumi:"payloadFormatVersion"`
+	// A key-value map specifying request parameters that are passed from the method request to the backend.
+	// Supported only for WebSocket APIs.
+	RequestParameters pulumi.StringMapOutput `pulumi:"requestParameters"`
 	// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates pulumi.StringMapOutput `pulumi:"requestTemplates"`
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression pulumi.StringPtrOutput `pulumi:"templateSelectionExpression"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
 	TimeoutMilliseconds pulumi.IntPtrOutput `pulumi:"timeoutMilliseconds"`
+	// The TLS configuration for a private integration. Supported only for HTTP APIs.
+	TlsConfig IntegrationTlsConfigPtrOutput `pulumi:"tlsConfig"`
 }
 
 // NewIntegration registers a new resource with the given unique name, arguments, and options.
@@ -136,12 +141,17 @@ type integrationState struct {
 	PassthroughBehavior *string `pulumi:"passthroughBehavior"`
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
 	PayloadFormatVersion *string `pulumi:"payloadFormatVersion"`
+	// A key-value map specifying request parameters that are passed from the method request to the backend.
+	// Supported only for WebSocket APIs.
+	RequestParameters map[string]string `pulumi:"requestParameters"`
 	// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates map[string]string `pulumi:"requestTemplates"`
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression *string `pulumi:"templateSelectionExpression"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
 	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
+	// The TLS configuration for a private integration. Supported only for HTTP APIs.
+	TlsConfig *IntegrationTlsConfig `pulumi:"tlsConfig"`
 }
 
 type IntegrationState struct {
@@ -172,12 +182,17 @@ type IntegrationState struct {
 	PassthroughBehavior pulumi.StringPtrInput
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
 	PayloadFormatVersion pulumi.StringPtrInput
+	// A key-value map specifying request parameters that are passed from the method request to the backend.
+	// Supported only for WebSocket APIs.
+	RequestParameters pulumi.StringMapInput
 	// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates pulumi.StringMapInput
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression pulumi.StringPtrInput
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
 	TimeoutMilliseconds pulumi.IntPtrInput
+	// The TLS configuration for a private integration. Supported only for HTTP APIs.
+	TlsConfig IntegrationTlsConfigPtrInput
 }
 
 func (IntegrationState) ElementType() reflect.Type {
@@ -210,12 +225,17 @@ type integrationArgs struct {
 	PassthroughBehavior *string `pulumi:"passthroughBehavior"`
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
 	PayloadFormatVersion *string `pulumi:"payloadFormatVersion"`
+	// A key-value map specifying request parameters that are passed from the method request to the backend.
+	// Supported only for WebSocket APIs.
+	RequestParameters map[string]string `pulumi:"requestParameters"`
 	// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates map[string]string `pulumi:"requestTemplates"`
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression *string `pulumi:"templateSelectionExpression"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
 	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
+	// The TLS configuration for a private integration. Supported only for HTTP APIs.
+	TlsConfig *IntegrationTlsConfig `pulumi:"tlsConfig"`
 }
 
 // The set of arguments for constructing a Integration resource.
@@ -245,12 +265,17 @@ type IntegrationArgs struct {
 	PassthroughBehavior pulumi.StringPtrInput
 	// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
 	PayloadFormatVersion pulumi.StringPtrInput
+	// A key-value map specifying request parameters that are passed from the method request to the backend.
+	// Supported only for WebSocket APIs.
+	RequestParameters pulumi.StringMapInput
 	// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
 	RequestTemplates pulumi.StringMapInput
 	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
 	TemplateSelectionExpression pulumi.StringPtrInput
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
 	TimeoutMilliseconds pulumi.IntPtrInput
+	// The TLS configuration for a private integration. Supported only for HTTP APIs.
+	TlsConfig IntegrationTlsConfigPtrInput
 }
 
 func (IntegrationArgs) ElementType() reflect.Type {

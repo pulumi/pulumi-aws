@@ -76,8 +76,6 @@ export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pul
     }
     return pulumi.runtime.invoke("aws:index/getAvailabilityZones:getAvailabilityZones", {
         "allAvailabilityZones": args.allAvailabilityZones,
-        "blacklistedNames": args.blacklistedNames,
-        "blacklistedZoneIds": args.blacklistedZoneIds,
         "excludeNames": args.excludeNames,
         "excludeZoneIds": args.excludeZoneIds,
         "filters": args.filters,
@@ -94,18 +92,6 @@ export interface GetAvailabilityZonesArgs {
      * Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
      */
     readonly allAvailabilityZones?: boolean;
-    /**
-     * List of Availability Zone names to exclude. Use `excludeNames` instead.
-     *
-     * @deprecated use `exclude_names` instead
-     */
-    readonly blacklistedNames?: string[];
-    /**
-     * List of Availability Zone IDs to exclude. Use `excludeZoneIds` instead.
-     *
-     * @deprecated use `exclude_zone_ids` instead
-     */
-    readonly blacklistedZoneIds?: string[];
     /**
      * List of Availability Zone names to exclude.
      */
@@ -133,14 +119,6 @@ export interface GetAvailabilityZonesArgs {
  */
 export interface GetAvailabilityZonesResult {
     readonly allAvailabilityZones?: boolean;
-    /**
-     * @deprecated use `exclude_names` instead
-     */
-    readonly blacklistedNames?: string[];
-    /**
-     * @deprecated use `exclude_zone_ids` instead
-     */
-    readonly blacklistedZoneIds?: string[];
     readonly excludeNames?: string[];
     readonly excludeZoneIds?: string[];
     readonly filters?: outputs.GetAvailabilityZonesFilter[];

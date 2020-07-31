@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Emr.Inputs
     public sealed class ClusterCoreInstanceGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+        /// String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
         /// </summary>
         [Input("autoscalingPolicy")]
         public Input<string>? AutoscalingPolicy { get; set; }

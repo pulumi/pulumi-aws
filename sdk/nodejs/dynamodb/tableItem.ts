@@ -16,16 +16,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleTable = new aws.dynamodb.Table("example", {
+ * const exampleTable = new aws.dynamodb.Table("exampleTable", {
+ *     readCapacity: 10,
+ *     writeCapacity: 10,
+ *     hashKey: "exampleHashKey",
  *     attributes: [{
  *         name: "exampleHashKey",
  *         type: "S",
  *     }],
- *     hashKey: "exampleHashKey",
- *     readCapacity: 10,
- *     writeCapacity: 10,
  * });
- * const exampleTableItem = new aws.dynamodb.TableItem("example", {
+ * const exampleTableItem = new aws.dynamodb.TableItem("exampleTableItem", {
+ *     tableName: exampleTable.name,
  *     hashKey: exampleTable.hashKey,
  *     item: `{
  *   "exampleHashKey": {"S": "something"},
@@ -35,7 +36,6 @@ import * as utilities from "../utilities";
  *   "four": {"N": "44444"}
  * }
  * `,
- *     tableName: exampleTable.name,
  * });
  * ```
  */

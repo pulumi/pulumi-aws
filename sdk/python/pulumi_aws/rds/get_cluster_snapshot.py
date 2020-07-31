@@ -168,15 +168,12 @@ def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifi
     # a new dev database.
     aurora_cluster = aws.rds.Cluster("auroraCluster",
         cluster_identifier="development_cluster",
-        db_subnet_group_name="my_db_subnet_group",
-        lifecycle={
-            "ignoreChanges": ["snapshotIdentifier"],
-        },
-        snapshot_identifier=development_final_snapshot.id)
+        snapshot_identifier=development_final_snapshot.id,
+        db_subnet_group_name="my_db_subnet_group")
     aurora_cluster_instance = aws.rds.ClusterInstance("auroraClusterInstance",
         cluster_identifier=aurora_cluster.id,
-        db_subnet_group_name="my_db_subnet_group",
-        instance_class="db.t2.small")
+        instance_class="db.t2.small",
+        db_subnet_group_name="my_db_subnet_group")
     ```
 
 

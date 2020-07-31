@@ -51,9 +51,9 @@ class Rule(pulumi.CustomResource):
         wafrule = aws.wafregional.Rule("wafrule",
             metric_name="tfWAFRule",
             predicates=[{
+                "type": "IPMatch",
                 "dataId": ipset.id,
                 "negated": False,
-                "type": "IPMatch",
             }])
         ```
         ## Nested Fields

@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The function ARN of the Lambda function for which you want to create an alias.
+        /// Lambda Function name or ARN.
         /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The function ARN of the Lambda function for which you want to create an alias.
+        /// Lambda Function name or ARN.
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The function ARN of the Lambda function for which you want to create an alias.
+        /// Lambda Function name or ARN.
         /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }

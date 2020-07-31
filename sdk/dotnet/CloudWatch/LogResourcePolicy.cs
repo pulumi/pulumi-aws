@@ -35,6 +35,10 @@ namespace Pulumi.Aws.CloudWatch
     ///                         "logs:PutLogEvents",
     ///                         "logs:PutLogEventsBatch",
     ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         "arn:aws:logs:*",
+    ///                     },
     ///                     Principals = 
     ///                     {
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
@@ -45,10 +49,6 @@ namespace Pulumi.Aws.CloudWatch
     ///                             },
     ///                             Type = "Service",
     ///                         },
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         "arn:aws:logs:*",
     ///                     },
     ///                 },
     ///             },
@@ -83,6 +83,10 @@ namespace Pulumi.Aws.CloudWatch
     ///                         "logs:CreateLogStream",
     ///                         "logs:PutLogEvents",
     ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         "arn:aws:logs:*:*:log-group:/aws/route53/*",
+    ///                     },
     ///                     Principals = 
     ///                     {
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
@@ -93,10 +97,6 @@ namespace Pulumi.Aws.CloudWatch
     ///                             },
     ///                             Type = "Service",
     ///                         },
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         "arn:aws:logs:*:*:log-group:/aws/route53/*",
     ///                     },
     ///                 },
     ///             },

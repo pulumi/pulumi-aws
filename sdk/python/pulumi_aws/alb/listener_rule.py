@@ -71,28 +71,25 @@ class ListenerRule(pulumi.CustomResource):
     """
     A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
 
-      * `field` (`str`) - The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
       * `hostHeader` (`dict`) - Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
-        * `values` (`list`) - List of exactly one pattern to match. Required when `field` is set.
+        * `values` (`list`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 
       * `httpHeader` (`dict`) - HTTP headers to match. HTTP Header block fields documented below.
         * `httpHeaderName` (`str`) - Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
         * `values` (`list`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 
       * `httpRequestMethod` (`dict`) - Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
-        * `values` (`list`) - List of exactly one pattern to match. Required when `field` is set.
+        * `values` (`list`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 
       * `pathPattern` (`dict`) - Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
-        * `values` (`list`) - List of exactly one pattern to match. Required when `field` is set.
+        * `values` (`list`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 
       * `queryStrings` (`list`) - Query strings to match. Query String block fields documented below.
         * `key` (`str`) - Query string key pattern to match.
         * `value` (`str`) - Query string value pattern to match.
 
       * `sourceIp` (`dict`) - Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
-        * `values` (`list`) - List of exactly one pattern to match. Required when `field` is set.
-
-      * `values` (`str`) - List of exactly one pattern to match. Required when `field` is set.
+        * `values` (`list`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
     """
     listener_arn: pulumi.Output[str]
     """
@@ -115,11 +112,15 @@ class ListenerRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
         front_end_listener = aws.lb.Listener("frontEndListener")
+        # Other parameters
         static = aws.lb.ListenerRule("static",
+            listener_arn=front_end_listener.arn,
+            priority=100,
             actions=[{
-                "target_group_arn": aws_lb_target_group["static"]["arn"],
                 "type": "forward",
+                "target_group_arn": aws_lb_target_group["static"]["arn"],
             }],
             conditions=[
                 {
@@ -132,17 +133,28 @@ class ListenerRule(pulumi.CustomResource):
                         "values": ["example.com"],
                     },
                 },
-            ],
+            ])
+        # Forward action
+        host_based_weighted_routing = aws.lb.ListenerRule("hostBasedWeightedRouting",
             listener_arn=front_end_listener.arn,
-            priority=100)
-        host_based_routing = aws.lb.ListenerRule("hostBasedRouting",
+            priority=99,
             actions=[{
+                "type": "forward",
+                "target_group_arn": aws_lb_target_group["static"]["arn"],
+            }],
+            conditions=[{
+                "hostHeader": {
+                    "values": ["my-service.*.mycompany.io"],
+                },
+            }])
+        # Weighted Forward action
+        host_based_routing = aws.lb.ListenerRule("hostBasedRouting",
+            listener_arn=front_end_listener.arn,
+            priority=99,
+            actions=[{
+                "type": "forward",
                 "forward": {
-                    "stickiness": {
-                        "duration": 600,
-                        "enabled": True,
-                    },
-                    "targetGroup": [
+                    "targetGroups": [
                         {
                             "arn": aws_lb_target_group["main"]["arn"],
                             "weight": 80,
@@ -152,52 +164,44 @@ class ListenerRule(pulumi.CustomResource):
                             "weight": 20,
                         },
                     ],
+                    "stickiness": {
+                        "enabled": True,
+                        "duration": 600,
+                    },
                 },
-                "type": "forward",
             }],
             conditions=[{
                 "hostHeader": {
                     "values": ["my-service.*.mycompany.io"],
                 },
-            }],
-            listener_arn=front_end_listener.arn,
-            priority=99)
-        host_based_weighted_routing = aws.lb.ListenerRule("hostBasedWeightedRouting",
-            actions=[{
-                "target_group_arn": aws_lb_target_group["static"]["arn"],
-                "type": "forward",
-            }],
-            conditions=[{
-                "hostHeader": {
-                    "values": ["my-service.*.mydomain.io"],
-                },
-            }],
-            listener_arn=front_end_listener.arn,
-            priority=99)
+            }])
+        # Redirect action
         redirect_http_to_https = aws.lb.ListenerRule("redirectHttpToHttps",
+            listener_arn=front_end_listener.arn,
             actions=[{
+                "type": "redirect",
                 "redirect": {
                     "port": "443",
                     "protocol": "HTTPS",
                     "status_code": "HTTP_301",
                 },
-                "type": "redirect",
             }],
             conditions=[{
                 "httpHeader": {
                     "httpHeaderName": "X-Forwarded-For",
                     "values": ["192.168.1.*"],
                 },
-            }],
-            listener_arn=front_end_listener.arn)
+            }])
+        # Fixed-response action
         health_check = aws.lb.ListenerRule("healthCheck",
+            listener_arn=front_end_listener.arn,
             actions=[{
+                "type": "fixed-response",
                 "fixedResponse": {
                     "content_type": "text/plain",
                     "messageBody": "HEALTHY",
                     "status_code": "200",
                 },
-                "type": "fixed-response",
             }],
             conditions=[{
                 "queryStrings": [
@@ -209,14 +213,36 @@ class ListenerRule(pulumi.CustomResource):
                         "value": "bar",
                     },
                 ],
-            }],
-            listener_arn=front_end_listener.arn)
+            }])
+        # Authenticate-cognito Action
         pool = aws.cognito.UserPool("pool")
+        # ...
         client = aws.cognito.UserPoolClient("client")
+        # ...
         domain = aws.cognito.UserPoolDomain("domain")
-        admin = aws.lb.ListenerRule("admin",
+        # ...
+        admin_listener_rule = aws.lb.ListenerRule("adminListenerRule",
+            listener_arn=front_end_listener.arn,
             actions=[
                 {
+                    "type": "authenticate-cognito",
+                    "authenticateCognito": {
+                        "userPoolArn": pool.arn,
+                        "userPoolClientId": client.id,
+                        "userPoolDomain": domain.domain,
+                    },
+                },
+                {
+                    "type": "forward",
+                    "target_group_arn": aws_lb_target_group["static"]["arn"],
+                },
+            ])
+        # Authenticate-oidc Action
+        admin_lb_listener_rule_listener_rule = aws.lb.ListenerRule("adminLb/listenerRuleListenerRule",
+            listener_arn=front_end_listener.arn,
+            actions=[
+                {
+                    "type": "authenticate-oidc",
                     "authenticateOidc": {
                         "authorizationEndpoint": "https://example.com/authorization_endpoint",
                         "client_id": "client_id",
@@ -225,14 +251,12 @@ class ListenerRule(pulumi.CustomResource):
                         "tokenEndpoint": "https://example.com/token_endpoint",
                         "userInfoEndpoint": "https://example.com/user_info_endpoint",
                     },
-                    "type": "authenticate-oidc",
                 },
                 {
-                    "target_group_arn": aws_lb_target_group["static"]["arn"],
                     "type": "forward",
+                    "target_group_arn": aws_lb_target_group["static"]["arn"],
                 },
-            ],
-            listener_arn=front_end_listener.arn)
+            ])
         ```
 
         :param str resource_name: The name of the resource.
@@ -295,28 +319,25 @@ class ListenerRule(pulumi.CustomResource):
 
         The **conditions** object supports the following:
 
-          * `field` (`pulumi.Input[str]`) - The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
           * `hostHeader` (`pulumi.Input[dict]`) - Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
-            * `values` (`pulumi.Input[list]`) - List of exactly one pattern to match. Required when `field` is set.
+            * `values` (`pulumi.Input[list]`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 
           * `httpHeader` (`pulumi.Input[dict]`) - HTTP headers to match. HTTP Header block fields documented below.
             * `httpHeaderName` (`pulumi.Input[str]`) - Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
             * `values` (`pulumi.Input[list]`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 
           * `httpRequestMethod` (`pulumi.Input[dict]`) - Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
-            * `values` (`pulumi.Input[list]`) - List of exactly one pattern to match. Required when `field` is set.
+            * `values` (`pulumi.Input[list]`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 
           * `pathPattern` (`pulumi.Input[dict]`) - Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
-            * `values` (`pulumi.Input[list]`) - List of exactly one pattern to match. Required when `field` is set.
+            * `values` (`pulumi.Input[list]`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 
           * `queryStrings` (`pulumi.Input[list]`) - Query strings to match. Query String block fields documented below.
             * `key` (`pulumi.Input[str]`) - Query string key pattern to match.
             * `value` (`pulumi.Input[str]`) - Query string value pattern to match.
 
           * `sourceIp` (`pulumi.Input[dict]`) - Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
-            * `values` (`pulumi.Input[list]`) - List of exactly one pattern to match. Required when `field` is set.
-
-          * `values` (`pulumi.Input[str]`) - List of exactly one pattern to match. Required when `field` is set.
+            * `values` (`pulumi.Input[list]`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -422,28 +443,25 @@ class ListenerRule(pulumi.CustomResource):
 
         The **conditions** object supports the following:
 
-          * `field` (`pulumi.Input[str]`) - The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
           * `hostHeader` (`pulumi.Input[dict]`) - Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
-            * `values` (`pulumi.Input[list]`) - List of exactly one pattern to match. Required when `field` is set.
+            * `values` (`pulumi.Input[list]`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 
           * `httpHeader` (`pulumi.Input[dict]`) - HTTP headers to match. HTTP Header block fields documented below.
             * `httpHeaderName` (`pulumi.Input[str]`) - Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
             * `values` (`pulumi.Input[list]`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 
           * `httpRequestMethod` (`pulumi.Input[dict]`) - Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
-            * `values` (`pulumi.Input[list]`) - List of exactly one pattern to match. Required when `field` is set.
+            * `values` (`pulumi.Input[list]`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 
           * `pathPattern` (`pulumi.Input[dict]`) - Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
-            * `values` (`pulumi.Input[list]`) - List of exactly one pattern to match. Required when `field` is set.
+            * `values` (`pulumi.Input[list]`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
 
           * `queryStrings` (`pulumi.Input[list]`) - Query strings to match. Query String block fields documented below.
             * `key` (`pulumi.Input[str]`) - Query string key pattern to match.
             * `value` (`pulumi.Input[str]`) - Query string value pattern to match.
 
           * `sourceIp` (`pulumi.Input[dict]`) - Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
-            * `values` (`pulumi.Input[list]`) - List of exactly one pattern to match. Required when `field` is set.
-
-          * `values` (`pulumi.Input[str]`) - List of exactly one pattern to match. Required when `field` is set.
+            * `values` (`pulumi.Input[list]`) - List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

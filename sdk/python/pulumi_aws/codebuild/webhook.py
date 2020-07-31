@@ -21,7 +21,7 @@ class Webhook(pulumi.CustomResource):
       * `filters` (`list`) - A webhook filter for the group. Filter blocks are documented below.
         * `excludeMatchedPattern` (`bool`) - If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
         * `pattern` (`str`) - For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
-        * `type` (`str`) - The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
+        * `type` (`str`) - The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`. At least one filter group must specify `EVENT` as its type.
     """
     payload_url: pulumi.Output[str]
     """
@@ -57,19 +57,19 @@ class Webhook(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.codebuild.Webhook("example",
+            project_name=aws_codebuild_project["example"]["name"],
             filter_groups=[{
                 "filters": [
                     {
-                        "pattern": "PUSH",
                         "type": "EVENT",
+                        "pattern": "PUSH",
                     },
                     {
-                        "pattern": "master",
                         "type": "HEAD_REF",
+                        "pattern": "master",
                     },
                 ],
-            }],
-            project_name=aws_codebuild_project["example"]["name"])
+            }])
         ```
         ### GitHub Enterprise
 
@@ -85,14 +85,14 @@ class Webhook(pulumi.CustomResource):
         example_webhook = aws.codebuild.Webhook("exampleWebhook", project_name=aws_codebuild_project["example"]["name"])
         example_repository_webhook = github.RepositoryWebhook("exampleRepositoryWebhook",
             active=True,
+            events=["push"],
+            repository=github_repository["example"]["name"],
             configuration={
+                "url": example_webhook.payload_url,
+                "secret": example_webhook.secret,
                 "contentType": "json",
                 "insecureSsl": False,
-                "secret": example_webhook.secret,
-                "url": example_webhook.payload_url,
-            },
-            events=["push"],
-            repository=github_repository["example"]["name"])
+            })
         ```
 
         :param str resource_name: The name of the resource.
@@ -106,7 +106,7 @@ class Webhook(pulumi.CustomResource):
           * `filters` (`pulumi.Input[list]`) - A webhook filter for the group. Filter blocks are documented below.
             * `excludeMatchedPattern` (`pulumi.Input[bool]`) - If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
             * `pattern` (`pulumi.Input[str]`) - For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
-            * `type` (`pulumi.Input[str]`) - The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
+            * `type` (`pulumi.Input[str]`) - The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`. At least one filter group must specify `EVENT` as its type.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -160,7 +160,7 @@ class Webhook(pulumi.CustomResource):
           * `filters` (`pulumi.Input[list]`) - A webhook filter for the group. Filter blocks are documented below.
             * `excludeMatchedPattern` (`pulumi.Input[bool]`) - If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
             * `pattern` (`pulumi.Input[str]`) - For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
-            * `type` (`pulumi.Input[str]`) - The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
+            * `type` (`pulumi.Input[str]`) - The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`. At least one filter group must specify `EVENT` as its type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

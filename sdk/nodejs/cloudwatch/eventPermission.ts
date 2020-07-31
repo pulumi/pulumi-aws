@@ -27,14 +27,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const organizationAccess = new aws.cloudwatch.EventPermission("OrganizationAccess", {
+ * const organizationAccess = new aws.cloudwatch.EventPermission("organizationAccess", {
+ *     principal: "*",
+ *     statementId: "OrganizationAccess",
  *     condition: {
  *         key: "aws:PrincipalOrgID",
  *         type: "StringEquals",
- *         value: aws_organizations_organization_example.id,
+ *         value: aws_organizations_organization.example.id,
  *     },
- *     principal: "*",
- *     statementId: "OrganizationAccess",
  * });
  * ```
  */

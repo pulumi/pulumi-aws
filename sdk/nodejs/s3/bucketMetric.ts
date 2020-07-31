@@ -17,9 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.Bucket("example", {});
- * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {
- *     bucket: example.bucket,
- * });
+ * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {bucket: example.bucket});
  * ```
  * ### Add metrics configuration with S3 bucket object filter
  *
@@ -33,8 +31,8 @@ import * as utilities from "../utilities";
  *     filter: {
  *         prefix: "documents/",
  *         tags: {
- *             class: "blue",
  *             priority: "high",
+ *             "class": "blue",
  *         },
  *     },
  * });

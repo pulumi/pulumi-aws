@@ -30,18 +30,18 @@ namespace Pulumi.Aws.Elb
         ///         var main = Output.Create(Aws.Elb.GetHostedZoneId.InvokeAsync());
         ///         var www = new Aws.Route53.Record("www", new Aws.Route53.RecordArgs
         ///         {
+        ///             ZoneId = aws_route53_zone.Primary.Zone_id,
+        ///             Name = "example.com",
+        ///             Type = "A",
         ///             Aliases = 
         ///             {
         ///                 new Aws.Route53.Inputs.RecordAliasArgs
         ///                 {
-        ///                     EvaluateTargetHealth = true,
         ///                     Name = aws_elb.Main.Dns_name,
         ///                     ZoneId = main.Apply(main =&gt; main.Id),
+        ///                     EvaluateTargetHealth = true,
         ///                 },
         ///             },
-        ///             Name = "example.com",
-        ///             Type = "A",
-        ///             ZoneId = aws_route53_zone.Primary.Zone_id,
         ///         });
         ///     }
         /// 

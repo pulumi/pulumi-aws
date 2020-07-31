@@ -17,11 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("b", {
- *     forceDestroy: true,
- * });
- * const role = new aws.iam.Role("r", {
- *     assumeRolePolicy: `{
+ * const bucket = new aws.s3.Bucket("bucket", {forceDestroy: true});
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -34,15 +31,13 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
+ * `});
+ * const fooRecorder = new aws.cfg.Recorder("fooRecorder", {roleArn: role.arn});
+ * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("fooDeliveryChannel", {s3BucketName: bucket.bucket}, {
+ *     dependsOn: [fooRecorder],
  * });
- * const fooRecorder = new aws.cfg.Recorder("foo", {
- *     roleArn: role.arn,
- * });
- * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("foo", {
- *     s3BucketName: bucket.bucket,
- * }, { dependsOn: [fooRecorder] });
- * const rolePolicy = new aws.iam.RolePolicy("p", {
+ * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
+ *     role: role.id,
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -59,7 +54,6 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     role: role.id,
  * });
  * ```
  */

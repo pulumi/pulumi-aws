@@ -25,13 +25,13 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := opsworks.NewInstance(ctx, "my_instance", &opsworks.InstanceArgs{
-// 			InstanceType: pulumi.String("t2.micro"),
+// 			StackId: pulumi.String(aws_opsworks_stack.Main.Id),
 // 			LayerIds: pulumi.StringArray{
 // 				pulumi.String(aws_opsworks_custom_layer.My - layer.Id),
 // 			},
-// 			Os:      pulumi.String("Amazon Linux 2015.09"),
-// 			StackId: pulumi.String(aws_opsworks_stack.Main.Id),
-// 			State:   pulumi.String("stopped"),
+// 			InstanceType: pulumi.String("t2.micro"),
+// 			Os:           pulumi.String("Amazon Linux 2015.09"),
+// 			State:        pulumi.String("stopped"),
 // 		})
 // 		if err != nil {
 // 			return err

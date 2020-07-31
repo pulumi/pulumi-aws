@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Ebs
         public Output<bool> Encrypted { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of IOPS to provision for the disk.
+        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
         /// </summary>
         [Output("iops")]
         public Output<int> Iops { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// The amount of IOPS to provision for the disk.
+        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// The amount of IOPS to provision for the disk.
+        /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }

@@ -41,7 +41,7 @@ import (
 // 		}
 // 		awsRoute53ExampleCom, err := cloudwatch.NewLogGroup(ctx, "awsRoute53ExampleCom", &cloudwatch.LogGroupArgs{
 // 			RetentionInDays: pulumi.Int(30),
-// 		}, pulumi.Provider("aws.us-east-1"))
+// 		}, pulumi.Provider(aws.Us-east-1))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -52,6 +52,9 @@ import (
 // 						"logs:CreateLogStream",
 // 						"logs:PutLogEvents",
 // 					},
+// 					Resources: []string{
+// 						"arn:aws:logs:*:*:log-group:/aws/route53/*",
+// 					},
 // 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // 						iam.GetPolicyDocumentStatementPrincipal{
 // 							Identifiers: []string{
@@ -59,9 +62,6 @@ import (
 // 							},
 // 							Type: "Service",
 // 						},
-// 					},
-// 					Resources: []string{
-// 						"arn:aws:logs:*:*:log-group:/aws/route53/*",
 // 					},
 // 				},
 // 			},
@@ -72,7 +72,7 @@ import (
 // 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53_query_logging_policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
 // 			PolicyDocument: pulumi.String(route53_query_logging_policyPolicyDocument.Json),
 // 			PolicyName:     pulumi.String("route53-query-logging-policy"),
-// 		}, pulumi.Provider("aws.us-east-1"))
+// 		}, pulumi.Provider(aws.Us-east-1))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -84,7 +84,7 @@ import (
 // 			CloudwatchLogGroupArn: awsRoute53ExampleCom.Arn,
 // 			ZoneId:                exampleComZone.ZoneId,
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_cloudwatch_log_resource_policy.route53-query-logging-policy",
+// 			route53_query_logging_policyLogResourcePolicy,
 // 		}))
 // 		if err != nil {
 // 			return err

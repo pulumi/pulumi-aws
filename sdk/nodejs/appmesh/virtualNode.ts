@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh_simple.id,
+ *     meshName: aws_appmesh_mesh.simple.id,
  *     spec: {
  *         backends: [{
  *             virtualService: {
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.servicediscovery.HttpNamespace("example", {});
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh_simple.id,
+ *     meshName: aws_appmesh_mesh.simple.id,
  *     spec: {
  *         backends: [{
  *             virtualService: {
@@ -75,8 +75,8 @@ import * as utilities from "../utilities";
  *                 attributes: {
  *                     stack: "blue",
  *                 },
- *                 namespaceName: example.name,
  *                 serviceName: "serviceb1",
+ *                 namespaceName: example.name,
  *             },
  *         },
  *     },
@@ -89,7 +89,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh_simple.id,
+ *     meshName: aws_appmesh_mesh.simple.id,
  *     spec: {
  *         backends: [{
  *             virtualService: {
@@ -97,17 +97,17 @@ import * as utilities from "../utilities";
  *             },
  *         }],
  *         listener: {
- *             healthCheck: {
- *                 healthyThreshold: 2,
- *                 intervalMillis: 5000,
- *                 path: "/ping",
- *                 protocol: "http",
- *                 timeoutMillis: 2000,
- *                 unhealthyThreshold: 2,
- *             },
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
+ *             },
+ *             healthCheck: {
+ *                 protocol: "http",
+ *                 path: "/ping",
+ *                 healthyThreshold: 2,
+ *                 unhealthyThreshold: 2,
+ *                 timeoutMillis: 2000,
+ *                 intervalMillis: 5000,
  *             },
  *         },
  *         serviceDiscovery: {
@@ -125,7 +125,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb1 = new aws.appmesh.VirtualNode("serviceb1", {
- *     meshName: aws_appmesh_mesh_simple.id,
+ *     meshName: aws_appmesh_mesh.simple.id,
  *     spec: {
  *         backends: [{
  *             virtualService: {
@@ -138,16 +138,16 @@ import * as utilities from "../utilities";
  *                 protocol: "http",
  *             },
  *         },
+ *         serviceDiscovery: {
+ *             dns: {
+ *                 hostname: "serviceb.simpleapp.local",
+ *             },
+ *         },
  *         logging: {
  *             accessLog: {
  *                 file: {
  *                     path: "/dev/stdout",
  *                 },
- *             },
- *         },
- *         serviceDiscovery: {
- *             dns: {
- *                 hostname: "serviceb.simpleapp.local",
  *             },
  *         },
  *     },

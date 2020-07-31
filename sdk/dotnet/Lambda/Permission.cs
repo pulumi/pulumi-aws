@@ -38,14 +38,13 @@ namespace Pulumi.Aws.Lambda
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
     ///         {
     ///             Code = new FileArchive("lambdatest.zip"),
-    ///             Handler = "exports.handler",
     ///             Role = iamForLambda.Arn,
+    ///             Handler = "exports.handler",
     ///             Runtime = "nodejs8.10",
     ///         });
     ///         var testAlias = new Aws.Lambda.Alias("testAlias", new Aws.Lambda.AliasArgs
@@ -59,8 +58,8 @@ namespace Pulumi.Aws.Lambda
     ///             Action = "lambda:InvokeFunction",
     ///             Function = testLambda.Name,
     ///             Principal = "events.amazonaws.com",
-    ///             Qualifier = testAlias.Name,
     ///             SourceArn = "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
+    ///             Qualifier = testAlias.Name,
     ///         });
     ///     }
     /// 
@@ -94,14 +93,13 @@ namespace Pulumi.Aws.Lambda
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var func = new Aws.Lambda.Function("func", new Aws.Lambda.FunctionArgs
     ///         {
     ///             Code = new FileArchive("lambdatest.zip"),
-    ///             Handler = "exports.handler",
     ///             Role = defaultRole.Arn,
+    ///             Handler = "exports.handler",
     ///             Runtime = "python2.7",
     ///         });
     ///         var withSns = new Aws.Lambda.Permission("withSns", new Aws.Lambda.PermissionArgs
@@ -113,9 +111,9 @@ namespace Pulumi.Aws.Lambda
     ///         });
     ///         var lambda = new Aws.Sns.TopicSubscription("lambda", new Aws.Sns.TopicSubscriptionArgs
     ///         {
-    ///             Endpoint = func.Arn,
-    ///             Protocol = "lambda",
     ///             Topic = defaultTopic.Arn,
+    ///             Protocol = "lambda",
+    ///             Endpoint = func.Arn,
     ///         });
     ///     }
     /// 

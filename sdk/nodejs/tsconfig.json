@@ -972,6 +972,7 @@
         "worklink/websiteCertificateAuthorityAssociation.ts",
         "workspaces/directory.ts",
         "workspaces/getBundle.ts",
+        "workspaces/getDirectory.ts",
         "workspaces/index.ts",
         "workspaces/ipGroup.ts",
         "workspaces/workspace.ts",

@@ -19,6 +19,7 @@ import {PolicyDocument} from "../iam";
  *
  * const foo = new aws.ecr.Repository("foo", {});
  * const foopolicy = new aws.ecr.RepositoryPolicy("foopolicy", {
+ *     repository: foo.name,
  *     policy: `{
  *     "Version": "2008-10-17",
  *     "Statement": [
@@ -46,7 +47,6 @@ import {PolicyDocument} from "../iam";
  *     ]
  * }
  * `,
- *     repository: foo.name,
  * });
  * ```
  */

@@ -107,8 +107,8 @@ class ServerCertificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_cert = aws.iam.ServerCertificate("testCert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"),
             name_prefix="example-cert",
+            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"),
             private_key=(lambda path: open(path).read())("test-key.pem"))
         ourapp = aws.elb.LoadBalancer("ourapp",
             availability_zones=["us-west-2a"],

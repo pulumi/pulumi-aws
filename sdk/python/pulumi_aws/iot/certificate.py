@@ -50,8 +50,8 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cert = aws.iot.Certificate("cert",
-            active=True,
-            csr=(lambda path: open(path).read())("/my/csr.pem"))
+            csr=(lambda path: open(path).read())("/my/csr.pem"),
+            active=True)
         ```
         ### Without CSR
 

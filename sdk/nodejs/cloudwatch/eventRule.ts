@@ -22,23 +22,23 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const awsLogins = new aws.sns.Topic("aws_logins", {});
+ * const awsLogins = new aws.sns.Topic("awsLogins", {});
  * const sns = new aws.cloudwatch.EventTarget("sns", {
- *     arn: awsLogins.arn,
  *     rule: console.name,
+ *     arn: awsLogins.arn,
  * });
  * const snsTopicPolicy = awsLogins.arn.apply(arn => aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["SNS:Publish"],
  *         effect: "Allow",
+ *         actions: ["SNS:Publish"],
  *         principals: [{
- *             identifiers: ["events.amazonaws.com"],
  *             type: "Service",
+ *             identifiers: ["events.amazonaws.com"],
  *         }],
  *         resources: [arn],
  *     }],
- * }, { async: true }));
- * const defaultTopicPolicy = new aws.sns.TopicPolicy("default", {
+ * }));
+ * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: awsLogins.arn,
  *     policy: snsTopicPolicy.json,
  * });

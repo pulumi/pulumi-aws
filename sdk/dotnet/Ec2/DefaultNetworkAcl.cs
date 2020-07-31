@@ -146,6 +146,7 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
     ///         });
+    ///         // no rules defined, deny all traffic in this ACL
     ///     }
     /// 
     /// }

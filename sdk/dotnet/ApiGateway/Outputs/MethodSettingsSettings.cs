@@ -42,11 +42,11 @@ namespace Pulumi.Aws.ApiGateway.Outputs
         /// </summary>
         public readonly bool? RequireAuthorizationForCacheControl;
         /// <summary>
-        /// Specifies the throttling burst limit.
+        /// Specifies the throttling burst limit. Default: `-1` (throttling disabled).
         /// </summary>
         public readonly int? ThrottlingBurstLimit;
         /// <summary>
-        /// Specifies the throttling rate limit.
+        /// Specifies the throttling rate limit. Default: `-1` (throttling disabled).
         /// </summary>
         public readonly double? ThrottlingRateLimit;
         /// <summary>

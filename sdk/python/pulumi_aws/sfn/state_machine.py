@@ -48,7 +48,9 @@ class StateMachine(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        # ...
         sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
             definition=f\"\"\"{{
           "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
           "StartAt": "HelloWorld",
@@ -60,9 +62,7 @@ class StateMachine(pulumi.CustomResource):
             }}
           }}
         }}
-
-        \"\"\",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"])
+        \"\"\")
         ```
 
         :param str resource_name: The name of the resource.

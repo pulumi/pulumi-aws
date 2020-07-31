@@ -28,11 +28,12 @@ namespace Pulumi.Aws.Iam
     ///         });
     ///         var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new Aws.Iam.AccessKeyArgs
     ///         {
-    ///             PgpKey = "keybase:some_person_that_exists",
     ///             User = lbUser.Name,
+    ///             PgpKey = "keybase:some_person_that_exists",
     ///         });
     ///         var lbRo = new Aws.Iam.UserPolicy("lbRo", new Aws.Iam.UserPolicyArgs
     ///         {
+    ///             User = lbUser.Name,
     ///             Policy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -45,9 +46,7 @@ namespace Pulumi.Aws.Iam
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
-    ///             User = lbUser.Name,
     ///         });
     ///         this.Secret = lbAccessKey.EncryptedSecret;
     ///     }
@@ -83,10 +82,6 @@ namespace Pulumi.Aws.Iam
     /// </summary>
     public partial class AccessKey : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The encrypted secret, base64 encoded, if `pgp_key` was specified.
-        /// &gt; **NOTE:** The encrypted secret may be decrypted using the command line,
-        /// </summary>
         [Output("encryptedSecret")]
         public Output<string> EncryptedSecret { get; private set; } = null!;
 
@@ -114,13 +109,6 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Output("secret")]
         public Output<string> Secret { get; private set; } = null!;
-
-        /// <summary>
-        /// **DEPRECATED** The secret access key converted into an SES SMTP
-        /// password by applying [AWS's documented conversion
-        /// </summary>
-        [Output("sesSmtpPassword")]
-        public Output<string> SesSmtpPassword { get; private set; } = null!;
 
         /// <summary>
         /// The secret access key converted into an SES SMTP
@@ -218,10 +206,6 @@ namespace Pulumi.Aws.Iam
 
     public sealed class AccessKeyState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The encrypted secret, base64 encoded, if `pgp_key` was specified.
-        /// &gt; **NOTE:** The encrypted secret may be decrypted using the command line,
-        /// </summary>
         [Input("encryptedSecret")]
         public Input<string>? EncryptedSecret { get; set; }
 
@@ -249,13 +233,6 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }
-
-        /// <summary>
-        /// **DEPRECATED** The secret access key converted into an SES SMTP
-        /// password by applying [AWS's documented conversion
-        /// </summary>
-        [Input("sesSmtpPassword")]
-        public Input<string>? SesSmtpPassword { get; set; }
 
         /// <summary>
         /// The secret access key converted into an SES SMTP

@@ -82,7 +82,6 @@ namespace Pulumi.Aws.CloudFormation
     ///     }
     ///   }
     /// }
-    /// 
     /// ",
     ///         });
     ///         var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument = example.ExecutionRoleName.Apply(executionRoleName =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs

@@ -16,28 +16,27 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Example SES Domain Identity
- * const exampleDomainIdentity = new aws.ses.DomainIdentity("example", {
- *     domain: "example.com",
- * });
- * const exampleMailFrom = new aws.ses.MailFrom("example", {
+ * const exampleDomainIdentity = new aws.ses.DomainIdentity("exampleDomainIdentity", {domain: "example.com"});
+ * const exampleMailFrom = new aws.ses.MailFrom("exampleMailFrom", {
  *     domain: exampleDomainIdentity.domain,
  *     mailFromDomain: pulumi.interpolate`bounce.${exampleDomainIdentity.domain}`,
  * });
  * // Example Route53 MX record
- * const exampleSesDomainMailFromMx = new aws.route53.Record("example_ses_domain_mail_from_mx", {
+ * const exampleSesDomainMailFromMx = new aws.route53.Record("exampleSesDomainMailFromMx", {
+ *     zoneId: aws_route53_zone.example.id,
  *     name: exampleMailFrom.mailFromDomain,
- *     records: ["10 feedback-smtp.us-east-1.amazonses.com"], // Change to the region in which `aws_ses_domain_identity.example` is created
- *     ttl: 600,
  *     type: "MX",
- *     zoneId: aws_route53_zone_example.id,
+ *     ttl: "600",
+ *     records: ["10 feedback-smtp.us-east-1.amazonses.com"],
  * });
+ * // Change to the region in which `aws_ses_domain_identity.example` is created
  * // Example Route53 TXT record for SPF
- * const exampleSesDomainMailFromTxt = new aws.route53.Record("example_ses_domain_mail_from_txt", {
+ * const exampleSesDomainMailFromTxt = new aws.route53.Record("exampleSesDomainMailFromTxt", {
+ *     zoneId: aws_route53_zone.example.id,
  *     name: exampleMailFrom.mailFromDomain,
- *     records: ["v=spf1 include:amazonses.com -all"],
- *     ttl: 600,
  *     type: "TXT",
- *     zoneId: aws_route53_zone_example.id,
+ *     ttl: "600",
+ *     records: ["v=spf1 include:amazonses.com -all"],
  * });
  * ```
  */

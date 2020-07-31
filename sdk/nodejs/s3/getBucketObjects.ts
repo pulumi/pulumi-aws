@@ -19,16 +19,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myObjects = pulumi.output(aws.s3.getBucketObjects({
+ * const myObjects = aws.s3.getBucketObjects({
  *     bucket: "ourcorp",
- * }, { async: true }));
- * const objectInfo: pulumi.Output<aws.s3.GetBucketObjectResult>[] = [];
- * for (let i = 0; i < myObjects.apply(myObjects => myObjects.keys.length); i++) {
- *     objectInfo.push(pulumi.all([myObjects, myObjects]).apply(([myObjects, myObjects1]) => aws.s3.getBucketObject({
- *         bucket: myObjects.bucket,
- *         key: myObjects1.keys[i],
- *     }, { async: true })));
- * }
+ * });
+ * const objectInfo = Promise.all([myObjects.then(myObjects => myObjects.keys).length, myObjects.then(myObjects => myObjects.keys)[__index], myObjects]).then(([length, keys, myObjects]) => .map(__index => aws.s3.getBucketObject({
+ *     key: keys,
+ *     bucket: myObjects.bucket,
+ * })));
  * ```
  */
 export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectsResult> {

@@ -61,11 +61,11 @@ class Selection(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
             role=example_role.name)
+        # ... other configuration ...
         example_selection = aws.backup.Selection("exampleSelection", iam_role_arn=example_role.arn)
         ```
         ### Selecting Backups By Tag
@@ -78,8 +78,8 @@ class Selection(pulumi.CustomResource):
             iam_role_arn=aws_iam_role["example"]["arn"],
             plan_id=aws_backup_plan["example"]["id"],
             selection_tags=[{
-                "key": "foo",
                 "type": "STRINGEQUALS",
+                "key": "foo",
                 "value": "bar",
             }])
         ```

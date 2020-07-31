@@ -33,15 +33,15 @@ import (
 // 			return err
 // 		}
 // 		lbAccessKey, err := iam.NewAccessKey(ctx, "lbAccessKey", &iam.AccessKeyArgs{
-// 			PgpKey: pulumi.String("keybase:some_person_that_exists"),
 // 			User:   lbUser.Name,
+// 			PgpKey: pulumi.String("keybase:some_person_that_exists"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = iam.NewUserPolicy(ctx, "lbRo", &iam.UserPolicyArgs{
-// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"ec2:Describe*\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n", "\n")),
 // 			User:   lbUser.Name,
+// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"ec2:Describe*\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -82,8 +82,6 @@ import (
 type AccessKey struct {
 	pulumi.CustomResourceState
 
-	// The encrypted secret, base64 encoded, if `pgpKey` was specified.
-	// > **NOTE:** The encrypted secret may be decrypted using the command line,
 	EncryptedSecret pulumi.StringOutput `pulumi:"encryptedSecret"`
 	// The fingerprint of the PGP key used to encrypt
 	// the secret
@@ -98,12 +96,6 @@ type AccessKey struct {
 	// prevent the secret from being stored in plaintext, at the cost of preventing
 	// the use of the secret key in automation.
 	Secret pulumi.StringOutput `pulumi:"secret"`
-	// **DEPRECATED** The secret access key converted into an SES SMTP
-	// password by applying [AWS's documented conversion
-	//
-	// Deprecated: AWS SigV2 for SES SMTP passwords isy deprecated.
-	// Use 'ses_smtp_password_v4' for region-specific AWS SigV4 signed SES SMTP password instead.
-	SesSmtpPassword pulumi.StringOutput `pulumi:"sesSmtpPassword"`
 	// The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented Sigv4 conversion
 	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
@@ -147,8 +139,6 @@ func GetAccessKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessKey resources.
 type accessKeyState struct {
-	// The encrypted secret, base64 encoded, if `pgpKey` was specified.
-	// > **NOTE:** The encrypted secret may be decrypted using the command line,
 	EncryptedSecret *string `pulumi:"encryptedSecret"`
 	// The fingerprint of the PGP key used to encrypt
 	// the secret
@@ -163,12 +153,6 @@ type accessKeyState struct {
 	// prevent the secret from being stored in plaintext, at the cost of preventing
 	// the use of the secret key in automation.
 	Secret *string `pulumi:"secret"`
-	// **DEPRECATED** The secret access key converted into an SES SMTP
-	// password by applying [AWS's documented conversion
-	//
-	// Deprecated: AWS SigV2 for SES SMTP passwords isy deprecated.
-	// Use 'ses_smtp_password_v4' for region-specific AWS SigV4 signed SES SMTP password instead.
-	SesSmtpPassword *string `pulumi:"sesSmtpPassword"`
 	// The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented Sigv4 conversion
 	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
@@ -182,8 +166,6 @@ type accessKeyState struct {
 }
 
 type AccessKeyState struct {
-	// The encrypted secret, base64 encoded, if `pgpKey` was specified.
-	// > **NOTE:** The encrypted secret may be decrypted using the command line,
 	EncryptedSecret pulumi.StringPtrInput
 	// The fingerprint of the PGP key used to encrypt
 	// the secret
@@ -198,12 +180,6 @@ type AccessKeyState struct {
 	// prevent the secret from being stored in plaintext, at the cost of preventing
 	// the use of the secret key in automation.
 	Secret pulumi.StringPtrInput
-	// **DEPRECATED** The secret access key converted into an SES SMTP
-	// password by applying [AWS's documented conversion
-	//
-	// Deprecated: AWS SigV2 for SES SMTP passwords isy deprecated.
-	// Use 'ses_smtp_password_v4' for region-specific AWS SigV4 signed SES SMTP password instead.
-	SesSmtpPassword pulumi.StringPtrInput
 	// The secret access key converted into an SES SMTP
 	// password by applying [AWS's documented Sigv4 conversion
 	// algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).

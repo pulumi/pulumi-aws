@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Waf
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_waf_ipset.ipset",
+    ///                 ipset,
     ///             },
     ///         });
     ///     }

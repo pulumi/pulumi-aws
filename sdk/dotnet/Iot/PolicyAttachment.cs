@@ -37,13 +37,12 @@ namespace Pulumi.Aws.Iot
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var cert = new Aws.Iot.Certificate("cert", new Aws.Iot.CertificateArgs
     ///         {
-    ///             Active = true,
     ///             Csr = File.ReadAllText("csr.pem"),
+    ///             Active = true,
     ///         });
     ///         var att = new Aws.Iot.PolicyAttachment("att", new Aws.Iot.PolicyAttachmentArgs
     ///         {

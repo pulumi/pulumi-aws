@@ -27,20 +27,6 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rule = new Aws.Cfg.Rule("rule", new Aws.Cfg.RuleArgs
-    ///         {
-    ///             Source = new Aws.Cfg.Inputs.RuleSourceArgs
-    ///             {
-    ///                 Owner = "AWS",
-    ///                 SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 "aws_config_configuration_recorder.foo",
-    ///             },
-    ///         });
     ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
     ///         {
     ///             AssumeRolePolicy = @"{
@@ -56,15 +42,29 @@ namespace Pulumi.Aws.Cfg
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var foo = new Aws.Cfg.Recorder("foo", new Aws.Cfg.RecorderArgs
     ///         {
     ///             RoleArn = role.Arn,
     ///         });
+    ///         var rule = new Aws.Cfg.Rule("rule", new Aws.Cfg.RuleArgs
+    ///         {
+    ///             Source = new Aws.Cfg.Inputs.RuleSourceArgs
+    ///             {
+    ///                 Owner = "AWS",
+    ///                 SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 foo,
+    ///             },
+    ///         });
     ///         var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
+    ///             Role = role.Id,
     ///             Policy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -76,9 +76,7 @@ namespace Pulumi.Aws.Cfg
     ///   	}
     ///   ]
     /// }
-    /// 
     /// ",
-    ///             Role = role.Id,
     ///         });
     ///     }
     /// 
@@ -99,15 +97,18 @@ namespace Pulumi.Aws.Cfg
     ///         var exampleRecorder = new Aws.Cfg.Recorder("exampleRecorder", new Aws.Cfg.RecorderArgs
     ///         {
     ///         });
+    ///         // ... other configuration ...
     ///         var exampleFunction = new Aws.Lambda.Function("exampleFunction", new Aws.Lambda.FunctionArgs
     ///         {
     ///         });
+    ///         // ... other configuration ...
     ///         var examplePermission = new Aws.Lambda.Permission("examplePermission", new Aws.Lambda.PermissionArgs
     ///         {
     ///             Action = "lambda:InvokeFunction",
     ///             Function = exampleFunction.Arn,
     ///             Principal = "config.amazonaws.com",
     ///         });
+    ///         // ... other configuration ...
     ///         var exampleRule = new Aws.Cfg.Rule("exampleRule", new Aws.Cfg.RuleArgs
     ///         {
     ///             Source = new Aws.Cfg.Inputs.RuleSourceArgs
@@ -119,8 +120,8 @@ namespace Pulumi.Aws.Cfg
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_config_configuration_recorder.example",
-    ///                 "aws_lambda_permission.example",
+    ///                 exampleRecorder,
+    ///                 examplePermission,
     ///             },
     ///         });
     ///     }

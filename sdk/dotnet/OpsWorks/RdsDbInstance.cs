@@ -26,10 +26,10 @@ namespace Pulumi.Aws.OpsWorks
     ///     {
     ///         var myInstance = new Aws.OpsWorks.RdsDbInstance("myInstance", new Aws.OpsWorks.RdsDbInstanceArgs
     ///         {
-    ///             DbPassword = "somePass",
-    ///             DbUser = "someUser",
-    ///             RdsDbInstanceArn = aws_db_instance.My_instance.Arn,
     ///             StackId = aws_opsworks_stack.My_stack.Id,
+    ///             RdsDbInstanceArn = aws_db_instance.My_instance.Arn,
+    ///             DbUser = "someUser",
+    ///             DbPassword = "somePass",
     ///         });
     ///     }
     /// 
