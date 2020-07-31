@@ -16,14 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodb_table_read_target", {
+ * const dynamodbTableReadTarget = new aws.appautoscaling.Target("dynamodbTableReadTarget", {
  *     maxCapacity: 100,
  *     minCapacity: 5,
  *     resourceId: "table/tableName",
  *     scalableDimension: "dynamodb:table:ReadCapacityUnits",
  *     serviceNamespace: "dynamodb",
  * });
- * const dynamodbTableReadPolicy = new aws.appautoscaling.Policy("dynamodb_table_read_policy", {
+ * const dynamodbTableReadPolicy = new aws.appautoscaling.Policy("dynamodbTableReadPolicy", {
  *     policyType: "TargetTrackingScaling",
  *     resourceId: dynamodbTableReadTarget.resourceId,
  *     scalableDimension: dynamodbTableReadTarget.scalableDimension,
@@ -42,14 +42,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsTarget = new aws.appautoscaling.Target("ecs_target", {
+ * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
  *     maxCapacity: 4,
  *     minCapacity: 1,
  *     resourceId: "service/clusterName/serviceName",
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
  * });
- * const ecsPolicy = new aws.appautoscaling.Policy("ecs_policy", {
+ * const ecsPolicy = new aws.appautoscaling.Policy("ecsPolicy", {
  *     policyType: "StepScaling",
  *     resourceId: ecsTarget.resourceId,
  *     scalableDimension: ecsTarget.scalableDimension,
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *         cooldown: 60,
  *         metricAggregationType: "Maximum",
  *         stepAdjustments: [{
- *             metricIntervalUpperBound: "0",
+ *             metricIntervalUpperBound: 0,
  *             scalingAdjustment: -1,
  *         }],
  *     },
@@ -71,11 +71,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsService = new aws.ecs.Service("ecs_service", {
+ * const ecsService = new aws.ecs.Service("ecsService", {
  *     cluster: "clusterName",
- *     desiredCount: 2,
  *     taskDefinition: "taskDefinitionFamily:1",
- * }, { ignoreChanges: ["desiredCount"] });
+ *     desiredCount: 2,
+ * });
  * ```
  * ### Aurora Read Replica Autoscaling
  *
@@ -83,25 +83,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const replicasTarget = new aws.appautoscaling.Target("replicas", {
- *     maxCapacity: 15,
- *     minCapacity: 1,
- *     resourceId: pulumi.interpolate`cluster:${aws_rds_cluster_example.id}`,
- *     scalableDimension: "rds:cluster:ReadReplicaCount",
+ * const replicasTarget = new aws.appautoscaling.Target("replicasTarget", {
  *     serviceNamespace: "rds",
+ *     scalableDimension: "rds:cluster:ReadReplicaCount",
+ *     resourceId: `cluster:${aws_rds_cluster.example.id}`,
+ *     minCapacity: 1,
+ *     maxCapacity: 15,
  * });
- * const replicasPolicy = new aws.appautoscaling.Policy("replicas", {
- *     policyType: "TargetTrackingScaling",
- *     resourceId: replicasTarget.resourceId,
- *     scalableDimension: replicasTarget.scalableDimension,
+ * const replicasPolicy = new aws.appautoscaling.Policy("replicasPolicy", {
  *     serviceNamespace: replicasTarget.serviceNamespace,
+ *     scalableDimension: replicasTarget.scalableDimension,
+ *     resourceId: replicasTarget.resourceId,
+ *     policyType: "TargetTrackingScaling",
  *     targetTrackingScalingPolicyConfiguration: {
  *         predefinedMetricSpecification: {
  *             predefinedMetricType: "RDSReaderAverageCPUUtilization",
  *         },
+ *         targetValue: 75,
  *         scaleInCooldown: 300,
  *         scaleOutCooldown: 300,
- *         targetValue: 75,
  *     },
  * });
  * ```

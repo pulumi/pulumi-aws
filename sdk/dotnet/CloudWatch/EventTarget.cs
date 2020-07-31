@@ -36,7 +36,6 @@ namespace Pulumi.Aws.CloudWatch
     ///     ""EC2 Instance Terminate Unsuccessful""
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var testStream = new Aws.Kinesis.Stream("testStream", new Aws.Kinesis.StreamArgs
@@ -45,8 +44,8 @@ namespace Pulumi.Aws.CloudWatch
     ///         });
     ///         var yada = new Aws.CloudWatch.EventTarget("yada", new Aws.CloudWatch.EventTargetArgs
     ///         {
-    ///             Arn = testStream.Arn,
     ///             Rule = console.Name,
+    ///             Arn = testStream.Arn,
     ///             RunCommandTargets = 
     ///             {
     ///                 new Aws.CloudWatch.Inputs.EventTargetRunCommandTargetArgs
@@ -95,11 +94,11 @@ namespace Pulumi.Aws.CloudWatch
     ///                     {
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
     ///                         {
+    ///                             Type = "Service",
     ///                             Identifiers = 
     ///                             {
     ///                                 "events.amazonaws.com",
     ///                             },
-    ///                             Type = "Service",
     ///                         },
     ///                     },
     ///                 },
@@ -107,6 +106,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         }));
     ///         var stopInstance = new Aws.Ssm.Document("stopInstance", new Aws.Ssm.DocumentArgs
     ///         {
+    ///             DocumentType = "Command",
     ///             Content = @"  {
     ///     ""schemaVersion"": ""1.2"",
     ///     ""description"": ""Stop an instance"",
@@ -124,9 +124,7 @@ namespace Pulumi.Aws.CloudWatch
     ///       }
     ///     }
     ///   }
-    /// 
     /// ",
-    ///             DocumentType = "Command",
     ///         });
     ///         var ssmLifecyclePolicyDocument = stopInstance.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
     ///         {
@@ -134,35 +132,35 @@ namespace Pulumi.Aws.CloudWatch
     ///             {
     ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///                 {
+    ///                     Effect = "Allow",
     ///                     Actions = 
     ///                     {
     ///                         "ssm:SendCommand",
+    ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         "arn:aws:ec2:eu-west-1:1234567890:instance/*",
     ///                     },
     ///                     Conditions = 
     ///                     {
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                         {
     ///                             Test = "StringEquals",
+    ///                             Variable = "ec2:ResourceTag/Terminate",
     ///                             Values = 
     ///                             {
     ///                                 "*",
     ///                             },
-    ///                             Variable = "ec2:ResourceTag/Terminate",
     ///                         },
-    ///                     },
-    ///                     Effect = "Allow",
-    ///                     Resources = 
-    ///                     {
-    ///                         "arn:aws:ec2:eu-west-1:1234567890:instance/*",
     ///                     },
     ///                 },
     ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
     ///                 {
+    ///                     Effect = "Allow",
     ///                     Actions = 
     ///                     {
     ///                         "ssm:SendCommand",
     ///                     },
-    ///                     Effect = "Allow",
     ///                     Resources = 
     ///                     {
     ///                         arn,
@@ -186,8 +184,8 @@ namespace Pulumi.Aws.CloudWatch
     ///         var stopInstancesEventTarget = new Aws.CloudWatch.EventTarget("stopInstancesEventTarget", new Aws.CloudWatch.EventTargetArgs
     ///         {
     ///             Arn = stopInstance.Arn,
-    ///             RoleArn = ssmLifecycleRole.Arn,
     ///             Rule = stopInstancesEventRule.Name,
+    ///             RoleArn = ssmLifecycleRole.Arn,
     ///             RunCommandTargets = 
     ///             {
     ///                 new Aws.CloudWatch.Inputs.EventTargetRunCommandTargetArgs
@@ -224,8 +222,8 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             Arn = $"arn:aws:ssm:{@var.Aws_region}::document/AWS-RunShellScript",
     ///             Input = "{\"commands\":[\"halt\"]}",
-    ///             RoleArn = aws_iam_role.Ssm_lifecycle.Arn,
     ///             Rule = stopInstancesEventRule.Name,
+    ///             RoleArn = aws_iam_role.Ssm_lifecycle.Arn,
     ///             RunCommandTargets = 
     ///             {
     ///                 new Aws.CloudWatch.Inputs.EventTargetRunCommandTargetArgs

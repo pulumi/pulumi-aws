@@ -27,14 +27,16 @@ namespace Pulumi.Aws.Alb
     ///         var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup", new Aws.LB.TargetGroupArgs
     ///         {
     ///         });
+    ///         // Other arguments
     ///         var testInstance = new Aws.Ec2.Instance("testInstance", new Aws.Ec2.InstanceArgs
     ///         {
     ///         });
+    ///         // Other arguments
     ///         var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new Aws.LB.TargetGroupAttachmentArgs
     ///         {
-    ///             Port = 80,
     ///             TargetGroupArn = testTargetGroup.Arn,
     ///             TargetId = testInstance.Id,
+    ///             Port = 80,
     ///         });
     ///     }
     /// 
@@ -57,6 +59,7 @@ namespace Pulumi.Aws.Alb
     ///         var testFunction = new Aws.Lambda.Function("testFunction", new Aws.Lambda.FunctionArgs
     ///         {
     ///         });
+    ///         // Other arguments
     ///         var withLb = new Aws.Lambda.Permission("withLb", new Aws.Lambda.PermissionArgs
     ///         {
     ///             Action = "lambda:InvokeFunction",
@@ -72,7 +75,7 @@ namespace Pulumi.Aws.Alb
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_lambda_permission.with_lb",
+    ///                 withLb,
     ///             },
     ///         });
     ///     }

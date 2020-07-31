@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage a GuardDuty IPSet.
  *
- * > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
+ * > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
  *
  * ## Example Usage
  *
@@ -15,23 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const master = new aws.guardduty.Detector("master", {
- *     enable: true,
- * });
- * const bucket = new aws.s3.Bucket("bucket", {
- *     acl: "private",
- * });
- * const myIPSetBucketObject = new aws.s3.BucketObject("MyIPSet", {
+ * const primary = new aws.guardduty.Detector("primary", {enable: true});
+ * const bucket = new aws.s3.Bucket("bucket", {acl: "private"});
+ * const myIPSet = new aws.s3.BucketObject("myIPSet", {
  *     acl: "public-read",
- *     bucket: bucket.id,
  *     content: "10.0.0.0/8\n",
+ *     bucket: bucket.id,
  *     key: "MyIPSet",
  * });
- * const myIPSetIPSet = new aws.guardduty.IPSet("MyIPSet", {
+ * const example = new aws.guardduty.IPSet("example", {
  *     activate: true,
- *     detectorId: master.id,
+ *     detectorId: primary.id,
  *     format: "TXT",
- *     location: pulumi.interpolate`https://s3.amazonaws.com/${myIPSetBucketObject.bucket}/${myIPSetBucketObject.key}`,
+ *     location: pulumi.interpolate`https://s3.amazonaws.com/${myIPSet.bucket}/${myIPSet.key}`,
  * });
  * ```
  */

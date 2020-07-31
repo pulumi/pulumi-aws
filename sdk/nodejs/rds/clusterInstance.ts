@@ -28,25 +28,25 @@ import {EngineType, InstanceType} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultCluster = new aws.rds.Cluster("default", {
+ * const _default = new aws.rds.Cluster("default", {
+ *     clusterIdentifier: "aurora-cluster-demo",
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c",
  *     ],
- *     clusterIdentifier: "aurora-cluster-demo",
  *     databaseName: "mydb",
- *     masterPassword: "barbut8chars",
  *     masterUsername: "foo",
+ *     masterPassword: "barbut8chars",
  * });
- * const clusterInstances: aws.rds.ClusterInstance[] = [];
- * for (let i = 0; i < 2; i++) {
- *     clusterInstances.push(new aws.rds.ClusterInstance(`cluster_instances-${i}`, {
- *         clusterIdentifier: defaultCluster.id,
- *         engine: defaultCluster.engine,
- *         engineVersion: defaultCluster.engineVersion,
- *         identifier: `aurora-cluster-demo-${i}`,
+ * const clusterInstances: aws.rds.ClusterInstance[];
+ * for (const range = {value: 0}; range.value < 2; range.value++) {
+ *     clusterInstances.push(new aws.rds.ClusterInstance(`clusterInstances-${range.value}`, {
+ *         identifier: `aurora-cluster-demo-${range.value}`,
+ *         clusterIdentifier: _default.id,
  *         instanceClass: "db.r4.large",
+ *         engine: _default.engine,
+ *         engineVersion: _default.engineVersion,
  *     }));
  * }
  * ```

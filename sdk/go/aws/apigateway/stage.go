@@ -32,62 +32,101 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		testDeployment, err := apigateway.NewDeployment(ctx, "testDeployment", &apigateway.DeploymentArgs{
-// 			RestApi:   testRestApi.ID(),
-// 			StageName: pulumi.String("dev"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_api_gateway_integration.test",
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testStage, err := apigateway.NewStage(ctx, "testStage", &apigateway.StageArgs{
-// 			Deployment: testDeployment.ID(),
-// 			RestApi:    testRestApi.ID(),
-// 			StageName:  pulumi.String("prod"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
 // 		testResource, err := apigateway.NewResource(ctx, "testResource", &apigateway.ResourceArgs{
+// 			RestApi:  testRestApi.ID(),
 // 			ParentId: testRestApi.RootResourceId,
 // 			PathPart: pulumi.String("mytestresource"),
-// 			RestApi:  testRestApi.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		testMethod, err := apigateway.NewMethod(ctx, "testMethod", &apigateway.MethodArgs{
-// 			Authorization: pulumi.String("NONE"),
-// 			HttpMethod:    pulumi.String("GET"),
-// 			ResourceId:    testResource.ID(),
 // 			RestApi:       testRestApi.ID(),
+// 			ResourceId:    testResource.ID(),
+// 			HttpMethod:    pulumi.String("GET"),
+// 			Authorization: pulumi.String("NONE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testIntegration, err := apigateway.NewIntegration(ctx, "testIntegration", &apigateway.IntegrationArgs{
+// 			RestApi:    testRestApi.ID(),
+// 			ResourceId: testResource.ID(),
+// 			HttpMethod: testMethod.HttpMethod,
+// 			Type:       pulumi.String("MOCK"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testDeployment, err := apigateway.NewDeployment(ctx, "testDeployment", &apigateway.DeploymentArgs{
+// 			RestApi:   testRestApi.ID(),
+// 			StageName: pulumi.String("dev"),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			testIntegration,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testStage, err := apigateway.NewStage(ctx, "testStage", &apigateway.StageArgs{
+// 			StageName:  pulumi.String("prod"),
+// 			RestApi:    testRestApi.ID(),
+// 			Deployment: testDeployment.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = apigateway.NewMethodSettings(ctx, "methodSettings", &apigateway.MethodSettingsArgs{
+// 			RestApi:   testRestApi.ID(),
+// 			StageName: testStage.StageName,
 // 			MethodPath: pulumi.All(testResource.PathPart, testMethod.HttpMethod).ApplyT(func(_args []interface{}) (string, error) {
 // 				pathPart := _args[0].(string)
 // 				httpMethod := _args[1].(string)
 // 				return fmt.Sprintf("%v%v%v", pathPart, "/", httpMethod), nil
 // 			}).(pulumi.StringOutput),
-// 			RestApi: testRestApi.ID(),
 // 			Settings: &apigateway.MethodSettingsSettingsArgs{
-// 				LoggingLevel:   pulumi.String("INFO"),
 // 				MetricsEnabled: pulumi.Bool(true),
+// 				LoggingLevel:   pulumi.String("INFO"),
 // 			},
-// 			StageName: testStage.StageName,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = apigateway.NewIntegration(ctx, "testIntegration", &apigateway.IntegrationArgs{
-// 			HttpMethod: testMethod.HttpMethod,
-// 			ResourceId: testResource.ID(),
-// 			RestApi:    testRestApi.ID(),
-// 			Type:       pulumi.String("MOCK"),
+// 		return nil
+// 	})
+// }
+// ```
+// ### Managing the API Logging CloudWatch Log Group
+//
+// API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, the `cloudwatch.LogGroup` resource can be imported as a one time operation and recreation of the environment can occur without import.
+//
+// > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with API Gateway automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
+// 			RetentionInDays: pulumi.Int(7),
 // 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+// 			StageName: pulumi.String(stageName),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			exampleLogGroup,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

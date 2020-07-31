@@ -39,7 +39,6 @@ namespace Pulumi.Aws.ApiGateway
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var demo = new Aws.ApiGateway.Account("demo", new Aws.ApiGateway.AccountArgs
@@ -48,6 +47,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         });
     ///         var cloudwatchRolePolicy = new Aws.Iam.RolePolicy("cloudwatchRolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
+    ///             Role = cloudwatchRole.Id,
     ///             Policy = @"{
     ///     ""Version"": ""2012-10-17"",
     ///     ""Statement"": [
@@ -66,9 +66,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         }
     ///     ]
     /// }
-    /// 
     /// ",
-    ///             Role = cloudwatchRole.Id,
     ///         });
     ///     }
     /// 

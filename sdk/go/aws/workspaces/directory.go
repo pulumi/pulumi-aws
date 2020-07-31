@@ -33,17 +33,17 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewSubnet(ctx, "private_a", &ec2.SubnetArgs{
+// 			VpcId:            mainVpc.ID(),
 // 			AvailabilityZone: pulumi.String("us-east-1a"),
 // 			CidrBlock:        pulumi.String("10.0.0.0/24"),
-// 			VpcId:            mainVpc.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ec2.NewSubnet(ctx, "private_b", &ec2.SubnetArgs{
+// 			VpcId:            mainVpc.ID(),
 // 			AvailabilityZone: pulumi.String("us-east-1b"),
 // 			CidrBlock:        pulumi.String("10.0.1.0/24"),
-// 			VpcId:            mainVpc.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -52,11 +52,11 @@ import (
 // 			Password: pulumi.String("#S1ncerely"),
 // 			Size:     pulumi.String("Small"),
 // 			VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
+// 				VpcId: mainVpc.ID(),
 // 				SubnetIds: pulumi.StringArray{
 // 					private_a.ID(),
 // 					private_b.ID(),
 // 				},
-// 				VpcId: mainVpc.ID(),
 // 			},
 // 		})
 // 		if err != nil {

@@ -36,10 +36,12 @@ import (
 // 			return err
 // 		}
 // 		_, err = lb.NewListenerRule(ctx, "static", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
+// 			Priority:    pulumi.Int(100),
 // 			Actions: lb.ListenerRuleActionArray{
 // 				&lb.ListenerRuleActionArgs{
-// 					TargetGroupArn: pulumi.String(aws_lb_target_group.Static.Arn),
 // 					Type:           pulumi.String("forward"),
+// 					TargetGroupArn: pulumi.String(aws_lb_target_group.Static.Arn),
 // 				},
 // 			},
 // 			Conditions: lb.ListenerRuleConditionArray{
@@ -58,32 +60,17 @@ import (
 // 					},
 // 				},
 // 			},
-// 			ListenerArn: frontEndListener.Arn,
-// 			Priority:    pulumi.Int(100),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = lb.NewListenerRule(ctx, "hostBasedRouting", &lb.ListenerRuleArgs{
+// 		_, err = lb.NewListenerRule(ctx, "hostBasedWeightedRouting", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
+// 			Priority:    pulumi.Int(99),
 // 			Actions: lb.ListenerRuleActionArray{
 // 				&lb.ListenerRuleActionArgs{
-// 					Forward: &lb.ListenerRuleActionForwardArgs{
-// 						Stickiness: &lb.ListenerRuleActionForwardStickinessArgs{
-// 							Duration: pulumi.Int(600),
-// 							Enabled:  pulumi.Bool(true),
-// 						},
-// 						TargetGroup: pulumi.MapArray{
-// 							pulumi.Map{
-// 								"arn":    pulumi.String(aws_lb_target_group.Main.Arn),
-// 								"weight": pulumi.Float64(80),
-// 							},
-// 							pulumi.Map{
-// 								"arn":    pulumi.String(aws_lb_target_group.Canary.Arn),
-// 								"weight": pulumi.Float64(20),
-// 							},
-// 						},
-// 					},
-// 					Type: pulumi.String("forward"),
+// 					Type:           pulumi.String("forward"),
+// 					TargetGroupArn: pulumi.String(aws_lb_target_group.Static.Arn),
 // 				},
 // 			},
 // 			Conditions: lb.ListenerRuleConditionArray{
@@ -95,43 +82,57 @@ import (
 // 					},
 // 				},
 // 			},
-// 			ListenerArn: frontEndListener.Arn,
-// 			Priority:    pulumi.Int(99),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = lb.NewListenerRule(ctx, "hostBasedWeightedRouting", &lb.ListenerRuleArgs{
+// 		_, err = lb.NewListenerRule(ctx, "hostBasedRouting", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
+// 			Priority:    pulumi.Int(99),
 // 			Actions: lb.ListenerRuleActionArray{
 // 				&lb.ListenerRuleActionArgs{
-// 					TargetGroupArn: pulumi.String(aws_lb_target_group.Static.Arn),
-// 					Type:           pulumi.String("forward"),
+// 					Type: pulumi.String("forward"),
+// 					Forward: &lb.ListenerRuleActionForwardArgs{
+// 						TargetGroups: lb.ListenerRuleActionForwardTargetGroupArray{
+// 							&lb.ListenerRuleActionForwardTargetGroupArgs{
+// 								Arn:    pulumi.String(aws_lb_target_group.Main.Arn),
+// 								Weight: pulumi.Int(80),
+// 							},
+// 							&lb.ListenerRuleActionForwardTargetGroupArgs{
+// 								Arn:    pulumi.String(aws_lb_target_group.Canary.Arn),
+// 								Weight: pulumi.Int(20),
+// 							},
+// 						},
+// 						Stickiness: &lb.ListenerRuleActionForwardStickinessArgs{
+// 							Enabled:  pulumi.Bool(true),
+// 							Duration: pulumi.Int(600),
+// 						},
+// 					},
 // 				},
 // 			},
 // 			Conditions: lb.ListenerRuleConditionArray{
 // 				&lb.ListenerRuleConditionArgs{
 // 					HostHeader: &lb.ListenerRuleConditionHostHeaderArgs{
 // 						Values: pulumi.StringArray{
-// 							pulumi.String("my-service.*.mydomain.io"),
+// 							pulumi.String("my-service.*.mycompany.io"),
 // 						},
 // 					},
 // 				},
 // 			},
-// 			ListenerArn: frontEndListener.Arn,
-// 			Priority:    pulumi.Int(99),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = lb.NewListenerRule(ctx, "redirectHttpToHttps", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
 // 			Actions: lb.ListenerRuleActionArray{
 // 				&lb.ListenerRuleActionArgs{
+// 					Type: pulumi.String("redirect"),
 // 					Redirect: &lb.ListenerRuleActionRedirectArgs{
 // 						Port:       pulumi.String("443"),
 // 						Protocol:   pulumi.String("HTTPS"),
 // 						StatusCode: pulumi.String("HTTP_301"),
 // 					},
-// 					Type: pulumi.String("redirect"),
 // 				},
 // 			},
 // 			Conditions: lb.ListenerRuleConditionArray{
@@ -144,20 +145,20 @@ import (
 // 					},
 // 				},
 // 			},
-// 			ListenerArn: frontEndListener.Arn,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = lb.NewListenerRule(ctx, "healthCheck", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
 // 			Actions: lb.ListenerRuleActionArray{
 // 				&lb.ListenerRuleActionArgs{
+// 					Type: pulumi.String("fixed-response"),
 // 					FixedResponse: &lb.ListenerRuleActionFixedResponseArgs{
 // 						ContentType: pulumi.String("text/plain"),
 // 						MessageBody: pulumi.String("HEALTHY"),
 // 						StatusCode:  pulumi.String("200"),
 // 					},
-// 					Type: pulumi.String("fixed-response"),
 // 				},
 // 			},
 // 			Conditions: lb.ListenerRuleConditionArray{
@@ -173,26 +174,47 @@ import (
 // 					},
 // 				},
 // 			},
-// 			ListenerArn: frontEndListener.Arn,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = cognito.NewUserPool(ctx, "pool", nil)
+// 		pool, err := cognito.NewUserPool(ctx, "pool", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = cognito.NewUserPoolClient(ctx, "client", nil)
+// 		client, err := cognito.NewUserPoolClient(ctx, "client", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = cognito.NewUserPoolDomain(ctx, "domain", nil)
+// 		domain, err := cognito.NewUserPoolDomain(ctx, "domain", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = lb.NewListenerRule(ctx, "admin", &lb.ListenerRuleArgs{
+// 		_, err = lb.NewListenerRule(ctx, "adminListenerRule", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
 // 			Actions: lb.ListenerRuleActionArray{
 // 				&lb.ListenerRuleActionArgs{
+// 					Type: pulumi.String("authenticate-cognito"),
+// 					AuthenticateCognito: &lb.ListenerRuleActionAuthenticateCognitoArgs{
+// 						UserPoolArn:      pool.Arn,
+// 						UserPoolClientId: client.ID(),
+// 						UserPoolDomain:   domain.Domain,
+// 					},
+// 				},
+// 				&lb.ListenerRuleActionArgs{
+// 					Type:           pulumi.String("forward"),
+// 					TargetGroupArn: pulumi.String(aws_lb_target_group.Static.Arn),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lb.NewListenerRule(ctx, "adminLb_listenerRuleListenerRule", &lb.ListenerRuleArgs{
+// 			ListenerArn: frontEndListener.Arn,
+// 			Actions: lb.ListenerRuleActionArray{
+// 				&lb.ListenerRuleActionArgs{
+// 					Type: pulumi.String("authenticate-oidc"),
 // 					AuthenticateOidc: &lb.ListenerRuleActionAuthenticateOidcArgs{
 // 						AuthorizationEndpoint: pulumi.String("https://example.com/authorization_endpoint"),
 // 						ClientId:              pulumi.String("client_id"),
@@ -201,14 +223,12 @@ import (
 // 						TokenEndpoint:         pulumi.String("https://example.com/token_endpoint"),
 // 						UserInfoEndpoint:      pulumi.String("https://example.com/user_info_endpoint"),
 // 					},
-// 					Type: pulumi.String("authenticate-oidc"),
 // 				},
 // 				&lb.ListenerRuleActionArgs{
-// 					TargetGroupArn: pulumi.String(aws_lb_target_group.Static.Arn),
 // 					Type:           pulumi.String("forward"),
+// 					TargetGroupArn: pulumi.String(aws_lb_target_group.Static.Arn),
 // 				},
 // 			},
-// 			ListenerArn: frontEndListener.Arn,
 // 		})
 // 		if err != nil {
 // 			return err

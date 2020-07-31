@@ -31,15 +31,15 @@ import (
 // 			return err
 // 		}
 // 		_, err = apigateway.NewResponse(ctx, "test", &apigateway.ResponseArgs{
-// 			ResponseParameters: pulumi.StringMap{
-// 				"gatewayresponse.header.Authorization": pulumi.String("'Basic'"),
-// 			},
+// 			RestApiId:    main.ID(),
+// 			StatusCode:   pulumi.String("401"),
+// 			ResponseType: pulumi.String("UNAUTHORIZED"),
 // 			ResponseTemplates: pulumi.StringMap{
 // 				"application/json": pulumi.String(fmt.Sprintf("%v%v%v", "{'message':", "$", "context.error.messageString}")),
 // 			},
-// 			ResponseType: pulumi.String("UNAUTHORIZED"),
-// 			RestApiId:    main.ID(),
-// 			StatusCode:   pulumi.String("401"),
+// 			ResponseParameters: pulumi.StringMap{
+// 				"gatewayresponse.header.Authorization": pulumi.String("'Basic'"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

@@ -29,13 +29,13 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         var s3 = Output.Create(Aws.Ec2.GetVpcEndpoint.InvokeAsync(new Aws.Ec2.GetVpcEndpointArgs
         ///         {
-        ///             ServiceName = "com.amazonaws.us-west-2.s3",
         ///             VpcId = aws_vpc.Foo.Id,
+        ///             ServiceName = "com.amazonaws.us-west-2.s3",
         ///         }));
         ///         var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("privateS3", new Aws.Ec2.VpcEndpointRouteTableAssociationArgs
         ///         {
-        ///             RouteTableId = aws_route_table.Private.Id,
         ///             VpcEndpointId = s3.Apply(s3 =&gt; s3.Id),
+        ///             RouteTableId = aws_route_table.Private.Id,
         ///         });
         ///     }
         /// 

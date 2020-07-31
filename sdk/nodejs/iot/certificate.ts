@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
  * const cert = new aws.iot.Certificate("cert", {
+ *     csr: fs.readFileSync("/my/csr.pem"),
  *     active: true,
- *     csr: fs.readFileSync("/my/csr.pem", "utf-8"),
  * });
  * ```
  * ### Without CSR

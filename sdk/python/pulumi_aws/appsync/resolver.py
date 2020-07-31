@@ -84,26 +84,19 @@ class Resolver(pulumi.CustomResource):
         	query: Query
         	mutation: Mutation
         }
-
         \"\"\")
         test_data_source = aws.appsync.DataSource("testDataSource",
             api_id=test_graph_ql_api.id,
+            type="HTTP",
             http_config={
                 "endpoint": "http://example.com",
-            },
-            type="HTTP")
+            })
         # UNIT type resolver (default)
         test_resolver = aws.appsync.Resolver("testResolver",
             api_id=test_graph_ql_api.id,
-            caching_config={
-                "cachingKeys": [
-                    "$context.identity.sub",
-                    "$context.arguments.id",
-                ],
-                "ttl": 60,
-            },
-            data_source=test_data_source.name,
             field="singlePost",
+            type="Query",
+            data_source=test_data_source.name,
             request_template=\"\"\"{
             "version": "2018-05-29",
             "method": "GET",
@@ -112,20 +105,27 @@ class Resolver(pulumi.CustomResource):
                 "headers": $utils.http.copyheaders($ctx.request.headers)
             }
         }
-
         \"\"\",
             response_template=\"\"\"#if($ctx.result.statusCode == 200)
             $ctx.result.body
         #else
             $utils.appendError($ctx.result.body, $ctx.result.statusCode)
         #end
-
         \"\"\",
-            type="Query")
+            caching_config={
+                "cachingKeys": [
+                    "$context.identity.sub",
+                    "$context.arguments.id",
+                ],
+                "ttl": 60,
+            })
         # PIPELINE type resolver
         mutation_pipeline_test = aws.appsync.Resolver("mutationPipelineTest",
+            type="Mutation",
             api_id=test_graph_ql_api.id,
             field="pipelineTest",
+            request_template="{}",
+            response_template="$util.toJson($ctx.result)",
             kind="PIPELINE",
             pipeline_config={
                 "functions": [
@@ -133,10 +133,7 @@ class Resolver(pulumi.CustomResource):
                     aws_appsync_function["test2"]["function_id"],
                     aws_appsync_function["test3"]["function_id"],
                 ],
-            },
-            request_template="{}",
-            response_template="$util.toJson($ctx.result)",
-            type="Mutation")
+            })
         ```
 
         :param str resource_name: The name of the resource.

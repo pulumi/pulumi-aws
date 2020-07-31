@@ -138,12 +138,11 @@ class Trail(pulumi.CustomResource):
                 }}
             ]
         }}
-
         \"\"\")
         foobar = aws.cloudtrail.Trail("foobar",
-            include_global_service_events=False,
             s3_bucket_name=foo.id,
-            s3_key_prefix="prefix")
+            s3_key_prefix="prefix",
+            include_global_service_events=False)
         ```
         ### Data Event Logging
 

@@ -25,8 +25,8 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
     ///         {
     ///             CidrBlock = "10.0.0.0/16",
-    ///             EnableDnsHostnames = true,
     ///             EnableDnsSupport = true,
+    ///             EnableDnsHostnames = true,
     ///         });
     ///         var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new Aws.ServiceDiscovery.PrivateDnsNamespaceArgs
     ///         {
@@ -37,6 +37,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///         {
     ///             DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
     ///             {
+    ///                 NamespaceId = examplePrivateDnsNamespace.Id,
     ///                 DnsRecords = 
     ///                 {
     ///                     new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
@@ -45,7 +46,6 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///                         Type = "A",
     ///                     },
     ///                 },
-    ///                 NamespaceId = examplePrivateDnsNamespace.Id,
     ///                 RoutingPolicy = "MULTIVALUE",
     ///             },
     ///             HealthCheckCustomConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckCustomConfigArgs
@@ -74,6 +74,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///         {
     ///             DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
     ///             {
+    ///                 NamespaceId = examplePublicDnsNamespace.Id,
     ///                 DnsRecords = 
     ///                 {
     ///                     new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
@@ -82,7 +83,6 @@ namespace Pulumi.Aws.ServiceDiscovery
     ///                         Type = "A",
     ///                     },
     ///                 },
-    ///                 NamespaceId = examplePublicDnsNamespace.Id,
     ///             },
     ///             HealthCheckConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckConfigArgs
     ///             {

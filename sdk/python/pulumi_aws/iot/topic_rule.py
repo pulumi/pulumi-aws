@@ -165,26 +165,26 @@ class TopicRule(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         rule = aws.iot.TopicRule("rule",
             description="Example rule",
             enabled=True,
+            sql="SELECT * FROM 'topic/test'",
+            sql_version="2016-03-23",
+            sns={
+                "messageFormat": "RAW",
+                "role_arn": role.arn,
+                "target_arn": mytopic.arn,
+            },
             error_action={
                 "sns": {
                     "messageFormat": "RAW",
                     "role_arn": role.arn,
                     "target_arn": myerrortopic.arn,
                 },
-            },
-            sns={
-                "messageFormat": "RAW",
-                "role_arn": role.arn,
-                "target_arn": mytopic.arn,
-            },
-            sql="SELECT * FROM 'topic/test'",
-            sql_version="2016-03-23")
+            })
         iam_policy_for_lambda = aws.iam.RolePolicy("iamPolicyForLambda",
+            role=role.id,
             policy=mytopic.arn.apply(lambda arn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
@@ -197,9 +197,7 @@ class TopicRule(pulumi.CustomResource):
             }}
           ]
         }}
-
-        \"\"\"),
-            role=role.id)
+        \"\"\"))
         ```
 
         :param str resource_name: The name of the resource.

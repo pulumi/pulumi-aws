@@ -61,6 +61,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
+// 			Name:   exampleDomainName.DomainName,
+// 			Type:   pulumi.String("A"),
+// 			ZoneId: pulumi.String(aws_route53_zone.Example.Id),
 // 			Aliases: route53.RecordAliasArray{
 // 				&route53.RecordAliasArgs{
 // 					EvaluateTargetHealth: pulumi.Bool(true),
@@ -68,9 +71,6 @@ import (
 // 					ZoneId:               exampleDomainName.CloudfrontZoneId,
 // 				},
 // 			},
-// 			Name:   exampleDomainName.DomainName,
-// 			Type:   pulumi.String("A"),
-// 			ZoneId: pulumi.String(aws_route53_zone.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -93,16 +93,21 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
-// 			DomainName: pulumi.String("api.example.com"),
-// 			EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
-// 				Types: pulumi.String("REGIONAL"),
-// 			},
+// 			DomainName:             pulumi.String("api.example.com"),
 // 			RegionalCertificateArn: pulumi.String(aws_acm_certificate_validation.Example.Certificate_arn),
+// 			EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
+// 				Types: pulumi.String(pulumi.String{
+// 					pulumi.String("REGIONAL"),
+// 				}),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
+// 			Name:   exampleDomainName.DomainName,
+// 			Type:   pulumi.String("A"),
+// 			ZoneId: pulumi.String(aws_route53_zone.Example.Id),
 // 			Aliases: route53.RecordAliasArray{
 // 				&route53.RecordAliasArgs{
 // 					EvaluateTargetHealth: pulumi.Bool(true),
@@ -110,9 +115,6 @@ import (
 // 					ZoneId:               exampleDomainName.RegionalZoneId,
 // 				},
 // 			},
-// 			Name:   exampleDomainName.DomainName,
-// 			Type:   pulumi.String("A"),
-// 			ZoneId: pulumi.String(aws_route53_zone.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err

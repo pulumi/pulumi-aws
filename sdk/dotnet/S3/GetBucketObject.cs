@@ -39,8 +39,8 @@ namespace Pulumi.Aws.S3
         ///         }));
         ///         var example = new Aws.Ec2.Instance("example", new Aws.Ec2.InstanceArgs
         ///         {
-        ///             Ami = "ami-2757f631",
         ///             InstanceType = "t2.micro",
+        ///             Ami = "ami-2757f631",
         ///             UserData = bootstrapScript.Apply(bootstrapScript =&gt; bootstrapScript.Body),
         ///         });
         ///     }
@@ -69,11 +69,11 @@ namespace Pulumi.Aws.S3
         ///         }));
         ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
         ///         {
-        ///             Handler = "exports.test",
-        ///             Role = aws_iam_role.Iam_for_lambda.Arn,
         ///             S3Bucket = lambda.Apply(lambda =&gt; lambda.Bucket),
         ///             S3Key = lambda.Apply(lambda =&gt; lambda.Key),
         ///             S3ObjectVersion = lambda.Apply(lambda =&gt; lambda.VersionId),
+        ///             Role = aws_iam_role.Iam_for_lambda.Arn,
+        ///             Handler = "exports.test",
         ///         });
         ///     }
         /// 

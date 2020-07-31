@@ -18,18 +18,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGateway = new aws.directconnect.Gateway("example", {
- *     amazonSideAsn: "64512",
- * });
- * const exampleVpc = new aws.ec2.Vpc("example", {
- *     cidrBlock: "10.255.255.0/28",
- * });
- * const exampleVpnGateway = new aws.ec2.VpnGateway("example", {
- *     vpcId: exampleVpc.id,
- * });
- * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("example", {
- *     associatedGatewayId: exampleVpnGateway.id,
+ * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
+ * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.255.255.0/28"});
+ * const exampleVpnGateway = new aws.ec2.VpnGateway("exampleVpnGateway", {vpcId: exampleVpc.id});
+ * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
  *     dxGatewayId: exampleGateway.id,
+ *     associatedGatewayId: exampleVpnGateway.id,
  * });
  * ```
  * ### Transit Gateway Association
@@ -38,17 +32,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGateway = new aws.directconnect.Gateway("example", {
- *     amazonSideAsn: "64512",
- * });
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {});
- * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("example", {
+ * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
+ * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
+ *     dxGatewayId: exampleGateway.id,
+ *     associatedGatewayId: exampleTransitGateway.id,
  *     allowedPrefixes: [
  *         "10.255.255.0/30",
  *         "10.255.255.8/30",
  *     ],
- *     associatedGatewayId: exampleTransitGateway.id,
- *     dxGatewayId: exampleGateway.id,
  * });
  * ```
  * ### Allowed Prefixes
@@ -57,22 +49,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGateway = new aws.directconnect.Gateway("example", {
- *     amazonSideAsn: "64512",
- * });
- * const exampleVpc = new aws.ec2.Vpc("example", {
- *     cidrBlock: "10.255.255.0/28",
- * });
- * const exampleVpnGateway = new aws.ec2.VpnGateway("example", {
- *     vpcId: exampleVpc.id,
- * });
- * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("example", {
+ * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
+ * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.255.255.0/28"});
+ * const exampleVpnGateway = new aws.ec2.VpnGateway("exampleVpnGateway", {vpcId: exampleVpc.id});
+ * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
+ *     dxGatewayId: exampleGateway.id,
+ *     associatedGatewayId: exampleVpnGateway.id,
  *     allowedPrefixes: [
  *         "210.52.109.0/24",
  *         "175.45.176.0/22",
  *     ],
- *     associatedGatewayId: exampleVpnGateway.id,
- *     dxGatewayId: exampleGateway.id,
  * });
  * ```
  *
@@ -141,13 +127,6 @@ export class GatewayAssociation extends pulumi.CustomResource {
      * Used for cross-account Direct Connect gateway associations.
      */
     public readonly proposalId!: pulumi.Output<string | undefined>;
-    /**
-     * *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
-     * Used for single account Direct Connect gateway associations.
-     *
-     * @deprecated use 'associated_gateway_id' argument instead
-     */
-    public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a GatewayAssociation resource with the given unique name, arguments, and options.
@@ -169,7 +148,6 @@ export class GatewayAssociation extends pulumi.CustomResource {
             inputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
             inputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;
             inputs["proposalId"] = state ? state.proposalId : undefined;
-            inputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
             const args = argsOrState as GatewayAssociationArgs | undefined;
             if (!args || args.dxGatewayId === undefined) {
@@ -180,7 +158,6 @@ export class GatewayAssociation extends pulumi.CustomResource {
             inputs["associatedGatewayOwnerAccountId"] = args ? args.associatedGatewayOwnerAccountId : undefined;
             inputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
             inputs["proposalId"] = args ? args.proposalId : undefined;
-            inputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             inputs["associatedGatewayType"] = undefined /*out*/;
             inputs["dxGatewayAssociationId"] = undefined /*out*/;
             inputs["dxGatewayOwnerAccountId"] = undefined /*out*/;
@@ -235,13 +212,6 @@ export interface GatewayAssociationState {
      * Used for cross-account Direct Connect gateway associations.
      */
     readonly proposalId?: pulumi.Input<string>;
-    /**
-     * *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
-     * Used for single account Direct Connect gateway associations.
-     *
-     * @deprecated use 'associated_gateway_id' argument instead
-     */
-    readonly vpnGatewayId?: pulumi.Input<string>;
 }
 
 /**
@@ -271,11 +241,4 @@ export interface GatewayAssociationArgs {
      * Used for cross-account Direct Connect gateway associations.
      */
     readonly proposalId?: pulumi.Input<string>;
-    /**
-     * *Deprecated:* Use `associatedGatewayId` instead. The ID of the VGW with which to associate the gateway.
-     * Used for single account Direct Connect gateway associations.
-     *
-     * @deprecated use 'associated_gateway_id' argument instead
-     */
-    readonly vpnGatewayId?: pulumi.Input<string>;
 }

@@ -29,13 +29,13 @@ namespace Pulumi.Aws.ElasticBeanstalk
     ///     {
     ///         var tftest = new Aws.ElasticBeanstalk.Application("tftest", new Aws.ElasticBeanstalk.ApplicationArgs
     ///         {
+    ///             Description = "tf-test-desc",
     ///             AppversionLifecycle = new Aws.ElasticBeanstalk.Inputs.ApplicationAppversionLifecycleArgs
     ///             {
-    ///                 DeleteSourceFromS3 = true,
-    ///                 MaxCount = 128,
     ///                 ServiceRole = aws_iam_role.Beanstalk_service.Arn,
+    ///                 MaxCount = 128,
+    ///                 DeleteSourceFromS3 = true,
     ///             },
-    ///             Description = "tf-test-desc",
     ///         });
     ///     }
     /// 

@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     fromPort: 0,
  *     toPort: 65535,
  *     protocol: "tcp",
- *     cidrBlocks: aws_vpc.example.cidr_block,
+ *     cidrBlocks: [aws_vpc.example.cidr_block],
  *     securityGroupId: "sg-123456",
  * });
  * ```
@@ -47,14 +47,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const myEndpoint = new aws.ec2.VpcEndpoint("my_endpoint", {});
- * const allowAll = new aws.ec2.SecurityGroupRule("allow_all", {
- *     fromPort: 0,
- *     prefixListIds: [myEndpoint.prefixListId],
- *     protocol: "-1",
- *     securityGroupId: "sg-123456",
- *     toPort: 0,
+ * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
+ * // ...
+ * const allowAll = new aws.ec2.SecurityGroupRule("allowAll", {
  *     type: "egress",
+ *     toPort: 0,
+ *     protocol: "-1",
+ *     prefixListIds: [myEndpoint.prefixListId],
+ *     fromPort: 0,
+ *     securityGroupId: "sg-123456",
  * });
  * ```
  */

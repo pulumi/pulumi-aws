@@ -13,13 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const master = new aws.guardduty.Detector("master", {enable: true});
+ * const primary = new aws.guardduty.Detector("primary", {enable: true});
  * const memberDetector = new aws.guardduty.Detector("memberDetector", {enable: true}, {
- *     provider: "aws.dev",
+ *     provider: aws.dev,
  * });
  * const memberMember = new aws.guardduty.Member("memberMember", {
  *     accountId: memberDetector.accountId,
- *     detectorId: master.id,
+ *     detectorId: primary.id,
  *     email: "required@example.com",
  *     invite: true,
  *     invitationMessage: "please accept guardduty invitation",
@@ -79,7 +79,7 @@ export class Member extends pulumi.CustomResource {
      */
     public readonly invite!: pulumi.Output<boolean | undefined>;
     /**
-     * The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+     * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      */
     public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
 
@@ -161,7 +161,7 @@ export interface MemberState {
      */
     readonly invite?: pulumi.Input<boolean>;
     /**
-     * The status of the relationship between the member account and its master account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+     * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      */
     readonly relationshipStatus?: pulumi.Input<string>;
 }

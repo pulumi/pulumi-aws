@@ -14,6 +14,51 @@ import (
 //
 // > **NOTE:** During deletion of an `workspaces.Workspace` resource, the service role `workspaces_DefaultRole` must be attached to the
 // policy `arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess`, or it will leak the ENI that the Workspaces service creates for the Workspace.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/workspaces"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "wsb-bh8rsxt14"
+// 		valueWindows10, err := workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
+// 			BundleId: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = workspaces.NewWorkspace(ctx, "example", &workspaces.WorkspaceArgs{
+// 			DirectoryId:                 pulumi.String(aws_workspaces_directory.Example.Id),
+// 			BundleId:                    pulumi.String(valueWindows10.Id),
+// 			UserName:                    pulumi.String("john.doe"),
+// 			RootVolumeEncryptionEnabled: pulumi.Bool(true),
+// 			UserVolumeEncryptionEnabled: pulumi.Bool(true),
+// 			VolumeEncryptionKey:         pulumi.String("alias/aws/workspaces"),
+// 			WorkspaceProperties: &workspaces.WorkspaceWorkspacePropertiesArgs{
+// 				ComputeTypeName:                     pulumi.String("VALUE"),
+// 				UserVolumeSizeGib:                   pulumi.Int(10),
+// 				RootVolumeSizeGib:                   pulumi.Int(80),
+// 				RunningMode:                         pulumi.String("AUTO_STOP"),
+// 				RunningModeAutoStopTimeoutInMinutes: pulumi.Int(60),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Department": pulumi.String("IT"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Workspace struct {
 	pulumi.CustomResourceState
 

@@ -18,18 +18,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndTargetGroup = new aws.lb.TargetGroup("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
- *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
- *     defaultActions: [{
- *         targetGroupArn: frontEndTargetGroup.arn,
- *         type: "forward",
- *     }],
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * // ...
+ * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEndTargetGroup", {});
+ * // ...
+ * const frontEndListener = new aws.lb.Listener("frontEndListener", {
  *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 443,
+ *     port: "443",
  *     protocol: "HTTPS",
  *     sslPolicy: "ELBSecurityPolicy-2016-08",
+ *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+ *     defaultActions: [{
+ *         type: "forward",
+ *         targetGroupArn: frontEndTargetGroup.arn,
+ *     }],
  * });
  * ```
  * ### Redirect Action
@@ -38,19 +40,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * // ...
+ * const frontEndListener = new aws.lb.Listener("frontEndListener", {
+ *     loadBalancerArn: frontEndLoadBalancer.arn,
+ *     port: "80",
+ *     protocol: "HTTP",
  *     defaultActions: [{
+ *         type: "redirect",
  *         redirect: {
  *             port: "443",
  *             protocol: "HTTPS",
  *             statusCode: "HTTP_301",
  *         },
- *         type: "redirect",
  *     }],
- *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 80,
- *     protocol: "HTTP",
  * });
  * ```
  * ### Fixed-response Action
@@ -59,19 +62,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * // ...
+ * const frontEndListener = new aws.lb.Listener("frontEndListener", {
+ *     loadBalancerArn: frontEndLoadBalancer.arn,
+ *     port: "80",
+ *     protocol: "HTTP",
  *     defaultActions: [{
+ *         type: "fixed-response",
  *         fixedResponse: {
  *             contentType: "text/plain",
  *             messageBody: "Fixed response content",
  *             statusCode: "200",
  *         },
- *         type: "fixed-response",
  *     }],
- *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 80,
- *     protocol: "HTTP",
  * });
  * ```
  * ### Authenticate-cognito Action
@@ -80,29 +84,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndTargetGroup = new aws.lb.TargetGroup("front_end", {});
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * // ...
+ * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEndTargetGroup", {});
+ * // ...
  * const pool = new aws.cognito.UserPool("pool", {});
+ * // ...
  * const client = new aws.cognito.UserPoolClient("client", {});
+ * // ...
  * const domain = new aws.cognito.UserPoolDomain("domain", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
+ * // ...
+ * const frontEndListener = new aws.lb.Listener("frontEndListener", {
+ *     loadBalancerArn: frontEndLoadBalancer.arn,
+ *     port: "80",
+ *     protocol: "HTTP",
  *     defaultActions: [
  *         {
+ *             type: "authenticate-cognito",
  *             authenticateCognito: {
  *                 userPoolArn: pool.arn,
  *                 userPoolClientId: client.id,
  *                 userPoolDomain: domain.domain,
  *             },
- *             type: "authenticate-cognito",
  *         },
  *         {
- *             targetGroupArn: frontEndTargetGroup.arn,
  *             type: "forward",
+ *             targetGroupArn: frontEndTargetGroup.arn,
  *         },
  *     ],
- *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 80,
- *     protocol: "HTTP",
  * });
  * ```
  * ### Authenticate-oidc Action
@@ -111,11 +120,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("front_end", {});
- * const frontEndTargetGroup = new aws.lb.TargetGroup("front_end", {});
- * const frontEndListener = new aws.lb.Listener("front_end", {
+ * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
+ * // ...
+ * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEndTargetGroup", {});
+ * // ...
+ * const frontEndListener = new aws.lb.Listener("frontEndListener", {
+ *     loadBalancerArn: frontEndLoadBalancer.arn,
+ *     port: "80",
+ *     protocol: "HTTP",
  *     defaultActions: [
  *         {
+ *             type: "authenticate-oidc",
  *             authenticateOidc: {
  *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
  *                 clientId: "client_id",
@@ -124,16 +139,12 @@ import * as utilities from "../utilities";
  *                 tokenEndpoint: "https://example.com/token_endpoint",
  *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
  *             },
- *             type: "authenticate-oidc",
  *         },
  *         {
- *             targetGroupArn: frontEndTargetGroup.arn,
  *             type: "forward",
+ *             targetGroupArn: frontEndTargetGroup.arn,
  *         },
  *     ],
- *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 80,
- *     protocol: "HTTP",
  * });
  * ```
  *

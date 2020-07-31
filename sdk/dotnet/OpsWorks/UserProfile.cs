@@ -24,8 +24,8 @@ namespace Pulumi.Aws.OpsWorks
     ///     {
     ///         var myProfile = new Aws.OpsWorks.UserProfile("myProfile", new Aws.OpsWorks.UserProfileArgs
     ///         {
-    ///             SshUsername = "my_user",
     ///             UserArn = aws_iam_user.User.Arn,
+    ///             SshUsername = "my_user",
     ///         });
     ///     }
     /// 

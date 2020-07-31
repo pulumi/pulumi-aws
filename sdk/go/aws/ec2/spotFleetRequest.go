@@ -27,39 +27,39 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ec2.NewSpotFleetRequest(ctx, "cheapCompute", &ec2.SpotFleetRequestArgs{
-// 			AllocationStrategy: pulumi.String("diversified"),
 // 			IamFleetRole:       pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
+// 			SpotPrice:          pulumi.String("0.03"),
+// 			AllocationStrategy: pulumi.String("diversified"),
+// 			TargetCapacity:     pulumi.Int(6),
+// 			ValidUntil:         pulumi.String("2019-11-04T20:44:20Z"),
 // 			LaunchSpecifications: ec2.SpotFleetRequestLaunchSpecificationArray{
 // 				&ec2.SpotFleetRequestLaunchSpecificationArgs{
-// 					Ami:                   pulumi.String("ami-1234"),
-// 					IamInstanceProfileArn: pulumi.String(aws_iam_instance_profile.Example.Arn),
 // 					InstanceType:          pulumi.String("m4.10xlarge"),
-// 					PlacementTenancy:      pulumi.String("dedicated"),
+// 					Ami:                   pulumi.String("ami-1234"),
 // 					SpotPrice:             pulumi.String("2.793"),
+// 					PlacementTenancy:      pulumi.String("dedicated"),
+// 					IamInstanceProfileArn: pulumi.String(aws_iam_instance_profile.Example.Arn),
 // 				},
 // 				&ec2.SpotFleetRequestLaunchSpecificationArgs{
-// 					Ami:                   pulumi.String("ami-5678"),
-// 					AvailabilityZone:      pulumi.String("us-west-1a"),
-// 					IamInstanceProfileArn: pulumi.String(aws_iam_instance_profile.Example.Arn),
 // 					InstanceType:          pulumi.String("m4.4xlarge"),
+// 					Ami:                   pulumi.String("ami-5678"),
 // 					KeyName:               pulumi.String("my-key"),
+// 					SpotPrice:             pulumi.String("1.117"),
+// 					IamInstanceProfileArn: pulumi.String(aws_iam_instance_profile.Example.Arn),
+// 					AvailabilityZone:      pulumi.String("us-west-1a"),
+// 					SubnetId:              pulumi.String("subnet-1234"),
+// 					WeightedCapacity:      pulumi.String("35"),
 // 					RootBlockDevices: ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArray{
 // 						&ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs{
 // 							VolumeSize: pulumi.Int(300),
 // 							VolumeType: pulumi.String("gp2"),
 // 						},
 // 					},
-// 					SpotPrice: pulumi.String("1.117"),
-// 					SubnetId:  pulumi.String("subnet-1234"),
 // 					Tags: pulumi.StringMap{
 // 						"Name": pulumi.String("spot-fleet-example"),
 // 					},
-// 					WeightedCapacity: pulumi.String("35"),
 // 				},
 // 			},
-// 			SpotPrice:      pulumi.String("0.03"),
-// 			TargetCapacity: pulumi.Int(6),
-// 			ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -68,6 +68,52 @@ import (
 // 	})
 // }
 // ```
+// ### Using launch templates
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		fooLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "fooLaunchTemplate", &ec2.LaunchTemplateArgs{
+// 			ImageId:      pulumi.String("ami-516b9131"),
+// 			InstanceType: pulumi.String("m1.small"),
+// 			KeyName:      pulumi.String("some-key"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewSpotFleetRequest(ctx, "fooSpotFleetRequest", &ec2.SpotFleetRequestArgs{
+// 			IamFleetRole:   pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
+// 			SpotPrice:      pulumi.String("0.005"),
+// 			TargetCapacity: pulumi.Int(2),
+// 			ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
+// 			LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
+// 				&ec2.SpotFleetRequestLaunchTemplateConfigArgs{
+// 					LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
+// 						Id:      fooLaunchTemplate.ID(),
+// 						Version: fooLaunchTemplate.LatestVersion,
+// 					},
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			aws_iam_policy_attachment.Test - attach,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// > **NOTE:** This provider does not support the functionality where multiple `subnetId` or `availabilityZone` parameters can be specified in the same
+// launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used:
 // ### Using multiple launch specifications
 //
 // ```go
@@ -100,6 +146,66 @@ import (
 // 			TargetCapacity: pulumi.Int(2),
 // 			ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
 // 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Using multiple launch configurations
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
+// 			VpcId: _var.Vpc_id,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "fooLaunchTemplate", &ec2.LaunchTemplateArgs{
+// 			ImageId:      pulumi.String("ami-516b9131"),
+// 			InstanceType: pulumi.String("m1.small"),
+// 			KeyName:      pulumi.String("some-key"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewSpotFleetRequest(ctx, "fooSpotFleetRequest", &ec2.SpotFleetRequestArgs{
+// 			IamFleetRole:   pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
+// 			SpotPrice:      pulumi.String("0.005"),
+// 			TargetCapacity: pulumi.Int(2),
+// 			ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
+// 			LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
+// 				&ec2.SpotFleetRequestLaunchTemplateConfigArgs{
+// 					LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
+// 						Id:      fooLaunchTemplate.ID(),
+// 						Version: fooLaunchTemplate.LatestVersion,
+// 					},
+// 					Overrides: ec2.SpotFleetRequestLaunchTemplateConfigOverrideArray{
+// 						&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
+// 							SubnetId: pulumi.String(data.Aws_subnets.Example.Ids[0]),
+// 						},
+// 						&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
+// 							SubnetId: pulumi.String(data.Aws_subnets.Example.Ids[1]),
+// 						},
+// 						&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
+// 							SubnetId: pulumi.String(data.Aws_subnets.Example.Ids[2]),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			aws_iam_policy_attachment.Test - attach,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -163,7 +269,7 @@ type SpotFleetRequest struct {
 	TerminateInstancesWithExpiration pulumi.BoolPtrOutput `pulumi:"terminateInstancesWithExpiration"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom pulumi.StringPtrOutput `pulumi:"validFrom"`
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
 	ValidUntil pulumi.StringPtrOutput `pulumi:"validUntil"`
 	// If set, this provider will
 	// wait for the Spot Request to be fulfilled, and will throw an error if the
@@ -258,7 +364,7 @@ type spotFleetRequestState struct {
 	TerminateInstancesWithExpiration *bool `pulumi:"terminateInstancesWithExpiration"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom *string `pulumi:"validFrom"`
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
 	ValidUntil *string `pulumi:"validUntil"`
 	// If set, this provider will
 	// wait for the Spot Request to be fulfilled, and will throw an error if the
@@ -320,7 +426,7 @@ type SpotFleetRequestState struct {
 	TerminateInstancesWithExpiration pulumi.BoolPtrInput
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom pulumi.StringPtrInput
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
 	ValidUntil pulumi.StringPtrInput
 	// If set, this provider will
 	// wait for the Spot Request to be fulfilled, and will throw an error if the
@@ -383,7 +489,7 @@ type spotFleetRequestArgs struct {
 	TerminateInstancesWithExpiration *bool `pulumi:"terminateInstancesWithExpiration"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom *string `pulumi:"validFrom"`
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
 	ValidUntil *string `pulumi:"validUntil"`
 	// If set, this provider will
 	// wait for the Spot Request to be fulfilled, and will throw an error if the
@@ -443,7 +549,7 @@ type SpotFleetRequestArgs struct {
 	TerminateInstancesWithExpiration pulumi.BoolPtrInput
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom pulumi.StringPtrInput
-	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
 	ValidUntil pulumi.StringPtrInput
 	// If set, this provider will
 	// wait for the Spot Request to be fulfilled, and will throw an error if the

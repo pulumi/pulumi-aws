@@ -28,14 +28,14 @@ namespace Pulumi.Aws.Ses
     ///         });
     ///         var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("exampleAmazonsesVerificationRecord", new Aws.Route53.RecordArgs
     ///         {
+    ///             ZoneId = "ABCDEFGHIJ123",
     ///             Name = "_amazonses.example.com",
+    ///             Type = "TXT",
+    ///             Ttl = 600,
     ///             Records = 
     ///             {
     ///                 example.VerificationToken,
     ///             },
-    ///             Ttl = 600,
-    ///             Type = "TXT",
-    ///             ZoneId = "ABCDEFGHIJ123",
     ///         });
     ///     }
     /// 

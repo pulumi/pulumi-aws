@@ -79,22 +79,22 @@ class Parameter(pulumi.CustomResource):
 
         default = aws.rds.Instance("default",
             allocated_storage=10,
-            db_subnet_group_name="my_database_subnet_group",
+            storage_type="gp2",
             engine="mysql",
             engine_version="5.7.16",
             instance_class="db.t2.micro",
             name="mydb",
-            parameter_group_name="default.mysql5.7",
+            username="foo",
             password=var["database_master_password"],
-            storage_type="gp2",
-            username="foo")
+            db_subnet_group_name="my_database_subnet_group",
+            parameter_group_name="default.mysql5.7")
         secret = aws.ssm.Parameter("secret",
             description="The parameter description",
+            type="SecureString",
+            value=var["database_master_password"],
             tags={
                 "environment": var["environment"],
-            },
-            type="SecureString",
-            value=var["database_master_password"])
+            })
         ```
 
         > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.

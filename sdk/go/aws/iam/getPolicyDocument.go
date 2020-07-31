@@ -28,6 +28,7 @@ import (
 // 		examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
+// 					Sid: "1",
 // 					Actions: []string{
 // 						"s3:ListAllMyBuckets",
 // 						"s3:GetBucketLocation",
@@ -35,25 +36,24 @@ import (
 // 					Resources: []string{
 // 						"arn:aws:s3:::*",
 // 					},
-// 					Sid: "1",
 // 				},
 // 				iam.GetPolicyDocumentStatement{
 // 					Actions: []string{
 // 						"s3:ListBucket",
 // 					},
+// 					Resources: []string{
+// 						fmt.Sprintf("%v%v", "arn:aws:s3:::", _var.S3_bucket_name),
+// 					},
 // 					Conditions: []iam.GetPolicyDocumentStatementCondition{
 // 						iam.GetPolicyDocumentStatementCondition{
-// 							Test: "StringLike",
+// 							Test:     "StringLike",
+// 							Variable: "s3:prefix",
 // 							Values: []string{
 // 								"",
 // 								"home/",
 // 								"home/&{aws:username}/",
 // 							},
-// 							Variable: "s3:prefix",
 // 						},
-// 					},
-// 					Resources: []string{
-// 						fmt.Sprintf("%v%v", "arn:aws:s3:::", _var.S3_bucket_name),
 // 					},
 // 				},
 // 				iam.GetPolicyDocumentStatement{
@@ -129,13 +129,13 @@ import (
 // 					},
 // 				},
 // 				iam.GetPolicyDocumentStatement{
+// 					Sid: "SidToOverwrite",
 // 					Actions: []string{
 // 						"s3:*",
 // 					},
 // 					Resources: []string{
 // 						"*",
 // 					},
-// 					Sid: "SidToOverwrite",
 // 				},
 // 			},
 // 		}, nil)
@@ -147,6 +147,7 @@ import (
 // 			SourceJson: &opt0,
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
+// 					Sid: "SidToOverwrite",
 // 					Actions: []string{
 // 						"s3:*",
 // 					},
@@ -154,7 +155,6 @@ import (
 // 						"arn:aws:s3:::somebucket",
 // 						"arn:aws:s3:::somebucket/*",
 // 					},
-// 					Sid: "SidToOverwrite",
 // 				},
 // 			},
 // 		}, nil)
@@ -164,13 +164,13 @@ import (
 // 		override, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
+// 					Sid: "SidToOverwrite",
 // 					Actions: []string{
 // 						"s3:*",
 // 					},
 // 					Resources: []string{
 // 						"*",
 // 					},
-// 					Sid: "SidToOverwrite",
 // 				},
 // 			},
 // 		}, nil)
@@ -190,6 +190,7 @@ import (
 // 					},
 // 				},
 // 				iam.GetPolicyDocumentStatement{
+// 					Sid: "SidToOverwrite",
 // 					Actions: []string{
 // 						"s3:*",
 // 					},
@@ -197,7 +198,6 @@ import (
 // 						"arn:aws:s3:::somebucket",
 // 						"arn:aws:s3:::somebucket/*",
 // 					},
-// 					Sid: "SidToOverwrite",
 // 				},
 // 			},
 // 		}, nil)
@@ -260,13 +260,13 @@ import (
 // 		source, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
+// 					Sid: "OverridePlaceholder",
 // 					Actions: []string{
 // 						"ec2:DescribeAccountAttributes",
 // 					},
 // 					Resources: []string{
 // 						"*",
 // 					},
-// 					Sid: "OverridePlaceholder",
 // 				},
 // 			},
 // 		}, nil)
@@ -276,24 +276,24 @@ import (
 // 		override, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
+// 					Sid: "OverridePlaceholder",
 // 					Actions: []string{
 // 						"s3:GetObject",
 // 					},
 // 					Resources: []string{
 // 						"*",
 // 					},
-// 					Sid: "OverridePlaceholder",
 // 				},
 // 			},
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt0 := override.Json
-// 		opt1 := source.Json
+// 		opt0 := source.Json
+// 		opt1 := override.Json
 // 		_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			OverrideJson: &opt0,
-// 			SourceJson:   &opt1,
+// 			SourceJson:   &opt0,
+// 			OverrideJson: &opt1,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

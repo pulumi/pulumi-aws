@@ -29,7 +29,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
 // 			Description:  pulumi.String("Capture each AWS Console Sign In"),
-// 			EventPattern: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v", "{\n", "  \"detail-type\": [\n", "    \"AWS Console Sign In via CloudTrail\"\n", "  ]\n", "}\n", "\n")),
+// 			EventPattern: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"detail-type\": [\n", "    \"AWS Console Sign In via CloudTrail\"\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -39,8 +39,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = cloudwatch.NewEventTarget(ctx, "sns", &cloudwatch.EventTargetArgs{
-// 			Arn:  awsLogins.Arn,
 // 			Rule: console.Name,
+// 			Arn:  awsLogins.Arn,
 // 		})
 // 		if err != nil {
 // 			return err

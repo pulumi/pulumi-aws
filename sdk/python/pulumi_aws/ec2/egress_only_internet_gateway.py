@@ -32,13 +32,13 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_vpc = aws.ec2.Vpc("exampleVpc",
-            assign_generated_ipv6_cidr_block=True,
-            cidr_block="10.1.0.0/16")
+            cidr_block="10.1.0.0/16",
+            assign_generated_ipv6_cidr_block=True)
         example_egress_only_internet_gateway = aws.ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway",
+            vpc_id=example_vpc.id,
             tags={
                 "Name": "main",
-            },
-            vpc_id=example_vpc.id)
+            })
         ```
 
         :param str resource_name: The name of the resource.

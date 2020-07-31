@@ -16,14 +16,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const selected = pulumi.output(aws.ec2.getVpnGateway({
+ * const selected = aws.ec2.getVpnGateway({
  *     filters: [{
  *         name: "tag:Name",
  *         values: ["vpn-gw"],
  *     }],
- * }, { async: true }));
- *
- * export const vpnGatewayId = selected.id!;
+ * });
+ * export const vpnGatewayId = selected.then(selected => selected.id);
  * ```
  */
 export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {

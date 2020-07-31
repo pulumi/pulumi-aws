@@ -183,11 +183,11 @@ class AnalyticsApplication(pulumi.CustomResource):
 
         test_stream = aws.kinesis.Stream("testStream", shard_count=1)
         test_application = aws.kinesis.AnalyticsApplication("testApplication", inputs={
+            "name_prefix": "test_prefix",
             "kinesisStream": {
                 "resource_arn": test_stream.arn,
                 "role_arn": aws_iam_role["test"]["arn"],
             },
-            "name_prefix": "test_prefix",
             "parallelism": {
                 "count": 1,
             },

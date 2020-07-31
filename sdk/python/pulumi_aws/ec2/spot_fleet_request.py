@@ -152,7 +152,7 @@ class SpotFleetRequest(pulumi.CustomResource):
     """
     valid_until: pulumi.Output[str]
     """
-    The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+    The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
     """
     wait_for_fulfillment: pulumi.Output[bool]
     """
@@ -174,37 +174,37 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         # Request a Spot fleet
         cheap_compute = aws.ec2.SpotFleetRequest("cheapCompute",
-            allocation_strategy="diversified",
             iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
+            spot_price="0.03",
+            allocation_strategy="diversified",
+            target_capacity=6,
+            valid_until="2019-11-04T20:44:20Z",
             launch_specifications=[
                 {
-                    "ami": "ami-1234",
-                    "iamInstanceProfileArn": aws_iam_instance_profile["example"]["arn"],
                     "instance_type": "m4.10xlarge",
-                    "placement_tenancy": "dedicated",
+                    "ami": "ami-1234",
                     "spot_price": "2.793",
+                    "placement_tenancy": "dedicated",
+                    "iamInstanceProfileArn": aws_iam_instance_profile["example"]["arn"],
                 },
                 {
-                    "ami": "ami-5678",
-                    "availability_zone": "us-west-1a",
-                    "iamInstanceProfileArn": aws_iam_instance_profile["example"]["arn"],
                     "instance_type": "m4.4xlarge",
+                    "ami": "ami-5678",
                     "key_name": "my-key",
+                    "spot_price": "1.117",
+                    "iamInstanceProfileArn": aws_iam_instance_profile["example"]["arn"],
+                    "availability_zone": "us-west-1a",
+                    "subnet_id": "subnet-1234",
+                    "weightedCapacity": 35,
                     "root_block_devices": [{
                         "volume_size": "300",
                         "volumeType": "gp2",
                     }],
-                    "spot_price": "1.117",
-                    "subnet_id": "subnet-1234",
                     "tags": {
                         "Name": "spot-fleet-example",
                     },
-                    "weightedCapacity": 35,
                 },
-            ],
-            spot_price="0.03",
-            target_capacity=6,
-            valid_until="2019-11-04T20:44:20Z")
+            ])
         ```
         ### Using launch templates
 
@@ -215,8 +215,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
             image_id="ami-516b9131",
             instance_type="m1.small",
-            key_name="some-key",
-            spot_price="0.05")
+            key_name="some-key")
         foo_spot_fleet_request = aws.ec2.SpotFleetRequest("fooSpotFleetRequest",
             iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
             spot_price="0.005",
@@ -228,7 +227,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                     "version": foo_launch_template.latest_version,
                 },
             }],
-            opts=ResourceOptions(depends_on=["aws_iam_policy_attachment.test-attach"]))
+            opts=ResourceOptions(depends_on=[aws_iam_policy_attachment["test-attach"]]))
         ```
 
         > **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
@@ -269,8 +268,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
             image_id="ami-516b9131",
             instance_type="m1.small",
-            key_name="some-key",
-            spot_price="0.05")
+            key_name="some-key")
         foo_spot_fleet_request = aws.ec2.SpotFleetRequest("fooSpotFleetRequest",
             iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
             spot_price="0.005",
@@ -293,7 +291,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                     },
                 ],
             }],
-            opts=ResourceOptions(depends_on=["aws_iam_policy_attachment.test-attach"]))
+            opts=ResourceOptions(depends_on=[aws_iam_policy_attachment["test-attach"]]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -332,7 +330,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[bool] terminate_instances_with_expiration: Indicates whether running Spot
                instances should be terminated when the Spot fleet request expires.
         :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        :param pulumi.Input[str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+        :param pulumi.Input[str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
         :param pulumi.Input[bool] wait_for_fulfillment: If set, this provider will
                wait for the Spot Request to be fulfilled, and will throw an error if the
                timeout of 10m is reached.
@@ -485,7 +483,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[bool] terminate_instances_with_expiration: Indicates whether running Spot
                instances should be terminated when the Spot fleet request expires.
         :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        :param pulumi.Input[str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+        :param pulumi.Input[str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
         :param pulumi.Input[bool] wait_for_fulfillment: If set, this provider will
                wait for the Spot Request to be fulfilled, and will throw an error if the
                timeout of 10m is reached.

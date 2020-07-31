@@ -205,6 +205,10 @@ class SpotInstanceRequest(pulumi.CustomResource):
       * `volume_size` (`float`) - The size of the volume in gibibytes (GiB).
       * `volumeType` (`str`) - The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
     """
+    secondary_private_ips: pulumi.Output[list]
+    """
+    A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+    """
     security_groups: pulumi.Output[list]
     """
     A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
@@ -280,7 +284,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     wait for the Spot Request to be fulfilled, and will throw an error if the
     timeout of 10m is reached.
     """
-    def __init__(__self__, resource_name, opts=None, ami=None, associate_public_ip_address=None, availability_zone=None, block_duration_minutes=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_interruption_behaviour=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, launch_group=None, metadata_options=None, monitoring=None, network_interfaces=None, placement_group=None, private_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, spot_price=None, spot_type=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, valid_from=None, valid_until=None, volume_tags=None, vpc_security_group_ids=None, wait_for_fulfillment=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, ami=None, associate_public_ip_address=None, availability_zone=None, block_duration_minutes=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_interruption_behaviour=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, launch_group=None, metadata_options=None, monitoring=None, network_interfaces=None, placement_group=None, private_ip=None, root_block_device=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, spot_price=None, spot_type=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, valid_from=None, valid_until=None, volume_tags=None, vpc_security_group_ids=None, wait_for_fulfillment=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an EC2 Spot Instance Request resource. This allows instances to be
         requested on the spot market.
@@ -369,6 +373,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                instance in a VPC.
         :param pulumi.Input[dict] root_block_device: Customize details about the root block
                device of the instance. See Block Devices below for details.
+        :param pulumi.Input[list] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[list] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when
                the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -494,6 +499,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__['placement_group'] = placement_group
             __props__['private_ip'] = private_ip
             __props__['root_block_device'] = root_block_device
+            __props__['secondary_private_ips'] = secondary_private_ips
             __props__['security_groups'] = security_groups
             __props__['source_dest_check'] = source_dest_check
             __props__['spot_price'] = spot_price
@@ -526,7 +532,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, block_duration_minutes=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_interruption_behaviour=None, instance_state=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, launch_group=None, metadata_options=None, monitoring=None, network_interfaces=None, outpost_arn=None, password_data=None, placement_group=None, primary_network_interface_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, spot_bid_status=None, spot_instance_id=None, spot_price=None, spot_request_state=None, spot_type=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, valid_from=None, valid_until=None, volume_tags=None, vpc_security_group_ids=None, wait_for_fulfillment=None):
+    def get(resource_name, id, opts=None, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, block_duration_minutes=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_interruption_behaviour=None, instance_state=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, launch_group=None, metadata_options=None, monitoring=None, network_interfaces=None, outpost_arn=None, password_data=None, placement_group=None, primary_network_interface_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_device=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, spot_bid_status=None, spot_instance_id=None, spot_price=None, spot_request_state=None, spot_type=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, valid_from=None, valid_until=None, volume_tags=None, vpc_security_group_ids=None, wait_for_fulfillment=None):
         """
         Get an existing SpotInstanceRequest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -586,6 +592,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] public_ip: The public IP address assigned to the instance, if applicable.
         :param pulumi.Input[dict] root_block_device: Customize details about the root block
                device of the instance. See Block Devices below for details.
+        :param pulumi.Input[list] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[list] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when
                the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -710,6 +717,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__["public_dns"] = public_dns
         __props__["public_ip"] = public_ip
         __props__["root_block_device"] = root_block_device
+        __props__["secondary_private_ips"] = secondary_private_ips
         __props__["security_groups"] = security_groups
         __props__["source_dest_check"] = source_dest_check
         __props__["spot_bid_status"] = spot_bid_status

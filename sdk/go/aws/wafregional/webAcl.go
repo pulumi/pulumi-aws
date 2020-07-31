@@ -50,10 +50,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = wafregional.NewWebAcl(ctx, "wafacl", &wafregional.WebAclArgs{
+// 			MetricName: pulumi.String("tfWebACL"),
 // 			DefaultAction: &wafregional.WebAclDefaultActionArgs{
 // 				Type: pulumi.String("ALLOW"),
 // 			},
-// 			MetricName: pulumi.String("tfWebACL"),
 // 			Rules: wafregional.WebAclRuleArray{
 // 				&wafregional.WebAclRuleArgs{
 // 					Action: &wafregional.WebAclRuleActionArgs{
@@ -85,18 +85,18 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := wafregional.NewWebAcl(ctx, "example", &wafregional.WebAclArgs{
+// 			MetricName: pulumi.String("example"),
 // 			DefaultAction: &wafregional.WebAclDefaultActionArgs{
 // 				Type: pulumi.String("ALLOW"),
 // 			},
-// 			MetricName: pulumi.String("example"),
 // 			Rules: wafregional.WebAclRuleArray{
 // 				&wafregional.WebAclRuleArgs{
-// 					OverrideAction: &wafregional.WebAclRuleOverrideActionArgs{
-// 						Type: pulumi.String("NONE"),
-// 					},
 // 					Priority: pulumi.Int(1),
 // 					RuleId:   pulumi.String(aws_wafregional_rule_group.Example.Id),
 // 					Type:     pulumi.String("GROUP"),
+// 					OverrideAction: &wafregional.WebAclRuleOverrideActionArgs{
+// 						Type: pulumi.String("NONE"),
+// 					},
 // 				},
 // 			},
 // 		})
@@ -125,13 +125,13 @@ import (
 // 			LoggingConfiguration: &wafregional.WebAclLoggingConfigurationArgs{
 // 				LogDestination: pulumi.String(aws_kinesis_firehose_delivery_stream.Example.Arn),
 // 				RedactedFields: &wafregional.WebAclLoggingConfigurationRedactedFieldsArgs{
-// 					FieldToMatch: pulumi.Array{
-// 						pulumi.StringMap{
-// 							"type": pulumi.String("URI"),
+// 					FieldToMatches: wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{
+// 						&wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
+// 							Type: pulumi.String("URI"),
 // 						},
-// 						pulumi.StringMap{
-// 							"data": pulumi.String("referer"),
-// 							"type": pulumi.String("HEADER"),
+// 						&wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
+// 							Data: pulumi.String("referer"),
+// 							Type: pulumi.String("HEADER"),
 // 						},
 // 					},
 // 				},

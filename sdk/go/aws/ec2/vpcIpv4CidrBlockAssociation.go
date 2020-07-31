@@ -34,8 +34,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewVpcIpv4CidrBlockAssociation(ctx, "secondaryCidr", &ec2.VpcIpv4CidrBlockAssociationArgs{
-// 			CidrBlock: pulumi.String("172.2.0.0/16"),
 // 			VpcId:     main.ID(),
+// 			CidrBlock: pulumi.String("172.2.0.0/16"),
 // 		})
 // 		if err != nil {
 // 			return err

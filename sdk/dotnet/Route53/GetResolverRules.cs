@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Route53
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// The following example shows how to get Route53 Resolver rules based on tags.
+        /// Retrieving the default resolver rule.
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -30,13 +30,27 @@ namespace Pulumi.Aws.Route53
         ///     {
         ///         var example = Output.Create(Aws.Route53.GetResolverRules.InvokeAsync(new Aws.Route53.GetResolverRulesArgs
         ///         {
-        ///             Tags = 
-        ///             {
-        ///                 
-        ///                 {
-        ///                     { "Environment", "dev" },
-        ///                 },
-        ///             },
+        ///             OwnerId = "Route 53 Resolver",
+        ///             RuleType = "RECURSIVE",
+        ///             ShareStatus = "NOT_SHARED",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Route53.GetResolverRules.InvokeAsync(new Aws.Route53.GetResolverRulesArgs
+        ///         {
+        ///             RuleType = "FORWARD",
+        ///             ShareStatus = "SHARED_WITH_ME",
         ///         }));
         ///     }
         /// 
@@ -71,8 +85,7 @@ namespace Pulumi.Aws.Route53
         public string? RuleType { get; set; }
 
         /// <summary>
-        /// Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account.
-        /// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+        /// Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
         /// </summary>
         [Input("shareStatus")]
         public string? ShareStatus { get; set; }

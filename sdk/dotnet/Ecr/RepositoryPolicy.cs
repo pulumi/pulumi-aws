@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Ecr
     ///         });
     ///         var foopolicy = new Aws.Ecr.RepositoryPolicy("foopolicy", new Aws.Ecr.RepositoryPolicyArgs
     ///         {
+    ///             Repository = foo.Name,
     ///             Policy = @"{
     ///     ""Version"": ""2008-10-17"",
     ///     ""Statement"": [
@@ -55,9 +56,7 @@ namespace Pulumi.Aws.Ecr
     ///         }
     ///     ]
     /// }
-    /// 
     /// ",
-    ///             Repository = foo.Name,
     ///         });
     ///     }
     /// 

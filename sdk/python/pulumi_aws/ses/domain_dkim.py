@@ -40,11 +40,11 @@ class DomainDkim(pulumi.CustomResource):
         example_amazonses_dkim_record = []
         for range in [{"value": i} for i in range(0, 3)]:
             example_amazonses_dkim_record.append(aws.route53.Record(f"exampleAmazonsesDkimRecord-{range['value']}",
+                zone_id="ABCDEFGHIJ123",
                 name=example_domain_dkim.dkim_tokens[range["value"]].apply(lambda dkim_tokens: f"{dkim_tokens}._domainkey.example.com"),
-                records=[example_domain_dkim.dkim_tokens[range["value"]].apply(lambda dkim_tokens: f"{dkim_tokens}.dkim.amazonses.com")],
-                ttl="600",
                 type="CNAME",
-                zone_id="ABCDEFGHIJ123"))
+                ttl="600",
+                records=[example_domain_dkim.dkim_tokens[range["value"]].apply(lambda dkim_tokens: f"{dkim_tokens}.dkim.amazonses.com")]))
         ```
 
         :param str resource_name: The name of the resource.

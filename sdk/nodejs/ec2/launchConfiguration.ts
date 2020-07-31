@@ -17,7 +17,8 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ubuntu = pulumi.output(aws.getAmi({
+ * const ubuntu = aws.getAmi({
+ *     mostRecent: true,
  *     filters: [
  *         {
  *             name: "name",
@@ -28,11 +29,10 @@ import {InstanceProfile} from "../iam";
  *             values: ["hvm"],
  *         },
  *     ],
- *     mostRecent: true,
- *     owners: ["099720109477"], // Canonical
- * }, { async: true }));
- * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
- *     imageId: ubuntu.id,
+ *     owners: ["099720109477"],
+ * });
+ * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
+ *     imageId: ubuntu.then(ubuntu => ubuntu.id),
  *     instanceType: "t2.micro",
  * });
  * ```
@@ -50,7 +50,8 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ubuntu = pulumi.output(aws.getAmi({
+ * const ubuntu = aws.getAmi({
+ *     mostRecent: true,
  *     filters: [
  *         {
  *             name: "name",
@@ -61,18 +62,17 @@ import {InstanceProfile} from "../iam";
  *             values: ["hvm"],
  *         },
  *     ],
- *     mostRecent: true,
- *     owners: ["099720109477"], // Canonical
- * }, { async: true }));
- * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
- *     imageId: ubuntu.id,
- *     instanceType: "t2.micro",
+ *     owners: ["099720109477"],
+ * });
+ * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
  *     namePrefix: "lc-example-",
+ *     imageId: ubuntu.then(ubuntu => ubuntu.id),
+ *     instanceType: "t2.micro",
  * });
  * const bar = new aws.autoscaling.Group("bar", {
  *     launchConfiguration: asConf.name,
- *     maxSize: 2,
  *     minSize: 1,
+ *     maxSize: 2,
  * });
  * ```
  *
@@ -93,7 +93,8 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ubuntu = pulumi.output(aws.getAmi({
+ * const ubuntu = aws.getAmi({
+ *     mostRecent: true,
  *     filters: [
  *         {
  *             name: "name",
@@ -104,17 +105,14 @@ import {InstanceProfile} from "../iam";
  *             values: ["hvm"],
  *         },
  *     ],
- *     mostRecent: true,
- *     owners: ["099720109477"], // Canonical
- * }, { async: true }));
- * const asConf = new aws.ec2.LaunchConfiguration("as_conf", {
- *     imageId: ubuntu.id,
+ *     owners: ["099720109477"],
+ * });
+ * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
+ *     imageId: ubuntu.then(ubuntu => ubuntu.id),
  *     instanceType: "m4.large",
  *     spotPrice: "0.001",
  * });
- * const bar = new aws.autoscaling.Group("bar", {
- *     launchConfiguration: asConf.name,
- * });
+ * const bar = new aws.autoscaling.Group("bar", {launchConfiguration: asConf.name});
  * ```
  *
  * ## Block devices

@@ -40,8 +40,8 @@ namespace Pulumi.Aws.Ec2
         ///         // Create a VPC endpoint
         ///         var ep = new Aws.Ec2.VpcEndpoint("ep", new Aws.Ec2.VpcEndpointArgs
         ///         {
-        ///             ServiceName = s3.Apply(s3 =&gt; s3.ServiceName),
         ///             VpcId = foo.Id,
+        ///             ServiceName = s3.Apply(s3 =&gt; s3.ServiceName),
         ///         });
         ///     }
         /// 

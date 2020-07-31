@@ -26,8 +26,8 @@ namespace Pulumi.Aws.Sagemaker
     ///     {
     ///         var ni = new Aws.Sagemaker.NotebookInstance("ni", new Aws.Sagemaker.NotebookInstanceArgs
     ///         {
-    ///             InstanceType = "ml.t2.medium",
     ///             RoleArn = aws_iam_role.Role.Arn,
+    ///             InstanceType = "ml.t2.medium",
     ///             Tags = 
     ///             {
     ///                 { "Name", "foo" },

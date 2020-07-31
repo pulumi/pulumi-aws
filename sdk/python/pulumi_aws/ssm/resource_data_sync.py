@@ -34,7 +34,7 @@ class ResourceDataSync(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket = aws.s3.Bucket("hogeBucket", region="us-east-1")
+        hoge_bucket = aws.s3.Bucket("hogeBucket")
         hoge_bucket_policy = aws.s3.BucketPolicy("hogeBucketPolicy",
             bucket=hoge_bucket.bucket,
             policy=\"\"\"{
@@ -65,7 +65,6 @@ class ResourceDataSync(pulumi.CustomResource):
                 }
             ]
         }
-
         \"\"\")
         foo = aws.ssm.ResourceDataSync("foo", s3_destination={
             "bucket_name": hoge_bucket.bucket,

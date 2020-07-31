@@ -38,33 +38,33 @@ import (
 // 		}
 // 		_, err = ec2.NewTrafficMirrorFilterRule(ctx, "ruleout", &ec2.TrafficMirrorFilterRuleArgs{
 // 			Description:           pulumi.String("test rule"),
-// 			DestinationCidrBlock:  pulumi.String("10.0.0.0/8"),
-// 			RuleAction:            pulumi.String("accept"),
-// 			RuleNumber:            pulumi.Int(1),
-// 			SourceCidrBlock:       pulumi.String("10.0.0.0/8"),
-// 			TrafficDirection:      pulumi.String("egress"),
 // 			TrafficMirrorFilterId: filter.ID(),
+// 			DestinationCidrBlock:  pulumi.String("10.0.0.0/8"),
+// 			SourceCidrBlock:       pulumi.String("10.0.0.0/8"),
+// 			RuleNumber:            pulumi.Int(1),
+// 			RuleAction:            pulumi.String("accept"),
+// 			TrafficDirection:      pulumi.String("egress"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ec2.NewTrafficMirrorFilterRule(ctx, "rulein", &ec2.TrafficMirrorFilterRuleArgs{
-// 			Description:          pulumi.String("test rule"),
-// 			DestinationCidrBlock: pulumi.String("10.0.0.0/8"),
+// 			Description:           pulumi.String("test rule"),
+// 			TrafficMirrorFilterId: filter.ID(),
+// 			DestinationCidrBlock:  pulumi.String("10.0.0.0/8"),
+// 			SourceCidrBlock:       pulumi.String("10.0.0.0/8"),
+// 			RuleNumber:            pulumi.Int(1),
+// 			RuleAction:            pulumi.String("accept"),
+// 			TrafficDirection:      pulumi.String("ingress"),
+// 			Protocol:              pulumi.Int(6),
 // 			DestinationPortRange: &ec2.TrafficMirrorFilterRuleDestinationPortRangeArgs{
 // 				FromPort: pulumi.Int(22),
 // 				ToPort:   pulumi.Int(53),
 // 			},
-// 			Protocol:        pulumi.Int(6),
-// 			RuleAction:      pulumi.String("accept"),
-// 			RuleNumber:      pulumi.Int(1),
-// 			SourceCidrBlock: pulumi.String("10.0.0.0/8"),
 // 			SourcePortRange: &ec2.TrafficMirrorFilterRuleSourcePortRangeArgs{
 // 				FromPort: pulumi.Int(0),
 // 				ToPort:   pulumi.Int(10),
 // 			},
-// 			TrafficDirection:      pulumi.String("ingress"),
-// 			TrafficMirrorFilterId: filter.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

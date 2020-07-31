@@ -39,12 +39,12 @@ import (
 // 			return err
 // 		}
 // 		fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
-// 			AvailabilityZone: pulumi.String("us-west-2a"),
+// 			VpcId:            fooVpc.ID(),
 // 			CidrBlock:        pulumi.String("10.0.0.0/24"),
+// 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("tf-test"),
 // 			},
-// 			VpcId: fooVpc.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

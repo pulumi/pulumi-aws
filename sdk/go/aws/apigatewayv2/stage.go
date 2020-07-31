@@ -53,8 +53,8 @@ type Stage struct {
 	ClientCertificateId pulumi.StringPtrOutput `pulumi:"clientCertificateId"`
 	// The default route settings for the stage.
 	DefaultRouteSettings StageDefaultRouteSettingsPtrOutput `pulumi:"defaultRouteSettings"`
-	// The deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
-	DeploymentId pulumi.StringPtrOutput `pulumi:"deploymentId"`
+	// The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
+	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
 	// The description for the stage.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
@@ -120,7 +120,7 @@ type stageState struct {
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// The default route settings for the stage.
 	DefaultRouteSettings *StageDefaultRouteSettings `pulumi:"defaultRouteSettings"`
-	// The deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
+	// The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
 	DeploymentId *string `pulumi:"deploymentId"`
 	// The description for the stage.
 	Description *string `pulumi:"description"`
@@ -157,7 +157,7 @@ type StageState struct {
 	ClientCertificateId pulumi.StringPtrInput
 	// The default route settings for the stage.
 	DefaultRouteSettings StageDefaultRouteSettingsPtrInput
-	// The deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
+	// The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
 	DeploymentId pulumi.StringPtrInput
 	// The description for the stage.
 	Description pulumi.StringPtrInput
@@ -196,7 +196,7 @@ type stageArgs struct {
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// The default route settings for the stage.
 	DefaultRouteSettings *StageDefaultRouteSettings `pulumi:"defaultRouteSettings"`
-	// The deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
+	// The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
 	DeploymentId *string `pulumi:"deploymentId"`
 	// The description for the stage.
 	Description *string `pulumi:"description"`
@@ -224,7 +224,7 @@ type StageArgs struct {
 	ClientCertificateId pulumi.StringPtrInput
 	// The default route settings for the stage.
 	DefaultRouteSettings StageDefaultRouteSettingsPtrInput
-	// The deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
+	// The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
 	DeploymentId pulumi.StringPtrInput
 	// The description for the stage.
 	Description pulumi.StringPtrInput

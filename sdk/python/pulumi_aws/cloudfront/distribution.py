@@ -10,12 +10,6 @@ from .. import utilities, tables
 
 
 class Distribution(pulumi.CustomResource):
-    active_trusted_signers: pulumi.Output[dict]
-    """
-    The key pair IDs that CloudFront is aware of for
-    each trusted signer, if the distribution is set up to serve private content
-    with signed URLs.
-    """
     aliases: pulumi.Output[list]
     """
     Extra CNAMEs (alternate domain names), if any, for
@@ -110,8 +104,8 @@ class Distribution(pulumi.CustomResource):
       * `targetOriginId` (`str`) - The value of ID for the origin that you want
         CloudFront to route requests to when a request matches the path pattern
         either for a cache behavior or for the default cache behavior.
-      * `trustedSigners` (`list`) - The AWS accounts, if any, that you want to
-        allow to create signed URLs for private content.
+      * `trusted_signers` (`list`) - List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
       * `viewerProtocolPolicy` (`str`) - Use this element to specify the
         protocol that users can use to access the files in the origin specified by
         TargetOriginId when a request matches the path pattern in PathPattern. One
@@ -239,8 +233,8 @@ class Distribution(pulumi.CustomResource):
       * `targetOriginId` (`str`) - The value of ID for the origin that you want
         CloudFront to route requests to when a request matches the path pattern
         either for a cache behavior or for the default cache behavior.
-      * `trustedSigners` (`list`) - The AWS accounts, if any, that you want to
-        allow to create signed URLs for private content.
+      * `trusted_signers` (`list`) - List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+        See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
       * `viewerProtocolPolicy` (`str`) - Use this element to specify the
         protocol that users can use to access the files in the origin specified by
         TargetOriginId when a request matches the path pattern in PathPattern. One
@@ -329,6 +323,17 @@ class Distribution(pulumi.CustomResource):
     """
     A map of tags to assign to the resource.
     """
+    trusted_signers: pulumi.Output[list]
+    """
+    List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+    See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+
+      * `enabled` (`bool`) - Whether the distribution is enabled to accept end
+        user requests for content.
+      * `items` (`list`) - List of nested attributes for each trusted signer
+        * `awsAccountNumber` (`str`) - AWS account ID or `self`
+        * `keyPairIds` (`list`) - Set of active CloudFront key pairs associated with the signer account
+    """
     viewer_certificate: pulumi.Output[dict]
     """
     The SSL
@@ -348,7 +353,7 @@ class Distribution(pulumi.CustomResource):
       * `minimumProtocolVersion` (`str`) - The minimum version of the SSL protocol that
         you want CloudFront to use for HTTPS connections. Can only be set if
         `cloudfront_default_certificate = false`. One of `SSLv3`, `TLSv1`,
-        `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
+        `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
         If you are using a custom certificate (specified with `acm_certificate_arn`
         or `iam_certificate_id`), and have specified `sni-only` in
         `ssl_support_method`, `TLSv1` or later must be specified. If you have
@@ -400,11 +405,26 @@ class Distribution(pulumi.CustomResource):
             })
         s3_origin_id = "myS3Origin"
         s3_distribution = aws.cloudfront.Distribution("s3Distribution",
+            origins=[{
+                "domain_name": bucket.bucket_regional_domain_name,
+                "originId": s3_origin_id,
+                "s3OriginConfig": {
+                    "originAccessIdentity": "origin-access-identity/cloudfront/ABCDEFG1234567",
+                },
+            }],
+            enabled=True,
+            is_ipv6_enabled=True,
+            comment="Some comment",
+            default_root_object="index.html",
+            logging_config={
+                "includeCookies": False,
+                "bucket": "mylogs.s3.amazonaws.com",
+                "prefix": "myprefix",
+            },
             aliases=[
                 "mysite.example.com",
                 "yoursite.example.com",
             ],
-            comment="Some comment",
             default_cache_behavior={
                 "allowedMethods": [
                     "DELETE",
@@ -419,28 +439,21 @@ class Distribution(pulumi.CustomResource):
                     "GET",
                     "HEAD",
                 ],
-                "defaultTtl": 3600,
+                "targetOriginId": s3_origin_id,
                 "forwardedValues": {
+                    "queryString": False,
                     "cookies": {
                         "forward": "none",
                     },
-                    "queryString": False,
                 },
-                "maxTtl": 86400,
-                "minTtl": 0,
-                "targetOriginId": s3_origin_id,
                 "viewerProtocolPolicy": "allow-all",
-            },
-            default_root_object="index.html",
-            enabled=True,
-            is_ipv6_enabled=True,
-            logging_config={
-                "bucket": "mylogs.s3.amazonaws.com",
-                "includeCookies": False,
-                "prefix": "myprefix",
+                "minTtl": 0,
+                "defaultTtl": 3600,
+                "maxTtl": 86400,
             },
             ordered_cache_behaviors=[
                 {
+                    "pathPattern": "/content/immutable/*",
                     "allowedMethods": [
                         "GET",
                         "HEAD",
@@ -451,22 +464,22 @@ class Distribution(pulumi.CustomResource):
                         "HEAD",
                         "OPTIONS",
                     ],
-                    "compress": True,
-                    "defaultTtl": 86400,
+                    "targetOriginId": s3_origin_id,
                     "forwardedValues": {
+                        "queryString": False,
+                        "headers": ["Origin"],
                         "cookies": {
                             "forward": "none",
                         },
-                        "headers": ["Origin"],
-                        "queryString": False,
                     },
-                    "maxTtl": 31536000,
                     "minTtl": 0,
-                    "pathPattern": "/content/immutable/*",
-                    "targetOriginId": s3_origin_id,
+                    "defaultTtl": 86400,
+                    "maxTtl": 31536000,
+                    "compress": True,
                     "viewerProtocolPolicy": "redirect-to-https",
                 },
                 {
+                    "pathPattern": "/content/*",
                     "allowedMethods": [
                         "GET",
                         "HEAD",
@@ -476,38 +489,30 @@ class Distribution(pulumi.CustomResource):
                         "GET",
                         "HEAD",
                     ],
-                    "compress": True,
-                    "defaultTtl": 3600,
+                    "targetOriginId": s3_origin_id,
                     "forwardedValues": {
+                        "queryString": False,
                         "cookies": {
                             "forward": "none",
                         },
-                        "queryString": False,
                     },
-                    "maxTtl": 86400,
                     "minTtl": 0,
-                    "pathPattern": "/content/*",
-                    "targetOriginId": s3_origin_id,
+                    "defaultTtl": 3600,
+                    "maxTtl": 86400,
+                    "compress": True,
                     "viewerProtocolPolicy": "redirect-to-https",
                 },
             ],
-            origins=[{
-                "domain_name": bucket.bucket_regional_domain_name,
-                "originId": s3_origin_id,
-                "s3OriginConfig": {
-                    "originAccessIdentity": "origin-access-identity/cloudfront/ABCDEFG1234567",
-                },
-            }],
             price_class="PriceClass_200",
             restrictions={
                 "geoRestriction": {
+                    "restrictionType": "whitelist",
                     "locations": [
                         "US",
                         "CA",
                         "GB",
                         "DE",
                     ],
-                    "restrictionType": "whitelist",
                 },
             },
             tags={
@@ -525,26 +530,8 @@ class Distribution(pulumi.CustomResource):
         import pulumi_aws as aws
 
         s3_distribution = aws.cloudfront.Distribution("s3Distribution",
-            default_cache_behavior={
-                "targetOriginId": "groupS3",
-            },
-            origins=[
-                {
-                    "domain_name": aws_s3_bucket["primary"]["bucket_regional_domain_name"],
-                    "originId": "primaryS3",
-                    "s3OriginConfig": {
-                        "originAccessIdentity": aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
-                    },
-                },
-                {
-                    "domain_name": aws_s3_bucket["failover"]["bucket_regional_domain_name"],
-                    "originId": "failoverS3",
-                    "s3OriginConfig": {
-                        "originAccessIdentity": aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
-                    },
-                },
-            ],
             origin_groups=[{
+                "originId": "groupS3",
                 "failoverCriteria": {
                     "statusCodes": [
                         403,
@@ -561,8 +548,27 @@ class Distribution(pulumi.CustomResource):
                         "originId": "failoverS3",
                     },
                 ],
-                "originId": "groupS3",
-            }])
+            }],
+            origins=[
+                {
+                    "domain_name": aws_s3_bucket["primary"]["bucket_regional_domain_name"],
+                    "originId": "primaryS3",
+                    "s3OriginConfig": {
+                        "originAccessIdentity": aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
+                    },
+                },
+                {
+                    "domain_name": aws_s3_bucket["failover"]["bucket_regional_domain_name"],
+                    "originId": "failoverS3",
+                    "s3OriginConfig": {
+                        "originAccessIdentity": aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
+                    },
+                },
+            ],
+            default_cache_behavior={
+                "targetOriginId": "groupS3",
+            })
+        # ... other configuration ...
         ```
 
         :param str resource_name: The name of the resource.
@@ -682,8 +688,8 @@ class Distribution(pulumi.CustomResource):
           * `targetOriginId` (`pulumi.Input[str]`) - The value of ID for the origin that you want
             CloudFront to route requests to when a request matches the path pattern
             either for a cache behavior or for the default cache behavior.
-          * `trustedSigners` (`pulumi.Input[list]`) - The AWS accounts, if any, that you want to
-            allow to create signed URLs for private content.
+          * `trusted_signers` (`pulumi.Input[list]`) - List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+            See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
           * `viewerProtocolPolicy` (`pulumi.Input[str]`) - Use this element to specify the
             protocol that users can use to access the files in the origin specified by
             TargetOriginId when a request matches the path pattern in PathPattern. One
@@ -758,8 +764,8 @@ class Distribution(pulumi.CustomResource):
           * `targetOriginId` (`pulumi.Input[str]`) - The value of ID for the origin that you want
             CloudFront to route requests to when a request matches the path pattern
             either for a cache behavior or for the default cache behavior.
-          * `trustedSigners` (`pulumi.Input[list]`) - The AWS accounts, if any, that you want to
-            allow to create signed URLs for private content.
+          * `trusted_signers` (`pulumi.Input[list]`) - List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+            See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
           * `viewerProtocolPolicy` (`pulumi.Input[str]`) - Use this element to specify the
             protocol that users can use to access the files in the origin specified by
             TargetOriginId when a request matches the path pattern in PathPattern. One
@@ -833,7 +839,7 @@ class Distribution(pulumi.CustomResource):
           * `minimumProtocolVersion` (`pulumi.Input[str]`) - The minimum version of the SSL protocol that
             you want CloudFront to use for HTTPS connections. Can only be set if
             `cloudfront_default_certificate = false`. One of `SSLv3`, `TLSv1`,
-            `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
+            `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
             If you are using a custom certificate (specified with `acm_certificate_arn`
             or `iam_certificate_id`), and have specified `sni-only` in
             `ssl_support_method`, `TLSv1` or later must be specified. If you have
@@ -888,7 +894,6 @@ class Distribution(pulumi.CustomResource):
             __props__['viewer_certificate'] = viewer_certificate
             __props__['wait_for_deployment'] = wait_for_deployment
             __props__['web_acl_id'] = web_acl_id
-            __props__['active_trusted_signers'] = None
             __props__['arn'] = None
             __props__['caller_reference'] = None
             __props__['domain_name'] = None
@@ -897,6 +902,7 @@ class Distribution(pulumi.CustomResource):
             __props__['in_progress_validation_batches'] = None
             __props__['last_modified_time'] = None
             __props__['status'] = None
+            __props__['trusted_signers'] = None
         super(Distribution, __self__).__init__(
             'aws:cloudfront/distribution:Distribution',
             resource_name,
@@ -904,7 +910,7 @@ class Distribution(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, active_trusted_signers=None, aliases=None, arn=None, caller_reference=None, comment=None, custom_error_responses=None, default_cache_behavior=None, default_root_object=None, domain_name=None, enabled=None, etag=None, hosted_zone_id=None, http_version=None, in_progress_validation_batches=None, is_ipv6_enabled=None, last_modified_time=None, logging_config=None, ordered_cache_behaviors=None, origin_groups=None, origins=None, price_class=None, restrictions=None, retain_on_delete=None, status=None, tags=None, viewer_certificate=None, wait_for_deployment=None, web_acl_id=None):
+    def get(resource_name, id, opts=None, aliases=None, arn=None, caller_reference=None, comment=None, custom_error_responses=None, default_cache_behavior=None, default_root_object=None, domain_name=None, enabled=None, etag=None, hosted_zone_id=None, http_version=None, in_progress_validation_batches=None, is_ipv6_enabled=None, last_modified_time=None, logging_config=None, ordered_cache_behaviors=None, origin_groups=None, origins=None, price_class=None, restrictions=None, retain_on_delete=None, status=None, tags=None, trusted_signers=None, viewer_certificate=None, wait_for_deployment=None, web_acl_id=None):
         """
         Get an existing Distribution resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -912,9 +918,6 @@ class Distribution(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] active_trusted_signers: The key pair IDs that CloudFront is aware of for
-               each trusted signer, if the distribution is set up to serve private content
-               with signed URLs.
         :param pulumi.Input[list] aliases: Extra CNAMEs (alternate domain names), if any, for
                this distribution.
         :param pulumi.Input[str] arn: The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
@@ -964,6 +967,8 @@ class Distribution(pulumi.CustomResource):
                distribution's information is fully propagated throughout the Amazon
                CloudFront system.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[list] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+               See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param pulumi.Input[dict] viewer_certificate: The SSL
                configuration for this distribution (maximum
                one).
@@ -1046,8 +1051,8 @@ class Distribution(pulumi.CustomResource):
           * `targetOriginId` (`pulumi.Input[str]`) - The value of ID for the origin that you want
             CloudFront to route requests to when a request matches the path pattern
             either for a cache behavior or for the default cache behavior.
-          * `trustedSigners` (`pulumi.Input[list]`) - The AWS accounts, if any, that you want to
-            allow to create signed URLs for private content.
+          * `trusted_signers` (`pulumi.Input[list]`) - List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+            See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
           * `viewerProtocolPolicy` (`pulumi.Input[str]`) - Use this element to specify the
             protocol that users can use to access the files in the origin specified by
             TargetOriginId when a request matches the path pattern in PathPattern. One
@@ -1122,8 +1127,8 @@ class Distribution(pulumi.CustomResource):
           * `targetOriginId` (`pulumi.Input[str]`) - The value of ID for the origin that you want
             CloudFront to route requests to when a request matches the path pattern
             either for a cache behavior or for the default cache behavior.
-          * `trustedSigners` (`pulumi.Input[list]`) - The AWS accounts, if any, that you want to
-            allow to create signed URLs for private content.
+          * `trusted_signers` (`pulumi.Input[list]`) - List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+            See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
           * `viewerProtocolPolicy` (`pulumi.Input[str]`) - Use this element to specify the
             protocol that users can use to access the files in the origin specified by
             TargetOriginId when a request matches the path pattern in PathPattern. One
@@ -1182,6 +1187,14 @@ class Distribution(pulumi.CustomResource):
               distribution of your content by country: `none`, `whitelist`, or
               `blacklist`.
 
+        The **trusted_signers** object supports the following:
+
+          * `enabled` (`pulumi.Input[bool]`) - Whether the distribution is enabled to accept end
+            user requests for content.
+          * `items` (`pulumi.Input[list]`) - List of nested attributes for each trusted signer
+            * `awsAccountNumber` (`pulumi.Input[str]`) - AWS account ID or `self`
+            * `keyPairIds` (`pulumi.Input[list]`) - Set of active CloudFront key pairs associated with the signer account
+
         The **viewer_certificate** object supports the following:
 
           * `acmCertificateArn` (`pulumi.Input[str]`) - The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
@@ -1197,7 +1210,7 @@ class Distribution(pulumi.CustomResource):
           * `minimumProtocolVersion` (`pulumi.Input[str]`) - The minimum version of the SSL protocol that
             you want CloudFront to use for HTTPS connections. Can only be set if
             `cloudfront_default_certificate = false`. One of `SSLv3`, `TLSv1`,
-            `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
+            `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
             If you are using a custom certificate (specified with `acm_certificate_arn`
             or `iam_certificate_id`), and have specified `sni-only` in
             `ssl_support_method`, `TLSv1` or later must be specified. If you have
@@ -1210,7 +1223,6 @@ class Distribution(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__["active_trusted_signers"] = active_trusted_signers
         __props__["aliases"] = aliases
         __props__["arn"] = arn
         __props__["caller_reference"] = caller_reference
@@ -1235,6 +1247,7 @@ class Distribution(pulumi.CustomResource):
         __props__["retain_on_delete"] = retain_on_delete
         __props__["status"] = status
         __props__["tags"] = tags
+        __props__["trusted_signers"] = trusted_signers
         __props__["viewer_certificate"] = viewer_certificate
         __props__["wait_for_deployment"] = wait_for_deployment
         __props__["web_acl_id"] = web_acl_id

@@ -43,11 +43,11 @@ class GroupMembership(pulumi.CustomResource):
         user_one = aws.iam.User("userOne")
         user_two = aws.iam.User("userTwo")
         team = aws.iam.GroupMembership("team",
-            group=group.name,
             users=[
                 user_one.name,
                 user_two.name,
-            ])
+            ],
+            group=group.name)
         ```
 
         :param str resource_name: The name of the resource.

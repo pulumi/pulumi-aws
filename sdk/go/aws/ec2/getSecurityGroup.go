@@ -36,8 +36,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewSubnet(ctx, "subnet", &ec2.SubnetArgs{
-// 			CidrBlock: pulumi.String("10.0.1.0/24"),
 // 			VpcId:     pulumi.String(selected.VpcId),
+// 			CidrBlock: pulumi.String("10.0.1.0/24"),
 // 		})
 // 		if err != nil {
 // 			return err

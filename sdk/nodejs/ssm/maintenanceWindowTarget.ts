@@ -16,18 +16,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const window = new aws.ssm.MaintenanceWindow("window", {
- *     cutoff: 1,
- *     duration: 3,
  *     schedule: "cron(0 16 ? * TUE *)",
+ *     duration: 3,
+ *     cutoff: 1,
  * });
  * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
+ *     windowId: window.id,
  *     description: "This is a maintenance window target",
  *     resourceType: "INSTANCE",
  *     targets: [{
  *         key: "tag:Name",
  *         values: ["acceptance_test"],
  *     }],
- *     windowId: window.id,
  * });
  * ```
  *
@@ -38,11 +38,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const window = new aws.ssm.MaintenanceWindow("window", {
- *     cutoff: 1,
- *     duration: 3,
  *     schedule: "cron(0 16 ? * TUE *)",
+ *     duration: 3,
+ *     cutoff: 1,
  * });
  * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
+ *     windowId: window.id,
  *     description: "This is a maintenance window target",
  *     resourceType: "RESOURCE_GROUP",
  *     targets: [{
@@ -52,7 +53,6 @@ import * as utilities from "../utilities";
  *             "AWS::EC2::VPC",
  *         ],
  *     }],
- *     windowId: window.id,
  * });
  * ```
  */

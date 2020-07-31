@@ -83,24 +83,14 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        s3_policy = aws.iam.get_policy_document(statements=[
-            {
-                "actions": ["s3:GetObject"],
-                "principals": [{
-                    "identifiers": [aws_cloudfront_origin_access_identity["origin_access_identity"]["iam_arn"]],
-                    "type": "AWS",
-                }],
-                "resources": [f"{aws_s3_bucket['example']['arn']}/*"],
-            },
-            {
-                "actions": ["s3:ListBucket"],
-                "principals": [{
-                    "identifiers": [aws_cloudfront_origin_access_identity["origin_access_identity"]["iam_arn"]],
-                    "type": "AWS",
-                }],
-                "resources": [aws_s3_bucket["example"]["arn"]],
-            },
-        ])
+        s3_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["s3:GetObject"],
+            "resources": [f"{aws_s3_bucket['example']['arn']}/*"],
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [aws_cloudfront_origin_access_identity["origin_access_identity"]["iam_arn"]],
+            }],
+        }])
         example = aws.s3.BucketPolicy("example",
             bucket=aws_s3_bucket["example"]["id"],
             policy=s3_policy.json)

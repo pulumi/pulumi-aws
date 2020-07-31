@@ -55,13 +55,13 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public Input<bool>? RequireAuthorizationForCacheControl { get; set; }
 
         /// <summary>
-        /// Specifies the throttling burst limit.
+        /// Specifies the throttling burst limit. Default: `-1` (throttling disabled).
         /// </summary>
         [Input("throttlingBurstLimit")]
         public Input<int>? ThrottlingBurstLimit { get; set; }
 
         /// <summary>
-        /// Specifies the throttling rate limit.
+        /// Specifies the throttling rate limit. Default: `-1` (throttling disabled).
         /// </summary>
         [Input("throttlingRateLimit")]
         public Input<double>? ThrottlingRateLimit { get; set; }

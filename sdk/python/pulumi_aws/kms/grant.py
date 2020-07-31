@@ -78,21 +78,20 @@ class Grant(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         grant = aws.kms.Grant("grant",
-            constraints=[{
-                "encryptionContextEquals": {
-                    "Department": "Finance",
-                },
-            }],
-            grantee_principal=role.arn,
             key_id=key.key_id,
+            grantee_principal=role.arn,
             operations=[
                 "Encrypt",
                 "Decrypt",
                 "GenerateDataKey",
-            ])
+            ],
+            constraints=[{
+                "encryptionContextEquals": {
+                    "Department": "Finance",
+                },
+            }])
         ```
 
         :param str resource_name: The name of the resource.

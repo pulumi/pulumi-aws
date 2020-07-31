@@ -15,13 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ipset = new aws.wafregional.IpSet("ipset", {
- *     ipSetDescriptors: [{
- *         type: "IPV4",
- *         value: "192.0.7.0/24",
- *     }],
- * });
- * const fooRule = new aws.wafregional.Rule("foo", {
+ * const ipset = new aws.wafregional.IpSet("ipset", {ipSetDescriptors: [{
+ *     type: "IPV4",
+ *     value: "192.0.7.0/24",
+ * }]});
+ * const fooRule = new aws.wafregional.Rule("fooRule", {
  *     metricName: "tfWAFRule",
  *     predicates: [{
  *         dataId: ipset.id,
@@ -29,11 +27,11 @@ import * as utilities from "../utilities";
  *         type: "IPMatch",
  *     }],
  * });
- * const fooWebAcl = new aws.wafregional.WebAcl("foo", {
+ * const fooWebAcl = new aws.wafregional.WebAcl("fooWebAcl", {
+ *     metricName: "foo",
  *     defaultAction: {
  *         type: "ALLOW",
  *     },
- *     metricName: "foo",
  *     rules: [{
  *         action: {
  *             type: "BLOCK",
@@ -42,28 +40,26 @@ import * as utilities from "../utilities";
  *         ruleId: fooRule.id,
  *     }],
  * });
- * const fooVpc = new aws.ec2.Vpc("foo", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const available = pulumi.output(aws.getAvailabilityZones({ async: true }));
- * const fooSubnet = new aws.ec2.Subnet("foo", {
- *     availabilityZone: available.apply(available => available.names[0]),
- *     cidrBlock: "10.1.1.0/24",
+ * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"});
+ * const available = aws.getAvailabilityZones({});
+ * const fooSubnet = new aws.ec2.Subnet("fooSubnet", {
  *     vpcId: fooVpc.id,
+ *     cidrBlock: "10.1.1.0/24",
+ *     availabilityZone: available.then(available => available.names[0]),
  * });
  * const bar = new aws.ec2.Subnet("bar", {
- *     availabilityZone: available.apply(available => available.names[1]),
- *     cidrBlock: "10.1.2.0/24",
  *     vpcId: fooVpc.id,
+ *     cidrBlock: "10.1.2.0/24",
+ *     availabilityZone: available.then(available => available.names[1]),
  * });
- * const fooLoadBalancer = new aws.alb.LoadBalancer("foo", {
+ * const fooLoadBalancer = new aws.alb.LoadBalancer("fooLoadBalancer", {
  *     internal: true,
  *     subnets: [
  *         fooSubnet.id,
  *         bar.id,
  *     ],
  * });
- * const fooWebAclAssociation = new aws.wafregional.WebAclAssociation("foo", {
+ * const fooWebAclAssociation = new aws.wafregional.WebAclAssociation("fooWebAclAssociation", {
  *     resourceArn: fooLoadBalancer.arn,
  *     webAclId: fooWebAcl.id,
  * });
@@ -75,13 +71,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ipset = new aws.wafregional.IpSet("ipset", {
- *     ipSetDescriptors: [{
- *         type: "IPV4",
- *         value: "192.0.7.0/24",
- *     }],
- * });
- * const fooRule = new aws.wafregional.Rule("foo", {
+ * const ipset = new aws.wafregional.IpSet("ipset", {ipSetDescriptors: [{
+ *     type: "IPV4",
+ *     value: "192.0.7.0/24",
+ * }]});
+ * const fooRule = new aws.wafregional.Rule("fooRule", {
  *     metricName: "tfWAFRule",
  *     predicates: [{
  *         dataId: ipset.id,
@@ -89,11 +83,11 @@ import * as utilities from "../utilities";
  *         type: "IPMatch",
  *     }],
  * });
- * const fooWebAcl = new aws.wafregional.WebAcl("foo", {
+ * const fooWebAcl = new aws.wafregional.WebAcl("fooWebAcl", {
+ *     metricName: "foo",
  *     defaultAction: {
  *         type: "ALLOW",
  *     },
- *     metricName: "foo",
  *     rules: [{
  *         action: {
  *             type: "BLOCK",
@@ -102,25 +96,25 @@ import * as utilities from "../utilities";
  *         ruleId: fooRule.id,
  *     }],
  * });
- * const testRestApi = new aws.apigateway.RestApi("test", {});
- * const testResource = new aws.apigateway.Resource("test", {
+ * const testRestApi = new aws.apigateway.RestApi("testRestApi", {});
+ * const testResource = new aws.apigateway.Resource("testResource", {
  *     parentId: testRestApi.rootResourceId,
  *     pathPart: "test",
  *     restApi: testRestApi.id,
  * });
- * const testMethod = new aws.apigateway.Method("test", {
+ * const testMethod = new aws.apigateway.Method("testMethod", {
  *     authorization: "NONE",
  *     httpMethod: "GET",
  *     resourceId: testResource.id,
  *     restApi: testRestApi.id,
  * });
- * const testMethodResponse = new aws.apigateway.MethodResponse("test", {
+ * const testMethodResponse = new aws.apigateway.MethodResponse("testMethodResponse", {
  *     httpMethod: testMethod.httpMethod,
  *     resourceId: testResource.id,
  *     restApi: testRestApi.id,
  *     statusCode: "400",
  * });
- * const testIntegration = new aws.apigateway.Integration("test", {
+ * const testIntegration = new aws.apigateway.Integration("testIntegration", {
  *     httpMethod: testMethod.httpMethod,
  *     integrationHttpMethod: "GET",
  *     resourceId: testResource.id,
@@ -128,16 +122,16 @@ import * as utilities from "../utilities";
  *     type: "HTTP",
  *     uri: "http://www.example.com",
  * });
- * const testIntegrationResponse = new aws.apigateway.IntegrationResponse("test", {
- *     httpMethod: testIntegration.httpMethod,
- *     resourceId: testResource.id,
+ * const testIntegrationResponse = new aws.apigateway.IntegrationResponse("testIntegrationResponse", {
  *     restApi: testRestApi.id,
+ *     resourceId: testResource.id,
+ *     httpMethod: testIntegration.httpMethod,
  *     statusCode: testMethodResponse.statusCode,
  * });
- * const testDeployment = new aws.apigateway.Deployment("test", {
- *     restApi: testRestApi.id,
- * }, { dependsOn: [testIntegrationResponse] });
- * const testStage = new aws.apigateway.Stage("test", {
+ * const testDeployment = new aws.apigateway.Deployment("testDeployment", {restApi: testRestApi.id}, {
+ *     dependsOn: [testIntegrationResponse],
+ * });
+ * const testStage = new aws.apigateway.Stage("testStage", {
  *     deployment: testDeployment.id,
  *     restApi: testRestApi.id,
  *     stageName: "test",

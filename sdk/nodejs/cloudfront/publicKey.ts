@@ -12,11 +12,11 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
  * const example = new aws.cloudfront.PublicKey("example", {
  *     comment: "test public key",
- *     encodedKey: fs.readFileSync("public_key.pem", "utf-8"),
+ *     encodedKey: fs.readFileSync("public_key.pem"),
  * });
  * ```
  */

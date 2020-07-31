@@ -34,21 +34,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const routeTable = new aws.ec2.RouteTable("r", {
+ * const routeTable = new aws.ec2.RouteTable("routeTable", {
+ *     vpcId: aws_vpc["default"].id,
  *     routes: [
  *         {
  *             cidrBlock: "10.0.1.0/24",
- *             gatewayId: aws_internet_gateway_main.id,
+ *             gatewayId: aws_internet_gateway.main.id,
  *         },
  *         {
- *             egressOnlyGatewayId: aws_egress_only_internet_gateway_foo.id,
  *             ipv6CidrBlock: "::/0",
+ *             egressOnlyGatewayId: aws_egress_only_internet_gateway.foo.id,
  *         },
  *     ],
  *     tags: {
  *         Name: "main",
  *     },
- *     vpcId: aws_vpc_default.id,
  * });
  * ```
  */

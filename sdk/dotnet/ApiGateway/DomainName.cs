@@ -59,6 +59,9 @@ namespace Pulumi.Aws.ApiGateway
     ///         // Route53 is not specifically required; any DNS host can be used.
     ///         var exampleRecord = new Aws.Route53.Record("exampleRecord", new Aws.Route53.RecordArgs
     ///         {
+    ///             Name = exampleDomainName.Domain,
+    ///             Type = "A",
+    ///             ZoneId = aws_route53_zone.Example.Id,
     ///             Aliases = 
     ///             {
     ///                 new Aws.Route53.Inputs.RecordAliasArgs
@@ -68,9 +71,6 @@ namespace Pulumi.Aws.ApiGateway
     ///                     ZoneId = exampleDomainName.CloudfrontZoneId,
     ///                 },
     ///             },
-    ///             Name = exampleDomainName.Domain,
-    ///             Type = "A",
-    ///             ZoneId = aws_route53_zone.Example.Id,
     ///         });
     ///     }
     /// 
@@ -89,30 +89,29 @@ namespace Pulumi.Aws.ApiGateway
     ///     {
     ///         var exampleDomainName = new Aws.ApiGateway.DomainName("exampleDomainName", new Aws.ApiGateway.DomainNameArgs
     ///         {
+    ///             DomainName = "api.example.com",
+    ///             CertificateName = "example-api",
     ///             CertificateBody = File.ReadAllText($"{path.Module}/example.com/example.crt"),
     ///             CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),
-    ///             CertificateName = "example-api",
     ///             CertificatePrivateKey = File.ReadAllText($"{path.Module}/example.com/example.key"),
-    ///             DomainName = "api.example.com",
     ///         });
     ///         // Example DNS record using Route53.
     ///         // Route53 is not specifically required; any DNS host can be used.
     ///         var exampleRecord = new Aws.Route53.Record("exampleRecord", new Aws.Route53.RecordArgs
     ///         {
+    ///             ZoneId = aws_route53_zone.Example.Id,
+    ///             Name = exampleDomainName.Domain,
+    ///             Type = "A",
     ///             Aliases = 
     ///             {
     ///                 new Aws.Route53.Inputs.RecordAliasArgs
     ///                 {
-    ///                     EvaluateTargetHealth = true,
     ///                     Name = exampleDomainName.CloudfrontDomainName,
     ///                     ZoneId = exampleDomainName.CloudfrontZoneId,
+    ///                     EvaluateTargetHealth = true,
     ///                 },
     ///             },
-    ///             Name = exampleDomainName.Domain,
-    ///             Type = "A",
-    ///             ZoneId = aws_route53_zone.Example.Id,
     ///         });
-    ///         // See aws_route53_zone for how to create this
     ///     }
     /// 
     /// }
@@ -130,16 +129,22 @@ namespace Pulumi.Aws.ApiGateway
     ///         var exampleDomainName = new Aws.ApiGateway.DomainName("exampleDomainName", new Aws.ApiGateway.DomainNameArgs
     ///         {
     ///             DomainName = "api.example.com",
+    ///             RegionalCertificateArn = aws_acm_certificate_validation.Example.Certificate_arn,
     ///             EndpointConfiguration = new Aws.ApiGateway.Inputs.DomainNameEndpointConfigurationArgs
     ///             {
-    ///                 Types = "REGIONAL",
+    ///                 Types = 
+    ///                 {
+    ///                     "REGIONAL",
+    ///                 },
     ///             },
-    ///             RegionalCertificateArn = aws_acm_certificate_validation.Example.Certificate_arn,
     ///         });
     ///         // Example DNS record using Route53.
     ///         // Route53 is not specifically required; any DNS host can be used.
     ///         var exampleRecord = new Aws.Route53.Record("exampleRecord", new Aws.Route53.RecordArgs
     ///         {
+    ///             Name = exampleDomainName.Domain,
+    ///             Type = "A",
+    ///             ZoneId = aws_route53_zone.Example.Id,
     ///             Aliases = 
     ///             {
     ///                 new Aws.Route53.Inputs.RecordAliasArgs
@@ -149,9 +154,6 @@ namespace Pulumi.Aws.ApiGateway
     ///                     ZoneId = exampleDomainName.RegionalZoneId,
     ///                 },
     ///             },
-    ///             Name = exampleDomainName.Domain,
-    ///             Type = "A",
-    ///             ZoneId = aws_route53_zone.Example.Id,
     ///         });
     ///     }
     /// 
@@ -174,16 +176,22 @@ namespace Pulumi.Aws.ApiGateway
     ///             CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),
     ///             CertificatePrivateKey = File.ReadAllText($"{path.Module}/example.com/example.key"),
     ///             DomainName = "api.example.com",
+    ///             RegionalCertificateName = "example-api",
     ///             EndpointConfiguration = new Aws.ApiGateway.Inputs.DomainNameEndpointConfigurationArgs
     ///             {
-    ///                 Types = "REGIONAL",
+    ///                 Types = 
+    ///                 {
+    ///                     "REGIONAL",
+    ///                 },
     ///             },
-    ///             RegionalCertificateName = "example-api",
     ///         });
     ///         // Example DNS record using Route53.
     ///         // Route53 is not specifically required; any DNS host can be used.
     ///         var exampleRecord = new Aws.Route53.Record("exampleRecord", new Aws.Route53.RecordArgs
     ///         {
+    ///             Name = exampleDomainName.Domain,
+    ///             Type = "A",
+    ///             ZoneId = aws_route53_zone.Example.Id,
     ///             Aliases = 
     ///             {
     ///                 new Aws.Route53.Inputs.RecordAliasArgs
@@ -193,9 +201,6 @@ namespace Pulumi.Aws.ApiGateway
     ///                     ZoneId = exampleDomainName.RegionalZoneId,
     ///                 },
     ///             },
-    ///             Name = exampleDomainName.Domain,
-    ///             Type = "A",
-    ///             ZoneId = aws_route53_zone.Example.Id,
     ///         });
     ///     }
     /// 

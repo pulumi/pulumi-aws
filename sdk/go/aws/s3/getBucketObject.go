@@ -36,8 +36,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
-// 			Ami:          pulumi.String("ami-2757f631"),
 // 			InstanceType: pulumi.String("t2.micro"),
+// 			Ami:          pulumi.String("ami-2757f631"),
 // 			UserData:     pulumi.String(bootstrapScript.Body),
 // 		})
 // 		if err != nil {
@@ -73,11 +73,11 @@ import (
 // 			return err
 // 		}
 // 		_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
-// 			Handler:         pulumi.String("exports.test"),
-// 			Role:            pulumi.String(aws_iam_role.Iam_for_lambda.Arn),
 // 			S3Bucket:        pulumi.String(lambda.Bucket),
 // 			S3Key:           pulumi.String(lambda.Key),
 // 			S3ObjectVersion: pulumi.String(lambda.VersionId),
+// 			Role:            pulumi.String(aws_iam_role.Iam_for_lambda.Arn),
+// 			Handler:         pulumi.String("exports.test"),
 // 		})
 // 		if err != nil {
 // 			return err

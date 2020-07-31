@@ -104,8 +104,8 @@ import (
 // 						Attributes: pulumi.StringMap{
 // 							"stack": pulumi.String("blue"),
 // 						},
-// 						NamespaceName: example.Name,
 // 						ServiceName:   pulumi.String("serviceb1"),
+// 						NamespaceName: example.Name,
 // 					},
 // 				},
 // 			},
@@ -140,17 +140,17 @@ import (
 // 					},
 // 				},
 // 				Listener: &appmesh.VirtualNodeSpecListenerArgs{
-// 					HealthCheck: &appmesh.VirtualNodeSpecListenerHealthCheckArgs{
-// 						HealthyThreshold:   pulumi.Int(2),
-// 						IntervalMillis:     pulumi.Int(5000),
-// 						Path:               pulumi.String("/ping"),
-// 						Protocol:           pulumi.String("http"),
-// 						TimeoutMillis:      pulumi.Int(2000),
-// 						UnhealthyThreshold: pulumi.Int(2),
-// 					},
 // 					PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
 // 						Port:     pulumi.Int(8080),
 // 						Protocol: pulumi.String("http"),
+// 					},
+// 					HealthCheck: &appmesh.VirtualNodeSpecListenerHealthCheckArgs{
+// 						Protocol:           pulumi.String("http"),
+// 						Path:               pulumi.String("/ping"),
+// 						HealthyThreshold:   pulumi.Int(2),
+// 						UnhealthyThreshold: pulumi.Int(2),
+// 						TimeoutMillis:      pulumi.Int(2000),
+// 						IntervalMillis:     pulumi.Int(5000),
 // 					},
 // 				},
 // 				ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
@@ -195,16 +195,16 @@ import (
 // 						Protocol: pulumi.String("http"),
 // 					},
 // 				},
+// 				ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
+// 					Dns: &appmesh.VirtualNodeSpecServiceDiscoveryDnsArgs{
+// 						Hostname: pulumi.String("serviceb.simpleapp.local"),
+// 					},
+// 				},
 // 				Logging: &appmesh.VirtualNodeSpecLoggingArgs{
 // 					AccessLog: &appmesh.VirtualNodeSpecLoggingAccessLogArgs{
 // 						File: &appmesh.VirtualNodeSpecLoggingAccessLogFileArgs{
 // 							Path: pulumi.String("/dev/stdout"),
 // 						},
-// 					},
-// 				},
-// 				ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
-// 					Dns: &appmesh.VirtualNodeSpecServiceDiscoveryDnsArgs{
-// 						Hostname: pulumi.String("serviceb.simpleapp.local"),
 // 					},
 // 				},
 // 			},

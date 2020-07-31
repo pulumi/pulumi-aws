@@ -47,11 +47,11 @@ class EfsLocation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.EfsLocation("example",
+            efs_file_system_arn=aws_efs_mount_target["example"]["file_system_arn"],
             ec2_config={
                 "securityGroupArns": [aws_security_group["example"]["arn"]],
                 "subnetArn": aws_subnet["example"]["arn"],
-            },
-            efs_file_system_arn=aws_efs_mount_target["example"]["file_system_arn"])
+            })
         ```
 
         :param str resource_name: The name of the resource.

@@ -29,8 +29,8 @@ class MethodSettings(pulumi.CustomResource):
       * `loggingLevel` (`str`) - Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
       * `metricsEnabled` (`bool`) - Specifies whether Amazon CloudWatch metrics are enabled for this method.
       * `requireAuthorizationForCacheControl` (`bool`) - Specifies whether authorization is required for a cache invalidation request.
-      * `throttlingBurstLimit` (`float`) - Specifies the throttling burst limit.
-      * `throttlingRateLimit` (`float`) - Specifies the throttling rate limit.
+      * `throttlingBurstLimit` (`float`) - Specifies the throttling burst limit. Default: `-1` (throttling disabled).
+      * `throttlingRateLimit` (`float`) - Specifies the throttling rate limit. Default: `-1` (throttling disabled).
       * `unauthorizedCacheControlHeaderStrategy` (`str`) - Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
     """
     stage_name: pulumi.Output[str]
@@ -48,43 +48,42 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_rest_api = aws.apigateway.RestApi("testRestApi", description="This is my API for demonstration purposes")
-        test_deployment = aws.apigateway.Deployment("testDeployment",
-            rest_api=test_rest_api.id,
-            stage_name="dev",
-            opts=ResourceOptions(depends_on=["aws_api_gateway_integration.test"]))
-        test_stage = aws.apigateway.Stage("testStage",
-            deployment=test_deployment.id,
-            rest_api=test_rest_api.id,
-            stage_name="prod")
         test_resource = aws.apigateway.Resource("testResource",
-            parent_id=test_rest_api.root_resource_id,
-            path_part="mytestresource",
-            rest_api=test_rest_api.id)
-        test_method = aws.apigateway.Method("testMethod",
-            authorization="NONE",
-            http_method="GET",
-            resource_id=test_resource.id,
-            rest_api=test_rest_api.id)
-        method_settings = aws.apigateway.MethodSettings("methodSettings",
-            method_path=pulumi.Output.all(test_resource.path_part, test_method.http_method).apply(lambda path_part, http_method: f"{path_part}/{http_method}"),
             rest_api=test_rest_api.id,
-            settings={
-                "loggingLevel": "INFO",
-                "metricsEnabled": True,
-            },
-            stage_name=test_stage.stage_name)
+            parent_id=test_rest_api.root_resource_id,
+            path_part="mytestresource")
+        test_method = aws.apigateway.Method("testMethod",
+            rest_api=test_rest_api.id,
+            resource_id=test_resource.id,
+            http_method="GET",
+            authorization="NONE")
         test_integration = aws.apigateway.Integration("testIntegration",
+            rest_api=test_rest_api.id,
+            resource_id=test_resource.id,
             http_method=test_method.http_method,
+            type="MOCK",
             request_templates={
                 "application/xml": \"\"\"{
            "body" : $input.json('$')
         }
-
         \"\"\",
-            },
-            resource_id=test_resource.id,
+            })
+        test_deployment = aws.apigateway.Deployment("testDeployment",
             rest_api=test_rest_api.id,
-            type="MOCK")
+            stage_name="dev",
+            opts=ResourceOptions(depends_on=[test_integration]))
+        test_stage = aws.apigateway.Stage("testStage",
+            stage_name="prod",
+            rest_api=test_rest_api.id,
+            deployment=test_deployment.id)
+        method_settings = aws.apigateway.MethodSettings("methodSettings",
+            rest_api=test_rest_api.id,
+            stage_name=test_stage.stage_name,
+            method_path=pulumi.Output.all(test_resource.path_part, test_method.http_method).apply(lambda path_part, http_method: f"{path_part}/{http_method}"),
+            settings={
+                "metricsEnabled": True,
+                "loggingLevel": "INFO",
+            })
         ```
 
         :param str resource_name: The name of the resource.
@@ -103,8 +102,8 @@ class MethodSettings(pulumi.CustomResource):
           * `loggingLevel` (`pulumi.Input[str]`) - Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
           * `metricsEnabled` (`pulumi.Input[bool]`) - Specifies whether Amazon CloudWatch metrics are enabled for this method.
           * `requireAuthorizationForCacheControl` (`pulumi.Input[bool]`) - Specifies whether authorization is required for a cache invalidation request.
-          * `throttlingBurstLimit` (`pulumi.Input[float]`) - Specifies the throttling burst limit.
-          * `throttlingRateLimit` (`pulumi.Input[float]`) - Specifies the throttling rate limit.
+          * `throttlingBurstLimit` (`pulumi.Input[float]`) - Specifies the throttling burst limit. Default: `-1` (throttling disabled).
+          * `throttlingRateLimit` (`pulumi.Input[float]`) - Specifies the throttling rate limit. Default: `-1` (throttling disabled).
           * `unauthorizedCacheControlHeaderStrategy` (`pulumi.Input[str]`) - Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
         """
         if __name__ is not None:
@@ -165,8 +164,8 @@ class MethodSettings(pulumi.CustomResource):
           * `loggingLevel` (`pulumi.Input[str]`) - Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
           * `metricsEnabled` (`pulumi.Input[bool]`) - Specifies whether Amazon CloudWatch metrics are enabled for this method.
           * `requireAuthorizationForCacheControl` (`pulumi.Input[bool]`) - Specifies whether authorization is required for a cache invalidation request.
-          * `throttlingBurstLimit` (`pulumi.Input[float]`) - Specifies the throttling burst limit.
-          * `throttlingRateLimit` (`pulumi.Input[float]`) - Specifies the throttling rate limit.
+          * `throttlingBurstLimit` (`pulumi.Input[float]`) - Specifies the throttling burst limit. Default: `-1` (throttling disabled).
+          * `throttlingRateLimit` (`pulumi.Input[float]`) - Specifies the throttling rate limit. Default: `-1` (throttling disabled).
           * `unauthorizedCacheControlHeaderStrategy` (`pulumi.Input[str]`) - Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

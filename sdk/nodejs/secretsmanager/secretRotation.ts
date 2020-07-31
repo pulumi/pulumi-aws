@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.secretsmanager.SecretRotation("example", {
- *     rotationLambdaArn: aws_lambda_function_example.arn,
+ *     secretId: aws_secretsmanager_secret.example.id,
+ *     rotationLambdaArn: aws_lambda_function.example.arn,
  *     rotationRules: {
  *         automaticallyAfterDays: 30,
  *     },
- *     secretId: aws_secretsmanager_secret_example.id,
  * });
  * ```
  * ### Rotation Configuration

@@ -10,25 +10,6 @@ import {Bucket} from "./index";
  * Provides a S3 bucket object resource.
  *
  * ## Example Usage
- * ### Uploading a file to a bucket
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const object = new aws.s3.BucketObject("object", {
- *     bucket: "your_bucket_name",
- *     // The filemd5() function is available in this provider 0.11.12 and later
- *     // For this provider 0.11.11 and earlier, use the md5() function and the file() function:
- *     // etag = "${md5(file("path/to/file"))}"
- *     etag: (() => {
- *         throw "tf2pulumi error: NYI: call to filemd5";
- *         return (() => { throw "NYI: call to filemd5"; })();
- *     })(),
- *     key: "new_object_key",
- *     source: new pulumi.asset.FileAsset("path/to/file"),
- * });
- * ```
  * ### Encrypting with KMS Key
  *
  * ```typescript
@@ -36,17 +17,15 @@ import {Bucket} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const examplekms = new aws.kms.Key("examplekms", {
- *     deletionWindowInDays: 7,
  *     description: "KMS key 1",
+ *     deletionWindowInDays: 7,
  * });
- * const examplebucket = new aws.s3.Bucket("examplebucket", {
- *     acl: "private",
- * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
- *     bucket: examplebucket.id,
+ * const examplebucket = new aws.s3.Bucket("examplebucket", {acl: "private"});
+ * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
  *     key: "someobject",
- *     kmsKeyId: examplekms.arn,
+ *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("index.html"),
+ *     kmsKeyId: examplekms.arn,
  * });
  * ```
  * ### Server Side Encryption with S3 Default Master Key
@@ -55,14 +34,12 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.Bucket("examplebucket", {
- *     acl: "private",
- * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
- *     bucket: examplebucket.id,
+ * const examplebucket = new aws.s3.Bucket("examplebucket", {acl: "private"});
+ * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
  *     key: "someobject",
- *     serverSideEncryption: "aws:kms",
+ *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("index.html"),
+ *     serverSideEncryption: "aws:kms",
  * });
  * ```
  * ### Server Side Encryption with AWS-Managed Key
@@ -71,14 +48,12 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.Bucket("examplebucket", {
- *     acl: "private",
- * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
- *     bucket: examplebucket.id,
+ * const examplebucket = new aws.s3.Bucket("examplebucket", {acl: "private"});
+ * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
  *     key: "someobject",
- *     serverSideEncryption: "AES256",
+ *     bucket: examplebucket.id,
  *     source: new pulumi.asset.FileAsset("index.html"),
+ *     serverSideEncryption: "AES256",
  * });
  * ```
  * ### S3 Object Lock
@@ -89,21 +64,21 @@ import {Bucket} from "./index";
  *
  * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     acl: "private",
- *     objectLockConfiguration: {
- *         objectLockEnabled: "Enabled",
- *     },
  *     versioning: {
  *         enabled: true,
  *     },
+ *     objectLockConfiguration: {
+ *         objectLockEnabled: "Enabled",
+ *     },
  * });
- * const examplebucketObject = new aws.s3.BucketObject("examplebucket_object", {
- *     bucket: examplebucket.id,
- *     forceDestroy: true,
+ * const examplebucketObject = new aws.s3.BucketObject("examplebucketObject", {
  *     key: "someobject",
+ *     bucket: examplebucket.id,
+ *     source: new pulumi.asset.FileAsset("important.txt"),
  *     objectLockLegalHoldStatus: "ON",
  *     objectLockMode: "GOVERNANCE",
  *     objectLockRetainUntilDate: "2021-12-31T23:59:60Z",
- *     source: new pulumi.asset.FileAsset("important.txt"),
+ *     forceDestroy: true,
  * });
  * ```
  */

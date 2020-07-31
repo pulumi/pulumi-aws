@@ -9,19 +9,14 @@ import * as utilities from "../utilities";
 /**
  * Provides a CodePipeline.
  *
- * > **NOTE on `aws.codepipeline.Pipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
- *
  * ## Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const codepipelineBucket = new aws.s3.Bucket("codepipeline_bucket", {
- *     acl: "private",
- * });
- * const codepipelineRole = new aws.iam.Role("codepipeline_role", {
- *     assumeRolePolicy: `{
+ * const codepipelineBucket = new aws.s3.Bucket("codepipelineBucket", {acl: "private"});
+ * const codepipelineRole = new aws.iam.Role("codepipelineRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -33,9 +28,75 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
+ * `});
+ * const s3kmskey = aws.kms.getAlias({
+ *     name: "alias/myKmsKey",
  * });
- * const codepipelinePolicy = new aws.iam.RolePolicy("codepipeline_policy", {
+ * const codepipeline = new aws.codepipeline.Pipeline("codepipeline", {
+ *     roleArn: codepipelineRole.arn,
+ *     artifactStore: {
+ *         location: codepipelineBucket.bucket,
+ *         type: "S3",
+ *         encryptionKey: {
+ *             id: s3kmskey.then(s3kmskey => s3kmskey.arn),
+ *             type: "KMS",
+ *         },
+ *     },
+ *     stages: [
+ *         {
+ *             name: "Source",
+ *             actions: [{
+ *                 name: "Source",
+ *                 category: "Source",
+ *                 owner: "ThirdParty",
+ *                 provider: "GitHub",
+ *                 version: "1",
+ *                 outputArtifacts: ["source_output"],
+ *                 configuration: {
+ *                     Owner: "my-organization",
+ *                     Repo: "test",
+ *                     Branch: "master",
+ *                     OAuthToken: _var.github_token,
+ *                 },
+ *             }],
+ *         },
+ *         {
+ *             name: "Build",
+ *             actions: [{
+ *                 name: "Build",
+ *                 category: "Build",
+ *                 owner: "AWS",
+ *                 provider: "CodeBuild",
+ *                 inputArtifacts: ["source_output"],
+ *                 outputArtifacts: ["build_output"],
+ *                 version: "1",
+ *                 configuration: {
+ *                     ProjectName: "test",
+ *                 },
+ *             }],
+ *         },
+ *         {
+ *             name: "Deploy",
+ *             actions: [{
+ *                 name: "Deploy",
+ *                 category: "Deploy",
+ *                 owner: "AWS",
+ *                 provider: "CloudFormation",
+ *                 inputArtifacts: ["build_output"],
+ *                 version: "1",
+ *                 configuration: {
+ *                     ActionMode: "REPLACE_ON_FAILURE",
+ *                     Capabilities: "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM",
+ *                     OutputFileName: "CreateStackOutput.json",
+ *                     StackName: "MyStack",
+ *                     TemplatePath: "build_output::sam-templated.yaml",
+ *                 },
+ *             }],
+ *         },
+ *     ],
+ * });
+ * const codepipelinePolicy = new aws.iam.RolePolicy("codepipelinePolicy", {
+ *     role: codepipelineRole.id,
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -63,72 +124,6 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     role: codepipelineRole.id,
- * });
- * const s3kmskey = pulumi.output(aws.kms.getAlias({
- *     name: "alias/myKmsKey",
- * }, { async: true }));
- * const codepipeline = new aws.codepipeline.Pipeline("codepipeline", {
- *     artifactStores: {
- *         encryptionKey: {
- *             id: s3kmskey.arn,
- *             type: "KMS",
- *         },
- *         location: codepipelineBucket.bucket,
- *         type: "S3",
- *     },
- *     roleArn: codepipelineRole.arn,
- *     stages: [
- *         {
- *             actions: [{
- *                 category: "Source",
- *                 configuration: {
- *                     Branch: "master",
- *                     Owner: "my-organization",
- *                     Repo: "test",
- *                 },
- *                 name: "Source",
- *                 outputArtifacts: ["source_output"],
- *                 owner: "ThirdParty",
- *                 provider: "GitHub",
- *                 version: "1",
- *             }],
- *             name: "Source",
- *         },
- *         {
- *             actions: [{
- *                 category: "Build",
- *                 configuration: {
- *                     ProjectName: "test",
- *                 },
- *                 inputArtifacts: ["source_output"],
- *                 name: "Build",
- *                 outputArtifacts: ["build_output"],
- *                 owner: "AWS",
- *                 provider: "CodeBuild",
- *                 version: "1",
- *             }],
- *             name: "Build",
- *         },
- *         {
- *             actions: [{
- *                 category: "Deploy",
- *                 configuration: {
- *                     ActionMode: "REPLACE_ON_FAILURE",
- *                     Capabilities: "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM",
- *                     OutputFileName: "CreateStackOutput.json",
- *                     StackName: "MyStack",
- *                     TemplatePath: "build_output::sam-templated.yaml",
- *                 },
- *                 inputArtifacts: ["build_output"],
- *                 name: "Deploy",
- *                 owner: "AWS",
- *                 provider: "CloudFormation",
- *                 version: "1",
- *             }],
- *             name: "Deploy",
- *         },
- *     ],
  * });
  * ```
  */

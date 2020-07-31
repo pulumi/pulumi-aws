@@ -29,10 +29,10 @@ import (
 // 		_, err := sagemaker.NewEndpointConfiguration(ctx, "ec", &sagemaker.EndpointConfigurationArgs{
 // 			ProductionVariants: sagemaker.EndpointConfigurationProductionVariantArray{
 // 				&sagemaker.EndpointConfigurationProductionVariantArgs{
+// 					VariantName:          pulumi.String("variant-1"),
+// 					ModelName:            pulumi.String(aws_sagemaker_model.M.Name),
 // 					InitialInstanceCount: pulumi.Int(1),
 // 					InstanceType:         pulumi.String("ml.t2.medium"),
-// 					ModelName:            pulumi.String(aws_sagemaker_model.M.Name),
-// 					VariantName:          pulumi.String("variant-1"),
 // 				},
 // 			},
 // 			Tags: pulumi.StringMap{

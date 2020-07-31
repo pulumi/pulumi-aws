@@ -120,19 +120,19 @@ def get_organization(opts=None):
     example = aws.organizations.get_organization()
     sns_topic = aws.sns.Topic("snsTopic")
     sns_topic_policy_policy_document = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
+        "effect": "Allow",
         "actions": [
             "SNS:Subscribe",
             "SNS:Publish",
         ],
         "conditions": [{
             "test": "StringEquals",
-            "values": [example.id],
             "variable": "aws:PrincipalOrgID",
+            "values": [example.id],
         }],
-        "effect": "Allow",
         "principals": [{
-            "identifiers": ["*"],
             "type": "AWS",
+            "identifiers": ["*"],
         }],
         "resources": [arn],
     }]))

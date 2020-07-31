@@ -200,6 +200,10 @@ export interface GetInstanceResult {
      */
     readonly rootBlockDevices: outputs.ec2.GetInstanceRootBlockDevice[];
     /**
+     * The secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
+     */
+    readonly secondaryPrivateIps: string[];
+    /**
      * The associated security groups.
      */
     readonly securityGroups: string[];

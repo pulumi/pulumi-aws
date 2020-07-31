@@ -25,14 +25,15 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		window, err := ssm.NewMaintenanceWindow(ctx, "window", &ssm.MaintenanceWindowArgs{
-// 			Cutoff:   pulumi.Int(1),
-// 			Duration: pulumi.Int(3),
 // 			Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
+// 			Duration: pulumi.Int(3),
+// 			Cutoff:   pulumi.Int(1),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
+// 			WindowId:     window.ID(),
 // 			Description:  pulumi.String("This is a maintenance window target"),
 // 			ResourceType: pulumi.String("INSTANCE"),
 // 			Targets: ssm.MaintenanceWindowTargetTargetArray{
@@ -43,7 +44,6 @@ import (
 // 					},
 // 				},
 // 			},
-// 			WindowId: window.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -66,14 +66,15 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		window, err := ssm.NewMaintenanceWindow(ctx, "window", &ssm.MaintenanceWindowArgs{
-// 			Cutoff:   pulumi.Int(1),
-// 			Duration: pulumi.Int(3),
 // 			Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
+// 			Duration: pulumi.Int(3),
+// 			Cutoff:   pulumi.Int(1),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
+// 			WindowId:     window.ID(),
 // 			Description:  pulumi.String("This is a maintenance window target"),
 // 			ResourceType: pulumi.String("RESOURCE_GROUP"),
 // 			Targets: ssm.MaintenanceWindowTargetTargetArray{
@@ -85,7 +86,6 @@ import (
 // 					},
 // 				},
 // 			},
-// 			WindowId: window.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

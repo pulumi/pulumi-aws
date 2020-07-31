@@ -56,17 +56,11 @@ namespace Pulumi.Aws.Route53
     ///         });
     ///         var dev_ns = new Aws.Route53.Record("dev-ns", new Aws.Route53.RecordArgs
     ///         {
-    ///             Name = "dev.example.com",
-    ///             Records = 
-    ///             {
-    ///                 dev.NameServers.Apply(nameServers =&gt; nameServers[0]),
-    ///                 dev.NameServers.Apply(nameServers =&gt; nameServers[1]),
-    ///                 dev.NameServers.Apply(nameServers =&gt; nameServers[2]),
-    ///                 dev.NameServers.Apply(nameServers =&gt; nameServers[3]),
-    ///             },
-    ///             Ttl = 30,
-    ///             Type = "NS",
     ///             ZoneId = main.ZoneId,
+    ///             Name = "dev.example.com",
+    ///             Type = "NS",
+    ///             Ttl = 30,
+    ///             Records = dev.NameServers,
     ///         });
     ///     }
     /// 

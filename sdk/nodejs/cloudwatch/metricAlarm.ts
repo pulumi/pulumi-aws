@@ -35,25 +35,25 @@ import {Topic} from "../sns";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const batPolicy = new aws.autoscaling.Policy("bat", {
- *     adjustmentType: "ChangeInCapacity",
- *     autoscalingGroupName: aws_autoscaling_group_bar.name,
- *     cooldown: 300,
+ * const batPolicy = new aws.autoscaling.Policy("batPolicy", {
  *     scalingAdjustment: 4,
+ *     adjustmentType: "ChangeInCapacity",
+ *     cooldown: 300,
+ *     autoscalingGroupName: aws_autoscaling_group.bar.name,
  * });
- * const batMetricAlarm = new aws.cloudwatch.MetricAlarm("bat", {
- *     alarmActions: [batPolicy.arn],
- *     alarmDescription: "This metric monitors ec2 cpu utilization",
+ * const batMetricAlarm = new aws.cloudwatch.MetricAlarm("batMetricAlarm", {
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
- *     dimensions: {
- *         AutoScalingGroupName: aws_autoscaling_group_bar.name,
- *     },
- *     evaluationPeriods: 2,
+ *     evaluationPeriods: "2",
  *     metricName: "CPUUtilization",
  *     namespace: "AWS/EC2",
- *     period: 120,
+ *     period: "120",
  *     statistic: "Average",
- *     threshold: 80,
+ *     threshold: "80",
+ *     dimensions: {
+ *         AutoScalingGroupName: aws_autoscaling_group.bar.name,
+ *     },
+ *     alarmDescription: "This metric monitors ec2 cpu utilization",
+ *     alarmActions: [batPolicy.arn],
  * });
  * ```
  *
@@ -147,7 +147,7 @@ import {Topic} from "../sns";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const xxxNlbHealthyhosts = new aws.cloudwatch.MetricAlarm("xxxNlbHealthyhosts", {
+ * const nlbHealthyhosts = new aws.cloudwatch.MetricAlarm("nlbHealthyhosts", {
  *     comparisonOperator: "LessThanThreshold",
  *     evaluationPeriods: "1",
  *     metricName: "HealthyHostCount",
@@ -155,7 +155,7 @@ import {Topic} from "../sns";
  *     period: "60",
  *     statistic: "Average",
  *     threshold: _var.logstash_servers_count,
- *     alarmDescription: "Number of XXXX nodes healthy in Target Group",
+ *     alarmDescription: "Number of healthy nodes in Target Group",
  *     actionsEnabled: "true",
  *     alarmActions: [aws_sns_topic.sns.arn],
  *     okActions: [aws_sns_topic.sns.arn],

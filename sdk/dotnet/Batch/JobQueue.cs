@@ -24,13 +24,13 @@ namespace Pulumi.Aws.Batch
     ///     {
     ///         var testQueue = new Aws.Batch.JobQueue("testQueue", new Aws.Batch.JobQueueArgs
     ///         {
+    ///             State = "ENABLED",
+    ///             Priority = 1,
     ///             ComputeEnvironments = 
     ///             {
     ///                 aws_batch_compute_environment.Test_environment_1.Arn,
     ///                 aws_batch_compute_environment.Test_environment_2.Arn,
     ///             },
-    ///             Priority = 1,
-    ///             State = "ENABLED",
     ///         });
     ///     }
     /// 

@@ -36,14 +36,14 @@ import (
 // 			return err
 // 		}
 // 		_, err = appautoscaling.NewScheduledAction(ctx, "dynamodbScheduledAction", &appautoscaling.ScheduledActionArgs{
+// 			ServiceNamespace:  dynamodbTarget.ServiceNamespace,
 // 			ResourceId:        dynamodbTarget.ResourceId,
 // 			ScalableDimension: dynamodbTarget.ScalableDimension,
+// 			Schedule:          pulumi.String("at(2006-01-02T15:04:05)"),
 // 			ScalableTargetAction: &appautoscaling.ScheduledActionScalableTargetActionArgs{
-// 				MaxCapacity: pulumi.Int(200),
 // 				MinCapacity: pulumi.Int(1),
+// 				MaxCapacity: pulumi.Int(200),
 // 			},
-// 			Schedule:         pulumi.String("at(2006-01-02T15:04:05)"),
-// 			ServiceNamespace: dynamodbTarget.ServiceNamespace,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -75,14 +75,14 @@ import (
 // 			return err
 // 		}
 // 		_, err = appautoscaling.NewScheduledAction(ctx, "ecsScheduledAction", &appautoscaling.ScheduledActionArgs{
+// 			ServiceNamespace:  ecsTarget.ServiceNamespace,
 // 			ResourceId:        ecsTarget.ResourceId,
 // 			ScalableDimension: ecsTarget.ScalableDimension,
+// 			Schedule:          pulumi.String("at(2006-01-02T15:04:05)"),
 // 			ScalableTargetAction: &appautoscaling.ScheduledActionScalableTargetActionArgs{
-// 				MaxCapacity: pulumi.Int(10),
 // 				MinCapacity: pulumi.Int(1),
+// 				MaxCapacity: pulumi.Int(10),
 // 			},
-// 			Schedule:         pulumi.String("at(2006-01-02T15:04:05)"),
-// 			ServiceNamespace: ecsTarget.ServiceNamespace,
 // 		})
 // 		if err != nil {
 // 			return err

@@ -24,7 +24,7 @@ class Volume(pulumi.CustomResource):
     """
     iops: pulumi.Output[float]
     """
-    The amount of IOPS to provision for the disk.
+    The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
     """
     kms_key_id: pulumi.Output[str]
     """
@@ -78,7 +78,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
-        :param pulumi.Input[float] iops: The amount of IOPS to provision for the disk.
+        :param pulumi.Input[float] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
@@ -135,7 +135,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
-        :param pulumi.Input[float] iops: The amount of IOPS to provision for the disk.
+        :param pulumi.Input[float] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.

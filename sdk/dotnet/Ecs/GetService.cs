@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Ecs
         ///     {
         ///         var example = Output.Create(Aws.Ecs.GetService.InvokeAsync(new Aws.Ecs.GetServiceArgs
         ///         {
-        ///             ClusterArn = data.Aws_ecs_cluster.Example.Arn,
         ///             ServiceName = "example",
+        ///             ClusterArn = data.Aws_ecs_cluster.Example.Arn,
         ///         }));
         ///     }
         /// 

@@ -41,26 +41,23 @@ import {PolicyDocument} from "../iam";
  *
  * const config = new pulumi.Config();
  * const domain = config.get("domain") || "tf-test";
- *
- * const currentRegion = pulumi.output(aws.getRegion({ async: true }));
- * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({ async: true }));
- * const example = new aws.elasticsearch.Domain("example", {
- *     accessPolicies: pulumi.interpolate`{
+ * const currentRegion = aws.getRegion({});
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const example = new aws.elasticsearch.Domain("example", {accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
  *       "Action": "es:*",
  *       "Principal": "*",
  *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:${currentRegion.name!}:${currentCallerIdentity.accountId}:domain/${domain}/*",
+ *       "Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*",
  *       "Condition": {
  *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
  *       }
  *     }
  *   ]
  * }
- * `,
- * });
+ * `)});
  * ```
  * ### Log Publishing to CloudWatch Logs
  *
@@ -68,8 +65,9 @@ import {PolicyDocument} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {});
- * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy", {
+ *     policyName: "example",
  *     policyDocument: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -88,14 +86,12 @@ import {PolicyDocument} from "../iam";
  *   ]
  * }
  * `,
- *     policyName: "example",
  * });
- * const exampleDomain = new aws.elasticsearch.Domain("example", {
- *     logPublishingOptions: [{
- *         cloudwatchLogGroupArn: exampleLogGroup.arn,
- *         logType: "INDEX_SLOW_LOGS",
- *     }],
- * });
+ * // .. other configuration ...
+ * const exampleDomain = new aws.elasticsearch.Domain("exampleDomain", {logPublishingOptions: [{
+ *     cloudwatchLogGroupArn: exampleLogGroup.arn,
+ *     logType: "INDEX_SLOW_LOGS",
+ * }]});
  * ```
  * ### VPC based ES
  *
@@ -104,69 +100,68 @@ import {PolicyDocument} from "../iam";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const vpc = config.require("vpc");
+ * const vpc = config.requireObject("vpc");
  * const domain = config.get("domain") || "tf-test";
- *
- * const selectedVpc = pulumi.output(aws.ec2.getVpc({
+ * const selectedVpc = aws.ec2.getVpc({
  *     tags: {
  *         Name: vpc,
  *     },
- * }, { async: true }));
- * const selectedSubnetIds = selectedVpc.apply(selectedVpc => aws.ec2.getSubnetIds({
+ * });
+ * const selectedSubnetIds = selectedVpc.then(selectedVpc => aws.ec2.getSubnetIds({
+ *     vpcId: selectedVpc.id,
  *     tags: {
  *         Tier: "private",
  *     },
- *     vpcId: selectedVpc.id!,
- * }, { async: true }));
- * const currentRegion = pulumi.output(aws.getRegion({ async: true }));
- * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({ async: true }));
- * const esSecurityGroup = new aws.ec2.SecurityGroup("es", {
+ * }));
+ * const currentRegion = aws.getRegion({});
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const esSecurityGroup = new aws.ec2.SecurityGroup("esSecurityGroup", {
  *     description: "Managed by Pulumi",
+ *     vpcId: selectedVpc.then(selectedVpc => selectedVpc.id),
  *     ingress: [{
- *         cidrBlocks: [selectedVpc.cidrBlock!],
  *         fromPort: 443,
- *         protocol: "tcp",
  *         toPort: 443,
+ *         protocol: "tcp",
+ *         cidrBlocks: [selectedVpc.then(selectedVpc => selectedVpc.cidrBlock)],
  *     }],
- *     vpcId: selectedVpc.id!,
  * });
- * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("es", {
- *     awsServiceName: "es.amazonaws.com",
- * });
- * const esDomain = new aws.elasticsearch.Domain("es", {
- *     accessPolicies: pulumi.interpolate`{
+ * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("esServiceLinkedRole", {awsServiceName: "es.amazonaws.com"});
+ * const esDomain = new aws.elasticsearch.Domain("esDomain", {
+ *     elasticsearchVersion: "6.3",
+ *     clusterConfig: {
+ *         instanceType: "m4.large.elasticsearch",
+ *     },
+ *     vpcOptions: {
+ *         subnetIds: [
+ *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids[0]),
+ *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids[1]),
+ *         ],
+ *         securityGroupIds: [esSecurityGroup.id],
+ *     },
+ *     advancedOptions: {
+ *         "rest.action.multi.allow_explicit_index": "true",
+ *     },
+ *     accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
  * 			"Action": "es:*",
  * 			"Principal": "*",
  * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:${currentRegion.name!}:${currentCallerIdentity.accountId}:domain/${domain}/*"
+ * 			"Resource": "arn:aws:es:${currentRegion.name}:${currentCallerIdentity.accountId}:domain/${domain}/*"
  * 		}
  * 	]
  * }
- * `,
- *     advancedOptions: {
- *         "rest.action.multi.allow_explicit_index": "true",
- *     },
- *     clusterConfig: {
- *         instanceType: "m4.large.elasticsearch",
- *     },
- *     elasticsearchVersion: "6.3",
+ * `),
  *     snapshotOptions: {
  *         automatedSnapshotStartHour: 23,
  *     },
  *     tags: {
  *         Domain: "TestDomain",
  *     },
- *     vpcOptions: {
- *         securityGroupIds: [esSecurityGroup.id],
- *         subnetIds: [
- *             selectedSubnetIds.apply(selectedSubnetIds => selectedSubnetIds.ids[0]),
- *             selectedSubnetIds.apply(selectedSubnetIds => selectedSubnetIds.ids[1]),
- *         ],
- *     },
- * }, { dependsOn: [esServiceLinkedRole] });
+ * }, {
+ *     dependsOn: [esServiceLinkedRole],
+ * });
  * ```
  */
 export class Domain extends pulumi.CustomResource {
@@ -256,7 +251,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string>;
     /**
-     * Options for publishing slow logs to CloudWatch Logs.
+     * Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
      */
     public readonly logPublishingOptions!: pulumi.Output<outputs.elasticsearch.DomainLogPublishingOption[] | undefined>;
     /**
@@ -403,7 +398,7 @@ export interface DomainState {
      */
     readonly kibanaEndpoint?: pulumi.Input<string>;
     /**
-     * Options for publishing slow logs to CloudWatch Logs.
+     * Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
      */
     readonly logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.elasticsearch.DomainLogPublishingOption>[]>;
     /**
@@ -469,7 +464,7 @@ export interface DomainArgs {
      */
     readonly encryptAtRest?: pulumi.Input<inputs.elasticsearch.DomainEncryptAtRest>;
     /**
-     * Options for publishing slow logs to CloudWatch Logs.
+     * Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
      */
     readonly logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.elasticsearch.DomainLogPublishingOption>[]>;
     /**

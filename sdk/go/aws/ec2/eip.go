@@ -54,27 +54,27 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ec2.NewNetworkInterface(ctx, "multi_ip", &ec2.NetworkInterfaceArgs{
+// 			SubnetId: pulumi.String(aws_subnet.Main.Id),
 // 			PrivateIps: pulumi.StringArray{
 // 				pulumi.String("10.0.0.10"),
 // 				pulumi.String("10.0.0.11"),
 // 			},
-// 			SubnetId: pulumi.String(aws_subnet.Main.Id),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ec2.NewEip(ctx, "one", &ec2.EipArgs{
-// 			AssociateWithPrivateIp: pulumi.String("10.0.0.10"),
-// 			NetworkInterface:       multi_ip.ID(),
 // 			Vpc:                    pulumi.Bool(true),
+// 			NetworkInterface:       multi_ip.ID(),
+// 			AssociateWithPrivateIp: pulumi.String("10.0.0.10"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ec2.NewEip(ctx, "two", &ec2.EipArgs{
-// 			AssociateWithPrivateIp: pulumi.String("10.0.0.11"),
-// 			NetworkInterface:       multi_ip.ID(),
 // 			Vpc:                    pulumi.Bool(true),
+// 			NetworkInterface:       multi_ip.ID(),
+// 			AssociateWithPrivateIp: pulumi.String("10.0.0.11"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -103,18 +103,18 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
+// 		gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
 // 			VpcId: _default.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		tfTestSubnet, err := ec2.NewSubnet(ctx, "tfTestSubnet", &ec2.SubnetArgs{
+// 			VpcId:               _default.ID(),
 // 			CidrBlock:           pulumi.String("10.0.0.0/24"),
 // 			MapPublicIpOnLaunch: pulumi.Bool(true),
-// 			VpcId:               _default.ID(),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_internet_gateway.gw",
+// 			gw,
 // 		}))
 // 		if err != nil {
 // 			return err
@@ -129,11 +129,11 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewEip(ctx, "bar", &ec2.EipArgs{
-// 			AssociateWithPrivateIp: pulumi.String("10.0.0.12"),
-// 			Instance:               foo.ID(),
 // 			Vpc:                    pulumi.Bool(true),
+// 			Instance:               foo.ID(),
+// 			AssociateWithPrivateIp: pulumi.String("10.0.0.12"),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_internet_gateway.gw",
+// 			gw,
 // 		}))
 // 		if err != nil {
 // 			return err

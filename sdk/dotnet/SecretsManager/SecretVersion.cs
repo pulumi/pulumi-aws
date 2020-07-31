@@ -34,6 +34,35 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// }
     /// ```
+    /// ### Key-Value Pairs
+    /// 
+    /// Secrets Manager also accepts key-value pairs in JSON.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var config = new Config();
+    ///         var example = config.GetObject&lt;dynamic&gt;("example") ?? 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         };
+    ///         var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new Aws.SecretsManager.SecretVersionArgs
+    ///         {
+    ///             SecretId = aws_secretsmanager_secret.Example.Id,
+    ///             SecretString = JsonSerializer.Serialize(example),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SecretVersion : Pulumi.CustomResource
     {

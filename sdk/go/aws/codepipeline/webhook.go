@@ -28,53 +28,53 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		barPipeline, err := codepipeline.NewPipeline(ctx, "barPipeline", &codepipeline.PipelineArgs{
+// 			RoleArn: pulumi.String(aws_iam_role.Bar.Arn),
 // 			ArtifactStore: &codepipeline.PipelineArtifactStoreArgs{
+// 				Location: pulumi.String(aws_s3_bucket.Bar.Bucket),
+// 				Type:     pulumi.String("S3"),
 // 				EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
 // 					Id:   pulumi.String(data.Aws_kms_alias.S3kmskey.Arn),
 // 					Type: pulumi.String("KMS"),
 // 				},
-// 				Location: pulumi.String(aws_s3_bucket.Bar.Bucket),
-// 				Type:     pulumi.String("S3"),
 // 			},
-// 			RoleArn: pulumi.String(aws_iam_role.Bar.Arn),
 // 			Stages: codepipeline.PipelineStageArray{
 // 				&codepipeline.PipelineStageArgs{
+// 					Name: pulumi.String("Source"),
 // 					Actions: codepipeline.PipelineStageActionArray{
 // 						&codepipeline.PipelineStageActionArgs{
+// 							Name:     pulumi.String("Source"),
 // 							Category: pulumi.String("Source"),
-// 							Configuration: pulumi.StringMap{
-// 								"Branch": pulumi.String("master"),
-// 								"Owner":  pulumi.String("my-organization"),
-// 								"Repo":   pulumi.String("test"),
-// 							},
-// 							Name: pulumi.String("Source"),
-// 							OutputArtifacts: pulumi.StringArray{
-// 								pulumi.String("test"),
-// 							},
 // 							Owner:    pulumi.String("ThirdParty"),
 // 							Provider: pulumi.String("GitHub"),
 // 							Version:  pulumi.String("1"),
+// 							OutputArtifacts: pulumi.StringArray{
+// 								pulumi.String("test"),
+// 							},
+// 							Configuration: pulumi.StringMap{
+// 								"Owner":  pulumi.String("my-organization"),
+// 								"Repo":   pulumi.String("test"),
+// 								"Branch": pulumi.String("master"),
+// 							},
 // 						},
 // 					},
-// 					Name: pulumi.String("Source"),
 // 				},
 // 				&codepipeline.PipelineStageArgs{
+// 					Name: pulumi.String("Build"),
 // 					Actions: codepipeline.PipelineStageActionArray{
 // 						&codepipeline.PipelineStageActionArgs{
+// 							Name:     pulumi.String("Build"),
 // 							Category: pulumi.String("Build"),
-// 							Configuration: pulumi.StringMap{
-// 								"ProjectName": pulumi.String("test"),
-// 							},
+// 							Owner:    pulumi.String("AWS"),
+// 							Provider: pulumi.String("CodeBuild"),
 // 							InputArtifacts: pulumi.StringArray{
 // 								pulumi.String("test"),
 // 							},
-// 							Name:     pulumi.String("Build"),
-// 							Owner:    pulumi.String("AWS"),
-// 							Provider: pulumi.String("CodeBuild"),
-// 							Version:  pulumi.String("1"),
+// 							Version: pulumi.String("1"),
+// 							Configuration: pulumi.StringMap{
+// 								"ProjectName": pulumi.String("test"),
+// 							},
 // 						},
 // 					},
-// 					Name: pulumi.String("Build"),
 // 				},
 // 			},
 // 		})
@@ -84,6 +84,8 @@ import (
 // 		webhookSecret := "super-secret"
 // 		barWebhook, err := codepipeline.NewWebhook(ctx, "barWebhook", &codepipeline.WebhookArgs{
 // 			Authentication: pulumi.String("GITHUB_HMAC"),
+// 			TargetAction:   pulumi.String("Source"),
+// 			TargetPipeline: barPipeline.Name,
 // 			AuthenticationConfiguration: &codepipeline.WebhookAuthenticationConfigurationArgs{
 // 				SecretToken: pulumi.String(webhookSecret),
 // 			},
@@ -93,23 +95,21 @@ import (
 // 					MatchEquals: pulumi.String("refs/heads/{Branch}"),
 // 				},
 // 			},
-// 			TargetAction:   pulumi.String("Source"),
-// 			TargetPipeline: barPipeline.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = github.NewRepositoryWebhook(ctx, "barRepositoryWebhook", &github.RepositoryWebhookArgs{
+// 			Repository: pulumi.String(github_repository.Repo.Name),
 // 			Configuration: &github.RepositoryWebhookConfigurationArgs{
+// 				Url:         barWebhook.Url,
 // 				ContentType: pulumi.String("json"),
 // 				InsecureSsl: pulumi.Bool(true),
 // 				Secret:      pulumi.String(webhookSecret),
-// 				Url:         barWebhook.Url,
 // 			},
 // 			Events: pulumi.StringArray{
 // 				pulumi.String("push"),
 // 			},
-// 			Repository: pulumi.String(github_repository.Repo.Name),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -23,10 +23,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const current = pulumi.output(aws.getCallerIdentity({ async: true }));
+ * const current = aws.getCallerIdentity({});
  * const foo = new aws.s3.Bucket("foo", {
  *     forceDestroy: true,
- *     policy: pulumi.interpolate`{
+ *     policy: current.then(current => `{
  *     "Version": "2012-10-17",
  *     "Statement": [
  *         {
@@ -54,12 +54,12 @@ import * as utilities from "../utilities";
  *         }
  *     ]
  * }
- * `,
+ * `),
  * });
  * const foobar = new aws.cloudtrail.Trail("foobar", {
- *     includeGlobalServiceEvents: false,
  *     s3BucketName: foo.id,
  *     s3KeyPrefix: "prefix",
+ *     includeGlobalServiceEvents: false,
  * });
  * ```
  * ### Data Event Logging

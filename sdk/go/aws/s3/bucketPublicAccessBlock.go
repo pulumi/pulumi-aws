@@ -29,9 +29,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = s3.NewBucketPublicAccessBlock(ctx, "exampleBucketPublicAccessBlock", &s3.BucketPublicAccessBlockArgs{
+// 			Bucket:            exampleBucket.ID(),
 // 			BlockPublicAcls:   pulumi.Bool(true),
 // 			BlockPublicPolicy: pulumi.Bool(true),
-// 			Bucket:            exampleBucket.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

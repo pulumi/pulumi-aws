@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const myapi = new aws.apigateway.RestApi("myapi", {});
+ * // ...
  * const dev = new aws.apigateway.Deployment("dev", {
  *     restApi: myapi.id,
  *     stageName: "dev",
@@ -24,7 +25,9 @@ import * as utilities from "../utilities";
  *     restApi: myapi.id,
  *     stageName: "prod",
  * });
- * const myUsagePlan = new aws.apigateway.UsagePlan("MyUsagePlan", {
+ * const myUsagePlan = new aws.apigateway.UsagePlan("myUsagePlan", {
+ *     description: "my description",
+ *     productCode: "MYCODE",
  *     apiStages: [
  *         {
  *             apiId: myapi.id,
@@ -35,8 +38,6 @@ import * as utilities from "../utilities";
  *             stage: prod.stageName,
  *         },
  *     ],
- *     description: "my description",
- *     productCode: "MYCODE",
  *     quotaSettings: {
  *         limit: 20,
  *         offset: 2,

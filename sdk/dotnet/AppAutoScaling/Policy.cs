@@ -93,6 +93,26 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// }
     /// ```
+    /// ### Preserve desired count when updating an autoscaled ECS Service
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ecsService = new Aws.Ecs.Service("ecsService", new Aws.Ecs.ServiceArgs
+    ///         {
+    ///             Cluster = "clusterName",
+    ///             TaskDefinition = "taskDefinitionFamily:1",
+    ///             DesiredCount = 2,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Aurora Read Replica Autoscaling
     /// 
     /// ```csharp
@@ -105,27 +125,27 @@ namespace Pulumi.Aws.AppAutoScaling
     ///     {
     ///         var replicasTarget = new Aws.AppAutoScaling.Target("replicasTarget", new Aws.AppAutoScaling.TargetArgs
     ///         {
-    ///             MaxCapacity = 15,
-    ///             MinCapacity = 1,
-    ///             ResourceId = $"cluster:{aws_rds_cluster.Example.Id}",
-    ///             ScalableDimension = "rds:cluster:ReadReplicaCount",
     ///             ServiceNamespace = "rds",
+    ///             ScalableDimension = "rds:cluster:ReadReplicaCount",
+    ///             ResourceId = $"cluster:{aws_rds_cluster.Example.Id}",
+    ///             MinCapacity = 1,
+    ///             MaxCapacity = 15,
     ///         });
     ///         var replicasPolicy = new Aws.AppAutoScaling.Policy("replicasPolicy", new Aws.AppAutoScaling.PolicyArgs
     ///         {
-    ///             PolicyType = "TargetTrackingScaling",
-    ///             ResourceId = replicasTarget.ResourceId,
-    ///             ScalableDimension = replicasTarget.ScalableDimension,
     ///             ServiceNamespace = replicasTarget.ServiceNamespace,
+    ///             ScalableDimension = replicasTarget.ScalableDimension,
+    ///             ResourceId = replicasTarget.ResourceId,
+    ///             PolicyType = "TargetTrackingScaling",
     ///             TargetTrackingScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs
     ///             {
     ///                 PredefinedMetricSpecification = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs
     ///                 {
     ///                     PredefinedMetricType = "RDSReaderAverageCPUUtilization",
     ///                 },
+    ///                 TargetValue = 75,
     ///                 ScaleInCooldown = 300,
     ///                 ScaleOutCooldown = 300,
-    ///                 TargetValue = 75,
     ///             },
     ///         });
     ///     }

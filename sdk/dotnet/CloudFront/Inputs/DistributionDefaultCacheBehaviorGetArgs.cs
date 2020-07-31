@@ -119,8 +119,8 @@ namespace Pulumi.Aws.CloudFront.Inputs
         private InputList<string>? _trustedSigners;
 
         /// <summary>
-        /// The AWS accounts, if any, that you want to
-        /// allow to create signed URLs for private content.
+        /// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+        /// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         /// </summary>
         public InputList<string> TrustedSigners
         {

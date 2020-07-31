@@ -44,7 +44,6 @@ namespace Pulumi.Aws.Iam
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var @group = new Aws.Iam.Group("group", new Aws.Iam.GroupArgs
@@ -65,24 +64,23 @@ namespace Pulumi.Aws.Iam
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var test_attach = new Aws.Iam.PolicyAttachment("test-attach", new Aws.Iam.PolicyAttachmentArgs
     ///         {
+    ///             Users = 
+    ///             {
+    ///                 user.Name,
+    ///             },
+    ///             Roles = 
+    ///             {
+    ///                 role.Name,
+    ///             },
     ///             Groups = 
     ///             {
     ///                 @group.Name,
     ///             },
     ///             PolicyArn = policy.Arn,
-    ///             Roles = 
-    ///             {
-    ///                 role.Name,
-    ///             },
-    ///             Users = 
-    ///             {
-    ///                 user.Name,
-    ///             },
     ///         });
     ///     }
     /// 

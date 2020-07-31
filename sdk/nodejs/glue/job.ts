@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Job("example", {
+ *     roleArn: aws_iam_role.example.arn,
  *     command: {
- *         scriptLocation: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}/example.py`,
+ *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.py`,
  *     },
- *     roleArn: aws_iam_role_example.arn,
  * });
  * ```
  * ### Scala Job
@@ -32,13 +32,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Job("example", {
+ *     roleArn: aws_iam_role.example.arn,
  *     command: {
- *         scriptLocation: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}/example.scala`,
+ *         scriptLocation: `s3://${aws_s3_bucket.example.bucket}/example.scala`,
  *     },
  *     defaultArguments: {
  *         "--job-language": "scala",
  *     },
- *     roleArn: aws_iam_role_example.arn,
  * });
  * ```
  * ### Enabling CloudWatch Logs and Metrics
@@ -47,18 +47,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
- *     retentionInDays: 14,
- * });
- * const exampleJob = new aws.glue.Job("example", {
- *     defaultArguments: {
- *         // ... potentially other arguments ...
- *         "--continuous-log-logGroup": exampleLogGroup.name,
- *         "--enable-continuous-cloudwatch-log": "true",
- *         "--enable-continuous-log-filter": "true",
- *         "--enable-metrics": "",
- *     },
- * });
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 14});
+ * // ... other configuration ...
+ * const exampleJob = new aws.glue.Job("exampleJob", {defaultArguments: {
+ *     "--continuous-log-logGroup": exampleLogGroup.name,
+ *     "--enable-continuous-cloudwatch-log": "true",
+ *     "--enable-continuous-log-filter": "true",
+ *     "--enable-metrics": "",
+ * }});
  * ```
  */
 export class Job extends pulumi.CustomResource {
@@ -89,12 +85,6 @@ export class Job extends pulumi.CustomResource {
         return obj['__pulumiType'] === Job.__pulumiType;
     }
 
-    /**
-     * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-     *
-     * @deprecated Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
-     */
-    public readonly allocatedCapacity!: pulumi.Output<number>;
     /**
      * Amazon Resource Name (ARN) of Glue Job
      */
@@ -176,7 +166,6 @@ export class Job extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as JobState | undefined;
-            inputs["allocatedCapacity"] = state ? state.allocatedCapacity : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["command"] = state ? state.command : undefined;
             inputs["connections"] = state ? state.connections : undefined;
@@ -202,7 +191,6 @@ export class Job extends pulumi.CustomResource {
             if (!args || args.roleArn === undefined) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["allocatedCapacity"] = args ? args.allocatedCapacity : undefined;
             inputs["command"] = args ? args.command : undefined;
             inputs["connections"] = args ? args.connections : undefined;
             inputs["defaultArguments"] = args ? args.defaultArguments : undefined;
@@ -236,12 +224,6 @@ export class Job extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Job resources.
  */
 export interface JobState {
-    /**
-     * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-     *
-     * @deprecated Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
-     */
-    readonly allocatedCapacity?: pulumi.Input<number>;
     /**
      * Amazon Resource Name (ARN) of Glue Job
      */
@@ -316,12 +298,6 @@ export interface JobState {
  * The set of arguments for constructing a Job resource.
  */
 export interface JobArgs {
-    /**
-     * **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-     *
-     * @deprecated Please use attribute `max_capacity' instead. This attribute might be removed in future releases.
-     */
-    readonly allocatedCapacity?: pulumi.Input<number>;
     /**
      * The command of the job. Defined below.
      */

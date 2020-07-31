@@ -29,7 +29,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
 // 			Description:  pulumi.String("Capture all EC2 scaling events"),
-// 			EventPattern: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"source\": [\n", "    \"aws.autoscaling\"\n", "  ],\n", "  \"detail-type\": [\n", "    \"EC2 Instance Launch Successful\",\n", "    \"EC2 Instance Terminate Successful\",\n", "    \"EC2 Instance Launch Unsuccessful\",\n", "    \"EC2 Instance Terminate Unsuccessful\"\n", "  ]\n", "}\n", "\n")),
+// 			EventPattern: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"source\": [\n", "    \"aws.autoscaling\"\n", "  ],\n", "  \"detail-type\": [\n", "    \"EC2 Instance Launch Successful\",\n", "    \"EC2 Instance Terminate Successful\",\n", "    \"EC2 Instance Launch Unsuccessful\",\n", "    \"EC2 Instance Terminate Unsuccessful\"\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -41,8 +41,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = cloudwatch.NewEventTarget(ctx, "yada", &cloudwatch.EventTargetArgs{
-// 			Arn:  testStream.Arn,
 // 			Rule: console.Name,
+// 			Arn:  testStream.Arn,
 // 			RunCommandTargets: cloudwatch.EventTargetRunCommandTargetArray{
 // 				&cloudwatch.EventTargetRunCommandTargetArgs{
 // 					Key: pulumi.String("tag:Name"),
@@ -89,10 +89,10 @@ import (
 // 					},
 // 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // 						iam.GetPolicyDocumentStatementPrincipal{
+// 							Type: "Service",
 // 							Identifiers: []string{
 // 								"events.amazonaws.com",
 // 							},
-// 							Type: "Service",
 // 						},
 // 					},
 // 				},
@@ -102,8 +102,8 @@ import (
 // 			return err
 // 		}
 // 		stopInstance, err := ssm.NewDocument(ctx, "stopInstance", &ssm.DocumentArgs{
-// 			Content:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "  {\n", "    \"schemaVersion\": \"1.2\",\n", "    \"description\": \"Stop an instance\",\n", "    \"parameters\": {\n", "\n", "    },\n", "    \"runtimeConfig\": {\n", "      \"aws:runShellScript\": {\n", "        \"properties\": [\n", "          {\n", "            \"id\": \"0.aws:runShellScript\",\n", "            \"runCommand\": [\"halt\"]\n", "          }\n", "        ]\n", "      }\n", "    }\n", "  }\n", "\n")),
 // 			DocumentType: pulumi.String("Command"),
+// 			Content:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "  {\n", "    \"schemaVersion\": \"1.2\",\n", "    \"description\": \"Stop an instance\",\n", "    \"parameters\": {\n", "\n", "    },\n", "    \"runtimeConfig\": {\n", "      \"aws:runShellScript\": {\n", "        \"properties\": [\n", "          {\n", "            \"id\": \"0.aws:runShellScript\",\n", "            \"runCommand\": [\"halt\"]\n", "          }\n", "        ]\n", "      }\n", "    }\n", "  }\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -131,8 +131,8 @@ import (
 // 		}
 // 		_, err = cloudwatch.NewEventTarget(ctx, "stopInstancesEventTarget", &cloudwatch.EventTargetArgs{
 // 			Arn:     stopInstance.Arn,
-// 			RoleArn: ssmLifecycleRole.Arn,
 // 			Rule:    stopInstancesEventRule.Name,
+// 			RoleArn: ssmLifecycleRole.Arn,
 // 			RunCommandTargets: cloudwatch.EventTargetRunCommandTargetArray{
 // 				&cloudwatch.EventTargetRunCommandTargetArgs{
 // 					Key: pulumi.String("tag:Terminate"),
@@ -174,8 +174,8 @@ import (
 // 		_, err = cloudwatch.NewEventTarget(ctx, "stopInstancesEventTarget", &cloudwatch.EventTargetArgs{
 // 			Arn:     pulumi.String(fmt.Sprintf("%v%v%v", "arn:aws:ssm:", _var.Aws_region, "::document/AWS-RunShellScript")),
 // 			Input:   pulumi.String("{\"commands\":[\"halt\"]}"),
-// 			RoleArn: pulumi.String(aws_iam_role.Ssm_lifecycle.Arn),
 // 			Rule:    stopInstancesEventRule.Name,
+// 			RoleArn: pulumi.String(aws_iam_role.Ssm_lifecycle.Arn),
 // 			RunCommandTargets: cloudwatch.EventTargetRunCommandTargetArray{
 // 				&cloudwatch.EventTargetRunCommandTargetArgs{
 // 					Key: pulumi.String("tag:Terminate"),

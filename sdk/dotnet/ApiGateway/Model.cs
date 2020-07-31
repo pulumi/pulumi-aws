@@ -28,13 +28,12 @@ namespace Pulumi.Aws.ApiGateway
     ///         });
     ///         var myDemoModel = new Aws.ApiGateway.Model("myDemoModel", new Aws.ApiGateway.ModelArgs
     ///         {
-    ///             ContentType = "application/json",
-    ///             Description = "a JSON schema",
     ///             RestApi = myDemoAPI.Id,
+    ///             Description = "a JSON schema",
+    ///             ContentType = "application/json",
     ///             Schema = @"{
     ///   ""type"": ""object""
     /// }
-    /// 
     /// ",
     ///         });
     ///     }

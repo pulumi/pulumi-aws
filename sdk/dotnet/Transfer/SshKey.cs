@@ -42,11 +42,11 @@ namespace Pulumi.Aws.Transfer
     /// 		}
     /// 	]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var fooRolePolicy = new Aws.Iam.RolePolicy("fooRolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
+    ///             Role = fooRole.Id,
     ///             Policy = @"{
     /// 	""Version"": ""2012-10-17"",
     /// 	""Statement"": [
@@ -60,25 +60,23 @@ namespace Pulumi.Aws.Transfer
     /// 		}
     /// 	]
     /// }
-    /// 
     /// ",
-    ///             Role = fooRole.Id,
     ///         });
     ///         var fooUser = new Aws.Transfer.User("fooUser", new Aws.Transfer.UserArgs
     ///         {
-    ///             Role = fooRole.Arn,
     ///             ServerId = fooServer.Id,
+    ///             UserName = "tftestuser",
+    ///             Role = fooRole.Arn,
     ///             Tags = 
     ///             {
     ///                 { "NAME", "tftestuser" },
     ///             },
-    ///             UserName = "tftestuser",
     ///         });
     ///         var fooSshKey = new Aws.Transfer.SshKey("fooSshKey", new Aws.Transfer.SshKeyArgs
     ///         {
-    ///             Body = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 example@example.com",
     ///             ServerId = fooServer.Id,
     ///             UserName = fooUser.UserName,
+    ///             Body = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 example@example.com",
     ///         });
     ///     }
     /// 

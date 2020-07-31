@@ -32,19 +32,19 @@ import * as utilities from "../utilities";
  *         ],
  *         conditions: [{
  *             test: "StringEquals",
- *             values: [var_account_id],
  *             variable: "AWS:SourceOwner",
+ *             values: [_var["account-id"]],
  *         }],
  *         effect: "Allow",
  *         principals: [{
- *             identifiers: ["*"],
  *             type: "AWS",
+ *             identifiers: ["*"],
  *         }],
  *         resources: [arn],
  *         sid: "__default_statement_ID",
  *     }],
- * }, { async: true }));
- * const defaultTopicPolicy = new aws.sns.TopicPolicy("default", {
+ * }));
+ * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: test.arn,
  *     policy: snsTopicPolicy.json,
  * });

@@ -24,13 +24,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.worklink.Fleet("example", {
- *     network: {
- *         securityGroupIds: [aws_security_group_test.id],
- *         subnetIds: [aws_subnet_test.map(v => v.id)],
- *         vpcId: aws_vpc_test.id,
- *     },
- * });
+ * const example = new aws.worklink.Fleet("example", {network: {
+ *     vpcId: aws_vpc.test.id,
+ *     subnetIds: [aws_subnet.test.map(__item => __item.id)],
+ *     securityGroupIds: [aws_security_group.test.id],
+ * }});
  * ```
  *
  * Identity Provider Configuration Usage:
@@ -38,14 +36,12 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
- * const test = new aws.worklink.Fleet("test", {
- *     identityProvider: {
- *         samlMetadata: fs.readFileSync("saml-metadata.xml", "utf-8"),
- *         type: "SAML",
- *     },
- * });
+ * const test = new aws.worklink.Fleet("test", {identityProvider: {
+ *     type: "SAML",
+ *     samlMetadata: fs.readFileSync("saml-metadata.xml"),
+ * }});
  * ```
  */
 export class Fleet extends pulumi.CustomResource {

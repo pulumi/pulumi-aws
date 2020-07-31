@@ -25,12 +25,12 @@ namespace Pulumi.Aws.SecretsManager
     ///     {
     ///         var example = new Aws.SecretsManager.SecretRotation("example", new Aws.SecretsManager.SecretRotationArgs
     ///         {
+    ///             SecretId = aws_secretsmanager_secret.Example.Id,
     ///             RotationLambdaArn = aws_lambda_function.Example.Arn,
     ///             RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRotationRulesArgs
     ///             {
     ///                 AutomaticallyAfterDays = 30,
     ///             },
-    ///             SecretId = aws_secretsmanager_secret.Example.Id,
     ///         });
     ///     }
     /// 

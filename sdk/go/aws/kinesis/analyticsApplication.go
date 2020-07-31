@@ -36,11 +36,11 @@ import (
 // 		}
 // 		_, err = kinesis.NewAnalyticsApplication(ctx, "testApplication", &kinesis.AnalyticsApplicationArgs{
 // 			Inputs: &kinesis.AnalyticsApplicationInputsArgs{
+// 				NamePrefix: pulumi.String("test_prefix"),
 // 				KinesisStream: &kinesis.AnalyticsApplicationInputsKinesisStreamArgs{
 // 					ResourceArn: testStream.Arn,
 // 					RoleArn:     pulumi.String(aws_iam_role.Test.Arn),
 // 				},
-// 				NamePrefix: pulumi.String("test_prefix"),
 // 				Parallelism: &kinesis.AnalyticsApplicationInputsParallelismArgs{
 // 					Count: pulumi.Int(1),
 // 				},

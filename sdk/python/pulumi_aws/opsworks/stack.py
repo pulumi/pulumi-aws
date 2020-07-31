@@ -125,19 +125,18 @@ class Stack(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.opsworks.Stack("main",
+            region="us-west-1",
+            service_role_arn=aws_iam_role["opsworks"]["arn"],
+            default_instance_profile_arn=aws_iam_instance_profile["opsworks"]["arn"],
+            tags={
+                "Name": "foobar-stack",
+            },
             custom_json=\"\"\"{
          "foobar": {
             "version": "1.0.0"
           }
         }
-
-        \"\"\",
-            default_instance_profile_arn=aws_iam_instance_profile["opsworks"]["arn"],
-            region="us-west-1",
-            service_role_arn=aws_iam_role["opsworks"]["arn"],
-            tags={
-                "Name": "foobar-stack",
-            })
+        \"\"\")
         ```
 
         :param str resource_name: The name of the resource.

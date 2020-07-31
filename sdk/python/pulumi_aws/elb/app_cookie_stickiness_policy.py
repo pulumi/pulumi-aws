@@ -48,9 +48,9 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
                 "lbProtocol": "http",
             }])
         foo = aws.elb.AppCookieStickinessPolicy("foo",
-            cookie_name="MyAppCookie",
+            load_balancer=lb.name,
             lb_port=80,
-            load_balancer=lb.name)
+            cookie_name="MyAppCookie")
         ```
 
         :param str resource_name: The name of the resource.

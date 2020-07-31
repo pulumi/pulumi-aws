@@ -209,6 +209,10 @@ class Instance(pulumi.CustomResource):
       * `volume_size` (`float`) - The size of the volume in gibibytes (GiB).
       * `volumeType` (`str`) - The type of volume. Can be `"standard"`, `"gp2"`, `"io1"`, `"sc1"`, or `"st1"`. (Default: `"standard"`).
     """
+    secondary_private_ips: pulumi.Output[list]
+    """
+    A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+    """
     security_groups: pulumi.Output[list]
     """
     A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
@@ -246,7 +250,7 @@ class Instance(pulumi.CustomResource):
     """
     A list of security group IDs to associate with.
     """
-    def __init__(__self__, resource_name, opts=None, ami=None, associate_public_ip_address=None, availability_zone=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, metadata_options=None, monitoring=None, network_interfaces=None, placement_group=None, private_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, ami=None, associate_public_ip_address=None, availability_zone=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, metadata_options=None, monitoring=None, network_interfaces=None, placement_group=None, private_ip=None, root_block_device=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an EC2 instance resource. This allows instances to be created, updated,
         and deleted.
@@ -257,21 +261,21 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ubuntu = aws.get_ami(filters=[
+        ubuntu = aws.get_ami(most_recent=True,
+            filters=[
                 {
                     "name": "name",
-                    "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+                    "values": ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
                 },
                 {
                     "name": "virtualization-type",
                     "values": ["hvm"],
                 },
             ],
-            most_recent=True,
             owners=["099720109477"])
         web = aws.ec2.Instance("web",
             ami=ubuntu.id,
-            instance_type="t2.micro",
+            instance_type="t3.micro",
             tags={
                 "Name": "HelloWorld",
             })
@@ -319,6 +323,7 @@ class Instance(pulumi.CustomResource):
                instance in a VPC.
         :param pulumi.Input[dict] root_block_device: Customize details about the root block
                device of the instance. See Block Devices below for details.
+        :param pulumi.Input[list] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[list] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when
                the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -433,6 +438,7 @@ class Instance(pulumi.CustomResource):
             __props__['placement_group'] = placement_group
             __props__['private_ip'] = private_ip
             __props__['root_block_device'] = root_block_device
+            __props__['secondary_private_ips'] = secondary_private_ips
             if security_groups is not None:
                 warnings.warn("Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.", DeprecationWarning)
                 pulumi.log.warn("security_groups is deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.")
@@ -460,7 +466,7 @@ class Instance(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_state=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, metadata_options=None, monitoring=None, network_interfaces=None, outpost_arn=None, password_data=None, placement_group=None, primary_network_interface_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_device=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None):
+    def get(resource_name, id, opts=None, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, cpu_core_count=None, cpu_threads_per_core=None, credit_specification=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, ephemeral_block_devices=None, get_password_data=None, hibernation=None, host_id=None, iam_instance_profile=None, instance_initiated_shutdown_behavior=None, instance_state=None, instance_type=None, ipv6_address_count=None, ipv6_addresses=None, key_name=None, metadata_options=None, monitoring=None, network_interfaces=None, outpost_arn=None, password_data=None, placement_group=None, primary_network_interface_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_device=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, volume_tags=None, vpc_security_group_ids=None):
         """
         Get an existing Instance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -523,6 +529,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] public_ip: The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         :param pulumi.Input[dict] root_block_device: Customize details about the root block
                device of the instance. See Block Devices below for details.
+        :param pulumi.Input[list] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[list] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when
                the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -628,6 +635,7 @@ class Instance(pulumi.CustomResource):
         __props__["public_dns"] = public_dns
         __props__["public_ip"] = public_ip
         __props__["root_block_device"] = root_block_device
+        __props__["secondary_private_ips"] = secondary_private_ips
         __props__["security_groups"] = security_groups
         __props__["source_dest_check"] = source_dest_check
         __props__["subnet_id"] = subnet_id

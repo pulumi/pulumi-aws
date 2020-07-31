@@ -26,8 +26,8 @@ namespace Pulumi.Aws.Inspector
     ///         {
     ///             Tags = 
     ///             {
-    ///                 { "Env", "bar" },
     ///                 { "Name", "foo" },
+    ///                 { "Env", "bar" },
     ///             },
     ///         });
     ///         var foo = new Aws.Inspector.AssessmentTarget("foo", new Aws.Inspector.AssessmentTargetArgs

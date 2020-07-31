@@ -39,7 +39,7 @@ import (
 type LogGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the log group.
+	// The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
@@ -84,7 +84,7 @@ func GetLogGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogGroup resources.
 type logGroupState struct {
-	// The Amazon Resource Name (ARN) specifying the log group.
+	// The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
 	Arn *string `pulumi:"arn"`
 	// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires
@@ -102,7 +102,7 @@ type logGroupState struct {
 }
 
 type LogGroupState struct {
-	// The Amazon Resource Name (ARN) specifying the log group.
+	// The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
 	Arn pulumi.StringPtrInput
 	// The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group,
 	// AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires

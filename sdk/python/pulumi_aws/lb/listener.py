@@ -101,17 +101,19 @@ class Listener(pulumi.CustomResource):
         import pulumi_aws as aws
 
         front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
         front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
+        # ...
         front_end_listener = aws.lb.Listener("frontEndListener",
-            certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
-            default_actions=[{
-                "target_group_arn": front_end_target_group.arn,
-                "type": "forward",
-            }],
             load_balancer_arn=front_end_load_balancer.arn,
             port="443",
             protocol="HTTPS",
-            ssl_policy="ELBSecurityPolicy-2016-08")
+            ssl_policy="ELBSecurityPolicy-2016-08",
+            certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
+            default_actions=[{
+                "type": "forward",
+                "target_group_arn": front_end_target_group.arn,
+            }])
         ```
         ### Redirect Action
 
@@ -120,18 +122,19 @@ class Listener(pulumi.CustomResource):
         import pulumi_aws as aws
 
         front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
         front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port="80",
+            protocol="HTTP",
             default_actions=[{
+                "type": "redirect",
                 "redirect": {
                     "port": "443",
                     "protocol": "HTTPS",
                     "status_code": "HTTP_301",
                 },
-                "type": "redirect",
-            }],
-            load_balancer_arn=front_end_load_balancer.arn,
-            port="80",
-            protocol="HTTP")
+            }])
         ```
         ### Fixed-response Action
 
@@ -140,18 +143,19 @@ class Listener(pulumi.CustomResource):
         import pulumi_aws as aws
 
         front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
         front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port="80",
+            protocol="HTTP",
             default_actions=[{
+                "type": "fixed-response",
                 "fixedResponse": {
                     "content_type": "text/plain",
                     "messageBody": "Fixed response content",
                     "status_code": "200",
                 },
-                "type": "fixed-response",
-            }],
-            load_balancer_arn=front_end_load_balancer.arn,
-            port="80",
-            protocol="HTTP")
+            }])
         ```
         ### Authenticate-cognito Action
 
@@ -160,28 +164,33 @@ class Listener(pulumi.CustomResource):
         import pulumi_aws as aws
 
         front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
         front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
+        # ...
         pool = aws.cognito.UserPool("pool")
+        # ...
         client = aws.cognito.UserPoolClient("client")
+        # ...
         domain = aws.cognito.UserPoolDomain("domain")
+        # ...
         front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port="80",
+            protocol="HTTP",
             default_actions=[
                 {
+                    "type": "authenticate-cognito",
                     "authenticateCognito": {
                         "userPoolArn": pool.arn,
                         "userPoolClientId": client.id,
                         "userPoolDomain": domain.domain,
                     },
-                    "type": "authenticate-cognito",
                 },
                 {
-                    "target_group_arn": front_end_target_group.arn,
                     "type": "forward",
+                    "target_group_arn": front_end_target_group.arn,
                 },
-            ],
-            load_balancer_arn=front_end_load_balancer.arn,
-            port="80",
-            protocol="HTTP")
+            ])
         ```
         ### Authenticate-oidc Action
 
@@ -190,10 +199,16 @@ class Listener(pulumi.CustomResource):
         import pulumi_aws as aws
 
         front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
+        # ...
         front_end_target_group = aws.lb.TargetGroup("frontEndTargetGroup")
+        # ...
         front_end_listener = aws.lb.Listener("frontEndListener",
+            load_balancer_arn=front_end_load_balancer.arn,
+            port="80",
+            protocol="HTTP",
             default_actions=[
                 {
+                    "type": "authenticate-oidc",
                     "authenticateOidc": {
                         "authorizationEndpoint": "https://example.com/authorization_endpoint",
                         "client_id": "client_id",
@@ -202,16 +217,12 @@ class Listener(pulumi.CustomResource):
                         "tokenEndpoint": "https://example.com/token_endpoint",
                         "userInfoEndpoint": "https://example.com/user_info_endpoint",
                     },
-                    "type": "authenticate-oidc",
                 },
                 {
-                    "target_group_arn": front_end_target_group.arn,
                     "type": "forward",
+                    "target_group_arn": front_end_target_group.arn,
                 },
-            ],
-            load_balancer_arn=front_end_load_balancer.arn,
-            port="80",
-            protocol="HTTP")
+            ])
         ```
 
         :param str resource_name: The name of the resource.

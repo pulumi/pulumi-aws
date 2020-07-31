@@ -23,14 +23,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const subnetId = config.require("subnetId");
- *
- * const selected = pulumi.output(aws.ec2.getRouteTable({
+ * const subnetId = config.requireObject("subnetId");
+ * const selected = aws.ec2.getRouteTable({
  *     subnetId: subnetId,
- * }, { async: true }));
+ * });
  * const route = new aws.ec2.Route("route", {
+ *     routeTableId: selected.then(selected => selected.id),
  *     destinationCidrBlock: "10.0.1.0/22",
- *     routeTableId: selected.id,
  *     vpcPeeringConnectionId: "pcx-45ff3dc1",
  * });
  * ```

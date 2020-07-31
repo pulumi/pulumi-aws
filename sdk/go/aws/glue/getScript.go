@@ -26,6 +26,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "PYTHON"
 // 		example, err := glue.GetScript(ctx, &glue.GetScriptArgs{
+// 			Language: &opt0,
 // 			DagEdges: []glue.GetScriptDagEdge{
 // 				glue.GetScriptDagEdge{
 // 					Source: "datasource0",
@@ -46,6 +47,8 @@ import (
 // 			},
 // 			DagNodes: []glue.GetScriptDagNode{
 // 				glue.GetScriptDagNode{
+// 					Id:       "datasource0",
+// 					NodeType: "DataSource",
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "database",
@@ -56,30 +59,30 @@ import (
 // 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_table.Source.Name, "\""),
 // 						},
 // 					},
-// 					Id:       "datasource0",
-// 					NodeType: "DataSource",
 // 				},
 // 				glue.GetScriptDagNode{
+// 					Id:       "applymapping1",
+// 					NodeType: "ApplyMapping",
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "mapping",
 // 							Value: "[(\"column1\", \"string\", \"column1\", \"string\")]",
 // 						},
 // 					},
-// 					Id:       "applymapping1",
-// 					NodeType: "ApplyMapping",
 // 				},
 // 				glue.GetScriptDagNode{
+// 					Id:       "selectfields2",
+// 					NodeType: "SelectFields",
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "paths",
 // 							Value: "[\"column1\"]",
 // 						},
 // 					},
-// 					Id:       "selectfields2",
-// 					NodeType: "SelectFields",
 // 				},
 // 				glue.GetScriptDagNode{
+// 					Id:       "resolvechoice3",
+// 					NodeType: "ResolveChoice",
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "choice",
@@ -94,10 +97,10 @@ import (
 // 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_table.Destination.Name, "\""),
 // 						},
 // 					},
-// 					Id:       "resolvechoice3",
-// 					NodeType: "ResolveChoice",
 // 				},
 // 				glue.GetScriptDagNode{
+// 					Id:       "datasink4",
+// 					NodeType: "DataSink",
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "database",
@@ -108,11 +111,8 @@ import (
 // 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_table.Destination.Name, "\""),
 // 						},
 // 					},
-// 					Id:       "datasink4",
-// 					NodeType: "DataSink",
 // 				},
 // 			},
-// 			Language: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -138,6 +138,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "SCALA"
 // 		example, err := glue.GetScript(ctx, &glue.GetScriptArgs{
+// 			Language: &opt0,
 // 			DagEdges: []glue.GetScriptDagEdge{
 // 				glue.GetScriptDagEdge{
 // 					Source: "datasource0",
@@ -158,6 +159,8 @@ import (
 // 			},
 // 			DagNodes: []glue.GetScriptDagNode{
 // 				glue.GetScriptDagNode{
+// 					Id:       "datasource0",
+// 					NodeType: "DataSource",
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "database",
@@ -168,30 +171,30 @@ import (
 // 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_table.Source.Name, "\""),
 // 						},
 // 					},
-// 					Id:       "datasource0",
-// 					NodeType: "DataSource",
 // 				},
 // 				glue.GetScriptDagNode{
+// 					Id:       "applymapping1",
+// 					NodeType: "ApplyMapping",
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "mappings",
 // 							Value: "[(\"column1\", \"string\", \"column1\", \"string\")]",
 // 						},
 // 					},
-// 					Id:       "applymapping1",
-// 					NodeType: "ApplyMapping",
 // 				},
 // 				glue.GetScriptDagNode{
+// 					Id:       "selectfields2",
+// 					NodeType: "SelectFields",
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "paths",
 // 							Value: "[\"column1\"]",
 // 						},
 // 					},
-// 					Id:       "selectfields2",
-// 					NodeType: "SelectFields",
 // 				},
 // 				glue.GetScriptDagNode{
+// 					Id:       "resolvechoice3",
+// 					NodeType: "ResolveChoice",
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "choice",
@@ -206,10 +209,10 @@ import (
 // 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_table.Destination.Name, "\""),
 // 						},
 // 					},
-// 					Id:       "resolvechoice3",
-// 					NodeType: "ResolveChoice",
 // 				},
 // 				glue.GetScriptDagNode{
+// 					Id:       "datasink4",
+// 					NodeType: "DataSink",
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "database",
@@ -220,11 +223,8 @@ import (
 // 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_table.Destination.Name, "\""),
 // 						},
 // 					},
-// 					Id:       "datasink4",
-// 					NodeType: "DataSink",
 // 				},
 // 			},
-// 			Language: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

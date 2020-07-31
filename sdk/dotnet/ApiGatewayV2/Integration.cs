@@ -46,18 +46,18 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///         var exampleFunction = new Aws.Lambda.Function("exampleFunction", new Aws.Lambda.FunctionArgs
     ///         {
     ///             Code = new FileArchive("example.zip"),
-    ///             Handler = "index.handler",
     ///             Role = aws_iam_role.Example.Arn,
+    ///             Handler = "index.handler",
     ///             Runtime = "nodejs10.x",
     ///         });
     ///         var exampleIntegration = new Aws.ApiGatewayV2.Integration("exampleIntegration", new Aws.ApiGatewayV2.IntegrationArgs
     ///         {
     ///             ApiId = aws_apigatewayv2_api.Example.Id,
+    ///             IntegrationType = "AWS",
     ///             ConnectionType = "INTERNET",
     ///             ContentHandlingStrategy = "CONVERT_TO_TEXT",
     ///             Description = "Lambda example",
     ///             IntegrationMethod = "POST",
-    ///             IntegrationType = "AWS",
     ///             IntegrationUri = exampleFunction.InvokeArn,
     ///             PassthroughBehavior = "WHEN_NO_MATCH",
     ///         });
@@ -144,6 +144,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> PayloadFormatVersion { get; private set; } = null!;
 
         /// <summary>
+        /// A key-value map specifying request parameters that are passed from the method request to the backend.
+        /// Supported only for WebSocket APIs.
+        /// </summary>
+        [Output("requestParameters")]
+        public Output<ImmutableDictionary<string, string>?> RequestParameters { get; private set; } = null!;
+
+        /// <summary>
         /// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
         /// </summary>
         [Output("requestTemplates")]
@@ -160,6 +167,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Output("timeoutMilliseconds")]
         public Output<int?> TimeoutMilliseconds { get; private set; } = null!;
+
+        /// <summary>
+        /// The TLS configuration for a private integration. Supported only for HTTP APIs.
+        /// </summary>
+        [Output("tlsConfig")]
+        public Output<Outputs.IntegrationTlsConfig?> TlsConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -276,6 +289,19 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("payloadFormatVersion")]
         public Input<string>? PayloadFormatVersion { get; set; }
 
+        [Input("requestParameters")]
+        private InputMap<string>? _requestParameters;
+
+        /// <summary>
+        /// A key-value map specifying request parameters that are passed from the method request to the backend.
+        /// Supported only for WebSocket APIs.
+        /// </summary>
+        public InputMap<string> RequestParameters
+        {
+            get => _requestParameters ?? (_requestParameters = new InputMap<string>());
+            set => _requestParameters = value;
+        }
+
         [Input("requestTemplates")]
         private InputMap<string>? _requestTemplates;
 
@@ -299,6 +325,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("timeoutMilliseconds")]
         public Input<int>? TimeoutMilliseconds { get; set; }
+
+        /// <summary>
+        /// The TLS configuration for a private integration. Supported only for HTTP APIs.
+        /// </summary>
+        [Input("tlsConfig")]
+        public Input<Inputs.IntegrationTlsConfigArgs>? TlsConfig { get; set; }
 
         public IntegrationArgs()
         {
@@ -382,6 +414,19 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("payloadFormatVersion")]
         public Input<string>? PayloadFormatVersion { get; set; }
 
+        [Input("requestParameters")]
+        private InputMap<string>? _requestParameters;
+
+        /// <summary>
+        /// A key-value map specifying request parameters that are passed from the method request to the backend.
+        /// Supported only for WebSocket APIs.
+        /// </summary>
+        public InputMap<string> RequestParameters
+        {
+            get => _requestParameters ?? (_requestParameters = new InputMap<string>());
+            set => _requestParameters = value;
+        }
+
         [Input("requestTemplates")]
         private InputMap<string>? _requestTemplates;
 
@@ -405,6 +450,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("timeoutMilliseconds")]
         public Input<int>? TimeoutMilliseconds { get; set; }
+
+        /// <summary>
+        /// The TLS configuration for a private integration. Supported only for HTTP APIs.
+        /// </summary>
+        [Input("tlsConfig")]
+        public Input<Inputs.IntegrationTlsConfigGetArgs>? TlsConfig { get; set; }
 
         public IntegrationState()
         {

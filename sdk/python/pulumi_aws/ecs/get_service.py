@@ -81,8 +81,8 @@ def get_service(cluster_arn=None,service_name=None,opts=None):
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ecs.get_service(cluster_arn=data["aws_ecs_cluster"]["example"]["arn"],
-        service_name="example")
+    example = aws.ecs.get_service(service_name="example",
+        cluster_arn=data["aws_ecs_cluster"]["example"]["arn"])
     ```
 
 

@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testGraphQLApi = new aws.appsync.GraphQLApi("test", {
+ * const testGraphQLApi = new aws.appsync.GraphQLApi("testGraphQLApi", {
  *     authenticationType: "API_KEY",
  *     schema: `type Mutation {
  * 	putPost(id: ID!, title: String!): Post
@@ -36,25 +36,19 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const testDataSource = new aws.appsync.DataSource("test", {
+ * const testDataSource = new aws.appsync.DataSource("testDataSource", {
  *     apiId: testGraphQLApi.id,
+ *     type: "HTTP",
  *     httpConfig: {
  *         endpoint: "http://example.com",
  *     },
- *     type: "HTTP",
  * });
  * // UNIT type resolver (default)
- * const testResolver = new aws.appsync.Resolver("test", {
+ * const testResolver = new aws.appsync.Resolver("testResolver", {
  *     apiId: testGraphQLApi.id,
- *     cachingConfig: {
- *         cachingKeys: [
- *             "$context.identity.sub",
- *             "$context.arguments.id",
- *         ],
- *         ttl: 60,
- *     },
- *     dataSource: testDataSource.name,
  *     field: "singlePost",
+ *     type: "Query",
+ *     dataSource: testDataSource.name,
  *     requestTemplate: `{
  *     "version": "2018-05-29",
  *     "method": "GET",
@@ -70,23 +64,29 @@ import * as utilities from "../utilities";
  *     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
  * #end
  * `,
- *     type: "Query",
+ *     cachingConfig: {
+ *         cachingKeys: [
+ *             `$context.identity.sub`,
+ *             `$context.arguments.id`,
+ *         ],
+ *         ttl: 60,
+ *     },
  * });
  * // PIPELINE type resolver
- * const mutationPipelineTest = new aws.appsync.Resolver("Mutation_pipelineTest", {
+ * const mutationPipelineTest = new aws.appsync.Resolver("mutationPipelineTest", {
+ *     type: "Mutation",
  *     apiId: testGraphQLApi.id,
  *     field: "pipelineTest",
+ *     requestTemplate: "{}",
+ *     responseTemplate: `$util.toJson($ctx.result)`,
  *     kind: "PIPELINE",
  *     pipelineConfig: {
  *         functions: [
- *             aws_appsync_function_test1.functionId,
- *             aws_appsync_function_test2.functionId,
- *             aws_appsync_function_test3.functionId,
+ *             aws_appsync_function.test1.function_id,
+ *             aws_appsync_function.test2.function_id,
+ *             aws_appsync_function.test3.function_id,
  *         ],
  *     },
- *     requestTemplate: "{}",
- *     responseTemplate: "$util.toJson($ctx.result)",
- *     type: "Mutation",
  * });
  * ```
  */

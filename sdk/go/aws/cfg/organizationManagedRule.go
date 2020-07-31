@@ -29,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
+// 		exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
 // 			AwsServiceAccessPrincipals: pulumi.StringArray{
 // 				pulumi.String("config-multiaccountsetup.amazonaws.com"),
 // 			},
@@ -41,7 +41,7 @@ import (
 // 		_, err = cfg.NewOrganizationManagedRule(ctx, "exampleOrganizationManagedRule", &cfg.OrganizationManagedRuleArgs{
 // 			RuleIdentifier: pulumi.String("IAM_PASSWORD_POLICY"),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_organizations_organization.example",
+// 			exampleOrganization,
 // 		}))
 // 		if err != nil {
 // 			return err

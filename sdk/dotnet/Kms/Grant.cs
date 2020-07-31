@@ -40,11 +40,18 @@ namespace Pulumi.Aws.Kms
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var grant = new Aws.Kms.Grant("grant", new Aws.Kms.GrantArgs
     ///         {
+    ///             KeyId = key.KeyId,
+    ///             GranteePrincipal = role.Arn,
+    ///             Operations = 
+    ///             {
+    ///                 "Encrypt",
+    ///                 "Decrypt",
+    ///                 "GenerateDataKey",
+    ///             },
     ///             Constraints = 
     ///             {
     ///                 new Aws.Kms.Inputs.GrantConstraintArgs
@@ -54,14 +61,6 @@ namespace Pulumi.Aws.Kms
     ///                         { "Department", "Finance" },
     ///                     },
     ///                 },
-    ///             },
-    ///             GranteePrincipal = role.Arn,
-    ///             KeyId = key.KeyId,
-    ///             Operations = 
-    ///             {
-    ///                 "Encrypt",
-    ///                 "Decrypt",
-    ///                 "GenerateDataKey",
     ///             },
     ///         });
     ///     }

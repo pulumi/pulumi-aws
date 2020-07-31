@@ -16,16 +16,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLoadBalancer = new aws.lb.LoadBalancer("example", {
+ * const exampleLoadBalancer = new aws.lb.LoadBalancer("exampleLoadBalancer", {
  *     internal: true,
  *     loadBalancerType: "network",
  *     subnetMappings: [{
  *         subnetId: "12345",
  *     }],
  * });
- * const exampleVpcLink = new aws.apigateway.VpcLink("example", {
+ * const exampleVpcLink = new aws.apigateway.VpcLink("exampleVpcLink", {
  *     description: "example description",
- *     targetArn: exampleLoadBalancer.arn,
+ *     targetArn: [exampleLoadBalancer.arn],
  * });
  * ```
  */

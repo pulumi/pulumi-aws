@@ -46,13 +46,13 @@ class TopicPolicy(pulumi.CustomResource):
                 ],
                 "conditions": [{
                     "test": "StringEquals",
-                    "values": [var["account-id"]],
                     "variable": "AWS:SourceOwner",
+                    "values": [var["account-id"]],
                 }],
                 "effect": "Allow",
                 "principals": [{
-                    "identifiers": ["*"],
                     "type": "AWS",
+                    "identifiers": ["*"],
                 }],
                 "resources": [arn],
                 "sid": "__default_statement_ID",

@@ -76,6 +76,7 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            type="CONDITIONAL",
             actions=[{
                 "jobName": aws_glue_job["example1"]["name"],
             }],
@@ -84,8 +85,7 @@ class Trigger(pulumi.CustomResource):
                     "jobName": aws_glue_job["example2"]["name"],
                     "state": "SUCCEEDED",
                 }],
-            },
-            type="CONDITIONAL")
+            })
         ```
         ### On-Demand Trigger
 
@@ -94,10 +94,10 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            type="ON_DEMAND",
             actions=[{
                 "jobName": aws_glue_job["example"]["name"],
-            }],
-            type="ON_DEMAND")
+            }])
         ```
         ### Scheduled Trigger
 
@@ -106,11 +106,11 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            schedule="cron(15 12 * * ? *)",
+            type="SCHEDULED",
             actions=[{
                 "jobName": aws_glue_job["example"]["name"],
-            }],
-            schedule="cron(15 12 * * ? *)",
-            type="SCHEDULED")
+            }])
         ```
         ### Conditional Trigger with Crawler Action
 
@@ -121,6 +121,7 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            type="CONDITIONAL",
             actions=[{
                 "crawlerName": aws_glue_crawler["example1"]["name"],
             }],
@@ -129,8 +130,7 @@ class Trigger(pulumi.CustomResource):
                     "jobName": aws_glue_job["example2"]["name"],
                     "state": "SUCCEEDED",
                 }],
-            },
-            type="CONDITIONAL")
+            })
         ```
         ### Conditional Trigger with Crawler Condition
 
@@ -141,16 +141,16 @@ class Trigger(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Trigger("example",
+            type="CONDITIONAL",
             actions=[{
                 "jobName": aws_glue_job["example1"]["name"],
             }],
             predicate={
                 "conditions": [{
-                    "crawlState": "SUCCEEDED",
                     "crawlerName": aws_glue_crawler["example2"]["name"],
+                    "crawlState": "SUCCEEDED",
                 }],
-            },
-            type="CONDITIONAL")
+            })
         ```
 
         :param str resource_name: The name of the resource.

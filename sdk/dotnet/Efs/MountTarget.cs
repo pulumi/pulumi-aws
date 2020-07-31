@@ -28,9 +28,9 @@ namespace Pulumi.Aws.Efs
     ///         });
     ///         var alphaSubnet = new Aws.Ec2.Subnet("alphaSubnet", new Aws.Ec2.SubnetArgs
     ///         {
+    ///             VpcId = foo.Id,
     ///             AvailabilityZone = "us-west-2a",
     ///             CidrBlock = "10.0.1.0/24",
-    ///             VpcId = foo.Id,
     ///         });
     ///         var alphaMountTarget = new Aws.Efs.MountTarget("alphaMountTarget", new Aws.Efs.MountTargetArgs
     ///         {

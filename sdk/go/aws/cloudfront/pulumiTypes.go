@@ -191,8 +191,8 @@ type DistributionDefaultCacheBehavior struct {
 	// CloudFront to route requests to when a request matches the path pattern
 	// either for a cache behavior or for the default cache behavior.
 	TargetOriginId string `pulumi:"targetOriginId"`
-	// The AWS accounts, if any, that you want to
-	// allow to create signed URLs for private content.
+	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 	TrustedSigners []string `pulumi:"trustedSigners"`
 	// Use this element to specify the
 	// protocol that users can use to access the files in the origin specified by
@@ -254,8 +254,8 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	// CloudFront to route requests to when a request matches the path pattern
 	// either for a cache behavior or for the default cache behavior.
 	TargetOriginId pulumi.StringInput `pulumi:"targetOriginId"`
-	// The AWS accounts, if any, that you want to
-	// allow to create signed URLs for private content.
+	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 	TrustedSigners pulumi.StringArrayInput `pulumi:"trustedSigners"`
 	// Use this element to specify the
 	// protocol that users can use to access the files in the origin specified by
@@ -419,8 +419,8 @@ func (o DistributionDefaultCacheBehaviorOutput) TargetOriginId() pulumi.StringOu
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
 }
 
-// The AWS accounts, if any, that you want to
-// allow to create signed URLs for private content.
+// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 func (o DistributionDefaultCacheBehaviorOutput) TrustedSigners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.TrustedSigners }).(pulumi.StringArrayOutput)
 }
@@ -580,8 +580,8 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) TargetOriginId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AWS accounts, if any, that you want to
-// allow to create signed URLs for private content.
+// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 func (o DistributionDefaultCacheBehaviorPtrOutput) TrustedSigners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []string {
 		if v == nil {
@@ -1343,8 +1343,8 @@ type DistributionOrderedCacheBehavior struct {
 	// CloudFront to route requests to when a request matches the path pattern
 	// either for a cache behavior or for the default cache behavior.
 	TargetOriginId string `pulumi:"targetOriginId"`
-	// The AWS accounts, if any, that you want to
-	// allow to create signed URLs for private content.
+	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 	TrustedSigners []string `pulumi:"trustedSigners"`
 	// Use this element to specify the
 	// protocol that users can use to access the files in the origin specified by
@@ -1409,8 +1409,8 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	// CloudFront to route requests to when a request matches the path pattern
 	// either for a cache behavior or for the default cache behavior.
 	TargetOriginId pulumi.StringInput `pulumi:"targetOriginId"`
-	// The AWS accounts, if any, that you want to
-	// allow to create signed URLs for private content.
+	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 	TrustedSigners pulumi.StringArrayInput `pulumi:"trustedSigners"`
 	// Use this element to specify the
 	// protocol that users can use to access the files in the origin specified by
@@ -1554,8 +1554,8 @@ func (o DistributionOrderedCacheBehaviorOutput) TargetOriginId() pulumi.StringOu
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
 }
 
-// The AWS accounts, if any, that you want to
-// allow to create signed URLs for private content.
+// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
 func (o DistributionOrderedCacheBehaviorOutput) TrustedSigners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) []string { return v.TrustedSigners }).(pulumi.StringArrayOutput)
 }
@@ -3085,6 +3085,221 @@ func (o DistributionRestrictionsGeoRestrictionPtrOutput) RestrictionType() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+type DistributionTrustedSigner struct {
+	// Whether the distribution is enabled to accept end
+	// user requests for content.
+	Enabled *bool `pulumi:"enabled"`
+	// List of nested attributes for each trusted signer
+	Items []DistributionTrustedSignerItem `pulumi:"items"`
+}
+
+// DistributionTrustedSignerInput is an input type that accepts DistributionTrustedSignerArgs and DistributionTrustedSignerOutput values.
+// You can construct a concrete instance of `DistributionTrustedSignerInput` via:
+//
+//          DistributionTrustedSignerArgs{...}
+type DistributionTrustedSignerInput interface {
+	pulumi.Input
+
+	ToDistributionTrustedSignerOutput() DistributionTrustedSignerOutput
+	ToDistributionTrustedSignerOutputWithContext(context.Context) DistributionTrustedSignerOutput
+}
+
+type DistributionTrustedSignerArgs struct {
+	// Whether the distribution is enabled to accept end
+	// user requests for content.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// List of nested attributes for each trusted signer
+	Items DistributionTrustedSignerItemArrayInput `pulumi:"items"`
+}
+
+func (DistributionTrustedSignerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTrustedSigner)(nil)).Elem()
+}
+
+func (i DistributionTrustedSignerArgs) ToDistributionTrustedSignerOutput() DistributionTrustedSignerOutput {
+	return i.ToDistributionTrustedSignerOutputWithContext(context.Background())
+}
+
+func (i DistributionTrustedSignerArgs) ToDistributionTrustedSignerOutputWithContext(ctx context.Context) DistributionTrustedSignerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedSignerOutput)
+}
+
+// DistributionTrustedSignerArrayInput is an input type that accepts DistributionTrustedSignerArray and DistributionTrustedSignerArrayOutput values.
+// You can construct a concrete instance of `DistributionTrustedSignerArrayInput` via:
+//
+//          DistributionTrustedSignerArray{ DistributionTrustedSignerArgs{...} }
+type DistributionTrustedSignerArrayInput interface {
+	pulumi.Input
+
+	ToDistributionTrustedSignerArrayOutput() DistributionTrustedSignerArrayOutput
+	ToDistributionTrustedSignerArrayOutputWithContext(context.Context) DistributionTrustedSignerArrayOutput
+}
+
+type DistributionTrustedSignerArray []DistributionTrustedSignerInput
+
+func (DistributionTrustedSignerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTrustedSigner)(nil)).Elem()
+}
+
+func (i DistributionTrustedSignerArray) ToDistributionTrustedSignerArrayOutput() DistributionTrustedSignerArrayOutput {
+	return i.ToDistributionTrustedSignerArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionTrustedSignerArray) ToDistributionTrustedSignerArrayOutputWithContext(ctx context.Context) DistributionTrustedSignerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedSignerArrayOutput)
+}
+
+type DistributionTrustedSignerOutput struct{ *pulumi.OutputState }
+
+func (DistributionTrustedSignerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTrustedSigner)(nil)).Elem()
+}
+
+func (o DistributionTrustedSignerOutput) ToDistributionTrustedSignerOutput() DistributionTrustedSignerOutput {
+	return o
+}
+
+func (o DistributionTrustedSignerOutput) ToDistributionTrustedSignerOutputWithContext(ctx context.Context) DistributionTrustedSignerOutput {
+	return o
+}
+
+// Whether the distribution is enabled to accept end
+// user requests for content.
+func (o DistributionTrustedSignerOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionTrustedSigner) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// List of nested attributes for each trusted signer
+func (o DistributionTrustedSignerOutput) Items() DistributionTrustedSignerItemArrayOutput {
+	return o.ApplyT(func(v DistributionTrustedSigner) []DistributionTrustedSignerItem { return v.Items }).(DistributionTrustedSignerItemArrayOutput)
+}
+
+type DistributionTrustedSignerArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionTrustedSignerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTrustedSigner)(nil)).Elem()
+}
+
+func (o DistributionTrustedSignerArrayOutput) ToDistributionTrustedSignerArrayOutput() DistributionTrustedSignerArrayOutput {
+	return o
+}
+
+func (o DistributionTrustedSignerArrayOutput) ToDistributionTrustedSignerArrayOutputWithContext(ctx context.Context) DistributionTrustedSignerArrayOutput {
+	return o
+}
+
+func (o DistributionTrustedSignerArrayOutput) Index(i pulumi.IntInput) DistributionTrustedSignerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionTrustedSigner {
+		return vs[0].([]DistributionTrustedSigner)[vs[1].(int)]
+	}).(DistributionTrustedSignerOutput)
+}
+
+type DistributionTrustedSignerItem struct {
+	// AWS account ID or `self`
+	AwsAccountNumber *string `pulumi:"awsAccountNumber"`
+	// Set of active CloudFront key pairs associated with the signer account
+	KeyPairIds []string `pulumi:"keyPairIds"`
+}
+
+// DistributionTrustedSignerItemInput is an input type that accepts DistributionTrustedSignerItemArgs and DistributionTrustedSignerItemOutput values.
+// You can construct a concrete instance of `DistributionTrustedSignerItemInput` via:
+//
+//          DistributionTrustedSignerItemArgs{...}
+type DistributionTrustedSignerItemInput interface {
+	pulumi.Input
+
+	ToDistributionTrustedSignerItemOutput() DistributionTrustedSignerItemOutput
+	ToDistributionTrustedSignerItemOutputWithContext(context.Context) DistributionTrustedSignerItemOutput
+}
+
+type DistributionTrustedSignerItemArgs struct {
+	// AWS account ID or `self`
+	AwsAccountNumber pulumi.StringPtrInput `pulumi:"awsAccountNumber"`
+	// Set of active CloudFront key pairs associated with the signer account
+	KeyPairIds pulumi.StringArrayInput `pulumi:"keyPairIds"`
+}
+
+func (DistributionTrustedSignerItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTrustedSignerItem)(nil)).Elem()
+}
+
+func (i DistributionTrustedSignerItemArgs) ToDistributionTrustedSignerItemOutput() DistributionTrustedSignerItemOutput {
+	return i.ToDistributionTrustedSignerItemOutputWithContext(context.Background())
+}
+
+func (i DistributionTrustedSignerItemArgs) ToDistributionTrustedSignerItemOutputWithContext(ctx context.Context) DistributionTrustedSignerItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedSignerItemOutput)
+}
+
+// DistributionTrustedSignerItemArrayInput is an input type that accepts DistributionTrustedSignerItemArray and DistributionTrustedSignerItemArrayOutput values.
+// You can construct a concrete instance of `DistributionTrustedSignerItemArrayInput` via:
+//
+//          DistributionTrustedSignerItemArray{ DistributionTrustedSignerItemArgs{...} }
+type DistributionTrustedSignerItemArrayInput interface {
+	pulumi.Input
+
+	ToDistributionTrustedSignerItemArrayOutput() DistributionTrustedSignerItemArrayOutput
+	ToDistributionTrustedSignerItemArrayOutputWithContext(context.Context) DistributionTrustedSignerItemArrayOutput
+}
+
+type DistributionTrustedSignerItemArray []DistributionTrustedSignerItemInput
+
+func (DistributionTrustedSignerItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTrustedSignerItem)(nil)).Elem()
+}
+
+func (i DistributionTrustedSignerItemArray) ToDistributionTrustedSignerItemArrayOutput() DistributionTrustedSignerItemArrayOutput {
+	return i.ToDistributionTrustedSignerItemArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionTrustedSignerItemArray) ToDistributionTrustedSignerItemArrayOutputWithContext(ctx context.Context) DistributionTrustedSignerItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedSignerItemArrayOutput)
+}
+
+type DistributionTrustedSignerItemOutput struct{ *pulumi.OutputState }
+
+func (DistributionTrustedSignerItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTrustedSignerItem)(nil)).Elem()
+}
+
+func (o DistributionTrustedSignerItemOutput) ToDistributionTrustedSignerItemOutput() DistributionTrustedSignerItemOutput {
+	return o
+}
+
+func (o DistributionTrustedSignerItemOutput) ToDistributionTrustedSignerItemOutputWithContext(ctx context.Context) DistributionTrustedSignerItemOutput {
+	return o
+}
+
+// AWS account ID or `self`
+func (o DistributionTrustedSignerItemOutput) AwsAccountNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionTrustedSignerItem) *string { return v.AwsAccountNumber }).(pulumi.StringPtrOutput)
+}
+
+// Set of active CloudFront key pairs associated with the signer account
+func (o DistributionTrustedSignerItemOutput) KeyPairIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionTrustedSignerItem) []string { return v.KeyPairIds }).(pulumi.StringArrayOutput)
+}
+
+type DistributionTrustedSignerItemArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionTrustedSignerItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTrustedSignerItem)(nil)).Elem()
+}
+
+func (o DistributionTrustedSignerItemArrayOutput) ToDistributionTrustedSignerItemArrayOutput() DistributionTrustedSignerItemArrayOutput {
+	return o
+}
+
+func (o DistributionTrustedSignerItemArrayOutput) ToDistributionTrustedSignerItemArrayOutputWithContext(ctx context.Context) DistributionTrustedSignerItemArrayOutput {
+	return o
+}
+
+func (o DistributionTrustedSignerItemArrayOutput) Index(i pulumi.IntInput) DistributionTrustedSignerItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionTrustedSignerItem {
+		return vs[0].([]DistributionTrustedSignerItem)[vs[1].(int)]
+	}).(DistributionTrustedSignerItemOutput)
+}
+
 type DistributionViewerCertificate struct {
 	// The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
 	// certificate that you wish to use with this distribution. Specify this,
@@ -3102,7 +3317,7 @@ type DistributionViewerCertificate struct {
 	// The minimum version of the SSL protocol that
 	// you want CloudFront to use for HTTPS connections. Can only be set if
 	// `cloudfrontDefaultCertificate = false`. One of `SSLv3`, `TLSv1`,
-	// `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
+	// `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
 	// If you are using a custom certificate (specified with `acmCertificateArn`
 	// or `iamCertificateId`), and have specified `sni-only` in
 	// `sslSupportMethod`, `TLSv1` or later must be specified. If you have
@@ -3141,7 +3356,7 @@ type DistributionViewerCertificateArgs struct {
 	// The minimum version of the SSL protocol that
 	// you want CloudFront to use for HTTPS connections. Can only be set if
 	// `cloudfrontDefaultCertificate = false`. One of `SSLv3`, `TLSv1`,
-	// `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
+	// `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
 	// If you are using a custom certificate (specified with `acmCertificateArn`
 	// or `iamCertificateId`), and have specified `sni-only` in
 	// `sslSupportMethod`, `TLSv1` or later must be specified. If you have
@@ -3254,7 +3469,7 @@ func (o DistributionViewerCertificateOutput) IamCertificateId() pulumi.StringPtr
 // The minimum version of the SSL protocol that
 // you want CloudFront to use for HTTPS connections. Can only be set if
 // `cloudfrontDefaultCertificate = false`. One of `SSLv3`, `TLSv1`,
-// `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
+// `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
 // If you are using a custom certificate (specified with `acmCertificateArn`
 // or `iamCertificateId`), and have specified `sni-only` in
 // `sslSupportMethod`, `TLSv1` or later must be specified. If you have
@@ -3327,7 +3542,7 @@ func (o DistributionViewerCertificatePtrOutput) IamCertificateId() pulumi.String
 // The minimum version of the SSL protocol that
 // you want CloudFront to use for HTTPS connections. Can only be set if
 // `cloudfrontDefaultCertificate = false`. One of `SSLv3`, `TLSv1`,
-// `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
+// `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
 // If you are using a custom certificate (specified with `acmCertificateArn`
 // or `iamCertificateId`), and have specified `sni-only` in
 // `sslSupportMethod`, `TLSv1` or later must be specified. If you have
@@ -3388,6 +3603,10 @@ func init() {
 	pulumi.RegisterOutputType(DistributionRestrictionsPtrOutput{})
 	pulumi.RegisterOutputType(DistributionRestrictionsGeoRestrictionOutput{})
 	pulumi.RegisterOutputType(DistributionRestrictionsGeoRestrictionPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTrustedSignerOutput{})
+	pulumi.RegisterOutputType(DistributionTrustedSignerArrayOutput{})
+	pulumi.RegisterOutputType(DistributionTrustedSignerItemOutput{})
+	pulumi.RegisterOutputType(DistributionTrustedSignerItemArrayOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificateOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificatePtrOutput{})
 }

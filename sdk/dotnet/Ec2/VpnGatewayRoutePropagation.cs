@@ -28,8 +28,8 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var example = new Aws.Ec2.VpnGatewayRoutePropagation("example", new Aws.Ec2.VpnGatewayRoutePropagationArgs
     ///         {
-    ///             RouteTableId = aws_route_table.Example.Id,
     ///             VpnGatewayId = aws_vpn_gateway.Example.Id,
+    ///             RouteTableId = aws_route_table.Example.Id,
     ///         });
     ///     }
     /// 

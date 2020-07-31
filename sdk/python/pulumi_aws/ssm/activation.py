@@ -64,16 +64,15 @@ class Activation(pulumi.CustomResource):
               "Action": "sts:AssumeRole"
             }
           }
-
         \"\"\")
         test_attach = aws.iam.RolePolicyAttachment("testAttach",
-            policy_arn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
-            role=test_role.name)
+            role=test_role.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
         foo = aws.ssm.Activation("foo",
             description="Test",
             iam_role=test_role.id,
             registration_limit="5",
-            opts=ResourceOptions(depends_on=["aws_iam_role_policy_attachment.test_attach"]))
+            opts=ResourceOptions(depends_on=[test_attach]))
         ```
 
         :param str resource_name: The name of the resource.

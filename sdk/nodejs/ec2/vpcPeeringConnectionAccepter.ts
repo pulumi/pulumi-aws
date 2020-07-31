@@ -22,35 +22,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const peer = new aws.Provider("peer", {
- *     region: "us-west-2",
+ * const peer = new aws.Provider("peer", {region: "us-west-2"});
+ * // Accepter's credentials.
+ * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
+ * const peerVpc = new aws.ec2.Vpc("peerVpc", {cidrBlock: "10.1.0.0/16"}, {
+ *     provider: aws.peer,
  * });
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
- * const peerVpc = new aws.ec2.Vpc("peer", {
- *     cidrBlock: "10.1.0.0/16",
- * }, { provider: peer });
- * const peerCallerIdentity = pulumi.output(aws.getCallerIdentity({ provider: peer, async: true }));
+ * const peerCallerIdentity = aws.getCallerIdentity({});
  * // Requester's side of the connection.
- * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peer", {
- *     autoAccept: false,
- *     peerOwnerId: peerCallerIdentity.accountId,
- *     peerRegion: "us-west-2",
+ * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection", {
+ *     vpcId: main.id,
  *     peerVpcId: peerVpc.id,
+ *     peerOwnerId: peerCallerIdentity.then(peerCallerIdentity => peerCallerIdentity.accountId),
+ *     peerRegion: "us-west-2",
+ *     autoAccept: false,
  *     tags: {
  *         Side: "Requester",
  *     },
- *     vpcId: main.id,
  * });
  * // Accepter's side of the connection.
- * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peer", {
+ * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", {
+ *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
  *     autoAccept: true,
  *     tags: {
  *         Side: "Accepter",
  *     },
- *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
- * }, { provider: peer });
+ * }, {
+ *     provider: aws.peer,
+ * });
  * ```
  */
 export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {

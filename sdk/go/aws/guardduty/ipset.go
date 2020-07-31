@@ -12,7 +12,7 @@ import (
 
 // Provides a resource to manage a GuardDuty IPSet.
 //
-// > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
+// > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
 //
 // ## Example Usage
 //
@@ -29,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		master, err := guardduty.NewDetector(ctx, "master", &guardduty.DetectorArgs{
+// 		primary, err := guardduty.NewDetector(ctx, "primary", &guardduty.DetectorArgs{
 // 			Enable: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
@@ -41,20 +41,20 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		myIPSetBucketObject, err := s3.NewBucketObject(ctx, "myIPSetBucketObject", &s3.BucketObjectArgs{
+// 		myIPSet, err := s3.NewBucketObject(ctx, "myIPSet", &s3.BucketObjectArgs{
 // 			Acl:     pulumi.String("public-read"),
+// 			Content: pulumi.String("10.0.0.0/8\n"),
 // 			Bucket:  bucket.ID(),
-// 			Content: pulumi.String(fmt.Sprintf("%v%v", "10.0.0.0/8\n", "\n")),
 // 			Key:     pulumi.String("MyIPSet"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = guardduty.NewIPSet(ctx, "myIPSetIPSet", &guardduty.IPSetArgs{
+// 		_, err = guardduty.NewIPSet(ctx, "example", &guardduty.IPSetArgs{
 // 			Activate:   pulumi.Bool(true),
-// 			DetectorId: master.ID(),
+// 			DetectorId: primary.ID(),
 // 			Format:     pulumi.String("TXT"),
-// 			Location: pulumi.All(myIPSetBucketObject.Bucket, myIPSetBucketObject.Key).ApplyT(func(_args []interface{}) (string, error) {
+// 			Location: pulumi.All(myIPSet.Bucket, myIPSet.Key).ApplyT(func(_args []interface{}) (string, error) {
 // 				bucket := _args[0].(string)
 // 				key := _args[1].(string)
 // 				return fmt.Sprintf("%v%v%v%v", "https://s3.amazonaws.com/", bucket, "/", key), nil

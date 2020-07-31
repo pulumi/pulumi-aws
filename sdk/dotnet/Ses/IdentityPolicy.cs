@@ -37,6 +37,10 @@ namespace Pulumi.Aws.Ses
     ///                         "SES:SendEmail",
     ///                         "SES:SendRawEmail",
     ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         arn,
+    ///                     },
     ///                     Principals = 
     ///                     {
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
@@ -47,10 +51,6 @@ namespace Pulumi.Aws.Ses
     ///                             },
     ///                             Type = "AWS",
     ///                         },
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         arn,
     ///                     },
     ///                 },
     ///             },

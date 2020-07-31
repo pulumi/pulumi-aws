@@ -17,41 +17,41 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = pulumi.output(aws.iam.getPolicyDocument({
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
+ *             sid: "1",
  *             actions: [
  *                 "s3:ListAllMyBuckets",
  *                 "s3:GetBucketLocation",
  *             ],
  *             resources: ["arn:aws:s3:::*"],
- *             sid: "1",
  *         },
  *         {
  *             actions: ["s3:ListBucket"],
+ *             resources: [`arn:aws:s3:::${_var.s3_bucket_name}`],
  *             conditions: [{
  *                 test: "StringLike",
+ *                 variable: "s3:prefix",
  *                 values: [
  *                     "",
  *                     "home/",
  *                     "home/&{aws:username}/",
  *                 ],
- *                 variable: "s3:prefix",
  *             }],
- *             resources: [`arn:aws:s3:::${var_s3_bucket_name}`],
  *         },
  *         {
  *             actions: ["s3:*"],
  *             resources: [
- *                 `arn:aws:s3:::${var_s3_bucket_name}/home/&{aws:username}`,
- *                 `arn:aws:s3:::${var_s3_bucket_name}/home/&{aws:username}/*`,
+ *                 `arn:aws:s3:::${_var.s3_bucket_name}/home/&{aws:username}`,
+ *                 `arn:aws:s3:::${_var.s3_bucket_name}/home/&{aws:username}/*`,
  *             ],
  *         },
  *     ],
- * }, { async: true }));
- * const examplePolicy = new aws.iam.Policy("example", {
+ * });
+ * const examplePolicy = new aws.iam.Policy("examplePolicy", {
  *     path: "/",
- *     policy: examplePolicyDocument.json,
+ *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * ```
  *
@@ -85,28 +85,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const eventStreamBucketRoleAssumeRolePolicy = pulumi.output(aws.iam.getPolicyDocument({
+ * const eventStreamBucketRoleAssumeRolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [
  *             {
- *                 identifiers: ["firehose.amazonaws.com"],
  *                 type: "Service",
+ *                 identifiers: ["firehose.amazonaws.com"],
  *             },
  *             {
- *                 identifiers: [var_trusted_role_arn],
  *                 type: "AWS",
+ *                 identifiers: [_var.trusted_role_arn],
  *             },
  *             {
+ *                 type: "Federated",
  *                 identifiers: [
- *                     `arn:aws:iam::${var_account_id}:saml-provider/${var_provider_name}`,
+ *                     `arn:aws:iam::${_var.account_id}:saml-provider/${_var.provider_name}`,
  *                     "cognito-identity.amazonaws.com",
  *                 ],
- *                 type: "Federated",
  *             },
  *         ],
  *     }],
- * }, { async: true }));
+ * });
  * ```
  *
  * ## Example with Source and Override
@@ -117,38 +117,38 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const source = pulumi.output(aws.iam.getPolicyDocument({
+ * const source = aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             actions: ["ec2:*"],
  *             resources: ["*"],
  *         },
  *         {
+ *             sid: "SidToOverwrite",
  *             actions: ["s3:*"],
  *             resources: ["*"],
- *             sid: "SidToOverwrite",
  *         },
  *     ],
- * }, { async: true }));
- * const sourceJsonExample = source.apply(source => aws.iam.getPolicyDocument({
+ * });
+ * const sourceJsonExample = source.then(source => aws.iam.getPolicyDocument({
  *     sourceJson: source.json,
  *     statements: [{
+ *         sid: "SidToOverwrite",
  *         actions: ["s3:*"],
  *         resources: [
  *             "arn:aws:s3:::somebucket",
  *             "arn:aws:s3:::somebucket/*",
  *         ],
- *         sid: "SidToOverwrite",
  *     }],
- * }, { async: true }));
- * const override = pulumi.output(aws.iam.getPolicyDocument({
+ * }));
+ * const override = aws.iam.getPolicyDocument({
  *     statements: [{
+ *         sid: "SidToOverwrite",
  *         actions: ["s3:*"],
  *         resources: ["*"],
- *         sid: "SidToOverwrite",
  *     }],
- * }, { async: true }));
- * const overrideJsonExample = override.apply(override => aws.iam.getPolicyDocument({
+ * });
+ * const overrideJsonExample = override.then(override => aws.iam.getPolicyDocument({
  *     overrideJson: override.json,
  *     statements: [
  *         {
@@ -156,15 +156,15 @@ import * as utilities from "../utilities";
  *             resources: ["*"],
  *         },
  *         {
+ *             sid: "SidToOverwrite",
  *             actions: ["s3:*"],
  *             resources: [
  *                 "arn:aws:s3:::somebucket",
  *                 "arn:aws:s3:::somebucket/*",
  *             ],
- *             sid: "SidToOverwrite",
  *         },
  *     ],
- * }, { async: true }));
+ * }));
  * ```
  *
  * `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
@@ -189,24 +189,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const source = pulumi.output(aws.iam.getPolicyDocument({
+ * const source = aws.iam.getPolicyDocument({
  *     statements: [{
+ *         sid: "OverridePlaceholder",
  *         actions: ["ec2:DescribeAccountAttributes"],
  *         resources: ["*"],
- *         sid: "OverridePlaceholder",
  *     }],
- * }, { async: true }));
- * const override = pulumi.output(aws.iam.getPolicyDocument({
+ * });
+ * const override = aws.iam.getPolicyDocument({
  *     statements: [{
+ *         sid: "OverridePlaceholder",
  *         actions: ["s3:GetObject"],
  *         resources: ["*"],
- *         sid: "OverridePlaceholder",
  *     }],
- * }, { async: true }));
- * const politik = pulumi.all([override, source]).apply(([override, source]) => aws.iam.getPolicyDocument({
- *     overrideJson: override.json,
+ * });
+ * const politik = Promise.all([source, override]).then(([source, override]) => aws.iam.getPolicyDocument({
  *     sourceJson: source.json,
- * }, { async: true }));
+ *     overrideJson: override.json,
+ * }));
  * ```
  *
  * `data.aws_iam_policy_document.politik.json` will evaluate to:

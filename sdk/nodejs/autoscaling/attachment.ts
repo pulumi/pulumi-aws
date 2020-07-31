@@ -9,10 +9,11 @@ import * as utilities from "../utilities";
  *
  * > **NOTE on AutoScaling Groups and ASG Attachments:** This provider currently provides
  * both a standalone ASG Attachment resource (describing an ASG attached to
- * an ELB), and an AutoScaling Group resource with
- * `loadBalancers` defined in-line. At this time you cannot use an ASG with in-line
- * load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
- * conflict and will overwrite attachments.
+ * an ELB or ALB), and an AutoScaling Group resource with
+ * `loadBalancers` and `targetGroupArns` defined in-line. At this time you can use an ASG with in-line
+ * `load balancers` or `targetGroupArns` in conjunction with an ASG Attachment resource, however, to prevent
+ * unintended resource updates, the `aws.autoscaling.Group` resource must be configured
+ * to ignore changes to the `loadBalancers` and `targetGroupArns` arguments within a [`lifecycle` configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle-lifecycle-customizations).
  *
  * ## Example Usage
  *
@@ -21,9 +22,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new load balancer attachment
- * const asgAttachmentBar = new aws.autoscaling.Attachment("asg_attachment_bar", {
- *     autoscalingGroupName: aws_autoscaling_group_asg.id,
- *     elb: aws_elb_bar.id,
+ * const asgAttachmentBar = new aws.autoscaling.Attachment("asgAttachmentBar", {
+ *     autoscalingGroupName: aws_autoscaling_group.asg.id,
+ *     elb: aws_elb.bar.id,
  * });
  * ```
  *
@@ -32,9 +33,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Create a new ALB Target Group attachment
- * const asgAttachmentBar = new aws.autoscaling.Attachment("asg_attachment_bar", {
- *     albTargetGroupArn: aws_alb_target_group_test.arn,
- *     autoscalingGroupName: aws_autoscaling_group_asg.id,
+ * const asgAttachmentBar = new aws.autoscaling.Attachment("asgAttachmentBar", {
+ *     autoscalingGroupName: aws_autoscaling_group.asg.id,
+ *     albTargetGroupArn: aws_alb_target_group.test.arn,
+ * });
+ * ```
+ * ## With An AutoScaling Group Resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const asg = new aws.autoscaling.Group("asg", {});
+ * const asgAttachmentBar = new aws.autoscaling.Attachment("asgAttachmentBar", {
+ *     autoscalingGroupName: asg.id,
+ *     elb: aws_elb.test.id,
  * });
  * ```
  */

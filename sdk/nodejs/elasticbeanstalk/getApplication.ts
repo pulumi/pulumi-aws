@@ -15,12 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.output(aws.elasticbeanstalk.getApplication({
+ * const example = aws.elasticbeanstalk.getApplication({
  *     name: "example",
- * }, { async: true }));
- *
- * export const arn = example.arn;
- * export const description = example.description;
+ * });
+ * export const arn = example.then(example => example.arn);
+ * export const description = example.then(example => example.description);
  * ```
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {

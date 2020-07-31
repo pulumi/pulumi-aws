@@ -48,12 +48,12 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var smtp = new Aws.Ec2.ProxyProtocolPolicy("smtp", new Aws.Ec2.ProxyProtocolPolicyArgs
     ///         {
+    ///             LoadBalancer = lb.Name,
     ///             InstancePorts = 
     ///             {
     ///                 "25",
     ///                 "587",
     ///             },
-    ///             LoadBalancer = lb.Name,
     ///         });
     ///     }
     /// 

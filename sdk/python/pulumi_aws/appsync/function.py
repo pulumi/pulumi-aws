@@ -59,30 +59,29 @@ class Function(pulumi.CustomResource):
         test_graph_ql_api = aws.appsync.GraphQLApi("testGraphQLApi",
             authentication_type="API_KEY",
             schema=\"\"\"type Mutation {
-            putPost(id: ID!, title: String!): Post
+          putPost(id: ID!, title: String!): Post
         }
 
         type Post {
-            id: ID!
-            title: String!
+          id: ID!
+          title: String!
         }
 
         type Query {
-            singlePost(id: ID!): Post
+          singlePost(id: ID!): Post
         }
 
         schema {
-            query: Query
-            mutation: Mutation
+          query: Query
+          mutation: Mutation
         }
-
         \"\"\")
         test_data_source = aws.appsync.DataSource("testDataSource",
             api_id=test_graph_ql_api.id,
+            type="HTTP",
             http_config={
                 "endpoint": "http://example.com",
-            },
-            type="HTTP")
+            })
         test_function = aws.appsync.Function("testFunction",
             api_id=test_graph_ql_api.id,
             data_source=test_data_source.name,
@@ -95,14 +94,12 @@ class Function(pulumi.CustomResource):
                 "headers": $utils.http.copyheaders($ctx.request.headers)
             }
         }
-
         \"\"\",
             response_mapping_template=\"\"\"#if($ctx.result.statusCode == 200)
             $ctx.result.body
         #else
             $utils.appendError($ctx.result.body, $ctx.result.statusCode)
         #end
-
         \"\"\")
         ```
 

@@ -27,11 +27,19 @@ namespace Pulumi.Aws.RedShift
     ///             ClusterIdentifier = "default",
     ///             DatabaseName = "default",
     ///         });
+    ///         // ...
     ///         var defaultTopic = new Aws.Sns.Topic("defaultTopic", new Aws.Sns.TopicArgs
     ///         {
     ///         });
     ///         var defaultEventSubscription = new Aws.RedShift.EventSubscription("defaultEventSubscription", new Aws.RedShift.EventSubscriptionArgs
     ///         {
+    ///             SnsTopicArn = defaultTopic.Arn,
+    ///             SourceType = "cluster",
+    ///             SourceIds = 
+    ///             {
+    ///                 defaultCluster.Id,
+    ///             },
+    ///             Severity = "INFO",
     ///             EventCategories = 
     ///             {
     ///                 "configuration",
@@ -39,13 +47,6 @@ namespace Pulumi.Aws.RedShift
     ///                 "monitoring",
     ///                 "security",
     ///             },
-    ///             Severity = "INFO",
-    ///             SnsTopicArn = defaultTopic.Arn,
-    ///             SourceIds = 
-    ///             {
-    ///                 defaultCluster.Id,
-    ///             },
-    ///             SourceType = "cluster",
     ///             Tags = 
     ///             {
     ///                 { "Name", "default" },

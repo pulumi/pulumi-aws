@@ -62,10 +62,6 @@ namespace Pulumi.Aws.Lambda
         /// String result of the lambda function invocation.
         /// </summary>
         public readonly string Result;
-        /// <summary>
-        /// (**DEPRECATED**) This field is set only if result is a map of primitive types, where the map is string keys and string values.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> ResultMap;
 
         [OutputConstructor]
         private GetInvocationResult(
@@ -77,16 +73,13 @@ namespace Pulumi.Aws.Lambda
 
             string? qualifier,
 
-            string result,
-
-            ImmutableDictionary<string, string> resultMap)
+            string result)
         {
             FunctionName = functionName;
             Id = id;
             Input = input;
             Qualifier = qualifier;
             Result = result;
-            ResultMap = resultMap;
         }
     }
 }

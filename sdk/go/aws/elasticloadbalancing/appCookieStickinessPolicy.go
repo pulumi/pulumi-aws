@@ -41,9 +41,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = elb.NewAppCookieStickinessPolicy(ctx, "foo", &elb.AppCookieStickinessPolicyArgs{
-// 			CookieName:   pulumi.String("MyAppCookie"),
-// 			LbPort:       pulumi.Int(80),
 // 			LoadBalancer: lb.Name,
+// 			LbPort:       pulumi.Int(80),
+// 			CookieName:   pulumi.String("MyAppCookie"),
 // 		})
 // 		if err != nil {
 // 			return err

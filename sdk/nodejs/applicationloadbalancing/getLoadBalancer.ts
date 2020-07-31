@@ -24,11 +24,10 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const lbArn = config.get("lbArn") || "";
  * const lbName = config.get("lbName") || "";
- *
- * const test = pulumi.output(aws.lb.getLoadBalancer({
+ * const test = aws.lb.getLoadBalancer({
  *     arn: lbArn,
  *     name: lbName,
- * }, { async: true }));
+ * });
  * ```
  */
 /** @deprecated aws.applicationloadbalancing.getLoadBalancer has been deprecated in favor of aws.alb.getLoadBalancer */
@@ -74,6 +73,7 @@ export interface GetLoadBalancerResult {
     readonly dnsName: string;
     readonly dropInvalidHeaderFields: boolean;
     readonly enableDeletionProtection: boolean;
+    readonly enableHttp2: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */

@@ -56,6 +56,8 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                 "sslCertificateId": "arn:aws:iam::123456789012:server-certificate/certName",
             }])
         foo = aws.elb.SslNegotiationPolicy("foo",
+            load_balancer=lb.id,
+            lb_port=443,
             attributes=[
                 {
                     "name": "Protocol-TLSv1",
@@ -85,9 +87,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                     "name": "EDH-RSA-DES-CBC3-SHA",
                     "value": "false",
                 },
-            ],
-            lb_port=443,
-            load_balancer=lb.id)
+            ])
         ```
 
         :param str resource_name: The name of the resource.

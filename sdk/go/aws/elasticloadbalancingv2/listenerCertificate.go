@@ -42,8 +42,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = lb.NewListenerCertificate(ctx, "exampleListenerCertificate", &lb.ListenerCertificateArgs{
-// 			CertificateArn: exampleCertificate.Arn,
 // 			ListenerArn:    frontEndListener.Arn,
+// 			CertificateArn: exampleCertificate.Arn,
 // 		})
 // 		if err != nil {
 // 			return err

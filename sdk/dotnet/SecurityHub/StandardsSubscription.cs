@@ -32,7 +32,7 @@ namespace Pulumi.Aws.SecurityHub
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_securityhub_account.example",
+    ///                 example,
     ///             },
     ///         });
     ///         var pci321 = new Aws.SecurityHub.StandardsSubscription("pci321", new Aws.SecurityHub.StandardsSubscriptionArgs
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.SecurityHub
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_securityhub_account.example",
+    ///                 example,
     ///             },
     ///         });
     ///     }

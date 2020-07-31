@@ -27,25 +27,31 @@ namespace Pulumi.Aws.Ec2
     ///         // Request a Spot fleet
     ///         var cheapCompute = new Aws.Ec2.SpotFleetRequest("cheapCompute", new Aws.Ec2.SpotFleetRequestArgs
     ///         {
-    ///             AllocationStrategy = "diversified",
     ///             IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///             SpotPrice = "0.03",
+    ///             AllocationStrategy = "diversified",
+    ///             TargetCapacity = 6,
+    ///             ValidUntil = "2019-11-04T20:44:20Z",
     ///             LaunchSpecifications = 
     ///             {
     ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
     ///                 {
-    ///                     Ami = "ami-1234",
-    ///                     IamInstanceProfileArn = aws_iam_instance_profile.Example.Arn,
     ///                     InstanceType = "m4.10xlarge",
-    ///                     PlacementTenancy = "dedicated",
+    ///                     Ami = "ami-1234",
     ///                     SpotPrice = "2.793",
+    ///                     PlacementTenancy = "dedicated",
+    ///                     IamInstanceProfileArn = aws_iam_instance_profile.Example.Arn,
     ///                 },
     ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
     ///                 {
-    ///                     Ami = "ami-5678",
-    ///                     AvailabilityZone = "us-west-1a",
-    ///                     IamInstanceProfileArn = aws_iam_instance_profile.Example.Arn,
     ///                     InstanceType = "m4.4xlarge",
+    ///                     Ami = "ami-5678",
     ///                     KeyName = "my-key",
+    ///                     SpotPrice = "1.117",
+    ///                     IamInstanceProfileArn = aws_iam_instance_profile.Example.Arn,
+    ///                     AvailabilityZone = "us-west-1a",
+    ///                     SubnetId = "subnet-1234",
+    ///                     WeightedCapacity = "35",
     ///                     RootBlockDevices = 
     ///                     {
     ///                         new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs
@@ -54,23 +60,64 @@ namespace Pulumi.Aws.Ec2
     ///                             VolumeType = "gp2",
     ///                         },
     ///                     },
-    ///                     SpotPrice = "1.117",
-    ///                     SubnetId = "subnet-1234",
     ///                     Tags = 
     ///                     {
     ///                         { "Name", "spot-fleet-example" },
     ///                     },
-    ///                     WeightedCapacity = "35",
     ///                 },
     ///             },
-    ///             SpotPrice = "0.03",
-    ///             TargetCapacity = 6,
-    ///             ValidUntil = "2019-11-04T20:44:20Z",
     ///         });
     ///     }
     /// 
     /// }
     /// ```
+    /// ### Using launch templates
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooLaunchTemplate = new Aws.Ec2.LaunchTemplate("fooLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///         {
+    ///             ImageId = "ami-516b9131",
+    ///             InstanceType = "m1.small",
+    ///             KeyName = "some-key",
+    ///         });
+    ///         var fooSpotFleetRequest = new Aws.Ec2.SpotFleetRequest("fooSpotFleetRequest", new Aws.Ec2.SpotFleetRequestArgs
+    ///         {
+    ///             IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///             SpotPrice = "0.005",
+    ///             TargetCapacity = 2,
+    ///             ValidUntil = "2019-11-04T20:44:20Z",
+    ///             LaunchTemplateConfigs = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigArgs
+    ///                 {
+    ///                     LaunchTemplateSpecification = new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs
+    ///                     {
+    ///                         Id = fooLaunchTemplate.Id,
+    ///                         Version = fooLaunchTemplate.LatestVersion,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 aws_iam_policy_attachment.Test_attach,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// &gt; **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
+    /// launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used:
     /// ### Using multiple launch specifications
     /// 
     /// ```csharp
@@ -104,6 +151,69 @@ namespace Pulumi.Aws.Ec2
     ///             SpotPrice = "0.005",
     ///             TargetCapacity = 2,
     ///             ValidUntil = "2019-11-04T20:44:20Z",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Using multiple launch configurations
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = Output.Create(Aws.Ec2.GetSubnetIds.InvokeAsync(new Aws.Ec2.GetSubnetIdsArgs
+    ///         {
+    ///             VpcId = @var.Vpc_id,
+    ///         }));
+    ///         var fooLaunchTemplate = new Aws.Ec2.LaunchTemplate("fooLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///         {
+    ///             ImageId = "ami-516b9131",
+    ///             InstanceType = "m1.small",
+    ///             KeyName = "some-key",
+    ///         });
+    ///         var fooSpotFleetRequest = new Aws.Ec2.SpotFleetRequest("fooSpotFleetRequest", new Aws.Ec2.SpotFleetRequestArgs
+    ///         {
+    ///             IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///             SpotPrice = "0.005",
+    ///             TargetCapacity = 2,
+    ///             ValidUntil = "2019-11-04T20:44:20Z",
+    ///             LaunchTemplateConfigs = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigArgs
+    ///                 {
+    ///                     LaunchTemplateSpecification = new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs
+    ///                     {
+    ///                         Id = fooLaunchTemplate.Id,
+    ///                         Version = fooLaunchTemplate.LatestVersion,
+    ///                     },
+    ///                     Overrides = 
+    ///                     {
+    ///                         new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
+    ///                         {
+    ///                             SubnetId = data.Aws_subnets.Example.Ids[0],
+    ///                         },
+    ///                         new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
+    ///                         {
+    ///                             SubnetId = data.Aws_subnets.Example.Ids[1],
+    ///                         },
+    ///                         new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
+    ///                         {
+    ///                             SubnetId = data.Aws_subnets.Example.Ids[2],
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 aws_iam_policy_attachment.Test_attach,
+    ///             },
     ///         });
     ///     }
     /// 
@@ -236,7 +346,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> ValidFrom { get; private set; } = null!;
 
         /// <summary>
-        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
         /// </summary>
         [Output("validUntil")]
         public Output<string?> ValidUntil { get; private set; } = null!;
@@ -440,7 +550,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ValidFrom { get; set; }
 
         /// <summary>
-        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
         /// </summary>
         [Input("validUntil")]
         public Input<string>? ValidUntil { get; set; }
@@ -614,7 +724,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? ValidFrom { get; set; }
 
         /// <summary>
-        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
         /// </summary>
         [Input("validUntil")]
         public Input<string>? ValidUntil { get; set; }

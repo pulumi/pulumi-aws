@@ -21,16 +21,16 @@ import {IpAddressType, LoadBalancerType} from "../alb";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lb.LoadBalancer("test", {
- *     accessLogs: {
- *         bucket: aws_s3_bucket_lb_logs.bucket,
- *         enabled: true,
- *         prefix: "test-lb",
- *     },
- *     enableDeletionProtection: true,
  *     internal: false,
  *     loadBalancerType: "application",
- *     securityGroups: [aws_security_group_lb_sg.id],
- *     subnets: [aws_subnet_public.map(v => v.id)],
+ *     securityGroups: [aws_security_group.lb_sg.id],
+ *     subnets: [aws_subnet["public"].map(__item => __item.id)],
+ *     enableDeletionProtection: true,
+ *     accessLogs: {
+ *         bucket: aws_s3_bucket.lb_logs.bucket,
+ *         prefix: "test-lb",
+ *         enabled: true,
+ *     },
  *     tags: {
  *         Environment: "production",
  *     },
@@ -43,10 +43,10 @@ import {IpAddressType, LoadBalancerType} from "../alb";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lb.LoadBalancer("test", {
- *     enableDeletionProtection: true,
  *     internal: false,
  *     loadBalancerType: "network",
- *     subnets: [aws_subnet_public.map(v => v.id)],
+ *     subnets: [aws_subnet["public"].map(__item => __item.id)],
+ *     enableDeletionProtection: true,
  *     tags: {
  *         Environment: "production",
  *     },
@@ -62,12 +62,12 @@ import {IpAddressType, LoadBalancerType} from "../alb";
  *     loadBalancerType: "network",
  *     subnetMappings: [
  *         {
- *             allocationId: aws_eip_example1.id,
- *             subnetId: aws_subnet_example1.id,
+ *             subnetId: aws_subnet.example1.id,
+ *             allocationId: aws_eip.example1.id,
  *         },
  *         {
- *             allocationId: aws_eip_example2.id,
- *             subnetId: aws_subnet_example2.id,
+ *             subnetId: aws_subnet.example2.id,
+ *             allocationId: aws_eip.example2.id,
  *         },
  *     ],
  * });

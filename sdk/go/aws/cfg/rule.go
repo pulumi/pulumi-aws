@@ -32,32 +32,32 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cfg.NewRule(ctx, "rule", &cfg.RuleArgs{
-// 			Source: &cfg.RuleSourceArgs{
-// 				Owner:            pulumi.String("AWS"),
-// 				SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_config_configuration_recorder.foo",
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
 // 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"config.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n", "\n")),
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"config.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
+// 		foo, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
 // 			RoleArn: role.Arn,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_, err = cfg.NewRule(ctx, "rule", &cfg.RuleArgs{
+// 			Source: &cfg.RuleSourceArgs{
+// 				Owner:            pulumi.String("AWS"),
+// 				SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			foo,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
-// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "  	{\n", "  		\"Action\": \"config:Put*\",\n", "  		\"Effect\": \"Allow\",\n", "  		\"Resource\": \"*\"\n", "\n", "  	}\n", "  ]\n", "}\n", "\n")),
 // 			Role: role.ID(),
+// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "  	{\n", "  		\"Action\": \"config:Put*\",\n", "  		\"Effect\": \"Allow\",\n", "  		\"Resource\": \"*\"\n", "\n", "  	}\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -81,7 +81,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cfg.NewRecorder(ctx, "exampleRecorder", nil)
+// 		exampleRecorder, err := cfg.NewRecorder(ctx, "exampleRecorder", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -89,7 +89,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = lambda.NewPermission(ctx, "examplePermission", &lambda.PermissionArgs{
+// 		examplePermission, err := lambda.NewPermission(ctx, "examplePermission", &lambda.PermissionArgs{
 // 			Action:    pulumi.String("lambda:InvokeFunction"),
 // 			Function:  exampleFunction.Arn,
 // 			Principal: pulumi.String("config.amazonaws.com"),
@@ -103,8 +103,8 @@ import (
 // 				SourceIdentifier: exampleFunction.Arn,
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_config_configuration_recorder.example",
-// 			"aws_lambda_permission.example",
+// 			exampleRecorder,
+// 			examplePermission,
 // 		}))
 // 		if err != nil {
 // 			return err

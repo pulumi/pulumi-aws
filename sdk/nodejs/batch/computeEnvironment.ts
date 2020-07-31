@@ -21,8 +21,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ecsInstanceRoleRole = new aws.iam.Role("ecs_instance_role", {
- *     assumeRolePolicy: `{
+ * const ecsInstanceRoleRole = new aws.iam.Role("ecsInstanceRoleRole", {assumeRolePolicy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
  * 	{
@@ -34,17 +33,13 @@ import * as utilities from "../utilities";
  * 	}
  *     ]
  * }
- * `,
- * });
- * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecs_instance_role", {
+ * `});
+ * const ecsInstanceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", {
+ *     role: ecsInstanceRoleRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
- *     role: ecsInstanceRoleRole.name,
  * });
- * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecs_instance_role", {
- *     role: ecsInstanceRoleRole.name,
- * });
- * const awsBatchServiceRoleRole = new aws.iam.Role("aws_batch_service_role", {
- *     assumeRolePolicy: `{
+ * const ecsInstanceRoleInstanceProfile = new aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", {role: ecsInstanceRoleRole.name});
+ * const awsBatchServiceRoleRole = new aws.iam.Role("awsBatchServiceRoleRole", {assumeRolePolicy: `{
  *     "Version": "2012-10-17",
  *     "Statement": [
  * 	{
@@ -56,28 +51,23 @@ import * as utilities from "../utilities";
  * 	}
  *     ]
  * }
- * `,
- * });
- * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("aws_batch_service_role", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
+ * `});
+ * const awsBatchServiceRoleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", {
  *     role: awsBatchServiceRoleRole.name,
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
  * });
- * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sample", {
- *     egress: [{
- *         cidrBlocks: ["0.0.0.0/0"],
- *         fromPort: 0,
- *         protocol: "-1",
- *         toPort: 0,
- *     }],
- * });
- * const sampleVpc = new aws.ec2.Vpc("sample", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const sampleSubnet = new aws.ec2.Subnet("sample", {
- *     cidrBlock: "10.1.1.0/24",
+ * const sampleSecurityGroup = new aws.ec2.SecurityGroup("sampleSecurityGroup", {egress: [{
+ *     fromPort: 0,
+ *     toPort: 0,
+ *     protocol: "-1",
+ *     cidrBlocks: ["0.0.0.0/0"],
+ * }]});
+ * const sampleVpc = new aws.ec2.Vpc("sampleVpc", {cidrBlock: "10.1.0.0/16"});
+ * const sampleSubnet = new aws.ec2.Subnet("sampleSubnet", {
  *     vpcId: sampleVpc.id,
+ *     cidrBlock: "10.1.1.0/24",
  * });
- * const sampleComputeEnvironment = new aws.batch.ComputeEnvironment("sample", {
+ * const sampleComputeEnvironment = new aws.batch.ComputeEnvironment("sampleComputeEnvironment", {
  *     computeEnvironmentName: "sample",
  *     computeResources: {
  *         instanceRole: ecsInstanceRoleInstanceProfile.arn,
@@ -90,7 +80,9 @@ import * as utilities from "../utilities";
  *     },
  *     serviceRole: awsBatchServiceRoleRole.arn,
  *     type: "MANAGED",
- * }, { dependsOn: [awsBatchServiceRoleRolePolicyAttachment] });
+ * }, {
+ *     dependsOn: [awsBatchServiceRoleRolePolicyAttachment],
+ * });
  * ```
  */
 export class ComputeEnvironment extends pulumi.CustomResource {

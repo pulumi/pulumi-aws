@@ -19,20 +19,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const rts = pulumi.output(aws.ec2.getRouteTables({
- *     filters: [{
- *         name: "tag:kubernetes.io/kops/role",
- *         values: ["private*"],
- *     }],
- *     vpcId: var_vpc_id,
- * }, { async: true }));
- * const route: aws.ec2.Route[] = [];
- * for (let i = 0; i < rts.apply(rts => rts.ids.length); i++) {
- *     route.push(new aws.ec2.Route(`r-${i}`, {
- *         destinationCidrBlock: "10.0.1.0/22",
- *         routeTableId: rts.apply(rts => rts.ids[i]),
- *         vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
- *     }));
+ * export = async () => {
+ *     const rts = await aws.ec2.getRouteTables({
+ *         vpcId: _var.vpc_id,
+ *         filters: [{
+ *             name: "tag:kubernetes.io/kops/role",
+ *             values: ["private*"],
+ *         }],
+ *     });
+ *     const route: aws.ec2.Route[];
+ *     for (const range = {value: 0}; range.value < rts.ids.length; range.value++) {
+ *         route.push(new aws.ec2.Route(`route-${range.value}`, {
+ *             routeTableId: rts.ids[range.value],
+ *             destinationCidrBlock: "10.0.1.0/22",
+ *             vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
+ *         }));
+ *     }
  * }
  * ```
  */

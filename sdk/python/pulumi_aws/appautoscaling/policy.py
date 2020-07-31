@@ -134,11 +134,8 @@ class Policy(pulumi.CustomResource):
 
         ecs_service = aws.ecs.Service("ecsService",
             cluster="clusterName",
-            desired_count=2,
-            lifecycle={
-                "ignoreChanges": ["desiredCount"],
-            },
-            task_definition="taskDefinitionFamily:1")
+            task_definition="taskDefinitionFamily:1",
+            desired_count=2)
         ```
         ### Aurora Read Replica Autoscaling
 
@@ -147,23 +144,23 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         replicas_target = aws.appautoscaling.Target("replicasTarget",
-            max_capacity=15,
-            min_capacity=1,
-            resource_id=f"cluster:{aws_rds_cluster['example']['id']}",
+            service_namespace="rds",
             scalable_dimension="rds:cluster:ReadReplicaCount",
-            service_namespace="rds")
+            resource_id=f"cluster:{aws_rds_cluster['example']['id']}",
+            min_capacity=1,
+            max_capacity=15)
         replicas_policy = aws.appautoscaling.Policy("replicasPolicy",
-            policy_type="TargetTrackingScaling",
-            resource_id=replicas_target.resource_id,
-            scalable_dimension=replicas_target.scalable_dimension,
             service_namespace=replicas_target.service_namespace,
+            scalable_dimension=replicas_target.scalable_dimension,
+            resource_id=replicas_target.resource_id,
+            policy_type="TargetTrackingScaling",
             target_tracking_scaling_policy_configuration={
                 "predefinedMetricSpecification": {
                     "predefinedMetricType": "RDSReaderAverageCPUUtilization",
                 },
+                "targetValue": 75,
                 "scaleInCooldown": 300,
                 "scaleOutCooldown": 300,
-                "targetValue": 75,
             })
         ```
 

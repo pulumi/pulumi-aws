@@ -60,8 +60,8 @@ import (
 // 			Filter: &s3.BucketMetricFilterArgs{
 // 				Prefix: pulumi.String("documents/"),
 // 				Tags: pulumi.StringMap{
-// 					"class":    pulumi.String("blue"),
 // 					"priority": pulumi.String("high"),
+// 					"class":    pulumi.String("blue"),
 // 				},
 // 			},
 // 		})

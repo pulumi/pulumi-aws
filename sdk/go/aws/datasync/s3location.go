@@ -25,11 +25,11 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datasync.NewS3Location(ctx, "example", &datasync.S3LocationArgs{
-// 			S3BucketArn: pulumi.String(aws_s3_bucket.Example.Arn),
+// 			S3BucketArn:  pulumi.String(aws_s3_bucket.Example.Arn),
+// 			Subdirectory: pulumi.String("/example/prefix"),
 // 			S3Config: &datasync.S3LocationS3ConfigArgs{
 // 				BucketAccessRoleArn: pulumi.String(aws_iam_role.Example.Arn),
 // 			},
-// 			Subdirectory: pulumi.String("/example/prefix"),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -57,15 +57,16 @@ import * as utilities from "../utilities";
  *         "us-west-2a",
  *         "us-west-2b",
  *     ],
+ *     replicationGroupDescription: "test description",
  *     nodeType: "cache.m4.large",
  *     numberCacheClusters: 2,
  *     parameterGroupName: "default.redis3.2",
  *     port: 6379,
- *     replicationGroupDescription: "test description",
- * }, { ignoreChanges: ["numberCacheClusters"] });
- * const replica = new aws.elasticache.Cluster("replica", {
- *     replicationGroupId: example.id,
  * });
+ * let replica: aws.elasticache.Cluster | undefined;
+ * if (1 == true) {
+ *     replica = new aws.elasticache.Cluster("replica", {replicationGroupId: example.id});
+ * }
  * ```
  * ### Redis Cluster Mode Enabled
  *

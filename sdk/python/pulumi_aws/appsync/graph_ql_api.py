@@ -174,11 +174,11 @@ class GraphQLApi(pulumi.CustomResource):
                 }
             ]
         }
-
         \"\"\")
         example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
             role=example_role.name)
+        # ... other configuration ...
         example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", log_config={
             "cloudwatchLogsRoleArn": example_role.arn,
             "fieldLogLevel": "ERROR",

@@ -46,7 +46,6 @@ class ContainerPolicy(pulumi.CustomResource):
         		}}
         	}}]
         }}
-
         \"\"\"))
         ```
 

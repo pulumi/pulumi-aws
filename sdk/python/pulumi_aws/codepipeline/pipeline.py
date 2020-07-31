@@ -40,7 +40,7 @@ class Pipeline(pulumi.CustomResource):
 
       * `actions` (`list`) - The action(s) to include in the stage. Defined as an `action` block below
         * `category` (`str`) - A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
-        * `configuration` (`dict`) - A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+        * `configuration` (`dict`) - A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
         * `inputArtifacts` (`list`) - A list of artifact names to be worked on.
         * `name` (`str`) - The action declaration's name.
         * `namespace` (`str`) - The namespace all output variables will be accessed from.
@@ -62,8 +62,6 @@ class Pipeline(pulumi.CustomResource):
         """
         Provides a CodePipeline.
 
-        > **NOTE on `codepipeline.Pipeline`:** - the `GITHUB_TOKEN` environment variable must be set if the GitHub provider is specified.
-
         ## Example Usage
 
         ```python
@@ -83,9 +81,72 @@ class Pipeline(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
+        s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
+        codepipeline = aws.codepipeline.Pipeline("codepipeline",
+            role_arn=codepipeline_role.arn,
+            artifact_store={
+                "location": codepipeline_bucket.bucket,
+                "type": "S3",
+                "encryption_key": {
+                    "id": s3kmskey.arn,
+                    "type": "KMS",
+                },
+            },
+            stages=[
+                {
+                    "name": "Source",
+                    "actions": [{
+                        "name": "Source",
+                        "category": "Source",
+                        "owner": "ThirdParty",
+                        "provider": "GitHub",
+                        "version": "1",
+                        "outputArtifacts": ["source_output"],
+                        "configuration": {
+                            "Owner": "my-organization",
+                            "Repo": "test",
+                            "Branch": "master",
+                            "OAuthToken": var["github_token"],
+                        },
+                    }],
+                },
+                {
+                    "name": "Build",
+                    "actions": [{
+                        "name": "Build",
+                        "category": "Build",
+                        "owner": "AWS",
+                        "provider": "CodeBuild",
+                        "inputArtifacts": ["source_output"],
+                        "outputArtifacts": ["build_output"],
+                        "version": "1",
+                        "configuration": {
+                            "ProjectName": "test",
+                        },
+                    }],
+                },
+                {
+                    "name": "Deploy",
+                    "actions": [{
+                        "name": "Deploy",
+                        "category": "Deploy",
+                        "owner": "AWS",
+                        "provider": "CloudFormation",
+                        "inputArtifacts": ["build_output"],
+                        "version": "1",
+                        "configuration": {
+                            "ActionMode": "REPLACE_ON_FAILURE",
+                            "Capabilities": "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM",
+                            "OutputFileName": "CreateStackOutput.json",
+                            "StackName": "MyStack",
+                            "TemplatePath": "build_output::sam-templated.yaml",
+                        },
+                    }],
+                },
+            ])
         codepipeline_policy = aws.iam.RolePolicy("codepipelinePolicy",
+            role=codepipeline_role.id,
             policy=pulumi.Output.all(codepipeline_bucket.arn, codepipeline_bucket.arn).apply(lambda codepipelineBucketArn, codepipelineBucketArn1: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
@@ -112,71 +173,7 @@ class Pipeline(pulumi.CustomResource):
             }}
           ]
         }}
-
-        \"\"\"),
-            role=codepipeline_role.id)
-        s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
-        codepipeline = aws.codepipeline.Pipeline("codepipeline",
-            artifact_store={
-                "encryption_key": {
-                    "id": s3kmskey.arn,
-                    "type": "KMS",
-                },
-                "location": codepipeline_bucket.bucket,
-                "type": "S3",
-            },
-            role_arn=codepipeline_role.arn,
-            stages=[
-                {
-                    "actions": [{
-                        "category": "Source",
-                        "configuration": {
-                            "Branch": "master",
-                            "Owner": "my-organization",
-                            "Repo": "test",
-                        },
-                        "name": "Source",
-                        "outputArtifacts": ["source_output"],
-                        "owner": "ThirdParty",
-                        "provider": "GitHub",
-                        "version": "1",
-                    }],
-                    "name": "Source",
-                },
-                {
-                    "actions": [{
-                        "category": "Build",
-                        "configuration": {
-                            "ProjectName": "test",
-                        },
-                        "inputArtifacts": ["source_output"],
-                        "name": "Build",
-                        "outputArtifacts": ["build_output"],
-                        "owner": "AWS",
-                        "provider": "CodeBuild",
-                        "version": "1",
-                    }],
-                    "name": "Build",
-                },
-                {
-                    "actions": [{
-                        "category": "Deploy",
-                        "configuration": {
-                            "ActionMode": "REPLACE_ON_FAILURE",
-                            "Capabilities": "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM",
-                            "OutputFileName": "CreateStackOutput.json",
-                            "StackName": "MyStack",
-                            "TemplatePath": "build_output::sam-templated.yaml",
-                        },
-                        "inputArtifacts": ["build_output"],
-                        "name": "Deploy",
-                        "owner": "AWS",
-                        "provider": "CloudFormation",
-                        "version": "1",
-                    }],
-                    "name": "Deploy",
-                },
-            ])
+        \"\"\"))
         ```
 
         :param str resource_name: The name of the resource.
@@ -201,7 +198,7 @@ class Pipeline(pulumi.CustomResource):
 
           * `actions` (`pulumi.Input[list]`) - The action(s) to include in the stage. Defined as an `action` block below
             * `category` (`pulumi.Input[str]`) - A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
-            * `configuration` (`pulumi.Input[dict]`) - A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+            * `configuration` (`pulumi.Input[dict]`) - A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
             * `inputArtifacts` (`pulumi.Input[list]`) - A list of artifact names to be worked on.
             * `name` (`pulumi.Input[str]`) - The action declaration's name.
             * `namespace` (`pulumi.Input[str]`) - The namespace all output variables will be accessed from.
@@ -280,7 +277,7 @@ class Pipeline(pulumi.CustomResource):
 
           * `actions` (`pulumi.Input[list]`) - The action(s) to include in the stage. Defined as an `action` block below
             * `category` (`pulumi.Input[str]`) - A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
-            * `configuration` (`pulumi.Input[dict]`) - A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+            * `configuration` (`pulumi.Input[dict]`) - A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
             * `inputArtifacts` (`pulumi.Input[list]`) - A list of artifact names to be worked on.
             * `name` (`pulumi.Input[str]`) - The action declaration's name.
             * `namespace` (`pulumi.Input[str]`) - The namespace all output variables will be accessed from.

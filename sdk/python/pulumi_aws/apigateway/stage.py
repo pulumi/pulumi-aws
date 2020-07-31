@@ -89,36 +89,36 @@ class Stage(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_rest_api = aws.apigateway.RestApi("testRestApi", description="This is my API for demonstration purposes")
+        test_resource = aws.apigateway.Resource("testResource",
+            rest_api=test_rest_api.id,
+            parent_id=test_rest_api.root_resource_id,
+            path_part="mytestresource")
+        test_method = aws.apigateway.Method("testMethod",
+            rest_api=test_rest_api.id,
+            resource_id=test_resource.id,
+            http_method="GET",
+            authorization="NONE")
+        test_integration = aws.apigateway.Integration("testIntegration",
+            rest_api=test_rest_api.id,
+            resource_id=test_resource.id,
+            http_method=test_method.http_method,
+            type="MOCK")
         test_deployment = aws.apigateway.Deployment("testDeployment",
             rest_api=test_rest_api.id,
             stage_name="dev",
-            opts=ResourceOptions(depends_on=["aws_api_gateway_integration.test"]))
+            opts=ResourceOptions(depends_on=[test_integration]))
         test_stage = aws.apigateway.Stage("testStage",
-            deployment=test_deployment.id,
+            stage_name="prod",
             rest_api=test_rest_api.id,
-            stage_name="prod")
-        test_resource = aws.apigateway.Resource("testResource",
-            parent_id=test_rest_api.root_resource_id,
-            path_part="mytestresource",
-            rest_api=test_rest_api.id)
-        test_method = aws.apigateway.Method("testMethod",
-            authorization="NONE",
-            http_method="GET",
-            resource_id=test_resource.id,
-            rest_api=test_rest_api.id)
+            deployment=test_deployment.id)
         method_settings = aws.apigateway.MethodSettings("methodSettings",
+            rest_api=test_rest_api.id,
+            stage_name=test_stage.stage_name,
             method_path=pulumi.Output.all(test_resource.path_part, test_method.http_method).apply(lambda path_part, http_method: f"{path_part}/{http_method}"),
-            rest_api=test_rest_api.id,
             settings={
-                "loggingLevel": "INFO",
                 "metricsEnabled": True,
-            },
-            stage_name=test_stage.stage_name)
-        test_integration = aws.apigateway.Integration("testIntegration",
-            http_method=test_method.http_method,
-            resource_id=test_resource.id,
-            rest_api=test_rest_api.id,
-            type="MOCK")
+                "loggingLevel": "INFO",
+            })
         ```
         ### Managing the API Logging CloudWatch Log Group
 
@@ -135,9 +135,12 @@ class Stage(pulumi.CustomResource):
         if stage_name is None:
             stage_name = "example"
         example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_stage = aws.apigateway.Stage("exampleStage", name=stage_name,
-        opts=ResourceOptions(depends_on=["aws_cloudwatch_log_group.example"]))
+        # ... other configuration ...
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=7)
+        # ... potentially other configuration ...
+        example_stage = aws.apigateway.Stage("exampleStage", stage_name=stage_name,
+        opts=ResourceOptions(depends_on=[example_log_group]))
+        # ... other configuration ...
         ```
 
         :param str resource_name: The name of the resource.

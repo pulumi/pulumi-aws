@@ -33,7 +33,7 @@ class Certificate(pulumi.CustomResource):
     """
     domain_validation_options: pulumi.Output[list]
     """
-    A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+    Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 
       * `domain_name` (`str`) - A domain name for which the certificate should be issued
       * `resourceRecordName` (`str`) - The name of the DNS record to create to validate the certificate
@@ -57,7 +57,7 @@ class Certificate(pulumi.CustomResource):
     """
     subject_alternative_names: pulumi.Output[list]
     """
-    A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+    Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
     """
     tags: pulumi.Output[dict]
     """
@@ -114,21 +114,43 @@ class Certificate(pulumi.CustomResource):
 
         example_private_key = tls.PrivateKey("examplePrivateKey", algorithm="RSA")
         example_self_signed_cert = tls.SelfSignedCert("exampleSelfSignedCert",
-            allowed_uses=[
-                "key_encipherment",
-                "digital_signature",
-                "server_auth",
-            ],
             key_algorithm="RSA",
             private_key_pem=example_private_key.private_key_pem,
             subjects=[{
                 "commonName": "example.com",
                 "organization": "ACME Examples, Inc",
             }],
-            validity_period_hours=12)
+            validity_period_hours=12,
+            allowed_uses=[
+                "key_encipherment",
+                "digital_signature",
+                "server_auth",
+            ])
         cert = aws.acm.Certificate("cert",
-            certificate_body=example_self_signed_cert.cert_pem,
-            private_key=example_private_key.private_key_pem)
+            private_key=example_private_key.private_key_pem,
+            certificate_body=example_self_signed_cert.cert_pem)
+        ```
+        ### Referencing domain_validation_options With for_each Based Resources
+
+        See the `acm.CertificateValidation` resource for a full example of performing DNS validation.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = []
+        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domainName: {
+            name: dvo.resourceRecordName,
+            record: dvo.resourceRecordValue,
+            type: dvo.resourceRecordType,
+        } for dvo in aws_acm_certificate.example.domain_validation_options})]:
+            example.append(aws.route53.Record(f"example-{range['key']}",
+                allow_overwrite=True,
+                name=range["value"]["name"],
+                records=[range["value"]["record"]],
+                ttl=60,
+                type=range["value"]["type"],
+                zone_id=aws_route53_zone["example"]["zone_id"]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -141,7 +163,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[dict] options: Configuration block used to set certificate options. Detailed below.
                * Importing an existing certificate
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
-        :param pulumi.Input[list] subject_alternative_names: A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+        :param pulumi.Input[list] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 
@@ -200,12 +222,12 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
                * Creating a private CA issued certificate
         :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued
-        :param pulumi.Input[list] domain_validation_options: A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+        :param pulumi.Input[list] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
         :param pulumi.Input[dict] options: Configuration block used to set certificate options. Detailed below.
                * Importing an existing certificate
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
         :param pulumi.Input[str] status: Status of the certificate.
-        :param pulumi.Input[list] subject_alternative_names: A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+        :param pulumi.Input[list] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
         :param pulumi.Input[list] validation_emails: A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.

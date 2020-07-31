@@ -4,5 +4,6 @@
 // Export members:
 export * from "./directory";
 export * from "./getBundle";
+export * from "./getDirectory";
 export * from "./ipGroup";
 export * from "./workspace";

@@ -98,11 +98,10 @@ class ComputeEnvironment(pulumi.CustomResource):
         	}
             ]
         }
-
         \"\"\")
         ecs_instance_role_role_policy_attachment = aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
-            role=ecs_instance_role_role.name)
+            role=ecs_instance_role_role.name,
+            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role")
         ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", role=ecs_instance_role_role.name)
         aws_batch_service_role_role = aws.iam.Role("awsBatchServiceRoleRole", assume_role_policy=\"\"\"{
             "Version": "2012-10-17",
@@ -116,21 +115,20 @@ class ComputeEnvironment(pulumi.CustomResource):
         	}
             ]
         }
-
         \"\"\")
         aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
-            role=aws_batch_service_role_role.name)
+            role=aws_batch_service_role_role.name,
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
         sample_security_group = aws.ec2.SecurityGroup("sampleSecurityGroup", egress=[{
-            "cidr_blocks": ["0.0.0.0/0"],
             "from_port": 0,
-            "protocol": "-1",
             "to_port": 0,
+            "protocol": "-1",
+            "cidr_blocks": ["0.0.0.0/0"],
         }])
         sample_vpc = aws.ec2.Vpc("sampleVpc", cidr_block="10.1.0.0/16")
         sample_subnet = aws.ec2.Subnet("sampleSubnet",
-            cidr_block="10.1.1.0/24",
-            vpc_id=sample_vpc.id)
+            vpc_id=sample_vpc.id,
+            cidr_block="10.1.1.0/24")
         sample_compute_environment = aws.batch.ComputeEnvironment("sampleComputeEnvironment",
             compute_environment_name="sample",
             compute_resources={
@@ -144,7 +142,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             },
             service_role=aws_batch_service_role_role.arn,
             type="MANAGED",
-            opts=ResourceOptions(depends_on=["aws_iam_role_policy_attachment.aws_batch_service_role"]))
+            opts=ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
         ```
 
         :param str resource_name: The name of the resource.

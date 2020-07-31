@@ -15,9 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const web = new aws.opsworks.StaticWebLayer("web", {
- *     stackId: aws_opsworks_stack_main.id,
- * });
+ * const web = new aws.opsworks.StaticWebLayer("web", {stackId: aws_opsworks_stack.main.id});
  * ```
  */
 export class StaticWebLayer extends pulumi.CustomResource {

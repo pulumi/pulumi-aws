@@ -34,15 +34,11 @@ class InstanceProfile(pulumi.CustomResource):
     """
     The role name to include in the profile.
     """
-    roles: pulumi.Output[list]
-    """
-    A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-    """
     unique_id: pulumi.Output[str]
     """
     The [unique ID][1] assigned by AWS.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, name_prefix=None, path=None, role=None, roles=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, name_prefix=None, path=None, role=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an IAM instance profile.
 
@@ -53,6 +49,7 @@ class InstanceProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         role = aws.iam.Role("role",
+            path="/",
             assume_role_policy=\"\"\"{
             "Version": "2012-10-17",
             "Statement": [
@@ -66,9 +63,7 @@ class InstanceProfile(pulumi.CustomResource):
                 }
             ]
         }
-
-        \"\"\",
-            path="/")
+        \"\"\")
         test_profile = aws.iam.InstanceProfile("testProfile", role=role.name)
         ```
 
@@ -78,7 +73,6 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path in which to create the profile.
         :param pulumi.Input[dict] role: The role name to include in the profile.
-        :param pulumi.Input[list] roles: A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -101,10 +95,6 @@ class InstanceProfile(pulumi.CustomResource):
             __props__['name_prefix'] = name_prefix
             __props__['path'] = path
             __props__['role'] = role
-            if roles is not None:
-                warnings.warn("Use `role` instead. Only a single role can be passed to an IAM Instance Profile", DeprecationWarning)
-                pulumi.log.warn("roles is deprecated: Use `role` instead. Only a single role can be passed to an IAM Instance Profile")
-            __props__['roles'] = roles
             __props__['arn'] = None
             __props__['create_date'] = None
             __props__['unique_id'] = None
@@ -115,7 +105,7 @@ class InstanceProfile(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, create_date=None, name=None, name_prefix=None, path=None, role=None, roles=None, unique_id=None):
+    def get(resource_name, id, opts=None, arn=None, create_date=None, name=None, name_prefix=None, path=None, role=None, unique_id=None):
         """
         Get an existing InstanceProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -129,7 +119,6 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path in which to create the profile.
         :param pulumi.Input[dict] role: The role name to include in the profile.
-        :param pulumi.Input[list] roles: A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
         :param pulumi.Input[str] unique_id: The [unique ID][1] assigned by AWS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -142,7 +131,6 @@ class InstanceProfile(pulumi.CustomResource):
         __props__["name_prefix"] = name_prefix
         __props__["path"] = path
         __props__["role"] = role
-        __props__["roles"] = roles
         __props__["unique_id"] = unique_id
         return InstanceProfile(resource_name, opts=opts, __props__=__props__)
 

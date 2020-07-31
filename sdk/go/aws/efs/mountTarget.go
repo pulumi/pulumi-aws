@@ -32,9 +32,9 @@ import (
 // 			return err
 // 		}
 // 		alphaSubnet, err := ec2.NewSubnet(ctx, "alphaSubnet", &ec2.SubnetArgs{
+// 			VpcId:            foo.ID(),
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			CidrBlock:        pulumi.String("10.0.1.0/24"),
-// 			VpcId:            foo.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

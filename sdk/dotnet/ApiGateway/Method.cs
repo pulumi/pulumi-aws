@@ -28,16 +28,16 @@ namespace Pulumi.Aws.ApiGateway
     ///         });
     ///         var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new Aws.ApiGateway.ResourceArgs
     ///         {
+    ///             RestApi = myDemoAPI.Id,
     ///             ParentId = myDemoAPI.RootResourceId,
     ///             PathPart = "mydemoresource",
-    ///             RestApi = myDemoAPI.Id,
     ///         });
     ///         var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new Aws.ApiGateway.MethodArgs
     ///         {
-    ///             Authorization = "NONE",
-    ///             HttpMethod = "GET",
-    ///             ResourceId = myDemoResource.Id,
     ///             RestApi = myDemoAPI.Id,
+    ///             ResourceId = myDemoResource.Id,
+    ///             HttpMethod = "GET",
+    ///             Authorization = "NONE",
     ///         });
     ///     }
     /// 
@@ -64,27 +64,27 @@ namespace Pulumi.Aws.ApiGateway
     ///         });
     ///         var thisResource = new Aws.ApiGateway.Resource("thisResource", new Aws.ApiGateway.ResourceArgs
     ///         {
+    ///             RestApi = thisRestApi.Id,
     ///             ParentId = thisRestApi.RootResourceId,
     ///             PathPart = "{proxy+}",
-    ///             RestApi = thisRestApi.Id,
     ///         });
     ///         var thisAuthorizer = new Aws.ApiGateway.Authorizer("thisAuthorizer", new Aws.ApiGateway.AuthorizerArgs
     ///         {
-    ///             ProviderArns = thisUserPools.Apply(thisUserPools =&gt; thisUserPools.Arns),
-    ///             RestApi = thisRestApi.Id,
     ///             Type = "COGNITO_USER_POOLS",
+    ///             RestApi = thisRestApi.Id,
+    ///             ProviderArns = thisUserPools.Apply(thisUserPools =&gt; thisUserPools.Arns),
     ///         });
     ///         var any = new Aws.ApiGateway.Method("any", new Aws.ApiGateway.MethodArgs
     ///         {
+    ///             RestApi = thisRestApi.Id,
+    ///             ResourceId = thisResource.Id,
+    ///             HttpMethod = "ANY",
     ///             Authorization = "COGNITO_USER_POOLS",
     ///             AuthorizerId = thisAuthorizer.Id,
-    ///             HttpMethod = "ANY",
     ///             RequestParameters = 
     ///             {
     ///                 { "method.request.path.proxy", true },
     ///             },
-    ///             ResourceId = thisResource.Id,
-    ///             RestApi = thisRestApi.Id,
     ///         });
     ///     }
     /// 

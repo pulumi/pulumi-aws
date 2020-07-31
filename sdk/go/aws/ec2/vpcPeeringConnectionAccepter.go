@@ -47,7 +47,7 @@ import (
 // 		}
 // 		peerVpc, err := ec2.NewVpc(ctx, "peerVpc", &ec2.VpcArgs{
 // 			CidrBlock: pulumi.String("10.1.0.0/16"),
-// 		}, pulumi.Provider("aws.peer"))
+// 		}, pulumi.Provider(aws.Peer))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -56,25 +56,25 @@ import (
 // 			return err
 // 		}
 // 		peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peerVpcPeeringConnection", &ec2.VpcPeeringConnectionArgs{
-// 			AutoAccept:  pulumi.Bool(false),
+// 			VpcId:       main.ID(),
+// 			PeerVpcId:   peerVpc.ID(),
 // 			PeerOwnerId: pulumi.String(peerCallerIdentity.AccountId),
 // 			PeerRegion:  pulumi.String("us-west-2"),
-// 			PeerVpcId:   peerVpc.ID(),
+// 			AutoAccept:  pulumi.Bool(false),
 // 			Tags: pulumi.StringMap{
 // 				"Side": pulumi.String("Requester"),
 // 			},
-// 			VpcId: main.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = ec2.NewVpcPeeringConnectionAccepter(ctx, "peerVpcPeeringConnectionAccepter", &ec2.VpcPeeringConnectionAccepterArgs{
-// 			AutoAccept: pulumi.Bool(true),
+// 			VpcPeeringConnectionId: peerVpcPeeringConnection.ID(),
+// 			AutoAccept:             pulumi.Bool(true),
 // 			Tags: pulumi.StringMap{
 // 				"Side": pulumi.String("Accepter"),
 // 			},
-// 			VpcPeeringConnectionId: peerVpcPeeringConnection.ID(),
-// 		}, pulumi.Provider("aws.peer"))
+// 		}, pulumi.Provider(aws.Peer))
 // 		if err != nil {
 // 			return err
 // 		}

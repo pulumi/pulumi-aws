@@ -121,14 +121,14 @@ class BucketObject(pulumi.CustomResource):
         import pulumi_aws as aws
 
         examplekms = aws.kms.Key("examplekms",
-            deletion_window_in_days=7,
-            description="KMS key 1")
+            description="KMS key 1",
+            deletion_window_in_days=7)
         examplebucket = aws.s3.Bucket("examplebucket", acl="private")
         examplebucket_object = aws.s3.BucketObject("examplebucketObject",
-            bucket=examplebucket.id,
             key="someobject",
-            kms_key_id=examplekms.arn,
-            source=pulumi.FileAsset("index.html"))
+            bucket=examplebucket.id,
+            source=pulumi.FileAsset("index.html"),
+            kms_key_id=examplekms.arn)
         ```
         ### Server Side Encryption with S3 Default Master Key
 
@@ -138,10 +138,10 @@ class BucketObject(pulumi.CustomResource):
 
         examplebucket = aws.s3.Bucket("examplebucket", acl="private")
         examplebucket_object = aws.s3.BucketObject("examplebucketObject",
-            bucket=examplebucket.id,
             key="someobject",
-            server_side_encryption="aws:kms",
-            source=pulumi.FileAsset("index.html"))
+            bucket=examplebucket.id,
+            source=pulumi.FileAsset("index.html"),
+            server_side_encryption="aws:kms")
         ```
         ### Server Side Encryption with AWS-Managed Key
 
@@ -151,10 +151,10 @@ class BucketObject(pulumi.CustomResource):
 
         examplebucket = aws.s3.Bucket("examplebucket", acl="private")
         examplebucket_object = aws.s3.BucketObject("examplebucketObject",
-            bucket=examplebucket.id,
             key="someobject",
-            server_side_encryption="AES256",
-            source=pulumi.FileAsset("index.html"))
+            bucket=examplebucket.id,
+            source=pulumi.FileAsset("index.html"),
+            server_side_encryption="AES256")
         ```
         ### S3 Object Lock
 
@@ -164,20 +164,20 @@ class BucketObject(pulumi.CustomResource):
 
         examplebucket = aws.s3.Bucket("examplebucket",
             acl="private",
-            object_lock_configuration={
-                "objectLockEnabled": "Enabled",
-            },
             versioning={
                 "enabled": True,
+            },
+            object_lock_configuration={
+                "objectLockEnabled": "Enabled",
             })
         examplebucket_object = aws.s3.BucketObject("examplebucketObject",
-            bucket=examplebucket.id,
-            force_destroy=True,
             key="someobject",
+            bucket=examplebucket.id,
+            source=pulumi.FileAsset("important.txt"),
             object_lock_legal_hold_status="ON",
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
-            source=pulumi.FileAsset("important.txt"))
+            force_destroy=True)
         ```
 
         :param str resource_name: The name of the resource.

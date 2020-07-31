@@ -16,24 +16,23 @@ import {RestApi} from "./index";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
- * const exampleDeployment = new aws.apigateway.Deployment("example", {
- *     // See aws_api_gateway_rest_api docs for how to create this
- *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
+ * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
+ *     restApi: aws_api_gateway_rest_api.MyDemoAPI.id,
  *     stageName: "live",
  * });
- * const exampleDomainName = new aws.apigateway.DomainName("example", {
- *     certificateBody: fs.readFileSync(`./example.com/example.crt`, "utf-8"),
- *     certificateChain: fs.readFileSync(`./example.com/ca.crt`, "utf-8"),
- *     certificateName: "example-api",
- *     certificatePrivateKey: fs.readFileSync(`./example.com/example.key`, "utf-8"),
+ * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
  *     domainName: "example.com",
+ *     certificateName: "example-api",
+ *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`),
+ *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
+ *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
  * });
  * const test = new aws.apigateway.BasePathMapping("test", {
- *     restApi: aws_api_gateway_rest_api_MyDemoAPI.id,
- *     domainName: exampleDomainName.domainName,
+ *     restApi: aws_api_gateway_rest_api.MyDemoAPI.id,
  *     stageName: exampleDeployment.stageName,
+ *     domainName: exampleDomainName.domainName,
  * });
  * ```
  */

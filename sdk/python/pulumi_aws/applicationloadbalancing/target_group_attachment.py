@@ -43,11 +43,13 @@ class TargetGroupAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_target_group = aws.lb.TargetGroup("testTargetGroup")
+        # Other arguments
         test_instance = aws.ec2.Instance("testInstance")
+        # Other arguments
         test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",
-            port=80,
             target_group_arn=test_target_group.arn,
-            target_id=test_instance.id)
+            target_id=test_instance.id,
+            port=80)
         ```
         ## Usage with lambda
 
@@ -57,6 +59,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         test_target_group = aws.lb.TargetGroup("testTargetGroup", target_type="lambda")
         test_function = aws.lambda_.Function("testFunction")
+        # Other arguments
         with_lb = aws.lambda_.Permission("withLb",
             action="lambda:InvokeFunction",
             function=test_function.arn,
@@ -65,7 +68,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",
             target_group_arn=test_target_group.arn,
             target_id=test_function.arn,
-            opts=ResourceOptions(depends_on=["aws_lambda_permission.with_lb"]))
+            opts=ResourceOptions(depends_on=[with_lb]))
         ```
 
         :param str resource_name: The name of the resource.

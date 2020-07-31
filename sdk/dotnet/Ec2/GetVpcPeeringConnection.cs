@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         var pc = Output.Create(Aws.Ec2.GetVpcPeeringConnection.InvokeAsync(new Aws.Ec2.GetVpcPeeringConnectionArgs
         ///         {
-        ///             PeerCidrBlock = "10.0.1.0/22",
         ///             VpcId = aws_vpc.Foo.Id,
+        ///             PeerCidrBlock = "10.0.1.0/22",
         ///         }));
         ///         // Create a route table
         ///         var rt = new Aws.Ec2.RouteTable("rt", new Aws.Ec2.RouteTableArgs
@@ -40,8 +40,8 @@ namespace Pulumi.Aws.Ec2
         ///         // Create a route
         ///         var route = new Aws.Ec2.Route("route", new Aws.Ec2.RouteArgs
         ///         {
-        ///             DestinationCidrBlock = pc.Apply(pc =&gt; pc.PeerCidrBlock),
         ///             RouteTableId = rt.Id,
+        ///             DestinationCidrBlock = pc.Apply(pc =&gt; pc.PeerCidrBlock),
         ///             VpcPeeringConnectionId = pc.Apply(pc =&gt; pc.Id),
         ///         });
         ///     }

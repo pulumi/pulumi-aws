@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.gamelift.Fleet("example", {
- *     buildId: aws_gamelift_build_example.id,
+ *     buildId: aws_gamelift_build.example.id,
  *     ec2InstanceType: "t2.micro",
  *     fleetType: "ON_DEMAND",
  *     runtimeConfiguration: {

@@ -38,14 +38,14 @@ namespace Pulumi.Aws.Route53
         ///         }));
         ///         var www = new Aws.Route53.Record("www", new Aws.Route53.RecordArgs
         ///         {
+        ///             ZoneId = selected.Apply(selected =&gt; selected.ZoneId),
         ///             Name = selected.Apply(selected =&gt; $"www.{selected.Name}"),
+        ///             Type = "A",
+        ///             Ttl = 300,
         ///             Records = 
         ///             {
         ///                 "10.0.0.1",
         ///             },
-        ///             Ttl = 300,
-        ///             Type = "A",
-        ///             ZoneId = selected.Apply(selected =&gt; selected.ZoneId),
         ///         });
         ///     }
         /// 

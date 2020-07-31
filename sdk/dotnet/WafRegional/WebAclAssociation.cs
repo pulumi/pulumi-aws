@@ -50,11 +50,11 @@ namespace Pulumi.Aws.WafRegional
     ///         });
     ///         var fooWebAcl = new Aws.WafRegional.WebAcl("fooWebAcl", new Aws.WafRegional.WebAclArgs
     ///         {
+    ///             MetricName = "foo",
     ///             DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///             {
     ///                 Type = "ALLOW",
     ///             },
-    ///             MetricName = "foo",
     ///             Rules = 
     ///             {
     ///                 new Aws.WafRegional.Inputs.WebAclRuleArgs
@@ -75,15 +75,15 @@ namespace Pulumi.Aws.WafRegional
     ///         var available = Output.Create(Aws.GetAvailabilityZones.InvokeAsync());
     ///         var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new Aws.Ec2.SubnetArgs
     ///         {
-    ///             AvailabilityZone = available.Apply(available =&gt; available.Names[0]),
-    ///             CidrBlock = "10.1.1.0/24",
     ///             VpcId = fooVpc.Id,
+    ///             CidrBlock = "10.1.1.0/24",
+    ///             AvailabilityZone = available.Apply(available =&gt; available.Names[0]),
     ///         });
     ///         var bar = new Aws.Ec2.Subnet("bar", new Aws.Ec2.SubnetArgs
     ///         {
-    ///             AvailabilityZone = available.Apply(available =&gt; available.Names[1]),
-    ///             CidrBlock = "10.1.2.0/24",
     ///             VpcId = fooVpc.Id,
+    ///             CidrBlock = "10.1.2.0/24",
+    ///             AvailabilityZone = available.Apply(available =&gt; available.Names[1]),
     ///         });
     ///         var fooLoadBalancer = new Aws.Alb.LoadBalancer("fooLoadBalancer", new Aws.Alb.LoadBalancerArgs
     ///         {
@@ -140,11 +140,11 @@ namespace Pulumi.Aws.WafRegional
     ///         });
     ///         var fooWebAcl = new Aws.WafRegional.WebAcl("fooWebAcl", new Aws.WafRegional.WebAclArgs
     ///         {
+    ///             MetricName = "foo",
     ///             DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///             {
     ///                 Type = "ALLOW",
     ///             },
-    ///             MetricName = "foo",
     ///             Rules = 
     ///             {
     ///                 new Aws.WafRegional.Inputs.WebAclRuleArgs
@@ -192,9 +192,9 @@ namespace Pulumi.Aws.WafRegional
     ///         });
     ///         var testIntegrationResponse = new Aws.ApiGateway.IntegrationResponse("testIntegrationResponse", new Aws.ApiGateway.IntegrationResponseArgs
     ///         {
-    ///             HttpMethod = testIntegration.HttpMethod,
-    ///             ResourceId = testResource.Id,
     ///             RestApi = testRestApi.Id,
+    ///             ResourceId = testResource.Id,
+    ///             HttpMethod = testIntegration.HttpMethod,
     ///             StatusCode = testMethodResponse.StatusCode,
     ///         });
     ///         var testDeployment = new Aws.ApiGateway.Deployment("testDeployment", new Aws.ApiGateway.DeploymentArgs
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.WafRegional
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_api_gateway_integration_response.test",
+    ///                 testIntegrationResponse,
     ///             },
     ///         });
     ///         var testStage = new Aws.ApiGateway.Stage("testStage", new Aws.ApiGateway.StageArgs

@@ -42,9 +42,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = inspector.NewAssessmentTemplate(ctx, "assessmentAssessmentTemplate", &inspector.AssessmentTemplateArgs{
+// 			TargetArn:        assessmentAssessmentTarget.Arn,
 // 			Duration:         pulumi.Int(60),
 // 			RulesPackageArns: toPulumiStringArray(rules.Arns),
-// 			TargetArn:        assessmentAssessmentTarget.Arn,
 // 		})
 // 		if err != nil {
 // 			return err

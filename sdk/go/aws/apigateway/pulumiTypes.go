@@ -513,9 +513,9 @@ type MethodSettingsSettings struct {
 	MetricsEnabled *bool `pulumi:"metricsEnabled"`
 	// Specifies whether authorization is required for a cache invalidation request.
 	RequireAuthorizationForCacheControl *bool `pulumi:"requireAuthorizationForCacheControl"`
-	// Specifies the throttling burst limit.
+	// Specifies the throttling burst limit. Default: `-1` (throttling disabled).
 	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
-	// Specifies the throttling rate limit.
+	// Specifies the throttling rate limit. Default: `-1` (throttling disabled).
 	ThrottlingRateLimit *float64 `pulumi:"throttlingRateLimit"`
 	// Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
 	UnauthorizedCacheControlHeaderStrategy *string `pulumi:"unauthorizedCacheControlHeaderStrategy"`
@@ -547,9 +547,9 @@ type MethodSettingsSettingsArgs struct {
 	MetricsEnabled pulumi.BoolPtrInput `pulumi:"metricsEnabled"`
 	// Specifies whether authorization is required for a cache invalidation request.
 	RequireAuthorizationForCacheControl pulumi.BoolPtrInput `pulumi:"requireAuthorizationForCacheControl"`
-	// Specifies the throttling burst limit.
+	// Specifies the throttling burst limit. Default: `-1` (throttling disabled).
 	ThrottlingBurstLimit pulumi.IntPtrInput `pulumi:"throttlingBurstLimit"`
-	// Specifies the throttling rate limit.
+	// Specifies the throttling rate limit. Default: `-1` (throttling disabled).
 	ThrottlingRateLimit pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
 	// Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
 	UnauthorizedCacheControlHeaderStrategy pulumi.StringPtrInput `pulumi:"unauthorizedCacheControlHeaderStrategy"`
@@ -667,12 +667,12 @@ func (o MethodSettingsSettingsOutput) RequireAuthorizationForCacheControl() pulu
 	return o.ApplyT(func(v MethodSettingsSettings) *bool { return v.RequireAuthorizationForCacheControl }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the throttling burst limit.
+// Specifies the throttling burst limit. Default: `-1` (throttling disabled).
 func (o MethodSettingsSettingsOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MethodSettingsSettings) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the throttling rate limit.
+// Specifies the throttling rate limit. Default: `-1` (throttling disabled).
 func (o MethodSettingsSettingsOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MethodSettingsSettings) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
 }
@@ -770,7 +770,7 @@ func (o MethodSettingsSettingsPtrOutput) RequireAuthorizationForCacheControl() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the throttling burst limit.
+// Specifies the throttling burst limit. Default: `-1` (throttling disabled).
 func (o MethodSettingsSettingsPtrOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MethodSettingsSettings) *int {
 		if v == nil {
@@ -780,7 +780,7 @@ func (o MethodSettingsSettingsPtrOutput) ThrottlingBurstLimit() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the throttling rate limit.
+// Specifies the throttling rate limit. Default: `-1` (throttling disabled).
 func (o MethodSettingsSettingsPtrOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MethodSettingsSettings) *float64 {
 		if v == nil {

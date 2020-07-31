@@ -65,7 +65,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly encrypted!: pulumi.Output<boolean>;
     /**
-     * The amount of IOPS to provision for the disk.
+     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
      */
     public readonly iops!: pulumi.Output<number>;
     /**
@@ -165,7 +165,7 @@ export interface VolumeState {
      */
     readonly encrypted?: pulumi.Input<boolean>;
     /**
-     * The amount of IOPS to provision for the disk.
+     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
      */
     readonly iops?: pulumi.Input<number>;
     /**
@@ -211,7 +211,7 @@ export interface VolumeArgs {
      */
     readonly encrypted?: pulumi.Input<boolean>;
     /**
-     * The amount of IOPS to provision for the disk.
+     * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
      */
     readonly iops?: pulumi.Input<number>;
     /**

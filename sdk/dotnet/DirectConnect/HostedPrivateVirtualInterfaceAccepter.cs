@@ -26,40 +26,41 @@ namespace Pulumi.Aws.DirectConnect
     ///         var accepter = new Aws.Provider("accepter", new Aws.ProviderArgs
     ///         {
     ///         });
+    ///         // Accepter's credentials.
     ///         var accepterCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         // Creator's side of the VIF
-    ///         var creator = new Aws.DirectConnect.HostedPrivateVirtualInterface("creator", new Aws.DirectConnect.HostedPrivateVirtualInterfaceArgs
-    ///         {
-    ///             AddressFamily = "ipv4",
-    ///             BgpAsn = 65352,
-    ///             ConnectionId = "dxcon-zzzzzzzz",
-    ///             OwnerAccountId = accepterCallerIdentity.Apply(accepterCallerIdentity =&gt; accepterCallerIdentity.AccountId),
-    ///             Vlan = 4094,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 "aws_vpn_gateway.vpn_gw",
-    ///             },
-    ///         });
     ///         // Accepter's side of the VIF.
     ///         var vpnGw = new Aws.Ec2.VpnGateway("vpnGw", new Aws.Ec2.VpnGatewayArgs
     ///         {
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.accepter",
+    ///             Provider = aws.Accepter,
+    ///         });
+    ///         // Creator's side of the VIF
+    ///         var creator = new Aws.DirectConnect.HostedPrivateVirtualInterface("creator", new Aws.DirectConnect.HostedPrivateVirtualInterfaceArgs
+    ///         {
+    ///             ConnectionId = "dxcon-zzzzzzzz",
+    ///             OwnerAccountId = accepterCallerIdentity.Apply(accepterCallerIdentity =&gt; accepterCallerIdentity.AccountId),
+    ///             Vlan = 4094,
+    ///             AddressFamily = "ipv4",
+    ///             BgpAsn = 65352,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 vpnGw,
+    ///             },
     ///         });
     ///         var accepterHostedPrivateVirtualInterfaceAccepter = new Aws.DirectConnect.HostedPrivateVirtualInterfaceAccepter("accepterHostedPrivateVirtualInterfaceAccepter", new Aws.DirectConnect.HostedPrivateVirtualInterfaceAccepterArgs
     ///         {
+    ///             VirtualInterfaceId = creator.Id,
+    ///             VpnGatewayId = vpnGw.Id,
     ///             Tags = 
     ///             {
     ///                 { "Side", "Accepter" },
     ///             },
-    ///             VirtualInterfaceId = creator.Id,
-    ///             VpnGatewayId = vpnGw.Id,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.accepter",
+    ///             Provider = aws.Accepter,
     ///         });
     ///     }
     /// 

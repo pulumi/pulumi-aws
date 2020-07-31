@@ -126,7 +126,7 @@ func (o ClusterBootstrapActionArrayOutput) Index(i pulumi.IntInput) ClusterBoots
 }
 
 type ClusterCoreInstanceGroup struct {
-	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+	// String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
 	AutoscalingPolicy *string `pulumi:"autoscalingPolicy"`
 	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 	BidPrice *string `pulumi:"bidPrice"`
@@ -154,7 +154,7 @@ type ClusterCoreInstanceGroupInput interface {
 }
 
 type ClusterCoreInstanceGroupArgs struct {
-	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+	// String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
 	AutoscalingPolicy pulumi.StringPtrInput `pulumi:"autoscalingPolicy"`
 	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
@@ -247,7 +247,7 @@ func (o ClusterCoreInstanceGroupOutput) ToClusterCoreInstanceGroupPtrOutputWithC
 	}).(ClusterCoreInstanceGroupPtrOutput)
 }
 
-// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+// String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
 func (o ClusterCoreInstanceGroupOutput) AutoscalingPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *string { return v.AutoscalingPolicy }).(pulumi.StringPtrOutput)
 }
@@ -300,7 +300,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) Elem() ClusterCoreInstanceGroupOutput
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) ClusterCoreInstanceGroup { return *v }).(ClusterCoreInstanceGroupOutput)
 }
 
-// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+// String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
 func (o ClusterCoreInstanceGroupPtrOutput) AutoscalingPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *string {
 		if v == nil {
@@ -756,290 +756,6 @@ func (o ClusterEc2AttributesPtrOutput) SubnetId() pulumi.StringPtrOutput {
 		}
 		return v.SubnetId
 	}).(pulumi.StringPtrOutput)
-}
-
-type ClusterInstanceGroup struct {
-	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-	AutoscalingPolicy *string `pulumi:"autoscalingPolicy"`
-	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-	BidPrice *string `pulumi:"bidPrice"`
-	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-	EbsConfigs []ClusterInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
-	// The ID of the EMR Cluster
-	Id *string `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
-	InstanceCount *int `pulumi:"instanceCount"`
-	// The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
-	InstanceRole string `pulumi:"instanceRole"`
-	// EC2 instance type for all instances in the instance group.
-	InstanceType string `pulumi:"instanceType"`
-	// The name of the step.
-	Name *string `pulumi:"name"`
-}
-
-// ClusterInstanceGroupInput is an input type that accepts ClusterInstanceGroupArgs and ClusterInstanceGroupOutput values.
-// You can construct a concrete instance of `ClusterInstanceGroupInput` via:
-//
-//          ClusterInstanceGroupArgs{...}
-type ClusterInstanceGroupInput interface {
-	pulumi.Input
-
-	ToClusterInstanceGroupOutput() ClusterInstanceGroupOutput
-	ToClusterInstanceGroupOutputWithContext(context.Context) ClusterInstanceGroupOutput
-}
-
-type ClusterInstanceGroupArgs struct {
-	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-	AutoscalingPolicy pulumi.StringPtrInput `pulumi:"autoscalingPolicy"`
-	// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
-	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-	EbsConfigs ClusterInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
-	// The ID of the EMR Cluster
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
-	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
-	// The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
-	InstanceRole pulumi.StringInput `pulumi:"instanceRole"`
-	// EC2 instance type for all instances in the instance group.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The name of the step.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (ClusterInstanceGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterInstanceGroup)(nil)).Elem()
-}
-
-func (i ClusterInstanceGroupArgs) ToClusterInstanceGroupOutput() ClusterInstanceGroupOutput {
-	return i.ToClusterInstanceGroupOutputWithContext(context.Background())
-}
-
-func (i ClusterInstanceGroupArgs) ToClusterInstanceGroupOutputWithContext(ctx context.Context) ClusterInstanceGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupOutput)
-}
-
-// ClusterInstanceGroupArrayInput is an input type that accepts ClusterInstanceGroupArray and ClusterInstanceGroupArrayOutput values.
-// You can construct a concrete instance of `ClusterInstanceGroupArrayInput` via:
-//
-//          ClusterInstanceGroupArray{ ClusterInstanceGroupArgs{...} }
-type ClusterInstanceGroupArrayInput interface {
-	pulumi.Input
-
-	ToClusterInstanceGroupArrayOutput() ClusterInstanceGroupArrayOutput
-	ToClusterInstanceGroupArrayOutputWithContext(context.Context) ClusterInstanceGroupArrayOutput
-}
-
-type ClusterInstanceGroupArray []ClusterInstanceGroupInput
-
-func (ClusterInstanceGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterInstanceGroup)(nil)).Elem()
-}
-
-func (i ClusterInstanceGroupArray) ToClusterInstanceGroupArrayOutput() ClusterInstanceGroupArrayOutput {
-	return i.ToClusterInstanceGroupArrayOutputWithContext(context.Background())
-}
-
-func (i ClusterInstanceGroupArray) ToClusterInstanceGroupArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupArrayOutput)
-}
-
-type ClusterInstanceGroupOutput struct{ *pulumi.OutputState }
-
-func (ClusterInstanceGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterInstanceGroup)(nil)).Elem()
-}
-
-func (o ClusterInstanceGroupOutput) ToClusterInstanceGroupOutput() ClusterInstanceGroupOutput {
-	return o
-}
-
-func (o ClusterInstanceGroupOutput) ToClusterInstanceGroupOutputWithContext(ctx context.Context) ClusterInstanceGroupOutput {
-	return o
-}
-
-// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-func (o ClusterInstanceGroupOutput) AutoscalingPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterInstanceGroup) *string { return v.AutoscalingPolicy }).(pulumi.StringPtrOutput)
-}
-
-// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-func (o ClusterInstanceGroupOutput) BidPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterInstanceGroup) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
-}
-
-// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-func (o ClusterInstanceGroupOutput) EbsConfigs() ClusterInstanceGroupEbsConfigArrayOutput {
-	return o.ApplyT(func(v ClusterInstanceGroup) []ClusterInstanceGroupEbsConfig { return v.EbsConfigs }).(ClusterInstanceGroupEbsConfigArrayOutput)
-}
-
-// The ID of the EMR Cluster
-func (o ClusterInstanceGroupOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
-func (o ClusterInstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterInstanceGroup) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
-}
-
-// The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
-func (o ClusterInstanceGroupOutput) InstanceRole() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterInstanceGroup) string { return v.InstanceRole }).(pulumi.StringOutput)
-}
-
-// EC2 instance type for all instances in the instance group.
-func (o ClusterInstanceGroupOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterInstanceGroup) string { return v.InstanceType }).(pulumi.StringOutput)
-}
-
-// The name of the step.
-func (o ClusterInstanceGroupOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterInstanceGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type ClusterInstanceGroupArrayOutput struct{ *pulumi.OutputState }
-
-func (ClusterInstanceGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterInstanceGroup)(nil)).Elem()
-}
-
-func (o ClusterInstanceGroupArrayOutput) ToClusterInstanceGroupArrayOutput() ClusterInstanceGroupArrayOutput {
-	return o
-}
-
-func (o ClusterInstanceGroupArrayOutput) ToClusterInstanceGroupArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupArrayOutput {
-	return o
-}
-
-func (o ClusterInstanceGroupArrayOutput) Index(i pulumi.IntInput) ClusterInstanceGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInstanceGroup {
-		return vs[0].([]ClusterInstanceGroup)[vs[1].(int)]
-	}).(ClusterInstanceGroupOutput)
-}
-
-type ClusterInstanceGroupEbsConfig struct {
-	// The number of I/O operations per second (IOPS) that the volume supports
-	Iops *int `pulumi:"iops"`
-	// The volume size, in gibibytes (GiB).
-	Size int `pulumi:"size"`
-	// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-	Type string `pulumi:"type"`
-	// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
-	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
-}
-
-// ClusterInstanceGroupEbsConfigInput is an input type that accepts ClusterInstanceGroupEbsConfigArgs and ClusterInstanceGroupEbsConfigOutput values.
-// You can construct a concrete instance of `ClusterInstanceGroupEbsConfigInput` via:
-//
-//          ClusterInstanceGroupEbsConfigArgs{...}
-type ClusterInstanceGroupEbsConfigInput interface {
-	pulumi.Input
-
-	ToClusterInstanceGroupEbsConfigOutput() ClusterInstanceGroupEbsConfigOutput
-	ToClusterInstanceGroupEbsConfigOutputWithContext(context.Context) ClusterInstanceGroupEbsConfigOutput
-}
-
-type ClusterInstanceGroupEbsConfigArgs struct {
-	// The number of I/O operations per second (IOPS) that the volume supports
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The volume size, in gibibytes (GiB).
-	Size pulumi.IntInput `pulumi:"size"`
-	// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-	Type pulumi.StringInput `pulumi:"type"`
-	// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
-	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
-}
-
-func (ClusterInstanceGroupEbsConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterInstanceGroupEbsConfig)(nil)).Elem()
-}
-
-func (i ClusterInstanceGroupEbsConfigArgs) ToClusterInstanceGroupEbsConfigOutput() ClusterInstanceGroupEbsConfigOutput {
-	return i.ToClusterInstanceGroupEbsConfigOutputWithContext(context.Background())
-}
-
-func (i ClusterInstanceGroupEbsConfigArgs) ToClusterInstanceGroupEbsConfigOutputWithContext(ctx context.Context) ClusterInstanceGroupEbsConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupEbsConfigOutput)
-}
-
-// ClusterInstanceGroupEbsConfigArrayInput is an input type that accepts ClusterInstanceGroupEbsConfigArray and ClusterInstanceGroupEbsConfigArrayOutput values.
-// You can construct a concrete instance of `ClusterInstanceGroupEbsConfigArrayInput` via:
-//
-//          ClusterInstanceGroupEbsConfigArray{ ClusterInstanceGroupEbsConfigArgs{...} }
-type ClusterInstanceGroupEbsConfigArrayInput interface {
-	pulumi.Input
-
-	ToClusterInstanceGroupEbsConfigArrayOutput() ClusterInstanceGroupEbsConfigArrayOutput
-	ToClusterInstanceGroupEbsConfigArrayOutputWithContext(context.Context) ClusterInstanceGroupEbsConfigArrayOutput
-}
-
-type ClusterInstanceGroupEbsConfigArray []ClusterInstanceGroupEbsConfigInput
-
-func (ClusterInstanceGroupEbsConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterInstanceGroupEbsConfig)(nil)).Elem()
-}
-
-func (i ClusterInstanceGroupEbsConfigArray) ToClusterInstanceGroupEbsConfigArrayOutput() ClusterInstanceGroupEbsConfigArrayOutput {
-	return i.ToClusterInstanceGroupEbsConfigArrayOutputWithContext(context.Background())
-}
-
-func (i ClusterInstanceGroupEbsConfigArray) ToClusterInstanceGroupEbsConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupEbsConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupEbsConfigArrayOutput)
-}
-
-type ClusterInstanceGroupEbsConfigOutput struct{ *pulumi.OutputState }
-
-func (ClusterInstanceGroupEbsConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterInstanceGroupEbsConfig)(nil)).Elem()
-}
-
-func (o ClusterInstanceGroupEbsConfigOutput) ToClusterInstanceGroupEbsConfigOutput() ClusterInstanceGroupEbsConfigOutput {
-	return o
-}
-
-func (o ClusterInstanceGroupEbsConfigOutput) ToClusterInstanceGroupEbsConfigOutputWithContext(ctx context.Context) ClusterInstanceGroupEbsConfigOutput {
-	return o
-}
-
-// The number of I/O operations per second (IOPS) that the volume supports
-func (o ClusterInstanceGroupEbsConfigOutput) Iops() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterInstanceGroupEbsConfig) *int { return v.Iops }).(pulumi.IntPtrOutput)
-}
-
-// The volume size, in gibibytes (GiB).
-func (o ClusterInstanceGroupEbsConfigOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterInstanceGroupEbsConfig) int { return v.Size }).(pulumi.IntOutput)
-}
-
-// The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-func (o ClusterInstanceGroupEbsConfigOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterInstanceGroupEbsConfig) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
-func (o ClusterInstanceGroupEbsConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterInstanceGroupEbsConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
-}
-
-type ClusterInstanceGroupEbsConfigArrayOutput struct{ *pulumi.OutputState }
-
-func (ClusterInstanceGroupEbsConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterInstanceGroupEbsConfig)(nil)).Elem()
-}
-
-func (o ClusterInstanceGroupEbsConfigArrayOutput) ToClusterInstanceGroupEbsConfigArrayOutput() ClusterInstanceGroupEbsConfigArrayOutput {
-	return o
-}
-
-func (o ClusterInstanceGroupEbsConfigArrayOutput) ToClusterInstanceGroupEbsConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupEbsConfigArrayOutput {
-	return o
-}
-
-func (o ClusterInstanceGroupEbsConfigArrayOutput) Index(i pulumi.IntInput) ClusterInstanceGroupEbsConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInstanceGroupEbsConfig {
-		return vs[0].([]ClusterInstanceGroupEbsConfig)[vs[1].(int)]
-	}).(ClusterInstanceGroupEbsConfigOutput)
 }
 
 type ClusterKerberosAttributes struct {
@@ -1926,10 +1642,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterCoreInstanceGroupEbsConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterEc2AttributesOutput{})
 	pulumi.RegisterOutputType(ClusterEc2AttributesPtrOutput{})
-	pulumi.RegisterOutputType(ClusterInstanceGroupOutput{})
-	pulumi.RegisterOutputType(ClusterInstanceGroupArrayOutput{})
-	pulumi.RegisterOutputType(ClusterInstanceGroupEbsConfigOutput{})
-	pulumi.RegisterOutputType(ClusterInstanceGroupEbsConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterKerberosAttributesOutput{})
 	pulumi.RegisterOutputType(ClusterKerberosAttributesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterMasterInstanceGroupOutput{})

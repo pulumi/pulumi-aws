@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     destinationCidrBlock: "10.0.1.0/22",
  *     vpcPeeringConnectionId: "pcx-45ff3dc1",
  * }, {
- *     dependsOn: ["aws_route_table.testing"],
+ *     dependsOn: [aws_route_table.testing],
  * });
  * ```
  * ## Example IPv6 Usage
@@ -34,16 +34,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const vpc = new aws.ec2.Vpc("vpc", {
- *     assignGeneratedIpv6CidrBlock: true,
  *     cidrBlock: "10.1.0.0/16",
+ *     assignGeneratedIpv6CidrBlock: true,
  * });
- * const egress = new aws.ec2.EgressOnlyInternetGateway("egress", {
- *     vpcId: vpc.id,
- * });
- * const route = new aws.ec2.Route("r", {
+ * const egress = new aws.ec2.EgressOnlyInternetGateway("egress", {vpcId: vpc.id});
+ * const route = new aws.ec2.Route("route", {
+ *     routeTableId: "rtb-4fbb3ac4",
  *     destinationIpv6CidrBlock: "::/0",
  *     egressOnlyGatewayId: egress.id,
- *     routeTableId: "rtb-4fbb3ac4",
  * });
  * ```
  */

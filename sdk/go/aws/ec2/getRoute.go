@@ -37,14 +37,15 @@ import (
 // 		}
 // 		opt1 := "10.0.1.0/24"
 // 		route, err := ec2.LookupRoute(ctx, &ec2.LookupRouteArgs{
-// 			DestinationCidrBlock: &opt1,
 // 			RouteTableId:         aws_route_table.Selected.Id,
+// 			DestinationCidrBlock: &opt1,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
+// 		opt2 := route.NetworkInterfaceId
 // 		_, err = ec2.LookupNetworkInterface(ctx, &ec2.LookupNetworkInterfaceArgs{
-// 			NetworkInterfaceId: route.NetworkInterfaceId,
+// 			Id: &opt2,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

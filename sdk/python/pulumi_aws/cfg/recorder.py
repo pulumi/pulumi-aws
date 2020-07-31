@@ -58,7 +58,6 @@ class Recorder(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         foo = aws.cfg.Recorder("foo", role_arn=role.arn)
         ```

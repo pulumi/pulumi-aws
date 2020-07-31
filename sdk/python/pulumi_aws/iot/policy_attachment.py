@@ -40,11 +40,10 @@ class PolicyAttachment(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         cert = aws.iot.Certificate("cert",
-            active=True,
-            csr=(lambda path: open(path).read())("csr.pem"))
+            csr=(lambda path: open(path).read())("csr.pem"),
+            active=True)
         att = aws.iot.PolicyAttachment("att",
             policy=pubsub.name,
             target=cert.arn)

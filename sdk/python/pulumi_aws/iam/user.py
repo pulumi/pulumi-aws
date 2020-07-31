@@ -59,6 +59,7 @@ class User(pulumi.CustomResource):
             })
         lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
         lb_ro = aws.iam.UserPolicy("lbRo",
+            user=lb_user.name,
             policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -71,9 +72,7 @@ class User(pulumi.CustomResource):
             }
           ]
         }
-
-        \"\"\",
-            user=lb_user.name)
+        \"\"\")
         ```
 
         :param str resource_name: The name of the resource.

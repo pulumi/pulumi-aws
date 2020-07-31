@@ -45,16 +45,16 @@ import (
 // 				},
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_waf_ipset.ipset",
+// 			ipset,
 // 		}))
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = waf.NewWebAcl(ctx, "wafAcl", &waf.WebAclArgs{
+// 			MetricName: pulumi.String("tfWebACL"),
 // 			DefaultAction: &waf.WebAclDefaultActionArgs{
 // 				Type: pulumi.String("ALLOW"),
 // 			},
-// 			MetricName: pulumi.String("tfWebACL"),
 // 			Rules: waf.WebAclRuleArray{
 // 				&waf.WebAclRuleArgs{
 // 					Action: &waf.WebAclRuleActionArgs{
@@ -66,8 +66,8 @@ import (
 // 				},
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_waf_ipset.ipset",
-// 			"aws_waf_rule.wafrule",
+// 			ipset,
+// 			wafrule,
 // 		}))
 // 		if err != nil {
 // 			return err
@@ -94,13 +94,13 @@ import (
 // 			LoggingConfiguration: &waf.WebAclLoggingConfigurationArgs{
 // 				LogDestination: pulumi.String(aws_kinesis_firehose_delivery_stream.Example.Arn),
 // 				RedactedFields: &waf.WebAclLoggingConfigurationRedactedFieldsArgs{
-// 					FieldToMatch: pulumi.Array{
-// 						pulumi.StringMap{
-// 							"type": pulumi.String("URI"),
+// 					FieldToMatches: waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{
+// 						&waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
+// 							Type: pulumi.String("URI"),
 // 						},
-// 						pulumi.StringMap{
-// 							"data": pulumi.String("referer"),
-// 							"type": pulumi.String("HEADER"),
+// 						&waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{
+// 							Data: pulumi.String("referer"),
+// 							Type: pulumi.String("HEADER"),
 // 						},
 // 					},
 // 				},

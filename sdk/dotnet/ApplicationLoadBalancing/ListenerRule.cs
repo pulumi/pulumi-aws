@@ -27,17 +27,21 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     ///         var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer", new Aws.LB.LoadBalancerArgs
     ///         {
     ///         });
+    ///         // ...
     ///         var frontEndListener = new Aws.LB.Listener("frontEndListener", new Aws.LB.ListenerArgs
     ///         {
     ///         });
+    ///         // Other parameters
     ///         var @static = new Aws.LB.ListenerRule("static", new Aws.LB.ListenerRuleArgs
     ///         {
+    ///             ListenerArn = frontEndListener.Arn,
+    ///             Priority = 100,
     ///             Actions = 
     ///             {
     ///                 new Aws.LB.Inputs.ListenerRuleActionArgs
     ///                 {
-    ///                     TargetGroupArn = aws_lb_target_group.Static.Arn,
     ///                     Type = "forward",
+    ///                     TargetGroupArn = aws_lb_target_group.Static.Arn,
     ///                 },
     ///             },
     ///             Conditions = 
@@ -63,37 +67,18 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     ///                     },
     ///                 },
     ///             },
-    ///             ListenerArn = frontEndListener.Arn,
-    ///             Priority = 100,
     ///         });
-    ///         var hostBasedRouting = new Aws.LB.ListenerRule("hostBasedRouting", new Aws.LB.ListenerRuleArgs
+    ///         // Forward action
+    ///         var hostBasedWeightedRouting = new Aws.LB.ListenerRule("hostBasedWeightedRouting", new Aws.LB.ListenerRuleArgs
     ///         {
+    ///             ListenerArn = frontEndListener.Arn,
+    ///             Priority = 99,
     ///             Actions = 
     ///             {
     ///                 new Aws.LB.Inputs.ListenerRuleActionArgs
     ///                 {
-    ///                     Forward = new Aws.LB.Inputs.ListenerRuleActionForwardArgs
-    ///                     {
-    ///                         Stickiness = new Aws.LB.Inputs.ListenerRuleActionForwardStickinessArgs
-    ///                         {
-    ///                             Duration = 600,
-    ///                             Enabled = true,
-    ///                         },
-    ///                         TargetGroup = 
-    ///                         {
-    ///                             
-    ///                             {
-    ///                                 { "arn", aws_lb_target_group.Main.Arn },
-    ///                                 { "weight", 80 },
-    ///                             },
-    ///                             
-    ///                             {
-    ///                                 { "arn", aws_lb_target_group.Canary.Arn },
-    ///                                 { "weight", 20 },
-    ///                             },
-    ///                         },
-    ///                     },
     ///                     Type = "forward",
+    ///                     TargetGroupArn = aws_lb_target_group.Static.Arn,
     ///                 },
     ///             },
     ///             Conditions = 
@@ -109,17 +94,38 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     ///                     },
     ///                 },
     ///             },
+    ///         });
+    ///         // Weighted Forward action
+    ///         var hostBasedRouting = new Aws.LB.ListenerRule("hostBasedRouting", new Aws.LB.ListenerRuleArgs
+    ///         {
     ///             ListenerArn = frontEndListener.Arn,
     ///             Priority = 99,
-    ///         });
-    ///         var hostBasedWeightedRouting = new Aws.LB.ListenerRule("hostBasedWeightedRouting", new Aws.LB.ListenerRuleArgs
-    ///         {
     ///             Actions = 
     ///             {
     ///                 new Aws.LB.Inputs.ListenerRuleActionArgs
     ///                 {
-    ///                     TargetGroupArn = aws_lb_target_group.Static.Arn,
     ///                     Type = "forward",
+    ///                     Forward = new Aws.LB.Inputs.ListenerRuleActionForwardArgs
+    ///                     {
+    ///                         TargetGroups = 
+    ///                         {
+    ///                             new Aws.LB.Inputs.ListenerRuleActionForwardTargetGroupArgs
+    ///                             {
+    ///                                 Arn = aws_lb_target_group.Main.Arn,
+    ///                                 Weight = 80,
+    ///                             },
+    ///                             new Aws.LB.Inputs.ListenerRuleActionForwardTargetGroupArgs
+    ///                             {
+    ///                                 Arn = aws_lb_target_group.Canary.Arn,
+    ///                                 Weight = 20,
+    ///                             },
+    ///                         },
+    ///                         Stickiness = new Aws.LB.Inputs.ListenerRuleActionForwardStickinessArgs
+    ///                         {
+    ///                             Enabled = true,
+    ///                             Duration = 600,
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///             Conditions = 
@@ -130,27 +136,27 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     ///                     {
     ///                         Values = 
     ///                         {
-    ///                             "my-service.*.mydomain.io",
+    ///                             "my-service.*.mycompany.io",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///             ListenerArn = frontEndListener.Arn,
-    ///             Priority = 99,
     ///         });
+    ///         // Redirect action
     ///         var redirectHttpToHttps = new Aws.LB.ListenerRule("redirectHttpToHttps", new Aws.LB.ListenerRuleArgs
     ///         {
+    ///             ListenerArn = frontEndListener.Arn,
     ///             Actions = 
     ///             {
     ///                 new Aws.LB.Inputs.ListenerRuleActionArgs
     ///                 {
+    ///                     Type = "redirect",
     ///                     Redirect = new Aws.LB.Inputs.ListenerRuleActionRedirectArgs
     ///                     {
     ///                         Port = "443",
     ///                         Protocol = "HTTPS",
     ///                         StatusCode = "HTTP_301",
     ///                     },
-    ///                     Type = "redirect",
     ///                 },
     ///             },
     ///             Conditions = 
@@ -167,21 +173,22 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     ///                     },
     ///                 },
     ///             },
-    ///             ListenerArn = frontEndListener.Arn,
     ///         });
+    ///         // Fixed-response action
     ///         var healthCheck = new Aws.LB.ListenerRule("healthCheck", new Aws.LB.ListenerRuleArgs
     ///         {
+    ///             ListenerArn = frontEndListener.Arn,
     ///             Actions = 
     ///             {
     ///                 new Aws.LB.Inputs.ListenerRuleActionArgs
     ///                 {
+    ///                     Type = "fixed-response",
     ///                     FixedResponse = new Aws.LB.Inputs.ListenerRuleActionFixedResponseArgs
     ///                     {
     ///                         ContentType = "text/plain",
     ///                         MessageBody = "HEALTHY",
     ///                         StatusCode = "200",
     ///                     },
-    ///                     Type = "fixed-response",
     ///                 },
     ///             },
     ///             Conditions = 
@@ -202,23 +209,51 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     ///                     },
     ///                 },
     ///             },
-    ///             ListenerArn = frontEndListener.Arn,
     ///         });
+    ///         // Authenticate-cognito Action
     ///         var pool = new Aws.Cognito.UserPool("pool", new Aws.Cognito.UserPoolArgs
     ///         {
     ///         });
+    ///         // ...
     ///         var client = new Aws.Cognito.UserPoolClient("client", new Aws.Cognito.UserPoolClientArgs
     ///         {
     ///         });
+    ///         // ...
     ///         var domain = new Aws.Cognito.UserPoolDomain("domain", new Aws.Cognito.UserPoolDomainArgs
     ///         {
     ///         });
-    ///         var admin = new Aws.LB.ListenerRule("admin", new Aws.LB.ListenerRuleArgs
+    ///         // ...
+    ///         var adminListenerRule = new Aws.LB.ListenerRule("adminListenerRule", new Aws.LB.ListenerRuleArgs
     ///         {
+    ///             ListenerArn = frontEndListener.Arn,
     ///             Actions = 
     ///             {
     ///                 new Aws.LB.Inputs.ListenerRuleActionArgs
     ///                 {
+    ///                     Type = "authenticate-cognito",
+    ///                     AuthenticateCognito = new Aws.LB.Inputs.ListenerRuleActionAuthenticateCognitoArgs
+    ///                     {
+    ///                         UserPoolArn = pool.Arn,
+    ///                         UserPoolClientId = client.Id,
+    ///                         UserPoolDomain = domain.Domain,
+    ///                     },
+    ///                 },
+    ///                 new Aws.LB.Inputs.ListenerRuleActionArgs
+    ///                 {
+    ///                     Type = "forward",
+    ///                     TargetGroupArn = aws_lb_target_group.Static.Arn,
+    ///                 },
+    ///             },
+    ///         });
+    ///         // Authenticate-oidc Action
+    ///         var adminLb_listenerRuleListenerRule = new Aws.LB.ListenerRule("adminLb/listenerRuleListenerRule", new Aws.LB.ListenerRuleArgs
+    ///         {
+    ///             ListenerArn = frontEndListener.Arn,
+    ///             Actions = 
+    ///             {
+    ///                 new Aws.LB.Inputs.ListenerRuleActionArgs
+    ///                 {
+    ///                     Type = "authenticate-oidc",
     ///                     AuthenticateOidc = new Aws.LB.Inputs.ListenerRuleActionAuthenticateOidcArgs
     ///                     {
     ///                         AuthorizationEndpoint = "https://example.com/authorization_endpoint",
@@ -228,15 +263,13 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     ///                         TokenEndpoint = "https://example.com/token_endpoint",
     ///                         UserInfoEndpoint = "https://example.com/user_info_endpoint",
     ///                     },
-    ///                     Type = "authenticate-oidc",
     ///                 },
     ///                 new Aws.LB.Inputs.ListenerRuleActionArgs
     ///                 {
-    ///                     TargetGroupArn = aws_lb_target_group.Static.Arn,
     ///                     Type = "forward",
+    ///                     TargetGroupArn = aws_lb_target_group.Static.Arn,
     ///                 },
     ///             },
-    ///             ListenerArn = frontEndListener.Arn,
     ///         });
     ///     }
     /// 

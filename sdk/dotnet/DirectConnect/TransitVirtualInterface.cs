@@ -29,11 +29,11 @@ namespace Pulumi.Aws.DirectConnect
     ///         });
     ///         var exampleTransitVirtualInterface = new Aws.DirectConnect.TransitVirtualInterface("exampleTransitVirtualInterface", new Aws.DirectConnect.TransitVirtualInterfaceArgs
     ///         {
-    ///             AddressFamily = "ipv4",
-    ///             BgpAsn = 65352,
     ///             ConnectionId = aws_dx_connection.Example.Id,
     ///             DxGatewayId = exampleGateway.Id,
     ///             Vlan = 4094,
+    ///             AddressFamily = "ipv4",
+    ///             BgpAsn = 65352,
     ///         });
     ///     }
     /// 

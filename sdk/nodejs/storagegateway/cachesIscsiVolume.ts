@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * > **NOTE:** These examples are referencing the `aws.storagegateway.Cache` resource `gatewayArn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `dependsOn = ["aws_storagegateway_cache.example"]`) to ensure proper ordering.
+ * > **NOTE:** These examples are referencing the `aws.storagegateway.Cache` resource `gatewayArn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `dependsOn = [aws_storagegateway_cache.example]`) to ensure proper ordering.
  * ### Create Empty Cached iSCSI Volume
  *
  * ```typescript
@@ -21,11 +21,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache_example.gatewayArn,
- *     networkInterfaceId: aws_instance_example.privateIp,
+ *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
+ *     networkInterfaceId: aws_instance.example.private_ip,
  *     targetName: "example",
- *     volumeSizeInBytes: 5368709120, // 5 GB
+ *     volumeSizeInBytes: 5368709120,
  * });
+ * // 5 GB
  * ```
  * ### Create Cached iSCSI Volume From Snapshot
  *
@@ -34,11 +35,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache_example.gatewayArn,
- *     networkInterfaceId: aws_instance_example.privateIp,
- *     snapshotId: aws_ebs_snapshot_example.id,
+ *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
+ *     networkInterfaceId: aws_instance.example.private_ip,
+ *     snapshotId: aws_ebs_snapshot.example.id,
  *     targetName: "example",
- *     volumeSizeInBytes: aws_ebs_snapshot_example.volumeSize.apply(volumeSize => (((volumeSize * 1024) * 1024) * 1024)),
+ *     volumeSizeInBytes: aws_ebs_snapshot.example.volume_size * 1024 * 1024 * 1024,
  * });
  * ```
  * ### Create Cached iSCSI Volume From Source Volume
@@ -48,11 +49,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.CachesIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache_example.gatewayArn,
- *     networkInterfaceId: aws_instance_example.privateIp,
- *     sourceVolumeArn: aws_storagegateway_cached_iscsi_volume_existing.arn,
+ *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
+ *     networkInterfaceId: aws_instance.example.private_ip,
+ *     sourceVolumeArn: aws_storagegateway_cached_iscsi_volume.existing.arn,
  *     targetName: "example",
- *     volumeSizeInBytes: aws_storagegateway_cached_iscsi_volume_existing.volumeSizeInBytes,
+ *     volumeSizeInBytes: aws_storagegateway_cached_iscsi_volume.existing.volume_size_in_bytes,
  * });
  * ```
  */

@@ -51,8 +51,8 @@ namespace Pulumi.Aws.Cfg
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_lambda_permission.example",
-    ///                 "aws_organizations_organization.example",
+    ///                 examplePermission,
+    ///                 exampleOrganization,
     ///             },
     ///         });
     ///     }

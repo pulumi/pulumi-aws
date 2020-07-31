@@ -61,7 +61,7 @@ class Cluster(pulumi.CustomResource):
 
       * `encryptionAtRestKmsKeyArn` (`str`) - You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
       * `encryptionInTransit` (`dict`) - Configuration block to specify encryption in transit. See below.
-        * `clientBroker` (`str`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryption_in_transit` block defined, but `TLS` when `encryption_in_transit` block omitted.
+        * `clientBroker` (`str`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
         * `inCluster` (`bool`) - Whether data communication among broker nodes is encrypted. Default value: `true`.
     """
     enhanced_monitoring: pulumi.Output[str]
@@ -166,7 +166,7 @@ class Cluster(pulumi.CustomResource):
             })
         example = aws.msk.Cluster("example",
             cluster_name="example",
-            kafka_version="2.1.0",
+            kafka_version="2.4.1",
             number_of_broker_nodes=3,
             broker_node_group_info={
                 "instance_type": "kafka.m5.large",
@@ -212,7 +212,6 @@ class Cluster(pulumi.CustomResource):
                 "foo": "bar",
             })
         pulumi.export("zookeeperConnectString", example.zookeeper_connect_string)
-        pulumi.export("bootstrapBrokers", example.bootstrap_brokers)
         pulumi.export("bootstrapBrokersTls", example.bootstrap_brokers_tls)
         ```
 
@@ -252,7 +251,7 @@ class Cluster(pulumi.CustomResource):
 
           * `encryptionAtRestKmsKeyArn` (`pulumi.Input[str]`) - You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
           * `encryptionInTransit` (`pulumi.Input[dict]`) - Configuration block to specify encryption in transit. See below.
-            * `clientBroker` (`pulumi.Input[str]`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryption_in_transit` block defined, but `TLS` when `encryption_in_transit` block omitted.
+            * `clientBroker` (`pulumi.Input[str]`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
             * `inCluster` (`pulumi.Input[bool]`) - Whether data communication among broker nodes is encrypted. Default value: `true`.
 
         The **logging_info** object supports the following:
@@ -376,7 +375,7 @@ class Cluster(pulumi.CustomResource):
 
           * `encryptionAtRestKmsKeyArn` (`pulumi.Input[str]`) - You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
           * `encryptionInTransit` (`pulumi.Input[dict]`) - Configuration block to specify encryption in transit. See below.
-            * `clientBroker` (`pulumi.Input[str]`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryption_in_transit` block defined, but `TLS` when `encryption_in_transit` block omitted.
+            * `clientBroker` (`pulumi.Input[str]`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
             * `inCluster` (`pulumi.Input[bool]`) - Whether data communication among broker nodes is encrypted. Default value: `true`.
 
         The **logging_info** object supports the following:

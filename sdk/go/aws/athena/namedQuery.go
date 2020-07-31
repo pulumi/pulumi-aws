@@ -53,18 +53,18 @@ import (
 // 			return err
 // 		}
 // 		hogeDatabase, err := athena.NewDatabase(ctx, "hogeDatabase", &athena.DatabaseArgs{
-// 			Bucket: hogeBucket.ID(),
 // 			Name:   pulumi.String("users"),
+// 			Bucket: hogeBucket.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = athena.NewNamedQuery(ctx, "foo", &athena.NamedQueryArgs{
-// 			Database: hogeDatabase.Name,
+// 			Workgroup: testWorkgroup.ID(),
+// 			Database:  hogeDatabase.Name,
 // 			Query: hogeDatabase.Name.ApplyT(func(name string) (string, error) {
 // 				return fmt.Sprintf("%v%v%v", "SELECT * FROM ", name, " limit 10;"), nil
 // 			}).(pulumi.StringOutput),
-// 			Workgroup: testWorkgroup.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

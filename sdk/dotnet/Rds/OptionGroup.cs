@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         var example = new Aws.Rds.OptionGroup("example", new Aws.Rds.OptionGroupArgs
     ///         {
+    ///             OptionGroupDescription = "Option Group",
     ///             EngineName = "sqlserver-ee",
     ///             MajorEngineVersion = "11.00",
     ///             Options = 
@@ -62,7 +63,6 @@ namespace Pulumi.Aws.Rds
     ///                     OptionName = "TDE",
     ///                 },
     ///             },
-    ///             OptionGroupDescription = "Option Group",
     ///         });
     ///     }
     /// 

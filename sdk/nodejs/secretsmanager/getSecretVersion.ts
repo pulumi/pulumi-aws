@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws_secretsmanager_secret_example.id.apply(id => aws.secretsmanager.getSecretVersion({
- *     secretId: id,
- * }, { async: true }));
+ * const example = aws.secretsmanager.getSecretVersion({
+ *     secretId: data.aws_secretsmanager_secret.example.id,
+ * });
  * ```
  * ### Retrieve Specific Secret Version
  *
@@ -28,10 +28,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const by_version_stage = aws_secretsmanager_secret_example.id.apply(id => aws.secretsmanager.getSecretVersion({
- *     secretId: id,
+ * const by-version-stage = aws.secretsmanager.getSecretVersion({
+ *     secretId: data.aws_secretsmanager_secret.example.id,
  *     versionStage: "example",
- * }, { async: true }));
+ * });
  * ```
  */
 export function getSecretVersion(args: GetSecretVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionResult> {

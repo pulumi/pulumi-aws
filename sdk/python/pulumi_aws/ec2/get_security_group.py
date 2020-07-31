@@ -75,8 +75,8 @@ def get_security_group(filters=None,id=None,name=None,tags=None,vpc_id=None,opts
     security_group_id = config.require_object("securityGroupId")
     selected = aws.ec2.get_security_group(id=security_group_id)
     subnet = aws.ec2.Subnet("subnet",
-        cidr_block="10.0.1.0/24",
-        vpc_id=selected.vpc_id)
+        vpc_id=selected.vpc_id,
+        cidr_block="10.0.1.0/24")
     ```
 
 

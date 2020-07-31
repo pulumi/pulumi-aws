@@ -27,12 +27,10 @@ import * as utilities from "../utilities";
  *         Name: "HelloWorld",
  *     },
  * });
- * const example = new aws.ec2.Eip("example", {
- *     vpc: true,
- * });
- * const eipAssoc = new aws.ec2.EipAssociation("eip_assoc", {
- *     allocationId: example.id,
+ * const example = new aws.ec2.Eip("example", {vpc: true});
+ * const eipAssoc = new aws.ec2.EipAssociation("eipAssoc", {
  *     instanceId: web.id,
+ *     allocationId: example.id,
  * });
  * ```
  */

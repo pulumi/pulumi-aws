@@ -34,7 +34,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         ///     public MyStack()
         ///     {
         ///         var config = new Config();
-        ///         var listenerArn = config.RequireObject&lt;dynamic&gt;("listenerArn");
+        ///         var listenerArn = config.Require("listenerArn");
         ///         var listener = Output.Create(Aws.LB.GetListener.InvokeAsync(new Aws.LB.GetListenerArgs
         ///         {
         ///             Arn = listenerArn,

@@ -36,65 +36,29 @@ class CertificateValidation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cert_certificate = aws.acm.Certificate("certCertificate",
+        example_certificate = aws.acm.Certificate("exampleCertificate",
             domain_name="example.com",
             validation_method="DNS")
-        zone = aws.route53.get_zone(name="example.com.",
+        example_zone = aws.route53.get_zone(name="example.com",
             private_zone=False)
-        cert_validation = aws.route53.Record("certValidation",
-            name=cert_certificate.domain_validation_options[0]["resourceRecordName"],
-            records=[cert_certificate.domain_validation_options[0]["resourceRecordValue"]],
-            ttl=60,
-            type=cert_certificate.domain_validation_options[0]["resourceRecordType"],
-            zone_id=zone.zone_id)
-        cert_certificate_validation = aws.acm.CertificateValidation("certCertificateValidation",
-            certificate_arn=cert_certificate.arn,
-            validation_record_fqdns=[cert_validation.fqdn])
-        front_end = aws.lb.Listener("frontEnd", certificate_arn=cert_certificate_validation.certificate_arn)
-        ```
-        ### Alternative Domains DNS Validation with Route 53
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cert_certificate = aws.acm.Certificate("certCertificate",
-            domain_name="example.com",
-            subject_alternative_names=[
-                "www.example.com",
-                "example.org",
-            ],
-            validation_method="DNS")
-        zone = aws.route53.get_zone(name="example.com.",
-            private_zone=False)
-        zone_alt = aws.route53.get_zone(name="example.org.",
-            private_zone=False)
-        cert_validation = aws.route53.Record("certValidation",
-            name=cert_certificate.domain_validation_options[0]["resourceRecordName"],
-            records=[cert_certificate.domain_validation_options[0]["resourceRecordValue"]],
-            ttl=60,
-            type=cert_certificate.domain_validation_options[0]["resourceRecordType"],
-            zone_id=zone.zone_id)
-        cert_validation_alt1 = aws.route53.Record("certValidationAlt1",
-            name=cert_certificate.domain_validation_options[1]["resourceRecordName"],
-            records=[cert_certificate.domain_validation_options[1]["resourceRecordValue"]],
-            ttl=60,
-            type=cert_certificate.domain_validation_options[1]["resourceRecordType"],
-            zone_id=zone.zone_id)
-        cert_validation_alt2 = aws.route53.Record("certValidationAlt2",
-            name=cert_certificate.domain_validation_options[2]["resourceRecordName"],
-            records=[cert_certificate.domain_validation_options[2]["resourceRecordValue"]],
-            ttl=60,
-            type=cert_certificate.domain_validation_options[2]["resourceRecordType"],
-            zone_id=zone_alt.zone_id)
-        cert_certificate_validation = aws.acm.CertificateValidation("certCertificateValidation",
-            certificate_arn=cert_certificate.arn,
-            validation_record_fqdns=[
-                cert_validation.fqdn,
-                cert_validation_alt1.fqdn,
-                cert_validation_alt2.fqdn,
-            ])
-        front_end = aws.lb.Listener("frontEnd", certificate_arn=cert_certificate_validation.certificate_arn)
+        example_record = []
+        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domainName: {
+            name: dvo.resourceRecordName,
+            record: dvo.resourceRecordValue,
+            type: dvo.resourceRecordType,
+        } for dvo in example_certificate.domainValidationOptions})]:
+            example_record.append(aws.route53.Record(f"exampleRecord-{range['key']}",
+                allow_overwrite=True,
+                name=range["value"]["name"],
+                records=[range["value"]["record"]],
+                ttl=60,
+                type=range["value"]["type"],
+                zone_id=example_zone.zone_id))
+        example_certificate_validation = aws.acm.CertificateValidation("exampleCertificateValidation",
+            certificate_arn=example_certificate.arn,
+            validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
+        # ... other configuration ...
+        example_listener = aws.lb.Listener("exampleListener", certificate_arn=example_certificate_validation.certificate_arn)
         ```
         ### Email Validation
 
@@ -104,10 +68,10 @@ class CertificateValidation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cert_certificate = aws.acm.Certificate("certCertificate",
+        example_certificate = aws.acm.Certificate("exampleCertificate",
             domain_name="example.com",
             validation_method="EMAIL")
-        cert_certificate_validation = aws.acm.CertificateValidation("certCertificateValidation", certificate_arn=cert_certificate.arn)
+        example_certificate_validation = aws.acm.CertificateValidation("exampleCertificateValidation", certificate_arn=example_certificate.arn)
         ```
 
         :param str resource_name: The name of the resource.

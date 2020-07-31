@@ -66,8 +66,12 @@ namespace Pulumi.Aws.Cfg
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
+    ///         });
+    ///         var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organizationRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             Role = organizationRole.Name,
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
     ///         });
     ///         var organizationConfigurationAggregator = new Aws.Cfg.ConfigurationAggregator("organizationConfigurationAggregator", new Aws.Cfg.ConfigurationAggregatorArgs
     ///         {
@@ -80,13 +84,8 @@ namespace Pulumi.Aws.Cfg
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_iam_role_policy_attachment.organization",
+    ///                 organizationRolePolicyAttachment,
     ///             },
-    ///         });
-    ///         var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organizationRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
-    ///             Role = organizationRole.Name,
     ///         });
     ///     }
     /// 

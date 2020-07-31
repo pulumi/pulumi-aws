@@ -15,20 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDomainIdentity = new aws.ses.DomainIdentity("example", {
- *     domain: "example.com",
- * });
- * const exampleDomainDkim = new aws.ses.DomainDkim("example", {
- *     domain: exampleDomainIdentity.domain,
- * });
- * const exampleAmazonsesDkimRecord: aws.route53.Record[] = [];
- * for (let i = 0; i < 3; i++) {
- *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`example_amazonses_dkim_record-${i}`, {
- *         name: exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[i]}._domainkey.example.com`),
- *         records: [exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[i]}.dkim.amazonses.com`)],
- *         ttl: 600,
- *         type: "CNAME",
+ * const exampleDomainIdentity = new aws.ses.DomainIdentity("exampleDomainIdentity", {domain: "example.com"});
+ * const exampleDomainDkim = new aws.ses.DomainDkim("exampleDomainDkim", {domain: exampleDomainIdentity.domain});
+ * const exampleAmazonsesDkimRecord: aws.route53.Record[];
+ * for (const range = {value: 0}; range.value < 3; range.value++) {
+ *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`exampleAmazonsesDkimRecord-${range.value}`, {
  *         zoneId: "ABCDEFGHIJ123",
+ *         name: exampleDomainDkim.dkimTokens[range.value].apply(dkimTokens => `${dkimTokens}._domainkey.example.com`),
+ *         type: "CNAME",
+ *         ttl: "600",
+ *         records: [exampleDomainDkim.dkimTokens[range.value].apply(dkimTokens => `${dkimTokens}.dkim.amazonses.com`)],
  *     }));
  * }
  * ```

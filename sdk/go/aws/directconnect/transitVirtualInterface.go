@@ -32,11 +32,11 @@ import (
 // 			return err
 // 		}
 // 		_, err = directconnect.NewTransitVirtualInterface(ctx, "exampleTransitVirtualInterface", &directconnect.TransitVirtualInterfaceArgs{
-// 			AddressFamily: pulumi.String("ipv4"),
-// 			BgpAsn:        pulumi.Int(65352),
 // 			ConnectionId:  pulumi.String(aws_dx_connection.Example.Id),
 // 			DxGatewayId:   exampleGateway.ID(),
 // 			Vlan:          pulumi.Int(4094),
+// 			AddressFamily: pulumi.String("ipv4"),
+// 			BgpAsn:        pulumi.Int(65352),
 // 		})
 // 		if err != nil {
 // 			return err

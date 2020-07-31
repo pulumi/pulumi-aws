@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var ubuntu = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
     ///         {
+    ///             MostRecent = true,
     ///             Filters = 
     ///             {
     ///                 new Aws.Inputs.GetAmiFilterArgs
@@ -32,7 +33,7 @@ namespace Pulumi.Aws.Ec2
     ///                     Name = "name",
     ///                     Values = 
     ///                     {
-    ///                         "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+    ///                         "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
     ///                     },
     ///                 },
     ///                 new Aws.Inputs.GetAmiFilterArgs
@@ -44,7 +45,6 @@ namespace Pulumi.Aws.Ec2
     ///                     },
     ///                 },
     ///             },
-    ///             MostRecent = true,
     ///             Owners = 
     ///             {
     ///                 "099720109477",
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ec2
     ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
     ///         {
     ///             Ami = ubuntu.Apply(ubuntu =&gt; ubuntu.Id),
-    ///             InstanceType = "t2.micro",
+    ///             InstanceType = "t3.micro",
     ///             Tags = 
     ///             {
     ///                 { "Name", "HelloWorld" },
@@ -285,6 +285,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("rootBlockDevice")]
         public Output<Outputs.InstanceRootBlockDevice> RootBlockDevice { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+        /// </summary>
+        [Output("secondaryPrivateIps")]
+        public Output<ImmutableArray<string>> SecondaryPrivateIps { get; private set; } = null!;
 
         /// <summary>
         /// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
@@ -575,6 +581,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("rootBlockDevice")]
         public Input<Inputs.InstanceRootBlockDeviceArgs>? RootBlockDevice { get; set; }
+
+        [Input("secondaryPrivateIps")]
+        private InputList<string>? _secondaryPrivateIps;
+
+        /// <summary>
+        /// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+        /// </summary>
+        public InputList<string> SecondaryPrivateIps
+        {
+            get => _secondaryPrivateIps ?? (_secondaryPrivateIps = new InputList<string>());
+            set => _secondaryPrivateIps = value;
+        }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
@@ -906,6 +924,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("rootBlockDevice")]
         public Input<Inputs.InstanceRootBlockDeviceGetArgs>? RootBlockDevice { get; set; }
+
+        [Input("secondaryPrivateIps")]
+        private InputList<string>? _secondaryPrivateIps;
+
+        /// <summary>
+        /// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+        /// </summary>
+        public InputList<string> SecondaryPrivateIps
+        {
+            get => _secondaryPrivateIps ?? (_secondaryPrivateIps = new InputList<string>());
+            set => _secondaryPrivateIps = value;
+        }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;

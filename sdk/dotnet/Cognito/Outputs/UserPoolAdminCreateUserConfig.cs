@@ -21,22 +21,15 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// The invite message template structure.
         /// </summary>
         public readonly Outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate? InviteMessageTemplate;
-        /// <summary>
-        /// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
-        /// </summary>
-        public readonly int? UnusedAccountValidityDays;
 
         [OutputConstructor]
         private UserPoolAdminCreateUserConfig(
             bool? allowAdminCreateUserOnly,
 
-            Outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate? inviteMessageTemplate,
-
-            int? unusedAccountValidityDays)
+            Outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate? inviteMessageTemplate)
         {
             AllowAdminCreateUserOnly = allowAdminCreateUserOnly;
             InviteMessageTemplate = inviteMessageTemplate;
-            UnusedAccountValidityDays = unusedAccountValidityDays;
         }
     }
 }

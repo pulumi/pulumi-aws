@@ -16,36 +16,40 @@ class InviteAccepter(pulumi.CustomResource):
     """
     master_account_id: pulumi.Output[str]
     """
-    AWS account ID for master account.
+    AWS account ID for primary account.
     """
     def __init__(__self__, resource_name, opts=None, detector_id=None, master_account_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct master account on read, and disassociate with the master account upon removal.
+        Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
 
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_pulumi as pulumi
 
-        master = aws.guardduty.Detector("master")
-        member_detector = aws.guardduty.Detector("memberDetector", opts=ResourceOptions(provider="aws.dev"))
-        dev = aws.guardduty.Member("dev",
+        primary = pulumi.providers.Aws("primary")
+        member = pulumi.providers.Aws("member")
+        primary_detector = aws.guardduty.Detector("primaryDetector", opts=ResourceOptions(provider=aws["primary"]))
+        member_detector = aws.guardduty.Detector("memberDetector", opts=ResourceOptions(provider=aws["member"]))
+        member_member = aws.guardduty.Member("memberMember",
             account_id=member_detector.account_id,
-            detector_id=master.id,
+            detector_id=primary_detector.id,
             email="required@example.com",
-            invite=True)
+            invite=True,
+            opts=ResourceOptions(provider=aws["primary"]))
         member_invite_accepter = aws.guardduty.InviteAccepter("memberInviteAccepter",
             detector_id=member_detector.id,
-            master_account_id=master.account_id,
-            opts=ResourceOptions(provider="aws.dev",
-                depends_on=["aws_guardduty_member.dev"]))
+            master_account_id=primary_detector.account_id,
+            opts=ResourceOptions(provider=aws["member"],
+                depends_on=[member_member]))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] detector_id: The detector ID of the member GuardDuty account.
-        :param pulumi.Input[str] master_account_id: AWS account ID for master account.
+        :param pulumi.Input[str] master_account_id: AWS account ID for primary account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -86,7 +90,7 @@ class InviteAccepter(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] detector_id: The detector ID of the member GuardDuty account.
-        :param pulumi.Input[str] master_account_id: AWS account ID for master account.
+        :param pulumi.Input[str] master_account_id: AWS account ID for primary account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

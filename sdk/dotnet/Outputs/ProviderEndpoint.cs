@@ -87,7 +87,6 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Iotevents;
         public readonly string? Kafka;
         public readonly string? Kinesis;
-        public readonly string? KinesisAnalytics;
         public readonly string? Kinesisanalytics;
         public readonly string? Kinesisanalyticsv2;
         public readonly string? Kinesisvideo;
@@ -117,7 +116,6 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Pricing;
         public readonly string? Qldb;
         public readonly string? Quicksight;
-        public readonly string? R53;
         public readonly string? Ram;
         public readonly string? Rds;
         public readonly string? Redshift;
@@ -305,8 +303,6 @@ namespace Pulumi.Aws.Outputs
 
             string? kinesis,
 
-            string? kinesisAnalytics,
-
             string? kinesisanalytics,
 
             string? kinesisanalyticsv2,
@@ -364,8 +360,6 @@ namespace Pulumi.Aws.Outputs
             string? qldb,
 
             string? quicksight,
-
-            string? r53,
 
             string? ram,
 
@@ -513,7 +507,6 @@ namespace Pulumi.Aws.Outputs
             Iotevents = iotevents;
             Kafka = kafka;
             Kinesis = kinesis;
-            KinesisAnalytics = kinesisAnalytics;
             Kinesisanalytics = kinesisanalytics;
             Kinesisanalyticsv2 = kinesisanalyticsv2;
             Kinesisvideo = kinesisvideo;
@@ -543,7 +536,6 @@ namespace Pulumi.Aws.Outputs
             Pricing = pricing;
             Qldb = qldb;
             Quicksight = quicksight;
-            R53 = r53;
             Ram = ram;
             Rds = rds;
             Redshift = redshift;

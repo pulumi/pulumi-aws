@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.OptionGroup("example", {
+ *     optionGroupDescription: "Option Group",
  *     engineName: "sqlserver-ee",
  *     majorEngineVersion: "11.00",
  *     options: [
@@ -35,14 +36,13 @@ import * as utilities from "../utilities";
  *             optionName: "SQLSERVER_BACKUP_RESTORE",
  *             optionSettings: [{
  *                 name: "IAM_ROLE_ARN",
- *                 value: aws_iam_role_example.arn,
+ *                 value: aws_iam_role.example.arn,
  *             }],
  *         },
  *         {
  *             optionName: "TDE",
  *         },
  *     ],
- *     optionGroupDescription: "Option Group",
  * });
  * ```
  *

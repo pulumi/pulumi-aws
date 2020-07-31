@@ -32,7 +32,7 @@ import (
 // 				RoleArn: pulumi.String(aws_iam_role.Test.Arn),
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_iam_role_policy.test",
+// 			aws_iam_role_policy.Test,
 // 		}))
 // 		if err != nil {
 // 			return err

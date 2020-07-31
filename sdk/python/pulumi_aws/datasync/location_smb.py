@@ -62,11 +62,11 @@ class LocationSmb(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.LocationSmb("example",
-            agent_arns=[aws_datasync_agent["example"]["arn"]],
-            password="ANotGreatPassword",
             server_hostname="smb.example.com",
             subdirectory="/exported/path",
-            user="Guest")
+            user="Guest",
+            password="ANotGreatPassword",
+            agent_arns=[aws_datasync_agent["example"]["arn"]])
         ```
 
         :param str resource_name: The name of the resource.

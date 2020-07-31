@@ -68,6 +68,7 @@ class OptionGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rds.OptionGroup("example",
+            option_group_description="Option Group",
             engine_name="sqlserver-ee",
             major_engine_version="11.00",
             options=[
@@ -88,8 +89,7 @@ class OptionGroup(pulumi.CustomResource):
                 {
                     "optionName": "TDE",
                 },
-            ],
-            option_group_description="Option Group")
+            ])
         ```
 
         > **Note**: Any modifications to the `db_option_group` are set to happen immediately as we default to applying immediately.

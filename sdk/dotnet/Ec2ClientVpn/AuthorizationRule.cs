@@ -25,9 +25,9 @@ namespace Pulumi.Aws.Ec2ClientVpn
     ///     {
     ///         var example = new Aws.Ec2ClientVpn.AuthorizationRule("example", new Aws.Ec2ClientVpn.AuthorizationRuleArgs
     ///         {
-    ///             AuthorizeAllGroups = true,
     ///             ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
     ///             TargetNetworkCidr = aws_subnet.Example.Cidr_block,
+    ///             AuthorizeAllGroups = true,
     ///         });
     ///     }
     /// 

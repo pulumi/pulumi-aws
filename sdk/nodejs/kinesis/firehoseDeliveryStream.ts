@@ -18,11 +18,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {
- *     acl: "private",
- * });
- * const firehoseRole = new aws.iam.Role("firehose_role", {
- *     assumeRolePolicy: `{
+ * const bucket = new aws.s3.Bucket("bucket", {acl: "private"});
+ * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -35,10 +32,8 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const lambdaIam = new aws.iam.Role("lambda_iam", {
- *     assumeRolePolicy: `{
+ * `});
+ * const lambdaIam = new aws.iam.Role("lambdaIam", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -51,29 +46,28 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const lambdaProcessor = new aws.lambda.Function("lambda_processor", {
+ * `});
+ * const lambdaProcessor = new aws.lambda.Function("lambdaProcessor", {
  *     code: new pulumi.asset.FileArchive("lambda.zip"),
- *     handler: "exports.handler",
  *     role: lambdaIam.arn,
+ *     handler: "exports.handler",
  *     runtime: "nodejs8.10",
  * });
- * const extendedS3Stream = new aws.kinesis.FirehoseDeliveryStream("extended_s3_stream", {
+ * const extendedS3Stream = new aws.kinesis.FirehoseDeliveryStream("extendedS3Stream", {
  *     destination: "extended_s3",
  *     extendedS3Configuration: {
+ *         roleArn: firehoseRole.arn,
  *         bucketArn: bucket.arn,
  *         processingConfiguration: {
- *             enabled: true,
+ *             enabled: "true",
  *             processors: [{
+ *                 type: "Lambda",
  *                 parameters: [{
  *                     parameterName: "LambdaArn",
  *                     parameterValue: pulumi.interpolate`${lambdaProcessor.arn}:$LATEST`,
  *                 }],
- *                 type: "Lambda",
  *             }],
  *         },
- *         roleArn: firehoseRole.arn,
  *     },
  * });
  * ```
@@ -83,11 +77,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.Bucket("bucket", {
- *     acl: "private",
- * });
- * const firehoseRole = new aws.iam.Role("firehose_role", {
- *     assumeRolePolicy: `{
+ * const bucket = new aws.s3.Bucket("bucket", {acl: "private"});
+ * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -100,13 +91,12 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
+ * `});
+ * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "s3",
  *     s3Configuration: {
- *         bucketArn: bucket.arn,
  *         roleArn: firehoseRole.arn,
+ *         bucketArn: bucket.arn,
  *     },
  * });
  * ```
@@ -116,39 +106,39 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testCluster = new aws.redshift.Cluster("test_cluster", {
- *     clusterIdentifier: "tf-redshift-cluster-%d",
- *     clusterType: "single-node",
+ * const testCluster = new aws.redshift.Cluster("testCluster", {
+ *     clusterIdentifier: `tf-redshift-cluster-%d`,
  *     databaseName: "test",
- *     masterPassword: "T3stPass",
  *     masterUsername: "testuser",
+ *     masterPassword: "T3stPass",
  *     nodeType: "dc1.large",
+ *     clusterType: "single-node",
  * });
- * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
+ * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "redshift",
- *     redshiftConfiguration: {
- *         clusterJdbcurl: pulumi.interpolate`jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,
- *         copyOptions: "delimiter '|'", // the default delimiter
- *         dataTableColumns: "test-col",
- *         dataTableName: "test-table",
- *         password: "T3stPass",
- *         roleArn: aws_iam_role_firehose_role.arn,
- *         s3BackupConfiguration: {
- *             bucketArn: aws_s3_bucket_bucket.arn,
- *             bufferInterval: 300,
- *             bufferSize: 15,
- *             compressionFormat: "GZIP",
- *             roleArn: aws_iam_role_firehose_role.arn,
- *         },
- *         s3BackupMode: "Enabled",
- *         username: "testuser",
- *     },
  *     s3Configuration: {
- *         bucketArn: aws_s3_bucket_bucket.arn,
- *         bufferInterval: 400,
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         bucketArn: aws_s3_bucket.bucket.arn,
  *         bufferSize: 10,
+ *         bufferInterval: 400,
  *         compressionFormat: "GZIP",
- *         roleArn: aws_iam_role_firehose_role.arn,
+ *     },
+ *     redshiftConfiguration: {
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         clusterJdbcurl: pulumi.interpolate`jdbc:redshift://${testCluster.endpoint}/${testCluster.databaseName}`,
+ *         username: "testuser",
+ *         password: "T3stPass",
+ *         dataTableName: "test-table",
+ *         copyOptions: "delimiter '|'",
+ *         dataTableColumns: "test-col",
+ *         s3BackupMode: "Enabled",
+ *         s3BackupConfiguration: {
+ *             roleArn: aws_iam_role.firehose_role.arn,
+ *             bucketArn: aws_s3_bucket.bucket.arn,
+ *             bufferSize: 15,
+ *             bufferInterval: 300,
+ *             compressionFormat: "GZIP",
+ *         },
  *     },
  * });
  * ```
@@ -158,31 +148,31 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testCluster = new aws.elasticsearch.Domain("test_cluster", {});
- * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
+ * const testCluster = new aws.elasticsearch.Domain("testCluster", {});
+ * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "elasticsearch",
+ *     s3Configuration: {
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         bucketArn: aws_s3_bucket.bucket.arn,
+ *         bufferSize: 10,
+ *         bufferInterval: 400,
+ *         compressionFormat: "GZIP",
+ *     },
  *     elasticsearchConfiguration: {
  *         domainArn: testCluster.arn,
+ *         roleArn: aws_iam_role.firehose_role.arn,
  *         indexName: "test",
+ *         typeName: "test",
  *         processingConfiguration: {
- *             enabled: true,
+ *             enabled: "true",
  *             processors: [{
+ *                 type: "Lambda",
  *                 parameters: [{
  *                     parameterName: "LambdaArn",
- *                     parameterValue: pulumi.interpolate`${aws_lambda_function_lambda_processor.arn}:$LATEST`,
+ *                     parameterValue: `${aws_lambda_function.lambda_processor.arn}:$LATEST`,
  *                 }],
- *                 type: "Lambda",
  *             }],
  *         },
- *         roleArn: aws_iam_role_firehose_role.arn,
- *         typeName: "test",
- *     },
- *     s3Configuration: {
- *         bucketArn: aws_s3_bucket_bucket.arn,
- *         bufferInterval: 400,
- *         bufferSize: 10,
- *         compressionFormat: "GZIP",
- *         roleArn: aws_iam_role_firehose_role.arn,
  *     },
  * });
  * ```
@@ -192,20 +182,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
+ * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
  *     destination: "splunk",
  *     s3Configuration: {
- *         bucketArn: aws_s3_bucket_bucket.arn,
- *         bufferInterval: 400,
+ *         roleArn: aws_iam_role.firehose.arn,
+ *         bucketArn: aws_s3_bucket.bucket.arn,
  *         bufferSize: 10,
+ *         bufferInterval: 400,
  *         compressionFormat: "GZIP",
- *         roleArn: aws_iam_role_firehose.arn,
  *     },
  *     splunkConfiguration: {
- *         hecAcknowledgmentTimeout: 600,
  *         hecEndpoint: "https://http-inputs-mydomain.splunkcloud.com:443",
- *         hecEndpointType: "Event",
  *         hecToken: "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
+ *         hecAcknowledgmentTimeout: 600,
+ *         hecEndpointType: "Event",
  *         s3BackupMode: "FailedEventsOnly",
  *     },
  * });

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.ec2.getSecurityGroups({
+ * const test = aws.ec2.getSecurityGroups({
  *     filters: [
  *         {
  *             name: "group-name",
@@ -36,10 +36,10 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             name: "vpc-id",
- *             values: [var_vpc_id],
+ *             values: [_var.vpc_id],
  *         },
  *     ],
- * }, { async: true }));
+ * });
  * ```
  */
 export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupsResult> {

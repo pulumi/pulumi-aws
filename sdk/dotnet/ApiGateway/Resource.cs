@@ -28,9 +28,9 @@ namespace Pulumi.Aws.ApiGateway
     ///         });
     ///         var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new Aws.ApiGateway.ResourceArgs
     ///         {
+    ///             RestApi = myDemoAPI.Id,
     ///             ParentId = myDemoAPI.RootResourceId,
     ///             PathPart = "mydemoresource",
-    ///             RestApi = myDemoAPI.Id,
     ///         });
     ///     }
     /// 

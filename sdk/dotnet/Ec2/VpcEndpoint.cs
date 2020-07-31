@@ -32,8 +32,8 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var s3 = new Aws.Ec2.VpcEndpoint("s3", new Aws.Ec2.VpcEndpointArgs
     ///         {
-    ///             ServiceName = "com.amazonaws.us-west-2.s3",
     ///             VpcId = aws_vpc.Main.Id,
+    ///             ServiceName = "com.amazonaws.us-west-2.s3",
     ///         });
     ///     }
     /// 
@@ -51,12 +51,12 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var s3 = new Aws.Ec2.VpcEndpoint("s3", new Aws.Ec2.VpcEndpointArgs
     ///         {
+    ///             VpcId = aws_vpc.Main.Id,
     ///             ServiceName = "com.amazonaws.us-west-2.s3",
     ///             Tags = 
     ///             {
     ///                 { "Environment", "test" },
     ///             },
-    ///             VpcId = aws_vpc.Main.Id,
     ///         });
     ///     }
     /// 
@@ -74,67 +74,19 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var ec2 = new Aws.Ec2.VpcEndpoint("ec2", new Aws.Ec2.VpcEndpointArgs
     ///         {
-    ///             PrivateDnsEnabled = true,
+    ///             VpcId = aws_vpc.Main.Id,
+    ///             ServiceName = "com.amazonaws.us-west-2.ec2",
+    ///             VpcEndpointType = "Interface",
     ///             SecurityGroupIds = 
     ///             {
     ///                 aws_security_group.Sg1.Id,
     ///             },
-    ///             ServiceName = "com.amazonaws.us-west-2.ec2",
-    ///             VpcEndpointType = "Interface",
-    ///             VpcId = aws_vpc.Main.Id,
+    ///             PrivateDnsEnabled = true,
     ///         });
     ///     }
     /// 
     /// }
     /// ```
-    /// ### Non-AWS Service
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var ptfeServiceVpcEndpoint = new Aws.Ec2.VpcEndpoint("ptfeServiceVpcEndpoint", new Aws.Ec2.VpcEndpointArgs
-    ///         {
-    ///             PrivateDnsEnabled = false,
-    ///             SecurityGroupIds = 
-    ///             {
-    ///                 aws_security_group.Ptfe_service.Id,
-    ///             },
-    ///             ServiceName = @var.Ptfe_service,
-    ///             SubnetIds = 
-    ///             {
-    ///                 local.Subnet_ids,
-    ///             },
-    ///             VpcEndpointType = "Interface",
-    ///             VpcId = @var.Vpc_id,
-    ///         });
-    ///         var @internal = Output.Create(Aws.Route53.GetZone.InvokeAsync(new Aws.Route53.GetZoneArgs
-    ///         {
-    ///             Name = "vpc.internal.",
-    ///             PrivateZone = true,
-    ///             VpcId = @var.Vpc_id,
-    ///         }));
-    ///         var ptfeServiceRecord = new Aws.Route53.Record("ptfeServiceRecord", new Aws.Route53.RecordArgs
-    ///         {
-    ///             Name = @internal.Apply(@internal =&gt; $"ptfe.{@internal.Name}"),
-    ///             Records = 
-    ///             {
-    ///                 ptfeServiceVpcEndpoint.DnsEntries.Apply(dnsEntries =&gt; dnsEntries[0])["dns_name"],
-    ///             },
-    ///             Ttl = 300,
-    ///             Type = "CNAME",
-    ///             ZoneId = @internal.Apply(@internal =&gt; @internal.ZoneId),
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// &gt; **NOTE The `dns_entry` output is a list of maps:** This provider interpolation support for lists of maps requires the `lookup` and `[]` until full support of lists of maps is available
     /// </summary>
     public partial class VpcEndpoint : Pulumi.CustomResource
     {

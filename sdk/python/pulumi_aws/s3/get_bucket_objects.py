@@ -91,8 +91,8 @@ def get_bucket_objects(bucket=None,delimiter=None,encoding_type=None,fetch_owner
     import pulumi_aws as aws
 
     my_objects = aws.s3.get_bucket_objects(bucket="ourcorp")
-    object_info = [aws.s3.get_bucket_object(bucket=my_objects.bucket,
-        key=my_objects.keys[__index]) for __index in range(len(my_objects.keys))]
+    object_info = [aws.s3.get_bucket_object(key=my_objects.keys[__index],
+        bucket=my_objects.bucket) for __index in range(len(my_objects.keys))]
     ```
 
 

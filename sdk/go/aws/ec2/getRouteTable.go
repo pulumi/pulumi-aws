@@ -36,8 +36,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewRoute(ctx, "route", &ec2.RouteArgs{
-// 			DestinationCidrBlock:   pulumi.String("10.0.1.0/22"),
 // 			RouteTableId:           pulumi.String(selected.Id),
+// 			DestinationCidrBlock:   pulumi.String("10.0.1.0/22"),
 // 			VpcPeeringConnectionId: pulumi.String("pcx-45ff3dc1"),
 // 		})
 // 		if err != nil {

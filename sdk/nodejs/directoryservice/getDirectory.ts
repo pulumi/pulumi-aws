@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws_directory_service_directory_main.id.apply(id => aws.directoryservice.getDirectory({
- *     directoryId: id,
- * }, { async: true }));
+ * const example = aws.directoryservice.getDirectory({
+ *     directoryId: aws_directory_service_directory.main.id,
+ * });
  * ```
  */
 export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryResult> {

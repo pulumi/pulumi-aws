@@ -18,11 +18,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const localGatewayId = config.require("localGatewayId");
- *
- * const selected = pulumi.output(aws.ec2.getLocalGateway({
+ * const localGatewayId = config.requireObject("localGatewayId");
+ * const selected = aws.ec2.getLocalGateway({
  *     id: localGatewayId,
- * }, { async: true }));
+ * });
  * ```
  */
 export function getLocalGateway(args?: GetLocalGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayResult> {

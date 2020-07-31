@@ -17,9 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const db = new aws.opsworks.MysqlLayer("db", {
- *     stackId: aws_opsworks_stack_main.id,
- * });
+ * const db = new aws.opsworks.MysqlLayer("db", {stackId: aws_opsworks_stack.main.id});
  * ```
  */
 export class MysqlLayer extends pulumi.CustomResource {

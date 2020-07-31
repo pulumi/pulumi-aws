@@ -14,12 +14,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.directoryservice.ConditionalForwader("example", {
- *     directoryId: aws_directory_service_directory_ad.id,
+ *     directoryId: aws_directory_service_directory.ad.id,
+ *     remoteDomainName: "example.com",
  *     dnsIps: [
  *         "8.8.8.8",
  *         "8.8.4.4",
  *     ],
- *     remoteDomainName: "example.com",
  * });
  * ```
  */

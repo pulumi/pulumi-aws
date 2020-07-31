@@ -44,20 +44,20 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ec2.NewRouteTable(ctx, "routeTable", &ec2.RouteTableArgs{
+// 			VpcId: pulumi.String(aws_vpc.Default.Id),
 // 			Routes: ec2.RouteTableRouteArray{
 // 				&ec2.RouteTableRouteArgs{
 // 					CidrBlock: pulumi.String("10.0.1.0/24"),
 // 					GatewayId: pulumi.String(aws_internet_gateway.Main.Id),
 // 				},
 // 				&ec2.RouteTableRouteArgs{
-// 					EgressOnlyGatewayId: pulumi.String(aws_egress_only_internet_gateway.Foo.Id),
 // 					Ipv6CidrBlock:       pulumi.String("::/0"),
+// 					EgressOnlyGatewayId: pulumi.String(aws_egress_only_internet_gateway.Foo.Id),
 // 				},
 // 			},
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("main"),
 // 			},
-// 			VpcId: pulumi.String(aws_vpc.Default.Id),
 // 		})
 // 		if err != nil {
 // 			return err

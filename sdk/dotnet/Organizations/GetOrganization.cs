@@ -62,6 +62,7 @@ namespace Pulumi.Aws.Organizations
         ///                 {
         ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///                     {
+        ///                         Effect = "Allow",
         ///                         Actions = 
         ///                         {
         ///                             "SNS:Subscribe",
@@ -72,23 +73,22 @@ namespace Pulumi.Aws.Organizations
         ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
         ///                             {
         ///                                 Test = "StringEquals",
+        ///                                 Variable = "aws:PrincipalOrgID",
         ///                                 Values = 
         ///                                 {
         ///                                     example.Id,
         ///                                 },
-        ///                                 Variable = "aws:PrincipalOrgID",
         ///                             },
         ///                         },
-        ///                         Effect = "Allow",
         ///                         Principals = 
         ///                         {
         ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
         ///                             {
+        ///                                 Type = "AWS",
         ///                                 Identifiers = 
         ///                                 {
         ///                                     "*",
         ///                                 },
-        ///                                 Type = "AWS",
         ///                             },
         ///                         },
         ///                         Resources = 

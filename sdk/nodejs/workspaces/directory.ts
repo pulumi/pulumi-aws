@@ -15,31 +15,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mainVpc = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
+ * const mainVpc = new aws.ec2.Vpc("mainVpc", {cidrBlock: "10.0.0.0/16"});
  * const private_a = new aws.ec2.Subnet("private-a", {
+ *     vpcId: mainVpc.id,
  *     availabilityZone: "us-east-1a",
  *     cidrBlock: "10.0.0.0/24",
- *     vpcId: mainVpc.id,
  * });
  * const private_b = new aws.ec2.Subnet("private-b", {
+ *     vpcId: mainVpc.id,
  *     availabilityZone: "us-east-1b",
  *     cidrBlock: "10.0.1.0/24",
- *     vpcId: mainVpc.id,
  * });
- * const mainDirectory = new aws.directoryservice.Directory("main", {
+ * const mainDirectory = new aws.directoryservice.Directory("mainDirectory", {
  *     password: "#S1ncerely",
  *     size: "Small",
  *     vpcSettings: {
+ *         vpcId: mainVpc.id,
  *         subnetIds: [
  *             private_a.id,
  *             private_b.id,
  *         ],
- *         vpcId: mainVpc.id,
  *     },
  * });
- * const mainWorkspacesDirectory = new aws.workspaces.Directory("main", {
+ * const mainWorkspaces_directoryDirectory = new aws.workspaces.Directory("mainWorkspaces/directoryDirectory", {
  *     directoryId: mainDirectory.id,
  *     selfServicePermissions: {
  *         increaseVolumeSize: true,

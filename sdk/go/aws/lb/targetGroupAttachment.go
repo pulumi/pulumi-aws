@@ -36,9 +36,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = lb.NewTargetGroupAttachment(ctx, "testTargetGroupAttachment", &lb.TargetGroupAttachmentArgs{
-// 			Port:           pulumi.Int(80),
 // 			TargetGroupArn: testTargetGroup.Arn,
 // 			TargetId:       testInstance.ID(),
+// 			Port:           pulumi.Int(80),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -70,7 +70,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = lambda.NewPermission(ctx, "withLb", &lambda.PermissionArgs{
+// 		withLb, err := lambda.NewPermission(ctx, "withLb", &lambda.PermissionArgs{
 // 			Action:    pulumi.String("lambda:InvokeFunction"),
 // 			Function:  testFunction.Arn,
 // 			Principal: pulumi.String("elasticloadbalancing.amazonaws.com"),
@@ -83,7 +83,7 @@ import (
 // 			TargetGroupArn: testTargetGroup.Arn,
 // 			TargetId:       testFunction.Arn,
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_lambda_permission.with_lb",
+// 			withLb,
 // 		}))
 // 		if err != nil {
 // 			return err

@@ -25,6 +25,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         var myapi = new Aws.ApiGateway.RestApi("myapi", new Aws.ApiGateway.RestApiArgs
     ///         {
     ///         });
+    ///         // ...
     ///         var dev = new Aws.ApiGateway.Deployment("dev", new Aws.ApiGateway.DeploymentArgs
     ///         {
     ///             RestApi = myapi.Id,
@@ -37,6 +38,8 @@ namespace Pulumi.Aws.ApiGateway
     ///         });
     ///         var myUsagePlan = new Aws.ApiGateway.UsagePlan("myUsagePlan", new Aws.ApiGateway.UsagePlanArgs
     ///         {
+    ///             Description = "my description",
+    ///             ProductCode = "MYCODE",
     ///             ApiStages = 
     ///             {
     ///                 new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
@@ -50,8 +53,6 @@ namespace Pulumi.Aws.ApiGateway
     ///                     Stage = prod.StageName,
     ///                 },
     ///             },
-    ///             Description = "my description",
-    ///             ProductCode = "MYCODE",
     ///             QuotaSettings = new Aws.ApiGateway.Inputs.UsagePlanQuotaSettingsArgs
     ///             {
     ///                 Limit = 20,

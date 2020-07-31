@@ -59,9 +59,9 @@ class BgpPeer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         peer = aws.directconnect.BgpPeer("peer",
+            virtual_interface_id=aws_dx_private_virtual_interface["foo"]["id"],
             address_family="ipv6",
-            bgp_asn=65351,
-            virtual_interface_id=aws_dx_private_virtual_interface["foo"]["id"])
+            bgp_asn=65351)
         ```
 
         :param str resource_name: The name of the resource.

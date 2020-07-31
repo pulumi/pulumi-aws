@@ -14,10 +14,11 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// &gt; **NOTE on AutoScaling Groups and ASG Attachments:** This provider currently provides
     /// both a standalone ASG Attachment resource (describing an ASG attached to
-    /// an ELB), and an AutoScaling Group resource with
-    /// `load_balancers` defined in-line. At this time you cannot use an ASG with in-line
-    /// load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
-    /// conflict and will overwrite attachments.
+    /// an ELB or ALB), and an AutoScaling Group resource with
+    /// `load_balancers` and `target_group_arns` defined in-line. At this time you can use an ASG with in-line
+    /// `load balancers` or `target_group_arns` in conjunction with an ASG Attachment resource, however, to prevent
+    /// unintended resource updates, the `aws.autoscaling.Group` resource must be configured
+    /// to ignore changes to the `load_balancers` and `target_group_arns` arguments within a [`lifecycle` configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle-lifecycle-customizations).
     /// 
     /// ## Example Usage
     /// 
@@ -51,8 +52,30 @@ namespace Pulumi.Aws.AutoScaling
     ///         // Create a new ALB Target Group attachment
     ///         var asgAttachmentBar = new Aws.AutoScaling.Attachment("asgAttachmentBar", new Aws.AutoScaling.AttachmentArgs
     ///         {
-    ///             AlbTargetGroupArn = aws_alb_target_group.Test.Arn,
     ///             AutoscalingGroupName = aws_autoscaling_group.Asg.Id,
+    ///             AlbTargetGroupArn = aws_alb_target_group.Test.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ## With An AutoScaling Group Resource
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var asg = new Aws.AutoScaling.Group("asg", new Aws.AutoScaling.GroupArgs
+    ///         {
+    ///         });
+    ///         var asgAttachmentBar = new Aws.AutoScaling.Attachment("asgAttachmentBar", new Aws.AutoScaling.AttachmentArgs
+    ///         {
+    ///             AutoscalingGroupName = asg.Id,
+    ///             Elb = aws_elb.Test.Id,
     ///         });
     ///     }
     /// 

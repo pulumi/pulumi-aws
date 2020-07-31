@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const lb = new aws.ec2.Eip("lb", {
- *     instance: aws_instance_web.id,
+ *     instance: aws_instance.web.id,
  *     vpc: true,
  * });
  * ```
@@ -32,21 +32,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const multi_ip = new aws.ec2.NetworkInterface("multi-ip", {
+ *     subnetId: aws_subnet.main.id,
  *     privateIps: [
  *         "10.0.0.10",
  *         "10.0.0.11",
  *     ],
- *     subnetId: aws_subnet_main.id,
  * });
  * const one = new aws.ec2.Eip("one", {
- *     associateWithPrivateIp: "10.0.0.10",
- *     networkInterface: multi_ip.id,
  *     vpc: true,
+ *     networkInterface: multi_ip.id,
+ *     associateWithPrivateIp: "10.0.0.10",
  * });
  * const two = new aws.ec2.Eip("two", {
- *     associateWithPrivateIp: "10.0.0.11",
- *     networkInterface: multi_ip.id,
  *     vpc: true,
+ *     networkInterface: multi_ip.id,
+ *     associateWithPrivateIp: "10.0.0.11",
  * });
  * ```
  *
@@ -56,30 +56,31 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultVpc = new aws.ec2.Vpc("default", {
+ * const _default = new aws.ec2.Vpc("default", {
  *     cidrBlock: "10.0.0.0/16",
  *     enableDnsHostnames: true,
  * });
- * const gw = new aws.ec2.InternetGateway("gw", {
- *     vpcId: defaultVpc.id,
- * });
- * const tfTestSubnet = new aws.ec2.Subnet("tf_test_subnet", {
+ * const gw = new aws.ec2.InternetGateway("gw", {vpcId: _default.id});
+ * const tfTestSubnet = new aws.ec2.Subnet("tfTestSubnet", {
+ *     vpcId: _default.id,
  *     cidrBlock: "10.0.0.0/24",
  *     mapPublicIpOnLaunch: true,
- *     vpcId: defaultVpc.id,
- * }, { dependsOn: [gw] });
+ * }, {
+ *     dependsOn: [gw],
+ * });
  * const foo = new aws.ec2.Instance("foo", {
- *     // us-west-2
  *     ami: "ami-5189a661",
  *     instanceType: "t2.micro",
  *     privateIp: "10.0.0.12",
  *     subnetId: tfTestSubnet.id,
  * });
  * const bar = new aws.ec2.Eip("bar", {
- *     associateWithPrivateIp: "10.0.0.12",
- *     instance: foo.id,
  *     vpc: true,
- * }, { dependsOn: [gw] });
+ *     instance: foo.id,
+ *     associateWithPrivateIp: "10.0.0.12",
+ * }, {
+ *     dependsOn: [gw],
+ * });
  * ```
  *
  * Allocating EIP from the BYOIP pool:

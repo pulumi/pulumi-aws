@@ -11,16 +11,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * The following example shows how to get Route53 Resolver rules based on tags.
+ * Retrieving the default resolver rule.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = pulumi.output(aws.route53.getResolverRules({
- *     tags: [{
- *         Environment: "dev",
- *     }],
+ *     ownerId: "Route 53 Resolver",
+ *     ruleType: "RECURSIVE",
+ *     shareStatus: "NOT_SHARED",
+ * }, { async: true }));
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = pulumi.output(aws.route53.getResolverRules({
+ *     ruleType: "FORWARD",
+ *     shareStatus: "SHARED_WITH_ME",
  * }, { async: true }));
  * ```
  */
@@ -58,8 +68,7 @@ export interface GetResolverRulesArgs {
      */
     readonly ruleType?: string;
     /**
-     * Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account.
-     * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+     * Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      */
     readonly shareStatus?: string;
 }

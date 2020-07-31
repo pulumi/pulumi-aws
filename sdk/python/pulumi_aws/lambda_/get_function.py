@@ -197,7 +197,7 @@ def get_function(function_name=None,qualifier=None,tags=None,opts=None):
     import pulumi_aws as aws
 
     config = pulumi.Config()
-    function_name = config.require_object("functionName")
+    function_name = config.require("functionName")
     existing = aws.lambda.get_function(function_name=function_name)
     ```
 

@@ -22,8 +22,10 @@ namespace Pulumi.Aws.Sfn
     /// {
     ///     public MyStack()
     ///     {
+    ///         // ...
     ///         var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new Aws.Sfn.StateMachineArgs
     ///         {
+    ///             RoleArn = aws_iam_role.Iam_for_sfn.Arn,
     ///             Definition = @$"{{
     ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
     ///   ""StartAt"": ""HelloWorld"",
@@ -35,9 +37,7 @@ namespace Pulumi.Aws.Sfn
     ///     }}
     ///   }}
     /// }}
-    /// 
     /// ",
-    ///             RoleArn = aws_iam_role.Iam_for_sfn.Arn,
     ///         });
     ///     }
     /// 

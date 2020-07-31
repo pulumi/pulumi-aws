@@ -63,8 +63,8 @@ class VolumeAttachment(pulumi.CustomResource):
             size=1)
         ebs_att = aws.ec2.VolumeAttachment("ebsAtt",
             device_name="/dev/sdh",
-            instance_id=web.id,
-            volume_id=example.id)
+            volume_id=example.id,
+            instance_id=web.id)
         ```
 
         :param str resource_name: The name of the resource.

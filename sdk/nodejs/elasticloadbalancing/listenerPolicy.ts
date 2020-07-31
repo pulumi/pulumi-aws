@@ -29,6 +29,8 @@ import * as utilities from "../utilities";
  * });
  * const wu_tang_ssl = new aws.elb.LoadBalancerPolicy("wu-tang-ssl", {
  *     loadBalancerName: wu_tang.name,
+ *     policyName: "wu-tang-ssl",
+ *     policyTypeName: "SSLNegotiationPolicyType",
  *     policyAttributes: [
  *         {
  *             name: "ECDHE-ECDSA-AES128-GCM-SHA256",
@@ -39,8 +41,6 @@ import * as utilities from "../utilities";
  *             value: "true",
  *         },
  *     ],
- *     policyName: "wu-tang-ssl",
- *     policyTypeName: "SSLNegotiationPolicyType",
  * });
  * const wu_tang_listener_policies_443 = new aws.elb.ListenerPolicy("wu-tang-listener-policies-443", {
  *     loadBalancerName: wu_tang.name,
@@ -71,12 +71,12 @@ import * as utilities from "../utilities";
  * });
  * const wu_tang_ssl_tls_1_1 = new aws.elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", {
  *     loadBalancerName: wu_tang.name,
+ *     policyName: "wu-tang-ssl",
+ *     policyTypeName: "SSLNegotiationPolicyType",
  *     policyAttributes: [{
  *         name: "Reference-Security-Policy",
  *         value: "ELBSecurityPolicy-TLS-1-1-2017-01",
  *     }],
- *     policyName: "wu-tang-ssl",
- *     policyTypeName: "SSLNegotiationPolicyType",
  * });
  * const wu_tang_listener_policies_443 = new aws.elb.ListenerPolicy("wu-tang-listener-policies-443", {
  *     loadBalancerName: wu_tang.name,

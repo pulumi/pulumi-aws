@@ -102,7 +102,7 @@ import {EngineMode, EngineType} from "./index";
  *
  * const example = new aws.rds.Cluster("example", {
  *     clusterIdentifier: "example",
- *     dbSubnetGroupName: aws_db_subnet_group_example.name,
+ *     dbSubnetGroupName: aws_db_subnet_group.example.name,
  *     engineMode: "multimaster",
  *     masterPassword: "barbarbarbar",
  *     masterUsername: "foo",

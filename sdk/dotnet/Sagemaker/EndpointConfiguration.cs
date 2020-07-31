@@ -30,10 +30,10 @@ namespace Pulumi.Aws.Sagemaker
     ///             {
     ///                 new Aws.Sagemaker.Inputs.EndpointConfigurationProductionVariantArgs
     ///                 {
+    ///                     VariantName = "variant-1",
+    ///                     ModelName = aws_sagemaker_model.M.Name,
     ///                     InitialInstanceCount = 1,
     ///                     InstanceType = "ml.t2.medium",
-    ///                     ModelName = aws_sagemaker_model.M.Name,
-    ///                     VariantName = "variant-1",
     ///                 },
     ///             },
     ///             Tags = 

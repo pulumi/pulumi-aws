@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -16,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.Integration("example", {
- *     apiId: aws_apigatewayv2_api_example.id,
+ *     apiId: aws_apigatewayv2_api.example.id,
  *     integrationType: "MOCK",
  * });
  * ```
@@ -26,19 +28,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleFunction = new aws.lambda.Function("example", {
+ * const exampleFunction = new aws.lambda.Function("exampleFunction", {
  *     code: new pulumi.asset.FileArchive("example.zip"),
+ *     role: aws_iam_role.example.arn,
  *     handler: "index.handler",
- *     role: aws_iam_role_example.arn,
  *     runtime: "nodejs10.x",
  * });
- * const exampleIntegration = new aws.apigatewayv2.Integration("example", {
- *     apiId: aws_apigatewayv2_api_example.id,
+ * const exampleIntegration = new aws.apigatewayv2.Integration("exampleIntegration", {
+ *     apiId: aws_apigatewayv2_api.example.id,
+ *     integrationType: "AWS",
  *     connectionType: "INTERNET",
  *     contentHandlingStrategy: "CONVERT_TO_TEXT",
  *     description: "Lambda example",
  *     integrationMethod: "POST",
- *     integrationType: "AWS",
  *     integrationUri: exampleFunction.invokeArn,
  *     passthroughBehavior: "WHEN_NO_MATCH",
  * });
@@ -124,6 +126,11 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly payloadFormatVersion!: pulumi.Output<string | undefined>;
     /**
+     * A key-value map specifying request parameters that are passed from the method request to the backend.
+     * Supported only for WebSocket APIs.
+     */
+    public readonly requestParameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
      */
     public readonly requestTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -135,6 +142,10 @@ export class Integration extends pulumi.CustomResource {
      * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
      */
     public readonly timeoutMilliseconds!: pulumi.Output<number | undefined>;
+    /**
+     * The TLS configuration for a private integration. Supported only for HTTP APIs.
+     */
+    public readonly tlsConfig!: pulumi.Output<outputs.apigatewayv2.IntegrationTlsConfig | undefined>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -160,9 +171,11 @@ export class Integration extends pulumi.CustomResource {
             inputs["integrationUri"] = state ? state.integrationUri : undefined;
             inputs["passthroughBehavior"] = state ? state.passthroughBehavior : undefined;
             inputs["payloadFormatVersion"] = state ? state.payloadFormatVersion : undefined;
+            inputs["requestParameters"] = state ? state.requestParameters : undefined;
             inputs["requestTemplates"] = state ? state.requestTemplates : undefined;
             inputs["templateSelectionExpression"] = state ? state.templateSelectionExpression : undefined;
             inputs["timeoutMilliseconds"] = state ? state.timeoutMilliseconds : undefined;
+            inputs["tlsConfig"] = state ? state.tlsConfig : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
             if (!args || args.apiId === undefined) {
@@ -182,9 +195,11 @@ export class Integration extends pulumi.CustomResource {
             inputs["integrationUri"] = args ? args.integrationUri : undefined;
             inputs["passthroughBehavior"] = args ? args.passthroughBehavior : undefined;
             inputs["payloadFormatVersion"] = args ? args.payloadFormatVersion : undefined;
+            inputs["requestParameters"] = args ? args.requestParameters : undefined;
             inputs["requestTemplates"] = args ? args.requestTemplates : undefined;
             inputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
             inputs["timeoutMilliseconds"] = args ? args.timeoutMilliseconds : undefined;
+            inputs["tlsConfig"] = args ? args.tlsConfig : undefined;
             inputs["integrationResponseSelectionExpression"] = undefined /*out*/;
         }
         if (!opts) {
@@ -254,6 +269,11 @@ export interface IntegrationState {
      */
     readonly payloadFormatVersion?: pulumi.Input<string>;
     /**
+     * A key-value map specifying request parameters that are passed from the method request to the backend.
+     * Supported only for WebSocket APIs.
+     */
+    readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
      */
     readonly requestTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -265,6 +285,10 @@ export interface IntegrationState {
      * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
      */
     readonly timeoutMilliseconds?: pulumi.Input<number>;
+    /**
+     * The TLS configuration for a private integration. Supported only for HTTP APIs.
+     */
+    readonly tlsConfig?: pulumi.Input<inputs.apigatewayv2.IntegrationTlsConfig>;
 }
 
 /**
@@ -319,6 +343,11 @@ export interface IntegrationArgs {
      */
     readonly payloadFormatVersion?: pulumi.Input<string>;
     /**
+     * A key-value map specifying request parameters that are passed from the method request to the backend.
+     * Supported only for WebSocket APIs.
+     */
+    readonly requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
      */
     readonly requestTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -330,4 +359,8 @@ export interface IntegrationArgs {
      * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
      */
     readonly timeoutMilliseconds?: pulumi.Input<number>;
+    /**
+     * The TLS configuration for a private integration. Supported only for HTTP APIs.
+     */
+    readonly tlsConfig?: pulumi.Input<inputs.apigatewayv2.IntegrationTlsConfig>;
 }

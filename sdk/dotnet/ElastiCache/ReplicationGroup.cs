@@ -23,6 +23,78 @@ namespace Pulumi.Aws.ElastiCache
     /// servers reboots.
     /// 
     /// ## Example Usage
+    /// ### Redis Cluster Mode Disabled
+    /// 
+    /// To create a single shard primary with single read replica:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ElastiCache.ReplicationGroup("example", new Aws.ElastiCache.ReplicationGroupArgs
+    ///         {
+    ///             AutomaticFailoverEnabled = true,
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-west-2a",
+    ///                 "us-west-2b",
+    ///             },
+    ///             NodeType = "cache.m4.large",
+    ///             NumberCacheClusters = 2,
+    ///             ParameterGroupName = "default.redis3.2",
+    ///             Port = 6379,
+    ///             ReplicationGroupDescription = "test description",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// You have two options for adjusting the number of replicas:
+    /// 
+    /// * Adjusting `number_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g. preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
+    /// * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replication_group_id` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `number_cache_cluster` attribute.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.ElastiCache.ReplicationGroup("example", new Aws.ElastiCache.ReplicationGroupArgs
+    ///         {
+    ///             AutomaticFailoverEnabled = true,
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-west-2a",
+    ///                 "us-west-2b",
+    ///             },
+    ///             ReplicationGroupDescription = "test description",
+    ///             NodeType = "cache.m4.large",
+    ///             NumberCacheClusters = 2,
+    ///             ParameterGroupName = "default.redis3.2",
+    ///             Port = 6379,
+    ///         });
+    ///         var replica = new List&lt;Aws.ElastiCache.Cluster&gt;();
+    ///         for (var rangeIndex = 0; rangeIndex &lt; (1 == true); rangeIndex++)
+    ///         {
+    ///             var range = new { Value = rangeIndex };
+    ///             replica.Add(new Aws.ElastiCache.Cluster($"replica-{range.Value}", new Aws.ElastiCache.ClusterArgs
+    ///             {
+    ///                 ReplicationGroupId = example.Id,
+    ///             }));
+    ///         }
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Redis Cluster Mode Enabled
     /// 
     /// To create two shards with a primary and a single read replica each:

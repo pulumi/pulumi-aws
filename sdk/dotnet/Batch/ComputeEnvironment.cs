@@ -42,13 +42,12 @@ namespace Pulumi.Aws.Batch
     /// 	}
     ///     ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var ecsInstanceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
     ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
     ///             Role = ecsInstanceRoleRole.Name,
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
     ///         });
     ///         var ecsInstanceRoleInstanceProfile = new Aws.Iam.InstanceProfile("ecsInstanceRoleInstanceProfile", new Aws.Iam.InstanceProfileArgs
     ///         {
@@ -68,13 +67,12 @@ namespace Pulumi.Aws.Batch
     /// 	}
     ///     ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var awsBatchServiceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
     ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
     ///             Role = awsBatchServiceRoleRole.Name,
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
     ///         });
     ///         var sampleSecurityGroup = new Aws.Ec2.SecurityGroup("sampleSecurityGroup", new Aws.Ec2.SecurityGroupArgs
     ///         {
@@ -82,13 +80,13 @@ namespace Pulumi.Aws.Batch
     ///             {
     ///                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
     ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
     ///                     CidrBlocks = 
     ///                     {
     ///                         "0.0.0.0/0",
     ///                     },
-    ///                     FromPort = 0,
-    ///                     Protocol = "-1",
-    ///                     ToPort = 0,
     ///                 },
     ///             },
     ///         });
@@ -98,8 +96,8 @@ namespace Pulumi.Aws.Batch
     ///         });
     ///         var sampleSubnet = new Aws.Ec2.Subnet("sampleSubnet", new Aws.Ec2.SubnetArgs
     ///         {
-    ///             CidrBlock = "10.1.1.0/24",
     ///             VpcId = sampleVpc.Id,
+    ///             CidrBlock = "10.1.1.0/24",
     ///         });
     ///         var sampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("sampleComputeEnvironment", new Aws.Batch.ComputeEnvironmentArgs
     ///         {
@@ -129,7 +127,7 @@ namespace Pulumi.Aws.Batch
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_iam_role_policy_attachment.aws_batch_service_role",
+    ///                 awsBatchServiceRoleRolePolicyAttachment,
     ///             },
     ///         });
     ///     }

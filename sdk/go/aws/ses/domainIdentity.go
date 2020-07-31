@@ -32,13 +32,13 @@ import (
 // 			return err
 // 		}
 // 		_, err = route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
-// 			Name: pulumi.String("_amazonses.example.com"),
+// 			ZoneId: pulumi.String("ABCDEFGHIJ123"),
+// 			Name:   pulumi.String("_amazonses.example.com"),
+// 			Type:   pulumi.String("TXT"),
+// 			Ttl:    pulumi.Int(600),
 // 			Records: pulumi.StringArray{
 // 				example.VerificationToken,
 // 			},
-// 			Ttl:    pulumi.Int(600),
-// 			Type:   pulumi.String("TXT"),
-// 			ZoneId: pulumi.String("ABCDEFGHIJ123"),
 // 		})
 // 		if err != nil {
 // 			return err

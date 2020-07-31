@@ -29,9 +29,9 @@ namespace Pulumi.Aws.ApiGateway
     ///         {
     ///             Location = new Aws.ApiGateway.Inputs.DocumentationPartLocationArgs
     ///             {
+    ///                 Type = "METHOD",
     ///                 Method = "GET",
     ///                 Path = "/example",
-    ///                 Type = "METHOD",
     ///             },
     ///             Properties = "{\"description\":\"Example description\"}",
     ///             RestApiId = exampleRestApi.Id,

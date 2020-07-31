@@ -45,12 +45,33 @@ namespace Pulumi.Aws.CloudFront
     ///         var s3OriginId = "myS3Origin";
     ///         var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new Aws.CloudFront.DistributionArgs
     ///         {
+    ///             Origins = 
+    ///             {
+    ///                 new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///                 {
+    ///                     DomainName = bucket.BucketRegionalDomainName,
+    ///                     OriginId = s3OriginId,
+    ///                     S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
+    ///                     {
+    ///                         OriginAccessIdentity = "origin-access-identity/cloudfront/ABCDEFG1234567",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Enabled = true,
+    ///             IsIpv6Enabled = true,
+    ///             Comment = "Some comment",
+    ///             DefaultRootObject = "index.html",
+    ///             LoggingConfig = new Aws.CloudFront.Inputs.DistributionLoggingConfigArgs
+    ///             {
+    ///                 IncludeCookies = false,
+    ///                 Bucket = "mylogs.s3.amazonaws.com",
+    ///                 Prefix = "myprefix",
+    ///             },
     ///             Aliases = 
     ///             {
     ///                 "mysite.example.com",
     ///                 "yoursite.example.com",
     ///             },
-    ///             Comment = "Some comment",
     ///             DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
     ///             {
     ///                 AllowedMethods = 
@@ -68,33 +89,25 @@ namespace Pulumi.Aws.CloudFront
     ///                     "GET",
     ///                     "HEAD",
     ///                 },
-    ///                 DefaultTtl = 3600,
+    ///                 TargetOriginId = s3OriginId,
     ///                 ForwardedValues = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs
     ///                 {
+    ///                     QueryString = false,
     ///                     Cookies = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs
     ///                     {
     ///                         Forward = "none",
     ///                     },
-    ///                     QueryString = false,
     ///                 },
-    ///                 MaxTtl = 86400,
-    ///                 MinTtl = 0,
-    ///                 TargetOriginId = s3OriginId,
     ///                 ViewerProtocolPolicy = "allow-all",
-    ///             },
-    ///             DefaultRootObject = "index.html",
-    ///             Enabled = true,
-    ///             IsIpv6Enabled = true,
-    ///             LoggingConfig = new Aws.CloudFront.Inputs.DistributionLoggingConfigArgs
-    ///             {
-    ///                 Bucket = "mylogs.s3.amazonaws.com",
-    ///                 IncludeCookies = false,
-    ///                 Prefix = "myprefix",
+    ///                 MinTtl = 0,
+    ///                 DefaultTtl = 3600,
+    ///                 MaxTtl = 86400,
     ///             },
     ///             OrderedCacheBehaviors = 
     ///             {
     ///                 new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
     ///                 {
+    ///                     PathPattern = "/content/immutable/*",
     ///                     AllowedMethods = 
     ///                     {
     ///                         "GET",
@@ -107,28 +120,28 @@ namespace Pulumi.Aws.CloudFront
     ///                         "HEAD",
     ///                         "OPTIONS",
     ///                     },
-    ///                     Compress = true,
-    ///                     DefaultTtl = 86400,
+    ///                     TargetOriginId = s3OriginId,
     ///                     ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
     ///                     {
-    ///                         Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
-    ///                         {
-    ///                             Forward = "none",
-    ///                         },
+    ///                         QueryString = false,
     ///                         Headers = 
     ///                         {
     ///                             "Origin",
     ///                         },
-    ///                         QueryString = false,
+    ///                         Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
+    ///                         {
+    ///                             Forward = "none",
+    ///                         },
     ///                     },
-    ///                     MaxTtl = 31536000,
     ///                     MinTtl = 0,
-    ///                     PathPattern = "/content/immutable/*",
-    ///                     TargetOriginId = s3OriginId,
+    ///                     DefaultTtl = 86400,
+    ///                     MaxTtl = 31536000,
+    ///                     Compress = true,
     ///                     ViewerProtocolPolicy = "redirect-to-https",
     ///                 },
     ///                 new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorArgs
     ///                 {
+    ///                     PathPattern = "/content/*",
     ///                     AllowedMethods = 
     ///                     {
     ///                         "GET",
@@ -140,33 +153,20 @@ namespace Pulumi.Aws.CloudFront
     ///                         "GET",
     ///                         "HEAD",
     ///                     },
-    ///                     Compress = true,
-    ///                     DefaultTtl = 3600,
+    ///                     TargetOriginId = s3OriginId,
     ///                     ForwardedValues = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs
     ///                     {
+    ///                         QueryString = false,
     ///                         Cookies = new Aws.CloudFront.Inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs
     ///                         {
     ///                             Forward = "none",
     ///                         },
-    ///                         QueryString = false,
     ///                     },
-    ///                     MaxTtl = 86400,
     ///                     MinTtl = 0,
-    ///                     PathPattern = "/content/*",
-    ///                     TargetOriginId = s3OriginId,
+    ///                     DefaultTtl = 3600,
+    ///                     MaxTtl = 86400,
+    ///                     Compress = true,
     ///                     ViewerProtocolPolicy = "redirect-to-https",
-    ///                 },
-    ///             },
-    ///             Origins = 
-    ///             {
-    ///                 new Aws.CloudFront.Inputs.DistributionOriginArgs
-    ///                 {
-    ///                     DomainName = bucket.BucketRegionalDomainName,
-    ///                     OriginId = s3OriginId,
-    ///                     S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
-    ///                     {
-    ///                         OriginAccessIdentity = "origin-access-identity/cloudfront/ABCDEFG1234567",
-    ///                     },
     ///                 },
     ///             },
     ///             PriceClass = "PriceClass_200",
@@ -174,6 +174,7 @@ namespace Pulumi.Aws.CloudFront
     ///             {
     ///                 GeoRestriction = new Aws.CloudFront.Inputs.DistributionRestrictionsGeoRestrictionArgs
     ///                 {
+    ///                     RestrictionType = "whitelist",
     ///                     Locations = 
     ///                     {
     ///                         "US",
@@ -181,7 +182,6 @@ namespace Pulumi.Aws.CloudFront
     ///                         "GB",
     ///                         "DE",
     ///                     },
-    ///                     RestrictionType = "whitelist",
     ///                 },
     ///             },
     ///             Tags = 
@@ -210,9 +210,33 @@ namespace Pulumi.Aws.CloudFront
     ///     {
     ///         var s3Distribution = new Aws.CloudFront.Distribution("s3Distribution", new Aws.CloudFront.DistributionArgs
     ///         {
-    ///             DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
+    ///             OriginGroups = 
     ///             {
-    ///                 TargetOriginId = "groupS3",
+    ///                 new Aws.CloudFront.Inputs.DistributionOriginGroupArgs
+    ///                 {
+    ///                     OriginId = "groupS3",
+    ///                     FailoverCriteria = new Aws.CloudFront.Inputs.DistributionOriginGroupFailoverCriteriaArgs
+    ///                     {
+    ///                         StatusCodes = 
+    ///                         {
+    ///                             403,
+    ///                             404,
+    ///                             500,
+    ///                             502,
+    ///                         },
+    ///                     },
+    ///                     Members = 
+    ///                     {
+    ///                         new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
+    ///                         {
+    ///                             OriginId = "primaryS3",
+    ///                         },
+    ///                         new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
+    ///                         {
+    ///                             OriginId = "failoverS3",
+    ///                         },
+    ///                     },
+    ///                 },
     ///             },
     ///             Origins = 
     ///             {
@@ -235,35 +259,12 @@ namespace Pulumi.Aws.CloudFront
     ///                     },
     ///                 },
     ///             },
-    ///             OriginGroups = 
+    ///             DefaultCacheBehavior = new Aws.CloudFront.Inputs.DistributionDefaultCacheBehaviorArgs
     ///             {
-    ///                 new Aws.CloudFront.Inputs.DistributionOriginGroupArgs
-    ///                 {
-    ///                     FailoverCriteria = new Aws.CloudFront.Inputs.DistributionOriginGroupFailoverCriteriaArgs
-    ///                     {
-    ///                         StatusCodes = 
-    ///                         {
-    ///                             403,
-    ///                             404,
-    ///                             500,
-    ///                             502,
-    ///                         },
-    ///                     },
-    ///                     Members = 
-    ///                     {
-    ///                         new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
-    ///                         {
-    ///                             OriginId = "primaryS3",
-    ///                         },
-    ///                         new Aws.CloudFront.Inputs.DistributionOriginGroupMemberArgs
-    ///                         {
-    ///                             OriginId = "failoverS3",
-    ///                         },
-    ///                     },
-    ///                     OriginId = "groupS3",
-    ///                 },
+    ///                 TargetOriginId = "groupS3",
     ///             },
     ///         });
+    ///         // ... other configuration ...
     ///     }
     /// 
     /// }
@@ -271,14 +272,6 @@ namespace Pulumi.Aws.CloudFront
     /// </summary>
     public partial class Distribution : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The key pair IDs that CloudFront is aware of for
-        /// each trusted signer, if the distribution is set up to serve private content
-        /// with signed URLs.
-        /// </summary>
-        [Output("activeTrustedSigners")]
-        public Output<ImmutableDictionary<string, string>> ActiveTrustedSigners { get; private set; } = null!;
-
         /// <summary>
         /// Extra CNAMEs (alternate domain names), if any, for
         /// this distribution.
@@ -447,6 +440,13 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+        /// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        /// </summary>
+        [Output("trustedSigners")]
+        public Output<ImmutableArray<Outputs.DistributionTrustedSigner>> TrustedSigners { get; private set; } = null!;
 
         /// <summary>
         /// The SSL
@@ -702,20 +702,6 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class DistributionState : Pulumi.ResourceArgs
     {
-        [Input("activeTrustedSigners")]
-        private InputMap<string>? _activeTrustedSigners;
-
-        /// <summary>
-        /// The key pair IDs that CloudFront is aware of for
-        /// each trusted signer, if the distribution is set up to serve private content
-        /// with signed URLs.
-        /// </summary>
-        public InputMap<string> ActiveTrustedSigners
-        {
-            get => _activeTrustedSigners ?? (_activeTrustedSigners = new InputMap<string>());
-            set => _activeTrustedSigners = value;
-        }
-
         [Input("aliases")]
         private InputList<string>? _aliases;
 
@@ -919,6 +905,19 @@ namespace Pulumi.Aws.CloudFront
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("trustedSigners")]
+        private InputList<Inputs.DistributionTrustedSignerGetArgs>? _trustedSigners;
+
+        /// <summary>
+        /// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+        /// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        /// </summary>
+        public InputList<Inputs.DistributionTrustedSignerGetArgs> TrustedSigners
+        {
+            get => _trustedSigners ?? (_trustedSigners = new InputList<Inputs.DistributionTrustedSignerGetArgs>());
+            set => _trustedSigners = value;
         }
 
         /// <summary>

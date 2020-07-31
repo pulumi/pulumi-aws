@@ -38,23 +38,23 @@ namespace Pulumi.Aws.Iam
     ///         });
     ///         var example1 = new Aws.Iam.UserGroupMembership("example1", new Aws.Iam.UserGroupMembershipArgs
     ///         {
+    ///             User = user1.Name,
     ///             Groups = 
     ///             {
     ///                 group1.Name,
     ///                 group2.Name,
     ///             },
-    ///             User = user1.Name,
     ///         });
     ///         var group3 = new Aws.Iam.Group("group3", new Aws.Iam.GroupArgs
     ///         {
     ///         });
     ///         var example2 = new Aws.Iam.UserGroupMembership("example2", new Aws.Iam.UserGroupMembershipArgs
     ///         {
+    ///             User = user1.Name,
     ///             Groups = 
     ///             {
     ///                 group3.Name,
     ///             },
-    ///             User = user1.Name,
     ///         });
     ///     }
     /// 

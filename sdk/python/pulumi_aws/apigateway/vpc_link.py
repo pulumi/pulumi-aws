@@ -48,7 +48,7 @@ class VpcLink(pulumi.CustomResource):
             }])
         example_vpc_link = aws.apigateway.VpcLink("exampleVpcLink",
             description="example description",
-            target_arn=example_load_balancer.arn)
+            target_arn=[example_load_balancer.arn])
         ```
 
         :param str resource_name: The name of the resource.

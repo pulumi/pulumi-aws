@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const current = pulumi.output(aws.getCallerIdentity({ async: true }));
- * const allowMeToFoo = new aws.ec2.VpcEndpointServiceAllowedPrinciple("allow_me_to_foo", {
- *     principalArn: current.arn,
- *     vpcEndpointServiceId: aws_vpc_endpoint_service_foo.id,
+ * const current = aws.getCallerIdentity({});
+ * const allowMeToFoo = new aws.ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo", {
+ *     vpcEndpointServiceId: aws_vpc_endpoint_service.foo.id,
+ *     principalArn: current.then(current => current.arn),
  * });
  * ```
  */

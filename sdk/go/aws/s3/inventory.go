@@ -34,16 +34,16 @@ import (
 // 			return err
 // 		}
 // 		_, err = s3.NewInventory(ctx, "testInventory", &s3.InventoryArgs{
-// 			Bucket: testBucket.ID(),
-// 			Destination: &s3.InventoryDestinationArgs{
-// 				Bucket: &s3.InventoryDestinationBucketArgs{
-// 					BucketArn: inventory.Arn,
-// 					Format:    pulumi.String("ORC"),
-// 				},
-// 			},
+// 			Bucket:                 testBucket.ID(),
 // 			IncludedObjectVersions: pulumi.String("All"),
 // 			Schedule: &s3.InventoryScheduleArgs{
 // 				Frequency: pulumi.String("Daily"),
+// 			},
+// 			Destination: &s3.InventoryDestinationArgs{
+// 				Bucket: &s3.InventoryDestinationBucketArgs{
+// 					Format:    pulumi.String("ORC"),
+// 					BucketArn: inventory.Arn,
+// 				},
 // 			},
 // 		})
 // 		if err != nil {
@@ -74,20 +74,20 @@ import (
 // 			return err
 // 		}
 // 		_, err = s3.NewInventory(ctx, "test_prefix", &s3.InventoryArgs{
-// 			Bucket: test.ID(),
-// 			Destination: &s3.InventoryDestinationArgs{
-// 				Bucket: &s3.InventoryDestinationBucketArgs{
-// 					BucketArn: inventory.Arn,
-// 					Format:    pulumi.String("ORC"),
-// 					Prefix:    pulumi.String("inventory"),
-// 				},
+// 			Bucket:                 test.ID(),
+// 			IncludedObjectVersions: pulumi.String("All"),
+// 			Schedule: &s3.InventoryScheduleArgs{
+// 				Frequency: pulumi.String("Daily"),
 // 			},
 // 			Filter: &s3.InventoryFilterArgs{
 // 				Prefix: pulumi.String("documents/"),
 // 			},
-// 			IncludedObjectVersions: pulumi.String("All"),
-// 			Schedule: &s3.InventoryScheduleArgs{
-// 				Frequency: pulumi.String("Daily"),
+// 			Destination: &s3.InventoryDestinationArgs{
+// 				Bucket: &s3.InventoryDestinationBucketArgs{
+// 					Format:    pulumi.String("ORC"),
+// 					BucketArn: inventory.Arn,
+// 					Prefix:    pulumi.String("inventory"),
+// 				},
 // 			},
 // 		})
 // 		if err != nil {

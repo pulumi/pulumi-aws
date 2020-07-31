@@ -15,10 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRule = new aws.wafregional.Rule("example", {
+ * const exampleRule = new aws.wafregional.Rule("exampleRule", {metricName: "example"});
+ * const exampleRuleGroup = new aws.wafregional.RuleGroup("exampleRuleGroup", {
  *     metricName: "example",
- * });
- * const exampleRuleGroup = new aws.wafregional.RuleGroup("example", {
  *     activatedRules: [{
  *         action: {
  *             type: "COUNT",
@@ -26,7 +25,6 @@ import * as utilities from "../utilities";
  *         priority: 50,
  *         ruleId: exampleRule.id,
  *     }],
- *     metricName: "example",
  * });
  * ```
  */

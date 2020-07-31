@@ -42,6 +42,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = apigateway.NewUsagePlan(ctx, "myUsagePlan", &apigateway.UsagePlanArgs{
+// 			Description: pulumi.String("my description"),
+// 			ProductCode: pulumi.String("MYCODE"),
 // 			ApiStages: apigateway.UsagePlanApiStageArray{
 // 				&apigateway.UsagePlanApiStageArgs{
 // 					ApiId: myapi.ID(),
@@ -52,8 +54,6 @@ import (
 // 					Stage: prod.StageName,
 // 				},
 // 			},
-// 			Description: pulumi.String("my description"),
-// 			ProductCode: pulumi.String("MYCODE"),
 // 			QuotaSettings: &apigateway.UsagePlanQuotaSettingsArgs{
 // 				Limit:  pulumi.Int(20),
 // 				Offset: pulumi.Int(2),

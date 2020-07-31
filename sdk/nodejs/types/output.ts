@@ -93,10 +93,14 @@ export interface GetRegionsFilter {
 }
 
 export interface ProviderAssumeRole {
+    durationSeconds?: number;
     externalId?: string;
     policy?: string;
+    policyArns?: string[];
     roleArn?: string;
     sessionName?: string;
+    tags?: {[key: string]: string};
+    transitiveTagKeys?: string[];
 }
 
 export interface ProviderEndpoint {
@@ -174,10 +178,6 @@ export interface ProviderEndpoint {
     iotevents?: string;
     kafka?: string;
     kinesis?: string;
-    /**
-     * @deprecated use `endpoints` configuration block `kinesisanalytics` argument instead
-     */
-    kinesisAnalytics?: string;
     kinesisanalytics?: string;
     kinesisanalyticsv2?: string;
     kinesisvideo?: string;
@@ -207,10 +207,6 @@ export interface ProviderEndpoint {
     pricing?: string;
     qldb?: string;
     quicksight?: string;
-    /**
-     * @deprecated use `endpoints` configuration block `route53` argument instead
-     */
-    r53?: string;
     ram?: string;
     rds?: string;
     redshift?: string;
@@ -847,15 +843,9 @@ export namespace alb {
 
     export interface ListenerRuleCondition {
         /**
-         * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        field: string;
-        /**
          * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
-        hostHeader: outputs.alb.ListenerRuleConditionHostHeader;
+        hostHeader?: outputs.alb.ListenerRuleConditionHostHeader;
         /**
          * HTTP headers to match. HTTP Header block fields documented below.
          */
@@ -867,7 +857,7 @@ export namespace alb {
         /**
          * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
          */
-        pathPattern: outputs.alb.ListenerRuleConditionPathPattern;
+        pathPattern?: outputs.alb.ListenerRuleConditionPathPattern;
         /**
          * Query strings to match. Query String block fields documented below.
          */
@@ -876,17 +866,11 @@ export namespace alb {
          * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
          */
         sourceIp?: outputs.alb.ListenerRuleConditionSourceIp;
-        /**
-         * List of exactly one pattern to match. Required when `field` is set.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        values: string;
     }
 
     export interface ListenerRuleConditionHostHeader {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
@@ -904,14 +888,14 @@ export namespace alb {
 
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
 
     export interface ListenerRuleConditionPathPattern {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
@@ -929,7 +913,7 @@ export namespace alb {
 
     export interface ListenerRuleConditionSourceIp {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
@@ -1092,13 +1076,13 @@ export namespace apigateway {
          */
         requireAuthorizationForCacheControl: boolean;
         /**
-         * Specifies the throttling burst limit.
+         * Specifies the throttling burst limit. Default: `-1` (throttling disabled).
          */
-        throttlingBurstLimit: number;
+        throttlingBurstLimit?: number;
         /**
-         * Specifies the throttling rate limit.
+         * Specifies the throttling rate limit. Default: `-1` (throttling disabled).
          */
-        throttlingRateLimit: number;
+        throttlingRateLimit?: number;
         /**
          * Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
          */
@@ -1229,6 +1213,13 @@ export namespace apigatewayv2 {
         targetDomainName: string;
     }
 
+    export interface IntegrationTlsConfig {
+        /**
+         * If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+         */
+        serverNameToVerify?: string;
+    }
+
     export interface StageAccessLogSettings {
         /**
          * The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
@@ -1252,9 +1243,9 @@ export namespace apigatewayv2 {
         detailedMetricsEnabled?: boolean;
         /**
          * The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
          */
-        loggingLevel?: string;
+        loggingLevel: string;
         /**
          * The throttling burst limit for the default route.
          */
@@ -1277,9 +1268,9 @@ export namespace apigatewayv2 {
         detailedMetricsEnabled?: boolean;
         /**
          * The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
          */
-        loggingLevel?: string;
+        loggingLevel: string;
         /**
          * Route key.
          */
@@ -1875,15 +1866,9 @@ export namespace applicationloadbalancing {
 
     export interface ListenerRuleCondition {
         /**
-         * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        field: string;
-        /**
          * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
-        hostHeader: outputs.applicationloadbalancing.ListenerRuleConditionHostHeader;
+        hostHeader?: outputs.applicationloadbalancing.ListenerRuleConditionHostHeader;
         /**
          * HTTP headers to match. HTTP Header block fields documented below.
          */
@@ -1895,7 +1880,7 @@ export namespace applicationloadbalancing {
         /**
          * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
          */
-        pathPattern: outputs.applicationloadbalancing.ListenerRuleConditionPathPattern;
+        pathPattern?: outputs.applicationloadbalancing.ListenerRuleConditionPathPattern;
         /**
          * Query strings to match. Query String block fields documented below.
          */
@@ -1904,17 +1889,11 @@ export namespace applicationloadbalancing {
          * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
          */
         sourceIp?: outputs.applicationloadbalancing.ListenerRuleConditionSourceIp;
-        /**
-         * List of exactly one pattern to match. Required when `field` is set.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        values: string;
     }
 
     export interface ListenerRuleConditionHostHeader {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
@@ -1932,14 +1911,14 @@ export namespace applicationloadbalancing {
 
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
 
     export interface ListenerRuleConditionPathPattern {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
@@ -1957,7 +1936,7 @@ export namespace applicationloadbalancing {
 
     export interface ListenerRuleConditionSourceIp {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
@@ -3290,8 +3269,8 @@ export namespace cloudfront {
          */
         targetOriginId: string;
         /**
-         * The AWS accounts, if any, that you want to
-         * allow to create signed URLs for private content.
+         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          */
         trustedSigners?: string[];
         /**
@@ -3450,8 +3429,8 @@ export namespace cloudfront {
          */
         targetOriginId: string;
         /**
-         * The AWS accounts, if any, that you want to
-         * allow to create signed URLs for private content.
+         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          */
         trustedSigners?: string[];
         /**
@@ -3649,6 +3628,29 @@ export namespace cloudfront {
         restrictionType: string;
     }
 
+    export interface DistributionTrustedSigner {
+        /**
+         * Whether the distribution is enabled to accept end
+         * user requests for content.
+         */
+        enabled: boolean;
+        /**
+         * List of nested attributes for each trusted signer
+         */
+        items: outputs.cloudfront.DistributionTrustedSignerItem[];
+    }
+
+    export interface DistributionTrustedSignerItem {
+        /**
+         * AWS account ID or `self`
+         */
+        awsAccountNumber: string;
+        /**
+         * Set of active CloudFront key pairs associated with the signer account
+         */
+        keyPairIds: string[];
+    }
+
     export interface DistributionViewerCertificate {
         /**
          * The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
@@ -3673,7 +3675,7 @@ export namespace cloudfront {
          * The minimum version of the SSL protocol that
          * you want CloudFront to use for HTTPS connections. Can only be set if
          * `cloudfrontDefaultCertificate = false`. One of `SSLv3`, `TLSv1`,
-         * `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
+         * `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
          * If you are using a custom certificate (specified with `acmCertificateArn`
          * or `iamCertificateId`), and have specified `sni-only` in
          * `sslSupportMethod`, `TLSv1` or later must be specified. If you have
@@ -4014,7 +4016,7 @@ export namespace codebuild {
          */
         name: string;
         /**
-         * The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`.
+         * The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, and `SECRETS_MANAGER`.
          */
         type?: string;
         /**
@@ -4256,7 +4258,7 @@ export namespace codebuild {
          */
         pattern: string;
         /**
-         * The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
+         * The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`. At least one filter group must specify `EVENT` as its type.
          */
         type: string;
     }
@@ -4620,7 +4622,7 @@ export namespace codepipeline {
          */
         category: string;
         /**
-         * A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+         * A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
          */
         configuration?: {[key: string]: string};
         /**
@@ -4779,12 +4781,6 @@ export namespace cognito {
          * The invite message template structure.
          */
         inviteMessageTemplate?: outputs.cognito.UserPoolAdminCreateUserConfigInviteMessageTemplate;
-        /**
-         * **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
-         *
-         * @deprecated Use password_policy.temporary_password_validity_days instead
-         */
-        unusedAccountValidityDays: number;
     }
 
     export interface UserPoolAdminCreateUserConfigInviteMessageTemplate {
@@ -5036,10 +5032,14 @@ export namespace cognito {
 
 export namespace config {
     export interface AssumeRole {
+        durationSeconds?: number;
         externalId?: string;
         policy?: string;
+        policyArns?: string[];
         roleArn?: string;
         sessionName?: string;
+        tags?: {[key: string]: string};
+        transitiveTagKeys?: string[];
     }
 
     export interface Endpoints {
@@ -5117,10 +5117,6 @@ export namespace config {
         iotevents?: string;
         kafka?: string;
         kinesis?: string;
-        /**
-         * @deprecated use `endpoints` configuration block `kinesisanalytics` argument instead
-         */
-        kinesisAnalytics?: string;
         kinesisanalytics?: string;
         kinesisanalyticsv2?: string;
         kinesisvideo?: string;
@@ -5150,10 +5146,6 @@ export namespace config {
         pricing?: string;
         qldb?: string;
         quicksight?: string;
-        /**
-         * @deprecated use `endpoints` configuration block `route53` argument instead
-         */
-        r53?: string;
         ram?: string;
         rds?: string;
         redshift?: string;
@@ -7281,7 +7273,7 @@ export namespace ec2 {
         /**
          * Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
          */
-        deleteOnTermination?: boolean;
+        deleteOnTermination?: string;
         /**
          * Description of the network interface.
          */
@@ -9368,15 +9360,9 @@ export namespace elasticloadbalancingv2 {
 
     export interface ListenerRuleCondition {
         /**
-         * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        field: string;
-        /**
          * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
-        hostHeader: outputs.elasticloadbalancingv2.ListenerRuleConditionHostHeader;
+        hostHeader?: outputs.elasticloadbalancingv2.ListenerRuleConditionHostHeader;
         /**
          * HTTP headers to match. HTTP Header block fields documented below.
          */
@@ -9388,7 +9374,7 @@ export namespace elasticloadbalancingv2 {
         /**
          * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
          */
-        pathPattern: outputs.elasticloadbalancingv2.ListenerRuleConditionPathPattern;
+        pathPattern?: outputs.elasticloadbalancingv2.ListenerRuleConditionPathPattern;
         /**
          * Query strings to match. Query String block fields documented below.
          */
@@ -9397,17 +9383,11 @@ export namespace elasticloadbalancingv2 {
          * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
          */
         sourceIp?: outputs.elasticloadbalancingv2.ListenerRuleConditionSourceIp;
-        /**
-         * List of exactly one pattern to match. Required when `field` is set.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        values: string;
     }
 
     export interface ListenerRuleConditionHostHeader {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
@@ -9425,14 +9405,14 @@ export namespace elasticloadbalancingv2 {
 
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
 
     export interface ListenerRuleConditionPathPattern {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
@@ -9450,7 +9430,7 @@ export namespace elasticloadbalancingv2 {
 
     export interface ListenerRuleConditionSourceIp {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
@@ -10064,7 +10044,7 @@ export namespace elastictranscoder {
         /**
          * If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
          */
-        maxFrameRate?: string;
+        maxFrameRate: string;
         /**
          * The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
          */
@@ -10261,7 +10241,7 @@ export namespace emr {
 
     export interface ClusterCoreInstanceGroup {
         /**
-         * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+         * String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
          */
         autoscalingPolicy?: string;
         /**
@@ -10342,60 +10322,6 @@ export namespace emr {
          * VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
          */
         subnetId?: string;
-    }
-
-    export interface ClusterInstanceGroup {
-        /**
-         * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-         */
-        autoscalingPolicy?: string;
-        /**
-         * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-         */
-        bidPrice?: string;
-        /**
-         * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-         */
-        ebsConfigs: outputs.emr.ClusterInstanceGroupEbsConfig[];
-        /**
-         * The ID of the EMR Cluster
-         */
-        id: string;
-        /**
-         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
-         */
-        instanceCount?: number;
-        /**
-         * The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
-         */
-        instanceRole: string;
-        /**
-         * EC2 instance type for all instances in the instance group.
-         */
-        instanceType: string;
-        /**
-         * The name of the step.
-         */
-        name?: string;
-    }
-
-    export interface ClusterInstanceGroupEbsConfig {
-        /**
-         * The number of I/O operations per second (IOPS) that the volume supports
-         */
-        iops?: number;
-        /**
-         * The volume size, in gibibytes (GiB).
-         */
-        size: number;
-        /**
-         * The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-         */
-        type: string;
-        /**
-         * The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
-         */
-        volumesPerInstance?: number;
     }
 
     export interface ClusterKerberosAttributes {
@@ -13537,15 +13463,9 @@ export namespace lb {
 
     export interface ListenerRuleCondition {
         /**
-         * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        field: string;
-        /**
          * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
-        hostHeader: outputs.lb.ListenerRuleConditionHostHeader;
+        hostHeader?: outputs.lb.ListenerRuleConditionHostHeader;
         /**
          * HTTP headers to match. HTTP Header block fields documented below.
          */
@@ -13557,7 +13477,7 @@ export namespace lb {
         /**
          * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `queryString` condition.
          */
-        pathPattern: outputs.lb.ListenerRuleConditionPathPattern;
+        pathPattern?: outputs.lb.ListenerRuleConditionPathPattern;
         /**
          * Query strings to match. Query String block fields documented below.
          */
@@ -13566,17 +13486,11 @@ export namespace lb {
          * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
          */
         sourceIp?: outputs.lb.ListenerRuleConditionSourceIp;
-        /**
-         * List of exactly one pattern to match. Required when `field` is set.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        values: string;
     }
 
     export interface ListenerRuleConditionHostHeader {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
@@ -13594,14 +13508,14 @@ export namespace lb {
 
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
 
     export interface ListenerRuleConditionPathPattern {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
@@ -13619,7 +13533,7 @@ export namespace lb {
 
     export interface ListenerRuleConditionSourceIp {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: string[];
     }
@@ -13931,7 +13845,7 @@ export namespace msk {
 
     export interface ClusterEncryptionInfoEncryptionInTransit {
         /**
-         * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryptionInTransit` block defined, but `TLS` when `encryptionInTransit` block omitted.
+         * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
          */
         clientBroker?: string;
         /**
@@ -14751,7 +14665,7 @@ export namespace rds {
          */
         maxCapacity?: number;
         /**
-         * The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
+         * The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
          */
         minCapacity?: number;
         /**
@@ -15950,14 +15864,11 @@ export namespace ssm {
         values: string[];
     }
 
-    export interface MaintenanceWindowTaskLoggingInfo {
-        s3BucketName: string;
-        s3BucketPrefix?: string;
-        s3Region: string;
-    }
-
     export interface MaintenanceWindowTaskTarget {
         key: string;
+        /**
+         * The array of strings.
+         */
         values: string[];
     }
 
@@ -16091,14 +16002,6 @@ export namespace ssm {
          * The name of the STEP_FUNCTION task.
          */
         name?: string;
-    }
-
-    export interface MaintenanceWindowTaskTaskParameter {
-        /**
-         * The name of the maintenance window task.
-         */
-        name: string;
-        values: string[];
     }
 
     export interface PatchBaselineApprovalRule {
@@ -16935,6 +16838,29 @@ export namespace workspaces {
          * The size of the user storage.
          */
         capacity: string;
+    }
+
+    export interface GetDirectorySelfServicePermission {
+        /**
+         * Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
+         */
+        changeComputeType: boolean;
+        /**
+         * Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
+         */
+        increaseVolumeSize: boolean;
+        /**
+         * Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
+         */
+        rebuildWorkspace: boolean;
+        /**
+         * Whether WorkSpaces directory users can restart their workspace.
+         */
+        restartWorkspace: boolean;
+        /**
+         * Whether WorkSpaces directory users can switch the running mode of their workspace.
+         */
+        switchRunningMode: boolean;
     }
 
     export interface IpGroupRule {

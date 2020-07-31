@@ -17,8 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const role = new aws.iam.Role("r", {
- *     assumeRolePolicy: `{
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -31,11 +30,8 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const foo = new aws.cfg.Recorder("foo", {
- *     roleArn: role.arn,
- * });
+ * `});
+ * const foo = new aws.cfg.Recorder("foo", {roleArn: role.arn});
  * ```
  */
 export class Recorder extends pulumi.CustomResource {

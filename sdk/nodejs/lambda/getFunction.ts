@@ -17,10 +17,9 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const functionName = config.require("functionName");
- *
- * const existing = pulumi.output(aws.lambda.getFunction({
+ * const existing = aws.lambda.getFunction({
  *     functionName: functionName,
- * }, { async: true }));
+ * });
  * ```
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {

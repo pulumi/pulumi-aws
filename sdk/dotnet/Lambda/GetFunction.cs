@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Lambda
         ///     public MyStack()
         ///     {
         ///         var config = new Config();
-        ///         var functionName = config.RequireObject&lt;dynamic&gt;("functionName");
+        ///         var functionName = config.Require("functionName");
         ///         var existing = Output.Create(Aws.Lambda.GetFunction.InvokeAsync(new Aws.Lambda.GetFunctionArgs
         ///         {
         ///             FunctionName = functionName,

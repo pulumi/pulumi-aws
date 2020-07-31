@@ -46,15 +46,15 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ami = aws.get_ami(filters=[{
+        ami = aws.get_ami(most_recent=True,
+            filters=[{
                 "name": "name",
                 "values": ["amzn-ami-hvm-*"],
             }],
-            most_recent=True,
             owners=["amazon"])
         instance = aws.ec2.Instance("instance",
-            ami=ami.id,
             instance_type="t2.micro",
+            ami=ami.id,
             tags={
                 "type": "test-instance",
             })
@@ -62,8 +62,8 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
             "type": "test-security-group",
         })
         sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment",
-            network_interface_id=instance.primary_network_interface_id,
-            security_group_id=sg.id)
+            security_group_id=sg.id,
+            network_interface_id=instance.primary_network_interface_id)
         ```
 
         In this example, `instance` is provided by the `ec2.Instance` data source,
@@ -79,8 +79,8 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
             "type": "test-security-group",
         })
         sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment",
-            network_interface_id=instance.network_interface_id,
-            security_group_id=sg.id)
+            security_group_id=sg.id,
+            network_interface_id=instance.network_interface_id)
         ```
         ## Output Reference
 

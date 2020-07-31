@@ -25,6 +25,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         var test = new Aws.ApiGateway.RestApi("test", new Aws.ApiGateway.RestApiArgs
     ///         {
     ///         });
+    ///         // ...
     ///         var myusageplan = new Aws.ApiGateway.UsagePlan("myusageplan", new Aws.ApiGateway.UsagePlanArgs
     ///         {
     ///             ApiStages = 

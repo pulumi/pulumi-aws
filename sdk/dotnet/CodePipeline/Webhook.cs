@@ -25,66 +25,66 @@ namespace Pulumi.Aws.CodePipeline
     ///     {
     ///         var barPipeline = new Aws.CodePipeline.Pipeline("barPipeline", new Aws.CodePipeline.PipelineArgs
     ///         {
+    ///             RoleArn = aws_iam_role.Bar.Arn,
     ///             ArtifactStore = new Aws.CodePipeline.Inputs.PipelineArtifactStoreArgs
     ///             {
+    ///                 Location = aws_s3_bucket.Bar.Bucket,
+    ///                 Type = "S3",
     ///                 EncryptionKey = new Aws.CodePipeline.Inputs.PipelineArtifactStoreEncryptionKeyArgs
     ///                 {
     ///                     Id = data.Aws_kms_alias.S3kmskey.Arn,
     ///                     Type = "KMS",
     ///                 },
-    ///                 Location = aws_s3_bucket.Bar.Bucket,
-    ///                 Type = "S3",
     ///             },
-    ///             RoleArn = aws_iam_role.Bar.Arn,
     ///             Stages = 
     ///             {
     ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///                 {
+    ///                     Name = "Source",
     ///                     Actions = 
     ///                     {
     ///                         new Aws.CodePipeline.Inputs.PipelineStageActionArgs
     ///                         {
-    ///                             Category = "Source",
-    ///                             Configuration = 
-    ///                             {
-    ///                                 { "Branch", "master" },
-    ///                                 { "Owner", "my-organization" },
-    ///                                 { "Repo", "test" },
-    ///                             },
     ///                             Name = "Source",
+    ///                             Category = "Source",
+    ///                             Owner = "ThirdParty",
+    ///                             Provider = "GitHub",
+    ///                             Version = "1",
     ///                             OutputArtifacts = 
     ///                             {
     ///                                 "test",
     ///                             },
-    ///                             Owner = "ThirdParty",
-    ///                             Provider = "GitHub",
-    ///                             Version = "1",
+    ///                             Configuration = 
+    ///                             {
+    ///                                 { "Owner", "my-organization" },
+    ///                                 { "Repo", "test" },
+    ///                                 { "Branch", "master" },
+    ///                             },
     ///                         },
     ///                     },
-    ///                     Name = "Source",
     ///                 },
     ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///                 {
+    ///                     Name = "Build",
     ///                     Actions = 
     ///                     {
     ///                         new Aws.CodePipeline.Inputs.PipelineStageActionArgs
     ///                         {
+    ///                             Name = "Build",
     ///                             Category = "Build",
-    ///                             Configuration = 
-    ///                             {
-    ///                                 { "ProjectName", "test" },
-    ///                             },
+    ///                             Owner = "AWS",
+    ///                             Provider = "CodeBuild",
     ///                             InputArtifacts = 
     ///                             {
     ///                                 "test",
     ///                             },
-    ///                             Name = "Build",
-    ///                             Owner = "AWS",
-    ///                             Provider = "CodeBuild",
     ///                             Version = "1",
+    ///                             Configuration = 
+    ///                             {
+    ///                                 { "ProjectName", "test" },
+    ///                             },
     ///                         },
     ///                     },
-    ///                     Name = "Build",
     ///                 },
     ///             },
     ///         });
@@ -92,6 +92,8 @@ namespace Pulumi.Aws.CodePipeline
     ///         var barWebhook = new Aws.CodePipeline.Webhook("barWebhook", new Aws.CodePipeline.WebhookArgs
     ///         {
     ///             Authentication = "GITHUB_HMAC",
+    ///             TargetAction = "Source",
+    ///             TargetPipeline = barPipeline.Name,
     ///             AuthenticationConfiguration = new Aws.CodePipeline.Inputs.WebhookAuthenticationConfigurationArgs
     ///             {
     ///                 SecretToken = webhookSecret,
@@ -104,24 +106,22 @@ namespace Pulumi.Aws.CodePipeline
     ///                     MatchEquals = "refs/heads/{Branch}",
     ///                 },
     ///             },
-    ///             TargetAction = "Source",
-    ///             TargetPipeline = barPipeline.Name,
     ///         });
     ///         // Wire the CodePipeline webhook into a GitHub repository.
     ///         var barRepositoryWebhook = new Github.RepositoryWebhook("barRepositoryWebhook", new Github.RepositoryWebhookArgs
     ///         {
+    ///             Repository = github_repository.Repo.Name,
     ///             Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
     ///             {
+    ///                 Url = barWebhook.Url,
     ///                 ContentType = "json",
     ///                 InsecureSsl = true,
     ///                 Secret = webhookSecret,
-    ///                 Url = barWebhook.Url,
     ///             },
     ///             Events = 
     ///             {
     ///                 "push",
     ///             },
-    ///             Repository = github_repository.Repo.Name,
     ///         });
     ///     }
     /// 

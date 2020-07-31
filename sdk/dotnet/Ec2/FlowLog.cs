@@ -42,7 +42,6 @@ namespace Pulumi.Aws.Ec2
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new Aws.Ec2.FlowLogArgs
@@ -54,6 +53,7 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
+    ///             Role = exampleRole.Id,
     ///             Policy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -70,9 +70,7 @@ namespace Pulumi.Aws.Ec2
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
-    ///             Role = exampleRole.Id,
     ///         });
     ///     }
     /// 

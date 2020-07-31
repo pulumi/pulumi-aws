@@ -15,19 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.athena.Workgroup("example", {
- *     configuration: {
- *         enforceWorkgroupConfiguration: true,
- *         publishCloudwatchMetricsEnabled: true,
- *         resultConfiguration: {
- *             encryptionConfiguration: {
- *                 encryptionOption: "SSE_KMS",
- *                 kmsKeyArn: aws_kms_key_example.arn,
- *             },
- *             outputLocation: "s3://{aws_s3_bucket.example.bucket}/output/",
+ * const example = new aws.athena.Workgroup("example", {configuration: {
+ *     enforceWorkgroupConfiguration: true,
+ *     publishCloudwatchMetricsEnabled: true,
+ *     resultConfiguration: {
+ *         outputLocation: "s3://{aws_s3_bucket.example.bucket}/output/",
+ *         encryptionConfiguration: {
+ *             encryptionOption: "SSE_KMS",
+ *             kmsKeyArn: aws_kms_key.example.arn,
  *         },
  *     },
- * });
+ * }});
  * ```
  */
 export class Workgroup extends pulumi.CustomResource {

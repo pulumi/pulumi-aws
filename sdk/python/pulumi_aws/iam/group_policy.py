@@ -53,7 +53,6 @@ class GroupPolicy(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         ```
 

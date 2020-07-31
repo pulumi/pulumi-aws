@@ -139,6 +139,8 @@ type LookupInstanceResult struct {
 	PublicIp string `pulumi:"publicIp"`
 	// The root block device mappings of the Instance
 	RootBlockDevices []GetInstanceRootBlockDevice `pulumi:"rootBlockDevices"`
+	// The secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
+	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// The associated security groups.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Whether the network interface performs source/destination checking (Boolean).

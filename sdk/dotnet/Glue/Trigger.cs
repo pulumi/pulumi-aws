@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Glue
     ///     {
     ///         var example = new Aws.Glue.Trigger("example", new Aws.Glue.TriggerArgs
     ///         {
+    ///             Type = "CONDITIONAL",
     ///             Actions = 
     ///             {
     ///                 new Aws.Glue.Inputs.TriggerActionArgs
@@ -43,7 +44,6 @@ namespace Pulumi.Aws.Glue
     ///                     },
     ///                 },
     ///             },
-    ///             Type = "CONDITIONAL",
     ///         });
     ///     }
     /// 
@@ -61,6 +61,7 @@ namespace Pulumi.Aws.Glue
     ///     {
     ///         var example = new Aws.Glue.Trigger("example", new Aws.Glue.TriggerArgs
     ///         {
+    ///             Type = "ON_DEMAND",
     ///             Actions = 
     ///             {
     ///                 new Aws.Glue.Inputs.TriggerActionArgs
@@ -68,7 +69,6 @@ namespace Pulumi.Aws.Glue
     ///                     JobName = aws_glue_job.Example.Name,
     ///                 },
     ///             },
-    ///             Type = "ON_DEMAND",
     ///         });
     ///     }
     /// 
@@ -86,6 +86,8 @@ namespace Pulumi.Aws.Glue
     ///     {
     ///         var example = new Aws.Glue.Trigger("example", new Aws.Glue.TriggerArgs
     ///         {
+    ///             Schedule = "cron(15 12 * * ? *)",
+    ///             Type = "SCHEDULED",
     ///             Actions = 
     ///             {
     ///                 new Aws.Glue.Inputs.TriggerActionArgs
@@ -93,8 +95,6 @@ namespace Pulumi.Aws.Glue
     ///                     JobName = aws_glue_job.Example.Name,
     ///                 },
     ///             },
-    ///             Schedule = "cron(15 12 * * ? *)",
-    ///             Type = "SCHEDULED",
     ///         });
     ///     }
     /// 
@@ -114,6 +114,7 @@ namespace Pulumi.Aws.Glue
     ///     {
     ///         var example = new Aws.Glue.Trigger("example", new Aws.Glue.TriggerArgs
     ///         {
+    ///             Type = "CONDITIONAL",
     ///             Actions = 
     ///             {
     ///                 new Aws.Glue.Inputs.TriggerActionArgs
@@ -132,7 +133,6 @@ namespace Pulumi.Aws.Glue
     ///                     },
     ///                 },
     ///             },
-    ///             Type = "CONDITIONAL",
     ///         });
     ///     }
     /// 
@@ -152,6 +152,7 @@ namespace Pulumi.Aws.Glue
     ///     {
     ///         var example = new Aws.Glue.Trigger("example", new Aws.Glue.TriggerArgs
     ///         {
+    ///             Type = "CONDITIONAL",
     ///             Actions = 
     ///             {
     ///                 new Aws.Glue.Inputs.TriggerActionArgs
@@ -165,12 +166,11 @@ namespace Pulumi.Aws.Glue
     ///                 {
     ///                     new Aws.Glue.Inputs.TriggerPredicateConditionArgs
     ///                     {
-    ///                         CrawlState = "SUCCEEDED",
     ///                         CrawlerName = aws_glue_crawler.Example2.Name,
+    ///                         CrawlState = "SUCCEEDED",
     ///                     },
     ///                 },
     ///             },
-    ///             Type = "CONDITIONAL",
     ///         });
     ///     }
     /// 

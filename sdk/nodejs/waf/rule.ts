@@ -15,12 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const ipset = new aws.waf.IpSet("ipset", {
- *     ipSetDescriptors: [{
- *         type: "IPV4",
- *         value: "192.0.7.0/24",
- *     }],
- * });
+ * const ipset = new aws.waf.IpSet("ipset", {ipSetDescriptors: [{
+ *     type: "IPV4",
+ *     value: "192.0.7.0/24",
+ * }]});
  * const wafrule = new aws.waf.Rule("wafrule", {
  *     metricName: "tfWAFRule",
  *     predicates: [{
@@ -28,7 +26,9 @@ import * as utilities from "../utilities";
  *         negated: false,
  *         type: "IPMatch",
  *     }],
- * }, { dependsOn: [ipset] });
+ * }, {
+ *     dependsOn: [ipset],
+ * });
  * ```
  */
 export class Rule extends pulumi.CustomResource {

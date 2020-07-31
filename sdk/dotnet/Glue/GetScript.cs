@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Glue
         ///     {
         ///         var example = Output.Create(Aws.Glue.GetScript.InvokeAsync(new Aws.Glue.GetScriptArgs
         ///         {
+        ///             Language = "PYTHON",
         ///             DagEdges = 
         ///             {
         ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
@@ -56,6 +57,8 @@ namespace Pulumi.Aws.Glue
         ///             {
         ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
         ///                 {
+        ///                     Id = "datasource0",
+        ///                     NodeType = "DataSource",
         ///                     Args = 
         ///                     {
         ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
@@ -69,11 +72,11 @@ namespace Pulumi.Aws.Glue
         ///                             Value = $"\"{aws_glue_catalog_table.Source.Name}\"",
         ///                         },
         ///                     },
-        ///                     Id = "datasource0",
-        ///                     NodeType = "DataSource",
         ///                 },
         ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
         ///                 {
+        ///                     Id = "applymapping1",
+        ///                     NodeType = "ApplyMapping",
         ///                     Args = 
         ///                     {
         ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
@@ -82,11 +85,11 @@ namespace Pulumi.Aws.Glue
         ///                             Value = "[(\"column1\", \"string\", \"column1\", \"string\")]",
         ///                         },
         ///                     },
-        ///                     Id = "applymapping1",
-        ///                     NodeType = "ApplyMapping",
         ///                 },
         ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
         ///                 {
+        ///                     Id = "selectfields2",
+        ///                     NodeType = "SelectFields",
         ///                     Args = 
         ///                     {
         ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
@@ -95,11 +98,11 @@ namespace Pulumi.Aws.Glue
         ///                             Value = "[\"column1\"]",
         ///                         },
         ///                     },
-        ///                     Id = "selectfields2",
-        ///                     NodeType = "SelectFields",
         ///                 },
         ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
         ///                 {
+        ///                     Id = "resolvechoice3",
+        ///                     NodeType = "ResolveChoice",
         ///                     Args = 
         ///                     {
         ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
@@ -118,11 +121,11 @@ namespace Pulumi.Aws.Glue
         ///                             Value = $"\"{aws_glue_catalog_table.Destination.Name}\"",
         ///                         },
         ///                     },
-        ///                     Id = "resolvechoice3",
-        ///                     NodeType = "ResolveChoice",
         ///                 },
         ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
         ///                 {
+        ///                     Id = "datasink4",
+        ///                     NodeType = "DataSink",
         ///                     Args = 
         ///                     {
         ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
@@ -136,11 +139,8 @@ namespace Pulumi.Aws.Glue
         ///                             Value = $"\"{aws_glue_catalog_table.Destination.Name}\"",
         ///                         },
         ///                     },
-        ///                     Id = "datasink4",
-        ///                     NodeType = "DataSink",
         ///                 },
         ///             },
-        ///             Language = "PYTHON",
         ///         }));
         ///         this.PythonScript = example.Apply(example =&gt; example.PythonScript);
         ///     }
@@ -163,6 +163,7 @@ namespace Pulumi.Aws.Glue
         ///     {
         ///         var example = Output.Create(Aws.Glue.GetScript.InvokeAsync(new Aws.Glue.GetScriptArgs
         ///         {
+        ///             Language = "SCALA",
         ///             DagEdges = 
         ///             {
         ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
@@ -190,6 +191,8 @@ namespace Pulumi.Aws.Glue
         ///             {
         ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
         ///                 {
+        ///                     Id = "datasource0",
+        ///                     NodeType = "DataSource",
         ///                     Args = 
         ///                     {
         ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
@@ -203,11 +206,11 @@ namespace Pulumi.Aws.Glue
         ///                             Value = $"\"{aws_glue_catalog_table.Source.Name}\"",
         ///                         },
         ///                     },
-        ///                     Id = "datasource0",
-        ///                     NodeType = "DataSource",
         ///                 },
         ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
         ///                 {
+        ///                     Id = "applymapping1",
+        ///                     NodeType = "ApplyMapping",
         ///                     Args = 
         ///                     {
         ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
@@ -216,11 +219,11 @@ namespace Pulumi.Aws.Glue
         ///                             Value = "[(\"column1\", \"string\", \"column1\", \"string\")]",
         ///                         },
         ///                     },
-        ///                     Id = "applymapping1",
-        ///                     NodeType = "ApplyMapping",
         ///                 },
         ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
         ///                 {
+        ///                     Id = "selectfields2",
+        ///                     NodeType = "SelectFields",
         ///                     Args = 
         ///                     {
         ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
@@ -229,11 +232,11 @@ namespace Pulumi.Aws.Glue
         ///                             Value = "[\"column1\"]",
         ///                         },
         ///                     },
-        ///                     Id = "selectfields2",
-        ///                     NodeType = "SelectFields",
         ///                 },
         ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
         ///                 {
+        ///                     Id = "resolvechoice3",
+        ///                     NodeType = "ResolveChoice",
         ///                     Args = 
         ///                     {
         ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
@@ -252,11 +255,11 @@ namespace Pulumi.Aws.Glue
         ///                             Value = $"\"{aws_glue_catalog_table.Destination.Name}\"",
         ///                         },
         ///                     },
-        ///                     Id = "resolvechoice3",
-        ///                     NodeType = "ResolveChoice",
         ///                 },
         ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
         ///                 {
+        ///                     Id = "datasink4",
+        ///                     NodeType = "DataSink",
         ///                     Args = 
         ///                     {
         ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
@@ -270,11 +273,8 @@ namespace Pulumi.Aws.Glue
         ///                             Value = $"\"{aws_glue_catalog_table.Destination.Name}\"",
         ///                         },
         ///                     },
-        ///                     Id = "datasink4",
-        ///                     NodeType = "DataSink",
         ///                 },
         ///             },
-        ///             Language = "SCALA",
         ///         }));
         ///         this.ScalaCode = example.Apply(example =&gt; example.ScalaCode);
         ///     }

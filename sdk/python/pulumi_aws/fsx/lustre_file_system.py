@@ -14,6 +14,10 @@ class LustreFileSystem(pulumi.CustomResource):
     """
     Amazon Resource Name of the file system.
     """
+    deployment_type: pulumi.Output[str]
+    """
+    - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+    """
     dns_name: pulumi.Output[str]
     """
     DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
@@ -37,6 +41,10 @@ class LustreFileSystem(pulumi.CustomResource):
     owner_id: pulumi.Output[str]
     """
     AWS account identifier that created the file system.
+    """
+    per_unit_storage_throughput: pulumi.Output[float]
+    """
+    - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
     """
     security_group_ids: pulumi.Output[list]
     """
@@ -62,7 +70,7 @@ class LustreFileSystem(pulumi.CustomResource):
     """
     The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
     """
-    def __init__(__self__, resource_name, opts=None, export_path=None, import_path=None, imported_file_chunk_size=None, security_group_ids=None, storage_capacity=None, subnet_ids=None, tags=None, weekly_maintenance_start_time=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, deployment_type=None, export_path=None, import_path=None, imported_file_chunk_size=None, per_unit_storage_throughput=None, security_group_ids=None, storage_capacity=None, subnet_ids=None, tags=None, weekly_maintenance_start_time=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a FSx Lustre File System. See the [FSx Lustre Guide](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html) for more information.
 
@@ -75,14 +83,16 @@ class LustreFileSystem(pulumi.CustomResource):
         example = aws.fsx.LustreFileSystem("example",
             import_path=f"s3://{aws_s3_bucket['example']['bucket']}",
             storage_capacity=1200,
-            subnet_ids=aws_subnet["example"]["id"])
+            subnet_ids=[aws_subnet["example"]["id"]])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] deployment_type: - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
         :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
         :param pulumi.Input[str] import_path: S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
         :param pulumi.Input[float] imported_file_chunk_size: For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
+        :param pulumi.Input[float] per_unit_storage_throughput: - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
         :param pulumi.Input[list] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[float] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
@@ -106,9 +116,11 @@ class LustreFileSystem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['deployment_type'] = deployment_type
             __props__['export_path'] = export_path
             __props__['import_path'] = import_path
             __props__['imported_file_chunk_size'] = imported_file_chunk_size
+            __props__['per_unit_storage_throughput'] = per_unit_storage_throughput
             __props__['security_group_ids'] = security_group_ids
             if storage_capacity is None:
                 raise TypeError("Missing required property 'storage_capacity'")
@@ -130,7 +142,7 @@ class LustreFileSystem(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, dns_name=None, export_path=None, import_path=None, imported_file_chunk_size=None, network_interface_ids=None, owner_id=None, security_group_ids=None, storage_capacity=None, subnet_ids=None, tags=None, vpc_id=None, weekly_maintenance_start_time=None):
+    def get(resource_name, id, opts=None, arn=None, deployment_type=None, dns_name=None, export_path=None, import_path=None, imported_file_chunk_size=None, network_interface_ids=None, owner_id=None, per_unit_storage_throughput=None, security_group_ids=None, storage_capacity=None, subnet_ids=None, tags=None, vpc_id=None, weekly_maintenance_start_time=None):
         """
         Get an existing LustreFileSystem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -139,12 +151,14 @@ class LustreFileSystem(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[str] deployment_type: - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
         :param pulumi.Input[str] dns_name: DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
         :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
         :param pulumi.Input[str] import_path: S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
         :param pulumi.Input[float] imported_file_chunk_size: For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
         :param pulumi.Input[list] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible.
         :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
+        :param pulumi.Input[float] per_unit_storage_throughput: - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
         :param pulumi.Input[list] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[float] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
@@ -157,12 +171,14 @@ class LustreFileSystem(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["arn"] = arn
+        __props__["deployment_type"] = deployment_type
         __props__["dns_name"] = dns_name
         __props__["export_path"] = export_path
         __props__["import_path"] = import_path
         __props__["imported_file_chunk_size"] = imported_file_chunk_size
         __props__["network_interface_ids"] = network_interface_ids
         __props__["owner_id"] = owner_id
+        __props__["per_unit_storage_throughput"] = per_unit_storage_throughput
         __props__["security_group_ids"] = security_group_ids
         __props__["storage_capacity"] = storage_capacity
         __props__["subnet_ids"] = subnet_ids

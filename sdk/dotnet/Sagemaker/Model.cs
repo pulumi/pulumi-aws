@@ -46,11 +46,11 @@ namespace Pulumi.Aws.Sagemaker
     ///                     {
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
     ///                         {
+    ///                             Type = "Service",
     ///                             Identifiers = 
     ///                             {
     ///                                 "sagemaker.amazonaws.com",
     ///                             },
-    ///                             Type = "Service",
     ///                         },
     ///                     },
     ///                 },

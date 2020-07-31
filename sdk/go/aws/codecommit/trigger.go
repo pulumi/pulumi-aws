@@ -34,11 +34,11 @@ import (
 // 			RepositoryName: testRepository.RepositoryName,
 // 			Triggers: codecommit.TriggerTriggerArray{
 // 				&codecommit.TriggerTriggerArgs{
-// 					DestinationArn: pulumi.String(aws_sns_topic.Test.Arn),
+// 					Name: pulumi.String("all"),
 // 					Events: pulumi.StringArray{
 // 						pulumi.String("all"),
 // 					},
-// 					Name: pulumi.String("all"),
+// 					DestinationArn: pulumi.String(aws_sns_topic.Test.Arn),
 // 				},
 // 			},
 // 		})

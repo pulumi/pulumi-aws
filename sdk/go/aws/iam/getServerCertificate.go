@@ -22,11 +22,11 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := true
-// 		opt1 := "my-domain.org"
+// 		opt0 := "my-domain.org"
+// 		opt1 := true
 // 		my_domain, err := iam.LookupServerCertificate(ctx, &iam.LookupServerCertificateArgs{
-// 			Latest:     &opt0,
-// 			NamePrefix: &opt1,
+// 			NamePrefix: &opt0,
+// 			Latest:     &opt1,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

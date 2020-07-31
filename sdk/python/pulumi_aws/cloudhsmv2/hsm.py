@@ -52,8 +52,8 @@ class Hsm(pulumi.CustomResource):
 
         cluster = aws.cloudhsmv2.get_cluster(cluster_id=var["cloudhsm_cluster_id"])
         cloudhsm_v2_hsm = aws.cloudhsmv2.Hsm("cloudhsmV2Hsm",
-            cluster_id=cluster.cluster_id,
-            subnet_id=cluster.subnet_ids[0])
+            subnet_id=cluster.subnet_ids[0],
+            cluster_id=cluster.cluster_id)
         ```
 
         :param str resource_name: The name of the resource.

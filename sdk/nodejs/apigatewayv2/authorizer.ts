@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.Authorizer("example", {
- *     apiId: aws_apigatewayv2_api_example.id,
+ *     apiId: aws_apigatewayv2_api.example.id,
  *     authorizerType: "REQUEST",
- *     authorizerUri: aws_lambda_function_example.invokeArn,
+ *     authorizerUri: aws_lambda_function.example.invoke_arn,
  *     identitySources: ["route.request.header.Auth"],
  * });
  * ```
@@ -31,12 +31,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.Authorizer("example", {
- *     apiId: aws_apigatewayv2_api_example.id,
+ *     apiId: aws_apigatewayv2_api.example.id,
  *     authorizerType: "JWT",
- *     identitySources: ["$request.header.Authorization"],
+ *     identitySources: [`$request.header.Authorization`],
  *     jwtConfiguration: {
  *         audiences: ["example"],
- *         issuer: pulumi.interpolate`https://${aws_cognito_user_pool_example.endpoint}`,
+ *         issuer: `https://${aws_cognito_user_pool.example.endpoint}`,
  *     },
  * });
  * ```

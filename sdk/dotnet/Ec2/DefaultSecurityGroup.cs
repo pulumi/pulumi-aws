@@ -56,30 +56,30 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var @default = new Aws.Ec2.DefaultSecurityGroup("default", new Aws.Ec2.DefaultSecurityGroupArgs
     ///         {
-    ///             Egress = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupEgressArgs
-    ///                 {
-    ///                     CidrBlocks = 
-    ///                     {
-    ///                         "0.0.0.0/0",
-    ///                     },
-    ///                     FromPort = 0,
-    ///                     Protocol = "-1",
-    ///                     ToPort = 0,
-    ///                 },
-    ///             },
+    ///             VpcId = mainvpc.Id,
     ///             Ingress = 
     ///             {
     ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
     ///                 {
-    ///                     FromPort = 0,
     ///                     Protocol = "-1",
     ///                     Self = true,
+    ///                     FromPort = 0,
     ///                     ToPort = 0,
     ///                 },
     ///             },
-    ///             VpcId = mainvpc.Id,
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupEgressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
+    ///                     CidrBlocks = 
+    ///                     {
+    ///                         "0.0.0.0/0",
+    ///                     },
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 
@@ -105,17 +105,17 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var @default = new Aws.Ec2.DefaultSecurityGroup("default", new Aws.Ec2.DefaultSecurityGroupArgs
     ///         {
+    ///             VpcId = mainvpc.Id,
     ///             Ingress = 
     ///             {
     ///                 new Aws.Ec2.Inputs.DefaultSecurityGroupIngressArgs
     ///                 {
-    ///                     FromPort = 0,
     ///                     Protocol = "-1",
     ///                     Self = true,
+    ///                     FromPort = 0,
     ///                     ToPort = 0,
     ///                 },
     ///             },
-    ///             VpcId = mainvpc.Id,
     ///         });
     ///     }
     /// 

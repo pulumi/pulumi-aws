@@ -18,38 +18,38 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Request a Spot fleet
- * const cheapCompute = new aws.ec2.SpotFleetRequest("cheap_compute", {
- *     allocationStrategy: "diversified",
+ * const cheapCompute = new aws.ec2.SpotFleetRequest("cheapCompute", {
  *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+ *     spotPrice: "0.03",
+ *     allocationStrategy: "diversified",
+ *     targetCapacity: 6,
+ *     validUntil: "2019-11-04T20:44:20Z",
  *     launchSpecifications: [
  *         {
- *             ami: "ami-1234",
- *             iamInstanceProfileArn: aws_iam_instance_profile_example.arn,
  *             instanceType: "m4.10xlarge",
- *             placementTenancy: "dedicated",
+ *             ami: "ami-1234",
  *             spotPrice: "2.793",
+ *             placementTenancy: "dedicated",
+ *             iamInstanceProfileArn: aws_iam_instance_profile.example.arn,
  *         },
  *         {
- *             ami: "ami-5678",
- *             availabilityZone: "us-west-1a",
- *             iamInstanceProfileArn: aws_iam_instance_profile_example.arn,
  *             instanceType: "m4.4xlarge",
+ *             ami: "ami-5678",
  *             keyName: "my-key",
+ *             spotPrice: "1.117",
+ *             iamInstanceProfileArn: aws_iam_instance_profile.example.arn,
+ *             availabilityZone: "us-west-1a",
+ *             subnetId: "subnet-1234",
+ *             weightedCapacity: 35,
  *             rootBlockDevices: [{
- *                 volumeSize: 300,
+ *                 volumeSize: "300",
  *                 volumeType: "gp2",
  *             }],
- *             spotPrice: "1.117",
- *             subnetId: "subnet-1234",
  *             tags: {
  *                 Name: "spot-fleet-example",
  *             },
- *             weightedCapacity: "35",
  *         },
  *     ],
- *     spotPrice: "0.03",
- *     targetCapacity: 6,
- *     validUntil: "2019-11-04T20:44:20Z",
  * });
  * ```
  * ### Using launch templates
@@ -62,7 +62,6 @@ import * as utilities from "../utilities";
  *     imageId: "ami-516b9131",
  *     instanceType: "m1.small",
  *     keyName: "some-key",
- *     spotPrice: "0.05",
  * });
  * const fooSpotFleetRequest = new aws.ec2.SpotFleetRequest("fooSpotFleetRequest", {
  *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
@@ -76,7 +75,7 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * }, {
- *     dependsOn: ["aws_iam_policy_attachment.test-attach"],
+ *     dependsOn: [aws_iam_policy_attachment["test-attach"]],
  * });
  * ```
  *
@@ -122,7 +121,6 @@ import * as utilities from "../utilities";
  *     imageId: "ami-516b9131",
  *     instanceType: "m1.small",
  *     keyName: "some-key",
- *     spotPrice: "0.05",
  * });
  * const fooSpotFleetRequest = new aws.ec2.SpotFleetRequest("fooSpotFleetRequest", {
  *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
@@ -147,7 +145,7 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * }, {
- *     dependsOn: ["aws_iam_policy_attachment.test-attach"],
+ *     dependsOn: [aws_iam_policy_attachment["test-attach"]],
  * });
  * ```
  */
@@ -267,7 +265,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public readonly validFrom!: pulumi.Output<string | undefined>;
     /**
-     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
      */
     public readonly validUntil!: pulumi.Output<string | undefined>;
     /**
@@ -441,7 +439,7 @@ export interface SpotFleetRequestState {
      */
     readonly validFrom?: pulumi.Input<string>;
     /**
-     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
      */
     readonly validUntil?: pulumi.Input<string>;
     /**
@@ -539,7 +537,7 @@ export interface SpotFleetRequestArgs {
      */
     readonly validFrom?: pulumi.Input<string>;
     /**
-     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. Defaults to 24 hours.
+     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
      */
     readonly validUntil?: pulumi.Input<string>;
     /**

@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.VpcAttachment("example", {
- *     subnetIds: [aws_subnet_example.id],
- *     transitGatewayId: aws_ec2_transit_gateway_example.id,
- *     vpcId: aws_vpc_example.id,
+ *     subnetIds: [aws_subnet.example.id],
+ *     transitGatewayId: aws_ec2_transit_gateway.example.id,
+ *     vpcId: aws_vpc.example.id,
  * });
  * ```
  *

@@ -23,19 +23,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codebuild.Webhook("example", {
+ *     projectName: aws_codebuild_project.example.name,
  *     filterGroups: [{
  *         filters: [
  *             {
- *                 pattern: "PUSH",
  *                 type: "EVENT",
+ *                 pattern: "PUSH",
  *             },
  *             {
- *                 pattern: "master",
  *                 type: "HEAD_REF",
+ *                 pattern: "master",
  *             },
  *         ],
  *     }],
- *     projectName: aws_codebuild_project_example.name,
  * });
  * ```
  * ### GitHub Enterprise
@@ -49,19 +49,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as github from "@pulumi/github";
  *
- * const exampleWebhook = new aws.codebuild.Webhook("example", {
- *     projectName: aws_codebuild_project_example.name,
- * });
- * const exampleRepositoryWebhook = new github.RepositoryWebhook("example", {
+ * const exampleWebhook = new aws.codebuild.Webhook("exampleWebhook", {projectName: aws_codebuild_project.example.name});
+ * const exampleRepositoryWebhook = new github.RepositoryWebhook("exampleRepositoryWebhook", {
  *     active: true,
+ *     events: ["push"],
+ *     repository: github_repository.example.name,
  *     configuration: {
+ *         url: exampleWebhook.payloadUrl,
+ *         secret: exampleWebhook.secret,
  *         contentType: "json",
  *         insecureSsl: false,
- *         secret: exampleWebhook.secret,
- *         url: exampleWebhook.payloadUrl,
  *     },
- *     events: ["push"],
- *     repository: github_repository_example.name,
  * });
  * ```
  */

@@ -42,6 +42,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var ami = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
     ///         {
+    ///             MostRecent = true,
     ///             Filters = 
     ///             {
     ///                 new Aws.Inputs.GetAmiFilterArgs
@@ -53,7 +54,6 @@ namespace Pulumi.Aws.Ec2
     ///                     },
     ///                 },
     ///             },
-    ///             MostRecent = true,
     ///             Owners = 
     ///             {
     ///                 "amazon",
@@ -61,8 +61,8 @@ namespace Pulumi.Aws.Ec2
     ///         }));
     ///         var instance = new Aws.Ec2.Instance("instance", new Aws.Ec2.InstanceArgs
     ///         {
-    ///             Ami = ami.Apply(ami =&gt; ami.Id),
     ///             InstanceType = "t2.micro",
+    ///             Ami = ami.Apply(ami =&gt; ami.Id),
     ///             Tags = 
     ///             {
     ///                 { "type", "test-instance" },
@@ -77,8 +77,8 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", new Aws.Ec2.NetworkInterfaceSecurityGroupAttachmentArgs
     ///         {
-    ///             NetworkInterfaceId = instance.PrimaryNetworkInterfaceId,
     ///             SecurityGroupId = sg.Id,
+    ///             NetworkInterfaceId = instance.PrimaryNetworkInterfaceId,
     ///         });
     ///     }
     /// 
@@ -110,8 +110,8 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", new Aws.Ec2.NetworkInterfaceSecurityGroupAttachmentArgs
     ///         {
-    ///             NetworkInterfaceId = instance.Apply(instance =&gt; instance.NetworkInterfaceId),
     ///             SecurityGroupId = sg.Id,
+    ///             NetworkInterfaceId = instance.Apply(instance =&gt; instance.NetworkInterfaceId),
     ///         });
     ///     }
     /// 

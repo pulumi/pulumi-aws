@@ -40,12 +40,12 @@ namespace Pulumi.Aws.Iam
     ///         });
     ///         var team = new Aws.Iam.GroupMembership("team", new Aws.Iam.GroupMembershipArgs
     ///         {
-    ///             Group = @group.Name,
     ///             Users = 
     ///             {
     ///                 userOne.Name,
     ///                 userTwo.Name,
     ///             },
+    ///             Group = @group.Name,
     ///         });
     ///     }
     /// 
