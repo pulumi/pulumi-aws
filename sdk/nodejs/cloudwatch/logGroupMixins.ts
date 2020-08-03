@@ -96,7 +96,7 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
             action: "lambda:invokeFunction",
             function: this.func,
             principal: pulumi.interpolate`logs.${region}.amazonaws.com`,
-            sourceArn: logGroup.arn,
+            sourceArn: pulumi.interpolate`${logGroup.arn}:*`,
         }, parentOpts);
 
         this.logSubscriptionFilter = new logSubscriptionFilter.LogSubscriptionFilter(name, {
