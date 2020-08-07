@@ -120,6 +120,7 @@ export module ManagedPolicies {
     export const AWSXrayFullAccess: ARN = "arn:aws:iam::aws:policy/AWSXrayFullAccess";
     export const AWSXrayReadOnlyAccess: ARN = "arn:aws:iam::aws:policy/AWSXrayReadOnlyAccess";
     export const AWSXrayWriteOnlyAccess: ARN = "arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess";
+    export const AWSXRayDaemonWriteAccess: ARN = "arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess";
     export const AdministratorAccess: ARN = "arn:aws:iam::aws:policy/AdministratorAccess";
     export const AmazonAPIGatewayAdministrator: ARN = "arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator";
     export const AmazonAPIGatewayInvokeFullAccess: ARN = "arn:aws:iam::aws:policy/AmazonAPIGatewayInvokeFullAccess";
