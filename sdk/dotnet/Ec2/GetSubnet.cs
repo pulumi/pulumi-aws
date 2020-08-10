@@ -42,6 +42,7 @@ namespace Pulumi.Aws.Ec2
         ///         }));
         ///         var subnet = new Aws.Ec2.SecurityGroup("subnet", new Aws.Ec2.SecurityGroupArgs
         ///         {
+        ///             VpcId = selected.Apply(selected =&gt; selected.VpcId),
         ///             Ingress = 
         ///             {
         ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -51,11 +52,10 @@ namespace Pulumi.Aws.Ec2
         ///                         selected.Apply(selected =&gt; selected.CidrBlock),
         ///                     },
         ///                     FromPort = 80,
-        ///                     Protocol = "tcp",
         ///                     ToPort = 80,
+        ///                     Protocol = "tcp",
         ///                 },
         ///             },
-        ///             VpcId = selected.Apply(selected =&gt; selected.VpcId),
         ///         });
         ///     }
         /// 

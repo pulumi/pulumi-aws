@@ -104,7 +104,6 @@ class Cluster(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         example__amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
@@ -127,12 +126,14 @@ class Cluster(pulumi.CustomResource):
         cluster_name = config.get("clusterName")
         if cluster_name is None:
             cluster_name = "example"
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=7)
+        # ... potentially other configuration ...
         example_cluster = aws.eks.Cluster("exampleCluster", enabled_cluster_log_types=[
             "api",
             "audit",
         ],
-        opts=ResourceOptions(depends_on=["aws_cloudwatch_log_group.example"]))
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=7)
+        opts=ResourceOptions(depends_on=[example_log_group]))
+        # ... other configuration ...
         ```
 
         :param str resource_name: The name of the resource.

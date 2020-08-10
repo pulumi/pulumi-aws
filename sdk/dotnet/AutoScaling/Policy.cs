@@ -34,19 +34,19 @@ namespace Pulumi.Aws.AutoScaling
     ///             {
     ///                 "us-east-1a",
     ///             },
-    ///             ForceDelete = true,
-    ///             HealthCheckGracePeriod = 300,
-    ///             HealthCheckType = "ELB",
-    ///             LaunchConfiguration = aws_launch_configuration.Foo.Name,
     ///             MaxSize = 5,
     ///             MinSize = 2,
+    ///             HealthCheckGracePeriod = 300,
+    ///             HealthCheckType = "ELB",
+    ///             ForceDelete = true,
+    ///             LaunchConfiguration = aws_launch_configuration.Foo.Name,
     ///         });
     ///         var bat = new Aws.AutoScaling.Policy("bat", new Aws.AutoScaling.PolicyArgs
     ///         {
-    ///             AdjustmentType = "ChangeInCapacity",
-    ///             AutoscalingGroupName = bar.Name,
-    ///             Cooldown = 300,
     ///             ScalingAdjustment = 4,
+    ///             AdjustmentType = "ChangeInCapacity",
+    ///             Cooldown = 300,
+    ///             AutoscalingGroupName = bar.Name,
     ///         });
     ///     }
     /// 

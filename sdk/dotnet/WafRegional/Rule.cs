@@ -40,9 +40,9 @@ namespace Pulumi.Aws.WafRegional
     ///             {
     ///                 new Aws.WafRegional.Inputs.RulePredicateArgs
     ///                 {
+    ///                     Type = "IPMatch",
     ///                     DataId = ipset.Id,
     ///                     Negated = false,
-    ///                     Type = "IPMatch",
     ///                 },
     ///             },
     ///         });

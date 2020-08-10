@@ -74,16 +74,11 @@ class Zone(pulumi.CustomResource):
             "Environment": "dev",
         })
         dev_ns = aws.route53.Record("dev-ns",
+            zone_id=main.zone_id,
             name="dev.example.com",
-            records=[
-                dev.name_servers[0],
-                dev.name_servers[1],
-                dev.name_servers[2],
-                dev.name_servers[3],
-            ],
-            ttl="30",
             type="NS",
-            zone_id=main.zone_id)
+            ttl="30",
+            records=dev.name_servers)
         ```
         ### Private Zone
 

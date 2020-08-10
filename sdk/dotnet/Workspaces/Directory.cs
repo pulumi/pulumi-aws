@@ -28,15 +28,15 @@ namespace Pulumi.Aws.Workspaces
     ///         });
     ///         var private_a = new Aws.Ec2.Subnet("private-a", new Aws.Ec2.SubnetArgs
     ///         {
+    ///             VpcId = mainVpc.Id,
     ///             AvailabilityZone = "us-east-1a",
     ///             CidrBlock = "10.0.0.0/24",
-    ///             VpcId = mainVpc.Id,
     ///         });
     ///         var private_b = new Aws.Ec2.Subnet("private-b", new Aws.Ec2.SubnetArgs
     ///         {
+    ///             VpcId = mainVpc.Id,
     ///             AvailabilityZone = "us-east-1b",
     ///             CidrBlock = "10.0.1.0/24",
-    ///             VpcId = mainVpc.Id,
     ///         });
     ///         var mainDirectory = new Aws.DirectoryService.Directory("mainDirectory", new Aws.DirectoryService.DirectoryArgs
     ///         {
@@ -44,12 +44,12 @@ namespace Pulumi.Aws.Workspaces
     ///             Size = "Small",
     ///             VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
     ///             {
+    ///                 VpcId = mainVpc.Id,
     ///                 SubnetIds = 
     ///                 {
     ///                     private_a.Id,
     ///                     private_b.Id,
     ///                 },
-    ///                 VpcId = mainVpc.Id,
     ///             },
     ///         });
     ///         var mainWorkspaces_directoryDirectory = new Aws.Workspaces.Directory("mainWorkspaces/directoryDirectory", new Aws.Workspaces.DirectoryArgs

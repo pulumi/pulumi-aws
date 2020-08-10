@@ -47,9 +47,9 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
 
         example_bucket = aws.s3.Bucket("exampleBucket")
         example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock",
+            bucket=example_bucket.id,
             block_public_acls=True,
-            block_public_policy=True,
-            bucket=example_bucket.id)
+            block_public_policy=True)
         ```
 
         :param str resource_name: The name of the resource.

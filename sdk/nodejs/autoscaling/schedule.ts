@@ -13,23 +13,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foobarGroup = new aws.autoscaling.Group("foobar", {
+ * const foobarGroup = new aws.autoscaling.Group("foobarGroup", {
  *     availabilityZones: ["us-west-2a"],
- *     forceDelete: true,
- *     healthCheckGracePeriod: 300,
- *     healthCheckType: "ELB",
  *     maxSize: 1,
  *     minSize: 1,
+ *     healthCheckGracePeriod: 300,
+ *     healthCheckType: "ELB",
+ *     forceDelete: true,
  *     terminationPolicies: ["OldestInstance"],
  * });
- * const foobarSchedule = new aws.autoscaling.Schedule("foobar", {
- *     autoscalingGroupName: foobarGroup.name,
- *     desiredCapacity: 0,
- *     endTime: "2016-12-12T06:00:00Z",
- *     maxSize: 1,
- *     minSize: 0,
+ * const foobarSchedule = new aws.autoscaling.Schedule("foobarSchedule", {
  *     scheduledActionName: "foobar",
+ *     minSize: 0,
+ *     maxSize: 1,
+ *     desiredCapacity: 0,
  *     startTime: "2016-12-11T18:00:00Z",
+ *     endTime: "2016-12-12T06:00:00Z",
+ *     autoscalingGroupName: foobarGroup.name,
  * });
  * ```
  */

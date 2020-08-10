@@ -28,16 +28,6 @@ namespace Pulumi.Aws.Cfg
     ///         {
     ///             ForceDestroy = true,
     ///         });
-    ///         var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new Aws.Cfg.DeliveryChannelArgs
-    ///         {
-    ///             S3BucketName = bucket.BucketName,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 "aws_config_configuration_recorder.foo",
-    ///             },
-    ///         });
     ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
     ///         {
     ///             AssumeRolePolicy = @"{
@@ -53,15 +43,25 @@ namespace Pulumi.Aws.Cfg
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var fooRecorder = new Aws.Cfg.Recorder("fooRecorder", new Aws.Cfg.RecorderArgs
     ///         {
     ///             RoleArn = role.Arn,
     ///         });
+    ///         var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new Aws.Cfg.DeliveryChannelArgs
+    ///         {
+    ///             S3BucketName = bucket.BucketName,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 fooRecorder,
+    ///             },
+    ///         });
     ///         var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
+    ///             Role = role.Id,
     ///             Policy = Output.Tuple(bucket.Arn, bucket.Arn).Apply(values =&gt;
     ///             {
     ///                 var bucketArn = values.Item1;
@@ -81,10 +81,8 @@ namespace Pulumi.Aws.Cfg
     ///     }}
     ///   ]
     /// }}
-    /// 
     /// ";
     ///             }),
-    ///             Role = role.Id,
     ///         });
     ///     }
     /// 

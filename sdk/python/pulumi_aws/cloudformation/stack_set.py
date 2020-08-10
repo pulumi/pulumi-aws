@@ -102,7 +102,6 @@ class StackSet(pulumi.CustomResource):
             }
           }
         }
-
         \"\"\")
         a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document = example.execution_role_name.apply(lambda execution_role_name: aws.iam.get_policy_document(statements=[{
             "actions": ["sts:AssumeRole"],

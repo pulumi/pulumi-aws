@@ -41,8 +41,8 @@ namespace Pulumi.Aws.Ec2
         ///         }));
         ///         var route = new Aws.Ec2.Route("route", new Aws.Ec2.RouteArgs
         ///         {
-        ///             DestinationCidrBlock = "10.0.1.0/22",
         ///             RouteTableId = selected.Apply(selected =&gt; selected.Id),
+        ///             DestinationCidrBlock = "10.0.1.0/22",
         ///             VpcPeeringConnectionId = "pcx-45ff3dc1",
         ///         });
         ///     }

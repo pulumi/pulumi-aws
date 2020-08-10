@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb = new aws.appmesh.VirtualRouter("serviceb", {
- *     meshName: aws_appmesh_mesh_simple.id,
+ *     meshName: aws_appmesh_mesh.simple.id,
  *     spec: {
  *         listener: {
  *             portMapping: {

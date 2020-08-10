@@ -41,7 +41,6 @@ namespace Pulumi.Aws.Iam
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///     }

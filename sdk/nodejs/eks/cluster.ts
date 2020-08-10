@@ -16,8 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: `{
+ * const example = new aws.iam.Role("example", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -29,8 +28,7 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
+ * `});
  * const example_AmazonEKSClusterPolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy", {
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
  *     role: example.name,
@@ -52,53 +50,16 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const clusterName = config.get("clusterName") || "example";
- *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
- *     retentionInDays: 7,
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 7});
+ * // ... potentially other configuration ...
+ * const exampleCluster = new aws.eks.Cluster("exampleCluster", {enabledClusterLogTypes: [
+ *     "api",
+ *     "audit",
+ * ]}, {
+ *     dependsOn: [exampleLogGroup],
  * });
- * const exampleCluster = new aws.eks.Cluster("example", {
- *     enabledClusterLogTypes: [
- *         "api",
- *         "audit",
- *     ],
- * }, { dependsOn: [exampleLogGroup] });
+ * // ... other configuration ...
  * ```
- * ### Enabling IAM Roles for Service Accounts
- *
- * Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCluster = new aws.eks.Cluster("example", {});
- * const exampleOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("example", {
- *     clientIdLists: ["sts.amazonaws.com"],
- *     thumbprintLists: [],
- *     url: exampleCluster.identities[0].oidcs[0].issuer,
- * });
- * const current = pulumi.output(aws.getCallerIdentity({ async: true }));
- * const exampleAssumeRolePolicy = pulumi.all([exampleOpenIdConnectProvider.url, exampleOpenIdConnectProvider.arn]).apply(([url, arn]) => aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRoleWithWebIdentity"],
- *         conditions: [{
- *             test: "StringEquals",
- *             values: ["system:serviceaccount:kube-system:aws-node"],
- *             variable: `${url.replace("https://", "")}:sub`,
- *         }],
- *         effect: "Allow",
- *         principals: [{
- *             identifiers: [arn],
- *             type: "Federated",
- *         }],
- *     }],
- * }, { async: true }));
- * const exampleRole = new aws.iam.Role("example", {
- *     assumeRolePolicy: exampleAssumeRolePolicy.json,
- * });
- * ```
- *
- * After adding inline IAM Policies (e.g. `aws.iam.RolePolicy` resource) or attaching IAM Policies (e.g. `aws.iam.Policy` resource and `aws.iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g. `kubernetesServiceAccount` resource) and recreate any pods.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

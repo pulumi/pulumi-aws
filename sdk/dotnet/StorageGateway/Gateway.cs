@@ -36,6 +36,29 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// }
     /// ```
+    /// ### Tape Gateway
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.StorageGateway.Gateway("example", new Aws.StorageGateway.GatewayArgs
+    ///         {
+    ///             GatewayIpAddress = "1.2.3.4",
+    ///             GatewayName = "example",
+    ///             GatewayTimezone = "GMT",
+    ///             GatewayType = "VTL",
+    ///             MediumChangerType = "AWS-Gateway-VTL",
+    ///             TapeDriveType = "IBM-ULT3580-TD5",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Volume Gateway (Cached)
     /// 
     /// ```csharp
@@ -135,6 +158,9 @@ namespace Pulumi.Aws.StorageGateway
         [Output("gatewayVpcEndpoint")]
         public Output<string?> GatewayVpcEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+        /// </summary>
         [Output("mediumChangerType")]
         public Output<string?> MediumChangerType { get; private set; } = null!;
 
@@ -250,6 +276,9 @@ namespace Pulumi.Aws.StorageGateway
         [Input("gatewayVpcEndpoint")]
         public Input<string>? GatewayVpcEndpoint { get; set; }
 
+        /// <summary>
+        /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+        /// </summary>
         [Input("mediumChangerType")]
         public Input<string>? MediumChangerType { get; set; }
 
@@ -344,6 +373,9 @@ namespace Pulumi.Aws.StorageGateway
         [Input("gatewayVpcEndpoint")]
         public Input<string>? GatewayVpcEndpoint { get; set; }
 
+        /// <summary>
+        /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+        /// </summary>
         [Input("mediumChangerType")]
         public Input<string>? MediumChangerType { get; set; }
 

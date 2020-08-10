@@ -148,8 +148,8 @@ class Broker(pulumi.CustomResource):
             host_instance_type="mq.t2.micro",
             security_groups=[aws_security_group["test"]["id"]],
             users=[{
-                "password": "MindTheGap",
                 "username": "ExampleUser",
+                "password": "MindTheGap",
             }])
         ```
 

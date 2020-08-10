@@ -47,11 +47,11 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
                 },
             ])
         smtp = aws.ec2.ProxyProtocolPolicy("smtp",
+            load_balancer=lb.name,
             instance_ports=[
                 "25",
                 "587",
-            ],
-            load_balancer=lb.name)
+            ])
         ```
 
         :param str resource_name: The name of the resource.

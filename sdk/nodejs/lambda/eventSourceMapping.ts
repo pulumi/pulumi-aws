@@ -20,8 +20,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_dynamodb_table_example.streamArn,
- *     functionName: aws_lambda_function_example.arn,
+ *     eventSourceArn: aws_dynamodb_table.example.stream_arn,
+ *     functionName: aws_lambda_function.example.arn,
  *     startingPosition: "LATEST",
  * });
  * ```
@@ -32,8 +32,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_kinesis_stream_example.arn,
- *     functionName: aws_lambda_function_example.arn,
+ *     eventSourceArn: aws_kinesis_stream.example.arn,
+ *     functionName: aws_lambda_function.example.arn,
  *     startingPosition: "LATEST",
  * });
  * ```
@@ -44,8 +44,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.EventSourceMapping("example", {
- *     eventSourceArn: aws_sqs_queue_sqs_queue_test.arn,
- *     functionName: aws_lambda_function_example.arn,
+ *     eventSourceArn: aws_sqs_queue.sqs_queue_test.arn,
+ *     functionName: aws_lambda_function.example.arn,
  * });
  * ```
  */

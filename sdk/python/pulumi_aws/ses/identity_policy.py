@@ -38,11 +38,11 @@ class IdentityPolicy(pulumi.CustomResource):
                 "SES:SendEmail",
                 "SES:SendRawEmail",
             ],
+            "resources": [arn],
             "principals": [{
                 "identifiers": ["*"],
                 "type": "AWS",
             }],
-            "resources": [arn],
         }]))
         example_identity_policy = aws.ses.IdentityPolicy("exampleIdentityPolicy",
             identity=example_domain_identity.arn,

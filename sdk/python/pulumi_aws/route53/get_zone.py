@@ -106,11 +106,11 @@ def get_zone(name=None,private_zone=None,resource_record_set_count=None,tags=Non
     selected = aws.route53.get_zone(name="test.com.",
         private_zone=True)
     www = aws.route53.Record("www",
+        zone_id=selected.zone_id,
         name=f"www.{selected.name}",
-        records=["10.0.0.1"],
-        ttl="300",
         type="A",
-        zone_id=selected.zone_id)
+        ttl="300",
+        records=["10.0.0.1"])
     ```
 
 

@@ -23,9 +23,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const foo = new aws.elb.LoadBalancerCookieStickinessPolicy("foo", {
- *     cookieExpirationPeriod: 600,
- *     lbPort: 80,
  *     loadBalancer: lb.id,
+ *     lbPort: 80,
+ *     cookieExpirationPeriod: 600,
  * });
  * ```
  */

@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.storagegateway.UploadBuffer("example", {
- *     diskId: aws_storagegateway_local_disk_example.id,
- *     gatewayArn: aws_storagegateway_gateway_example.arn,
+ *     diskId: data.aws_storagegateway_local_disk.example.id,
+ *     gatewayArn: aws_storagegateway_gateway.example.arn,
  * });
  * ```
  */

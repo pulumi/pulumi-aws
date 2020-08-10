@@ -25,9 +25,9 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := directconnect.NewBgpPeer(ctx, "peer", &directconnect.BgpPeerArgs{
+// 			VirtualInterfaceId: pulumi.String(aws_dx_private_virtual_interface.Foo.Id),
 // 			AddressFamily:      pulumi.String("ipv6"),
 // 			BgpAsn:             pulumi.Int(65351),
-// 			VirtualInterfaceId: pulumi.String(aws_dx_private_virtual_interface.Foo.Id),
 // 		})
 // 		if err != nil {
 // 			return err

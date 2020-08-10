@@ -11,14 +11,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooServer = new aws.transfer.Server("foo", {
+ * const fooServer = new aws.transfer.Server("fooServer", {
  *     identityProviderType: "SERVICE_MANAGED",
  *     tags: {
  *         NAME: "tf-acc-test-transfer-server",
  *     },
  * });
- * const fooRole = new aws.iam.Role("foo", {
- *     assumeRolePolicy: `{
+ * const fooRole = new aws.iam.Role("fooRole", {assumeRolePolicy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
  * 		{
@@ -30,9 +29,9 @@ import * as utilities from "../utilities";
  * 		}
  * 	]
  * }
- * `,
- * });
- * const fooRolePolicy = new aws.iam.RolePolicy("foo", {
+ * `});
+ * const fooRolePolicy = new aws.iam.RolePolicy("fooRolePolicy", {
+ *     role: fooRole.id,
  *     policy: `{
  * 	"Version": "2012-10-17",
  * 	"Statement": [
@@ -47,20 +46,19 @@ import * as utilities from "../utilities";
  * 	]
  * }
  * `,
- *     role: fooRole.id,
  * });
- * const fooUser = new aws.transfer.User("foo", {
- *     role: fooRole.arn,
+ * const fooUser = new aws.transfer.User("fooUser", {
  *     serverId: fooServer.id,
+ *     userName: "tftestuser",
+ *     role: fooRole.arn,
  *     tags: {
  *         NAME: "tftestuser",
  *     },
- *     userName: "tftestuser",
  * });
- * const fooSshKey = new aws.transfer.SshKey("foo", {
- *     body: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 example@example.com",
+ * const fooSshKey = new aws.transfer.SshKey("fooSshKey", {
  *     serverId: fooServer.id,
  *     userName: fooUser.userName,
+ *     body: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 example@example.com",
  * });
  * ```
  */

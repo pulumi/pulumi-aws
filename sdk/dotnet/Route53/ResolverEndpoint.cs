@@ -25,6 +25,11 @@ namespace Pulumi.Aws.Route53
     ///         var foo = new Aws.Route53.ResolverEndpoint("foo", new Aws.Route53.ResolverEndpointArgs
     ///         {
     ///             Direction = "INBOUND",
+    ///             SecurityGroupIds = 
+    ///             {
+    ///                 aws_security_group.Sg1.Id,
+    ///                 aws_security_group.Sg2.Id,
+    ///             },
     ///             IpAddresses = 
     ///             {
     ///                 new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
@@ -33,14 +38,9 @@ namespace Pulumi.Aws.Route53
     ///                 },
     ///                 new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
     ///                 {
-    ///                     Ip = "10.0.64.4",
     ///                     SubnetId = aws_subnet.Sn2.Id,
+    ///                     Ip = "10.0.64.4",
     ///                 },
-    ///             },
-    ///             SecurityGroupIds = 
-    ///             {
-    ///                 aws_security_group.Sg1.Id,
-    ///                 aws_security_group.Sg2.Id,
     ///             },
     ///             Tags = 
     ///             {

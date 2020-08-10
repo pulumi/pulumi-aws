@@ -51,7 +51,7 @@ type Alias struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the alias.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The function ARN of the Lambda function for which you want to create an alias.
+	// Lambda Function name or ARN.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
 	FunctionVersion pulumi.StringOutput `pulumi:"functionVersion"`
@@ -101,7 +101,7 @@ type aliasState struct {
 	Arn *string `pulumi:"arn"`
 	// Description of the alias.
 	Description *string `pulumi:"description"`
-	// The function ARN of the Lambda function for which you want to create an alias.
+	// Lambda Function name or ARN.
 	FunctionName *string `pulumi:"functionName"`
 	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
 	FunctionVersion *string `pulumi:"functionVersion"`
@@ -118,7 +118,7 @@ type AliasState struct {
 	Arn pulumi.StringPtrInput
 	// Description of the alias.
 	Description pulumi.StringPtrInput
-	// The function ARN of the Lambda function for which you want to create an alias.
+	// Lambda Function name or ARN.
 	FunctionName pulumi.StringPtrInput
 	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
 	FunctionVersion pulumi.StringPtrInput
@@ -137,7 +137,7 @@ func (AliasState) ElementType() reflect.Type {
 type aliasArgs struct {
 	// Description of the alias.
 	Description *string `pulumi:"description"`
-	// The function ARN of the Lambda function for which you want to create an alias.
+	// Lambda Function name or ARN.
 	FunctionName string `pulumi:"functionName"`
 	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
 	FunctionVersion string `pulumi:"functionVersion"`
@@ -151,7 +151,7 @@ type aliasArgs struct {
 type AliasArgs struct {
 	// Description of the alias.
 	Description pulumi.StringPtrInput
-	// The function ARN of the Lambda function for which you want to create an alias.
+	// Lambda Function name or ARN.
 	FunctionName pulumi.StringInput
 	// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
 	FunctionVersion pulumi.StringInput

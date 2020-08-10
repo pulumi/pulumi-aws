@@ -36,7 +36,7 @@ import (
 // 		}
 // 		topic, err := sns.NewTopic(ctx, "topic", &sns.TopicArgs{
 // 			Policy: bucket.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\":\"2012-10-17\",\n", "    \"Statement\":[{\n", "        \"Effect\": \"Allow\",\n", "        \"Principal\": {\"AWS\":\"*\"},\n", "        \"Action\": \"SNS:Publish\",\n", "        \"Resource\": \"arn:aws:sns:*:*:s3-event-notification-topic\",\n", "        \"Condition\":{\n", "            \"ArnLike\":{\"aws:SourceArn\":\"", arn, "\"}\n", "        }\n", "    }]\n", "}\n", "\n"), nil
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\":\"2012-10-17\",\n", "    \"Statement\":[{\n", "        \"Effect\": \"Allow\",\n", "        \"Principal\": {\"AWS\":\"*\"},\n", "        \"Action\": \"SNS:Publish\",\n", "        \"Resource\": \"arn:aws:sns:*:*:s3-event-notification-topic\",\n", "        \"Condition\":{\n", "            \"ArnLike\":{\"aws:SourceArn\":\"", arn, "\"}\n", "        }\n", "    }]\n", "}\n"), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -46,11 +46,11 @@ import (
 // 			Bucket: bucket.ID(),
 // 			Topics: s3.BucketNotificationTopicArray{
 // 				&s3.BucketNotificationTopicArgs{
+// 					TopicArn: topic.Arn,
 // 					Events: pulumi.StringArray{
 // 						pulumi.String("s3:ObjectCreated:*"),
 // 					},
 // 					FilterSuffix: pulumi.String(".log"),
-// 					TopicArn:     topic.Arn,
 // 				},
 // 			},
 // 		})
@@ -82,7 +82,7 @@ import (
 // 		}
 // 		queue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 // 			Policy: bucket.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": \"*\",\n", "      \"Action\": \"sqs:SendMessage\",\n", "	  \"Resource\": \"arn:aws:sqs:*:*:s3-event-notification-queue\",\n", "      \"Condition\": {\n", "        \"ArnEquals\": { \"aws:SourceArn\": \"", arn, "\" }\n", "      }\n", "    }\n", "  ]\n", "}\n", "\n"), nil
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": \"*\",\n", "      \"Action\": \"sqs:SendMessage\",\n", "	  \"Resource\": \"arn:aws:sqs:*:*:s3-event-notification-queue\",\n", "      \"Condition\": {\n", "        \"ArnEquals\": { \"aws:SourceArn\": \"", arn, "\" }\n", "      }\n", "    }\n", "  ]\n", "}\n"), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -92,11 +92,11 @@ import (
 // 			Bucket: bucket.ID(),
 // 			Queues: s3.BucketNotificationQueueArray{
 // 				&s3.BucketNotificationQueueArgs{
+// 					QueueArn: queue.Arn,
 // 					Events: pulumi.StringArray{
 // 						pulumi.String("s3:ObjectCreated:*"),
 // 					},
 // 					FilterSuffix: pulumi.String(".log"),
-// 					QueueArn:     queue.Arn,
 // 				},
 // 			},
 // 		})
@@ -128,7 +128,7 @@ import (
 // 		}
 // 		queue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 // 			Policy: bucket.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": \"*\",\n", "      \"Action\": \"sqs:SendMessage\",\n", "	  \"Resource\": \"arn:aws:sqs:*:*:s3-event-notification-queue\",\n", "      \"Condition\": {\n", "        \"ArnEquals\": { \"aws:SourceArn\": \"", arn, "\" }\n", "      }\n", "    }\n", "  ]\n", "}\n", "\n"), nil
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": \"*\",\n", "      \"Action\": \"sqs:SendMessage\",\n", "	  \"Resource\": \"arn:aws:sqs:*:*:s3-event-notification-queue\",\n", "      \"Condition\": {\n", "        \"ArnEquals\": { \"aws:SourceArn\": \"", arn, "\" }\n", "      }\n", "    }\n", "  ]\n", "}\n"), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -138,20 +138,20 @@ import (
 // 			Bucket: bucket.ID(),
 // 			Queues: s3.BucketNotificationQueueArray{
 // 				&s3.BucketNotificationQueueArgs{
+// 					Id:       pulumi.String("image-upload-event"),
+// 					QueueArn: queue.Arn,
 // 					Events: pulumi.StringArray{
 // 						pulumi.String("s3:ObjectCreated:*"),
 // 					},
 // 					FilterPrefix: pulumi.String("images/"),
-// 					Id:           pulumi.String("image-upload-event"),
-// 					QueueArn:     queue.Arn,
 // 				},
 // 				&s3.BucketNotificationQueueArgs{
+// 					Id:       pulumi.String("video-upload-event"),
+// 					QueueArn: queue.Arn,
 // 					Events: pulumi.StringArray{
 // 						pulumi.String("s3:ObjectCreated:*"),
 // 					},
 // 					FilterPrefix: pulumi.String("videos/"),
-// 					Id:           pulumi.String("video-upload-event"),
-// 					QueueArn:     queue.Arn,
 // 				},
 // 			},
 // 		})

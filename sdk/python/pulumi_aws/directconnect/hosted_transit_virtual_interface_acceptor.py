@@ -41,25 +41,26 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         import pulumi_pulumi as pulumi
 
         accepter = pulumi.providers.Aws("accepter")
+        # Accepter's credentials.
         accepter_caller_identity = aws.get_caller_identity()
+        # Accepter's side of the VIF.
+        example = aws.directconnect.Gateway("example", amazon_side_asn=64512,
+        opts=ResourceOptions(provider=aws["accepter"]))
         # Creator's side of the VIF
         creator = aws.directconnect.HostedTransitVirtualInterface("creator",
-            address_family="ipv4",
-            bgp_asn=65352,
             connection_id="dxcon-zzzzzzzz",
             owner_account_id=accepter_caller_identity.account_id,
             vlan=4094,
-            opts=ResourceOptions(depends_on=["aws_dx_gateway.example"]))
-        # Accepter's side of the VIF.
-        example = aws.directconnect.Gateway("example", amazon_side_asn=64512,
-        opts=ResourceOptions(provider="aws.accepter"))
+            address_family="ipv4",
+            bgp_asn=65352,
+            opts=ResourceOptions(depends_on=[example]))
         accepter_hosted_transit_virtual_interface_acceptor = aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor",
+            virtual_interface_id=creator.id,
             dx_gateway_id=example.id,
             tags={
                 "Side": "Accepter",
             },
-            virtual_interface_id=creator.id,
-            opts=ResourceOptions(provider="aws.accepter"))
+            opts=ResourceOptions(provider=aws["accepter"]))
         ```
 
         :param str resource_name: The name of the resource.

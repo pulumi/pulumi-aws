@@ -41,7 +41,6 @@ namespace Pulumi.Aws.Backup
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
@@ -49,6 +48,7 @@ namespace Pulumi.Aws.Backup
     ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
     ///             Role = exampleRole.Name,
     ///         });
+    ///         // ... other configuration ...
     ///         var exampleSelection = new Aws.Backup.Selection("exampleSelection", new Aws.Backup.SelectionArgs
     ///         {
     ///             IamRoleArn = exampleRole.Arn,
@@ -75,8 +75,8 @@ namespace Pulumi.Aws.Backup
     ///             {
     ///                 new Aws.Backup.Inputs.SelectionSelectionTagArgs
     ///                 {
-    ///                     Key = "foo",
     ///                     Type = "STRINGEQUALS",
+    ///                     Key = "foo",
     ///                     Value = "bar",
     ///                 },
     ///             },

@@ -49,17 +49,17 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         window = aws.ssm.MaintenanceWindow("window",
-            cutoff=1,
+            schedule="cron(0 16 ? * TUE *)",
             duration=3,
-            schedule="cron(0 16 ? * TUE *)")
+            cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
+            window_id=window.id,
             description="This is a maintenance window target",
             resource_type="INSTANCE",
             targets=[{
                 "key": "tag:Name",
                 "values": ["acceptance_test"],
-            }],
-            window_id=window.id)
+            }])
         ```
 
         ## Resource Group Target Example Usage
@@ -69,10 +69,11 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         window = aws.ssm.MaintenanceWindow("window",
-            cutoff=1,
+            schedule="cron(0 16 ? * TUE *)",
             duration=3,
-            schedule="cron(0 16 ? * TUE *)")
+            cutoff=1)
         target1 = aws.ssm.MaintenanceWindowTarget("target1",
+            window_id=window.id,
             description="This is a maintenance window target",
             resource_type="RESOURCE_GROUP",
             targets=[{
@@ -81,8 +82,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
                     "AWS::EC2::INSTANCE",
                     "AWS::EC2::VPC",
                 ],
-            }],
-            window_id=window.id)
+            }])
         ```
 
         :param str resource_name: The name of the resource.

@@ -64,7 +64,7 @@ class Project(pulumi.CustomResource):
       * `computeType` (`str`) - Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` need to be `BUILD_GENERAL1_LARGE`.
       * `environmentVariables` (`list`) - A set of environment variables to make available to builds for this build project.
         * `name` (`str`) - The environment variable's name or key.
-        * `type` (`str`) - The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`.
+        * `type` (`str`) - The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, and `SECRETS_MANAGER`.
         * `value` (`str`) - The environment variable's value.
 
       * `image` (`str`) - The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
@@ -192,9 +192,9 @@ class Project(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+            role=example_role.name,
             policy=pulumi.Output.all(example_bucket.arn, example_bucket.arn).apply(lambda exampleBucketArn, exampleBucketArn1: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
@@ -252,21 +252,23 @@ class Project(pulumi.CustomResource):
             }}
           ]
         }}
-
-        \"\"\"),
-            role=example_role.name)
+        \"\"\"))
         example_project = aws.codebuild.Project("exampleProject",
+            description="test_codebuild_project",
+            build_timeout="5",
+            service_role=example_role.arn,
             artifacts={
                 "type": "NO_ARTIFACTS",
             },
-            build_timeout="5",
             cache={
-                "location": example_bucket.bucket,
                 "type": "S3",
+                "location": example_bucket.bucket,
             },
-            description="test_codebuild_project",
             environment={
                 "computeType": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/standard:1.0",
+                "type": "LINUX_CONTAINER",
+                "imagePullCredentialsType": "CODEBUILD",
                 "environmentVariables": [
                     {
                         "name": "SOME_KEY1",
@@ -274,13 +276,10 @@ class Project(pulumi.CustomResource):
                     },
                     {
                         "name": "SOME_KEY2",
-                        "type": "PARAMETER_STORE",
                         "value": "SOME_VALUE2",
+                        "type": "PARAMETER_STORE",
                     },
                 ],
-                "image": "aws/codebuild/standard:1.0",
-                "imagePullCredentialsType": "CODEBUILD",
-                "type": "LINUX_CONTAINER",
             },
             logs_config={
                 "cloudwatchLogs": {
@@ -288,63 +287,62 @@ class Project(pulumi.CustomResource):
                     "streamName": "log-stream",
                 },
                 "s3Logs": {
-                    "location": example_bucket.id.apply(lambda id: f"{id}/build-log"),
                     "status": "ENABLED",
+                    "location": example_bucket.id.apply(lambda id: f"{id}/build-log"),
                 },
             },
-            service_role=example_role.arn,
             source={
+                "type": "GITHUB",
+                "location": "https://github.com/mitchellh/packer.git",
                 "gitCloneDepth": 1,
                 "gitSubmodulesConfig": {
                     "fetchSubmodules": True,
                 },
-                "location": "https://github.com/mitchellh/packer.git",
-                "type": "GITHUB",
             },
             source_version="master",
-            tags={
-                "Environment": "Test",
-            },
             vpc_config={
-                "security_group_ids": [
-                    aws_security_group["example1"]["id"],
-                    aws_security_group["example2"]["id"],
-                ],
+                "vpc_id": aws_vpc["example"]["id"],
                 "subnets": [
                     aws_subnet["example1"]["id"],
                     aws_subnet["example2"]["id"],
                 ],
-                "vpc_id": aws_vpc["example"]["id"],
+                "security_group_ids": [
+                    aws_security_group["example1"]["id"],
+                    aws_security_group["example2"]["id"],
+                ],
+            },
+            tags={
+                "Environment": "Test",
             })
         project_with_cache = aws.codebuild.Project("project-with-cache",
+            description="test_codebuild_project_cache",
+            build_timeout="5",
+            queued_timeout="5",
+            service_role=example_role.arn,
             artifacts={
                 "type": "NO_ARTIFACTS",
             },
-            build_timeout="5",
             cache={
+                "type": "LOCAL",
                 "modes": [
                     "LOCAL_DOCKER_LAYER_CACHE",
                     "LOCAL_SOURCE_CACHE",
                 ],
-                "type": "LOCAL",
             },
-            description="test_codebuild_project_cache",
             environment={
                 "computeType": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/standard:1.0",
+                "type": "LINUX_CONTAINER",
+                "imagePullCredentialsType": "CODEBUILD",
                 "environmentVariables": [{
                     "name": "SOME_KEY1",
                     "value": "SOME_VALUE1",
                 }],
-                "image": "aws/codebuild/standard:1.0",
-                "imagePullCredentialsType": "CODEBUILD",
-                "type": "LINUX_CONTAINER",
             },
-            queued_timeout="5",
-            service_role=example_role.arn,
             source={
-                "gitCloneDepth": 1,
-                "location": "https://github.com/mitchellh/packer.git",
                 "type": "GITHUB",
+                "location": "https://github.com/mitchellh/packer.git",
+                "gitCloneDepth": 1,
             },
             tags={
                 "Environment": "Test",
@@ -395,7 +393,7 @@ class Project(pulumi.CustomResource):
           * `computeType` (`pulumi.Input[str]`) - Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` need to be `BUILD_GENERAL1_LARGE`.
           * `environmentVariables` (`pulumi.Input[list]`) - A set of environment variables to make available to builds for this build project.
             * `name` (`pulumi.Input[str]`) - The environment variable's name or key.
-            * `type` (`pulumi.Input[str]`) - The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`.
+            * `type` (`pulumi.Input[str]`) - The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, and `SECRETS_MANAGER`.
             * `value` (`pulumi.Input[str]`) - The environment variable's value.
 
           * `image` (`pulumi.Input[str]`) - The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
@@ -573,7 +571,7 @@ class Project(pulumi.CustomResource):
           * `computeType` (`pulumi.Input[str]`) - Information about the compute resources the build project will use. Available values for this parameter are: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE` or `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` need to be `BUILD_GENERAL1_LARGE`.
           * `environmentVariables` (`pulumi.Input[list]`) - A set of environment variables to make available to builds for this build project.
             * `name` (`pulumi.Input[str]`) - The environment variable's name or key.
-            * `type` (`pulumi.Input[str]`) - The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`.
+            * `type` (`pulumi.Input[str]`) - The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, and `SECRETS_MANAGER`.
             * `value` (`pulumi.Input[str]`) - The environment variable's value.
 
           * `image` (`pulumi.Input[str]`) - The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).

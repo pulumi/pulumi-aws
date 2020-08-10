@@ -63,9 +63,9 @@ class User(pulumi.CustomResource):
         		}
         	]
         }
-
         \"\"\")
         foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
+            role=foo_role.id,
             policy=\"\"\"{
         	"Version": "2012-10-17",
         	"Statement": [
@@ -79,13 +79,11 @@ class User(pulumi.CustomResource):
         		}
         	]
         }
-
-        \"\"\",
-            role=foo_role.id)
+        \"\"\")
         foo_user = aws.transfer.User("fooUser",
-            role=foo_role.arn,
             server_id=foo_server.id,
-            user_name="tftestuser")
+            user_name="tftestuser",
+            role=foo_role.arn)
         ```
 
         :param str resource_name: The name of the resource.

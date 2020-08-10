@@ -39,16 +39,16 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
+// 		exampleAmazonsesVerificationRecord, err := route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
+// 			ZoneId: pulumi.String(aws_route53_zone.Example.Zone_id),
 // 			Name: example.ID().ApplyT(func(id string) (string, error) {
 // 				return fmt.Sprintf("%v%v", "_amazonses.", id), nil
 // 			}).(pulumi.StringOutput),
+// 			Type: pulumi.String("TXT"),
+// 			Ttl:  pulumi.Int(600),
 // 			Records: pulumi.StringArray{
 // 				example.VerificationToken,
 // 			},
-// 			Ttl:    pulumi.Int(600),
-// 			Type:   pulumi.String("TXT"),
-// 			ZoneId: pulumi.String(aws_route53_zone.Example.Zone_id),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -56,7 +56,7 @@ import (
 // 		_, err = ses.NewDomainIdentityVerification(ctx, "exampleVerification", &ses.DomainIdentityVerificationArgs{
 // 			Domain: example.ID(),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_route53_record.example_amazonses_verification_record",
+// 			exampleAmazonsesVerificationRecord,
 // 		}))
 // 		if err != nil {
 // 			return err

@@ -25,8 +25,8 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "YAML"
 // 		foo, err := ssm.LookupDocument(ctx, &ssm.LookupDocumentArgs{
-// 			DocumentFormat: &opt0,
 // 			Name:           "AWS-GatherSoftwareInventory",
+// 			DocumentFormat: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -51,8 +51,8 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "JSON"
 // 		_, err := ssm.LookupDocument(ctx, &ssm.LookupDocumentArgs{
-// 			DocumentFormat: &opt0,
 // 			Name:           aws_ssm_document.Test.Name,
+// 			DocumentFormat: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

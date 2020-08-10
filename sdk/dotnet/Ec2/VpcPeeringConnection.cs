@@ -57,17 +57,17 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var foo = new Aws.Ec2.VpcPeeringConnection("foo", new Aws.Ec2.VpcPeeringConnectionArgs
     ///         {
+    ///             PeerOwnerId = @var.Peer_owner_id,
+    ///             PeerVpcId = aws_vpc.Bar.Id,
+    ///             VpcId = aws_vpc.Foo.Id,
     ///             Accepter = new Aws.Ec2.Inputs.VpcPeeringConnectionAccepterArgs
     ///             {
     ///                 AllowRemoteVpcDnsResolution = true,
     ///             },
-    ///             PeerOwnerId = @var.Peer_owner_id,
-    ///             PeerVpcId = aws_vpc.Bar.Id,
     ///             Requester = new Aws.Ec2.Inputs.VpcPeeringConnectionRequesterArgs
     ///             {
     ///                 AllowRemoteVpcDnsResolution = true,
     ///             },
-    ///             VpcId = aws_vpc.Foo.Id,
     ///         });
     ///     }
     /// 
@@ -94,14 +94,14 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
     ///         {
-    ///             AutoAccept = true,
     ///             PeerOwnerId = @var.Peer_owner_id,
     ///             PeerVpcId = bar.Id,
+    ///             VpcId = fooVpc.Id,
+    ///             AutoAccept = true,
     ///             Tags = 
     ///             {
     ///                 { "Name", "VPC Peering between foo and bar" },
     ///             },
-    ///             VpcId = fooVpc.Id,
     ///         });
     ///     }
     /// 
@@ -123,14 +123,14 @@ namespace Pulumi.Aws.Ec2
     ///             CidrBlock = "10.1.0.0/16",
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.us-west-2",
+    ///             Provider = aws.Us_west_2,
     ///         });
     ///         var bar = new Aws.Ec2.Vpc("bar", new Aws.Ec2.VpcArgs
     ///         {
     ///             CidrBlock = "10.2.0.0/16",
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.us-east-1",
+    ///             Provider = aws.Us_east_1,
     ///         });
     ///         var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
     ///         {

@@ -20,7 +20,7 @@ class Alias(pulumi.CustomResource):
     """
     function_name: pulumi.Output[str]
     """
-    The function ARN of the Lambda function for which you want to create an alias.
+    Lambda Function name or ARN.
     """
     function_version: pulumi.Output[str]
     """
@@ -67,7 +67,7 @@ class Alias(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the alias.
-        :param pulumi.Input[str] function_name: The function ARN of the Lambda function for which you want to create an alias.
+        :param pulumi.Input[str] function_name: Lambda Function name or ARN.
         :param pulumi.Input[str] function_version: Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
         :param pulumi.Input[str] name: Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
         :param pulumi.Input[dict] routing_config: The Lambda alias' route configuration settings. Fields documented below
@@ -121,7 +121,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) identifying your Lambda function alias.
         :param pulumi.Input[str] description: Description of the alias.
-        :param pulumi.Input[str] function_name: The function ARN of the Lambda function for which you want to create an alias.
+        :param pulumi.Input[str] function_name: Lambda Function name or ARN.
         :param pulumi.Input[str] function_version: Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
         :param pulumi.Input[str] invoke_arn: The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
         :param pulumi.Input[str] name: Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`

@@ -34,15 +34,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		certCertificate, err := acm.NewCertificate(ctx, "certCertificate", &acm.CertificateArgs{
+// 		exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", &acm.CertificateArgs{
 // 			DomainName:       pulumi.String("example.com"),
 // 			ValidationMethod: pulumi.String("EMAIL"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = acm.NewCertificateValidation(ctx, "certCertificateValidation", &acm.CertificateValidationArgs{
-// 			CertificateArn: certCertificate.Arn,
+// 		_, err = acm.NewCertificateValidation(ctx, "exampleCertificateValidation", &acm.CertificateValidationArgs{
+// 			CertificateArn: exampleCertificate.Arn,
 // 		})
 // 		if err != nil {
 // 			return err

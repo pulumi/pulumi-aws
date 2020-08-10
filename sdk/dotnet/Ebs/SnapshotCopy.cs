@@ -33,16 +33,16 @@ namespace Pulumi.Aws.Ebs
     ///         });
     ///         var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new Aws.Ebs.SnapshotArgs
     ///         {
+    ///             VolumeId = example.Id,
     ///             Tags = 
     ///             {
     ///                 { "Name", "HelloWorld_snap" },
     ///             },
-    ///             VolumeId = example.Id,
     ///         });
     ///         var exampleCopy = new Aws.Ebs.SnapshotCopy("exampleCopy", new Aws.Ebs.SnapshotCopyArgs
     ///         {
-    ///             SourceRegion = "us-west-2",
     ///             SourceSnapshotId = exampleSnapshot.Id,
+    ///             SourceRegion = "us-west-2",
     ///             Tags = 
     ///             {
     ///                 { "Name", "HelloWorld_copy_snap" },

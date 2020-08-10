@@ -34,11 +34,11 @@ class ConditionalForwader(pulumi.CustomResource):
 
         example = aws.directoryservice.ConditionalForwader("example",
             directory_id=aws_directory_service_directory["ad"]["id"],
+            remote_domain_name="example.com",
             dns_ips=[
                 "8.8.8.8",
                 "8.8.4.4",
-            ],
-            remote_domain_name="example.com")
+            ])
         ```
 
         :param str resource_name: The name of the resource.

@@ -34,33 +34,17 @@ namespace Pulumi.Aws.Elb
     ///         // Create a new load balancer
     ///         var bar = new Aws.Elb.LoadBalancer("bar", new Aws.Elb.LoadBalancerArgs
     ///         {
-    ///             AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
-    ///             {
-    ///                 Bucket = "foo",
-    ///                 BucketPrefix = "bar",
-    ///                 Interval = 60,
-    ///             },
     ///             AvailabilityZones = 
     ///             {
     ///                 "us-west-2a",
     ///                 "us-west-2b",
     ///                 "us-west-2c",
     ///             },
-    ///             ConnectionDraining = true,
-    ///             ConnectionDrainingTimeout = 400,
-    ///             CrossZoneLoadBalancing = true,
-    ///             HealthCheck = new Aws.Elb.Inputs.LoadBalancerHealthCheckArgs
+    ///             AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
     ///             {
-    ///                 HealthyThreshold = 2,
-    ///                 Interval = 30,
-    ///                 Target = "HTTP:8000/",
-    ///                 Timeout = 3,
-    ///                 UnhealthyThreshold = 2,
-    ///             },
-    ///             IdleTimeout = 400,
-    ///             Instances = 
-    ///             {
-    ///                 aws_instance.Foo.Id,
+    ///                 Bucket = "foo",
+    ///                 BucketPrefix = "bar",
+    ///                 Interval = 60,
     ///             },
     ///             Listeners = 
     ///             {
@@ -80,6 +64,22 @@ namespace Pulumi.Aws.Elb
     ///                     SslCertificateId = "arn:aws:iam::123456789012:server-certificate/certName",
     ///                 },
     ///             },
+    ///             HealthCheck = new Aws.Elb.Inputs.LoadBalancerHealthCheckArgs
+    ///             {
+    ///                 HealthyThreshold = 2,
+    ///                 UnhealthyThreshold = 2,
+    ///                 Timeout = 3,
+    ///                 Target = "HTTP:8000/",
+    ///                 Interval = 30,
+    ///             },
+    ///             Instances = 
+    ///             {
+    ///                 aws_instance.Foo.Id,
+    ///             },
+    ///             CrossZoneLoadBalancing = true,
+    ///             IdleTimeout = 400,
+    ///             ConnectionDraining = true,
+    ///             ConnectionDrainingTimeout = 400,
     ///             Tags = 
     ///             {
     ///                 { "Name", "foobar-elb" },

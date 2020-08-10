@@ -33,10 +33,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = apigateway.NewModel(ctx, "myDemoModel", &apigateway.ModelArgs{
-// 			ContentType: pulumi.String("application/json"),
-// 			Description: pulumi.String("a JSON schema"),
 // 			RestApi:     myDemoAPI.ID(),
-// 			Schema:      pulumi.String(fmt.Sprintf("%v%v%v%v", "{\n", "  \"type\": \"object\"\n", "}\n", "\n")),
+// 			Description: pulumi.String("a JSON schema"),
+// 			ContentType: pulumi.String("application/json"),
+// 			Schema:      pulumi.String(fmt.Sprintf("%v%v%v", "{\n", "  \"type\": \"object\"\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err

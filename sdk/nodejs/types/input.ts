@@ -81,10 +81,14 @@ export interface GetRegionsFilter {
 }
 
 export interface ProviderAssumeRole {
+    durationSeconds?: pulumi.Input<number>;
     externalId?: pulumi.Input<string>;
     policy?: pulumi.Input<string>;
+    policyArns?: pulumi.Input<pulumi.Input<string>[]>;
     roleArn?: pulumi.Input<string>;
     sessionName?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    transitiveTagKeys?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ProviderEndpoint {
@@ -162,10 +166,6 @@ export interface ProviderEndpoint {
     iotevents?: pulumi.Input<string>;
     kafka?: pulumi.Input<string>;
     kinesis?: pulumi.Input<string>;
-    /**
-     * @deprecated use `endpoints` configuration block `kinesisanalytics` argument instead
-     */
-    kinesisAnalytics?: pulumi.Input<string>;
     kinesisanalytics?: pulumi.Input<string>;
     kinesisanalyticsv2?: pulumi.Input<string>;
     kinesisvideo?: pulumi.Input<string>;
@@ -195,10 +195,6 @@ export interface ProviderEndpoint {
     pricing?: pulumi.Input<string>;
     qldb?: pulumi.Input<string>;
     quicksight?: pulumi.Input<string>;
-    /**
-     * @deprecated use `endpoints` configuration block `route53` argument instead
-     */
-    r53?: pulumi.Input<string>;
     ram?: pulumi.Input<string>;
     rds?: pulumi.Input<string>;
     redshift?: pulumi.Input<string>;
@@ -753,12 +749,6 @@ export namespace alb {
 
     export interface ListenerRuleCondition {
         /**
-         * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        field?: pulumi.Input<string>;
-        /**
          * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader?: pulumi.Input<inputs.alb.ListenerRuleConditionHostHeader>;
@@ -782,19 +772,13 @@ export namespace alb {
          * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.alb.ListenerRuleConditionSourceIp>;
-        /**
-         * List of exactly one pattern to match. Required when `field` is set.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        values?: pulumi.Input<string>;
     }
 
     export interface ListenerRuleConditionHostHeader {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
-        values?: pulumi.Input<pulumi.Input<string>[]>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionHttpHeader {
@@ -810,16 +794,16 @@ export namespace alb {
 
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionPathPattern {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
-        values?: pulumi.Input<pulumi.Input<string>[]>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionQueryString {
@@ -835,7 +819,7 @@ export namespace alb {
 
     export interface ListenerRuleConditionSourceIp {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -993,11 +977,11 @@ export namespace apigateway {
          */
         requireAuthorizationForCacheControl?: pulumi.Input<boolean>;
         /**
-         * Specifies the throttling burst limit.
+         * Specifies the throttling burst limit. Default: `-1` (throttling disabled).
          */
         throttlingBurstLimit?: pulumi.Input<number>;
         /**
-         * Specifies the throttling rate limit.
+         * Specifies the throttling rate limit. Default: `-1` (throttling disabled).
          */
         throttlingRateLimit?: pulumi.Input<number>;
         /**
@@ -1130,6 +1114,13 @@ export namespace apigatewayv2 {
         targetDomainName?: pulumi.Input<string>;
     }
 
+    export interface IntegrationTlsConfig {
+        /**
+         * If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+         */
+        serverNameToVerify?: pulumi.Input<string>;
+    }
+
     export interface StageAccessLogSettings {
         /**
          * The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
@@ -1153,7 +1144,7 @@ export namespace apigatewayv2 {
         detailedMetricsEnabled?: pulumi.Input<boolean>;
         /**
          * The logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
          */
         loggingLevel?: pulumi.Input<string>;
         /**
@@ -1178,7 +1169,7 @@ export namespace apigatewayv2 {
         detailedMetricsEnabled?: pulumi.Input<boolean>;
         /**
          * The logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs.
+         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
          */
         loggingLevel?: pulumi.Input<string>;
         /**
@@ -1694,12 +1685,6 @@ export namespace applicationloadbalancing {
 
     export interface ListenerRuleCondition {
         /**
-         * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        field?: pulumi.Input<string>;
-        /**
          * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionHostHeader>;
@@ -1723,19 +1708,13 @@ export namespace applicationloadbalancing {
          * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.applicationloadbalancing.ListenerRuleConditionSourceIp>;
-        /**
-         * List of exactly one pattern to match. Required when `field` is set.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        values?: pulumi.Input<string>;
     }
 
     export interface ListenerRuleConditionHostHeader {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
-        values?: pulumi.Input<pulumi.Input<string>[]>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionHttpHeader {
@@ -1751,16 +1730,16 @@ export namespace applicationloadbalancing {
 
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionPathPattern {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
-        values?: pulumi.Input<pulumi.Input<string>[]>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionQueryString {
@@ -1776,7 +1755,7 @@ export namespace applicationloadbalancing {
 
     export interface ListenerRuleConditionSourceIp {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -3104,8 +3083,8 @@ export namespace cloudfront {
          */
         targetOriginId: pulumi.Input<string>;
         /**
-         * The AWS accounts, if any, that you want to
-         * allow to create signed URLs for private content.
+         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          */
         trustedSigners?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -3264,8 +3243,8 @@ export namespace cloudfront {
          */
         targetOriginId: pulumi.Input<string>;
         /**
-         * The AWS accounts, if any, that you want to
-         * allow to create signed URLs for private content.
+         * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+         * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
          */
         trustedSigners?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -3463,6 +3442,29 @@ export namespace cloudfront {
         restrictionType: pulumi.Input<string>;
     }
 
+    export interface DistributionTrustedSigner {
+        /**
+         * Whether the distribution is enabled to accept end
+         * user requests for content.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * List of nested attributes for each trusted signer
+         */
+        items?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTrustedSignerItem>[]>;
+    }
+
+    export interface DistributionTrustedSignerItem {
+        /**
+         * AWS account ID or `self`
+         */
+        awsAccountNumber?: pulumi.Input<string>;
+        /**
+         * Set of active CloudFront key pairs associated with the signer account
+         */
+        keyPairIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface DistributionViewerCertificate {
         /**
          * The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
@@ -3487,7 +3489,7 @@ export namespace cloudfront {
          * The minimum version of the SSL protocol that
          * you want CloudFront to use for HTTPS connections. Can only be set if
          * `cloudfrontDefaultCertificate = false`. One of `SSLv3`, `TLSv1`,
-         * `TLSv1_2016`, `TLSv1.1_2016` or `TLSv1.2_2018`. Default: `TLSv1`. **NOTE**:
+         * `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
          * If you are using a custom certificate (specified with `acmCertificateArn`
          * or `iamCertificateId`), and have specified `sni-only` in
          * `sslSupportMethod`, `TLSv1` or later must be specified. If you have
@@ -3821,7 +3823,7 @@ export namespace codebuild {
          */
         name: pulumi.Input<string>;
         /**
-         * The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`.
+         * The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, and `SECRETS_MANAGER`.
          */
         type?: pulumi.Input<string>;
         /**
@@ -4063,7 +4065,7 @@ export namespace codebuild {
          */
         pattern: pulumi.Input<string>;
         /**
-         * The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
+         * The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`. At least one filter group must specify `EVENT` as its type.
          */
         type: pulumi.Input<string>;
     }
@@ -4427,7 +4429,7 @@ export namespace codepipeline {
          */
         category: pulumi.Input<string>;
         /**
-         * A Map of the action declaration's configuration. Find out more about configuring action configurations in the [Reference Pipeline Structure documentation](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+         * A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
          */
         configuration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -4586,12 +4588,6 @@ export namespace cognito {
          * The invite message template structure.
          */
         inviteMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolAdminCreateUserConfigInviteMessageTemplate>;
-        /**
-         * **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
-         *
-         * @deprecated Use password_policy.temporary_password_validity_days instead
-         */
-        unusedAccountValidityDays?: pulumi.Input<number>;
     }
 
     export interface UserPoolAdminCreateUserConfigInviteMessageTemplate {
@@ -6449,7 +6445,7 @@ export namespace ec2 {
         /**
          * Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
          */
-        deleteOnTermination?: pulumi.Input<boolean>;
+        deleteOnTermination?: pulumi.Input<string>;
         /**
          * Description of the network interface.
          */
@@ -8297,12 +8293,6 @@ export namespace elasticloadbalancingv2 {
 
     export interface ListenerRuleCondition {
         /**
-         * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        field?: pulumi.Input<string>;
-        /**
          * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionHostHeader>;
@@ -8326,19 +8316,13 @@ export namespace elasticloadbalancingv2 {
          * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleConditionSourceIp>;
-        /**
-         * List of exactly one pattern to match. Required when `field` is set.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        values?: pulumi.Input<string>;
     }
 
     export interface ListenerRuleConditionHostHeader {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
-        values?: pulumi.Input<pulumi.Input<string>[]>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionHttpHeader {
@@ -8354,16 +8338,16 @@ export namespace elasticloadbalancingv2 {
 
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionPathPattern {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
-        values?: pulumi.Input<pulumi.Input<string>[]>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionQueryString {
@@ -8379,7 +8363,7 @@ export namespace elasticloadbalancingv2 {
 
     export interface ListenerRuleConditionSourceIp {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -9008,7 +8992,7 @@ export namespace emr {
 
     export interface ClusterCoreInstanceGroup {
         /**
-         * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+         * String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
          */
         autoscalingPolicy?: pulumi.Input<string>;
         /**
@@ -9089,60 +9073,6 @@ export namespace emr {
          * VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
          */
         subnetId?: pulumi.Input<string>;
-    }
-
-    export interface ClusterInstanceGroup {
-        /**
-         * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-         */
-        autoscalingPolicy?: pulumi.Input<string>;
-        /**
-         * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-         */
-        bidPrice?: pulumi.Input<string>;
-        /**
-         * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-         */
-        ebsConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterInstanceGroupEbsConfig>[]>;
-        /**
-         * The ID of the EMR Cluster
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
-         */
-        instanceCount?: pulumi.Input<number>;
-        /**
-         * The role of the instance group in the cluster. Valid values are: `MASTER`, `CORE`, and `TASK`.
-         */
-        instanceRole: pulumi.Input<string>;
-        /**
-         * EC2 instance type for all instances in the instance group.
-         */
-        instanceType: pulumi.Input<string>;
-        /**
-         * The name of the step.
-         */
-        name?: pulumi.Input<string>;
-    }
-
-    export interface ClusterInstanceGroupEbsConfig {
-        /**
-         * The number of I/O operations per second (IOPS) that the volume supports
-         */
-        iops?: pulumi.Input<number>;
-        /**
-         * The volume size, in gibibytes (GiB).
-         */
-        size: pulumi.Input<number>;
-        /**
-         * The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-         */
-        type: pulumi.Input<string>;
-        /**
-         * The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
-         */
-        volumesPerInstance?: pulumi.Input<number>;
     }
 
     export interface ClusterKerberosAttributes {
@@ -12158,12 +12088,6 @@ export namespace lb {
 
     export interface ListenerRuleCondition {
         /**
-         * The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        field?: pulumi.Input<string>;
-        /**
          * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
          */
         hostHeader?: pulumi.Input<inputs.lb.ListenerRuleConditionHostHeader>;
@@ -12187,19 +12111,13 @@ export namespace lb {
          * Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
          */
         sourceIp?: pulumi.Input<inputs.lb.ListenerRuleConditionSourceIp>;
-        /**
-         * List of exactly one pattern to match. Required when `field` is set.
-         *
-         * @deprecated use 'host_header' or 'path_pattern' attribute instead
-         */
-        values?: pulumi.Input<string>;
     }
 
     export interface ListenerRuleConditionHostHeader {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
-        values?: pulumi.Input<pulumi.Input<string>[]>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionHttpHeader {
@@ -12215,16 +12133,16 @@ export namespace lb {
 
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionPathPattern {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
-        values?: pulumi.Input<pulumi.Input<string>[]>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ListenerRuleConditionQueryString {
@@ -12240,7 +12158,7 @@ export namespace lb {
 
     export interface ListenerRuleConditionSourceIp {
         /**
-         * List of exactly one pattern to match. Required when `field` is set.
+         * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -12525,7 +12443,7 @@ export namespace msk {
 
     export interface ClusterEncryptionInfoEncryptionInTransit {
         /**
-         * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS_PLAINTEXT` when `encryptionInTransit` block defined, but `TLS` when `encryptionInTransit` block omitted.
+         * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
          */
         clientBroker?: pulumi.Input<string>;
         /**
@@ -13257,7 +13175,7 @@ export namespace rds {
          */
         maxCapacity?: pulumi.Input<number>;
         /**
-         * The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `2`.
+         * The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
          */
         minCapacity?: pulumi.Input<number>;
         /**
@@ -14448,14 +14366,11 @@ export namespace ssm {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface MaintenanceWindowTaskLoggingInfo {
-        s3BucketName: pulumi.Input<string>;
-        s3BucketPrefix?: pulumi.Input<string>;
-        s3Region: pulumi.Input<string>;
-    }
-
     export interface MaintenanceWindowTaskTarget {
         key: pulumi.Input<string>;
+        /**
+         * The array of strings.
+         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -14589,14 +14504,6 @@ export namespace ssm {
          * The name of the STEP_FUNCTION task.
          */
         name?: pulumi.Input<string>;
-    }
-
-    export interface MaintenanceWindowTaskTaskParameter {
-        /**
-         * The name of the maintenance window task.
-         */
-        name: pulumi.Input<string>;
-        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PatchBaselineApprovalRule {

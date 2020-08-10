@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.directconnect.HostedTransitVirtualInterface("example", {
+ *     connectionId: aws_dx_connection.example.id,
+ *     vlan: 4094,
  *     addressFamily: "ipv4",
  *     bgpAsn: 65352,
- *     connectionId: aws_dx_connection_example.id,
- *     vlan: 4094,
  * });
  * ```
  */

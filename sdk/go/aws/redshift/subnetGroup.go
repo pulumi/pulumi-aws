@@ -32,23 +32,23 @@ import (
 // 			return err
 // 		}
 // 		fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
-// 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			CidrBlock:        pulumi.String("10.1.1.0/24"),
+// 			AvailabilityZone: pulumi.String("us-west-2a"),
+// 			VpcId:            fooVpc.ID(),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("tf-dbsubnet-test-1"),
 // 			},
-// 			VpcId: fooVpc.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
-// 			AvailabilityZone: pulumi.String("us-west-2b"),
 // 			CidrBlock:        pulumi.String("10.1.2.0/24"),
+// 			AvailabilityZone: pulumi.String("us-west-2b"),
+// 			VpcId:            fooVpc.ID(),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("tf-dbsubnet-test-2"),
 // 			},
-// 			VpcId: fooVpc.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

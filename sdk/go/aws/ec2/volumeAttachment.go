@@ -48,8 +48,8 @@ import (
 // 		}
 // 		_, err = ec2.NewVolumeAttachment(ctx, "ebsAtt", &ec2.VolumeAttachmentArgs{
 // 			DeviceName: pulumi.String("/dev/sdh"),
-// 			InstanceId: web.ID(),
 // 			VolumeId:   example.ID(),
+// 			InstanceId: web.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

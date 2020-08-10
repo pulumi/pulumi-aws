@@ -30,6 +30,7 @@ class DomainPolicy(pulumi.CustomResource):
 
         example = aws.elasticsearch.Domain("example", elasticsearch_version="2.3")
         main = aws.elasticsearch.DomainPolicy("main",
+            domain_name=example.domain_name,
             access_policies=example.arn.apply(lambda arn: f\"\"\"{{
             "Version": "2012-10-17",
             "Statement": [
@@ -44,9 +45,7 @@ class DomainPolicy(pulumi.CustomResource):
                 }}
             ]
         }}
-
-        \"\"\"),
-            domain_name=example.domain_name)
+        \"\"\"))
         ```
 
         :param str resource_name: The name of the resource.

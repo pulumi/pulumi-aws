@@ -26,13 +26,13 @@ namespace Pulumi.Aws.Iam
     ///     {
     ///         var exampleUser = new Aws.Iam.User("exampleUser", new Aws.Iam.UserArgs
     ///         {
-    ///             ForceDestroy = true,
     ///             Path = "/",
+    ///             ForceDestroy = true,
     ///         });
     ///         var exampleUserLoginProfile = new Aws.Iam.UserLoginProfile("exampleUserLoginProfile", new Aws.Iam.UserLoginProfileArgs
     ///         {
-    ///             PgpKey = "keybase:some_person_that_exists",
     ///             User = exampleUser.Name,
+    ///             PgpKey = "keybase:some_person_that_exists",
     ///         });
     ///         this.Password = exampleUserLoginProfile.EncryptedPassword;
     ///     }

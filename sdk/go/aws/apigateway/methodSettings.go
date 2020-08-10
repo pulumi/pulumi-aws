@@ -32,64 +32,64 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		testDeployment, err := apigateway.NewDeployment(ctx, "testDeployment", &apigateway.DeploymentArgs{
-// 			RestApi:   testRestApi.ID(),
-// 			StageName: pulumi.String("dev"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_api_gateway_integration.test",
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testStage, err := apigateway.NewStage(ctx, "testStage", &apigateway.StageArgs{
-// 			Deployment: testDeployment.ID(),
-// 			RestApi:    testRestApi.ID(),
-// 			StageName:  pulumi.String("prod"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
 // 		testResource, err := apigateway.NewResource(ctx, "testResource", &apigateway.ResourceArgs{
+// 			RestApi:  testRestApi.ID(),
 // 			ParentId: testRestApi.RootResourceId,
 // 			PathPart: pulumi.String("mytestresource"),
-// 			RestApi:  testRestApi.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		testMethod, err := apigateway.NewMethod(ctx, "testMethod", &apigateway.MethodArgs{
-// 			Authorization: pulumi.String("NONE"),
-// 			HttpMethod:    pulumi.String("GET"),
-// 			ResourceId:    testResource.ID(),
 // 			RestApi:       testRestApi.ID(),
+// 			ResourceId:    testResource.ID(),
+// 			HttpMethod:    pulumi.String("GET"),
+// 			Authorization: pulumi.String("NONE"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testIntegration, err := apigateway.NewIntegration(ctx, "testIntegration", &apigateway.IntegrationArgs{
+// 			RestApi:    testRestApi.ID(),
+// 			ResourceId: testResource.ID(),
+// 			HttpMethod: testMethod.HttpMethod,
+// 			Type:       pulumi.String("MOCK"),
+// 			RequestTemplates: pulumi.StringMap{
+// 				"application/xml": pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "{\n", "   \"body\" : ", "$", "input.json('", "$", "')\n", "}\n")),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testDeployment, err := apigateway.NewDeployment(ctx, "testDeployment", &apigateway.DeploymentArgs{
+// 			RestApi:   testRestApi.ID(),
+// 			StageName: pulumi.String("dev"),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			testIntegration,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testStage, err := apigateway.NewStage(ctx, "testStage", &apigateway.StageArgs{
+// 			StageName:  pulumi.String("prod"),
+// 			RestApi:    testRestApi.ID(),
+// 			Deployment: testDeployment.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = apigateway.NewMethodSettings(ctx, "methodSettings", &apigateway.MethodSettingsArgs{
+// 			RestApi:   testRestApi.ID(),
+// 			StageName: testStage.StageName,
 // 			MethodPath: pulumi.All(testResource.PathPart, testMethod.HttpMethod).ApplyT(func(_args []interface{}) (string, error) {
 // 				pathPart := _args[0].(string)
 // 				httpMethod := _args[1].(string)
 // 				return fmt.Sprintf("%v%v%v", pathPart, "/", httpMethod), nil
 // 			}).(pulumi.StringOutput),
-// 			RestApi: testRestApi.ID(),
 // 			Settings: &apigateway.MethodSettingsSettingsArgs{
-// 				LoggingLevel:   pulumi.String("INFO"),
 // 				MetricsEnabled: pulumi.Bool(true),
+// 				LoggingLevel:   pulumi.String("INFO"),
 // 			},
-// 			StageName: testStage.StageName,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewIntegration(ctx, "testIntegration", &apigateway.IntegrationArgs{
-// 			HttpMethod: testMethod.HttpMethod,
-// 			RequestTemplates: pulumi.StringMap{
-// 				"application/xml": pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v", "{\n", "   \"body\" : ", "$", "input.json('", "$", "')\n", "}\n", "\n")),
-// 			},
-// 			ResourceId: testResource.ID(),
-// 			RestApi:    testRestApi.ID(),
-// 			Type:       pulumi.String("MOCK"),
 // 		})
 // 		if err != nil {
 // 			return err

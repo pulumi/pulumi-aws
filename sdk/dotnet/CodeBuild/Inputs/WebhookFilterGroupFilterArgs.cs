@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string> Pattern { get; set; } = null!;
 
         /// <summary>
-        /// The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`. At least one filter group must specify `EVENT` as its type.
+        /// The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`. At least one filter group must specify `EVENT` as its type.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

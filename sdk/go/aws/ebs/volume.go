@@ -49,7 +49,7 @@ type Volume struct {
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// If true, the disk will be encrypted.
 	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
-	// The amount of IOPS to provision for the disk.
+	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
 	Iops pulumi.IntOutput `pulumi:"iops"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
@@ -104,7 +104,7 @@ type volumeState struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// If true, the disk will be encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
-	// The amount of IOPS to provision for the disk.
+	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
 	Iops *int `pulumi:"iops"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -129,7 +129,7 @@ type VolumeState struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// If true, the disk will be encrypted.
 	Encrypted pulumi.BoolPtrInput
-	// The amount of IOPS to provision for the disk.
+	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
 	Iops pulumi.IntPtrInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
@@ -156,7 +156,7 @@ type volumeArgs struct {
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// If true, the disk will be encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
-	// The amount of IOPS to provision for the disk.
+	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
 	Iops *int `pulumi:"iops"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -180,7 +180,7 @@ type VolumeArgs struct {
 	AvailabilityZone pulumi.StringInput
 	// If true, the disk will be encrypted.
 	Encrypted pulumi.BoolPtrInput
-	// The amount of IOPS to provision for the disk.
+	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
 	Iops pulumi.IntPtrInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput

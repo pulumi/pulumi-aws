@@ -78,12 +78,11 @@ class Permission(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         test_lambda = aws.lambda_.Function("testLambda",
             code=pulumi.FileArchive("lambdatest.zip"),
-            handler="exports.handler",
             role=iam_for_lambda.arn,
+            handler="exports.handler",
             runtime="nodejs8.10")
         test_alias = aws.lambda_.Alias("testAlias",
             description="a sample description",
@@ -93,8 +92,8 @@ class Permission(pulumi.CustomResource):
             action="lambda:InvokeFunction",
             function=test_lambda.name,
             principal="events.amazonaws.com",
-            qualifier=test_alias.name,
-            source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily")
+            source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
+            qualifier=test_alias.name)
         ```
         ### Usage with SNS
 
@@ -116,12 +115,11 @@ class Permission(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         func = aws.lambda_.Function("func",
             code=pulumi.FileArchive("lambdatest.zip"),
-            handler="exports.handler",
             role=default_role.arn,
+            handler="exports.handler",
             runtime="python2.7")
         with_sns = aws.lambda_.Permission("withSns",
             action="lambda:InvokeFunction",
@@ -129,9 +127,9 @@ class Permission(pulumi.CustomResource):
             principal="sns.amazonaws.com",
             source_arn=default_topic.arn)
         lambda_ = aws.sns.TopicSubscription("lambda",
-            endpoint=func.arn,
+            topic=default_topic.arn,
             protocol="lambda",
-            topic=default_topic.arn)
+            endpoint=func.arn)
         ```
         ### Specify Lambda permissions for API Gateway REST API
 

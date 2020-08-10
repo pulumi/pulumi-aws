@@ -33,11 +33,11 @@ namespace Pulumi.Aws.Ebs
     ///         });
     ///         var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new Aws.Ebs.SnapshotArgs
     ///         {
+    ///             VolumeId = example.Id,
     ///             Tags = 
     ///             {
     ///                 { "Name", "HelloWorld_snap" },
     ///             },
-    ///             VolumeId = example.Id,
     ///         });
     ///     }
     /// 

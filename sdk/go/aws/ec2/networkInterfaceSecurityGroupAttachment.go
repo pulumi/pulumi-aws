@@ -45,6 +45,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := true
 // 		ami, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+// 			MostRecent: &opt0,
 // 			Filters: []aws.GetAmiFilter{
 // 				aws.GetAmiFilter{
 // 					Name: "name",
@@ -53,7 +54,6 @@ import (
 // 					},
 // 				},
 // 			},
-// 			MostRecent: &opt0,
 // 			Owners: []string{
 // 				"amazon",
 // 			},
@@ -62,8 +62,8 @@ import (
 // 			return err
 // 		}
 // 		instance, err := ec2.NewInstance(ctx, "instance", &ec2.InstanceArgs{
-// 			Ami:          pulumi.String(ami.Id),
 // 			InstanceType: pulumi.String("t2.micro"),
+// 			Ami:          pulumi.String(ami.Id),
 // 			Tags: pulumi.StringMap{
 // 				"type": pulumi.String("test-instance"),
 // 			},
@@ -80,8 +80,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sgAttachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
-// 			NetworkInterfaceId: instance.PrimaryNetworkInterfaceId,
 // 			SecurityGroupId:    sg.ID(),
+// 			NetworkInterfaceId: instance.PrimaryNetworkInterfaceId,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -121,8 +121,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sgAttachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
-// 			NetworkInterfaceId: pulumi.String(instance.NetworkInterfaceId),
 // 			SecurityGroupId:    sg.ID(),
+// 			NetworkInterfaceId: pulumi.String(instance.NetworkInterfaceId),
 // 		})
 // 		if err != nil {
 // 			return err

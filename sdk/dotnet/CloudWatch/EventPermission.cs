@@ -44,14 +44,14 @@ namespace Pulumi.Aws.CloudWatch
     ///     {
     ///         var organizationAccess = new Aws.CloudWatch.EventPermission("organizationAccess", new Aws.CloudWatch.EventPermissionArgs
     ///         {
+    ///             Principal = "*",
+    ///             StatementId = "OrganizationAccess",
     ///             Condition = new Aws.CloudWatch.Inputs.EventPermissionConditionArgs
     ///             {
     ///                 Key = "aws:PrincipalOrgID",
     ///                 Type = "StringEquals",
     ///                 Value = aws_organizations_organization.Example.Id,
     ///             },
-    ///             Principal = "*",
-    ///             StatementId = "OrganizationAccess",
     ///         });
     ///     }
     /// 

@@ -51,11 +51,11 @@ namespace Pulumi.Aws.Sns
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                         {
     ///                             Test = "StringEquals",
+    ///                             Variable = "AWS:SourceOwner",
     ///                             Values = 
     ///                             {
     ///                                 @var.Account_id,
     ///                             },
-    ///                             Variable = "AWS:SourceOwner",
     ///                         },
     ///                     },
     ///                     Effect = "Allow",
@@ -63,11 +63,11 @@ namespace Pulumi.Aws.Sns
     ///                     {
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
     ///                         {
+    ///                             Type = "AWS",
     ///                             Identifiers = 
     ///                             {
     ///                                 "*",
     ///                             },
-    ///                             Type = "AWS",
     ///                         },
     ///                     },
     ///                     Resources = 

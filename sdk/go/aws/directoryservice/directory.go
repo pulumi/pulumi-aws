@@ -35,17 +35,17 @@ import (
 // 			return err
 // 		}
 // 		foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
+// 			VpcId:            main.ID(),
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			CidrBlock:        pulumi.String("10.0.1.0/24"),
-// 			VpcId:            main.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		barSubnet, err := ec2.NewSubnet(ctx, "barSubnet", &ec2.SubnetArgs{
+// 			VpcId:            main.ID(),
 // 			AvailabilityZone: pulumi.String("us-west-2b"),
 // 			CidrBlock:        pulumi.String("10.0.2.0/24"),
-// 			VpcId:            main.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -53,15 +53,15 @@ import (
 // 		_, err = directoryservice.NewDirectory(ctx, "barDirectory", &directoryservice.DirectoryArgs{
 // 			Password: pulumi.String("SuperSecretPassw0rd"),
 // 			Size:     pulumi.String("Small"),
-// 			Tags: pulumi.StringMap{
-// 				"Project": pulumi.String("foo"),
-// 			},
 // 			VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
+// 				VpcId: main.ID(),
 // 				SubnetIds: pulumi.StringArray{
 // 					foo.ID(),
 // 					barSubnet.ID(),
 // 				},
-// 				VpcId: main.ID(),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Project": pulumi.String("foo"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -91,34 +91,34 @@ import (
 // 			return err
 // 		}
 // 		foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
+// 			VpcId:            main.ID(),
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			CidrBlock:        pulumi.String("10.0.1.0/24"),
-// 			VpcId:            main.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		barSubnet, err := ec2.NewSubnet(ctx, "barSubnet", &ec2.SubnetArgs{
+// 			VpcId:            main.ID(),
 // 			AvailabilityZone: pulumi.String("us-west-2b"),
 // 			CidrBlock:        pulumi.String("10.0.2.0/24"),
-// 			VpcId:            main.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = directoryservice.NewDirectory(ctx, "barDirectory", &directoryservice.DirectoryArgs{
-// 			Edition:  pulumi.String("Standard"),
 // 			Password: pulumi.String("SuperSecretPassw0rd"),
-// 			Tags: pulumi.StringMap{
-// 				"Project": pulumi.String("foo"),
-// 			},
-// 			Type: pulumi.String("MicrosoftAD"),
+// 			Edition:  pulumi.String("Standard"),
+// 			Type:     pulumi.String("MicrosoftAD"),
 // 			VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
+// 				VpcId: main.ID(),
 // 				SubnetIds: pulumi.StringArray{
 // 					foo.ID(),
 // 					barSubnet.ID(),
 // 				},
-// 				VpcId: main.ID(),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Project": pulumi.String("foo"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -148,22 +148,25 @@ import (
 // 			return err
 // 		}
 // 		foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
+// 			VpcId:            main.ID(),
 // 			AvailabilityZone: pulumi.String("us-west-2a"),
 // 			CidrBlock:        pulumi.String("10.0.1.0/24"),
-// 			VpcId:            main.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
+// 			VpcId:            main.ID(),
 // 			AvailabilityZone: pulumi.String("us-west-2b"),
 // 			CidrBlock:        pulumi.String("10.0.2.0/24"),
-// 			VpcId:            main.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = directoryservice.NewDirectory(ctx, "connector", &directoryservice.DirectoryArgs{
+// 			Password: pulumi.String("SuperSecretPassw0rd"),
+// 			Size:     pulumi.String("Small"),
+// 			Type:     pulumi.String("ADConnector"),
 // 			ConnectSettings: &directoryservice.DirectoryConnectSettingsArgs{
 // 				CustomerDnsIps: pulumi.StringArray{
 // 					pulumi.String("A.B.C.D"),
@@ -175,9 +178,6 @@ import (
 // 				},
 // 				VpcId: main.ID(),
 // 			},
-// 			Password: pulumi.String("SuperSecretPassw0rd"),
-// 			Size:     pulumi.String("Small"),
-// 			Type:     pulumi.String("ADConnector"),
 // 		})
 // 		if err != nil {
 // 			return err

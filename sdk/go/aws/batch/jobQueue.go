@@ -25,12 +25,12 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := batch.NewJobQueue(ctx, "testQueue", &batch.JobQueueArgs{
+// 			State:    pulumi.String("ENABLED"),
+// 			Priority: pulumi.Int(1),
 // 			ComputeEnvironments: pulumi.StringArray{
 // 				pulumi.String(aws_batch_compute_environment.Test_environment_1.Arn),
 // 				pulumi.String(aws_batch_compute_environment.Test_environment_2.Arn),
 // 			},
-// 			Priority: pulumi.Int(1),
-// 			State:    pulumi.String("ENABLED"),
 // 		})
 // 		if err != nil {
 // 			return err

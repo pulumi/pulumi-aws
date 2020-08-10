@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
  * const wu_tang = new aws.elb.LoadBalancer("wu-tang", {
  *     availabilityZones: ["us-east-1a"],
@@ -31,24 +31,26 @@ import * as utilities from "../utilities";
  * });
  * const wu_tang_ca_pubkey_policy = new aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", {
  *     loadBalancerName: wu_tang.name,
- *     policyAttributes: [{
- *         name: "PublicKey",
- *         value: fs.readFileSync("wu-tang-pubkey", "utf-8"),
- *     }],
  *     policyName: "wu-tang-ca-pubkey-policy",
  *     policyTypeName: "PublicKeyPolicyType",
+ *     policyAttributes: [{
+ *         name: "PublicKey",
+ *         value: fs.readFileSync("wu-tang-pubkey"),
+ *     }],
  * });
  * const wu_tang_root_ca_backend_auth_policy = new aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", {
  *     loadBalancerName: wu_tang.name,
- *     policyAttributes: [{
- *         name: "PublicKeyPolicyName",
- *         value: aws_load_balancer_policy_wu_tang_root_ca_pubkey_policy.policyName,
- *     }],
  *     policyName: "wu-tang-root-ca-backend-auth-policy",
  *     policyTypeName: "BackendServerAuthenticationPolicyType",
+ *     policyAttributes: [{
+ *         name: "PublicKeyPolicyName",
+ *         value: aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"].policy_name,
+ *     }],
  * });
  * const wu_tang_ssl = new aws.elb.LoadBalancerPolicy("wu-tang-ssl", {
  *     loadBalancerName: wu_tang.name,
+ *     policyName: "wu-tang-ssl",
+ *     policyTypeName: "SSLNegotiationPolicyType",
  *     policyAttributes: [
  *         {
  *             name: "ECDHE-ECDSA-AES128-GCM-SHA256",
@@ -59,21 +61,19 @@ import * as utilities from "../utilities";
  *             value: "true",
  *         },
  *     ],
- *     policyName: "wu-tang-ssl",
- *     policyTypeName: "SSLNegotiationPolicyType",
  * });
  * const wu_tang_ssl_tls_1_1 = new aws.elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", {
  *     loadBalancerName: wu_tang.name,
+ *     policyName: "wu-tang-ssl",
+ *     policyTypeName: "SSLNegotiationPolicyType",
  *     policyAttributes: [{
  *         name: "Reference-Security-Policy",
  *         value: "ELBSecurityPolicy-TLS-1-1-2017-01",
  *     }],
- *     policyName: "wu-tang-ssl",
- *     policyTypeName: "SSLNegotiationPolicyType",
  * });
  * const wu_tang_backend_auth_policies_443 = new aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", {
- *     instancePort: 443,
  *     loadBalancerName: wu_tang.name,
+ *     instancePort: 443,
  *     policyNames: [wu_tang_root_ca_backend_auth_policy.policyName],
  * });
  * const wu_tang_listener_policies_443 = new aws.elb.ListenerPolicy("wu-tang-listener-policies-443", {

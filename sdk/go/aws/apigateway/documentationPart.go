@@ -30,9 +30,9 @@ import (
 // 		}
 // 		_, err = apigateway.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway.DocumentationPartArgs{
 // 			Location: &apigateway.DocumentationPartLocationArgs{
+// 				Type:   pulumi.String("METHOD"),
 // 				Method: pulumi.String("GET"),
 // 				Path:   pulumi.String("/example"),
-// 				Type:   pulumi.String("METHOD"),
 // 			},
 // 			Properties: pulumi.String("{\"description\":\"Example description\"}"),
 // 			RestApiId:  exampleRestApi.ID(),

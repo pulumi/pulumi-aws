@@ -37,26 +37,27 @@ namespace Pulumi.Aws.Ses
     ///         // Example Route53 MX record
     ///         var exampleSesDomainMailFromMx = new Aws.Route53.Record("exampleSesDomainMailFromMx", new Aws.Route53.RecordArgs
     ///         {
+    ///             ZoneId = aws_route53_zone.Example.Id,
     ///             Name = exampleMailFrom.MailFromDomain,
+    ///             Type = "MX",
+    ///             Ttl = 600,
     ///             Records = 
     ///             {
     ///                 "10 feedback-smtp.us-east-1.amazonses.com",
     ///             },
-    ///             Ttl = 600,
-    ///             Type = "MX",
-    ///             ZoneId = aws_route53_zone.Example.Id,
     ///         });
+    ///         // Change to the region in which `aws_ses_domain_identity.example` is created
     ///         // Example Route53 TXT record for SPF
     ///         var exampleSesDomainMailFromTxt = new Aws.Route53.Record("exampleSesDomainMailFromTxt", new Aws.Route53.RecordArgs
     ///         {
+    ///             ZoneId = aws_route53_zone.Example.Id,
     ///             Name = exampleMailFrom.MailFromDomain,
+    ///             Type = "TXT",
+    ///             Ttl = 600,
     ///             Records = 
     ///             {
     ///                 "v=spf1 include:amazonses.com -all",
     ///             },
-    ///             Ttl = 600,
-    ///             Type = "TXT",
-    ///             ZoneId = aws_route53_zone.Example.Id,
     ///         });
     ///     }
     /// 

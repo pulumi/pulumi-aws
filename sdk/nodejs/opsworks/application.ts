@@ -14,35 +14,35 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
  * const foo_app = new aws.opsworks.Application("foo-app", {
- *     appSources: [{
- *         revision: "master",
- *         type: "git",
- *         url: "https://github.com/example.git",
- *     }],
- *     autoBundleOnDeploy: "true",
+ *     shortName: "foobar",
+ *     stackId: aws_opsworks_stack.main.id,
+ *     type: "rails",
  *     description: "This is a Rails application",
- *     documentRoot: "public",
  *     domains: [
  *         "example.com",
  *         "sub.example.com",
  *     ],
- *     enableSsl: true,
  *     environments: [{
  *         key: "key",
- *         secure: false,
  *         value: "value",
+ *         secure: false,
  *     }],
- *     railsEnv: "staging",
- *     shortName: "foobar",
+ *     appSources: [{
+ *         type: "git",
+ *         revision: "master",
+ *         url: "https://github.com/example.git",
+ *     }],
+ *     enableSsl: true,
  *     sslConfigurations: [{
- *         certificate: fs.readFileSync("./foobar.crt", "utf-8"),
- *         privateKey: fs.readFileSync("./foobar.key", "utf-8"),
+ *         privateKey: fs.readFileSync("./foobar.key"),
+ *         certificate: fs.readFileSync("./foobar.crt"),
  *     }],
- *     stackId: aws_opsworks_stack_main.id,
- *     type: "rails",
+ *     documentRoot: "public",
+ *     autoBundleOnDeploy: true,
+ *     railsEnv: "staging",
  * });
  * ```
  */

@@ -15,12 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testTargetGroup = new aws.lb.TargetGroup("test", {});
- * const testInstance = new aws.ec2.Instance("test", {});
- * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
- *     port: 80,
+ * const testTargetGroup = new aws.lb.TargetGroup("testTargetGroup", {});
+ * // Other arguments
+ * const testInstance = new aws.ec2.Instance("testInstance", {});
+ * // Other arguments
+ * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("testTargetGroupAttachment", {
  *     targetGroupArn: testTargetGroup.arn,
  *     targetId: testInstance.id,
+ *     port: 80,
  * });
  * ```
  * ## Usage with lambda
@@ -29,20 +31,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testTargetGroup = new aws.lb.TargetGroup("test", {
- *     targetType: "lambda",
- * });
- * const testFunction = new aws.lambda.Function("test", {});
- * const withLb = new aws.lambda.Permission("with_lb", {
+ * const testTargetGroup = new aws.lb.TargetGroup("testTargetGroup", {targetType: "lambda"});
+ * const testFunction = new aws.lambda.Function("testFunction", {});
+ * // Other arguments
+ * const withLb = new aws.lambda.Permission("withLb", {
  *     action: "lambda:InvokeFunction",
- *     function: testFunction.arn,
+ *     "function": testFunction.arn,
  *     principal: "elasticloadbalancing.amazonaws.com",
  *     sourceArn: testTargetGroup.arn,
  * });
- * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
+ * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("testTargetGroupAttachment", {
  *     targetGroupArn: testTargetGroup.arn,
  *     targetId: testFunction.arn,
- * }, { dependsOn: [withLb] });
+ * }, {
+ *     dependsOn: [withLb],
+ * });
  * ```
  *
  * @deprecated aws.applicationloadbalancing.TargetGroupAttachment has been deprecated in favor of aws.alb.TargetGroupAttachment

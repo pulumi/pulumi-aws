@@ -78,12 +78,12 @@ class WebAcl(pulumi.CustomResource):
                 "negated": False,
                 "type": "IPMatch",
             }],
-            opts=ResourceOptions(depends_on=["aws_waf_ipset.ipset"]))
+            opts=ResourceOptions(depends_on=[ipset]))
         waf_acl = aws.waf.WebAcl("wafAcl",
+            metric_name="tfWebACL",
             default_action={
                 "type": "ALLOW",
             },
-            metric_name="tfWebACL",
             rules=[{
                 "action": {
                     "type": "BLOCK",
@@ -93,8 +93,8 @@ class WebAcl(pulumi.CustomResource):
                 "type": "REGULAR",
             }],
             opts=ResourceOptions(depends_on=[
-                    "aws_waf_ipset.ipset",
-                    "aws_waf_rule.wafrule",
+                    ipset,
+                    wafrule,
                 ]))
         ```
         ### Logging
@@ -108,7 +108,7 @@ class WebAcl(pulumi.CustomResource):
         example = aws.waf.WebAcl("example", logging_configuration={
             "log_destination": aws_kinesis_firehose_delivery_stream["example"]["arn"],
             "redactedFields": {
-                "fieldToMatch": [
+                "fieldToMatches": [
                     {
                         "type": "URI",
                     },

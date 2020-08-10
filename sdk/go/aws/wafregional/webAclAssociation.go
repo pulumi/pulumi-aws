@@ -54,10 +54,10 @@ import (
 // 			return err
 // 		}
 // 		fooWebAcl, err := wafregional.NewWebAcl(ctx, "fooWebAcl", &wafregional.WebAclArgs{
+// 			MetricName: pulumi.String("foo"),
 // 			DefaultAction: &wafregional.WebAclDefaultActionArgs{
 // 				Type: pulumi.String("ALLOW"),
 // 			},
-// 			MetricName: pulumi.String("foo"),
 // 			Rules: wafregional.WebAclRuleArray{
 // 				&wafregional.WebAclRuleArgs{
 // 					Action: &wafregional.WebAclRuleActionArgs{
@@ -82,17 +82,17 @@ import (
 // 			return err
 // 		}
 // 		fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
-// 			AvailabilityZone: pulumi.String(available.Names[0]),
-// 			CidrBlock:        pulumi.String("10.1.1.0/24"),
 // 			VpcId:            fooVpc.ID(),
+// 			CidrBlock:        pulumi.String("10.1.1.0/24"),
+// 			AvailabilityZone: pulumi.String(available.Names[0]),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
-// 			AvailabilityZone: pulumi.String(available.Names[1]),
-// 			CidrBlock:        pulumi.String("10.1.2.0/24"),
 // 			VpcId:            fooVpc.ID(),
+// 			CidrBlock:        pulumi.String("10.1.2.0/24"),
+// 			AvailabilityZone: pulumi.String(available.Names[1]),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -157,10 +157,10 @@ import (
 // 			return err
 // 		}
 // 		fooWebAcl, err := wafregional.NewWebAcl(ctx, "fooWebAcl", &wafregional.WebAclArgs{
+// 			MetricName: pulumi.String("foo"),
 // 			DefaultAction: &wafregional.WebAclDefaultActionArgs{
 // 				Type: pulumi.String("ALLOW"),
 // 			},
-// 			MetricName: pulumi.String("foo"),
 // 			Rules: wafregional.WebAclRuleArray{
 // 				&wafregional.WebAclRuleArgs{
 // 					Action: &wafregional.WebAclRuleActionArgs{
@@ -215,10 +215,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = apigateway.NewIntegrationResponse(ctx, "testIntegrationResponse", &apigateway.IntegrationResponseArgs{
-// 			HttpMethod: testIntegration.HttpMethod,
-// 			ResourceId: testResource.ID(),
+// 		testIntegrationResponse, err := apigateway.NewIntegrationResponse(ctx, "testIntegrationResponse", &apigateway.IntegrationResponseArgs{
 // 			RestApi:    testRestApi.ID(),
+// 			ResourceId: testResource.ID(),
+// 			HttpMethod: testIntegration.HttpMethod,
 // 			StatusCode: testMethodResponse.StatusCode,
 // 		})
 // 		if err != nil {
@@ -227,7 +227,7 @@ import (
 // 		testDeployment, err := apigateway.NewDeployment(ctx, "testDeployment", &apigateway.DeploymentArgs{
 // 			RestApi: testRestApi.ID(),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"aws_api_gateway_integration_response.test",
+// 			testIntegrationResponse,
 // 		}))
 // 		if err != nil {
 // 			return err

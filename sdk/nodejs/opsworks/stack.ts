@@ -16,18 +16,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.opsworks.Stack("main", {
+ *     region: "us-west-1",
+ *     serviceRoleArn: aws_iam_role.opsworks.arn,
+ *     defaultInstanceProfileArn: aws_iam_instance_profile.opsworks.arn,
+ *     tags: {
+ *         Name: "foobar-stack",
+ *     },
  *     customJson: `{
  *  "foobar": {
  *     "version": "1.0.0"
  *   }
  * }
  * `,
- *     defaultInstanceProfileArn: aws_iam_instance_profile_opsworks.arn,
- *     region: "us-west-1",
- *     serviceRoleArn: aws_iam_role_opsworks.arn,
- *     tags: {
- *         Name: "foobar-stack",
- *     },
  * });
  * ```
  */

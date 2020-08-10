@@ -33,16 +33,16 @@ import (
 // 			return err
 // 		}
 // 		_, err = glacier.NewVault(ctx, "myArchive", &glacier.VaultArgs{
-// 			AccessPolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\":\"2012-10-17\",\n", "    \"Statement\":[\n", "       {\n", "          \"Sid\": \"add-read-only-perm\",\n", "          \"Principal\": \"*\",\n", "          \"Effect\": \"Allow\",\n", "          \"Action\": [\n", "             \"glacier:InitiateJob\",\n", "             \"glacier:GetJobOutput\"\n", "          ],\n", "          \"Resource\": \"arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive\"\n", "       }\n", "    ]\n", "}\n", "\n")),
 // 			Notifications: glacier.VaultNotificationArray{
 // 				&glacier.VaultNotificationArgs{
+// 					SnsTopic: awsSnsTopic.Arn,
 // 					Events: pulumi.StringArray{
 // 						pulumi.String("ArchiveRetrievalCompleted"),
 // 						pulumi.String("InventoryRetrievalCompleted"),
 // 					},
-// 					SnsTopic: awsSnsTopic.Arn,
 // 				},
 // 			},
+// 			AccessPolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\":\"2012-10-17\",\n", "    \"Statement\":[\n", "       {\n", "          \"Sid\": \"add-read-only-perm\",\n", "          \"Principal\": \"*\",\n", "          \"Effect\": \"Allow\",\n", "          \"Action\": [\n", "             \"glacier:InitiateJob\",\n", "             \"glacier:GetJobOutput\"\n", "          ],\n", "          \"Resource\": \"arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive\"\n", "       }\n", "    ]\n", "}\n")),
 // 			Tags: pulumi.StringMap{
 // 				"Test": pulumi.String("MyArchive"),
 // 			},

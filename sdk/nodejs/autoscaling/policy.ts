@@ -23,18 +23,18 @@ import * as utilities from "../utilities";
  *
  * const bar = new aws.autoscaling.Group("bar", {
  *     availabilityZones: ["us-east-1a"],
- *     forceDelete: true,
- *     healthCheckGracePeriod: 300,
- *     healthCheckType: "ELB",
- *     launchConfiguration: aws_launch_configuration_foo.name,
  *     maxSize: 5,
  *     minSize: 2,
+ *     healthCheckGracePeriod: 300,
+ *     healthCheckType: "ELB",
+ *     forceDelete: true,
+ *     launchConfiguration: aws_launch_configuration.foo.name,
  * });
  * const bat = new aws.autoscaling.Policy("bat", {
- *     adjustmentType: "ChangeInCapacity",
- *     autoscalingGroupName: bar.name,
- *     cooldown: 300,
  *     scalingAdjustment: 4,
+ *     adjustmentType: "ChangeInCapacity",
+ *     cooldown: 300,
+ *     autoscalingGroupName: bar.name,
  * });
  * ```
  */

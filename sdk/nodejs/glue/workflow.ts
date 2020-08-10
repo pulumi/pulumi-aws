@@ -17,24 +17,24 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.glue.Workflow("example", {});
  * const example_start = new aws.glue.Trigger("example-start", {
+ *     type: "ON_DEMAND",
+ *     workflowName: example.name,
  *     actions: [{
  *         jobName: "example-job",
  *     }],
- *     type: "ON_DEMAND",
- *     workflowName: example.name,
  * });
  * const example_inner = new aws.glue.Trigger("example-inner", {
- *     actions: [{
- *         jobName: "another-example-job",
- *     }],
+ *     type: "CONDITIONAL",
+ *     workflowName: example.name,
  *     predicate: {
  *         conditions: [{
  *             jobName: "example-job",
  *             state: "SUCCEEDED",
  *         }],
  *     },
- *     type: "CONDITIONAL",
- *     workflowName: example.name,
+ *     actions: [{
+ *         jobName: "another-example-job",
+ *     }],
  * });
  * ```
  */

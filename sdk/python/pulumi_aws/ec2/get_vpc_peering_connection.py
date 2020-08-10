@@ -95,14 +95,14 @@ def get_vpc_peering_connection(cidr_block=None,filters=None,id=None,owner_id=Non
     import pulumi
     import pulumi_aws as aws
 
-    pc = aws.ec2.get_vpc_peering_connection(peer_cidr_block="10.0.1.0/22",
-        vpc_id=aws_vpc["foo"]["id"])
+    pc = aws.ec2.get_vpc_peering_connection(vpc_id=aws_vpc["foo"]["id"],
+        peer_cidr_block="10.0.1.0/22")
     # Create a route table
     rt = aws.ec2.RouteTable("rt", vpc_id=aws_vpc["foo"]["id"])
     # Create a route
     route = aws.ec2.Route("route",
-        destination_cidr_block=pc.peer_cidr_block,
         route_table_id=rt.id,
+        destination_cidr_block=pc.peer_cidr_block,
         vpc_peering_connection_id=pc.id)
     ```
 

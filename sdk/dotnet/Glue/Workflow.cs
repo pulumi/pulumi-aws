@@ -29,6 +29,8 @@ namespace Pulumi.Aws.Glue
     ///         });
     ///         var example_start = new Aws.Glue.Trigger("example-start", new Aws.Glue.TriggerArgs
     ///         {
+    ///             Type = "ON_DEMAND",
+    ///             WorkflowName = example.Name,
     ///             Actions = 
     ///             {
     ///                 new Aws.Glue.Inputs.TriggerActionArgs
@@ -36,18 +38,11 @@ namespace Pulumi.Aws.Glue
     ///                     JobName = "example-job",
     ///                 },
     ///             },
-    ///             Type = "ON_DEMAND",
-    ///             WorkflowName = example.Name,
     ///         });
     ///         var example_inner = new Aws.Glue.Trigger("example-inner", new Aws.Glue.TriggerArgs
     ///         {
-    ///             Actions = 
-    ///             {
-    ///                 new Aws.Glue.Inputs.TriggerActionArgs
-    ///                 {
-    ///                     JobName = "another-example-job",
-    ///                 },
-    ///             },
+    ///             Type = "CONDITIONAL",
+    ///             WorkflowName = example.Name,
     ///             Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
     ///             {
     ///                 Conditions = 
@@ -59,8 +54,13 @@ namespace Pulumi.Aws.Glue
     ///                     },
     ///                 },
     ///             },
-    ///             Type = "CONDITIONAL",
-    ///             WorkflowName = example.Name,
+    ///             Actions = 
+    ///             {
+    ///                 new Aws.Glue.Inputs.TriggerActionArgs
+    ///                 {
+    ///                     JobName = "another-example-job",
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 

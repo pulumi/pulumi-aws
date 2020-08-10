@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Msk
     ///         var example = new Aws.Msk.Cluster("example", new Aws.Msk.ClusterArgs
     ///         {
     ///             ClusterName = "example",
-    ///             KafkaVersion = "2.1.0",
+    ///             KafkaVersion = "2.4.1",
     ///             NumberOfBrokerNodes = 3,
     ///             BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
     ///             {
@@ -159,14 +159,11 @@ namespace Pulumi.Aws.Msk
     ///             },
     ///         });
     ///         this.ZookeeperConnectString = example.ZookeeperConnectString;
-    ///         this.BootstrapBrokers = example.BootstrapBrokers;
     ///         this.BootstrapBrokersTls = example.BootstrapBrokersTls;
     ///     }
     /// 
     ///     [Output("zookeeperConnectString")]
     ///     public Output&lt;string&gt; ZookeeperConnectString { get; set; }
-    ///     [Output("bootstrapBrokers")]
-    ///     public Output&lt;string&gt; BootstrapBrokers { get; set; }
     ///     [Output("bootstrapBrokersTls")]
     ///     public Output&lt;string&gt; BootstrapBrokersTls { get; set; }
     /// }

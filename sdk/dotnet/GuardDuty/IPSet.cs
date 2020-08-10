@@ -12,7 +12,7 @@ namespace Pulumi.Aws.GuardDuty
     /// <summary>
     /// Provides a resource to manage a GuardDuty IPSet.
     /// 
-    /// &gt; **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
+    /// &gt; **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
     /// 
     /// ## Example Usage
     /// 
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.GuardDuty
     /// {
     ///     public MyStack()
     ///     {
-    ///         var master = new Aws.GuardDuty.Detector("master", new Aws.GuardDuty.DetectorArgs
+    ///         var primary = new Aws.GuardDuty.Detector("primary", new Aws.GuardDuty.DetectorArgs
     ///         {
     ///             Enable = true,
     ///         });
@@ -32,21 +32,20 @@ namespace Pulumi.Aws.GuardDuty
     ///         {
     ///             Acl = "private",
     ///         });
-    ///         var myIPSetBucketObject = new Aws.S3.BucketObject("myIPSetBucketObject", new Aws.S3.BucketObjectArgs
+    ///         var myIPSet = new Aws.S3.BucketObject("myIPSet", new Aws.S3.BucketObjectArgs
     ///         {
     ///             Acl = "public-read",
-    ///             Bucket = bucket.Id,
     ///             Content = @"10.0.0.0/8
-    /// 
     /// ",
+    ///             Bucket = bucket.Id,
     ///             Key = "MyIPSet",
     ///         });
-    ///         var myIPSetIPSet = new Aws.GuardDuty.IPSet("myIPSetIPSet", new Aws.GuardDuty.IPSetArgs
+    ///         var example = new Aws.GuardDuty.IPSet("example", new Aws.GuardDuty.IPSetArgs
     ///         {
     ///             Activate = true,
-    ///             DetectorId = master.Id,
+    ///             DetectorId = primary.Id,
     ///             Format = "TXT",
-    ///             Location = Output.Tuple(myIPSetBucketObject.Bucket, myIPSetBucketObject.Key).Apply(values =&gt;
+    ///             Location = Output.Tuple(myIPSet.Bucket, myIPSet.Key).Apply(values =&gt;
     ///             {
     ///                 var bucket = values.Item1;
     ///                 var key = values.Item2;

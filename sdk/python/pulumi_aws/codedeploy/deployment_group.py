@@ -69,7 +69,7 @@ class DeploymentGroup(pulumi.CustomResource):
     Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
 
       * `deploymentOption` (`str`) - Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
-      * `deploymentType` (`str`) - Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
+      * `deployment_type` (`str`) - Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
     """
     ec2_tag_filters: pulumi.Output[list]
     """
@@ -160,7 +160,6 @@ class DeploymentGroup(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         a_ws_code_deploy_role = aws.iam.RolePolicyAttachment("aWSCodeDeployRole",
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
@@ -168,16 +167,9 @@ class DeploymentGroup(pulumi.CustomResource):
         example_application = aws.codedeploy.Application("exampleApplication")
         example_topic = aws.sns.Topic("exampleTopic")
         example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
-            alarm_configuration={
-                "alarms": ["my-alarm-name"],
-                "enabled": True,
-            },
             app_name=example_application.name,
-            auto_rollback_configuration={
-                "enabled": True,
-                "events": ["DEPLOYMENT_FAILURE"],
-            },
             deployment_group_name="example-group",
+            service_role_arn=example_role.arn,
             ec2_tag_sets=[{
                 "ec2_tag_filters": [
                     {
@@ -192,12 +184,19 @@ class DeploymentGroup(pulumi.CustomResource):
                     },
                 ],
             }],
-            service_role_arn=example_role.arn,
             trigger_configurations=[{
                 "triggerEvents": ["DeploymentFailure"],
                 "triggerName": "example-trigger",
                 "triggerTargetArn": example_topic.arn,
-            }])
+            }],
+            auto_rollback_configuration={
+                "enabled": True,
+                "events": ["DEPLOYMENT_FAILURE"],
+            },
+            alarm_configuration={
+                "alarms": ["my-alarm-name"],
+                "enabled": True,
+            })
         ```
         ### Blue Green Deployments with ECS
 
@@ -208,6 +207,9 @@ class DeploymentGroup(pulumi.CustomResource):
         example_application = aws.codedeploy.Application("exampleApplication", compute_platform="ECS")
         example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
             app_name=example_application.name,
+            deployment_config_name="CodeDeployDefault.ECSAllAtOnce",
+            deployment_group_name="example",
+            service_role_arn=aws_iam_role["example"]["arn"],
             auto_rollback_configuration={
                 "enabled": True,
                 "events": ["DEPLOYMENT_FAILURE"],
@@ -221,11 +223,9 @@ class DeploymentGroup(pulumi.CustomResource):
                     "terminationWaitTimeInMinutes": 5,
                 },
             },
-            deployment_config_name="CodeDeployDefault.ECSAllAtOnce",
-            deployment_group_name="example",
             deployment_style={
                 "deploymentOption": "WITH_TRAFFIC_CONTROL",
-                "deploymentType": "BLUE_GREEN",
+                "deployment_type": "BLUE_GREEN",
             },
             ecs_service={
                 "cluster_name": aws_ecs_cluster["example"]["name"],
@@ -236,7 +236,7 @@ class DeploymentGroup(pulumi.CustomResource):
                     "prodTrafficRoute": {
                         "listenerArns": [aws_lb_listener["example"]["arn"]],
                     },
-                    "targetGroup": [
+                    "targetGroups": [
                         {
                             "name": aws_lb_target_group["blue"]["name"],
                         },
@@ -245,8 +245,7 @@ class DeploymentGroup(pulumi.CustomResource):
                         },
                     ],
                 },
-            },
-            service_role_arn=aws_iam_role["example"]["arn"])
+            })
         ```
         ### Blue Green Deployments with Servers and Classic ELB
 
@@ -257,6 +256,17 @@ class DeploymentGroup(pulumi.CustomResource):
         example_application = aws.codedeploy.Application("exampleApplication")
         example_deployment_group = aws.codedeploy.DeploymentGroup("exampleDeploymentGroup",
             app_name=example_application.name,
+            deployment_group_name="example-group",
+            service_role_arn=aws_iam_role["example"]["arn"],
+            deployment_style={
+                "deploymentOption": "WITH_TRAFFIC_CONTROL",
+                "deployment_type": "BLUE_GREEN",
+            },
+            load_balancer_info={
+                "elbInfos": [{
+                    "name": aws_elb["example"]["name"],
+                }],
+            },
             blue_green_deployment_config={
                 "deploymentReadyOption": {
                     "actionOnTimeout": "STOP_DEPLOYMENT",
@@ -268,18 +278,7 @@ class DeploymentGroup(pulumi.CustomResource):
                 "terminateBlueInstancesOnDeploymentSuccess": {
                     "action": "KEEP_ALIVE",
                 },
-            },
-            deployment_group_name="example-group",
-            deployment_style={
-                "deploymentOption": "WITH_TRAFFIC_CONTROL",
-                "deploymentType": "BLUE_GREEN",
-            },
-            load_balancer_info={
-                "elbInfos": [{
-                    "name": aws_elb["example"]["name"],
-                }],
-            },
-            service_role_arn=aws_iam_role["example"]["arn"])
+            })
         ```
 
         :param str resource_name: The name of the resource.
@@ -335,7 +334,7 @@ class DeploymentGroup(pulumi.CustomResource):
         The **deployment_style** object supports the following:
 
           * `deploymentOption` (`pulumi.Input[str]`) - Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
-          * `deploymentType` (`pulumi.Input[str]`) - Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
+          * `deployment_type` (`pulumi.Input[str]`) - Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
 
         The **ec2_tag_filters** object supports the following:
 
@@ -489,7 +488,7 @@ class DeploymentGroup(pulumi.CustomResource):
         The **deployment_style** object supports the following:
 
           * `deploymentOption` (`pulumi.Input[str]`) - Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
-          * `deploymentType` (`pulumi.Input[str]`) - Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
+          * `deployment_type` (`pulumi.Input[str]`) - Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
 
         The **ec2_tag_filters** object supports the following:
 

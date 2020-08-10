@@ -25,14 +25,14 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         var www = new Aws.Route53.Record("www", new Aws.Route53.RecordArgs
     ///         {
+    ///             ZoneId = aws_route53_zone.Primary.Zone_id,
     ///             Name = "www.example.com",
+    ///             Type = "A",
+    ///             Ttl = 300,
     ///             Records = 
     ///             {
     ///                 aws_eip.Lb.Public_ip,
     ///             },
-    ///             Ttl = 300,
-    ///             Type = "A",
-    ///             ZoneId = aws_route53_zone.Primary.Zone_id,
     ///         });
     ///     }
     /// 
@@ -51,14 +51,10 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         var www_dev = new Aws.Route53.Record("www-dev", new Aws.Route53.RecordArgs
     ///         {
+    ///             ZoneId = aws_route53_zone.Primary.Zone_id,
     ///             Name = "www",
-    ///             Records = 
-    ///             {
-    ///                 "dev.example.com",
-    ///             },
-    ///             SetIdentifier = "dev",
-    ///             Ttl = 5,
     ///             Type = "CNAME",
+    ///             Ttl = 5,
     ///             WeightedRoutingPolicies = 
     ///             {
     ///                 new Aws.Route53.Inputs.RecordWeightedRoutingPolicyArgs
@@ -66,18 +62,18 @@ namespace Pulumi.Aws.Route53
     ///                     Weight = 10,
     ///                 },
     ///             },
-    ///             ZoneId = aws_route53_zone.Primary.Zone_id,
+    ///             SetIdentifier = "dev",
+    ///             Records = 
+    ///             {
+    ///                 "dev.example.com",
+    ///             },
     ///         });
     ///         var www_live = new Aws.Route53.Record("www-live", new Aws.Route53.RecordArgs
     ///         {
+    ///             ZoneId = aws_route53_zone.Primary.Zone_id,
     ///             Name = "www",
-    ///             Records = 
-    ///             {
-    ///                 "live.example.com",
-    ///             },
-    ///             SetIdentifier = "live",
-    ///             Ttl = 5,
     ///             Type = "CNAME",
+    ///             Ttl = 5,
     ///             WeightedRoutingPolicies = 
     ///             {
     ///                 new Aws.Route53.Inputs.RecordWeightedRoutingPolicyArgs
@@ -85,7 +81,11 @@ namespace Pulumi.Aws.Route53
     ///                     Weight = 90,
     ///                 },
     ///             },
-    ///             ZoneId = aws_route53_zone.Primary.Zone_id,
+    ///             SetIdentifier = "live",
+    ///             Records = 
+    ///             {
+    ///                 "live.example.com",
+    ///             },
     ///         });
     ///     }
     /// 
@@ -125,18 +125,18 @@ namespace Pulumi.Aws.Route53
     ///         });
     ///         var www = new Aws.Route53.Record("www", new Aws.Route53.RecordArgs
     ///         {
+    ///             ZoneId = aws_route53_zone.Primary.Zone_id,
+    ///             Name = "example.com",
+    ///             Type = "A",
     ///             Aliases = 
     ///             {
     ///                 new Aws.Route53.Inputs.RecordAliasArgs
     ///                 {
-    ///                     EvaluateTargetHealth = true,
     ///                     Name = main.DnsName,
     ///                     ZoneId = main.ZoneId,
+    ///                     EvaluateTargetHealth = true,
     ///                 },
     ///             },
-    ///             Name = "example.com",
-    ///             Type = "A",
-    ///             ZoneId = aws_route53_zone.Primary.Zone_id,
     ///         });
     ///     }
     /// 
@@ -161,6 +161,9 @@ namespace Pulumi.Aws.Route53
     ///         {
     ///             AllowOverwrite = true,
     ///             Name = "test.example.com",
+    ///             Ttl = 30,
+    ///             Type = "NS",
+    ///             ZoneId = exampleZone.ZoneId,
     ///             Records = 
     ///             {
     ///                 exampleZone.NameServers.Apply(nameServers =&gt; nameServers[0]),
@@ -168,9 +171,6 @@ namespace Pulumi.Aws.Route53
     ///                 exampleZone.NameServers.Apply(nameServers =&gt; nameServers[2]),
     ///                 exampleZone.NameServers.Apply(nameServers =&gt; nameServers[3]),
     ///             },
-    ///             Ttl = 30,
-    ///             Type = "NS",
-    ///             ZoneId = exampleZone.ZoneId,
     ///         });
     ///     }
     /// 

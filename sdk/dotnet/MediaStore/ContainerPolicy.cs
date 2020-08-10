@@ -49,7 +49,6 @@ namespace Pulumi.Aws.MediaStore
     /// 		}}
     /// 	}}]
     /// }}
-    /// 
     /// ";
     ///             }),
     ///         });

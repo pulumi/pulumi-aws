@@ -42,10 +42,10 @@ class WebAclAssociation(pulumi.CustomResource):
                 "type": "IPMatch",
             }])
         foo_web_acl = aws.wafregional.WebAcl("fooWebAcl",
+            metric_name="foo",
             default_action={
                 "type": "ALLOW",
             },
-            metric_name="foo",
             rules=[{
                 "action": {
                     "type": "BLOCK",
@@ -56,13 +56,13 @@ class WebAclAssociation(pulumi.CustomResource):
         foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.1.0.0/16")
         available = aws.get_availability_zones()
         foo_subnet = aws.ec2.Subnet("fooSubnet",
-            availability_zone=available.names[0],
+            vpc_id=foo_vpc.id,
             cidr_block="10.1.1.0/24",
-            vpc_id=foo_vpc.id)
+            availability_zone=available.names[0])
         bar = aws.ec2.Subnet("bar",
-            availability_zone=available.names[1],
+            vpc_id=foo_vpc.id,
             cidr_block="10.1.2.0/24",
-            vpc_id=foo_vpc.id)
+            availability_zone=available.names[1])
         foo_load_balancer = aws.alb.LoadBalancer("fooLoadBalancer",
             internal=True,
             subnets=[
@@ -92,10 +92,10 @@ class WebAclAssociation(pulumi.CustomResource):
                 "type": "IPMatch",
             }])
         foo_web_acl = aws.wafregional.WebAcl("fooWebAcl",
+            metric_name="foo",
             default_action={
                 "type": "ALLOW",
             },
-            metric_name="foo",
             rules=[{
                 "action": {
                     "type": "BLOCK",
@@ -126,12 +126,12 @@ class WebAclAssociation(pulumi.CustomResource):
             type="HTTP",
             uri="http://www.example.com")
         test_integration_response = aws.apigateway.IntegrationResponse("testIntegrationResponse",
-            http_method=test_integration.http_method,
-            resource_id=test_resource.id,
             rest_api=test_rest_api.id,
+            resource_id=test_resource.id,
+            http_method=test_integration.http_method,
             status_code=test_method_response.status_code)
         test_deployment = aws.apigateway.Deployment("testDeployment", rest_api=test_rest_api.id,
-        opts=ResourceOptions(depends_on=["aws_api_gateway_integration_response.test"]))
+        opts=ResourceOptions(depends_on=[test_integration_response]))
         test_stage = aws.apigateway.Stage("testStage",
             deployment=test_deployment.id,
             rest_api=test_rest_api.id,

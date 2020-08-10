@@ -20,8 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRole = new aws.iam.Role("example", {
- *     assumeRolePolicy: `{
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -33,15 +32,13 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ * `});
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
  *     role: exampleRole.name,
  * });
- * const exampleSelection = new aws.backup.Selection("example", {
- *     iamRoleArn: exampleRole.arn,
- * });
+ * // ... other configuration ...
+ * const exampleSelection = new aws.backup.Selection("exampleSelection", {iamRoleArn: exampleRole.arn});
  * ```
  * ### Selecting Backups By Tag
  *
@@ -50,11 +47,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: aws_iam_role_example.arn,
- *     planId: aws_backup_plan_example.id,
+ *     iamRoleArn: aws_iam_role.example.arn,
+ *     planId: aws_backup_plan.example.id,
  *     selectionTags: [{
- *         key: "foo",
  *         type: "STRINGEQUALS",
+ *         key: "foo",
  *         value: "bar",
  *     }],
  * });
@@ -66,12 +63,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: aws_iam_role_example.arn,
- *     planId: aws_backup_plan_example.id,
+ *     iamRoleArn: aws_iam_role.example.arn,
+ *     planId: aws_backup_plan.example.id,
  *     resources: [
- *         aws_db_instance_example.arn,
- *         aws_ebs_volume_example.arn,
- *         aws_efs_file_system_example.arn,
+ *         aws_db_instance.example.arn,
+ *         aws_ebs_volume.example.arn,
+ *         aws_efs_file_system.example.arn,
  *     ],
  * });
  * ```

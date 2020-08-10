@@ -18,9 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
+ * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
  * const test = new aws.lb.TargetGroup("test", {
  *     port: 80,
  *     protocol: "HTTP",
@@ -33,9 +31,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- * });
+ * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
  * const ip_example = new aws.lb.TargetGroup("ip-example", {
  *     port: 80,
  *     protocol: "HTTP",

@@ -55,7 +55,7 @@ class Build(pulumi.CustomResource):
                 "key": aws_s3_bucket_object["test"]["key"],
                 "role_arn": aws_iam_role["test"]["arn"],
             },
-            opts=ResourceOptions(depends_on=["aws_iam_role_policy.test"]))
+            opts=ResourceOptions(depends_on=[aws_iam_role_policy["test"]]))
         ```
 
         :param str resource_name: The name of the resource.

@@ -26,8 +26,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "            \"Action\": \"sts:AssumeRole\",\n", "            \"Principal\": {\n", "               \"Service\": \"ec2.amazonaws.com\"\n", "            },\n", "            \"Effect\": \"Allow\",\n", "            \"Sid\": \"\"\n", "        }\n", "    ]\n", "}\n", "\n")),
 // 			Path:             pulumi.String("/"),
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "            \"Action\": \"sts:AssumeRole\",\n", "            \"Principal\": {\n", "               \"Service\": \"ec2.amazonaws.com\"\n", "            },\n", "            \"Effect\": \"Allow\",\n", "            \"Sid\": \"\"\n", "        }\n", "    ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -56,11 +56,7 @@ type InstanceProfile struct {
 	// Path in which to create the profile.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The role name to include in the profile.
-	Role pulumi.StringOutput `pulumi:"role"`
-	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-	//
-	// Deprecated: Use `role` instead. Only a single role can be passed to an IAM Instance Profile
-	Roles pulumi.StringArrayOutput `pulumi:"roles"`
+	Role pulumi.StringPtrOutput `pulumi:"role"`
 	// The [unique ID][1] assigned by AWS.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
@@ -105,10 +101,6 @@ type instanceProfileState struct {
 	Path *string `pulumi:"path"`
 	// The role name to include in the profile.
 	Role *string `pulumi:"role"`
-	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-	//
-	// Deprecated: Use `role` instead. Only a single role can be passed to an IAM Instance Profile
-	Roles []string `pulumi:"roles"`
 	// The [unique ID][1] assigned by AWS.
 	UniqueId *string `pulumi:"uniqueId"`
 }
@@ -126,10 +118,6 @@ type InstanceProfileState struct {
 	Path pulumi.StringPtrInput
 	// The role name to include in the profile.
 	Role pulumi.StringPtrInput
-	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-	//
-	// Deprecated: Use `role` instead. Only a single role can be passed to an IAM Instance Profile
-	Roles pulumi.StringArrayInput
 	// The [unique ID][1] assigned by AWS.
 	UniqueId pulumi.StringPtrInput
 }
@@ -147,10 +135,6 @@ type instanceProfileArgs struct {
 	Path *string `pulumi:"path"`
 	// The role name to include in the profile.
 	Role interface{} `pulumi:"role"`
-	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-	//
-	// Deprecated: Use `role` instead. Only a single role can be passed to an IAM Instance Profile
-	Roles []interface{} `pulumi:"roles"`
 }
 
 // The set of arguments for constructing a InstanceProfile resource.
@@ -163,10 +147,6 @@ type InstanceProfileArgs struct {
 	Path pulumi.StringPtrInput
 	// The role name to include in the profile.
 	Role pulumi.Input
-	// A list of role names to include in the profile.  The current default is 1.  If you see an error message similar to `Cannot exceed quota for InstanceSessionsPerInstanceProfile: 1`, then you must contact AWS support and ask for a limit increase.
-	//
-	// Deprecated: Use `role` instead. Only a single role can be passed to an IAM Instance Profile
-	Roles pulumi.ArrayInput
 }
 
 func (InstanceProfileArgs) ElementType() reflect.Type {

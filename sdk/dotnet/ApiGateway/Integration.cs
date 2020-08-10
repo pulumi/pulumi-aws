@@ -28,25 +28,29 @@ namespace Pulumi.Aws.ApiGateway
     ///         });
     ///         var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new Aws.ApiGateway.ResourceArgs
     ///         {
+    ///             RestApi = myDemoAPI.Id,
     ///             ParentId = myDemoAPI.RootResourceId,
     ///             PathPart = "mydemoresource",
-    ///             RestApi = myDemoAPI.Id,
     ///         });
     ///         var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new Aws.ApiGateway.MethodArgs
     ///         {
-    ///             Authorization = "NONE",
-    ///             HttpMethod = "GET",
-    ///             ResourceId = myDemoResource.Id,
     ///             RestApi = myDemoAPI.Id,
+    ///             ResourceId = myDemoResource.Id,
+    ///             HttpMethod = "GET",
+    ///             Authorization = "NONE",
     ///         });
     ///         var myDemoIntegration = new Aws.ApiGateway.Integration("myDemoIntegration", new Aws.ApiGateway.IntegrationArgs
     ///         {
+    ///             RestApi = myDemoAPI.Id,
+    ///             ResourceId = myDemoResource.Id,
+    ///             HttpMethod = myDemoMethod.HttpMethod,
+    ///             Type = "MOCK",
     ///             CacheKeyParameters = 
     ///             {
     ///                 "method.request.path.param",
     ///             },
     ///             CacheNamespace = "foobar",
-    ///             HttpMethod = myDemoMethod.HttpMethod,
+    ///             TimeoutMilliseconds = 29000,
     ///             RequestParameters = 
     ///             {
     ///                 { "integration.request.header.X-Authorization", "'static'" },
@@ -56,13 +60,8 @@ namespace Pulumi.Aws.ApiGateway
     ///                 { "application/xml", @"{
     ///    ""body"" : $input.json('$')
     /// }
-    /// 
     /// " },
     ///             },
-    ///             ResourceId = myDemoResource.Id,
-    ///             RestApi = myDemoAPI.Id,
-    ///             TimeoutMilliseconds = 29000,
-    ///             Type = "MOCK",
     ///         });
     ///     }
     /// 
@@ -92,52 +91,54 @@ namespace Pulumi.Aws.ApiGateway
     ///         });
     ///         var testVpcLink = new Aws.ApiGateway.VpcLink("testVpcLink", new Aws.ApiGateway.VpcLinkArgs
     ///         {
-    ///             TargetArn = testLoadBalancer.Arn,
+    ///             TargetArn = 
+    ///             {
+    ///                 testLoadBalancer.Arn,
+    ///             },
     ///         });
     ///         var testRestApi = new Aws.ApiGateway.RestApi("testRestApi", new Aws.ApiGateway.RestApiArgs
     ///         {
     ///         });
     ///         var testResource = new Aws.ApiGateway.Resource("testResource", new Aws.ApiGateway.ResourceArgs
     ///         {
+    ///             RestApi = testRestApi.Id,
     ///             ParentId = testRestApi.RootResourceId,
     ///             PathPart = "test",
-    ///             RestApi = testRestApi.Id,
     ///         });
     ///         var testMethod = new Aws.ApiGateway.Method("testMethod", new Aws.ApiGateway.MethodArgs
     ///         {
-    ///             Authorization = "NONE",
+    ///             RestApi = testRestApi.Id,
+    ///             ResourceId = testResource.Id,
     ///             HttpMethod = "GET",
+    ///             Authorization = "NONE",
     ///             RequestModels = 
     ///             {
     ///                 { "application/json", "Error" },
     ///             },
-    ///             ResourceId = testResource.Id,
-    ///             RestApi = testRestApi.Id,
     ///         });
     ///         var testIntegration = new Aws.ApiGateway.Integration("testIntegration", new Aws.ApiGateway.IntegrationArgs
     ///         {
-    ///             ConnectionId = testVpcLink.Id,
-    ///             ConnectionType = "VPC_LINK",
-    ///             ContentHandling = "CONVERT_TO_TEXT",
+    ///             RestApi = testRestApi.Id,
+    ///             ResourceId = testResource.Id,
     ///             HttpMethod = testMethod.HttpMethod,
-    ///             IntegrationHttpMethod = "GET",
-    ///             PassthroughBehavior = "WHEN_NO_MATCH",
+    ///             RequestTemplates = 
+    ///             {
+    ///                 { "application/json", "" },
+    ///                 { "application/xml", @"#set($inputRoot = $input.path('$'))
+    /// { }" },
+    ///             },
     ///             RequestParameters = 
     ///             {
     ///                 { "integration.request.header.X-Authorization", "'static'" },
     ///                 { "integration.request.header.X-Foo", "'Bar'" },
     ///             },
-    ///             RequestTemplates = 
-    ///             {
-    ///                 { "application/json", "" },
-    ///                 { "application/xml", @"#set($inputRoot = $input.path('$'))
-    /// { }
-    /// " },
-    ///             },
-    ///             ResourceId = testResource.Id,
-    ///             RestApi = testRestApi.Id,
     ///             Type = "HTTP",
     ///             Uri = "https://www.google.de",
+    ///             IntegrationHttpMethod = "GET",
+    ///             PassthroughBehavior = "WHEN_NO_MATCH",
+    ///             ContentHandling = "CONVERT_TO_TEXT",
+    ///             ConnectionType = "VPC_LINK",
+    ///             ConnectionId = testVpcLink.Id,
     ///         });
     ///     }
     /// 

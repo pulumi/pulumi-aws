@@ -325,17 +325,6 @@ func Provider() tfbridge.ProviderInfo {
 					"description": {
 						Default: managedByPulumi,
 					},
-					"stage_key": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"rest_api_id": {
-									Name:     "restApi",
-									Type:     "string",
-									AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
-								},
-							},
-						},
-					},
 				},
 			},
 			"aws_api_gateway_authorizer": {
@@ -1362,12 +1351,6 @@ func Provider() tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
 					},
-					"roles": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:     "string",
-							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
-						},
-					},
 				},
 			},
 			"aws_iam_openid_connect_provider": {Tok: awsResource(iamMod, "OpenIdConnectProvider")},
@@ -2083,11 +2066,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafregional_byte_match_set": {
 				Tok: awsResource(wafregionalMod, "ByteMatchSet"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					// This property is deprecated and renamed to `byte_match_tuples`.  Don't pluralize this depreacted
-					// version so that it doesn't conflict with the replacement.
-					"byte_match_tuple": {
-						Name: "byte_match_tuple",
-					},
 					"byte_match_tuples": {
 						Name: "byteMatchTuples",
 					},
@@ -2420,7 +2398,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Transfer
 			"aws_transfer_server": {Tok: awsDataSource(transferMod, "getServer")},
 			// Workspaces
-			"aws_workspaces_bundle": {Tok: awsDataSource(workspacesMod, "getBundle")},
+			"aws_workspaces_bundle":    {Tok: awsDataSource(workspacesMod, "getBundle")},
+			"aws_workspaces_directory": {Tok: awsDataSource(workspacesMod, "getDirectory")},
 			// MSK
 			"aws_msk_cluster": {Tok: awsDataSource(mskMod, "getCluster")},
 			// Service Quotas

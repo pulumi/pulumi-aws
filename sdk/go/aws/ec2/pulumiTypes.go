@@ -6275,7 +6275,7 @@ type LaunchTemplateNetworkInterface struct {
 	// Associate a public ip address with the network interface.  Boolean value.
 	AssociatePublicIpAddress *string `pulumi:"associatePublicIpAddress"`
 	// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
-	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
 	// Description of the network interface.
 	Description *string `pulumi:"description"`
 	// The integer index of the network interface attachment.
@@ -6313,7 +6313,7 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	// Associate a public ip address with the network interface.  Boolean value.
 	AssociatePublicIpAddress pulumi.StringPtrInput `pulumi:"associatePublicIpAddress"`
 	// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
-	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
 	// Description of the network interface.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The integer index of the network interface attachment.
@@ -6393,8 +6393,8 @@ func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.
 }
 
 // Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
-func (o LaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+func (o LaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.DeleteOnTermination }).(pulumi.StringPtrOutput)
 }
 
 // Description of the network interface.

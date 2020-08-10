@@ -77,11 +77,11 @@ class Subnet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.ec2.Subnet("main",
+            vpc_id=aws_vpc["main"]["id"],
             cidr_block="10.0.1.0/24",
             tags={
                 "Name": "Main",
-            },
-            vpc_id=aws_vpc["main"]["id"])
+            })
         ```
         ### Subnets In Secondary VPC CIDR Blocks
 
@@ -93,11 +93,11 @@ class Subnet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
-            cidr_block="172.2.0.0/16",
-            vpc_id=aws_vpc["main"]["id"])
+            vpc_id=aws_vpc["main"]["id"],
+            cidr_block="172.2.0.0/16")
         in_secondary_cidr = aws.ec2.Subnet("inSecondaryCidr",
-            cidr_block="172.2.0.0/24",
-            vpc_id=secondary_cidr.vpc_id)
+            vpc_id=secondary_cidr.vpc_id,
+            cidr_block="172.2.0.0/24")
         ```
 
         :param str resource_name: The name of the resource.

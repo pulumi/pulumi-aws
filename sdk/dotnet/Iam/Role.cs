@@ -74,11 +74,11 @@ namespace Pulumi.Aws.Iam
     ///                     {
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
     ///                         {
+    ///                             Type = "Service",
     ///                             Identifiers = 
     ///                             {
     ///                                 "ec2.amazonaws.com",
     ///                             },
-    ///                             Type = "Service",
     ///                         },
     ///                     },
     ///                 },
@@ -86,8 +86,8 @@ namespace Pulumi.Aws.Iam
     ///         }));
     ///         var instance = new Aws.Iam.Role("instance", new Aws.Iam.RoleArgs
     ///         {
-    ///             AssumeRolePolicy = instance_assume_role_policy.Apply(instance_assume_role_policy =&gt; instance_assume_role_policy.Json),
     ///             Path = "/system/",
+    ///             AssumeRolePolicy = instance_assume_role_policy.Apply(instance_assume_role_policy =&gt; instance_assume_role_policy.Json),
     ///         });
     ///     }
     /// 

@@ -27,8 +27,8 @@ namespace Pulumi.Aws.OpsWorks
     ///             AllowSsh = true,
     ///             AllowSudo = true,
     ///             Level = "iam_only",
-    ///             StackId = aws_opsworks_stack.Stack.Id,
     ///             UserArn = aws_iam_user.User.Arn,
+    ///             StackId = aws_opsworks_stack.Stack.Id,
     ///         });
     ///     }
     /// 

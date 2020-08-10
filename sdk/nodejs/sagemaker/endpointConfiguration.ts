@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  *
  * const ec = new aws.sagemaker.EndpointConfiguration("ec", {
  *     productionVariants: [{
+ *         variantName: "variant-1",
+ *         modelName: aws_sagemaker_model.m.name,
  *         initialInstanceCount: 1,
  *         instanceType: "ml.t2.medium",
- *         modelName: aws_sagemaker_model_m.name,
- *         variantName: "variant-1",
  *     }],
  *     tags: {
  *         Name: "foo",

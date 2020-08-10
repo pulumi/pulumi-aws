@@ -10,10 +10,6 @@ from .. import utilities, tables
 
 
 class Job(pulumi.CustomResource):
-    allocated_capacity: pulumi.Output[float]
-    """
-    **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-    """
     arn: pulumi.Output[str]
     """
     Amazon Resource Name (ARN) of Glue Job
@@ -90,7 +86,7 @@ class Job(pulumi.CustomResource):
     """
     The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
     """
-    def __init__(__self__, resource_name, opts=None, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, notification_property=None, number_of_workers=None, role_arn=None, security_configuration=None, tags=None, timeout=None, worker_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, notification_property=None, number_of_workers=None, role_arn=None, security_configuration=None, tags=None, timeout=None, worker_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Glue Job resource.
 
@@ -104,10 +100,10 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
+            role_arn=aws_iam_role["example"]["arn"],
             command={
                 "scriptLocation": f"s3://{aws_s3_bucket['example']['bucket']}/example.py",
-            },
-            role_arn=aws_iam_role["example"]["arn"])
+            })
         ```
         ### Scala Job
 
@@ -116,13 +112,13 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Job("example",
+            role_arn=aws_iam_role["example"]["arn"],
             command={
                 "scriptLocation": f"s3://{aws_s3_bucket['example']['bucket']}/example.scala",
             },
             default_arguments={
                 "--job-language": "scala",
-            },
-            role_arn=aws_iam_role["example"]["arn"])
+            })
         ```
         ### Enabling CloudWatch Logs and Metrics
 
@@ -131,6 +127,7 @@ class Job(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=14)
+        # ... other configuration ...
         example_job = aws.glue.Job("exampleJob", default_arguments={
             "--continuous-log-logGroup": example_log_group.name,
             "--enable-continuous-cloudwatch-log": "true",
@@ -141,7 +138,6 @@ class Job(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] allocated_capacity: **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
         :param pulumi.Input[dict] command: The command of the job. Defined below.
         :param pulumi.Input[list] connections: The list of connections used for this job.
         :param pulumi.Input[dict] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
@@ -190,10 +186,6 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if allocated_capacity is not None:
-                warnings.warn("Please use attribute `max_capacity' instead. This attribute might be removed in future releases.", DeprecationWarning)
-                pulumi.log.warn("allocated_capacity is deprecated: Please use attribute `max_capacity' instead. This attribute might be removed in future releases.")
-            __props__['allocated_capacity'] = allocated_capacity
             if command is None:
                 raise TypeError("Missing required property 'command'")
             __props__['command'] = command
@@ -222,7 +214,7 @@ class Job(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allocated_capacity=None, arn=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, notification_property=None, number_of_workers=None, role_arn=None, security_configuration=None, tags=None, timeout=None, worker_type=None):
+    def get(resource_name, id, opts=None, arn=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, max_capacity=None, max_retries=None, name=None, notification_property=None, number_of_workers=None, role_arn=None, security_configuration=None, tags=None, timeout=None, worker_type=None):
         """
         Get an existing Job resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -230,7 +222,6 @@ class Job(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] allocated_capacity: **DEPRECATED** (Optional) The number of AWS Glue data processing units (DPUs) to allocate to this Job. At least 2 DPUs need to be allocated; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Job
         :param pulumi.Input[dict] command: The command of the job. Defined below.
         :param pulumi.Input[list] connections: The list of connections used for this job.
@@ -267,7 +258,6 @@ class Job(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__["allocated_capacity"] = allocated_capacity
         __props__["arn"] = arn
         __props__["command"] = command
         __props__["connections"] = connections

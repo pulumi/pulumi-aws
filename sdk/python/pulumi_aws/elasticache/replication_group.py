@@ -195,15 +195,14 @@ class ReplicationGroup(pulumi.CustomResource):
                 "us-west-2a",
                 "us-west-2b",
             ],
-            lifecycle={
-                "ignoreChanges": ["numberCacheClusters"],
-            },
+            replication_group_description="test description",
             node_type="cache.m4.large",
             number_cache_clusters=2,
             parameter_group_name="default.redis3.2",
-            port=6379,
-            replication_group_description="test description")
-        replica = aws.elasticache.Cluster("replica", replication_group_id=example.id)
+            port=6379)
+        replica = None
+        if 1 == True:
+            replica = aws.elasticache.Cluster("replica", replication_group_id=example.id)
         ```
         ### Redis Cluster Mode Enabled
 

@@ -60,11 +60,11 @@ class EndpointGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.EndpointGroup("example",
+            listener_arn=aws_globalaccelerator_listener["example"]["id"],
             endpoint_configurations=[{
                 "endpoint_id": aws_lb["example"]["arn"],
                 "weight": 100,
-            }],
-            listener_arn=aws_globalaccelerator_listener["example"]["id"])
+            }])
         ```
 
         :param str resource_name: The name of the resource.

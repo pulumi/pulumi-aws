@@ -28,16 +28,16 @@ import (
 // 			return err
 // 		}
 // 		_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
-// 			Aliases: route53.RecordAliasArray{
-// 				&route53.RecordAliasArgs{
-// 					EvaluateTargetHealth: pulumi.Bool(true),
-// 					Name:                 pulumi.String(aws_elb.Main.Dns_name),
-// 					ZoneId:               pulumi.String(main.Id),
-// 				},
-// 			},
+// 			ZoneId: pulumi.String(aws_route53_zone.Primary.Zone_id),
 // 			Name:   pulumi.String("example.com"),
 // 			Type:   pulumi.String("A"),
-// 			ZoneId: pulumi.String(aws_route53_zone.Primary.Zone_id),
+// 			Aliases: route53.RecordAliasArray{
+// 				&route53.RecordAliasArgs{
+// 					Name:                 pulumi.String(aws_elb.Main.Dns_name),
+// 					ZoneId:               pulumi.String(main.Id),
+// 					EvaluateTargetHealth: pulumi.Bool(true),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

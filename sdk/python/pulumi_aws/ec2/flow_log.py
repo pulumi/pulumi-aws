@@ -87,7 +87,6 @@ class FlowLog(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
             iam_role_arn=example_role.arn,
@@ -95,6 +94,7 @@ class FlowLog(pulumi.CustomResource):
             traffic_type="ALL",
             vpc_id=aws_vpc["example"]["id"])
         example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+            role=example_role.id,
             policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -111,9 +111,7 @@ class FlowLog(pulumi.CustomResource):
             }
           ]
         }
-
-        \"\"\",
-            role=example_role.id)
+        \"\"\")
         ```
         ### S3 Logging
 

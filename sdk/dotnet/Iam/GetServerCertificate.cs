@@ -28,8 +28,8 @@ namespace Pulumi.Aws.Iam
         ///     {
         ///         var my_domain = Output.Create(Aws.Iam.GetServerCertificate.InvokeAsync(new Aws.Iam.GetServerCertificateArgs
         ///         {
-        ///             Latest = true,
         ///             NamePrefix = "my-domain.org",
+        ///             Latest = true,
         ///         }));
         ///         var elb = new Aws.Elb.LoadBalancer("elb", new Aws.Elb.LoadBalancerArgs
         ///         {

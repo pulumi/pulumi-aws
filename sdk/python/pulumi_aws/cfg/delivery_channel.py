@@ -47,8 +47,6 @@ class DeliveryChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket = aws.s3.Bucket("bucket", force_destroy=True)
-        foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket.bucket,
-        opts=ResourceOptions(depends_on=["aws_config_configuration_recorder.foo"]))
         role = aws.iam.Role("role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -62,10 +60,12 @@ class DeliveryChannel(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
+        foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket.bucket,
+        opts=ResourceOptions(depends_on=[foo_recorder]))
         role_policy = aws.iam.RolePolicy("rolePolicy",
+            role=role.id,
             policy=pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
@@ -81,9 +81,7 @@ class DeliveryChannel(pulumi.CustomResource):
             }}
           ]
         }}
-
-        \"\"\"),
-            role=role.id)
+        \"\"\"))
         ```
 
         :param str resource_name: The name of the resource.

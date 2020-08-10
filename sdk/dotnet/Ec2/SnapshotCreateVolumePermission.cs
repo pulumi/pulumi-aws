@@ -33,8 +33,8 @@ namespace Pulumi.Aws.Ec2
     ///         });
     ///         var examplePerm = new Aws.Ec2.SnapshotCreateVolumePermission("examplePerm", new Aws.Ec2.SnapshotCreateVolumePermissionArgs
     ///         {
-    ///             AccountId = "12345678",
     ///             SnapshotId = exampleSnapshot.Id,
+    ///             AccountId = "12345678",
     ///         });
     ///     }
     /// 

@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.fsx.WindowsFileSystem("example", {
- *     activeDirectoryId: aws_directory_service_directory_example.id,
- *     kmsKeyId: aws_kms_key_example.arn,
+ *     activeDirectoryId: aws_directory_service_directory.example.id,
+ *     kmsKeyId: aws_kms_key.example.arn,
  *     storageCapacity: 300,
- *     subnetIds: aws_subnet_example.id,
+ *     subnetIds: [aws_subnet.example.id],
  *     throughputCapacity: 1024,
  * });
  * ```
@@ -37,7 +37,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.fsx.WindowsFileSystem("example", {
- *     kmsKeyId: aws_kms_key_example.arn,
+ *     kmsKeyId: aws_kms_key.example.arn,
+ *     storageCapacity: 300,
+ *     subnetIds: [aws_subnet.example.id],
+ *     throughputCapacity: 1024,
  *     selfManagedActiveDirectory: {
  *         dnsIps: [
  *             "10.0.0.111",
@@ -47,9 +50,6 @@ import * as utilities from "../utilities";
  *         password: "avoid-plaintext-passwords",
  *         username: "Admin",
  *     },
- *     storageCapacity: 300,
- *     subnetIds: aws_subnet_example.id,
- *     throughputCapacity: 1024,
  * });
  * ```
  */
@@ -102,6 +102,10 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
     /**
+     * Specifies the file system deployment type, valid values are `MULTI_AZ_1` and `SINGLE_AZ_1`. Default value is `SINGLE_AZ_1`.
+     */
+    public readonly deploymentType!: pulumi.Output<string | undefined>;
+    /**
      * DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
@@ -118,6 +122,18 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * The IP address of the primary, or preferred, file server.
+     */
+    public /*out*/ readonly preferredFileServerIp!: pulumi.Output<string>;
+    /**
+     * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+     */
+    public readonly preferredSubnetId!: pulumi.Output<string>;
+    /**
+     * For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
+     */
+    public /*out*/ readonly remoteAdministrationEndpoint!: pulumi.Output<string>;
+    /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -130,13 +146,17 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly skipFinalBackup!: pulumi.Output<boolean | undefined>;
     /**
-     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
+     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
      */
     public readonly storageCapacity!: pulumi.Output<number>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
+     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_1` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
-    public readonly subnetIds!: pulumi.Output<string>;
+    public readonly storageType!: pulumi.Output<string | undefined>;
+    /**
+     * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
+     */
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the file system.
      */
@@ -171,14 +191,19 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             inputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
             inputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
             inputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
+            inputs["deploymentType"] = state ? state.deploymentType : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
+            inputs["preferredFileServerIp"] = state ? state.preferredFileServerIp : undefined;
+            inputs["preferredSubnetId"] = state ? state.preferredSubnetId : undefined;
+            inputs["remoteAdministrationEndpoint"] = state ? state.remoteAdministrationEndpoint : undefined;
             inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             inputs["selfManagedActiveDirectory"] = state ? state.selfManagedActiveDirectory : undefined;
             inputs["skipFinalBackup"] = state ? state.skipFinalBackup : undefined;
             inputs["storageCapacity"] = state ? state.storageCapacity : undefined;
+            inputs["storageType"] = state ? state.storageType : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
@@ -199,11 +224,14 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             inputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
             inputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
             inputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
+            inputs["deploymentType"] = args ? args.deploymentType : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            inputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
             inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             inputs["selfManagedActiveDirectory"] = args ? args.selfManagedActiveDirectory : undefined;
             inputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
             inputs["storageCapacity"] = args ? args.storageCapacity : undefined;
+            inputs["storageType"] = args ? args.storageType : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
@@ -212,6 +240,8 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             inputs["dnsName"] = undefined /*out*/;
             inputs["networkInterfaceIds"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
+            inputs["preferredFileServerIp"] = undefined /*out*/;
+            inputs["remoteAdministrationEndpoint"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
         if (!opts) {
@@ -250,6 +280,10 @@ export interface WindowsFileSystemState {
      */
     readonly dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
+     * Specifies the file system deployment type, valid values are `MULTI_AZ_1` and `SINGLE_AZ_1`. Default value is `SINGLE_AZ_1`.
+     */
+    readonly deploymentType?: pulumi.Input<string>;
+    /**
      * DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      */
     readonly dnsName?: pulumi.Input<string>;
@@ -266,6 +300,18 @@ export interface WindowsFileSystemState {
      */
     readonly ownerId?: pulumi.Input<string>;
     /**
+     * The IP address of the primary, or preferred, file server.
+     */
+    readonly preferredFileServerIp?: pulumi.Input<string>;
+    /**
+     * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+     */
+    readonly preferredSubnetId?: pulumi.Input<string>;
+    /**
+     * For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
+     */
+    readonly remoteAdministrationEndpoint?: pulumi.Input<string>;
+    /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
     readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -278,13 +324,17 @@ export interface WindowsFileSystemState {
      */
     readonly skipFinalBackup?: pulumi.Input<boolean>;
     /**
-     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
+     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
      */
     readonly storageCapacity?: pulumi.Input<number>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
+     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_1` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
-    readonly subnetIds?: pulumi.Input<string>;
+    readonly storageType?: pulumi.Input<string>;
+    /**
+     * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
+     */
+    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the file system.
      */
@@ -324,9 +374,17 @@ export interface WindowsFileSystemArgs {
      */
     readonly dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
+     * Specifies the file system deployment type, valid values are `MULTI_AZ_1` and `SINGLE_AZ_1`. Default value is `SINGLE_AZ_1`.
+     */
+    readonly deploymentType?: pulumi.Input<string>;
+    /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      */
     readonly kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+     */
+    readonly preferredSubnetId?: pulumi.Input<string>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
@@ -340,13 +398,17 @@ export interface WindowsFileSystemArgs {
      */
     readonly skipFinalBackup?: pulumi.Input<boolean>;
     /**
-     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536.
+     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
      */
     readonly storageCapacity: pulumi.Input<number>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. File systems support only one subnet. The file server is also launched in that subnet's Availability Zone.
+     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_1` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
-    readonly subnetIds: pulumi.Input<string>;
+    readonly storageType?: pulumi.Input<string>;
+    /**
+     * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
+     */
+    readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the file system.
      */

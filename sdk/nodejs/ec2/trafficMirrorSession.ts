@@ -20,12 +20,10 @@ import * as utilities from "../utilities";
  *     description: "traffic mirror filter - example",
  *     networkServices: ["amazon-dns"],
  * });
- * const target = new aws.ec2.TrafficMirrorTarget("target", {
- *     networkLoadBalancerArn: aws_lb_lb.arn,
- * });
+ * const target = new aws.ec2.TrafficMirrorTarget("target", {networkLoadBalancerArn: aws_lb.lb.arn});
  * const session = new aws.ec2.TrafficMirrorSession("session", {
  *     description: "traffic mirror session - example",
- *     networkInterfaceId: aws_instance_test.primaryNetworkInterfaceId,
+ *     networkInterfaceId: aws_instance.test.primary_network_interface_id,
  *     trafficMirrorFilterId: filter.id,
  *     trafficMirrorTargetId: target.id,
  * });

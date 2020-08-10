@@ -70,20 +70,20 @@ class RouteTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         route_table = aws.ec2.RouteTable("routeTable",
+            vpc_id=aws_vpc["default"]["id"],
             routes=[
                 {
                     "cidr_block": "10.0.1.0/24",
                     "gateway_id": aws_internet_gateway["main"]["id"],
                 },
                 {
-                    "egress_only_gateway_id": aws_egress_only_internet_gateway["foo"]["id"],
                     "ipv6_cidr_block": "::/0",
+                    "egress_only_gateway_id": aws_egress_only_internet_gateway["foo"]["id"],
                 },
             ],
             tags={
                 "Name": "main",
-            },
-            vpc_id=aws_vpc["default"]["id"])
+            })
         ```
 
         :param str resource_name: The name of the resource.

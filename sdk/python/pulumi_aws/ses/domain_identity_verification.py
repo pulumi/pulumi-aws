@@ -36,13 +36,13 @@ class DomainIdentityVerification(pulumi.CustomResource):
 
         example = aws.ses.DomainIdentity("example", domain="example.com")
         example_amazonses_verification_record = aws.route53.Record("exampleAmazonsesVerificationRecord",
+            zone_id=aws_route53_zone["example"]["zone_id"],
             name=example.id.apply(lambda id: f"_amazonses.{id}"),
-            records=[example.verification_token],
-            ttl="600",
             type="TXT",
-            zone_id=aws_route53_zone["example"]["zone_id"])
+            ttl="600",
+            records=[example.verification_token])
         example_verification = aws.ses.DomainIdentityVerification("exampleVerification", domain=example.id,
-        opts=ResourceOptions(depends_on=["aws_route53_record.example_amazonses_verification_record"]))
+        opts=ResourceOptions(depends_on=[example_amazonses_verification_record]))
         ```
 
         :param str resource_name: The name of the resource.

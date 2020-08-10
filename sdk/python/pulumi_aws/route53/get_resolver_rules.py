@@ -56,23 +56,30 @@ def get_resolver_rules(owner_id=None,resolver_endpoint_id=None,rule_type=None,sh
 
     ## Example Usage
 
-    The following example shows how to get Route53 Resolver rules based on tags.
+    Retrieving the default resolver rule.
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.route53.get_resolver_rules(tags=[{
-        "Environment": "dev",
-    }])
+    example = aws.route53.get_resolver_rules(owner_id="Route 53 Resolver",
+        rule_type="RECURSIVE",
+        share_status="NOT_SHARED")
+    ```
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.route53.get_resolver_rules(rule_type="FORWARD",
+        share_status="SHARED_WITH_ME")
     ```
 
 
     :param str owner_id: When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
     :param str resolver_endpoint_id: The ID of the outbound resolver endpoint for the desired resolver rules.
     :param str rule_type: The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
-    :param str share_status: Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account.
-           Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+    :param str share_status: Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
     """
     __args__ = dict()
 

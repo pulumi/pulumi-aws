@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const gw = new aws.ec2.InternetGateway("gw", {
+ *     vpcId: aws_vpc.main.id,
  *     tags: {
  *         Name: "main",
  *     },
- *     vpcId: aws_vpc_main.id,
  * });
  * ```
  */

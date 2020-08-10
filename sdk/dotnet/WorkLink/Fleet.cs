@@ -45,15 +45,15 @@ namespace Pulumi.Aws.WorkLink
     ///         {
     ///             Network = new Aws.WorkLink.Inputs.FleetNetworkArgs
     ///             {
-    ///                 SecurityGroupIds = 
-    ///                 {
-    ///                     aws_security_group.Test.Id,
-    ///                 },
+    ///                 VpcId = aws_vpc.Test.Id,
     ///                 SubnetIds = 
     ///                 {
     ///                     aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
     ///                 },
-    ///                 VpcId = aws_vpc.Test.Id,
+    ///                 SecurityGroupIds = 
+    ///                 {
+    ///                     aws_security_group.Test.Id,
+    ///                 },
     ///             },
     ///         });
     ///     }
@@ -76,8 +76,8 @@ namespace Pulumi.Aws.WorkLink
     ///         {
     ///             IdentityProvider = new Aws.WorkLink.Inputs.FleetIdentityProviderArgs
     ///             {
-    ///                 SamlMetadata = File.ReadAllText("saml-metadata.xml"),
     ///                 Type = "SAML",
+    ///                 SamlMetadata = File.ReadAllText("saml-metadata.xml"),
     ///             },
     ///         });
     ///     }

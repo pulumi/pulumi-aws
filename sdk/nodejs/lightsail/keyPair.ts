@@ -37,11 +37,9 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
- * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {
- *     publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf-8"),
- * });
+ * const lgKeyPair = new aws.lightsail.KeyPair("lgKeyPair", {publicKey: fs.readFileSync("~/.ssh/id_rsa.pub")});
  * ```
  */
 export class KeyPair extends pulumi.CustomResource {

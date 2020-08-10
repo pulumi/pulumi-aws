@@ -97,13 +97,13 @@ def get_bucket(bucket=None,opts=None):
     selected = aws.s3.get_bucket(bucket="bucket.test.com")
     test_zone = aws.route53.get_zone(name="test.com.")
     example = aws.route53.Record("example",
+        zone_id=test_zone.id,
+        name="bucket",
+        type="A",
         aliases=[{
             "name": selected.website_domain,
             "zone_id": selected.hosted_zone_id,
-        }],
-        name="bucket",
-        type="A",
-        zone_id=test_zone.id)
+        }])
     ```
     ### CloudFront Origin
 

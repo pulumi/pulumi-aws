@@ -24,20 +24,20 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		defaultCluster, err := redshift.NewCluster(ctx, "defaultCluster", &redshift.ClusterArgs{
 // 			ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
-// 			ClusterType:       pulumi.String("single-node"),
 // 			DatabaseName:      pulumi.String("mydb"),
-// 			MasterPassword:    pulumi.String("Mustbe8characters"),
 // 			MasterUsername:    pulumi.String("foo"),
+// 			MasterPassword:    pulumi.String("Mustbe8characters"),
 // 			NodeType:          pulumi.String("dc1.large"),
+// 			ClusterType:       pulumi.String("single-node"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		defaultSnapshotSchedule, err := redshift.NewSnapshotSchedule(ctx, "defaultSnapshotSchedule", &redshift.SnapshotScheduleArgs{
+// 			Identifier: pulumi.String("tf-redshift-snapshot-schedule"),
 // 			Definitions: pulumi.StringArray{
 // 				pulumi.String("rate(12 hours)"),
 // 			},
-// 			Identifier: pulumi.String("tf-redshift-snapshot-schedule"),
 // 		})
 // 		if err != nil {
 // 			return err

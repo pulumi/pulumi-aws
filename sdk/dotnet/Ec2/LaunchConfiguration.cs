@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var ubuntu = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
     ///         {
+    ///             MostRecent = true,
     ///             Filters = 
     ///             {
     ///                 new Aws.Inputs.GetAmiFilterArgs
@@ -43,7 +44,6 @@ namespace Pulumi.Aws.Ec2
     ///                     },
     ///                 },
     ///             },
-    ///             MostRecent = true,
     ///             Owners = 
     ///             {
     ///                 "099720109477",
@@ -78,6 +78,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var ubuntu = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
     ///         {
+    ///             MostRecent = true,
     ///             Filters = 
     ///             {
     ///                 new Aws.Inputs.GetAmiFilterArgs
@@ -97,7 +98,6 @@ namespace Pulumi.Aws.Ec2
     ///                     },
     ///                 },
     ///             },
-    ///             MostRecent = true,
     ///             Owners = 
     ///             {
     ///                 "099720109477",
@@ -105,15 +105,15 @@ namespace Pulumi.Aws.Ec2
     ///         }));
     ///         var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new Aws.Ec2.LaunchConfigurationArgs
     ///         {
+    ///             NamePrefix = "lc-example-",
     ///             ImageId = ubuntu.Apply(ubuntu =&gt; ubuntu.Id),
     ///             InstanceType = "t2.micro",
-    ///             NamePrefix = "lc-example-",
     ///         });
     ///         var bar = new Aws.AutoScaling.Group("bar", new Aws.AutoScaling.GroupArgs
     ///         {
     ///             LaunchConfiguration = asConf.Name,
-    ///             MaxSize = 2,
     ///             MinSize = 1,
+    ///             MaxSize = 2,
     ///         });
     ///     }
     /// 
@@ -143,6 +143,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var ubuntu = Output.Create(Aws.GetAmi.InvokeAsync(new Aws.GetAmiArgs
     ///         {
+    ///             MostRecent = true,
     ///             Filters = 
     ///             {
     ///                 new Aws.Inputs.GetAmiFilterArgs
@@ -162,7 +163,6 @@ namespace Pulumi.Aws.Ec2
     ///                     },
     ///                 },
     ///             },
-    ///             MostRecent = true,
     ///             Owners = 
     ///             {
     ///                 "099720109477",

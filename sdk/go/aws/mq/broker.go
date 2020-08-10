@@ -52,8 +52,8 @@ import (
 // 			},
 // 			Users: mq.BrokerUserArray{
 // 				&mq.BrokerUserArgs{
-// 					Password: pulumi.String("MindTheGap"),
 // 					Username: pulumi.String("ExampleUser"),
+// 					Password: pulumi.String("MindTheGap"),
 // 				},
 // 			},
 // 		})

@@ -18,22 +18,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultCluster = new aws.neptune.Cluster("default", {
- *     applyImmediately: true,
- *     backupRetentionPeriod: 5,
+ * const _default = new aws.neptune.Cluster("default", {
  *     clusterIdentifier: "neptune-cluster-demo",
  *     engine: "neptune",
- *     iamDatabaseAuthenticationEnabled: true,
+ *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  *     skipFinalSnapshot: true,
+ *     iamDatabaseAuthenticationEnabled: true,
+ *     applyImmediately: true,
  * });
- * const example: aws.neptune.ClusterInstance[] = [];
- * for (let i = 0; i < 2; i++) {
- *     example.push(new aws.neptune.ClusterInstance(`example-${i}`, {
- *         applyImmediately: true,
- *         clusterIdentifier: defaultCluster.id,
+ * const example: aws.neptune.ClusterInstance[];
+ * for (const range = {value: 0}; range.value < 2; range.value++) {
+ *     example.push(new aws.neptune.ClusterInstance(`example-${range.value}`, {
+ *         clusterIdentifier: _default.id,
  *         engine: "neptune",
  *         instanceClass: "db.r4.large",
+ *         applyImmediately: true,
  *     }));
  * }
  * ```

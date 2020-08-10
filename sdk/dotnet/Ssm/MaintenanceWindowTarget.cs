@@ -24,12 +24,13 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         var window = new Aws.Ssm.MaintenanceWindow("window", new Aws.Ssm.MaintenanceWindowArgs
     ///         {
-    ///             Cutoff = 1,
-    ///             Duration = 3,
     ///             Schedule = "cron(0 16 ? * TUE *)",
+    ///             Duration = 3,
+    ///             Cutoff = 1,
     ///         });
     ///         var target1 = new Aws.Ssm.MaintenanceWindowTarget("target1", new Aws.Ssm.MaintenanceWindowTargetArgs
     ///         {
+    ///             WindowId = window.Id,
     ///             Description = "This is a maintenance window target",
     ///             ResourceType = "INSTANCE",
     ///             Targets = 
@@ -43,7 +44,6 @@ namespace Pulumi.Aws.Ssm
     ///                     },
     ///                 },
     ///             },
-    ///             WindowId = window.Id,
     ///         });
     ///     }
     /// 
@@ -62,12 +62,13 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         var window = new Aws.Ssm.MaintenanceWindow("window", new Aws.Ssm.MaintenanceWindowArgs
     ///         {
-    ///             Cutoff = 1,
-    ///             Duration = 3,
     ///             Schedule = "cron(0 16 ? * TUE *)",
+    ///             Duration = 3,
+    ///             Cutoff = 1,
     ///         });
     ///         var target1 = new Aws.Ssm.MaintenanceWindowTarget("target1", new Aws.Ssm.MaintenanceWindowTargetArgs
     ///         {
+    ///             WindowId = window.Id,
     ///             Description = "This is a maintenance window target",
     ///             ResourceType = "RESOURCE_GROUP",
     ///             Targets = 
@@ -82,7 +83,6 @@ namespace Pulumi.Aws.Ssm
     ///                     },
     ///                 },
     ///             },
-    ///             WindowId = window.Id,
     ///         });
     ///     }
     /// 

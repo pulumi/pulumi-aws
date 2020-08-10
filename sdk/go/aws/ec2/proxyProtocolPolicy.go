@@ -48,11 +48,11 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewProxyProtocolPolicy(ctx, "smtp", &ec2.ProxyProtocolPolicyArgs{
+// 			LoadBalancer: lb.Name,
 // 			InstancePorts: pulumi.StringArray{
 // 				pulumi.String("25"),
 // 				pulumi.String("587"),
 // 			},
-// 			LoadBalancer: lb.Name,
 // 		})
 // 		if err != nil {
 // 			return err

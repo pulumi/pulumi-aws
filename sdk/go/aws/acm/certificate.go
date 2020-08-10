@@ -74,11 +74,6 @@ import (
 // 			return err
 // 		}
 // 		exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "exampleSelfSignedCert", &tls.SelfSignedCertArgs{
-// 			AllowedUses: pulumi.StringArray{
-// 				pulumi.String("key_encipherment"),
-// 				pulumi.String("digital_signature"),
-// 				pulumi.String("server_auth"),
-// 			},
 // 			KeyAlgorithm:  pulumi.String("RSA"),
 // 			PrivateKeyPem: examplePrivateKey.PrivateKeyPem,
 // 			Subjects: tls.SelfSignedCertSubjectArray{
@@ -88,13 +83,18 @@ import (
 // 				},
 // 			},
 // 			ValidityPeriodHours: pulumi.Int(12),
+// 			AllowedUses: pulumi.StringArray{
+// 				pulumi.String("key_encipherment"),
+// 				pulumi.String("digital_signature"),
+// 				pulumi.String("server_auth"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-// 			CertificateBody: exampleSelfSignedCert.CertPem,
 // 			PrivateKey:      examplePrivateKey.PrivateKeyPem,
+// 			CertificateBody: exampleSelfSignedCert.CertPem,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -117,7 +117,7 @@ type Certificate struct {
 	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
 	// A domain name for which the certificate should be issued
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions CertificateDomainValidationOptionArrayOutput `pulumi:"domainValidationOptions"`
 	// Configuration block used to set certificate options. Detailed below.
 	// * Importing an existing certificate
@@ -126,7 +126,7 @@ type Certificate struct {
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// Status of the certificate.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
 	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -175,7 +175,7 @@ type certificateState struct {
 	CertificateChain *string `pulumi:"certificateChain"`
 	// A domain name for which the certificate should be issued
 	DomainName *string `pulumi:"domainName"`
-	// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions []CertificateDomainValidationOption `pulumi:"domainValidationOptions"`
 	// Configuration block used to set certificate options. Detailed below.
 	// * Importing an existing certificate
@@ -184,7 +184,7 @@ type certificateState struct {
 	PrivateKey *string `pulumi:"privateKey"`
 	// Status of the certificate.
 	Status *string `pulumi:"status"`
-	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -206,7 +206,7 @@ type CertificateState struct {
 	CertificateChain pulumi.StringPtrInput
 	// A domain name for which the certificate should be issued
 	DomainName pulumi.StringPtrInput
-	// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions CertificateDomainValidationOptionArrayInput
 	// Configuration block used to set certificate options. Detailed below.
 	// * Importing an existing certificate
@@ -215,7 +215,7 @@ type CertificateState struct {
 	PrivateKey pulumi.StringPtrInput
 	// Status of the certificate.
 	Status pulumi.StringPtrInput
-	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
 	SubjectAlternativeNames pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -244,7 +244,7 @@ type certificateArgs struct {
 	Options *CertificateOptions `pulumi:"options"`
 	// The certificate's PEM-formatted private key
 	PrivateKey *string `pulumi:"privateKey"`
-	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -268,7 +268,7 @@ type CertificateArgs struct {
 	Options CertificateOptionsPtrInput
 	// The certificate's PEM-formatted private key
 	PrivateKey pulumi.StringPtrInput
-	// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+	// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
 	SubjectAlternativeNames pulumi.StringArrayInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput

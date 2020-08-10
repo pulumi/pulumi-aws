@@ -29,6 +29,9 @@ namespace Pulumi.Aws.Ssm
     ///             MaxErrors = "1",
     ///             Priority = 1,
     ///             ServiceRoleArn = aws_iam_role.Example.Arn,
+    ///             TaskArn = "AWS-RestartEC2Instance",
+    ///             TaskType = "AUTOMATION",
+    ///             WindowId = aws_ssm_maintenance_window.Example.Id,
     ///             Targets = 
     ///             {
     ///                 new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
@@ -40,27 +43,24 @@ namespace Pulumi.Aws.Ssm
     ///                     },
     ///                 },
     ///             },
-    ///             TaskArn = "AWS-RestartEC2Instance",
     ///             TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
     ///             {
     ///                 AutomationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs
     ///                 {
     ///                     DocumentVersion = "$LATEST",
-    ///                     Parameter = 
+    ///                     Parameters = 
     ///                     {
-    ///                         
+    ///                         new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs
     ///                         {
-    ///                             { "name", "InstanceId" },
-    ///                             { "values", 
+    ///                             Name = "InstanceId",
+    ///                             Values = 
     ///                             {
     ///                                 aws_instance.Example.Id,
-    ///                             } },
+    ///                             },
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///             TaskType = "AUTOMATION",
-    ///             WindowId = aws_ssm_maintenance_window.Example.Id,
     ///         });
     ///     }
     /// 
@@ -82,6 +82,9 @@ namespace Pulumi.Aws.Ssm
     ///             MaxErrors = "1",
     ///             Priority = 1,
     ///             ServiceRoleArn = aws_iam_role.Example.Arn,
+    ///             TaskArn = "AWS-RunShellScript",
+    ///             TaskType = "RUN_COMMAND",
+    ///             WindowId = aws_ssm_maintenance_window.Example.Id,
     ///             Targets = 
     ///             {
     ///                 new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
@@ -93,11 +96,14 @@ namespace Pulumi.Aws.Ssm
     ///                     },
     ///                 },
     ///             },
-    ///             TaskArn = "AWS-RunShellScript",
     ///             TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
     ///             {
     ///                 RunCommandParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs
     ///                 {
+    ///                     OutputS3Bucket = aws_s3_bucket.Example.Bucket,
+    ///                     OutputS3KeyPrefix = "output",
+    ///                     ServiceRoleArn = aws_iam_role.Example.Arn,
+    ///                     TimeoutSeconds = 600,
     ///                     NotificationConfig = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs
     ///                     {
     ///                         NotificationArn = aws_sns_topic.Example.Arn,
@@ -107,25 +113,19 @@ namespace Pulumi.Aws.Ssm
     ///                         },
     ///                         NotificationType = "Command",
     ///                     },
-    ///                     OutputS3Bucket = aws_s3_bucket.Example.Bucket,
-    ///                     OutputS3KeyPrefix = "output",
-    ///                     Parameter = 
+    ///                     Parameters = 
     ///                     {
-    ///                         
+    ///                         new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs
     ///                         {
-    ///                             { "name", "commands" },
-    ///                             { "values", 
+    ///                             Name = "commands",
+    ///                             Values = 
     ///                             {
     ///                                 "date",
-    ///                             } },
+    ///                             },
     ///                         },
     ///                     },
-    ///                     ServiceRoleArn = aws_iam_role.Example.Arn,
-    ///                     TimeoutSeconds = 600,
     ///                 },
     ///             },
-    ///             TaskType = "RUN_COMMAND",
-    ///             WindowId = aws_ssm_maintenance_window.Example.Id,
     ///         });
     ///     }
     /// 
@@ -147,6 +147,9 @@ namespace Pulumi.Aws.Ssm
     ///             MaxErrors = "1",
     ///             Priority = 1,
     ///             ServiceRoleArn = aws_iam_role.Example.Arn,
+    ///             TaskArn = aws_sfn_activity.Example.Id,
+    ///             TaskType = "STEP_FUNCTIONS",
+    ///             WindowId = aws_ssm_maintenance_window.Example.Id,
     ///             Targets = 
     ///             {
     ///                 new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
@@ -158,7 +161,6 @@ namespace Pulumi.Aws.Ssm
     ///                     },
     ///                 },
     ///             },
-    ///             TaskArn = aws_sfn_activity.Example.Id,
     ///             TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
     ///             {
     ///                 StepFunctionsParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs
@@ -167,8 +169,6 @@ namespace Pulumi.Aws.Ssm
     ///                     Name = "example",
     ///                 },
     ///             },
-    ///             TaskType = "STEP_FUNCTIONS",
-    ///             WindowId = aws_ssm_maintenance_window.Example.Id,
     ///         });
     ///     }
     /// 
@@ -182,12 +182,6 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
-        /// </summary>
-        [Output("loggingInfo")]
-        public Output<Outputs.MaintenanceWindowTaskLoggingInfo?> LoggingInfo { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of targets this task can be run for in parallel.
@@ -232,16 +226,10 @@ namespace Pulumi.Aws.Ssm
         public Output<string> TaskArn { get; private set; } = null!;
 
         /// <summary>
-        /// The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+        /// Configuration block with parameters for task execution.
         /// </summary>
         [Output("taskInvocationParameters")]
         public Output<Outputs.MaintenanceWindowTaskTaskInvocationParameters?> TaskInvocationParameters { get; private set; } = null!;
-
-        /// <summary>
-        /// A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
-        /// </summary>
-        [Output("taskParameters")]
-        public Output<ImmutableArray<Outputs.MaintenanceWindowTaskTaskParameter>> TaskParameters { get; private set; } = null!;
 
         /// <summary>
         /// The type of task being registered. The only allowed value is `RUN_COMMAND`.
@@ -308,12 +296,6 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
-        /// </summary>
-        [Input("loggingInfo")]
-        public Input<Inputs.MaintenanceWindowTaskLoggingInfoArgs>? LoggingInfo { get; set; }
-
-        /// <summary>
         /// The maximum number of targets this task can be run for in parallel.
         /// </summary>
         [Input("maxConcurrency", required: true)]
@@ -362,23 +344,10 @@ namespace Pulumi.Aws.Ssm
         public Input<string> TaskArn { get; set; } = null!;
 
         /// <summary>
-        /// The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+        /// Configuration block with parameters for task execution.
         /// </summary>
         [Input("taskInvocationParameters")]
         public Input<Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs>? TaskInvocationParameters { get; set; }
-
-        [Input("taskParameters")]
-        private InputList<Inputs.MaintenanceWindowTaskTaskParameterArgs>? _taskParameters;
-
-        /// <summary>
-        /// A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
-        /// </summary>
-        [Obsolete(@"use 'task_invocation_parameters' argument instead")]
-        public InputList<Inputs.MaintenanceWindowTaskTaskParameterArgs> TaskParameters
-        {
-            get => _taskParameters ?? (_taskParameters = new InputList<Inputs.MaintenanceWindowTaskTaskParameterArgs>());
-            set => _taskParameters = value;
-        }
 
         /// <summary>
         /// The type of task being registered. The only allowed value is `RUN_COMMAND`.
@@ -404,12 +373,6 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// A structure containing information about an Amazon S3 bucket to write instance-level logs to. Use `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_*` arguments instead. Conflicts with `task_invocation_parameters`. Documented below.
-        /// </summary>
-        [Input("loggingInfo")]
-        public Input<Inputs.MaintenanceWindowTaskLoggingInfoGetArgs>? LoggingInfo { get; set; }
 
         /// <summary>
         /// The maximum number of targets this task can be run for in parallel.
@@ -460,23 +423,10 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? TaskArn { get; set; }
 
         /// <summary>
-        /// The parameters for task execution. This argument is conflict with `task_parameters` and `logging_info`.
+        /// Configuration block with parameters for task execution.
         /// </summary>
         [Input("taskInvocationParameters")]
         public Input<Inputs.MaintenanceWindowTaskTaskInvocationParametersGetArgs>? TaskInvocationParameters { get; set; }
-
-        [Input("taskParameters")]
-        private InputList<Inputs.MaintenanceWindowTaskTaskParameterGetArgs>? _taskParameters;
-
-        /// <summary>
-        /// A structure containing information about parameters required by the particular `task_arn`. Use `parameter` configuration blocks under the `task_invocation_parameters` configuration block instead. Conflicts with `task_invocation_parameters`. Documented below.
-        /// </summary>
-        [Obsolete(@"use 'task_invocation_parameters' argument instead")]
-        public InputList<Inputs.MaintenanceWindowTaskTaskParameterGetArgs> TaskParameters
-        {
-            get => _taskParameters ?? (_taskParameters = new InputList<Inputs.MaintenanceWindowTaskTaskParameterGetArgs>());
-            set => _taskParameters = value;
-        }
 
         /// <summary>
         /// The type of task being registered. The only allowed value is `RUN_COMMAND`.

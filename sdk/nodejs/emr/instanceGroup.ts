@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const task = new aws.emr.InstanceGroup("task", {
- *     clusterId: aws_emr_cluster_tf_test_cluster.id,
+ *     clusterId: aws_emr_cluster["tf-test-cluster"].id,
  *     instanceCount: 1,
  *     instanceType: "m5.xlarge",
  * });

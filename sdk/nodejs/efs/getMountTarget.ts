@@ -17,10 +17,9 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const mountTargetId = config.get("mountTargetId") || "";
- *
- * const byId = pulumi.output(aws.efs.getMountTarget({
+ * const byId = aws.efs.getMountTarget({
  *     mountTargetId: mountTargetId,
- * }, { async: true }));
+ * });
  * ```
  */
 export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> {

@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.gamelift.GameSessionQueue("test", {
  *     destinations: [
- *         aws_gamelift_fleet_us_west_2_fleet.arn,
- *         aws_gamelift_fleet_eu_central_1_fleet.arn,
+ *         aws_gamelift_fleet.us_west_2_fleet.arn,
+ *         aws_gamelift_fleet.eu_central_1_fleet.arn,
  *     ],
  *     playerLatencyPolicies: [
  *         {

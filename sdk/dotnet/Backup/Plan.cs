@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Backup
     ///                 new Aws.Backup.Inputs.PlanRuleArgs
     ///                 {
     ///                     RuleName = "tf_example_backup_rule",
-    ///                     Schedule = "cron(0 12 * * ? *)",
     ///                     TargetVaultName = aws_backup_vault.Test.Name,
+    ///                     Schedule = "cron(0 12 * * ? *)",
     ///                 },
     ///             },
     ///         });

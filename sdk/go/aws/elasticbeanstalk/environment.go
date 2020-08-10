@@ -77,20 +77,20 @@ import (
 // 			return err
 // 		}
 // 		_, err = elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
-// 			Application: tftest.Name,
+// 			Application:       tftest.Name,
+// 			SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
 // 			Settings: elasticbeanstalk.EnvironmentSettingArray{
 // 				&elasticbeanstalk.EnvironmentSettingArgs{
-// 					Name:      pulumi.String("VPCId"),
 // 					Namespace: pulumi.String("aws:ec2:vpc"),
+// 					Name:      pulumi.String("VPCId"),
 // 					Value:     pulumi.String("vpc-xxxxxxxx"),
 // 				},
 // 				&elasticbeanstalk.EnvironmentSettingArgs{
-// 					Name:      pulumi.String("Subnets"),
 // 					Namespace: pulumi.String("aws:ec2:vpc"),
+// 					Name:      pulumi.String("Subnets"),
 // 					Value:     pulumi.String("subnet-xxxxxxxx"),
 // 				},
 // 			},
-// 			SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
 // 		})
 // 		if err != nil {
 // 			return err

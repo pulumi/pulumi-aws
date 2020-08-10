@@ -205,8 +205,8 @@ def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,
     bootstrap_script = aws.s3.get_bucket_object(bucket="ourcorp-deploy-config",
         key="ec2-bootstrap-script.sh")
     example = aws.ec2.Instance("example",
-        ami="ami-2757f631",
         instance_type="t2.micro",
+        ami="ami-2757f631",
         user_data=bootstrap_script.body)
     ```
 
@@ -223,11 +223,11 @@ def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,
     lambda_ = aws.s3.get_bucket_object(bucket="ourcorp-lambda-functions",
         key="hello-world.zip")
     test_lambda = aws.lambda_.Function("testLambda",
-        handler="exports.test",
-        role=aws_iam_role["iam_for_lambda"]["arn"],
         s3_bucket=lambda_.bucket,
         s3_key=lambda_.key,
-        s3_object_version=lambda_.version_id)
+        s3_object_version=lambda_.version_id,
+        role=aws_iam_role["iam_for_lambda"]["arn"],
+        handler="exports.test")
     ```
 
 

@@ -34,21 +34,21 @@ import (
 // 			AvailabilityZones: pulumi.StringArray{
 // 				pulumi.String("us-east-1a"),
 // 			},
-// 			ForceDelete:            pulumi.Bool(true),
-// 			HealthCheckGracePeriod: pulumi.Int(300),
-// 			HealthCheckType:        pulumi.String("ELB"),
-// 			LaunchConfiguration:    pulumi.String(aws_launch_configuration.Foo.Name),
 // 			MaxSize:                pulumi.Int(5),
 // 			MinSize:                pulumi.Int(2),
+// 			HealthCheckGracePeriod: pulumi.Int(300),
+// 			HealthCheckType:        pulumi.String("ELB"),
+// 			ForceDelete:            pulumi.Bool(true),
+// 			LaunchConfiguration:    pulumi.String(aws_launch_configuration.Foo.Name),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = autoscaling.NewPolicy(ctx, "bat", &autoscaling.PolicyArgs{
-// 			AdjustmentType:       pulumi.String("ChangeInCapacity"),
-// 			AutoscalingGroupName: bar.Name,
-// 			Cooldown:             pulumi.Int(300),
 // 			ScalingAdjustment:    pulumi.Int(4),
+// 			AdjustmentType:       pulumi.String("ChangeInCapacity"),
+// 			Cooldown:             pulumi.Int(300),
+// 			AutoscalingGroupName: bar.Name,
 // 		})
 // 		if err != nil {
 // 			return err

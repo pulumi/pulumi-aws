@@ -24,6 +24,13 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     public MyStack()
     ///     {
+    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new Aws.Cfg.DeliveryChannelArgs
+    ///         {
+    ///             S3BucketName = bucket.BucketName,
+    ///         });
     ///         var fooRecorderStatus = new Aws.Cfg.RecorderStatus("fooRecorderStatus", new Aws.Cfg.RecorderStatusArgs
     ///         {
     ///             IsEnabled = true,
@@ -31,7 +38,7 @@ namespace Pulumi.Aws.Cfg
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_config_delivery_channel.foo",
+    ///                 fooDeliveryChannel,
     ///             },
     ///         });
     ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
@@ -49,20 +56,12 @@ namespace Pulumi.Aws.Cfg
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var rolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("rolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
     ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
     ///             Role = role.Name,
-    ///         });
-    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
-    ///         {
-    ///         });
-    ///         var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new Aws.Cfg.DeliveryChannelArgs
-    ///         {
-    ///             S3BucketName = bucket.BucketName,
+    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
     ///         });
     ///         var fooRecorder = new Aws.Cfg.Recorder("fooRecorder", new Aws.Cfg.RecorderArgs
     ///         {
@@ -70,6 +69,7 @@ namespace Pulumi.Aws.Cfg
     ///         });
     ///         var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
+    ///             Role = role.Id,
     ///             Policy = Output.Tuple(bucket.Arn, bucket.Arn).Apply(values =&gt;
     ///             {
     ///                 var bucketArn = values.Item1;
@@ -89,10 +89,8 @@ namespace Pulumi.Aws.Cfg
     ///     }}
     ///   ]
     /// }}
-    /// 
     /// ";
     ///             }),
-    ///             Role = role.Id,
     ///         });
     ///     }
     /// 

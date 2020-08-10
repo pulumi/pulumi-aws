@@ -16,19 +16,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testBucket = new aws.s3.Bucket("test", {});
+ * const testBucket = new aws.s3.Bucket("testBucket", {});
  * const inventory = new aws.s3.Bucket("inventory", {});
- * const testInventory = new aws.s3.Inventory("test", {
+ * const testInventory = new aws.s3.Inventory("testInventory", {
  *     bucket: testBucket.id,
- *     destination: {
- *         bucket: {
- *             bucketArn: inventory.arn,
- *             format: "ORC",
- *         },
- *     },
  *     includedObjectVersions: "All",
  *     schedule: {
  *         frequency: "Daily",
+ *     },
+ *     destination: {
+ *         bucket: {
+ *             format: "ORC",
+ *             bucketArn: inventory.arn,
+ *         },
  *     },
  * });
  * ```
@@ -42,19 +42,19 @@ import * as utilities from "../utilities";
  * const inventory = new aws.s3.Bucket("inventory", {});
  * const test_prefix = new aws.s3.Inventory("test-prefix", {
  *     bucket: test.id,
- *     destination: {
- *         bucket: {
- *             bucketArn: inventory.arn,
- *             format: "ORC",
- *             prefix: "inventory",
- *         },
+ *     includedObjectVersions: "All",
+ *     schedule: {
+ *         frequency: "Daily",
  *     },
  *     filter: {
  *         prefix: "documents/",
  *     },
- *     includedObjectVersions: "All",
- *     schedule: {
- *         frequency: "Daily",
+ *     destination: {
+ *         bucket: {
+ *             format: "ORC",
+ *             bucketArn: inventory.arn,
+ *             prefix: "inventory",
+ *         },
  *     },
  * });
  * ```

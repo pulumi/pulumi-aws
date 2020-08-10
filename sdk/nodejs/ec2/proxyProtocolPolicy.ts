@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const smtp = new aws.ec2.ProxyProtocolPolicy("smtp", {
+ *     loadBalancer: lb.name,
  *     instancePorts: [
  *         "25",
  *         "587",
  *     ],
- *     loadBalancer: lb.name,
  * });
  * ```
  */

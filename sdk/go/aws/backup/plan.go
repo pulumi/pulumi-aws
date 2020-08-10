@@ -28,8 +28,8 @@ import (
 // 			Rules: backup.PlanRuleArray{
 // 				&backup.PlanRuleArgs{
 // 					RuleName:        pulumi.String("tf_example_backup_rule"),
-// 					Schedule:        pulumi.String("cron(0 12 * * ? *)"),
 // 					TargetVaultName: pulumi.String(aws_backup_vault.Test.Name),
+// 					Schedule:        pulumi.String("cron(0 12 * * ? *)"),
 // 				},
 // 			},
 // 		})

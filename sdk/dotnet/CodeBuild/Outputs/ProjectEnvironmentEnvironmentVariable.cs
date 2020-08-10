@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`.
+        /// The type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, and `SECRETS_MANAGER`.
         /// </summary>
         public readonly string? Type;
         /// <summary>

@@ -66,18 +66,17 @@ class EventRule(pulumi.CustomResource):
             "AWS Console Sign In via CloudTrail"
           ]
         }
-
         \"\"\")
         aws_logins = aws.sns.Topic("awsLogins")
         sns = aws.cloudwatch.EventTarget("sns",
-            arn=aws_logins.arn,
-            rule=console.name)
+            rule=console.name,
+            arn=aws_logins.arn)
         sns_topic_policy = aws_logins.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-            "actions": ["SNS:Publish"],
             "effect": "Allow",
+            "actions": ["SNS:Publish"],
             "principals": [{
-                "identifiers": ["events.amazonaws.com"],
                 "type": "Service",
+                "identifiers": ["events.amazonaws.com"],
             }],
             "resources": [arn],
         }]))

@@ -33,8 +33,8 @@ namespace Pulumi.Aws.Ec2
     ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
     ///         var allowMeToFoo = new Aws.Ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo", new Aws.Ec2.VpcEndpointServiceAllowedPrincipleArgs
     ///         {
-    ///             PrincipalArn = current.Apply(current =&gt; current.Arn),
     ///             VpcEndpointServiceId = aws_vpc_endpoint_service.Foo.Id,
+    ///             PrincipalArn = current.Apply(current =&gt; current.Arn),
     ///         });
     ///     }
     /// 

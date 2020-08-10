@@ -39,6 +39,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         foo = aws.ecr.Repository("foo")
         foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
+            repository=foo.name,
             policy=\"\"\"{
             "rules": [
                 {
@@ -56,9 +57,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                 }
             ]
         }
-
-        \"\"\",
-            repository=foo.name)
+        \"\"\")
         ```
         ### Policy on tagged image
 
@@ -68,6 +67,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         foo = aws.ecr.Repository("foo")
         foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
+            repository=foo.name,
             policy=\"\"\"{
             "rules": [
                 {
@@ -85,9 +85,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                 }
             ]
         }
-
-        \"\"\",
-            repository=foo.name)
+        \"\"\")
         ```
 
         :param str resource_name: The name of the resource.

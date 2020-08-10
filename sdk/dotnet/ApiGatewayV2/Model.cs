@@ -35,7 +35,6 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///     ""id"": { ""type"": ""string"" }
     ///   }
     /// }
-    /// 
     /// ",
     ///         });
     ///     }

@@ -126,7 +126,8 @@ class LaunchConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ubuntu = aws.get_ami(filters=[
+        ubuntu = aws.get_ami(most_recent=True,
+            filters=[
                 {
                     "name": "name",
                     "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
@@ -136,7 +137,6 @@ class LaunchConfiguration(pulumi.CustomResource):
                     "values": ["hvm"],
                 },
             ],
-            most_recent=True,
             owners=["099720109477"])
         as_conf = aws.ec2.LaunchConfiguration("asConf",
             image_id=ubuntu.id,
@@ -156,7 +156,8 @@ class LaunchConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ubuntu = aws.get_ami(filters=[
+        ubuntu = aws.get_ami(most_recent=True,
+            filters=[
                 {
                     "name": "name",
                     "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
@@ -166,16 +167,15 @@ class LaunchConfiguration(pulumi.CustomResource):
                     "values": ["hvm"],
                 },
             ],
-            most_recent=True,
             owners=["099720109477"])
         as_conf = aws.ec2.LaunchConfiguration("asConf",
+            name_prefix="lc-example-",
             image_id=ubuntu.id,
-            instance_type="t2.micro",
-            name_prefix="lc-example-")
+            instance_type="t2.micro")
         bar = aws.autoscaling.Group("bar",
             launch_configuration=as_conf.name,
-            max_size=2,
-            min_size=1)
+            min_size=1,
+            max_size=2)
         ```
 
         With this setup this provider generates a unique name for your Launch
@@ -195,7 +195,8 @@ class LaunchConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ubuntu = aws.get_ami(filters=[
+        ubuntu = aws.get_ami(most_recent=True,
+            filters=[
                 {
                     "name": "name",
                     "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
@@ -205,7 +206,6 @@ class LaunchConfiguration(pulumi.CustomResource):
                     "values": ["hvm"],
                 },
             ],
-            most_recent=True,
             owners=["099720109477"])
         as_conf = aws.ec2.LaunchConfiguration("asConf",
             image_id=ubuntu.id,

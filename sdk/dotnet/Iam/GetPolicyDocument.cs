@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Iam
         ///             {
         ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///                 {
+        ///                     Sid = "1",
         ///                     Actions = 
         ///                     {
         ///                         "s3:ListAllMyBuckets",
@@ -41,7 +42,6 @@ namespace Pulumi.Aws.Iam
         ///                     {
         ///                         "arn:aws:s3:::*",
         ///                     },
-        ///                     Sid = "1",
         ///                 },
         ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///                 {
@@ -49,23 +49,23 @@ namespace Pulumi.Aws.Iam
         ///                     {
         ///                         "s3:ListBucket",
         ///                     },
+        ///                     Resources = 
+        ///                     {
+        ///                         $"arn:aws:s3:::{@var.S3_bucket_name}",
+        ///                     },
         ///                     Conditions = 
         ///                     {
         ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
         ///                         {
         ///                             Test = "StringLike",
+        ///                             Variable = "s3:prefix",
         ///                             Values = 
         ///                             {
         ///                                 "",
         ///                                 "home/",
         ///                                 "home/&amp;{aws:username}/",
         ///                             },
-        ///                             Variable = "s3:prefix",
         ///                         },
-        ///                     },
-        ///                     Resources = 
-        ///                     {
-        ///                         $"arn:aws:s3:::{@var.S3_bucket_name}",
         ///                     },
         ///                 },
         ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
@@ -140,28 +140,28 @@ namespace Pulumi.Aws.Iam
         ///                     {
         ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
         ///                         {
+        ///                             Type = "Service",
         ///                             Identifiers = 
         ///                             {
         ///                                 "firehose.amazonaws.com",
         ///                             },
-        ///                             Type = "Service",
         ///                         },
         ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
         ///                         {
+        ///                             Type = "AWS",
         ///                             Identifiers = 
         ///                             {
         ///                                 @var.Trusted_role_arn,
         ///                             },
-        ///                             Type = "AWS",
         ///                         },
         ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
         ///                         {
+        ///                             Type = "Federated",
         ///                             Identifiers = 
         ///                             {
         ///                                 $"arn:aws:iam::{@var.Account_id}:saml-provider/{@var.Provider_name}",
         ///                                 "cognito-identity.amazonaws.com",
         ///                             },
-        ///                             Type = "Federated",
         ///                         },
         ///                     },
         ///                 },
@@ -201,6 +201,7 @@ namespace Pulumi.Aws.Iam
         ///                 },
         ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///                 {
+        ///                     Sid = "SidToOverwrite",
         ///                     Actions = 
         ///                     {
         ///                         "s3:*",
@@ -209,7 +210,6 @@ namespace Pulumi.Aws.Iam
         ///                     {
         ///                         "*",
         ///                     },
-        ///                     Sid = "SidToOverwrite",
         ///                 },
         ///             },
         ///         }));
@@ -220,6 +220,7 @@ namespace Pulumi.Aws.Iam
         ///             {
         ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///                 {
+        ///                     Sid = "SidToOverwrite",
         ///                     Actions = 
         ///                     {
         ///                         "s3:*",
@@ -229,7 +230,6 @@ namespace Pulumi.Aws.Iam
         ///                         "arn:aws:s3:::somebucket",
         ///                         "arn:aws:s3:::somebucket/*",
         ///                     },
-        ///                     Sid = "SidToOverwrite",
         ///                 },
         ///             },
         ///         })));
@@ -239,6 +239,7 @@ namespace Pulumi.Aws.Iam
         ///             {
         ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///                 {
+        ///                     Sid = "SidToOverwrite",
         ///                     Actions = 
         ///                     {
         ///                         "s3:*",
@@ -247,7 +248,6 @@ namespace Pulumi.Aws.Iam
         ///                     {
         ///                         "*",
         ///                     },
-        ///                     Sid = "SidToOverwrite",
         ///                 },
         ///             },
         ///         }));
@@ -269,6 +269,7 @@ namespace Pulumi.Aws.Iam
         ///                 },
         ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///                 {
+        ///                     Sid = "SidToOverwrite",
         ///                     Actions = 
         ///                     {
         ///                         "s3:*",
@@ -278,7 +279,6 @@ namespace Pulumi.Aws.Iam
         ///                         "arn:aws:s3:::somebucket",
         ///                         "arn:aws:s3:::somebucket/*",
         ///                     },
-        ///                     Sid = "SidToOverwrite",
         ///                 },
         ///             },
         ///         })));
@@ -335,6 +335,7 @@ namespace Pulumi.Aws.Iam
         ///             {
         ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///                 {
+        ///                     Sid = "OverridePlaceholder",
         ///                     Actions = 
         ///                     {
         ///                         "ec2:DescribeAccountAttributes",
@@ -343,7 +344,6 @@ namespace Pulumi.Aws.Iam
         ///                     {
         ///                         "*",
         ///                     },
-        ///                     Sid = "OverridePlaceholder",
         ///                 },
         ///             },
         ///         }));
@@ -353,6 +353,7 @@ namespace Pulumi.Aws.Iam
         ///             {
         ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
         ///                 {
+        ///                     Sid = "OverridePlaceholder",
         ///                     Actions = 
         ///                     {
         ///                         "s3:GetObject",
@@ -361,18 +362,17 @@ namespace Pulumi.Aws.Iam
         ///                     {
         ///                         "*",
         ///                     },
-        ///                     Sid = "OverridePlaceholder",
         ///                 },
         ///             },
         ///         }));
-        ///         var politik = Output.Tuple(@override, source).Apply(values =&gt;
+        ///         var politik = Output.Tuple(source, @override).Apply(values =&gt;
         ///         {
-        ///             var @override = values.Item1;
-        ///             var source = values.Item2;
+        ///             var source = values.Item1;
+        ///             var @override = values.Item2;
         ///             return Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
         ///             {
-        ///                 OverrideJson = @override.Json,
         ///                 SourceJson = source.Json,
+        ///                 OverrideJson = @override.Json,
         ///             }));
         ///         });
         ///     }

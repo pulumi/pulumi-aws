@@ -33,7 +33,7 @@ namespace Pulumi.Aws.SecurityHub
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_securityhub_account.example",
+    ///                 exampleAccount,
     ///             },
     ///         });
     ///     }

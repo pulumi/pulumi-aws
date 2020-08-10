@@ -30,8 +30,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = athena.NewDatabase(ctx, "hogeDatabase", &athena.DatabaseArgs{
-// 			Bucket: hogeBucket.Bucket,
 // 			Name:   pulumi.String("database_name"),
+// 			Bucket: hogeBucket.Bucket,
 // 		})
 // 		if err != nil {
 // 			return err

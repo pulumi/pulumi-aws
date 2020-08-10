@@ -35,7 +35,7 @@ namespace Pulumi.Aws.GameLift
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_iam_role_policy.test",
+    ///                 aws_iam_role_policy.Test,
     ///             },
     ///         });
     ///     }

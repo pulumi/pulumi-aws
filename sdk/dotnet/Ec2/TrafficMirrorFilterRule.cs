@@ -36,33 +36,33 @@ namespace Pulumi.Aws.Ec2
     ///         var ruleout = new Aws.Ec2.TrafficMirrorFilterRule("ruleout", new Aws.Ec2.TrafficMirrorFilterRuleArgs
     ///         {
     ///             Description = "test rule",
-    ///             DestinationCidrBlock = "10.0.0.0/8",
-    ///             RuleAction = "accept",
-    ///             RuleNumber = 1,
-    ///             SourceCidrBlock = "10.0.0.0/8",
-    ///             TrafficDirection = "egress",
     ///             TrafficMirrorFilterId = filter.Id,
+    ///             DestinationCidrBlock = "10.0.0.0/8",
+    ///             SourceCidrBlock = "10.0.0.0/8",
+    ///             RuleNumber = 1,
+    ///             RuleAction = "accept",
+    ///             TrafficDirection = "egress",
     ///         });
     ///         var rulein = new Aws.Ec2.TrafficMirrorFilterRule("rulein", new Aws.Ec2.TrafficMirrorFilterRuleArgs
     ///         {
     ///             Description = "test rule",
+    ///             TrafficMirrorFilterId = filter.Id,
     ///             DestinationCidrBlock = "10.0.0.0/8",
+    ///             SourceCidrBlock = "10.0.0.0/8",
+    ///             RuleNumber = 1,
+    ///             RuleAction = "accept",
+    ///             TrafficDirection = "ingress",
+    ///             Protocol = 6,
     ///             DestinationPortRange = new Aws.Ec2.Inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs
     ///             {
     ///                 FromPort = 22,
     ///                 ToPort = 53,
     ///             },
-    ///             Protocol = 6,
-    ///             RuleAction = "accept",
-    ///             RuleNumber = 1,
-    ///             SourceCidrBlock = "10.0.0.0/8",
     ///             SourcePortRange = new Aws.Ec2.Inputs.TrafficMirrorFilterRuleSourcePortRangeArgs
     ///             {
     ///                 FromPort = 0,
     ///                 ToPort = 10,
     ///             },
-    ///             TrafficDirection = "ingress",
-    ///             TrafficMirrorFilterId = filter.Id,
     ///         });
     ///     }
     /// 

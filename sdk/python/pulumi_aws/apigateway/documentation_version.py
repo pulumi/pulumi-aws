@@ -33,17 +33,17 @@ class DocumentationVersion(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_documentation_version = aws.apigateway.DocumentationVersion("exampleDocumentationVersion",
-            description="Example description",
-            rest_api_id=example_rest_api.id,
-            version="example_version",
-            opts=ResourceOptions(depends_on=["aws_api_gateway_documentation_part.example"]))
         example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
             location={
                 "type": "API",
             },
             properties="{\"description\":\"Example\"}",
             rest_api_id=example_rest_api.id)
+        example_documentation_version = aws.apigateway.DocumentationVersion("exampleDocumentationVersion",
+            version="example_version",
+            rest_api_id=example_rest_api.id,
+            description="Example description",
+            opts=ResourceOptions(depends_on=[example_documentation_part]))
         ```
 
         :param str resource_name: The name of the resource.

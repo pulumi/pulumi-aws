@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ec2.VpcEndpointService("example", {
  *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [aws_lb_example.arn],
+ *     networkLoadBalancerArns: [aws_lb.example.arn],
  * });
  * ```
  * ### Basic w/ Tags
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ec2.VpcEndpointService("example", {
  *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [aws_lb_example.arn],
+ *     networkLoadBalancerArns: [aws_lb.example.arn],
  *     tags: {
  *         Environment: "test",
  *     },

@@ -16,7 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.all([aws_glue_catalog_database_source.name, aws_glue_catalog_table_source.name, aws_glue_catalog_database_destination.name, aws_glue_catalog_table_destination.name, aws_glue_catalog_database_destination.name, aws_glue_catalog_table_destination.name]).apply(([aws_glue_catalog_database_sourceName, aws_glue_catalog_table_sourceName, aws_glue_catalog_database_destinationName, aws_glue_catalog_table_destinationName, aws_glue_catalog_database_destinationName1, aws_glue_catalog_table_destinationName1]) => aws.glue.getScript({
+ * const example = aws.glue.getScript({
+ *     language: "PYTHON",
  *     dagEdges: [
  *         {
  *             source: "datasource0",
@@ -37,36 +38,38 @@ import * as utilities from "../utilities";
  *     ],
  *     dagNodes: [
  *         {
+ *             id: "datasource0",
+ *             nodeType: "DataSource",
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database_sourceName}"`,
+ *                     value: `"${aws_glue_catalog_database.source.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table_sourceName}"`,
+ *                     value: `"${aws_glue_catalog_table.source.name}"`,
  *                 },
  *             ],
- *             id: "datasource0",
- *             nodeType: "DataSource",
  *         },
  *         {
+ *             id: "applymapping1",
+ *             nodeType: "ApplyMapping",
  *             args: [{
  *                 name: "mapping",
  *                 value: "[(\"column1\", \"string\", \"column1\", \"string\")]",
  *             }],
- *             id: "applymapping1",
- *             nodeType: "ApplyMapping",
  *         },
  *         {
+ *             id: "selectfields2",
+ *             nodeType: "SelectFields",
  *             args: [{
  *                 name: "paths",
  *                 value: "[\"column1\"]",
  *             }],
- *             id: "selectfields2",
- *             nodeType: "SelectFields",
  *         },
  *         {
+ *             id: "resolvechoice3",
+ *             nodeType: "ResolveChoice",
  *             args: [
  *                 {
  *                     name: "choice",
@@ -74,35 +77,31 @@ import * as utilities from "../utilities";
  *                 },
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database_destinationName}"`,
+ *                     value: `"${aws_glue_catalog_database.destination.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table_destinationName}"`,
+ *                     value: `"${aws_glue_catalog_table.destination.name}"`,
  *                 },
  *             ],
- *             id: "resolvechoice3",
- *             nodeType: "ResolveChoice",
  *         },
  *         {
+ *             id: "datasink4",
+ *             nodeType: "DataSink",
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database_destinationName1}"`,
+ *                     value: `"${aws_glue_catalog_database.destination.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table_destinationName1}"`,
+ *                     value: `"${aws_glue_catalog_table.destination.name}"`,
  *                 },
  *             ],
- *             id: "datasink4",
- *             nodeType: "DataSink",
  *         },
  *     ],
- *     language: "PYTHON",
- * }, { async: true }));
- *
- * export const pythonScript = example.pythonScript;
+ * });
+ * export const pythonScript = example.then(example => example.pythonScript);
  * ```
  * ### Generate Scala Code
  *
@@ -110,7 +109,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = pulumi.all([aws_glue_catalog_database_source.name, aws_glue_catalog_table_source.name, aws_glue_catalog_database_destination.name, aws_glue_catalog_table_destination.name, aws_glue_catalog_database_destination.name, aws_glue_catalog_table_destination.name]).apply(([aws_glue_catalog_database_sourceName, aws_glue_catalog_table_sourceName, aws_glue_catalog_database_destinationName, aws_glue_catalog_table_destinationName, aws_glue_catalog_database_destinationName1, aws_glue_catalog_table_destinationName1]) => aws.glue.getScript({
+ * const example = aws.glue.getScript({
+ *     language: "SCALA",
  *     dagEdges: [
  *         {
  *             source: "datasource0",
@@ -131,36 +131,38 @@ import * as utilities from "../utilities";
  *     ],
  *     dagNodes: [
  *         {
+ *             id: "datasource0",
+ *             nodeType: "DataSource",
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database_sourceName}"`,
+ *                     value: `"${aws_glue_catalog_database.source.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table_sourceName}"`,
+ *                     value: `"${aws_glue_catalog_table.source.name}"`,
  *                 },
  *             ],
- *             id: "datasource0",
- *             nodeType: "DataSource",
  *         },
  *         {
+ *             id: "applymapping1",
+ *             nodeType: "ApplyMapping",
  *             args: [{
  *                 name: "mappings",
  *                 value: "[(\"column1\", \"string\", \"column1\", \"string\")]",
  *             }],
- *             id: "applymapping1",
- *             nodeType: "ApplyMapping",
  *         },
  *         {
+ *             id: "selectfields2",
+ *             nodeType: "SelectFields",
  *             args: [{
  *                 name: "paths",
  *                 value: "[\"column1\"]",
  *             }],
- *             id: "selectfields2",
- *             nodeType: "SelectFields",
  *         },
  *         {
+ *             id: "resolvechoice3",
+ *             nodeType: "ResolveChoice",
  *             args: [
  *                 {
  *                     name: "choice",
@@ -168,35 +170,31 @@ import * as utilities from "../utilities";
  *                 },
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database_destinationName}"`,
+ *                     value: `"${aws_glue_catalog_database.destination.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table_destinationName}"`,
+ *                     value: `"${aws_glue_catalog_table.destination.name}"`,
  *                 },
  *             ],
- *             id: "resolvechoice3",
- *             nodeType: "ResolveChoice",
  *         },
  *         {
+ *             id: "datasink4",
+ *             nodeType: "DataSink",
  *             args: [
  *                 {
  *                     name: "database",
- *                     value: `"${aws_glue_catalog_database_destinationName1}"`,
+ *                     value: `"${aws_glue_catalog_database.destination.name}"`,
  *                 },
  *                 {
  *                     name: "table_name",
- *                     value: `"${aws_glue_catalog_table_destinationName1}"`,
+ *                     value: `"${aws_glue_catalog_table.destination.name}"`,
  *                 },
  *             ],
- *             id: "datasink4",
- *             nodeType: "DataSink",
  *         },
  *     ],
- *     language: "SCALA",
- * }, { async: true }));
- *
- * export const scalaCode = example.scalaCode;
+ * });
+ * export const scalaCode = example.then(example => example.scalaCode);
  * ```
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {

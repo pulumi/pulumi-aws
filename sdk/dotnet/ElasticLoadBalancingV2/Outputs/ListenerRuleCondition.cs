@@ -14,10 +14,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
     public sealed class ListenerRuleCondition
     {
         /// <summary>
-        /// The type of condition. Valid values are `host-header` or `path-pattern`. Must also set `values`.
-        /// </summary>
-        public readonly string? Field;
-        /// <summary>
         /// Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
         /// </summary>
         public readonly Outputs.ListenerRuleConditionHostHeader? HostHeader;
@@ -41,15 +37,9 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
         /// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
         /// </summary>
         public readonly Outputs.ListenerRuleConditionSourceIp? SourceIp;
-        /// <summary>
-        /// List of exactly one pattern to match. Required when `field` is set.
-        /// </summary>
-        public readonly string? Values;
 
         [OutputConstructor]
         private ListenerRuleCondition(
-            string? field,
-
             Outputs.ListenerRuleConditionHostHeader? hostHeader,
 
             Outputs.ListenerRuleConditionHttpHeader? httpHeader,
@@ -60,18 +50,14 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
 
             ImmutableArray<Outputs.ListenerRuleConditionQueryString> queryStrings,
 
-            Outputs.ListenerRuleConditionSourceIp? sourceIp,
-
-            string? values)
+            Outputs.ListenerRuleConditionSourceIp? sourceIp)
         {
-            Field = field;
             HostHeader = hostHeader;
             HttpHeader = httpHeader;
             HttpRequestMethod = httpRequestMethod;
             PathPattern = pathPattern;
             QueryStrings = queryStrings;
             SourceIp = sourceIp;
-            Values = values;
         }
     }
 }

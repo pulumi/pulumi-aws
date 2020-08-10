@@ -58,25 +58,25 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewDefaultSecurityGroup(ctx, "_default", &ec2.DefaultSecurityGroupArgs{
+// 			VpcId: mainvpc.ID(),
+// 			Ingress: ec2.DefaultSecurityGroupIngressArray{
+// 				&ec2.DefaultSecurityGroupIngressArgs{
+// 					Protocol: pulumi.String("-1"),
+// 					Self:     pulumi.Bool(true),
+// 					FromPort: pulumi.Int(0),
+// 					ToPort:   pulumi.Int(0),
+// 				},
+// 			},
 // 			Egress: ec2.DefaultSecurityGroupEgressArray{
 // 				&ec2.DefaultSecurityGroupEgressArgs{
+// 					FromPort: pulumi.Int(0),
+// 					ToPort:   pulumi.Int(0),
+// 					Protocol: pulumi.String("-1"),
 // 					CidrBlocks: pulumi.StringArray{
 // 						pulumi.String("0.0.0.0/0"),
 // 					},
-// 					FromPort: pulumi.Int(0),
-// 					Protocol: pulumi.String("-1"),
-// 					ToPort:   pulumi.Int(0),
 // 				},
 // 			},
-// 			Ingress: ec2.DefaultSecurityGroupIngressArray{
-// 				&ec2.DefaultSecurityGroupIngressArgs{
-// 					FromPort: pulumi.Int(0),
-// 					Protocol: pulumi.String("-1"),
-// 					Self:     pulumi.Bool(true),
-// 					ToPort:   pulumi.Int(0),
-// 				},
-// 			},
-// 			VpcId: mainvpc.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -108,15 +108,15 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewDefaultSecurityGroup(ctx, "_default", &ec2.DefaultSecurityGroupArgs{
+// 			VpcId: mainvpc.ID(),
 // 			Ingress: ec2.DefaultSecurityGroupIngressArray{
 // 				&ec2.DefaultSecurityGroupIngressArgs{
-// 					FromPort: pulumi.Int(0),
 // 					Protocol: pulumi.String("-1"),
 // 					Self:     pulumi.Bool(true),
+// 					FromPort: pulumi.Int(0),
 // 					ToPort:   pulumi.Int(0),
 // 				},
 // 			},
-// 			VpcId: mainvpc.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

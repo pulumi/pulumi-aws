@@ -31,6 +31,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = waf.NewRuleGroup(ctx, "exampleRuleGroup", &waf.RuleGroupArgs{
+// 			MetricName: pulumi.String("example"),
 // 			ActivatedRules: waf.RuleGroupActivatedRuleArray{
 // 				&waf.RuleGroupActivatedRuleArgs{
 // 					Action: &waf.RuleGroupActivatedRuleActionArgs{
@@ -40,7 +41,6 @@ import (
 // 					RuleId:   exampleRule.ID(),
 // 				},
 // 			},
-// 			MetricName: pulumi.String("example"),
 // 		})
 // 		if err != nil {
 // 			return err

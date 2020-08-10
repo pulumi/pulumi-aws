@@ -49,14 +49,14 @@ class RuleGroup(pulumi.CustomResource):
 
         example_rule = aws.wafregional.Rule("exampleRule", metric_name="example")
         example_rule_group = aws.wafregional.RuleGroup("exampleRuleGroup",
+            metric_name="example",
             activated_rules=[{
                 "action": {
                     "type": "COUNT",
                 },
                 "priority": 50,
                 "rule_id": example_rule.id,
-            }],
-            metric_name="example")
+            }])
         ```
 
         :param str resource_name: The name of the resource.

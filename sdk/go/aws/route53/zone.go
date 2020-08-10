@@ -61,24 +61,11 @@ import (
 // 			return err
 // 		}
 // 		_, err = route53.NewRecord(ctx, "dev_ns", &route53.RecordArgs{
-// 			Name: pulumi.String("dev.example.com"),
-// 			Records: pulumi.StringArray{
-// 				dev.NameServers.ApplyT(func(nameServers []string) (string, error) {
-// 					return nameServers[0], nil
-// 				}).(pulumi.StringOutput),
-// 				dev.NameServers.ApplyT(func(nameServers []string) (string, error) {
-// 					return nameServers[1], nil
-// 				}).(pulumi.StringOutput),
-// 				dev.NameServers.ApplyT(func(nameServers []string) (string, error) {
-// 					return nameServers[2], nil
-// 				}).(pulumi.StringOutput),
-// 				dev.NameServers.ApplyT(func(nameServers []string) (string, error) {
-// 					return nameServers[3], nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 			Ttl:    pulumi.Int(30),
-// 			Type:   pulumi.String("NS"),
-// 			ZoneId: main.ZoneId,
+// 			ZoneId:  main.ZoneId,
+// 			Name:    pulumi.String("dev.example.com"),
+// 			Type:    pulumi.String("NS"),
+// 			Ttl:     pulumi.Int(30),
+// 			Records: dev.NameServers,
 // 		})
 // 		if err != nil {
 // 			return err

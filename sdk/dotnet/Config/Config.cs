@@ -97,10 +97,14 @@ namespace Pulumi.Aws
 
              public class AssumeRole
              {
+                public int? DurationSeconds { get; set; }
                 public string? ExternalId { get; set; } = null!;
                 public string? Policy { get; set; } = null!;
+                public ImmutableArray<string> PolicyArns { get; set; }
                 public string? RoleArn { get; set; } = null!;
                 public string? SessionName { get; set; } = null!;
+                public ImmutableDictionary<string, string>? Tags { get; set; } = null!;
+                public ImmutableArray<string> TransitiveTagKeys { get; set; }
             }
 
              public class Endpoints
@@ -179,7 +183,6 @@ namespace Pulumi.Aws
                 public string? Iotevents { get; set; } = null!;
                 public string? Kafka { get; set; } = null!;
                 public string? Kinesis { get; set; } = null!;
-                public string? KinesisAnalytics { get; set; } = null!;
                 public string? Kinesisanalytics { get; set; } = null!;
                 public string? Kinesisanalyticsv2 { get; set; } = null!;
                 public string? Kinesisvideo { get; set; } = null!;
@@ -209,7 +212,6 @@ namespace Pulumi.Aws
                 public string? Pricing { get; set; } = null!;
                 public string? Qldb { get; set; } = null!;
                 public string? Quicksight { get; set; } = null!;
-                public string? R53 { get; set; } = null!;
                 public string? Ram { get; set; } = null!;
                 public string? Rds { get; set; } = null!;
                 public string? Redshift { get; set; } = null!;

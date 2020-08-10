@@ -39,7 +39,6 @@ namespace Pulumi.Aws.Cfg
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var foo = new Aws.Cfg.Recorder("foo", new Aws.Cfg.RecorderArgs

@@ -26,8 +26,8 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
 // 			CidrBlock:          pulumi.String("10.0.0.0/16"),
-// 			EnableDnsHostnames: pulumi.Bool(true),
 // 			EnableDnsSupport:   pulumi.Bool(true),
+// 			EnableDnsHostnames: pulumi.Bool(true),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -41,13 +41,13 @@ import (
 // 		}
 // 		_, err = servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
 // 			DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
+// 				NamespaceId: examplePrivateDnsNamespace.ID(),
 // 				DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
 // 					&servicediscovery.ServiceDnsConfigDnsRecordArgs{
 // 						Ttl:  pulumi.Int(10),
 // 						Type: pulumi.String("A"),
 // 					},
 // 				},
-// 				NamespaceId:   examplePrivateDnsNamespace.ID(),
 // 				RoutingPolicy: pulumi.String("MULTIVALUE"),
 // 			},
 // 			HealthCheckCustomConfig: &servicediscovery.ServiceHealthCheckCustomConfigArgs{
@@ -80,13 +80,13 @@ import (
 // 		}
 // 		_, err = servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
 // 			DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
+// 				NamespaceId: examplePublicDnsNamespace.ID(),
 // 				DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
 // 					&servicediscovery.ServiceDnsConfigDnsRecordArgs{
 // 						Ttl:  pulumi.Int(10),
 // 						Type: pulumi.String("A"),
 // 					},
 // 				},
-// 				NamespaceId: examplePublicDnsNamespace.ID(),
 // 			},
 // 			HealthCheckConfig: &servicediscovery.ServiceHealthCheckConfigArgs{
 // 				FailureThreshold: pulumi.Int(10),

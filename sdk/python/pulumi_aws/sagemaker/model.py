@@ -77,8 +77,8 @@ class Model(pulumi.CustomResource):
         assume_role = aws.iam.get_policy_document(statements=[{
             "actions": ["sts:AssumeRole"],
             "principals": [{
-                "identifiers": ["sagemaker.amazonaws.com"],
                 "type": "Service",
+                "identifiers": ["sagemaker.amazonaws.com"],
             }],
         }])
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)

@@ -48,6 +48,8 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     ///         var wu_tang_ssl = new Aws.Elb.LoadBalancerPolicy("wu-tang-ssl", new Aws.Elb.LoadBalancerPolicyArgs
     ///         {
     ///             LoadBalancerName = wu_tang.Name,
+    ///             PolicyName = "wu-tang-ssl",
+    ///             PolicyTypeName = "SSLNegotiationPolicyType",
     ///             PolicyAttributes = 
     ///             {
     ///                 new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
@@ -61,8 +63,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     ///                     Value = "true",
     ///                 },
     ///             },
-    ///             PolicyName = "wu-tang-ssl",
-    ///             PolicyTypeName = "SSLNegotiationPolicyType",
     ///         });
     ///         var wu_tang_listener_policies_443 = new Aws.Elb.ListenerPolicy("wu-tang-listener-policies-443", new Aws.Elb.ListenerPolicyArgs
     ///         {
@@ -114,6 +114,8 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     ///         var wu_tang_ssl_tls_1_1 = new Aws.Elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", new Aws.Elb.LoadBalancerPolicyArgs
     ///         {
     ///             LoadBalancerName = wu_tang.Name,
+    ///             PolicyName = "wu-tang-ssl",
+    ///             PolicyTypeName = "SSLNegotiationPolicyType",
     ///             PolicyAttributes = 
     ///             {
     ///                 new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
@@ -122,8 +124,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     ///                     Value = "ELBSecurityPolicy-TLS-1-1-2017-01",
     ///                 },
     ///             },
-    ///             PolicyName = "wu-tang-ssl",
-    ///             PolicyTypeName = "SSLNegotiationPolicyType",
     ///         });
     ///         var wu_tang_listener_policies_443 = new Aws.Elb.ListenerPolicy("wu-tang-listener-policies-443", new Aws.Elb.ListenerPolicyArgs
     ///         {

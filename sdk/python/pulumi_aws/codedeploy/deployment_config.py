@@ -64,28 +64,28 @@ class DeploymentConfig(pulumi.CustomResource):
                 "value": 2,
             })
         foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            alarm_configuration={
-                "alarms": ["my-alarm-name"],
-                "enabled": True,
-            },
             app_name=aws_codedeploy_app["foo_app"]["name"],
-            auto_rollback_configuration={
-                "enabled": True,
-                "events": ["DEPLOYMENT_FAILURE"],
-            },
-            deployment_config_name=foo_deployment_config.id,
             deployment_group_name="bar",
+            service_role_arn=aws_iam_role["foo_role"]["arn"],
+            deployment_config_name=foo_deployment_config.id,
             ec2_tag_filters=[{
                 "key": "filterkey",
                 "type": "KEY_AND_VALUE",
                 "value": "filtervalue",
             }],
-            service_role_arn=aws_iam_role["foo_role"]["arn"],
             trigger_configurations=[{
                 "triggerEvents": ["DeploymentFailure"],
                 "triggerName": "foo-trigger",
                 "triggerTargetArn": "foo-topic-arn",
-            }])
+            }],
+            auto_rollback_configuration={
+                "enabled": True,
+                "events": ["DEPLOYMENT_FAILURE"],
+            },
+            alarm_configuration={
+                "alarms": ["my-alarm-name"],
+                "enabled": True,
+            })
         ```
         ### Lambda Usage
 
@@ -94,28 +94,28 @@ class DeploymentConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
-            compute_platform="Lambda",
             deployment_config_name="test-deployment-config",
+            compute_platform="Lambda",
             traffic_routing_config={
+                "type": "TimeBasedLinear",
                 "timeBasedLinear": {
                     "interval": 10,
                     "percentage": 10,
                 },
-                "type": "TimeBasedLinear",
             })
         foo_deployment_group = aws.codedeploy.DeploymentGroup("fooDeploymentGroup",
-            alarm_configuration={
-                "alarms": ["my-alarm-name"],
-                "enabled": True,
-            },
             app_name=aws_codedeploy_app["foo_app"]["name"],
+            deployment_group_name="bar",
+            service_role_arn=aws_iam_role["foo_role"]["arn"],
+            deployment_config_name=foo_deployment_config.id,
             auto_rollback_configuration={
                 "enabled": True,
                 "events": ["DEPLOYMENT_STOP_ON_ALARM"],
             },
-            deployment_config_name=foo_deployment_config.id,
-            deployment_group_name="bar",
-            service_role_arn=aws_iam_role["foo_role"]["arn"])
+            alarm_configuration={
+                "alarms": ["my-alarm-name"],
+                "enabled": True,
+            })
         ```
 
         :param str resource_name: The name of the resource.

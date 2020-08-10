@@ -11,10 +11,6 @@ from .. import utilities, tables
 
 class AccessKey(pulumi.CustomResource):
     encrypted_secret: pulumi.Output[str]
-    """
-    The encrypted secret, base64 encoded, if `pgp_key` was specified.
-    > **NOTE:** The encrypted secret may be decrypted using the command line,
-    """
     key_fingerprint: pulumi.Output[str]
     """
     The fingerprint of the PGP key used to encrypt
@@ -33,11 +29,6 @@ class AccessKey(pulumi.CustomResource):
     judiciously. Alternatively, you may supply a `pgp_key` instead, which will
     prevent the secret from being stored in plaintext, at the cost of preventing
     the use of the secret key in automation.
-    """
-    ses_smtp_password: pulumi.Output[str]
-    """
-    **DEPRECATED** The secret access key converted into an SES SMTP
-    password by applying [AWS's documented conversion
     """
     ses_smtp_password_v4: pulumi.Output[str]
     """
@@ -67,9 +58,10 @@ class AccessKey(pulumi.CustomResource):
 
         lb_user = aws.iam.User("lbUser", path="/system/")
         lb_access_key = aws.iam.AccessKey("lbAccessKey",
-            pgp_key="keybase:some_person_that_exists",
-            user=lb_user.name)
+            user=lb_user.name,
+            pgp_key="keybase:some_person_that_exists")
         lb_ro = aws.iam.UserPolicy("lbRo",
+            user=lb_user.name,
             policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -82,9 +74,7 @@ class AccessKey(pulumi.CustomResource):
             }
           ]
         }
-
-        \"\"\",
-            user=lb_user.name)
+        \"\"\")
         pulumi.export("secret", lb_access_key.encrypted_secret)
         ```
 
@@ -131,7 +121,6 @@ class AccessKey(pulumi.CustomResource):
             __props__['encrypted_secret'] = None
             __props__['key_fingerprint'] = None
             __props__['secret'] = None
-            __props__['ses_smtp_password'] = None
             __props__['ses_smtp_password_v4'] = None
         super(AccessKey, __self__).__init__(
             'aws:iam/accessKey:AccessKey',
@@ -140,7 +129,7 @@ class AccessKey(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, encrypted_secret=None, key_fingerprint=None, pgp_key=None, secret=None, ses_smtp_password=None, ses_smtp_password_v4=None, status=None, user=None):
+    def get(resource_name, id, opts=None, encrypted_secret=None, key_fingerprint=None, pgp_key=None, secret=None, ses_smtp_password_v4=None, status=None, user=None):
         """
         Get an existing AccessKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -148,8 +137,6 @@ class AccessKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] encrypted_secret: The encrypted secret, base64 encoded, if `pgp_key` was specified.
-               > **NOTE:** The encrypted secret may be decrypted using the command line,
         :param pulumi.Input[str] key_fingerprint: The fingerprint of the PGP key used to encrypt
                the secret
         :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a
@@ -160,8 +147,6 @@ class AccessKey(pulumi.CustomResource):
                judiciously. Alternatively, you may supply a `pgp_key` instead, which will
                prevent the secret from being stored in plaintext, at the cost of preventing
                the use of the secret key in automation.
-        :param pulumi.Input[str] ses_smtp_password: **DEPRECATED** The secret access key converted into an SES SMTP
-               password by applying [AWS's documented conversion
         :param pulumi.Input[str] ses_smtp_password_v4: The secret access key converted into an SES SMTP
                password by applying [AWS's documented Sigv4 conversion
                algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert).
@@ -178,7 +163,6 @@ class AccessKey(pulumi.CustomResource):
         __props__["key_fingerprint"] = key_fingerprint
         __props__["pgp_key"] = pgp_key
         __props__["secret"] = secret
-        __props__["ses_smtp_password"] = ses_smtp_password
         __props__["ses_smtp_password_v4"] = ses_smtp_password_v4
         __props__["status"] = status
         __props__["user"] = user

@@ -154,23 +154,23 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bat_policy = aws.autoscaling.Policy("batPolicy",
+            scaling_adjustment=4,
             adjustment_type="ChangeInCapacity",
-            autoscaling_group_name=aws_autoscaling_group["bar"]["name"],
             cooldown=300,
-            scaling_adjustment=4)
+            autoscaling_group_name=aws_autoscaling_group["bar"]["name"])
         bat_metric_alarm = aws.cloudwatch.MetricAlarm("batMetricAlarm",
-            alarm_actions=[bat_policy.arn],
-            alarm_description="This metric monitors ec2 cpu utilization",
             comparison_operator="GreaterThanOrEqualToThreshold",
-            dimensions={
-                "AutoScalingGroupName": aws_autoscaling_group["bar"]["name"],
-            },
             evaluation_periods="2",
             metric_name="CPUUtilization",
             namespace="AWS/EC2",
             period="120",
             statistic="Average",
-            threshold="80")
+            threshold="80",
+            dimensions={
+                "AutoScalingGroupName": aws_autoscaling_group["bar"]["name"],
+            },
+            alarm_description="This metric monitors ec2 cpu utilization",
+            alarm_actions=[bat_policy.arn])
         ```
 
         ## Example with an Expression
@@ -261,7 +261,7 @@ class MetricAlarm(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        xxx_nlb_healthyhosts = aws.cloudwatch.MetricAlarm("xxxNlbHealthyhosts",
+        nlb_healthyhosts = aws.cloudwatch.MetricAlarm("nlbHealthyhosts",
             comparison_operator="LessThanThreshold",
             evaluation_periods="1",
             metric_name="HealthyHostCount",
@@ -269,7 +269,7 @@ class MetricAlarm(pulumi.CustomResource):
             period="60",
             statistic="Average",
             threshold=var["logstash_servers_count"],
-            alarm_description="Number of XXXX nodes healthy in Target Group",
+            alarm_description="Number of healthy nodes in Target Group",
             actions_enabled="true",
             alarm_actions=[aws_sns_topic["sns"]["arn"]],
             ok_actions=[aws_sns_topic["sns"]["arn"]],

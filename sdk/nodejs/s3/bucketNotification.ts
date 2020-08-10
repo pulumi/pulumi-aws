@@ -19,8 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bucket = new aws.s3.Bucket("bucket", {});
- * const topic = new aws.sns.Topic("topic", {
- *     policy: pulumi.interpolate`{
+ * const topic = new aws.sns.Topic("topic", {policy: pulumi.interpolate`{
  *     "Version":"2012-10-17",
  *     "Statement":[{
  *         "Effect": "Allow",
@@ -32,14 +31,13 @@ import * as utilities from "../utilities";
  *         }
  *     }]
  * }
- * `,
- * });
- * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
+ * `});
+ * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
  *     topics: [{
+ *         topicArn: topic.arn,
  *         events: ["s3:ObjectCreated:*"],
  *         filterSuffix: ".log",
- *         topicArn: topic.arn,
  *     }],
  * });
  * ```
@@ -50,8 +48,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bucket = new aws.s3.Bucket("bucket", {});
- * const queue = new aws.sqs.Queue("queue", {
- *     policy: pulumi.interpolate`{
+ * const queue = new aws.sqs.Queue("queue", {policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -65,14 +62,13 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
+ * `});
+ * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
  *     queues: [{
+ *         queueArn: queue.arn,
  *         events: ["s3:ObjectCreated:*"],
  *         filterSuffix: ".log",
- *         queueArn: queue.arn,
  *     }],
  * });
  * ```
@@ -193,8 +189,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bucket = new aws.s3.Bucket("bucket", {});
- * const queue = new aws.sqs.Queue("queue", {
- *     policy: pulumi.interpolate`{
+ * const queue = new aws.sqs.Queue("queue", {policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -208,22 +203,21 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
+ * `});
+ * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
  *     bucket: bucket.id,
  *     queues: [
  *         {
- *             events: ["s3:ObjectCreated:*"],
- *             filterPrefix: "images/",
  *             id: "image-upload-event",
  *             queueArn: queue.arn,
+ *             events: ["s3:ObjectCreated:*"],
+ *             filterPrefix: "images/",
  *         },
  *         {
- *             events: ["s3:ObjectCreated:*"],
- *             filterPrefix: "videos/",
  *             id: "video-upload-event",
  *             queueArn: queue.arn,
+ *             events: ["s3:ObjectCreated:*"],
+ *             filterPrefix: "videos/",
  *         },
  *     ],
  * });

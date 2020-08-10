@@ -15,19 +15,17 @@ import {RestApi} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
- *     description: "This is my API for demonstration purposes",
- * });
- * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
+ * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
+ * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
+ *     restApi: myDemoAPI.id,
  *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
- *     restApi: myDemoAPI.id,
  * });
- * const myDemoMethod = new aws.apigateway.Method("MyDemoMethod", {
- *     authorization: "NONE",
- *     httpMethod: "GET",
- *     resourceId: myDemoResource.id,
+ * const myDemoMethod = new aws.apigateway.Method("myDemoMethod", {
  *     restApi: myDemoAPI.id,
+ *     resourceId: myDemoResource.id,
+ *     httpMethod: "GET",
+ *     authorization: "NONE",
  * });
  * ```
  * ## Usage with Cognito User Pool Authorizer
@@ -37,31 +35,30 @@ import {RestApi} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const cognitoUserPoolName = config.require("cognitoUserPoolName");
- *
- * const thisUserPools = pulumi.output(aws.cognito.getUserPools({
+ * const cognitoUserPoolName = config.requireObject("cognitoUserPoolName");
+ * const thisUserPools = aws.cognito.getUserPools({
  *     name: cognitoUserPoolName,
- * }, { async: true }));
- * const thisRestApi = new aws.apigateway.RestApi("this", {});
- * const thisResource = new aws.apigateway.Resource("this", {
+ * });
+ * const thisRestApi = new aws.apigateway.RestApi("thisRestApi", {});
+ * const thisResource = new aws.apigateway.Resource("thisResource", {
+ *     restApi: thisRestApi.id,
  *     parentId: thisRestApi.rootResourceId,
  *     pathPart: "{proxy+}",
- *     restApi: thisRestApi.id,
  * });
- * const thisAuthorizer = new aws.apigateway.Authorizer("this", {
- *     providerArns: thisUserPools.arns,
- *     restApi: thisRestApi.id,
+ * const thisAuthorizer = new aws.apigateway.Authorizer("thisAuthorizer", {
  *     type: "COGNITO_USER_POOLS",
+ *     restApi: thisRestApi.id,
+ *     providerArns: thisUserPools.then(thisUserPools => thisUserPools.arns),
  * });
  * const any = new aws.apigateway.Method("any", {
+ *     restApi: thisRestApi.id,
+ *     resourceId: thisResource.id,
+ *     httpMethod: "ANY",
  *     authorization: "COGNITO_USER_POOLS",
  *     authorizerId: thisAuthorizer.id,
- *     httpMethod: "ANY",
  *     requestParameters: {
  *         "method.request.path.proxy": true,
  *     },
- *     resourceId: thisResource.id,
- *     restApi: thisRestApi.id,
  * });
  * ```
  */

@@ -27,13 +27,13 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datasync.NewLocationSmb(ctx, "example", &datasync.LocationSmbArgs{
-// 			AgentArns: pulumi.StringArray{
-// 				pulumi.String(aws_datasync_agent.Example.Arn),
-// 			},
-// 			Password:       pulumi.String("ANotGreatPassword"),
 // 			ServerHostname: pulumi.String("smb.example.com"),
 // 			Subdirectory:   pulumi.String("/exported/path"),
 // 			User:           pulumi.String("Guest"),
+// 			Password:       pulumi.String("ANotGreatPassword"),
+// 			AgentArns: pulumi.StringArray{
+// 				pulumi.String(aws_datasync_agent.Example.Arn),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

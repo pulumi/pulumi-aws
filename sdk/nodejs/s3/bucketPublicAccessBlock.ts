@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucket = new aws.s3.Bucket("example", {});
- * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("example", {
+ * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
+ * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock", {
+ *     bucket: exampleBucket.id,
  *     blockPublicAcls: true,
  *     blockPublicPolicy: true,
- *     bucket: exampleBucket.id,
  * });
  * ```
  */

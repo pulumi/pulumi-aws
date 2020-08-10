@@ -12,11 +12,9 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
- * const defaultSamlProvider = new aws.iam.SamlProvider("default", {
- *     samlMetadataDocument: fs.readFileSync("saml-metadata.xml", "utf-8"),
- * });
+ * const _default = new aws.iam.SamlProvider("default", {samlMetadataDocument: fs.readFileSync("saml-metadata.xml")});
  * ```
  */
 export class SamlProvider extends pulumi.CustomResource {

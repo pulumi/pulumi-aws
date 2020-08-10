@@ -48,15 +48,14 @@ namespace Pulumi.Aws.Cognito
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var mainUserGroup = new Aws.Cognito.UserGroup("mainUserGroup", new Aws.Cognito.UserGroupArgs
     ///         {
+    ///             UserPoolId = mainUserPool.Id,
     ///             Description = "Managed by Pulumi",
     ///             Precedence = 42,
     ///             RoleArn = groupRole.Arn,
-    ///             UserPoolId = mainUserPool.Id,
     ///         });
     ///     }
     /// 

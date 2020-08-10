@@ -41,9 +41,9 @@ namespace Pulumi.Aws.Elb
     ///         });
     ///         var foo = new Aws.Elb.AppCookieStickinessPolicy("foo", new Aws.Elb.AppCookieStickinessPolicyArgs
     ///         {
-    ///             CookieName = "MyAppCookie",
-    ///             LbPort = 80,
     ///             LoadBalancer = lb.Name,
+    ///             LbPort = 80,
+    ///             CookieName = "MyAppCookie",
     ///         });
     ///     }
     /// 

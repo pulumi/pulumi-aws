@@ -33,8 +33,8 @@ class AssessmentTarget(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bar = aws.inspector.ResourceGroup("bar", tags={
-            "Env": "bar",
             "Name": "foo",
+            "Env": "bar",
         })
         foo = aws.inspector.AssessmentTarget("foo", resource_group_arn=bar.arn)
         ```

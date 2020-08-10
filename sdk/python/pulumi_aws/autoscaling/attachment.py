@@ -28,10 +28,11 @@ class Attachment(pulumi.CustomResource):
 
         > **NOTE on AutoScaling Groups and ASG Attachments:** This provider currently provides
         both a standalone ASG Attachment resource (describing an ASG attached to
-        an ELB), and an AutoScaling Group resource with
-        `load_balancers` defined in-line. At this time you cannot use an ASG with in-line
-        load balancers in conjunction with an ASG Attachment resource. Doing so will cause a
-        conflict and will overwrite attachments.
+        an ELB or ALB), and an AutoScaling Group resource with
+        `load_balancers` and `target_group_arns` defined in-line. At this time you can use an ASG with in-line
+        `load balancers` or `target_group_arns` in conjunction with an ASG Attachment resource, however, to prevent
+        unintended resource updates, the `autoscaling.Group` resource must be configured
+        to ignore changes to the `load_balancers` and `target_group_arns` arguments within a [`lifecycle` configuration block](https://www.terraform.io/docs/configuration/resources.html#lifecycle-lifecycle-customizations).
 
         ## Example Usage
 
@@ -51,8 +52,19 @@ class Attachment(pulumi.CustomResource):
 
         # Create a new ALB Target Group attachment
         asg_attachment_bar = aws.autoscaling.Attachment("asgAttachmentBar",
-            alb_target_group_arn=aws_alb_target_group["test"]["arn"],
-            autoscaling_group_name=aws_autoscaling_group["asg"]["id"])
+            autoscaling_group_name=aws_autoscaling_group["asg"]["id"],
+            alb_target_group_arn=aws_alb_target_group["test"]["arn"])
+        ```
+        ## With An AutoScaling Group Resource
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        asg = aws.autoscaling.Group("asg")
+        asg_attachment_bar = aws.autoscaling.Attachment("asgAttachmentBar",
+            autoscaling_group_name=asg.id,
+            elb=aws_elb["test"]["id"])
         ```
 
         :param str resource_name: The name of the resource.

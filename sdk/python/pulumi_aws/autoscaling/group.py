@@ -16,7 +16,7 @@ class Group(pulumi.CustomResource):
     """
     availability_zones: pulumi.Output[list]
     """
-    A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
+    A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
     """
     default_cooldown: pulumi.Output[float]
     """
@@ -180,7 +180,7 @@ class Group(pulumi.CustomResource):
     """
     vpc_zone_identifiers: pulumi.Output[list]
     """
-    A list of subnet IDs to launch resources in.
+    A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
     """
     wait_for_capacity_timeout: pulumi.Output[str]
     """
@@ -205,51 +205,6 @@ class Group(pulumi.CustomResource):
         > **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
 
         ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ec2.PlacementGroup("test", strategy="cluster")
-        bar = aws.autoscaling.Group("bar",
-            desired_capacity=4,
-            force_delete=True,
-            health_check_grace_period=300,
-            health_check_type="ELB",
-            initial_lifecycle_hooks=[{
-                "default_result": "CONTINUE",
-                "heartbeat_timeout": 2000,
-                "lifecycle_transition": "autoscaling:EC2_INSTANCE_LAUNCHING",
-                "name": "foobar",
-                "notification_metadata": \"\"\"{
-          "foo": "bar"
-        }
-
-        \"\"\",
-                "notification_target_arn": "arn:aws:sqs:us-east-1:444455556666:queue1*",
-                "role_arn": "arn:aws:iam::123456789012:role/S3Access",
-            }],
-            launch_configuration=aws_launch_configuration["foobar"]["name"],
-            max_size=5,
-            min_size=2,
-            placement_group=test.id,
-            tags=[
-                {
-                    "key": "foo",
-                    "propagateAtLaunch": True,
-                    "value": "bar",
-                },
-                {
-                    "key": "lorem",
-                    "propagateAtLaunch": False,
-                    "value": "ipsum",
-                },
-            ],
-            vpc_zone_identifiers=[
-                aws_subnet["example1"]["id"],
-                aws_subnet["example2"]["id"],
-            ])
-        ```
         ### With Latest Version Of Launch Template
 
         ```python
@@ -257,18 +212,18 @@ class Group(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foobar = aws.ec2.LaunchTemplate("foobar",
+            name_prefix="foobar",
             image_id="ami-1a2b3c",
-            instance_type="t2.micro",
-            name_prefix="foobar")
+            instance_type="t2.micro")
         bar = aws.autoscaling.Group("bar",
             availability_zones=["us-east-1a"],
             desired_capacity=1,
+            max_size=1,
+            min_size=1,
             launch_template={
                 "id": foobar.id,
                 "version": "$Latest",
-            },
-            max_size=1,
-            min_size=1)
+            })
         ```
         ### Mixed Instances Policy
 
@@ -277,9 +232,9 @@ class Group(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix="example",
             image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large",
-            name_prefix="example")
+            instance_type="c5.large")
         example_group = aws.autoscaling.Group("exampleGroup",
             availability_zones=["us-east-1a"],
             desired_capacity=1,
@@ -290,7 +245,7 @@ class Group(pulumi.CustomResource):
                     "launchTemplateSpecification": {
                         "launchTemplateId": example_launch_template.id,
                     },
-                    "override": [
+                    "overrides": [
                         {
                             "instance_type": "c4.large",
                             "weightedCapacity": "3",
@@ -367,7 +322,7 @@ class Group(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] availability_zones: A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
+        :param pulumi.Input[list] availability_zones: A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[float] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[float] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
@@ -415,7 +370,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[list] tags_collection: Set of maps containing resource tags. Conflicts with `tag`. Documented below.
         :param pulumi.Input[list] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         :param pulumi.Input[list] termination_policies: A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
-        :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in.
+        :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         :param pulumi.Input[str] wait_for_capacity_timeout: A maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
                wait for ASG instances to be healthy before timing out.  (See also Waiting
@@ -538,7 +493,7 @@ class Group(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN for this AutoScaling Group
-        :param pulumi.Input[list] availability_zones: A list of one or more availability zones for the group. This parameter should not be specified when using `vpc_zone_identifier`.
+        :param pulumi.Input[list] availability_zones: A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[float] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[float] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
@@ -586,7 +541,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[list] tags_collection: Set of maps containing resource tags. Conflicts with `tag`. Documented below.
         :param pulumi.Input[list] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         :param pulumi.Input[list] termination_policies: A list of policies to decide how the instances in the auto scale group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`.
-        :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in.
+        :param pulumi.Input[list] vpc_zone_identifiers: A list of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         :param pulumi.Input[str] wait_for_capacity_timeout: A maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
                wait for ASG instances to be healthy before timing out.  (See also Waiting

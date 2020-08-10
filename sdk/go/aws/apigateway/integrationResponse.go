@@ -36,48 +36,48 @@ import (
 // 			return err
 // 		}
 // 		myDemoResource, err := apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
+// 			RestApi:  myDemoAPI.ID(),
 // 			ParentId: myDemoAPI.RootResourceId,
 // 			PathPart: pulumi.String("mydemoresource"),
-// 			RestApi:  myDemoAPI.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		myDemoMethod, err := apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
-// 			Authorization: pulumi.String("NONE"),
-// 			HttpMethod:    pulumi.String("GET"),
-// 			ResourceId:    myDemoResource.ID(),
 // 			RestApi:       myDemoAPI.ID(),
+// 			ResourceId:    myDemoResource.ID(),
+// 			HttpMethod:    pulumi.String("GET"),
+// 			Authorization: pulumi.String("NONE"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = apigateway.NewIntegration(ctx, "myDemoIntegration", &apigateway.IntegrationArgs{
-// 			HttpMethod: myDemoMethod.HttpMethod,
-// 			ResourceId: myDemoResource.ID(),
 // 			RestApi:    myDemoAPI.ID(),
+// 			ResourceId: myDemoResource.ID(),
+// 			HttpMethod: myDemoMethod.HttpMethod,
 // 			Type:       pulumi.String("MOCK"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		response200, err := apigateway.NewMethodResponse(ctx, "response200", &apigateway.MethodResponseArgs{
-// 			HttpMethod: myDemoMethod.HttpMethod,
-// 			ResourceId: myDemoResource.ID(),
 // 			RestApi:    myDemoAPI.ID(),
+// 			ResourceId: myDemoResource.ID(),
+// 			HttpMethod: myDemoMethod.HttpMethod,
 // 			StatusCode: pulumi.String("200"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = apigateway.NewIntegrationResponse(ctx, "myDemoIntegrationResponse", &apigateway.IntegrationResponseArgs{
-// 			HttpMethod: myDemoMethod.HttpMethod,
-// 			ResourceId: myDemoResource.ID(),
-// 			ResponseTemplates: pulumi.StringMap{
-// 				"application/xml": pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "#set(", "$", "inputRoot = ", "$", "input.path('", "$", "'))\n", "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n", "<message>\n", "    ", "$", "inputRoot.body\n", "</message>\n", "\n")),
-// 			},
 // 			RestApi:    myDemoAPI.ID(),
+// 			ResourceId: myDemoResource.ID(),
+// 			HttpMethod: myDemoMethod.HttpMethod,
 // 			StatusCode: response200.StatusCode,
+// 			ResponseTemplates: pulumi.StringMap{
+// 				"application/xml": pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "#set(", "$", "inputRoot = ", "$", "input.path('", "$", "'))\n", "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n", "<message>\n", "    ", "$", "inputRoot.body\n", "</message>\n")),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

@@ -32,13 +32,12 @@ namespace Pulumi.Aws.Ssm
     ///       ""Action"": ""sts:AssumeRole""
     ///     }
     ///   }
-    /// 
     /// ",
     ///         });
     ///         var testAttach = new Aws.Iam.RolePolicyAttachment("testAttach", new Aws.Iam.RolePolicyAttachmentArgs
     ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
     ///             Role = testRole.Name,
+    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
     ///         });
     ///         var foo = new Aws.Ssm.Activation("foo", new Aws.Ssm.ActivationArgs
     ///         {
@@ -49,7 +48,7 @@ namespace Pulumi.Aws.Ssm
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_iam_role_policy_attachment.test_attach",
+    ///                 testAttach,
     ///             },
     ///         });
     ///     }

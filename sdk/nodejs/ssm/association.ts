@@ -15,12 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ssm.Association("example", {
- *     targets: [{
- *         key: "InstanceIds",
- *         values: [aws_instance_example.id],
- *     }],
- * });
+ * const example = new aws.ssm.Association("example", {targets: [{
+ *     key: "InstanceIds",
+ *     values: [aws_instance.example.id],
+ * }]});
  * ```
  */
 export class Association extends pulumi.CustomResource {

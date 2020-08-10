@@ -42,11 +42,11 @@ import (
 // 			return err
 // 		}
 // 		_, err = iam.NewUserGroupMembership(ctx, "example1", &iam.UserGroupMembershipArgs{
+// 			User: user1.Name,
 // 			Groups: pulumi.StringArray{
 // 				group1.Name,
 // 				group2.Name,
 // 			},
-// 			User: user1.Name,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -56,10 +56,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = iam.NewUserGroupMembership(ctx, "example2", &iam.UserGroupMembershipArgs{
+// 			User: user1.Name,
 // 			Groups: pulumi.StringArray{
 // 				group3.Name,
 // 			},
-// 			User: user1.Name,
 // 		})
 // 		if err != nil {
 // 			return err

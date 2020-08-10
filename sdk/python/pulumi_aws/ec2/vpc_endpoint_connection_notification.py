@@ -56,18 +56,17 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
                 "Resource": "arn:aws:sns:*:*:vpce-notification-topic"
             }]
         }
-
         \"\"\")
         foo_vpc_endpoint_service = aws.ec2.VpcEndpointService("fooVpcEndpointService",
             acceptance_required=False,
             network_load_balancer_arns=[aws_lb["test"]["arn"]])
         foo_vpc_endpoint_connection_notification = aws.ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification",
+            vpc_endpoint_service_id=foo_vpc_endpoint_service.id,
+            connection_notification_arn=topic.arn,
             connection_events=[
                 "Accept",
                 "Reject",
-            ],
-            connection_notification_arn=topic.arn,
-            vpc_endpoint_service_id=foo_vpc_endpoint_service.id)
+            ])
         ```
 
         :param str resource_name: The name of the resource.

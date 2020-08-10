@@ -39,9 +39,9 @@ import (
 // 			MetricName: pulumi.String("tfWAFRule"),
 // 			Predicates: wafregional.RulePredicateArray{
 // 				&wafregional.RulePredicateArgs{
+// 					Type:    pulumi.String("IPMatch"),
 // 					DataId:  ipset.ID(),
 // 					Negated: pulumi.Bool(false),
-// 					Type:    pulumi.String("IPMatch"),
 // 				},
 // 			},
 // 		})

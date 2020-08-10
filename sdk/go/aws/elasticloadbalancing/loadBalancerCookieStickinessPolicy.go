@@ -41,9 +41,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = elb.NewLoadBalancerCookieStickinessPolicy(ctx, "foo", &elb.LoadBalancerCookieStickinessPolicyArgs{
-// 			CookieExpirationPeriod: pulumi.Int(600),
-// 			LbPort:                 pulumi.Int(80),
 // 			LoadBalancer:           lb.ID(),
+// 			LbPort:                 pulumi.Int(80),
+// 			CookieExpirationPeriod: pulumi.Int(600),
 // 		})
 // 		if err != nil {
 // 			return err

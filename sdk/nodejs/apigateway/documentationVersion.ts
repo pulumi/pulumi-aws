@@ -13,19 +13,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("example", {});
- * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("example", {
+ * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
+ * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("exampleDocumentationPart", {
  *     location: {
  *         type: "API",
  *     },
  *     properties: "{\"description\":\"Example\"}",
  *     restApiId: exampleRestApi.id,
  * });
- * const exampleDocumentationVersion = new aws.apigateway.DocumentationVersion("example", {
- *     description: "Example description",
- *     restApiId: exampleRestApi.id,
+ * const exampleDocumentationVersion = new aws.apigateway.DocumentationVersion("exampleDocumentationVersion", {
  *     version: "example_version",
- * }, { dependsOn: [exampleDocumentationPart] });
+ *     restApiId: exampleRestApi.id,
+ *     description: "Example description",
+ * }, {
+ *     dependsOn: [exampleDocumentationPart],
+ * });
  * ```
  */
 export class DocumentationVersion extends pulumi.CustomResource {

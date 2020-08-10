@@ -22,11 +22,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const coipPoolId = config.require("coipPoolId");
- *
- * const selected = pulumi.output(aws.ec2.getCoipPool({
+ * const coipPoolId = config.requireObject("coipPoolId");
+ * const selected = aws.ec2.getCoipPool({
  *     id: coipPoolId,
- * }, { async: true }));
+ * });
  * ```
  */
 export function getCoipPool(args?: GetCoipPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetCoipPoolResult> {

@@ -52,13 +52,13 @@ class EventPermission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         organization_access = aws.cloudwatch.EventPermission("organizationAccess",
+            principal="*",
+            statement_id="OrganizationAccess",
             condition={
                 "key": "aws:PrincipalOrgID",
                 "type": "StringEquals",
                 "value": aws_organizations_organization["example"]["id"],
-            },
-            principal="*",
-            statement_id="OrganizationAccess")
+            })
         ```
 
         :param str resource_name: The name of the resource.

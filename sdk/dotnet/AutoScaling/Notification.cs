@@ -29,12 +29,15 @@ namespace Pulumi.Aws.AutoScaling
     ///         var example = new Aws.Sns.Topic("example", new Aws.Sns.TopicArgs
     ///         {
     ///         });
+    ///         // arn is an exported attribute
     ///         var bar = new Aws.AutoScaling.Group("bar", new Aws.AutoScaling.GroupArgs
     ///         {
     ///         });
+    ///         // ...
     ///         var foo = new Aws.AutoScaling.Group("foo", new Aws.AutoScaling.GroupArgs
     ///         {
     ///         });
+    ///         // ...
     ///         var exampleNotifications = new Aws.AutoScaling.Notification("exampleNotifications", new Aws.AutoScaling.NotificationArgs
     ///         {
     ///             GroupNames = 

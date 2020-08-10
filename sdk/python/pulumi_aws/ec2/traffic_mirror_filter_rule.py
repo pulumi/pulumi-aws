@@ -74,29 +74,29 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             network_services=["amazon-dns"])
         ruleout = aws.ec2.TrafficMirrorFilterRule("ruleout",
             description="test rule",
+            traffic_mirror_filter_id=filter.id,
             destination_cidr_block="10.0.0.0/8",
-            rule_action="accept",
-            rule_number=1,
             source_cidr_block="10.0.0.0/8",
-            traffic_direction="egress",
-            traffic_mirror_filter_id=filter.id)
+            rule_number=1,
+            rule_action="accept",
+            traffic_direction="egress")
         rulein = aws.ec2.TrafficMirrorFilterRule("rulein",
             description="test rule",
+            traffic_mirror_filter_id=filter.id,
             destination_cidr_block="10.0.0.0/8",
+            source_cidr_block="10.0.0.0/8",
+            rule_number=1,
+            rule_action="accept",
+            traffic_direction="ingress",
+            protocol=6,
             destination_port_range={
                 "from_port": 22,
                 "to_port": 53,
             },
-            protocol=6,
-            rule_action="accept",
-            rule_number=1,
-            source_cidr_block="10.0.0.0/8",
             source_port_range={
                 "from_port": 0,
                 "to_port": 10,
-            },
-            traffic_direction="ingress",
-            traffic_mirror_filter_id=filter.id)
+            })
         ```
 
         :param str resource_name: The name of the resource.

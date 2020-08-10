@@ -24,6 +24,9 @@ namespace Pulumi.Aws.AppSync
     ///     {
     ///         var exampleTable = new Aws.DynamoDB.Table("exampleTable", new Aws.DynamoDB.TableArgs
     ///         {
+    ///             ReadCapacity = 1,
+    ///             WriteCapacity = 1,
+    ///             HashKey = "UserId",
     ///             Attributes = 
     ///             {
     ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -32,9 +35,6 @@ namespace Pulumi.Aws.AppSync
     ///                     Type = "S",
     ///                 },
     ///             },
-    ///             HashKey = "UserId",
-    ///             ReadCapacity = 1,
-    ///             WriteCapacity = 1,
     ///         });
     ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
     ///         {
@@ -50,11 +50,11 @@ namespace Pulumi.Aws.AppSync
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
+    ///             Role = exampleRole.Id,
     ///             Policy = exampleTable.Arn.Apply(arn =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -69,9 +69,7 @@ namespace Pulumi.Aws.AppSync
     ///     }}
     ///   ]
     /// }}
-    /// 
     /// "),
-    ///             Role = exampleRole.Id,
     ///         });
     ///         var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new Aws.AppSync.GraphQLApiArgs
     ///         {
@@ -80,12 +78,12 @@ namespace Pulumi.Aws.AppSync
     ///         var exampleDataSource = new Aws.AppSync.DataSource("exampleDataSource", new Aws.AppSync.DataSourceArgs
     ///         {
     ///             ApiId = exampleGraphQLApi.Id,
+    ///             ServiceRoleArn = exampleRole.Arn,
+    ///             Type = "AMAZON_DYNAMODB",
     ///             DynamodbConfig = new Aws.AppSync.Inputs.DataSourceDynamodbConfigArgs
     ///             {
     ///                 TableName = exampleTable.Name,
     ///             },
-    ///             ServiceRoleArn = exampleRole.Arn,
-    ///             Type = "AMAZON_DYNAMODB",
     ///         });
     ///     }
     /// 

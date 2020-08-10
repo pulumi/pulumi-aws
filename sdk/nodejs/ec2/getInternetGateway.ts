@@ -16,14 +16,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const vpcId = config.require("vpcId");
- *
- * const defaultInternetGateway = pulumi.output(aws.ec2.getInternetGateway({
+ * const vpcId = config.requireObject("vpcId");
+ * const default = aws.ec2.getInternetGateway({
  *     filters: [{
  *         name: "attachment.vpc-id",
  *         values: [vpcId],
  *     }],
- * }, { async: true }));
+ * });
  * ```
  */
 export function getInternetGateway(args?: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> {

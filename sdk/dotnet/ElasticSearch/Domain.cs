@@ -79,7 +79,6 @@ namespace Pulumi.Aws.ElasticSearch
     ///     }}
     ///   ]
     /// }}
-    /// 
     /// ";
     ///             }),
     ///         });
@@ -102,6 +101,7 @@ namespace Pulumi.Aws.ElasticSearch
     ///         });
     ///         var exampleLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("exampleLogResourcePolicy", new Aws.CloudWatch.LogResourcePolicyArgs
     ///         {
+    ///             PolicyName = "example",
     ///             PolicyDocument = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
@@ -119,10 +119,9 @@ namespace Pulumi.Aws.ElasticSearch
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
-    ///             PolicyName = "example",
     ///         });
+    ///         // .. other configuration ...
     ///         var exampleDomain = new Aws.ElasticSearch.Domain("exampleDomain", new Aws.ElasticSearch.DomainArgs
     ///         {
     ///             LogPublishingOptions = 
@@ -160,31 +159,31 @@ namespace Pulumi.Aws.ElasticSearch
     ///         }));
     ///         var selectedSubnetIds = selectedVpc.Apply(selectedVpc =&gt; Output.Create(Aws.Ec2.GetSubnetIds.InvokeAsync(new Aws.Ec2.GetSubnetIdsArgs
     ///         {
+    ///             VpcId = selectedVpc.Id,
     ///             Tags = 
     ///             {
     ///                 { "Tier", "private" },
     ///             },
-    ///             VpcId = selectedVpc.Id,
     ///         })));
     ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
     ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
     ///         var esSecurityGroup = new Aws.Ec2.SecurityGroup("esSecurityGroup", new Aws.Ec2.SecurityGroupArgs
     ///         {
     ///             Description = "Managed by Pulumi",
+    ///             VpcId = selectedVpc.Apply(selectedVpc =&gt; selectedVpc.Id),
     ///             Ingress = 
     ///             {
     ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
     ///                 {
+    ///                     FromPort = 443,
+    ///                     ToPort = 443,
+    ///                     Protocol = "tcp",
     ///                     CidrBlocks = 
     ///                     {
     ///                         selectedVpc.Apply(selectedVpc =&gt; selectedVpc.CidrBlock),
     ///                     },
-    ///                     FromPort = 443,
-    ///                     Protocol = "tcp",
-    ///                     ToPort = 443,
     ///                 },
     ///             },
-    ///             VpcId = selectedVpc.Apply(selectedVpc =&gt; selectedVpc.Id),
     ///         });
     ///         var esServiceLinkedRole = new Aws.Iam.ServiceLinkedRole("esServiceLinkedRole", new Aws.Iam.ServiceLinkedRoleArgs
     ///         {
@@ -192,6 +191,27 @@ namespace Pulumi.Aws.ElasticSearch
     ///         });
     ///         var esDomain = new Aws.ElasticSearch.Domain("esDomain", new Aws.ElasticSearch.DomainArgs
     ///         {
+    ///             ElasticsearchVersion = "6.3",
+    ///             ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
+    ///             {
+    ///                 InstanceType = "m4.large.elasticsearch",
+    ///             },
+    ///             VpcOptions = new Aws.ElasticSearch.Inputs.DomainVpcOptionsArgs
+    ///             {
+    ///                 SubnetIds = 
+    ///                 {
+    ///                     selectedSubnetIds.Apply(selectedSubnetIds =&gt; selectedSubnetIds.Ids[0]),
+    ///                     selectedSubnetIds.Apply(selectedSubnetIds =&gt; selectedSubnetIds.Ids[1]),
+    ///                 },
+    ///                 SecurityGroupIds = 
+    ///                 {
+    ///                     esSecurityGroup.Id,
+    ///                 },
+    ///             },
+    ///             AdvancedOptions = 
+    ///             {
+    ///                 { "rest.action.multi.allow_explicit_index", "true" },
+    ///             },
     ///             AccessPolicies = Output.Tuple(currentRegion, currentCallerIdentity).Apply(values =&gt;
     ///             {
     ///                 var currentRegion = values.Item1;
@@ -207,18 +227,8 @@ namespace Pulumi.Aws.ElasticSearch
     /// 		}}
     /// 	]
     /// }}
-    /// 
     /// ";
     ///             }),
-    ///             AdvancedOptions = 
-    ///             {
-    ///                 { "rest.action.multi.allow_explicit_index", "true" },
-    ///             },
-    ///             ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
-    ///             {
-    ///                 InstanceType = "m4.large.elasticsearch",
-    ///             },
-    ///             ElasticsearchVersion = "6.3",
     ///             SnapshotOptions = new Aws.ElasticSearch.Inputs.DomainSnapshotOptionsArgs
     ///             {
     ///                 AutomatedSnapshotStartHour = 23,
@@ -227,23 +237,11 @@ namespace Pulumi.Aws.ElasticSearch
     ///             {
     ///                 { "Domain", "TestDomain" },
     ///             },
-    ///             VpcOptions = new Aws.ElasticSearch.Inputs.DomainVpcOptionsArgs
-    ///             {
-    ///                 SecurityGroupIds = 
-    ///                 {
-    ///                     esSecurityGroup.Id,
-    ///                 },
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     selectedSubnetIds.Apply(selectedSubnetIds =&gt; selectedSubnetIds.Ids[0]),
-    ///                     selectedSubnetIds.Apply(selectedSubnetIds =&gt; selectedSubnetIds.Ids[1]),
-    ///                 },
-    ///             },
     ///         }, new CustomResourceOptions
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_iam_service_linked_role.es",
+    ///                 esServiceLinkedRole,
     ///             },
     ///         });
     ///     }
@@ -340,7 +338,7 @@ namespace Pulumi.Aws.ElasticSearch
         public Output<string> KibanaEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Options for publishing slow logs to CloudWatch Logs.
+        /// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
         /// </summary>
         [Output("logPublishingOptions")]
         public Output<ImmutableArray<Outputs.DomainLogPublishingOption>> LogPublishingOptions { get; private set; } = null!;
@@ -485,7 +483,7 @@ namespace Pulumi.Aws.ElasticSearch
         private InputList<Inputs.DomainLogPublishingOptionArgs>? _logPublishingOptions;
 
         /// <summary>
-        /// Options for publishing slow logs to CloudWatch Logs.
+        /// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
         /// </summary>
         public InputList<Inputs.DomainLogPublishingOptionArgs> LogPublishingOptions
         {
@@ -626,7 +624,7 @@ namespace Pulumi.Aws.ElasticSearch
         private InputList<Inputs.DomainLogPublishingOptionGetArgs>? _logPublishingOptions;
 
         /// <summary>
-        /// Options for publishing slow logs to CloudWatch Logs.
+        /// Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
         /// </summary>
         public InputList<Inputs.DomainLogPublishingOptionGetArgs> LogPublishingOptions
         {

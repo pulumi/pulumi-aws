@@ -37,8 +37,8 @@ class UserProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         my_profile = aws.opsworks.UserProfile("myProfile",
-            ssh_username="my_user",
-            user_arn=aws_iam_user["user"]["arn"])
+            user_arn=aws_iam_user["user"]["arn"],
+            ssh_username="my_user")
         ```
 
         :param str resource_name: The name of the resource.

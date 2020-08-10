@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Ecr
     ///         });
     ///         var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new Aws.Ecr.LifecyclePolicyArgs
     ///         {
+    ///             Repository = foo.Name,
     ///             Policy = @"{
     ///     ""rules"": [
     ///         {
@@ -49,9 +50,7 @@ namespace Pulumi.Aws.Ecr
     ///         }
     ///     ]
     /// }
-    /// 
     /// ",
-    ///             Repository = foo.Name,
     ///         });
     ///     }
     /// 
@@ -72,6 +71,7 @@ namespace Pulumi.Aws.Ecr
     ///         });
     ///         var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new Aws.Ecr.LifecyclePolicyArgs
     ///         {
+    ///             Repository = foo.Name,
     ///             Policy = @"{
     ///     ""rules"": [
     ///         {
@@ -89,9 +89,7 @@ namespace Pulumi.Aws.Ecr
     ///         }
     ///     ]
     /// }
-    /// 
     /// ",
-    ///             Repository = foo.Name,
     ///         });
     ///     }
     /// 

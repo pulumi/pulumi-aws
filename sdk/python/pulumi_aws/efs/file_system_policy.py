@@ -54,7 +54,6 @@ class FileSystemPolicy(pulumi.CustomResource):
                 }}
             ]
         }}
-
         \"\"\")
         ```
 

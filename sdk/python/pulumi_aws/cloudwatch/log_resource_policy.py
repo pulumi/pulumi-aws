@@ -35,11 +35,11 @@ class LogResourcePolicy(pulumi.CustomResource):
                 "logs:PutLogEvents",
                 "logs:PutLogEventsBatch",
             ],
+            "resources": ["arn:aws:logs:*"],
             "principals": [{
                 "identifiers": ["es.amazonaws.com"],
                 "type": "Service",
             }],
-            "resources": ["arn:aws:logs:*"],
         }])
         elasticsearch_log_publishing_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy",
             policy_document=elasticsearch_log_publishing_policy_policy_document.json,
@@ -56,11 +56,11 @@ class LogResourcePolicy(pulumi.CustomResource):
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
+            "resources": ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
             "principals": [{
                 "identifiers": ["route53.amazonaws.com"],
                 "type": "Service",
             }],
-            "resources": ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
         }])
         route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy",
             policy_document=route53_query_logging_policy_policy_document.json,

@@ -37,7 +37,6 @@ namespace Pulumi.Aws.DirectoryService
     ///                         "logs:CreateLogStream",
     ///                         "logs:PutLogEvents",
     ///                     },
-    ///                     Effect = "Allow",
     ///                     Principals = 
     ///                     {
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
@@ -51,8 +50,9 @@ namespace Pulumi.Aws.DirectoryService
     ///                     },
     ///                     Resources = 
     ///                     {
-    ///                         arn,
+    ///                         $"{arn}:*",
     ///                     },
+    ///                     Effect = "Allow",
     ///                 },
     ///             },
     ///         }));

@@ -35,9 +35,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = apigateway.NewAuthorizer(ctx, "cognito", &apigateway.AuthorizerArgs{
-// 			ProviderArns: toPulumiStringArray(selectedUserPools.Arns),
-// 			RestApi:      pulumi.String(selectedRestApi.Id),
 // 			Type:         pulumi.String("COGNITO_USER_POOLS"),
+// 			RestApi:      pulumi.String(selectedRestApi.Id),
+// 			ProviderArns: toPulumiStringArray(selectedUserPools.Arns),
 // 		})
 // 		if err != nil {
 // 			return err

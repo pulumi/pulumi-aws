@@ -18,10 +18,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const barEc2SecurityGroup = new aws.ec2.SecurityGroup("bar", {});
- * const barSecurityGroup = new aws.elasticache.SecurityGroup("bar", {
- *     securityGroupNames: [barEc2SecurityGroup.name],
- * });
+ * const barSecurityGroup = new aws.ec2.SecurityGroup("barSecurityGroup", {});
+ * const barElasticache_securityGroupSecurityGroup = new aws.elasticache.SecurityGroup("barElasticache/securityGroupSecurityGroup", {securityGroupNames: [barSecurityGroup.name]});
  * ```
  */
 export class SecurityGroup extends pulumi.CustomResource {

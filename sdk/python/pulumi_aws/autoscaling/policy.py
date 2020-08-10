@@ -104,17 +104,17 @@ class Policy(pulumi.CustomResource):
 
         bar = aws.autoscaling.Group("bar",
             availability_zones=["us-east-1a"],
-            force_delete=True,
+            max_size=5,
+            min_size=2,
             health_check_grace_period=300,
             health_check_type="ELB",
-            launch_configuration=aws_launch_configuration["foo"]["name"],
-            max_size=5,
-            min_size=2)
+            force_delete=True,
+            launch_configuration=aws_launch_configuration["foo"]["name"])
         bat = aws.autoscaling.Policy("bat",
+            scaling_adjustment=4,
             adjustment_type="ChangeInCapacity",
-            autoscaling_group_name=bar.name,
             cooldown=300,
-            scaling_adjustment=4)
+            autoscaling_group_name=bar.name)
         ```
 
         :param str resource_name: The name of the resource.

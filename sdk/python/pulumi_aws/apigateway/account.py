@@ -48,10 +48,10 @@ class Account(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         demo = aws.apigateway.Account("demo", cloudwatch_role_arn=cloudwatch_role.arn)
         cloudwatch_role_policy = aws.iam.RolePolicy("cloudwatchRolePolicy",
+            role=cloudwatch_role.id,
             policy=\"\"\"{
             "Version": "2012-10-17",
             "Statement": [
@@ -70,9 +70,7 @@ class Account(pulumi.CustomResource):
                 }
             ]
         }
-
-        \"\"\",
-            role=cloudwatch_role.id)
+        \"\"\")
         ```
 
         :param str resource_name: The name of the resource.

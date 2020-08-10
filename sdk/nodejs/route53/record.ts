@@ -19,11 +19,11 @@ import {RecordType} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const www = new aws.route53.Record("www", {
+ *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "www.example.com",
- *     records: [aws_eip_lb.publicIp],
- *     ttl: 300,
  *     type: "A",
- *     zoneId: aws_route53_zone_primary.zoneId,
+ *     ttl: "300",
+ *     records: [aws_eip.lb.public_ip],
  * });
  * ```
  * ### Weighted routing policy
@@ -34,26 +34,26 @@ import {RecordType} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const www_dev = new aws.route53.Record("www-dev", {
+ *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "www",
- *     records: ["dev.example.com"],
- *     setIdentifier: "dev",
- *     ttl: 5,
  *     type: "CNAME",
+ *     ttl: "5",
  *     weightedRoutingPolicies: [{
  *         weight: 10,
  *     }],
- *     zoneId: aws_route53_zone_primary.zoneId,
+ *     setIdentifier: "dev",
+ *     records: ["dev.example.com"],
  * });
  * const www_live = new aws.route53.Record("www-live", {
+ *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "www",
- *     records: ["live.example.com"],
- *     setIdentifier: "live",
- *     ttl: 5,
  *     type: "CNAME",
+ *     ttl: "5",
  *     weightedRoutingPolicies: [{
  *         weight: 90,
  *     }],
- *     zoneId: aws_route53_zone_primary.zoneId,
+ *     setIdentifier: "live",
+ *     records: ["live.example.com"],
  * });
  * ```
  * ### Alias record
@@ -77,14 +77,14 @@ import {RecordType} from "./index";
  *     }],
  * });
  * const www = new aws.route53.Record("www", {
- *     aliases: [{
- *         evaluateTargetHealth: true,
- *         name: main.dnsName,
- *         zoneId: main.zoneId,
- *     }],
+ *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "example.com",
  *     type: "A",
- *     zoneId: aws_route53_zone_primary.zoneId,
+ *     aliases: [{
+ *         name: main.dnsName,
+ *         zoneId: main.zoneId,
+ *         evaluateTargetHealth: true,
+ *     }],
  * });
  * ```
  * ### NS and SOA Record Management
@@ -95,19 +95,19 @@ import {RecordType} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleZone = new aws.route53.Zone("example", {});
- * const exampleRecord = new aws.route53.Record("example", {
+ * const exampleZone = new aws.route53.Zone("exampleZone", {});
+ * const exampleRecord = new aws.route53.Record("exampleRecord", {
  *     allowOverwrite: true,
  *     name: "test.example.com",
+ *     ttl: 30,
+ *     type: "NS",
+ *     zoneId: exampleZone.zoneId,
  *     records: [
  *         exampleZone.nameServers[0],
  *         exampleZone.nameServers[1],
  *         exampleZone.nameServers[2],
  *         exampleZone.nameServers[3],
  *     ],
- *     ttl: 30,
- *     type: "NS",
- *     zoneId: exampleZone.zoneId,
  * });
  * ```
  */

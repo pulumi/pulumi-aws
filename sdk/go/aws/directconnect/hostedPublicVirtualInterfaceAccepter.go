@@ -36,27 +36,27 @@ import (
 // 			return err
 // 		}
 // 		creator, err := directconnect.NewHostedPublicVirtualInterface(ctx, "creator", &directconnect.HostedPublicVirtualInterfaceArgs{
-// 			AddressFamily:   pulumi.String("ipv4"),
-// 			AmazonAddress:   pulumi.String("175.45.176.2/30"),
-// 			BgpAsn:          pulumi.Int(65352),
 // 			ConnectionId:    pulumi.String("dxcon-zzzzzzzz"),
-// 			CustomerAddress: pulumi.String("175.45.176.1/30"),
 // 			OwnerAccountId:  pulumi.String(accepterCallerIdentity.AccountId),
+// 			Vlan:            pulumi.Int(4094),
+// 			AddressFamily:   pulumi.String("ipv4"),
+// 			BgpAsn:          pulumi.Int(65352),
+// 			CustomerAddress: pulumi.String("175.45.176.1/30"),
+// 			AmazonAddress:   pulumi.String("175.45.176.2/30"),
 // 			RouteFilterPrefixes: pulumi.StringArray{
 // 				pulumi.String("210.52.109.0/24"),
 // 				pulumi.String("175.45.176.0/22"),
 // 			},
-// 			Vlan: pulumi.Int(4094),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = directconnect.NewHostedPublicVirtualInterfaceAccepter(ctx, "accepterHostedPublicVirtualInterfaceAccepter", &directconnect.HostedPublicVirtualInterfaceAccepterArgs{
+// 			VirtualInterfaceId: creator.ID(),
 // 			Tags: pulumi.StringMap{
 // 				"Side": pulumi.String("Accepter"),
 // 			},
-// 			VirtualInterfaceId: creator.ID(),
-// 		}, pulumi.Provider("aws.accepter"))
+// 		}, pulumi.Provider(aws.Accepter))
 // 		if err != nil {
 // 			return err
 // 		}

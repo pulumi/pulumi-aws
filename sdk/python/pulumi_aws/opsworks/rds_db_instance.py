@@ -39,10 +39,10 @@ class RdsDbInstance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         my_instance = aws.opsworks.RdsDbInstance("myInstance",
-            db_password="somePass",
-            db_user="someUser",
+            stack_id=aws_opsworks_stack["my_stack"]["id"],
             rds_db_instance_arn=aws_db_instance["my_instance"]["arn"],
-            stack_id=aws_opsworks_stack["my_stack"]["id"])
+            db_user="someUser",
+            db_password="somePass")
         ```
 
         :param str resource_name: The name of the resource.

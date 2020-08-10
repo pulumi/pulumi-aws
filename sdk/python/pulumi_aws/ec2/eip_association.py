@@ -68,8 +68,8 @@ class EipAssociation(pulumi.CustomResource):
             })
         example = aws.ec2.Eip("example", vpc=True)
         eip_assoc = aws.ec2.EipAssociation("eipAssoc",
-            allocation_id=example.id,
-            instance_id=web.id)
+            instance_id=web.id,
+            allocation_id=example.id)
         ```
 
         :param str resource_name: The name of the resource.

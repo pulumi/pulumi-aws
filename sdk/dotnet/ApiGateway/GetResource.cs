@@ -33,8 +33,8 @@ namespace Pulumi.Aws.ApiGateway
         ///         }));
         ///         var myResource = myRestApi.Apply(myRestApi =&gt; Output.Create(Aws.ApiGateway.GetResource.InvokeAsync(new Aws.ApiGateway.GetResourceArgs
         ///         {
-        ///             Path = "/endpoint/path",
         ///             RestApiId = myRestApi.Id,
+        ///             Path = "/endpoint/path",
         ///         })));
         ///     }
         /// 

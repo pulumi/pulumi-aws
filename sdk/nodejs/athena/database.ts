@@ -15,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const hogeBucket = new aws.s3.Bucket("hoge", {});
- * const hogeDatabase = new aws.athena.Database("hoge", {
- *     bucket: hogeBucket.bucket,
+ * const hogeBucket = new aws.s3.Bucket("hogeBucket", {});
+ * const hogeDatabase = new aws.athena.Database("hogeDatabase", {
  *     name: "database_name",
+ *     bucket: hogeBucket.bucket,
  * });
  * ```
  */

@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.IntegrationResponse("example", {
- *     apiId: aws_apigatewayv2_api_example.id,
- *     integrationId: aws_apigatewayv2_integration_example.id,
+ *     apiId: aws_apigatewayv2_api.example.id,
+ *     integrationId: aws_apigatewayv2_integration.example.id,
  *     integrationResponseKey: "/200/",
  * });
  * ```

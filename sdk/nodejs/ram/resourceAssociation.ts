@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ram.ResourceAssociation("example", {
- *     resourceArn: aws_subnet_example.arn,
- *     resourceShareArn: aws_ram_resource_share_example.arn,
+ *     resourceArn: aws_subnet.example.arn,
+ *     resourceShareArn: aws_ram_resource_share.example.arn,
  * });
  * ```
  */

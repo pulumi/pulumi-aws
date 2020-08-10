@@ -94,8 +94,8 @@ namespace Pulumi.Aws.Iam
     ///     {
     ///         var testCert = new Aws.Iam.ServerCertificate("testCert", new Aws.Iam.ServerCertificateArgs
     ///         {
-    ///             CertificateBody = File.ReadAllText("self-ca-cert.pem"),
     ///             NamePrefix = "example-cert",
+    ///             CertificateBody = File.ReadAllText("self-ca-cert.pem"),
     ///             PrivateKey = File.ReadAllText("test-key.pem"),
     ///         });
     ///         var ourapp = new Aws.Elb.LoadBalancer("ourapp", new Aws.Elb.LoadBalancerArgs

@@ -36,9 +36,9 @@ namespace Pulumi.Aws.Cognito
         ///         }));
         ///         var cognito = new Aws.ApiGateway.Authorizer("cognito", new Aws.ApiGateway.AuthorizerArgs
         ///         {
-        ///             ProviderArns = selectedUserPools.Apply(selectedUserPools =&gt; selectedUserPools.Arns),
-        ///             RestApi = selectedRestApi.Apply(selectedRestApi =&gt; selectedRestApi.Id),
         ///             Type = "COGNITO_USER_POOLS",
+        ///             RestApi = selectedRestApi.Apply(selectedRestApi =&gt; selectedRestApi.Id),
+        ///             ProviderArns = selectedUserPools.Apply(selectedUserPools =&gt; selectedUserPools.Arns),
         ///         });
         ///     }
         /// 

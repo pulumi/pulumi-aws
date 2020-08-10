@@ -41,6 +41,10 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         var testInstances = await Aws.Ec2.GetInstances.InvokeAsync(new Aws.Ec2.GetInstancesArgs
         ///         {
+        ///             InstanceTags = 
+        ///             {
+        ///                 { "Role", "HardWorker" },
+        ///             },
         ///             Filters = 
         ///             {
         ///                 new Aws.Ec2.Inputs.GetInstancesFilterArgs
@@ -56,10 +60,6 @@ namespace Pulumi.Aws.Ec2
         ///             {
         ///                 "running",
         ///                 "stopped",
-        ///             },
-        ///             InstanceTags = 
-        ///             {
-        ///                 { "Role", "HardWorker" },
         ///             },
         ///         });
         ///         var testEip = new List&lt;Aws.Ec2.Eip&gt;();

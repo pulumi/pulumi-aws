@@ -30,13 +30,13 @@ namespace Pulumi.Aws.Neptune
     ///     {
     ///         var @default = new Aws.Neptune.Cluster("default", new Aws.Neptune.ClusterArgs
     ///         {
-    ///             ApplyImmediately = true,
-    ///             BackupRetentionPeriod = 5,
     ///             ClusterIdentifier = "neptune-cluster-demo",
     ///             Engine = "neptune",
-    ///             IamDatabaseAuthenticationEnabled = true,
+    ///             BackupRetentionPeriod = 5,
     ///             PreferredBackupWindow = "07:00-09:00",
     ///             SkipFinalSnapshot = true,
+    ///             IamDatabaseAuthenticationEnabled = true,
+    ///             ApplyImmediately = true,
     ///         });
     ///         var example = new List&lt;Aws.Neptune.ClusterInstance&gt;();
     ///         for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
@@ -44,10 +44,10 @@ namespace Pulumi.Aws.Neptune
     ///             var range = new { Value = rangeIndex };
     ///             example.Add(new Aws.Neptune.ClusterInstance($"example-{range.Value}", new Aws.Neptune.ClusterInstanceArgs
     ///             {
-    ///                 ApplyImmediately = true,
     ///                 ClusterIdentifier = @default.Id,
     ///                 Engine = "neptune",
     ///                 InstanceClass = "db.r4.large",
+    ///                 ApplyImmediately = true,
     ///             }));
     ///         }
     ///     }

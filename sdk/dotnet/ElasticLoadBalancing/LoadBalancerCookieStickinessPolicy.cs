@@ -41,9 +41,9 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     ///         });
     ///         var foo = new Aws.Elb.LoadBalancerCookieStickinessPolicy("foo", new Aws.Elb.LoadBalancerCookieStickinessPolicyArgs
     ///         {
-    ///             CookieExpirationPeriod = 600,
-    ///             LbPort = 80,
     ///             LoadBalancer = lb.Id,
+    ///             LbPort = 80,
+    ///             CookieExpirationPeriod = 600,
     ///         });
     ///     }
     /// 

@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.fsx.LustreFileSystem("example", {
- *     importPath: pulumi.interpolate`s3://${aws_s3_bucket_example.bucket}`,
+ *     importPath: `s3://${aws_s3_bucket.example.bucket}`,
  *     storageCapacity: 1200,
- *     subnetIds: aws_subnet_example.id,
+ *     subnetIds: [aws_subnet.example.id],
  * });
  * ```
  */
@@ -53,6 +53,10 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+     */
+    public readonly deploymentType!: pulumi.Output<string | undefined>;
+    /**
      * DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
@@ -76,6 +80,10 @@ export class LustreFileSystem extends pulumi.CustomResource {
      * AWS account identifier that created the file system.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+     */
+    public readonly perUnitStorageThroughput!: pulumi.Output<number | undefined>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
@@ -114,12 +122,14 @@ export class LustreFileSystem extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as LustreFileSystemState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["deploymentType"] = state ? state.deploymentType : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["exportPath"] = state ? state.exportPath : undefined;
             inputs["importPath"] = state ? state.importPath : undefined;
             inputs["importedFileChunkSize"] = state ? state.importedFileChunkSize : undefined;
             inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
+            inputs["perUnitStorageThroughput"] = state ? state.perUnitStorageThroughput : undefined;
             inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             inputs["storageCapacity"] = state ? state.storageCapacity : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -134,9 +144,11 @@ export class LustreFileSystem extends pulumi.CustomResource {
             if (!args || args.subnetIds === undefined) {
                 throw new Error("Missing required property 'subnetIds'");
             }
+            inputs["deploymentType"] = args ? args.deploymentType : undefined;
             inputs["exportPath"] = args ? args.exportPath : undefined;
             inputs["importPath"] = args ? args.importPath : undefined;
             inputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
+            inputs["perUnitStorageThroughput"] = args ? args.perUnitStorageThroughput : undefined;
             inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             inputs["storageCapacity"] = args ? args.storageCapacity : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -168,6 +180,10 @@ export interface LustreFileSystemState {
      */
     readonly arn?: pulumi.Input<string>;
     /**
+     * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+     */
+    readonly deploymentType?: pulumi.Input<string>;
+    /**
      * DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
     readonly dnsName?: pulumi.Input<string>;
@@ -191,6 +207,10 @@ export interface LustreFileSystemState {
      * AWS account identifier that created the file system.
      */
     readonly ownerId?: pulumi.Input<string>;
+    /**
+     * - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+     */
+    readonly perUnitStorageThroughput?: pulumi.Input<number>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
@@ -222,6 +242,10 @@ export interface LustreFileSystemState {
  */
 export interface LustreFileSystemArgs {
     /**
+     * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
+     */
+    readonly deploymentType?: pulumi.Input<string>;
+    /**
      * S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
      */
     readonly exportPath?: pulumi.Input<string>;
@@ -233,6 +257,10 @@ export interface LustreFileSystemArgs {
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
      */
     readonly importedFileChunkSize?: pulumi.Input<number>;
+    /**
+     * - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
+     */
+    readonly perUnitStorageThroughput?: pulumi.Input<number>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */

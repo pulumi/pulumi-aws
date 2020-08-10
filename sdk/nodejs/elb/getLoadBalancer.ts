@@ -23,10 +23,9 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const lbName = config.get("lbName") || "";
- *
- * const test = pulumi.output(aws.elb.getLoadBalancer({
+ * const test = aws.elb.getLoadBalancer({
  *     name: lbName,
- * }, { async: true }));
+ * });
  * ```
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {

@@ -16,7 +16,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, admin_account_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a GuardDuty Organization Admin Account. The AWS account utilizing this resource must be an Organizations master account. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
+        Manages a GuardDuty Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
 
         ## Example Usage
 

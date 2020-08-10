@@ -97,12 +97,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {
- *     cidrBlock: "10.1.0.0/16",
- * });
- * const defaultDefaultNetworkAcl = new aws.ec2.DefaultNetworkAcl("default", {
- *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
- * });
+ * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
+ * const _default = new aws.ec2.DefaultNetworkAcl("default", {defaultNetworkAclId: mainvpc.defaultNetworkAclId});
+ * // no rules defined, deny all traffic in this ACL
  * ```
  */
 export class DefaultNetworkAcl extends pulumi.CustomResource {

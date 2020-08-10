@@ -33,18 +33,18 @@ import (
 // 			return err
 // 		}
 // 		_, err = cognito.NewIdentityProvider(ctx, "exampleProvider", &cognito.IdentityProviderArgs{
-// 			AttributeMapping: pulumi.StringMap{
-// 				"email":    pulumi.String("email"),
-// 				"username": pulumi.String("sub"),
-// 			},
+// 			UserPoolId:   example.ID(),
+// 			ProviderName: pulumi.String("Google"),
+// 			ProviderType: pulumi.String("Google"),
 // 			ProviderDetails: pulumi.StringMap{
 // 				"authorize_scopes": pulumi.String("email"),
 // 				"client_id":        pulumi.String("your client_id"),
 // 				"client_secret":    pulumi.String("your client_secret"),
 // 			},
-// 			ProviderName: pulumi.String("Google"),
-// 			ProviderType: pulumi.String("Google"),
-// 			UserPoolId:   example.ID(),
+// 			AttributeMapping: pulumi.StringMap{
+// 				"email":    pulumi.String("email"),
+// 				"username": pulumi.String("sub"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

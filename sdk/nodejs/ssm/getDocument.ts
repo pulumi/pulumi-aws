@@ -17,12 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = pulumi.output(aws.ssm.getDocument({
- *     documentFormat: "YAML",
+ * const foo = aws.ssm.getDocument({
  *     name: "AWS-GatherSoftwareInventory",
- * }, { async: true }));
- *
- * export const content = foo.content;
+ *     documentFormat: "YAML",
+ * });
+ * export const content = foo.then(foo => foo.content);
  * ```
  *
  * To get the contents of the custom document.
@@ -31,10 +30,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws_ssm_document_test.name.apply(name => aws.ssm.getDocument({
+ * const test = aws.ssm.getDocument({
+ *     name: aws_ssm_document.test.name,
  *     documentFormat: "JSON",
- *     name: name,
- * }, { async: true }));
+ * });
  * ```
  */
 export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentResult> {

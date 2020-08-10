@@ -22,6 +22,7 @@ import {LifecyclePolicyDocument} from "./index";
  *
  * const foo = new aws.ecr.Repository("foo", {});
  * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
+ *     repository: foo.name,
  *     policy: `{
  *     "rules": [
  *         {
@@ -40,7 +41,6 @@ import {LifecyclePolicyDocument} from "./index";
  *     ]
  * }
  * `,
- *     repository: foo.name,
  * });
  * ```
  * ### Policy on tagged image
@@ -51,6 +51,7 @@ import {LifecyclePolicyDocument} from "./index";
  *
  * const foo = new aws.ecr.Repository("foo", {});
  * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
+ *     repository: foo.name,
  *     policy: `{
  *     "rules": [
  *         {
@@ -69,7 +70,6 @@ import {LifecyclePolicyDocument} from "./index";
  *     ]
  * }
  * `,
- *     repository: foo.name,
  * });
  * ```
  */

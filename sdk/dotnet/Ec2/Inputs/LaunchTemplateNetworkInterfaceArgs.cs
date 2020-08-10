@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         /// Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
         /// </summary>
         [Input("deleteOnTermination")]
-        public Input<bool>? DeleteOnTermination { get; set; }
+        public Input<string>? DeleteOnTermination { get; set; }
 
         /// <summary>
         /// Description of the network interface.

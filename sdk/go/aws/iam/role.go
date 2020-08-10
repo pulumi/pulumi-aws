@@ -61,10 +61,10 @@ import (
 // 					},
 // 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // 						iam.GetPolicyDocumentStatementPrincipal{
+// 							Type: "Service",
 // 							Identifiers: []string{
 // 								"ec2.amazonaws.com",
 // 							},
-// 							Type: "Service",
 // 						},
 // 					},
 // 				},
@@ -74,8 +74,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = iam.NewRole(ctx, "instance", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(instance_assume_role_policy.Json),
 // 			Path:             pulumi.String("/system/"),
+// 			AssumeRolePolicy: pulumi.String(instance_assume_role_policy.Json),
 // 		})
 // 		if err != nil {
 // 			return err

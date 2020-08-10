@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucket = new aws.s3.Bucket("example", {});
+ * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
  * const acmpcaBucketAccess = pulumi.all([exampleBucket.arn, exampleBucket.arn]).apply(([exampleBucketArn, exampleBucketArn1]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: [
@@ -44,21 +44,21 @@ import * as utilities from "../utilities";
  *             "s3:PutObject",
  *             "s3:PutObjectAcl",
  *         ],
- *         principals: [{
- *             identifiers: ["acm-pca.amazonaws.com"],
- *             type: "Service",
- *         }],
  *         resources: [
  *             exampleBucketArn,
  *             `${exampleBucketArn1}/*`,
  *         ],
+ *         principals: [{
+ *             identifiers: ["acm-pca.amazonaws.com"],
+ *             type: "Service",
+ *         }],
  *     }],
- * }, { async: true }));
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
+ * }));
+ * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
  *     bucket: exampleBucket.id,
  *     policy: acmpcaBucketAccess.json,
  * });
- * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {
+ * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("exampleCertificateAuthority", {
  *     certificateAuthorityConfiguration: {
  *         keyAlgorithm: "RSA_4096",
  *         signingAlgorithm: "SHA512WITHRSA",
@@ -74,7 +74,9 @@ import * as utilities from "../utilities";
  *             s3BucketName: exampleBucket.id,
  *         },
  *     },
- * }, { dependsOn: [exampleBucketPolicy] });
+ * }, {
+ *     dependsOn: [exampleBucketPolicy],
+ * });
  * ```
  */
 export class CertificateAuthority extends pulumi.CustomResource {

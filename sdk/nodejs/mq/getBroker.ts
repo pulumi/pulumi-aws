@@ -18,13 +18,12 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const brokerId = config.get("brokerId") || "";
  * const brokerName = config.get("brokerName") || "";
- *
- * const byId = pulumi.output(aws.mq.getBroker({
+ * const byId = aws.mq.getBroker({
  *     brokerId: brokerId,
- * }, { async: true }));
- * const byName = pulumi.output(aws.mq.getBroker({
+ * });
+ * const byName = aws.mq.getBroker({
  *     brokerName: brokerName,
- * }, { async: true }));
+ * });
  * ```
  */
 export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {

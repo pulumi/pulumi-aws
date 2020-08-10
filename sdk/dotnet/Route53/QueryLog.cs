@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     public MyStack()
     ///     {
+    ///         // Example CloudWatch log group in us-east-1
     ///         var us_east_1 = new Aws.Provider("us-east-1", new Aws.ProviderArgs
     ///         {
     ///             Region = "us-east-1",
@@ -37,8 +38,10 @@ namespace Pulumi.Aws.Route53
     ///             RetentionInDays = 30,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.us-east-1",
+    ///             Provider = aws.Us_east_1,
     ///         });
+    ///         // Example CloudWatch log resource policy to allow Route53 to write logs
+    ///         // to any log group under /aws/route53/*
     ///         var route53_query_logging_policyPolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
     ///         {
     ///             Statements = 
@@ -49,6 +52,10 @@ namespace Pulumi.Aws.Route53
     ///                     {
     ///                         "logs:CreateLogStream",
     ///                         "logs:PutLogEvents",
+    ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         "arn:aws:logs:*:*:log-group:/aws/route53/*",
     ///                     },
     ///                     Principals = 
     ///                     {
@@ -61,10 +68,6 @@ namespace Pulumi.Aws.Route53
     ///                             Type = "Service",
     ///                         },
     ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         "arn:aws:logs:*:*:log-group:/aws/route53/*",
-    ///                     },
     ///                 },
     ///             },
     ///         }));
@@ -74,8 +77,9 @@ namespace Pulumi.Aws.Route53
     ///             PolicyName = "route53-query-logging-policy",
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.us-east-1",
+    ///             Provider = aws.Us_east_1,
     ///         });
+    ///         // Example Route53 zone with query logging
     ///         var exampleComZone = new Aws.Route53.Zone("exampleComZone", new Aws.Route53.ZoneArgs
     ///         {
     ///         });
@@ -87,7 +91,7 @@ namespace Pulumi.Aws.Route53
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "aws_cloudwatch_log_resource_policy.route53-query-logging-policy",
+    ///                 route53_query_logging_policyLogResourcePolicy,
     ///             },
     ///         });
     ///     }

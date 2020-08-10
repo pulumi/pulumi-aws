@@ -35,7 +35,7 @@ import (
 // 			return err
 // 		}
 // 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"iot.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n", "\n")),
+// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"iot.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -43,6 +43,13 @@ import (
 // 		_, err = iot.NewTopicRule(ctx, "rule", &iot.TopicRuleArgs{
 // 			Description: pulumi.String("Example rule"),
 // 			Enabled:     pulumi.Bool(true),
+// 			Sql:         pulumi.String("SELECT * FROM 'topic/test'"),
+// 			SqlVersion:  pulumi.String("2016-03-23"),
+// 			Sns: &iot.TopicRuleSnsArgs{
+// 				MessageFormat: pulumi.String("RAW"),
+// 				RoleArn:       role.Arn,
+// 				TargetArn:     mytopic.Arn,
+// 			},
 // 			ErrorAction: &iot.TopicRuleErrorActionArgs{
 // 				Sns: &iot.TopicRuleErrorActionSnsArgs{
 // 					MessageFormat: pulumi.String("RAW"),
@@ -50,22 +57,15 @@ import (
 // 					TargetArn:     myerrortopic.Arn,
 // 				},
 // 			},
-// 			Sns: &iot.TopicRuleSnsArgs{
-// 				MessageFormat: pulumi.String("RAW"),
-// 				RoleArn:       role.Arn,
-// 				TargetArn:     mytopic.Arn,
-// 			},
-// 			Sql:        pulumi.String("SELECT * FROM 'topic/test'"),
-// 			SqlVersion: pulumi.String("2016-03-23"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = iam.NewRolePolicy(ctx, "iamPolicyForLambda", &iam.RolePolicyArgs{
-// 			Policy: mytopic.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "        \"Effect\": \"Allow\",\n", "        \"Action\": [\n", "            \"sns:Publish\"\n", "        ],\n", "        \"Resource\": \"", arn, "\"\n", "    }\n", "  ]\n", "}\n", "\n"), nil
-// 			}).(pulumi.StringOutput),
 // 			Role: role.ID(),
+// 			Policy: mytopic.Arn.ApplyT(func(arn string) (string, error) {
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "        \"Effect\": \"Allow\",\n", "        \"Action\": [\n", "            \"sns:Publish\"\n", "        ],\n", "        \"Resource\": \"", arn, "\"\n", "    }\n", "  ]\n", "}\n"), nil
+// 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
 // 			return err

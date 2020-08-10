@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Sqs
     ///         });
     ///         var test = new Aws.Sqs.QueuePolicy("test", new Aws.Sqs.QueuePolicyArgs
     ///         {
+    ///             QueueUrl = queue.Id,
     ///             Policy = queue.Arn.Apply(arn =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Id"": ""sqspolicy"",
@@ -46,9 +47,7 @@ namespace Pulumi.Aws.Sqs
     ///     }}
     ///   ]
     /// }}
-    /// 
     /// "),
-    ///             QueueUrl = queue.Id,
     ///         });
     ///     }
     /// 

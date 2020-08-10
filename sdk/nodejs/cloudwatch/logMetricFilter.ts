@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  *
  * const dada = new aws.cloudwatch.LogGroup("dada", {});
  * const yada = new aws.cloudwatch.LogMetricFilter("yada", {
+ *     pattern: "",
  *     logGroupName: dada.name,
  *     metricTransformation: {
  *         name: "EventCount",
  *         namespace: "YourNamespace",
  *         value: "1",
  *     },
- *     pattern: "",
  * });
  * ```
  */

@@ -12,21 +12,35 @@ import (
 
 // Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
 //
+// > **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `minSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
+//
 // ## Example Usage
 //
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/autoscaling"
 // 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/ecs"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ecs.NewCapacityProvider(ctx, "test", &ecs.CapacityProviderArgs{
+// 		testGroup, err := autoscaling.NewGroup(ctx, "testGroup", &autoscaling.GroupArgs{
+// 			Tags: autoscaling.GroupTagArray{
+// 				&autoscaling.GroupTagArgs{
+// 					Key:               pulumi.String("AmazonECSManaged"),
+// 					PropagateAtLaunch: pulumi.Bool(true),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ecs.NewCapacityProvider(ctx, "testCapacityProvider", &ecs.CapacityProviderArgs{
 // 			AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-// 				AutoScalingGroupArn:          pulumi.String(aws_autoscaling_group.Test.Arn),
+// 				AutoScalingGroupArn:          testGroup.Arn,
 // 				ManagedTerminationProtection: pulumi.String("ENABLED"),
 // 				ManagedScaling: &ecs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs{
 // 					MaximumScalingStepSize: pulumi.Int(1000),

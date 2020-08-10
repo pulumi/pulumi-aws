@@ -43,21 +43,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDomainName = new aws.apigateway.DomainName("example", {
- *     certificateArn: aws_acm_certificate_validation_example.certificateArn,
+ * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
+ *     certificateArn: aws_acm_certificate_validation.example.certificate_arn,
  *     domainName: "api.example.com",
  * });
  * // Example DNS record using Route53.
  * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("example", {
+ * const exampleRecord = new aws.route53.Record("exampleRecord", {
+ *     name: exampleDomainName.domainName,
+ *     type: "A",
+ *     zoneId: aws_route53_zone.example.id,
  *     aliases: [{
  *         evaluateTargetHealth: true,
  *         name: exampleDomainName.cloudfrontDomainName,
  *         zoneId: exampleDomainName.cloudfrontZoneId,
  *     }],
- *     name: exampleDomainName.domainName,
- *     type: "A",
- *     zoneId: aws_route53_zone_example.id,
  * });
  * ```
  * ### Edge Optimized (IAM Certificate)
@@ -65,26 +65,26 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
- * const exampleDomainName = new aws.apigateway.DomainName("example", {
- *     certificateBody: fs.readFileSync(`./example.com/example.crt`, "utf-8"),
- *     certificateChain: fs.readFileSync(`./example.com/ca.crt`, "utf-8"),
- *     certificateName: "example-api",
- *     certificatePrivateKey: fs.readFileSync(`./example.com/example.key`, "utf-8"),
+ * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
  *     domainName: "api.example.com",
+ *     certificateName: "example-api",
+ *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`),
+ *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
+ *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
  * });
  * // Example DNS record using Route53.
  * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("example", {
- *     aliases: [{
- *         evaluateTargetHealth: true,
- *         name: exampleDomainName.cloudfrontDomainName,
- *         zoneId: exampleDomainName.cloudfrontZoneId,
- *     }],
+ * const exampleRecord = new aws.route53.Record("exampleRecord", {
+ *     zoneId: aws_route53_zone.example.id,
  *     name: exampleDomainName.domainName,
  *     type: "A",
- *     zoneId: aws_route53_zone_example.id, // See aws_route53_zone for how to create this
+ *     aliases: [{
+ *         name: exampleDomainName.cloudfrontDomainName,
+ *         zoneId: exampleDomainName.cloudfrontZoneId,
+ *         evaluateTargetHealth: true,
+ *     }],
  * });
  * ```
  * ### Regional (ACM Certificate)
@@ -93,24 +93,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleDomainName = new aws.apigateway.DomainName("example", {
+ * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
  *     domainName: "api.example.com",
+ *     regionalCertificateArn: aws_acm_certificate_validation.example.certificate_arn,
  *     endpointConfiguration: {
- *         types: "REGIONAL",
+ *         types: ["REGIONAL"],
  *     },
- *     regionalCertificateArn: aws_acm_certificate_validation_example.certificateArn,
  * });
  * // Example DNS record using Route53.
  * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("example", {
+ * const exampleRecord = new aws.route53.Record("exampleRecord", {
+ *     name: exampleDomainName.domainName,
+ *     type: "A",
+ *     zoneId: aws_route53_zone.example.id,
  *     aliases: [{
  *         evaluateTargetHealth: true,
  *         name: exampleDomainName.regionalDomainName,
  *         zoneId: exampleDomainName.regionalZoneId,
  *     }],
- *     name: exampleDomainName.domainName,
- *     type: "A",
- *     zoneId: aws_route53_zone_example.id,
  * });
  * ```
  * ### Regional (IAM Certificate)
@@ -118,29 +118,29 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
- * const exampleDomainName = new aws.apigateway.DomainName("example", {
- *     certificateBody: fs.readFileSync(`./example.com/example.crt`, "utf-8"),
- *     certificateChain: fs.readFileSync(`./example.com/ca.crt`, "utf-8"),
- *     certificatePrivateKey: fs.readFileSync(`./example.com/example.key`, "utf-8"),
+ * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
+ *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`),
+ *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
+ *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
  *     domainName: "api.example.com",
- *     endpointConfiguration: {
- *         types: "REGIONAL",
- *     },
  *     regionalCertificateName: "example-api",
+ *     endpointConfiguration: {
+ *         types: ["REGIONAL"],
+ *     },
  * });
  * // Example DNS record using Route53.
  * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("example", {
+ * const exampleRecord = new aws.route53.Record("exampleRecord", {
+ *     name: exampleDomainName.domainName,
+ *     type: "A",
+ *     zoneId: aws_route53_zone.example.id,
  *     aliases: [{
  *         evaluateTargetHealth: true,
  *         name: exampleDomainName.regionalDomainName,
  *         zoneId: exampleDomainName.regionalZoneId,
  *     }],
- *     name: exampleDomainName.domainName,
- *     type: "A",
- *     zoneId: aws_route53_zone_example.id,
  * });
  * ```
  */

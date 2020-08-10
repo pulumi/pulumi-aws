@@ -24,11 +24,11 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         var vpnGw = new Aws.Ec2.VpnGateway("vpnGw", new Aws.Ec2.VpnGatewayArgs
     ///         {
+    ///             VpcId = aws_vpc.Main.Id,
     ///             Tags = 
     ///             {
     ///                 { "Name", "main" },
     ///             },
-    ///             VpcId = aws_vpc.Main.Id,
     ///         });
     ///     }
     /// 

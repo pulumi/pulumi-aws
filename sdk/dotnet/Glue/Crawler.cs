@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Glue
     ///         var example = new Aws.Glue.Crawler("example", new Aws.Glue.CrawlerArgs
     ///         {
     ///             DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///             Role = aws_iam_role.Example.Arn,
     ///             DynamodbTargets = 
     ///             {
     ///                 new Aws.Glue.Inputs.CrawlerDynamodbTargetArgs
@@ -33,7 +34,6 @@ namespace Pulumi.Aws.Glue
     ///                     Path = "table-name",
     ///                 },
     ///             },
-    ///             Role = aws_iam_role.Example.Arn,
     ///         });
     ///     }
     /// 
@@ -52,6 +52,7 @@ namespace Pulumi.Aws.Glue
     ///         var example = new Aws.Glue.Crawler("example", new Aws.Glue.CrawlerArgs
     ///         {
     ///             DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///             Role = aws_iam_role.Example.Arn,
     ///             JdbcTargets = 
     ///             {
     ///                 new Aws.Glue.Inputs.CrawlerJdbcTargetArgs
@@ -60,7 +61,6 @@ namespace Pulumi.Aws.Glue
     ///                     Path = "database-name/%",
     ///                 },
     ///             },
-    ///             Role = aws_iam_role.Example.Arn,
     ///         });
     ///     }
     /// 
@@ -104,6 +104,8 @@ namespace Pulumi.Aws.Glue
     ///     {
     ///         var example = new Aws.Glue.Crawler("example", new Aws.Glue.CrawlerArgs
     ///         {
+    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
+    ///             Role = aws_iam_role.Example.Arn,
     ///             CatalogTargets = 
     ///             {
     ///                 new Aws.Glue.Inputs.CrawlerCatalogTargetArgs
@@ -115,20 +117,17 @@ namespace Pulumi.Aws.Glue
     ///                     },
     ///                 },
     ///             },
+    ///             SchemaChangePolicy = new Aws.Glue.Inputs.CrawlerSchemaChangePolicyArgs
+    ///             {
+    ///                 DeleteBehavior = "LOG",
+    ///             },
     ///             Configuration = @"{
     ///   ""Version"":1.0,
     ///   ""Grouping"": {
     ///     ""TableGroupingPolicy"": ""CombineCompatibleSchemas""
     ///   }
     /// }
-    /// 
     /// ",
-    ///             DatabaseName = aws_glue_catalog_database.Example.Name,
-    ///             Role = aws_iam_role.Example.Arn,
-    ///             SchemaChangePolicy = new Aws.Glue.Inputs.CrawlerSchemaChangePolicyArgs
-    ///             {
-    ///                 DeleteBehavior = "LOG",
-    ///             },
     ///         });
     ///     }
     /// 

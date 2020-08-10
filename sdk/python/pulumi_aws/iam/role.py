@@ -100,13 +100,13 @@ class Role(pulumi.CustomResource):
         instance_assume_role_policy = aws.iam.get_policy_document(statements=[{
             "actions": ["sts:AssumeRole"],
             "principals": [{
-                "identifiers": ["ec2.amazonaws.com"],
                 "type": "Service",
+                "identifiers": ["ec2.amazonaws.com"],
             }],
         }])
         instance = aws.iam.Role("instance",
-            assume_role_policy=instance_assume_role_policy.json,
-            path="/system/")
+            path="/system/",
+            assume_role_policy=instance_assume_role_policy.json)
         ```
 
         :param str resource_name: The name of the resource.

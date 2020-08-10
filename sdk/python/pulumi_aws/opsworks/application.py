@@ -104,32 +104,32 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo_app = aws.opsworks.Application("foo-app",
-            app_sources=[{
-                "revision": "master",
-                "type": "git",
-                "url": "https://github.com/example.git",
-            }],
-            auto_bundle_on_deploy=True,
+            short_name="foobar",
+            stack_id=aws_opsworks_stack["main"]["id"],
+            type="rails",
             description="This is a Rails application",
-            document_root="public",
             domains=[
                 "example.com",
                 "sub.example.com",
             ],
-            enable_ssl=True,
             environments=[{
                 "key": "key",
-                "secure": False,
                 "value": "value",
+                "secure": False,
             }],
-            rails_env="staging",
-            short_name="foobar",
+            app_sources=[{
+                "type": "git",
+                "revision": "master",
+                "url": "https://github.com/example.git",
+            }],
+            enable_ssl=True,
             ssl_configurations=[{
-                "certificate": (lambda path: open(path).read())("./foobar.crt"),
                 "private_key": (lambda path: open(path).read())("./foobar.key"),
+                "certificate": (lambda path: open(path).read())("./foobar.crt"),
             }],
-            stack_id=aws_opsworks_stack["main"]["id"],
-            type="rails")
+            document_root="public",
+            auto_bundle_on_deploy=True,
+            rails_env="staging")
         ```
 
         :param str resource_name: The name of the resource.

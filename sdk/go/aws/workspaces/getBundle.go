@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this data source to get information about a WorkSpaces Bundle.
+// Retrieve information about an AWS WorkSpaces bundle.
 //
 // ## Example Usage
 //

@@ -28,11 +28,11 @@ import (
 // 				EnforceWorkgroupConfiguration:   pulumi.Bool(true),
 // 				PublishCloudwatchMetricsEnabled: pulumi.Bool(true),
 // 				ResultConfiguration: &athena.WorkgroupConfigurationResultConfigurationArgs{
+// 					OutputLocation: pulumi.String("s3://{aws_s3_bucket.example.bucket}/output/"),
 // 					EncryptionConfiguration: &athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{
 // 						EncryptionOption: pulumi.String("SSE_KMS"),
 // 						KmsKeyArn:        pulumi.String(aws_kms_key.Example.Arn),
 // 					},
-// 					OutputLocation: pulumi.String("s3://{aws_s3_bucket.example.bucket}/output/"),
 // 				},
 // 			},
 // 		})

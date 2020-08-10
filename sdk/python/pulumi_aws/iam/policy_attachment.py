@@ -58,7 +58,6 @@ class PolicyAttachment(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         group = aws.iam.Group("group")
         policy = aws.iam.Policy("policy",
@@ -75,13 +74,12 @@ class PolicyAttachment(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         test_attach = aws.iam.PolicyAttachment("test-attach",
-            groups=[group.name],
-            policy_arn=policy.arn,
+            users=[user.name],
             roles=[role.name],
-            users=[user.name])
+            groups=[group.name],
+            policy_arn=policy.arn)
         ```
 
         :param str resource_name: The name of the resource.

@@ -59,7 +59,7 @@ func TestAccLogGroup(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           path.Join(getCwd(t), "logGroup"),
-			RunUpdateTest: true,
+			RunUpdateTest: false,
 		})
 
 	integration.ProgramTest(t, &test)

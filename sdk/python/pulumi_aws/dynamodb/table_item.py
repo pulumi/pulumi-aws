@@ -41,14 +41,15 @@ class TableItem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_table = aws.dynamodb.Table("exampleTable",
+            read_capacity=10,
+            write_capacity=10,
+            hash_key="exampleHashKey",
             attributes=[{
                 "name": "exampleHashKey",
                 "type": "S",
-            }],
-            hash_key="exampleHashKey",
-            read_capacity=10,
-            write_capacity=10)
+            }])
         example_table_item = aws.dynamodb.TableItem("exampleTableItem",
+            table_name=example_table.name,
             hash_key=example_table.hash_key,
             item=\"\"\"{
           "exampleHashKey": {"S": "something"},
@@ -57,9 +58,7 @@ class TableItem(pulumi.CustomResource):
           "three": {"N": "33333"},
           "four": {"N": "44444"}
         }
-
-        \"\"\",
-            table_name=example_table.name)
+        \"\"\")
         ```
 
         :param str resource_name: The name of the resource.

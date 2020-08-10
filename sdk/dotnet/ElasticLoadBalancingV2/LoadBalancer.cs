@@ -28,13 +28,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     ///     {
     ///         var test = new Aws.LB.LoadBalancer("test", new Aws.LB.LoadBalancerArgs
     ///         {
-    ///             AccessLogs = new Aws.LB.Inputs.LoadBalancerAccessLogsArgs
-    ///             {
-    ///                 Bucket = aws_s3_bucket.Lb_logs.Bucket,
-    ///                 Enabled = true,
-    ///                 Prefix = "test-lb",
-    ///             },
-    ///             EnableDeletionProtection = true,
     ///             Internal = false,
     ///             LoadBalancerType = "application",
     ///             SecurityGroups = 
@@ -44,6 +37,13 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     ///             Subnets = 
     ///             {
     ///                 aws_subnet.Public.Select(__item =&gt; __item.Id).ToList(),
+    ///             },
+    ///             EnableDeletionProtection = true,
+    ///             AccessLogs = new Aws.LB.Inputs.LoadBalancerAccessLogsArgs
+    ///             {
+    ///                 Bucket = aws_s3_bucket.Lb_logs.Bucket,
+    ///                 Prefix = "test-lb",
+    ///                 Enabled = true,
     ///             },
     ///             Tags = 
     ///             {
@@ -67,13 +67,13 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     ///     {
     ///         var test = new Aws.LB.LoadBalancer("test", new Aws.LB.LoadBalancerArgs
     ///         {
-    ///             EnableDeletionProtection = true,
     ///             Internal = false,
     ///             LoadBalancerType = "network",
     ///             Subnets = 
     ///             {
     ///                 aws_subnet.Public.Select(__item =&gt; __item.Id).ToList(),
     ///             },
+    ///             EnableDeletionProtection = true,
     ///             Tags = 
     ///             {
     ///                 { "Environment", "production" },
@@ -100,13 +100,13 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     ///             {
     ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///                 {
-    ///                     AllocationId = aws_eip.Example1.Id,
     ///                     SubnetId = aws_subnet.Example1.Id,
+    ///                     AllocationId = aws_eip.Example1.Id,
     ///                 },
     ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///                 {
-    ///                     AllocationId = aws_eip.Example2.Id,
     ///                     SubnetId = aws_subnet.Example2.Id,
+    ///                     AllocationId = aws_eip.Example2.Id,
     ///                 },
     ///             },
     ///         });

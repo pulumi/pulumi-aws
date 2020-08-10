@@ -144,28 +144,16 @@ class LoadBalancer(pulumi.CustomResource):
 
         # Create a new load balancer
         bar = aws.elb.LoadBalancer("bar",
-            access_logs={
-                "bucket": "foo",
-                "bucket_prefix": "bar",
-                "interval": 60,
-            },
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
                 "us-west-2c",
             ],
-            connection_draining=True,
-            connection_draining_timeout=400,
-            cross_zone_load_balancing=True,
-            health_check={
-                "healthyThreshold": 2,
-                "interval": 30,
-                "target": "HTTP:8000/",
-                "timeout": 3,
-                "unhealthyThreshold": 2,
+            access_logs={
+                "bucket": "foo",
+                "bucket_prefix": "bar",
+                "interval": 60,
             },
-            idle_timeout=400,
-            instances=[aws_instance["foo"]["id"]],
             listeners=[
                 {
                     "instance_port": 8000,
@@ -181,6 +169,18 @@ class LoadBalancer(pulumi.CustomResource):
                     "sslCertificateId": "arn:aws:iam::123456789012:server-certificate/certName",
                 },
             ],
+            health_check={
+                "healthyThreshold": 2,
+                "unhealthyThreshold": 2,
+                "timeout": 3,
+                "target": "HTTP:8000/",
+                "interval": 30,
+            },
+            instances=[aws_instance["foo"]["id"]],
+            cross_zone_load_balancing=True,
+            idle_timeout=400,
+            connection_draining=True,
+            connection_draining_timeout=400,
             tags={
                 "Name": "foobar-elb",
             })

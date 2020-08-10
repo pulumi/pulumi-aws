@@ -24,12 +24,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         [Input("inviteMessageTemplate")]
         public Input<Inputs.UserPoolAdminCreateUserConfigInviteMessageTemplateGetArgs>? InviteMessageTemplate { get; set; }
 
-        /// <summary>
-        /// **DEPRECATED** Use password_policy.temporary_password_validity_days instead - The user account expiration limit, in days, after which the account is no longer usable.
-        /// </summary>
-        [Input("unusedAccountValidityDays")]
-        public Input<int>? UnusedAccountValidityDays { get; set; }
-
         public UserPoolAdminCreateUserConfigGetArgs()
         {
         }

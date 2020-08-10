@@ -40,22 +40,22 @@ namespace Pulumi.Aws.Glacier
     ///                     {
     ///                         "glacier:DeleteArchive",
     ///                     },
+    ///                     Effect = "Deny",
+    ///                     Resources = 
+    ///                     {
+    ///                         arn,
+    ///                     },
     ///                     Conditions = 
     ///                     {
     ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
     ///                         {
     ///                             Test = "NumericLessThanEquals",
+    ///                             Variable = "glacier:ArchiveAgeinDays",
     ///                             Values = 
     ///                             {
     ///                                 "365",
     ///                             },
-    ///                             Variable = "glacier:ArchiveAgeinDays",
     ///                         },
-    ///                     },
-    ///                     Effect = "Deny",
-    ///                     Resources = 
-    ///                     {
-    ///                         arn,
     ///                     },
     ///                 },
     ///             },

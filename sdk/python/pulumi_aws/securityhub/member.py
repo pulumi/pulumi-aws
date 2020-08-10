@@ -45,7 +45,7 @@ class Member(pulumi.CustomResource):
             account_id="123456789012",
             email="example@example.com",
             invite=True,
-            opts=ResourceOptions(depends_on=["aws_securityhub_account.example"]))
+            opts=ResourceOptions(depends_on=[example_account]))
         ```
 
         :param str resource_name: The name of the resource.

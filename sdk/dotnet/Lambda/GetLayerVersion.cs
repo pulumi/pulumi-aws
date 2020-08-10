@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Lambda
         ///     public MyStack()
         ///     {
         ///         var config = new Config();
-        ///         var layerName = config.RequireObject&lt;dynamic&gt;("layerName");
+        ///         var layerName = config.Require("layerName");
         ///         var existing = Output.Create(Aws.Lambda.GetLayerVersion.InvokeAsync(new Aws.Lambda.GetLayerVersionArgs
         ///         {
         ///             LayerName = layerName,

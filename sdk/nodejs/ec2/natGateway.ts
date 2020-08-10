@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const gw = new aws.ec2.NatGateway("gw", {
- *     allocationId: aws_eip_nat.id,
- *     subnetId: aws_subnet_example.id,
+ *     allocationId: aws_eip.nat.id,
+ *     subnetId: aws_subnet.example.id,
  * });
  * ```
  *
@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const gw = new aws.ec2.NatGateway("gw", {
- *     allocationId: aws_eip_nat.id,
- *     subnetId: aws_subnet_example.id,
+ *     allocationId: aws_eip.nat.id,
+ *     subnetId: aws_subnet.example.id,
  *     tags: {
  *         Name: "gw NAT",
  *     },

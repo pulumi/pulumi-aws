@@ -39,8 +39,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.NewSnapshotCreateVolumePermission(ctx, "examplePerm", &ec2.SnapshotCreateVolumePermissionArgs{
-// 			AccountId:  pulumi.String("12345678"),
 // 			SnapshotId: exampleSnapshot.ID(),
+// 			AccountId:  pulumi.String("12345678"),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -17,27 +17,27 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb = new aws.appmesh.Route("serviceb", {
- *     meshName: aws_appmesh_mesh_simple.id,
+ *     meshName: aws_appmesh_mesh.simple.id,
+ *     virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
  *     spec: {
  *         httpRoute: {
+ *             match: {
+ *                 prefix: "/",
+ *             },
  *             action: {
  *                 weightedTargets: [
  *                     {
- *                         virtualNode: aws_appmesh_virtual_node_serviceb1.name,
+ *                         virtualNode: aws_appmesh_virtual_node.serviceb1.name,
  *                         weight: 90,
  *                     },
  *                     {
- *                         virtualNode: aws_appmesh_virtual_node_serviceb2.name,
+ *                         virtualNode: aws_appmesh_virtual_node.serviceb2.name,
  *                         weight: 10,
  *                     },
  *                 ],
  *             },
- *             match: {
- *                 prefix: "/",
- *             },
  *         },
  *     },
- *     virtualRouterName: aws_appmesh_virtual_router_serviceb.name,
  * });
  * ```
  * ### HTTP Header Routing
@@ -47,29 +47,29 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb = new aws.appmesh.Route("serviceb", {
- *     meshName: aws_appmesh_mesh_simple.id,
+ *     meshName: aws_appmesh_mesh.simple.id,
+ *     virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
  *     spec: {
  *         httpRoute: {
- *             action: {
- *                 weightedTargets: [{
- *                     virtualNode: aws_appmesh_virtual_node_serviceb.name,
- *                     weight: 100,
- *                 }],
- *             },
  *             match: {
- *                 headers: [{
- *                     match: {
- *                         prefix: "123",
- *                     },
- *                     name: "clientRequestId",
- *                 }],
  *                 method: "POST",
  *                 prefix: "/",
  *                 scheme: "https",
+ *                 headers: [{
+ *                     name: "clientRequestId",
+ *                     match: {
+ *                         prefix: "123",
+ *                     },
+ *                 }],
+ *             },
+ *             action: {
+ *                 weightedTargets: [{
+ *                     virtualNode: aws_appmesh_virtual_node.serviceb.name,
+ *                     weight: 100,
+ *                 }],
  *             },
  *         },
  *     },
- *     virtualRouterName: aws_appmesh_virtual_router_serviceb.name,
  * });
  * ```
  * ### TCP Routing
@@ -79,18 +79,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const serviceb = new aws.appmesh.Route("serviceb", {
- *     meshName: aws_appmesh_mesh_simple.id,
+ *     meshName: aws_appmesh_mesh.simple.id,
+ *     virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
  *     spec: {
  *         tcpRoute: {
  *             action: {
  *                 weightedTargets: [{
- *                     virtualNode: aws_appmesh_virtual_node_serviceb1.name,
+ *                     virtualNode: aws_appmesh_virtual_node.serviceb1.name,
  *                     weight: 100,
  *                 }],
  *             },
  *         },
  *     },
- *     virtualRouterName: aws_appmesh_virtual_router_serviceb.name,
  * });
  * ```
  */

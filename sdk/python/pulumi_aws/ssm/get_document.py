@@ -72,8 +72,8 @@ def get_document(document_format=None,document_version=None,name=None,opts=None)
     import pulumi
     import pulumi_aws as aws
 
-    foo = aws.ssm.get_document(document_format="YAML",
-        name="AWS-GatherSoftwareInventory")
+    foo = aws.ssm.get_document(name="AWS-GatherSoftwareInventory",
+        document_format="YAML")
     pulumi.export("content", foo.content)
     ```
 
@@ -83,8 +83,8 @@ def get_document(document_format=None,document_version=None,name=None,opts=None)
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ssm.get_document(document_format="JSON",
-        name=aws_ssm_document["test"]["name"])
+    test = aws.ssm.get_document(name=aws_ssm_document["test"]["name"],
+        document_format="JSON")
     ```
 
 

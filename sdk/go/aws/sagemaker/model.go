@@ -44,10 +44,10 @@ import (
 // 					},
 // 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // 						iam.GetPolicyDocumentStatementPrincipal{
+// 							Type: "Service",
 // 							Identifiers: []string{
 // 								"sagemaker.amazonaws.com",
 // 							},
-// 							Type: "Service",
 // 						},
 // 					},
 // 				},

@@ -15,10 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const hogeBucket = new aws.s3.Bucket("hoge", {
- *     region: "us-east-1",
- * });
- * const hogeBucketPolicy = new aws.s3.BucketPolicy("hoge", {
+ * const hogeBucket = new aws.s3.Bucket("hogeBucket", {});
+ * const hogeBucketPolicy = new aws.s3.BucketPolicy("hogeBucketPolicy", {
  *     bucket: hogeBucket.bucket,
  *     policy: `{
  *     "Version": "2012-10-17",
@@ -50,12 +48,10 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const foo = new aws.ssm.ResourceDataSync("foo", {
- *     s3Destination: {
- *         bucketName: hogeBucket.bucket,
- *         region: hogeBucket.region,
- *     },
- * });
+ * const foo = new aws.ssm.ResourceDataSync("foo", {s3Destination: {
+ *     bucketName: hogeBucket.bucket,
+ *     region: hogeBucket.region,
+ * }});
  * ```
  */
 export class ResourceDataSync extends pulumi.CustomResource {

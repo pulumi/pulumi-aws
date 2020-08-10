@@ -115,7 +115,7 @@ class Bucket(pulumi.CustomResource):
     """
     region: pulumi.Output[str]
     """
-    If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
+    The AWS region this bucket resides in.
     """
     replication_configuration: pulumi.Output[dict]
     """
@@ -193,7 +193,7 @@ class Bucket(pulumi.CustomResource):
     """
     The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
     """
-    def __init__(__self__, resource_name, opts=None, acceleration_status=None, acl=None, arn=None, bucket=None, bucket_prefix=None, cors_rules=None, force_destroy=None, grants=None, hosted_zone_id=None, lifecycle_rules=None, loggings=None, object_lock_configuration=None, policy=None, region=None, replication_configuration=None, request_payer=None, server_side_encryption_configuration=None, tags=None, versioning=None, website=None, website_domain=None, website_endpoint=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, acceleration_status=None, acl=None, arn=None, bucket=None, bucket_prefix=None, cors_rules=None, force_destroy=None, grants=None, hosted_zone_id=None, lifecycle_rules=None, loggings=None, object_lock_configuration=None, policy=None, replication_configuration=None, request_payer=None, server_side_encryption_configuration=None, tags=None, versioning=None, website=None, website_domain=None, website_endpoint=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a S3 bucket resource.
 
@@ -221,8 +221,8 @@ class Bucket(pulumi.CustomResource):
             acl="public-read",
             policy=(lambda path: open(path).read())("policy.json"),
             website={
-                "errorDocument": "error.html",
                 "indexDocument": "index.html",
+                "errorDocument": "error.html",
                 "routingRules": \"\"\"[{
             "Condition": {
                 "KeyPrefixEquals": "docs/"
@@ -231,7 +231,6 @@ class Bucket(pulumi.CustomResource):
                 "ReplaceKeyPrefixWith": "documents/"
             }
         }]
-
         \"\"\",
             })
         ```
@@ -364,32 +363,28 @@ class Bucket(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
-        destination = aws.s3.Bucket("destination",
-            region="eu-west-1",
-            versioning={
-                "enabled": True,
-            })
+        destination = aws.s3.Bucket("destination", versioning={
+            "enabled": True,
+        })
         bucket = aws.s3.Bucket("bucket",
             acl="private",
-            region="eu-central-1",
+            versioning={
+                "enabled": True,
+            },
             replication_configuration={
                 "role": replication_role.arn,
                 "rules": [{
+                    "id": "foobar",
+                    "prefix": "foo",
+                    "status": "Enabled",
                     "destination": {
                         "bucket": destination.arn,
                         "storage_class": "STANDARD",
                     },
-                    "id": "foobar",
-                    "prefix": "foo",
-                    "status": "Enabled",
                 }],
             },
-            versioning={
-                "enabled": True,
-            },
-            opts=ResourceOptions(provider="aws.central"))
+            opts=ResourceOptions(provider=aws["central"]))
         replication_policy = aws.iam.Policy("replicationPolicy", policy=pulumi.Output.all(bucket.arn, bucket.arn, destination.arn).apply(lambda bucketArn, bucketArn1, destinationArn: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
@@ -423,11 +418,10 @@ class Bucket(pulumi.CustomResource):
             }}
           ]
         }}
-
         \"\"\"))
         replication_role_policy_attachment = aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment",
-            policy_arn=replication_policy.arn,
-            role=replication_role.name)
+            role=replication_role.name,
+            policy_arn=replication_policy.arn)
         ```
         ### Enable Default Server Side Encryption
 
@@ -436,8 +430,8 @@ class Bucket(pulumi.CustomResource):
         import pulumi_aws as aws
 
         mykey = aws.kms.Key("mykey",
-            deletion_window_in_days=10,
-            description="This key is used to encrypt bucket objects")
+            description="This key is used to encrypt bucket objects",
+            deletion_window_in_days=10)
         mybucket = aws.s3.Bucket("mybucket", server_side_encryption_configuration={
             "rule": {
                 "applyServerSideEncryptionByDefault": {
@@ -457,15 +451,15 @@ class Bucket(pulumi.CustomResource):
         bucket = aws.s3.Bucket("bucket", grants=[
             {
                 "id": current_user.id,
-                "permissions": ["FULL_CONTROL"],
                 "type": "CanonicalUser",
+                "permissions": ["FULL_CONTROL"],
             },
             {
+                "type": "Group",
                 "permissions": [
                     "READ",
                     "WRITE",
                 ],
-                "type": "Group",
                 "uri": "http://acs.amazonaws.com/groups/s3/LogDelivery",
             },
         ])
@@ -486,7 +480,6 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[list] loggings: A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         :param pulumi.Input[dict] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
         :param pulumi.Input[dict] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
-        :param pulumi.Input[str] region: If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
         :param pulumi.Input[dict] replication_configuration: A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
                Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
@@ -631,7 +624,6 @@ class Bucket(pulumi.CustomResource):
             __props__['loggings'] = loggings
             __props__['object_lock_configuration'] = object_lock_configuration
             __props__['policy'] = policy
-            __props__['region'] = region
             __props__['replication_configuration'] = replication_configuration
             __props__['request_payer'] = request_payer
             __props__['server_side_encryption_configuration'] = server_side_encryption_configuration
@@ -642,6 +634,7 @@ class Bucket(pulumi.CustomResource):
             __props__['website_endpoint'] = website_endpoint
             __props__['bucket_domain_name'] = None
             __props__['bucket_regional_domain_name'] = None
+            __props__['region'] = None
         super(Bucket, __self__).__init__(
             'aws:s3/bucket:Bucket',
             resource_name,
@@ -672,7 +665,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[list] loggings: A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         :param pulumi.Input[dict] object_lock_configuration: A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
         :param pulumi.Input[dict] policy: A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
-        :param pulumi.Input[str] region: If specified, the AWS region this bucket should reside in. Otherwise, the region used by the callee.
+        :param pulumi.Input[str] region: The AWS region this bucket resides in.
         :param pulumi.Input[dict] replication_configuration: A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
                Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur

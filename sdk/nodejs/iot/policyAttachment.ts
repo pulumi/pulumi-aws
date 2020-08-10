@@ -15,10 +15,9 @@ import {Policy} from "./index";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * from "fs";
  *
- * const pubsub = new aws.iot.Policy("pubsub", {
- *     policy: `{
+ * const pubsub = new aws.iot.Policy("pubsub", {policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -30,11 +29,10 @@ import {Policy} from "./index";
  *     }
  *   ]
  * }
- * `,
- * });
+ * `});
  * const cert = new aws.iot.Certificate("cert", {
+ *     csr: fs.readFileSync("csr.pem"),
  *     active: true,
- *     csr: fs.readFileSync("csr.pem", "utf-8"),
  * });
  * const att = new aws.iot.PolicyAttachment("att", {
  *     policy: pubsub.name,

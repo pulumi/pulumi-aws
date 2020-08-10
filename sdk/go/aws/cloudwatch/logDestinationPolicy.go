@@ -33,10 +33,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = cloudwatch.NewLogDestinationPolicy(ctx, "testDestinationPolicyLogDestinationPolicy", &cloudwatch.LogDestinationPolicyArgs{
+// 			DestinationName: testDestination.Name,
 // 			AccessPolicy: testDestinationPolicyPolicyDocument.ApplyT(func(testDestinationPolicyPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
 // 				return testDestinationPolicyPolicyDocument.Json, nil
 // 			}).(pulumi.StringOutput),
-// 			DestinationName: testDestination.Name,
 // 		})
 // 		if err != nil {
 // 			return err

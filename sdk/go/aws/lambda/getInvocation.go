@@ -39,8 +39,4 @@ type GetInvocationResult struct {
 	Qualifier *string `pulumi:"qualifier"`
 	// String result of the lambda function invocation.
 	Result string `pulumi:"result"`
-	// (**DEPRECATED**) This field is set only if result is a map of primitive types, where the map is string keys and string values.
-	//
-	// Deprecated: use `result` attribute with jsondecode() function
-	ResultMap map[string]string `pulumi:"resultMap"`
 }

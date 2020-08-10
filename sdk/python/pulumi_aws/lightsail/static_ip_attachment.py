@@ -41,8 +41,8 @@ class StaticIpAttachment(pulumi.CustomResource):
             bundle_id="string",
             key_pair_name="some_key_name")
         test_static_ip_attachment = aws.lightsail.StaticIpAttachment("testStaticIpAttachment",
-            instance_name=test_instance.id,
-            static_ip_name=test_static_ip.id)
+            static_ip_name=test_static_ip.id,
+            instance_name=test_instance.id)
         ```
 
         :param str resource_name: The name of the resource.

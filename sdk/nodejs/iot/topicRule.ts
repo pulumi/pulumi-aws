@@ -15,8 +15,7 @@ import * as utilities from "../utilities";
  *
  * const mytopic = new aws.sns.Topic("mytopic", {});
  * const myerrortopic = new aws.sns.Topic("myerrortopic", {});
- * const role = new aws.iam.Role("role", {
- *     assumeRolePolicy: `{
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -28,11 +27,17 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
+ * `});
  * const rule = new aws.iot.TopicRule("rule", {
  *     description: "Example rule",
  *     enabled: true,
+ *     sql: "SELECT * FROM 'topic/test'",
+ *     sqlVersion: "2016-03-23",
+ *     sns: {
+ *         messageFormat: "RAW",
+ *         roleArn: role.arn,
+ *         targetArn: mytopic.arn,
+ *     },
  *     errorAction: {
  *         sns: {
  *             messageFormat: "RAW",
@@ -40,15 +45,9 @@ import * as utilities from "../utilities";
  *             targetArn: myerrortopic.arn,
  *         },
  *     },
- *     sns: {
- *         messageFormat: "RAW",
- *         roleArn: role.arn,
- *         targetArn: mytopic.arn,
- *     },
- *     sql: "SELECT * FROM 'topic/test'",
- *     sqlVersion: "2016-03-23",
  * });
- * const iamPolicyForLambda = new aws.iam.RolePolicy("iam_policy_for_lambda", {
+ * const iamPolicyForLambda = new aws.iam.RolePolicy("iamPolicyForLambda", {
+ *     role: role.id,
  *     policy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -62,7 +61,6 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     role: role.id,
  * });
  * ```
  */

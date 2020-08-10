@@ -41,8 +41,8 @@ namespace Pulumi.Aws.Ec2
         ///         }));
         ///         var subnet = new Aws.Ec2.Subnet("subnet", new Aws.Ec2.SubnetArgs
         ///         {
-        ///             CidrBlock = "10.0.1.0/24",
         ///             VpcId = selected.Apply(selected =&gt; selected.VpcId),
+        ///             CidrBlock = "10.0.1.0/24",
         ///         });
         ///     }
         /// 

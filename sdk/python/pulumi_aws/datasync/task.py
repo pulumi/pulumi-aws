@@ -52,20 +52,6 @@ class Task(pulumi.CustomResource):
         """
         Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            options={
-                "bytesPerSecond": -1,
-            },
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.

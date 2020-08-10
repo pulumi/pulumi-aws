@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     gatewayName: "example",
  *     gatewayTimezone: "GMT",
  *     gatewayType: "VTL",
- *     mediaChangerType: "AWS-Gateway-VTL",
+ *     mediumChangerType: "AWS-Gateway-VTL",
  *     tapeDriveType: "IBM-ULT3580-TD5",
  * });
  * ```
@@ -131,6 +131,9 @@ export class Gateway extends pulumi.CustomResource {
      * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      */
     public readonly gatewayVpcEndpoint!: pulumi.Output<string | undefined>;
+    /**
+     * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+     */
     public readonly mediumChangerType!: pulumi.Output<string | undefined>;
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
@@ -249,6 +252,9 @@ export interface GatewayState {
      * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      */
     readonly gatewayVpcEndpoint?: pulumi.Input<string>;
+    /**
+     * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+     */
     readonly mediumChangerType?: pulumi.Input<string>;
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
@@ -300,6 +306,9 @@ export interface GatewayArgs {
      * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      */
     readonly gatewayVpcEndpoint?: pulumi.Input<string>;
+    /**
+     * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
+     */
     readonly mediumChangerType?: pulumi.Input<string>;
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.

@@ -178,7 +178,7 @@ class LaunchTemplate(pulumi.CustomResource):
     Interfaces below for more details.
 
       * `associate_public_ip_address` (`str`) - Associate a public ip address with the network interface.  Boolean value.
-      * `deleteOnTermination` (`bool`) - Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+      * `deleteOnTermination` (`str`) - Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
       * `description` (`str`) - Description of the network interface.
       * `device_index` (`float`) - The integer index of the network interface attachment.
       * `ipv4AddressCount` (`float`) - The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
@@ -364,7 +364,7 @@ class LaunchTemplate(pulumi.CustomResource):
         The **network_interfaces** object supports the following:
 
           * `associate_public_ip_address` (`pulumi.Input[str]`) - Associate a public ip address with the network interface.  Boolean value.
-          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+          * `deleteOnTermination` (`pulumi.Input[str]`) - Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
           * `description` (`pulumi.Input[str]`) - Description of the network interface.
           * `device_index` (`pulumi.Input[float]`) - The integer index of the network interface attachment.
           * `ipv4AddressCount` (`pulumi.Input[float]`) - The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
@@ -583,7 +583,7 @@ class LaunchTemplate(pulumi.CustomResource):
         The **network_interfaces** object supports the following:
 
           * `associate_public_ip_address` (`pulumi.Input[str]`) - Associate a public ip address with the network interface.  Boolean value.
-          * `deleteOnTermination` (`pulumi.Input[bool]`) - Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
+          * `deleteOnTermination` (`pulumi.Input[str]`) - Whether the network interface should be destroyed on instance termination. Defaults to `false` if not set.
           * `description` (`pulumi.Input[str]`) - Description of the network interface.
           * `device_index` (`pulumi.Input[float]`) - The integer index of the network interface attachment.
           * `ipv4AddressCount` (`pulumi.Input[float]`) - The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`

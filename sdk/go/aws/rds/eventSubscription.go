@@ -27,14 +27,14 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		defaultInstance, err := rds.NewInstance(ctx, "defaultInstance", &rds.InstanceArgs{
 // 			AllocatedStorage:   pulumi.Int(10),
-// 			DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
 // 			Engine:             pulumi.String("mysql"),
 // 			EngineVersion:      pulumi.String("5.6.17"),
 // 			InstanceClass:      pulumi.String("db.t2.micro"),
 // 			Name:               pulumi.String("mydb"),
-// 			ParameterGroupName: pulumi.String("default.mysql5.6"),
-// 			Password:           pulumi.String("bar"),
 // 			Username:           pulumi.String("foo"),
+// 			Password:           pulumi.String("bar"),
+// 			DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
+// 			ParameterGroupName: pulumi.String("default.mysql5.6"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -44,6 +44,11 @@ import (
 // 			return err
 // 		}
 // 		_, err = rds.NewEventSubscription(ctx, "defaultEventSubscription", &rds.EventSubscriptionArgs{
+// 			SnsTopic:   defaultTopic.Arn,
+// 			SourceType: pulumi.String("db-instance"),
+// 			SourceIds: pulumi.StringArray{
+// 				defaultInstance.ID(),
+// 			},
 // 			EventCategories: pulumi.StringArray{
 // 				pulumi.String("availability"),
 // 				pulumi.String("deletion"),
@@ -56,11 +61,6 @@ import (
 // 				pulumi.String("recovery"),
 // 				pulumi.String("restoration"),
 // 			},
-// 			SnsTopic: defaultTopic.Arn,
-// 			SourceIds: pulumi.StringArray{
-// 				defaultInstance.ID(),
-// 			},
-// 			SourceType: pulumi.String("db-instance"),
 // 		})
 // 		if err != nil {
 // 			return err

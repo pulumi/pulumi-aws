@@ -25,20 +25,26 @@ namespace Pulumi.Aws.Rds
     ///         var defaultInstance = new Aws.Rds.Instance("defaultInstance", new Aws.Rds.InstanceArgs
     ///         {
     ///             AllocatedStorage = 10,
-    ///             DbSubnetGroupName = "my_database_subnet_group",
     ///             Engine = "mysql",
     ///             EngineVersion = "5.6.17",
     ///             InstanceClass = "db.t2.micro",
     ///             Name = "mydb",
-    ///             ParameterGroupName = "default.mysql5.6",
-    ///             Password = "bar",
     ///             Username = "foo",
+    ///             Password = "bar",
+    ///             DbSubnetGroupName = "my_database_subnet_group",
+    ///             ParameterGroupName = "default.mysql5.6",
     ///         });
     ///         var defaultTopic = new Aws.Sns.Topic("defaultTopic", new Aws.Sns.TopicArgs
     ///         {
     ///         });
     ///         var defaultEventSubscription = new Aws.Rds.EventSubscription("defaultEventSubscription", new Aws.Rds.EventSubscriptionArgs
     ///         {
+    ///             SnsTopic = defaultTopic.Arn,
+    ///             SourceType = "db-instance",
+    ///             SourceIds = 
+    ///             {
+    ///                 defaultInstance.Id,
+    ///             },
     ///             EventCategories = 
     ///             {
     ///                 "availability",
@@ -52,12 +58,6 @@ namespace Pulumi.Aws.Rds
     ///                 "recovery",
     ///                 "restoration",
     ///             },
-    ///             SnsTopic = defaultTopic.Arn,
-    ///             SourceIds = 
-    ///             {
-    ///                 defaultInstance.Id,
-    ///             },
-    ///             SourceType = "db-instance",
     ///         });
     ///     }
     /// 

@@ -55,8 +55,8 @@ import (
 // 		}
 // 		_, err = elasticbeanstalk.NewApplicationVersion(ctx, "defaultApplicationVersion", &elasticbeanstalk.ApplicationVersionArgs{
 // 			Application: pulumi.String("tf-test-name"),
-// 			Bucket:      defaultBucket.ID(),
 // 			Description: pulumi.String("application version"),
+// 			Bucket:      defaultBucket.ID(),
 // 			Key:         defaultBucketObject.ID(),
 // 		})
 // 		if err != nil {

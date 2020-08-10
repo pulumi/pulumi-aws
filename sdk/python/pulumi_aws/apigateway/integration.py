@@ -94,18 +94,22 @@ class Integration(pulumi.CustomResource):
 
         my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
         my_demo_resource = aws.apigateway.Resource("myDemoResource",
+            rest_api=my_demo_api.id,
             parent_id=my_demo_api.root_resource_id,
-            path_part="mydemoresource",
-            rest_api=my_demo_api.id)
+            path_part="mydemoresource")
         my_demo_method = aws.apigateway.Method("myDemoMethod",
-            authorization="NONE",
-            http_method="GET",
+            rest_api=my_demo_api.id,
             resource_id=my_demo_resource.id,
-            rest_api=my_demo_api.id)
+            http_method="GET",
+            authorization="NONE")
         my_demo_integration = aws.apigateway.Integration("myDemoIntegration",
+            rest_api=my_demo_api.id,
+            resource_id=my_demo_resource.id,
+            http_method=my_demo_method.http_method,
+            type="MOCK",
             cache_key_parameters=["method.request.path.param"],
             cache_namespace="foobar",
-            http_method=my_demo_method.http_method,
+            timeout_milliseconds=29000,
             request_parameters={
                 "integration.request.header.X-Authorization": "'static'",
             },
@@ -113,13 +117,8 @@ class Integration(pulumi.CustomResource):
                 "application/xml": \"\"\"{
            "body" : $input.json('$')
         }
-
         \"\"\",
-            },
-            resource_id=my_demo_resource.id,
-            rest_api=my_demo_api.id,
-            timeout_milliseconds=29000,
-            type="MOCK")
+            })
         ```
         ## VPC Link
 
@@ -134,41 +133,40 @@ class Integration(pulumi.CustomResource):
             internal=True,
             load_balancer_type="network",
             subnets=[subnet_id])
-        test_vpc_link = aws.apigateway.VpcLink("testVpcLink", target_arn=test_load_balancer.arn)
+        test_vpc_link = aws.apigateway.VpcLink("testVpcLink", target_arn=[test_load_balancer.arn])
         test_rest_api = aws.apigateway.RestApi("testRestApi")
         test_resource = aws.apigateway.Resource("testResource",
+            rest_api=test_rest_api.id,
             parent_id=test_rest_api.root_resource_id,
-            path_part="test",
-            rest_api=test_rest_api.id)
+            path_part="test")
         test_method = aws.apigateway.Method("testMethod",
-            authorization="NONE",
+            rest_api=test_rest_api.id,
+            resource_id=test_resource.id,
             http_method="GET",
+            authorization="NONE",
             request_models={
                 "application/json": "Error",
-            },
-            resource_id=test_resource.id,
-            rest_api=test_rest_api.id)
+            })
         test_integration = aws.apigateway.Integration("testIntegration",
-            connection_id=test_vpc_link.id,
-            connection_type="VPC_LINK",
-            content_handling="CONVERT_TO_TEXT",
+            rest_api=test_rest_api.id,
+            resource_id=test_resource.id,
             http_method=test_method.http_method,
-            integration_http_method="GET",
-            passthrough_behavior="WHEN_NO_MATCH",
+            request_templates={
+                "application/json": "",
+                "application/xml": \"\"\"#set($inputRoot = $input.path('$'))
+        { }\"\"\",
+            },
             request_parameters={
                 "integration.request.header.X-Authorization": "'static'",
                 "integration.request.header.X-Foo": "'Bar'",
             },
-            request_templates={
-                "application/json": "",
-                "application/xml": \"\"\"#set($inputRoot = $input.path('$'))
-        { }
-        \"\"\",
-            },
-            resource_id=test_resource.id,
-            rest_api=test_rest_api.id,
             type="HTTP",
-            uri="https://www.google.de")
+            uri="https://www.google.de",
+            integration_http_method="GET",
+            passthrough_behavior="WHEN_NO_MATCH",
+            content_handling="CONVERT_TO_TEXT",
+            connection_type="VPC_LINK",
+            connection_id=test_vpc_link.id)
         ```
 
         :param str resource_name: The name of the resource.

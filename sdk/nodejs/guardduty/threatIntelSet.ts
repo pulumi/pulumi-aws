@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage a GuardDuty ThreatIntelSet.
  *
- * > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage ThreatIntelSets. ThreatIntelSets that are uploaded by the master account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-threat-intel-set.html)
+ * > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage ThreatIntelSets. ThreatIntelSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-threat-intel-set.html)
  *
  * ## Example Usage
  *
@@ -15,21 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const master = new aws.guardduty.Detector("master", {
- *     enable: true,
- * });
- * const bucket = new aws.s3.Bucket("bucket", {
- *     acl: "private",
- * });
- * const myThreatIntelSetBucketObject = new aws.s3.BucketObject("MyThreatIntelSet", {
+ * const primary = new aws.guardduty.Detector("primary", {enable: true});
+ * const bucket = new aws.s3.Bucket("bucket", {acl: "private"});
+ * const myThreatIntelSetBucketObject = new aws.s3.BucketObject("myThreatIntelSetBucketObject", {
  *     acl: "public-read",
- *     bucket: bucket.id,
  *     content: "10.0.0.0/8\n",
+ *     bucket: bucket.id,
  *     key: "MyThreatIntelSet",
  * });
- * const myThreatIntelSetThreatIntelSet = new aws.guardduty.ThreatIntelSet("MyThreatIntelSet", {
+ * const myThreatIntelSetThreatIntelSet = new aws.guardduty.ThreatIntelSet("myThreatIntelSetThreatIntelSet", {
  *     activate: true,
- *     detectorId: master.id,
+ *     detectorId: primary.id,
  *     format: "TXT",
  *     location: pulumi.interpolate`https://s3.amazonaws.com/${myThreatIntelSetBucketObject.bucket}/${myThreatIntelSetBucketObject.key}`,
  * });

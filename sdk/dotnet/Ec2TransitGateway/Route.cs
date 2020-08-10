@@ -45,8 +45,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///     {
     ///         var example = new Aws.Ec2TransitGateway.Route("example", new Aws.Ec2TransitGateway.RouteArgs
     ///         {
-    ///             Blackhole = true,
     ///             DestinationCidrBlock = "0.0.0.0/0",
+    ///             Blackhole = true,
     ///             TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
     ///         });
     ///     }

@@ -65,7 +65,7 @@ let logcollector = new aws.lambda.Function("mylambda-logcollector", {
 let permission = new aws.lambda.Permission("logcollector-permission", {
     action: "lambda:InvokeFunction",
     principal: "logs." + region + ".amazonaws.com",
-    sourceArn: logGroup.arn,
+    sourceArn: pulumi.interpolate`${logGroup.arn}:*`,
     function: logcollector,
 }, providerOpts);
 

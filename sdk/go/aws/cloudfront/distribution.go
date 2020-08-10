@@ -24,10 +24,6 @@ import (
 type Distribution struct {
 	pulumi.CustomResourceState
 
-	// The key pair IDs that CloudFront is aware of for
-	// each trusted signer, if the distribution is set up to serve private content
-	// with signed URLs.
-	ActiveTrustedSigners pulumi.StringMapOutput `pulumi:"activeTrustedSigners"`
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
 	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
@@ -101,6 +97,9 @@ type Distribution struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+	TrustedSigners DistributionTrustedSignerArrayOutput `pulumi:"trustedSigners"`
 	// The SSL
 	// configuration for this distribution (maximum
 	// one).
@@ -160,10 +159,6 @@ func GetDistribution(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Distribution resources.
 type distributionState struct {
-	// The key pair IDs that CloudFront is aware of for
-	// each trusted signer, if the distribution is set up to serve private content
-	// with signed URLs.
-	ActiveTrustedSigners map[string]string `pulumi:"activeTrustedSigners"`
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
 	Aliases []string `pulumi:"aliases"`
@@ -237,6 +232,9 @@ type distributionState struct {
 	Status *string `pulumi:"status"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+	TrustedSigners []DistributionTrustedSigner `pulumi:"trustedSigners"`
 	// The SSL
 	// configuration for this distribution (maximum
 	// one).
@@ -254,10 +252,6 @@ type distributionState struct {
 }
 
 type DistributionState struct {
-	// The key pair IDs that CloudFront is aware of for
-	// each trusted signer, if the distribution is set up to serve private content
-	// with signed URLs.
-	ActiveTrustedSigners pulumi.StringMapInput
 	// Extra CNAMEs (alternate domain names), if any, for
 	// this distribution.
 	Aliases pulumi.StringArrayInput
@@ -331,6 +325,9 @@ type DistributionState struct {
 	Status pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
+	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+	TrustedSigners DistributionTrustedSignerArrayInput
 	// The SSL
 	// configuration for this distribution (maximum
 	// one).

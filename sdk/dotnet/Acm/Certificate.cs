@@ -69,12 +69,6 @@ namespace Pulumi.Aws.Acm
     ///         });
     ///         var exampleSelfSignedCert = new Tls.SelfSignedCert("exampleSelfSignedCert", new Tls.SelfSignedCertArgs
     ///         {
-    ///             AllowedUses = 
-    ///             {
-    ///                 "key_encipherment",
-    ///                 "digital_signature",
-    ///                 "server_auth",
-    ///             },
     ///             KeyAlgorithm = "RSA",
     ///             PrivateKeyPem = examplePrivateKey.PrivateKeyPem,
     ///             Subjects = 
@@ -86,11 +80,17 @@ namespace Pulumi.Aws.Acm
     ///                 },
     ///             },
     ///             ValidityPeriodHours = 12,
+    ///             AllowedUses = 
+    ///             {
+    ///                 "key_encipherment",
+    ///                 "digital_signature",
+    ///                 "server_auth",
+    ///             },
     ///         });
     ///         var cert = new Aws.Acm.Certificate("cert", new Aws.Acm.CertificateArgs
     ///         {
-    ///             CertificateBody = exampleSelfSignedCert.CertPem,
     ///             PrivateKey = examplePrivateKey.PrivateKeyPem,
+    ///             CertificateBody = exampleSelfSignedCert.CertPem,
     ///         });
     ///     }
     /// 
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Acm
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
         /// </summary>
         [Output("domainValidationOptions")]
         public Output<ImmutableArray<Outputs.CertificateDomainValidationOption>> DomainValidationOptions { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Acm
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         /// </summary>
         [Output("subjectAlternativeNames")]
         public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.Acm
         private InputList<Inputs.CertificateDomainValidationOptionGetArgs>? _domainValidationOptions;
 
         /// <summary>
-        /// A list of attributes to feed into other resources to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
         /// </summary>
         public InputList<Inputs.CertificateDomainValidationOptionGetArgs> DomainValidationOptions
         {
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Acm
         private InputList<string>? _subjectAlternativeNames;
 
         /// <summary>
-        /// A list of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
+        /// Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         /// </summary>
         public InputList<string> SubjectAlternativeNames
         {

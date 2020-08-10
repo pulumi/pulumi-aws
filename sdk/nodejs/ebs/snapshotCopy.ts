@@ -20,15 +20,15 @@ import * as utilities from "../utilities";
  *         Name: "HelloWorld",
  *     },
  * });
- * const exampleSnapshot = new aws.ebs.Snapshot("example_snapshot", {
+ * const exampleSnapshot = new aws.ebs.Snapshot("exampleSnapshot", {
+ *     volumeId: example.id,
  *     tags: {
  *         Name: "HelloWorld_snap",
  *     },
- *     volumeId: example.id,
  * });
- * const exampleCopy = new aws.ebs.SnapshotCopy("example_copy", {
- *     sourceRegion: "us-west-2",
+ * const exampleCopy = new aws.ebs.SnapshotCopy("exampleCopy", {
  *     sourceSnapshotId: exampleSnapshot.id,
+ *     sourceRegion: "us-west-2",
  *     tags: {
  *         Name: "HelloWorld_copy_snap",
  *     },
