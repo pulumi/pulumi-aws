@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetInvocationResult:
     """
@@ -34,6 +35,8 @@ class GetInvocationResult:
         """
         String result of the lambda function invocation.
         """
+
+
 class AwaitableGetInvocationResult(GetInvocationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -46,7 +49,8 @@ class AwaitableGetInvocationResult(GetInvocationResult):
             qualifier=self.qualifier,
             result=self.result)
 
-def get_invocation(function_name=None,input=None,qualifier=None,opts=None):
+
+def get_invocation(function_name=None, input=None, qualifier=None, opts=None):
     """
     Use this data source to invoke custom lambda functions as data source.
     The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
@@ -59,15 +63,13 @@ def get_invocation(function_name=None,input=None,qualifier=None,opts=None):
            to `$LATEST`.
     """
     __args__ = dict()
-
-
     __args__['functionName'] = function_name
     __args__['input'] = input
     __args__['qualifier'] = qualifier
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:lambda/getInvocation:getInvocation', __args__, opts=opts).value
 
     return AwaitableGetInvocationResult(

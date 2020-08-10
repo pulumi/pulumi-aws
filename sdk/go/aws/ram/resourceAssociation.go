@@ -27,8 +27,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ram.NewResourceAssociation(ctx, "example", &ram.ResourceAssociationArgs{
-// 			ResourceArn:      pulumi.String(aws_subnet.Example.Arn),
-// 			ResourceShareArn: pulumi.String(aws_ram_resource_share.Example.Arn),
+// 			ResourceArn:      pulumi.Any(aws_subnet.Example.Arn),
+// 			ResourceShareArn: pulumi.Any(aws_ram_resource_share.Example.Arn),
 // 		})
 // 		if err != nil {
 // 			return err

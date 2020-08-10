@@ -86,14 +86,14 @@ import (
 // 		_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
 // 			Destination: pulumi.String("redshift"),
 // 			S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-// 				RoleArn:           pulumi.String(aws_iam_role.Firehose_role.Arn),
-// 				BucketArn:         pulumi.String(aws_s3_bucket.Bucket.Arn),
+// 				RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
+// 				BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
 // 				BufferSize:        pulumi.Int(10),
 // 				BufferInterval:    pulumi.Int(400),
 // 				CompressionFormat: pulumi.String("GZIP"),
 // 			},
 // 			RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
-// 				RoleArn: pulumi.String(aws_iam_role.Firehose_role.Arn),
+// 				RoleArn: pulumi.Any(aws_iam_role.Firehose_role.Arn),
 // 				ClusterJdbcurl: pulumi.All(testCluster.Endpoint, testCluster.DatabaseName).ApplyT(func(_args []interface{}) (string, error) {
 // 					endpoint := _args[0].(string)
 // 					databaseName := _args[1].(string)
@@ -106,8 +106,8 @@ import (
 // 				DataTableColumns: pulumi.String("test-col"),
 // 				S3BackupMode:     pulumi.String("Enabled"),
 // 				S3BackupConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs{
-// 					RoleArn:           pulumi.String(aws_iam_role.Firehose_role.Arn),
-// 					BucketArn:         pulumi.String(aws_s3_bucket.Bucket.Arn),
+// 					RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
+// 					BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
 // 					BufferSize:        pulumi.Int(15),
 // 					BufferInterval:    pulumi.Int(300),
 // 					CompressionFormat: pulumi.String("GZIP"),
@@ -143,15 +143,15 @@ import (
 // 		_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
 // 			Destination: pulumi.String("elasticsearch"),
 // 			S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-// 				RoleArn:           pulumi.String(aws_iam_role.Firehose_role.Arn),
-// 				BucketArn:         pulumi.String(aws_s3_bucket.Bucket.Arn),
+// 				RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
+// 				BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
 // 				BufferSize:        pulumi.Int(10),
 // 				BufferInterval:    pulumi.Int(400),
 // 				CompressionFormat: pulumi.String("GZIP"),
 // 			},
 // 			ElasticsearchConfiguration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs{
 // 				DomainArn: testCluster.Arn,
-// 				RoleArn:   pulumi.String(aws_iam_role.Firehose_role.Arn),
+// 				RoleArn:   pulumi.Any(aws_iam_role.Firehose_role.Arn),
 // 				IndexName: pulumi.String("test"),
 // 				TypeName:  pulumi.String("test"),
 // 				ProcessingConfiguration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs{
@@ -192,8 +192,8 @@ import (
 // 		_, err := kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
 // 			Destination: pulumi.String("splunk"),
 // 			S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-// 				RoleArn:           pulumi.String(aws_iam_role.Firehose.Arn),
-// 				BucketArn:         pulumi.String(aws_s3_bucket.Bucket.Arn),
+// 				RoleArn:           pulumi.Any(aws_iam_role.Firehose.Arn),
+// 				BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
 // 				BufferSize:        pulumi.Int(10),
 // 				BufferInterval:    pulumi.Int(400),
 // 				CompressionFormat: pulumi.String("GZIP"),

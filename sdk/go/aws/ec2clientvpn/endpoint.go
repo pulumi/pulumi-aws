@@ -27,18 +27,18 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ec2clientvpn.NewEndpoint(ctx, "example", &ec2clientvpn.EndpointArgs{
 // 			Description:          pulumi.String("clientvpn-example"),
-// 			ServerCertificateArn: pulumi.String(aws_acm_certificate.Cert.Arn),
+// 			ServerCertificateArn: pulumi.Any(aws_acm_certificate.Cert.Arn),
 // 			ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
 // 			AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
 // 				&ec2clientvpn.EndpointAuthenticationOptionArgs{
 // 					Type:                    pulumi.String("certificate-authentication"),
-// 					RootCertificateChainArn: pulumi.String(aws_acm_certificate.Root_cert.Arn),
+// 					RootCertificateChainArn: pulumi.Any(aws_acm_certificate.Root_cert.Arn),
 // 				},
 // 			},
 // 			ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
 // 				Enabled:             pulumi.Bool(true),
-// 				CloudwatchLogGroup:  pulumi.String(aws_cloudwatch_log_group.Lg.Name),
-// 				CloudwatchLogStream: pulumi.String(aws_cloudwatch_log_stream.Ls.Name),
+// 				CloudwatchLogGroup:  pulumi.Any(aws_cloudwatch_log_group.Lg.Name),
+// 				CloudwatchLogStream: pulumi.Any(aws_cloudwatch_log_stream.Ls.Name),
 // 			},
 // 		})
 // 		if err != nil {

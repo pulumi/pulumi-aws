@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetSitesResult:
     """
@@ -25,6 +26,8 @@ class GetSitesResult:
         """
         Set of Outposts Site identifiers.
         """
+
+
 class AwaitableGetSitesResult(GetSitesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -33,6 +36,7 @@ class AwaitableGetSitesResult(GetSitesResult):
         return GetSitesResult(
             id=self.id,
             ids=self.ids)
+
 
 def get_sites(opts=None):
     """
@@ -48,12 +52,10 @@ def get_sites(opts=None):
     ```
     """
     __args__ = dict()
-
-
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:outposts/getSites:getSites', __args__, opts=opts).value
 
     return AwaitableGetSitesResult(

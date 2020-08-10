@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
+
 
 class GetElasticIpResult:
     """
@@ -100,6 +101,8 @@ class GetElasticIpResult:
         """
         Key-value map of tags associated with Elastic IP.
         """
+
+
 class AwaitableGetElasticIpResult(GetElasticIpResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -122,7 +125,8 @@ class AwaitableGetElasticIpResult(GetElasticIpResult):
             public_ipv4_pool=self.public_ipv4_pool,
             tags=self.tags)
 
-def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
+
+def get_elastic_ip(filters=None, id=None, public_ip=None, tags=None, opts=None):
     """
     `ec2.Eip` provides details about a specific Elastic IP.
 
@@ -177,8 +181,6 @@ def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
       * `values` (`list`)
     """
     __args__ = dict()
-
-
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['publicIp'] = public_ip
@@ -186,7 +188,7 @@ def get_elastic_ip(filters=None,id=None,public_ip=None,tags=None,opts=None):
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getElasticIp:getElasticIp', __args__, opts=opts).value
 
     return AwaitableGetElasticIpResult(

@@ -25,10 +25,10 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ses.NewIdentityNotificationTopic(ctx, "test", &ses.IdentityNotificationTopicArgs{
-// 			Identity:               pulumi.String(aws_ses_domain_identity.Example.Domain),
+// 			Identity:               pulumi.Any(aws_ses_domain_identity.Example.Domain),
 // 			IncludeOriginalHeaders: pulumi.Bool(true),
 // 			NotificationType:       pulumi.String("Bounce"),
-// 			TopicArn:               pulumi.String(aws_sns_topic.Example.Arn),
+// 			TopicArn:               pulumi.Any(aws_sns_topic.Example.Arn),
 // 		})
 // 		if err != nil {
 // 			return err

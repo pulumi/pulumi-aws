@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetBucketObjectResult:
     """
@@ -154,6 +155,8 @@ class GetBucketObjectResult:
         """
         If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
         """
+
+
 class AwaitableGetBucketObjectResult(GetBucketObjectResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -186,7 +189,8 @@ class AwaitableGetBucketObjectResult(GetBucketObjectResult):
             version_id=self.version_id,
             website_redirect_location=self.website_redirect_location)
 
-def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,opts=None):
+
+def get_bucket_object(bucket=None, key=None, range=None, tags=None, version_id=None, opts=None):
     """
     The S3 object data source allows access to the metadata and
     _optionally_ (see below) content of an object stored inside S3 bucket.
@@ -237,8 +241,6 @@ def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,
     :param str version_id: Specific version ID of the object returned (defaults to latest version)
     """
     __args__ = dict()
-
-
     __args__['bucket'] = bucket
     __args__['key'] = key
     __args__['range'] = range
@@ -247,7 +249,7 @@ def get_bucket_object(bucket=None,key=None,range=None,tags=None,version_id=None,
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucketObject:getBucketObject', __args__, opts=opts).value
 
     return AwaitableGetBucketObjectResult(

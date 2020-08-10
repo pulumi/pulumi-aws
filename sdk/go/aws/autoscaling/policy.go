@@ -39,7 +39,7 @@ import (
 // 			HealthCheckGracePeriod: pulumi.Int(300),
 // 			HealthCheckType:        pulumi.String("ELB"),
 // 			ForceDelete:            pulumi.Bool(true),
-// 			LaunchConfiguration:    pulumi.String(aws_launch_configuration.Foo.Name),
+// 			LaunchConfiguration:    pulumi.Any(aws_launch_configuration.Foo.Name),
 // 		})
 // 		if err != nil {
 // 			return err

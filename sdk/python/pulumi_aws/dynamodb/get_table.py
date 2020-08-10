@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetTableResult:
     """
@@ -76,6 +77,8 @@ class GetTableResult:
         if write_capacity and not isinstance(write_capacity, float):
             raise TypeError("Expected argument 'write_capacity' to be a float")
         __self__.write_capacity = write_capacity
+
+
 class AwaitableGetTableResult(GetTableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -103,7 +106,8 @@ class AwaitableGetTableResult(GetTableResult):
             ttl=self.ttl,
             write_capacity=self.write_capacity)
 
-def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
+
+def get_table(name=None, server_side_encryption=None, tags=None, opts=None):
     """
     Provides information about a DynamoDB table.
 
@@ -125,15 +129,13 @@ def get_table(name=None,server_side_encryption=None,tags=None,opts=None):
       * `kms_key_arn` (`str`)
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['serverSideEncryption'] = server_side_encryption
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:dynamodb/getTable:getTable', __args__, opts=opts).value
 
     return AwaitableGetTableResult(

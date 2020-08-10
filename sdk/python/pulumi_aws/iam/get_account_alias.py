@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetAccountAliasResult:
     """
@@ -25,6 +26,8 @@ class GetAccountAliasResult:
         """
         The provider-assigned unique ID for this managed resource.
         """
+
+
 class AwaitableGetAccountAliasResult(GetAccountAliasResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -33,6 +36,7 @@ class AwaitableGetAccountAliasResult(GetAccountAliasResult):
         return GetAccountAliasResult(
             account_alias=self.account_alias,
             id=self.id)
+
 
 def get_account_alias(opts=None):
     """
@@ -50,12 +54,10 @@ def get_account_alias(opts=None):
     ```
     """
     __args__ = dict()
-
-
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getAccountAlias:getAccountAlias', __args__, opts=opts).value
 
     return AwaitableGetAccountAliasResult(

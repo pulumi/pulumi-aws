@@ -69,6 +69,7 @@ namespace Pulumi.Aws.AutoScaling
     /// {
     ///     public MyStack()
     ///     {
+    ///         // ... other configuration ...
     ///         var asg = new Aws.AutoScaling.Group("asg", new Aws.AutoScaling.GroupArgs
     ///         {
     ///         });

@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
+
 
 class GetCallerIdentityResult:
     """
@@ -37,6 +38,8 @@ class GetCallerIdentityResult:
         """
         The unique identifier of the calling entity.
         """
+
+
 class AwaitableGetCallerIdentityResult(GetCallerIdentityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -47,6 +50,7 @@ class AwaitableGetCallerIdentityResult(GetCallerIdentityResult):
             arn=self.arn,
             id=self.id,
             user_id=self.user_id)
+
 
 def get_caller_identity(opts=None):
     """
@@ -66,12 +70,10 @@ def get_caller_identity(opts=None):
     ```
     """
     __args__ = dict()
-
-
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getCallerIdentity:getCallerIdentity', __args__, opts=opts).value
 
     return AwaitableGetCallerIdentityResult(

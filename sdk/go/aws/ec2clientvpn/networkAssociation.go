@@ -26,8 +26,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ec2clientvpn.NewNetworkAssociation(ctx, "example", &ec2clientvpn.NetworkAssociationArgs{
-// 			ClientVpnEndpointId: pulumi.String(aws_ec2_client_vpn_endpoint.Example.Id),
-// 			SubnetId:            pulumi.String(aws_subnet.Example.Id),
+// 			ClientVpnEndpointId: pulumi.Any(aws_ec2_client_vpn_endpoint.Example.Id),
+// 			SubnetId:            pulumi.Any(aws_subnet.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err

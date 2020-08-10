@@ -28,8 +28,8 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := opsworks.NewStack(ctx, "main", &opsworks.StackArgs{
 // 			Region:                    pulumi.String("us-west-1"),
-// 			ServiceRoleArn:            pulumi.String(aws_iam_role.Opsworks.Arn),
-// 			DefaultInstanceProfileArn: pulumi.String(aws_iam_instance_profile.Opsworks.Arn),
+// 			ServiceRoleArn:            pulumi.Any(aws_iam_role.Opsworks.Arn),
+// 			DefaultInstanceProfileArn: pulumi.Any(aws_iam_instance_profile.Opsworks.Arn),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("foobar-stack"),
 // 			},

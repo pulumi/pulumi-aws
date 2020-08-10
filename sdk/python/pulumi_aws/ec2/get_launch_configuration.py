@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetLaunchConfigurationResult:
     """
@@ -127,6 +128,8 @@ class GetLaunchConfigurationResult:
         """
         The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
         """
+
+
 class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -153,7 +156,8 @@ class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
             vpc_classic_link_id=self.vpc_classic_link_id,
             vpc_classic_link_security_groups=self.vpc_classic_link_security_groups)
 
-def get_launch_configuration(name=None,opts=None):
+
+def get_launch_configuration(name=None, opts=None):
     """
     Provides information about a Launch Configuration.
 
@@ -170,13 +174,11 @@ def get_launch_configuration(name=None,opts=None):
     :param str name: The name of the launch configuration.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLaunchConfiguration:getLaunchConfiguration', __args__, opts=opts).value
 
     return AwaitableGetLaunchConfigurationResult(

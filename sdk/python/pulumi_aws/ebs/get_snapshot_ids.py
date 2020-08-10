@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetSnapshotIdsResult:
     """
@@ -31,6 +32,8 @@ class GetSnapshotIdsResult:
         if restorable_by_user_ids and not isinstance(restorable_by_user_ids, list):
             raise TypeError("Expected argument 'restorable_by_user_ids' to be a list")
         __self__.restorable_by_user_ids = restorable_by_user_ids
+
+
 class AwaitableGetSnapshotIdsResult(GetSnapshotIdsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -43,7 +46,8 @@ class AwaitableGetSnapshotIdsResult(GetSnapshotIdsResult):
             owners=self.owners,
             restorable_by_user_ids=self.restorable_by_user_ids)
 
-def get_snapshot_ids(filters=None,owners=None,restorable_by_user_ids=None,opts=None):
+
+def get_snapshot_ids(filters=None, owners=None, restorable_by_user_ids=None, opts=None):
     """
     Use this data source to get a list of EBS Snapshot IDs matching the specified
     criteria.
@@ -80,15 +84,13 @@ def get_snapshot_ids(filters=None,owners=None,restorable_by_user_ids=None,opts=N
       * `values` (`list`)
     """
     __args__ = dict()
-
-
     __args__['filters'] = filters
     __args__['owners'] = owners
     __args__['restorableByUserIds'] = restorable_by_user_ids
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshotIds:getSnapshotIds', __args__, opts=opts).value
 
     return AwaitableGetSnapshotIdsResult(

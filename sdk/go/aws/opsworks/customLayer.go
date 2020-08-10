@@ -26,7 +26,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := opsworks.NewCustomLayer(ctx, "custlayer", &opsworks.CustomLayerArgs{
 // 			ShortName: pulumi.String("awesome"),
-// 			StackId:   pulumi.String(aws_opsworks_stack.Main.Id),
+// 			StackId:   pulumi.Any(aws_opsworks_stack.Main.Id),
 // 		})
 // 		if err != nil {
 // 			return err

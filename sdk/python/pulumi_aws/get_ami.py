@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
+
 
 class GetAmiResult:
     """
@@ -211,6 +212,8 @@ class GetAmiResult:
         The type of virtualization of the AMI (ie: `hvm` or
         `paravirtual`).
         """
+
+
 class AwaitableGetAmiResult(GetAmiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -249,7 +252,8 @@ class AwaitableGetAmiResult(GetAmiResult):
             tags=self.tags,
             virtualization_type=self.virtualization_type)
 
-def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,owners=None,tags=None,opts=None):
+
+def get_ami(executable_users=None, filters=None, most_recent=None, name_regex=None, owners=None, tags=None, opts=None):
     """
     Use this data source to get the ID of a registered AMI for use in other
     resources.
@@ -304,8 +308,6 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
       * `values` (`list`)
     """
     __args__ = dict()
-
-
     __args__['executableUsers'] = executable_users
     __args__['filters'] = filters
     __args__['mostRecent'] = most_recent
@@ -315,7 +317,7 @@ def get_ami(executable_users=None,filters=None,most_recent=None,name_regex=None,
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getAmi:getAmi', __args__, opts=opts).value
 
     return AwaitableGetAmiResult(

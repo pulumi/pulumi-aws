@@ -6,9 +6,10 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 warnings.warn("aws.applicationloadbalancing.getLoadBalancer has been deprecated in favor of aws.alb.getLoadBalancer", DeprecationWarning)
+
 class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
@@ -74,6 +75,8 @@ class GetLoadBalancerResult:
         if zone_id and not isinstance(zone_id, str):
             raise TypeError("Expected argument 'zone_id' to be a str")
         __self__.zone_id = zone_id
+
+
 class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -100,7 +103,8 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             vpc_id=self.vpc_id,
             zone_id=self.zone_id)
 
-def get_load_balancer(arn=None,name=None,tags=None,opts=None):
+
+def get_load_balancer(arn=None, name=None, tags=None, opts=None):
     """
     > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
 
@@ -133,15 +137,13 @@ def get_load_balancer(arn=None,name=None,tags=None,opts=None):
     """
     pulumi.log.warn("get_load_balancer is deprecated: aws.applicationloadbalancing.getLoadBalancer has been deprecated in favor of aws.alb.getLoadBalancer")
     __args__ = dict()
-
-
     __args__['arn'] = arn
     __args__['name'] = name
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:applicationloadbalancing/getLoadBalancer:getLoadBalancer', __args__, opts=opts).value
 
     return AwaitableGetLoadBalancerResult(

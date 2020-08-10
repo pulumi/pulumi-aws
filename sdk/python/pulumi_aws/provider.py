@@ -7,7 +7,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
 
 
 class Provider(pulumi.ProviderResource):
@@ -208,7 +208,7 @@ class Provider(pulumi.ProviderResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -223,10 +223,10 @@ class Provider(pulumi.ProviderResource):
             __props__['insecure'] = pulumi.Output.from_input(insecure).apply(json.dumps) if insecure is not None else None
             __props__['max_retries'] = pulumi.Output.from_input(max_retries).apply(json.dumps) if max_retries is not None else None
             if profile is None:
-                profile = utilities.get_env('AWS_PROFILE')
+                profile = _utilities.get_env('AWS_PROFILE')
             __props__['profile'] = profile
             if region is None:
-                region = utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
+                region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
             __props__['region'] = region
             __props__['s3_force_path_style'] = pulumi.Output.from_input(s3_force_path_style).apply(json.dumps) if s3_force_path_style is not None else None
             __props__['secret_key'] = secret_key
@@ -244,7 +244,7 @@ class Provider(pulumi.ProviderResource):
             opts)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop

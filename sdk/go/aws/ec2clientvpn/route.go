@@ -27,12 +27,12 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleEndpoint, err := ec2clientvpn.NewEndpoint(ctx, "exampleEndpoint", &ec2clientvpn.EndpointArgs{
 // 			Description:          pulumi.String("Example Client VPN endpoint"),
-// 			ServerCertificateArn: pulumi.String(aws_acm_certificate.Example.Arn),
+// 			ServerCertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
 // 			ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
 // 			AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
 // 				&ec2clientvpn.EndpointAuthenticationOptionArgs{
 // 					Type:                    pulumi.String("certificate-authentication"),
-// 					RootCertificateChainArn: pulumi.String(aws_acm_certificate.Example.Arn),
+// 					RootCertificateChainArn: pulumi.Any(aws_acm_certificate.Example.Arn),
 // 				},
 // 			},
 // 			ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
@@ -44,7 +44,7 @@ import (
 // 		}
 // 		exampleNetworkAssociation, err := ec2clientvpn.NewNetworkAssociation(ctx, "exampleNetworkAssociation", &ec2clientvpn.NetworkAssociationArgs{
 // 			ClientVpnEndpointId: exampleEndpoint.ID(),
-// 			SubnetId:            pulumi.String(aws_subnet.Example.Id),
+// 			SubnetId:            pulumi.Any(aws_subnet.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err

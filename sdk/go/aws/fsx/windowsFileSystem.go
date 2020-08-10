@@ -30,11 +30,11 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
-// 			ActiveDirectoryId: pulumi.String(aws_directory_service_directory.Example.Id),
-// 			KmsKeyId:          pulumi.String(aws_kms_key.Example.Arn),
+// 			ActiveDirectoryId: pulumi.Any(aws_directory_service_directory.Example.Id),
+// 			KmsKeyId:          pulumi.Any(aws_kms_key.Example.Arn),
 // 			StorageCapacity:   pulumi.Int(300),
 // 			SubnetIds: pulumi.StringArray{
-// 				pulumi.String(aws_subnet.Example.Id),
+// 				pulumi.Any(aws_subnet.Example.Id),
 // 			},
 // 			ThroughputCapacity: pulumi.Int(1024),
 // 		})
@@ -60,10 +60,10 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
-// 			KmsKeyId:        pulumi.String(aws_kms_key.Example.Arn),
+// 			KmsKeyId:        pulumi.Any(aws_kms_key.Example.Arn),
 // 			StorageCapacity: pulumi.Int(300),
 // 			SubnetIds: pulumi.StringArray{
-// 				pulumi.String(aws_subnet.Example.Id),
+// 				pulumi.Any(aws_subnet.Example.Id),
 // 			},
 // 			ThroughputCapacity: pulumi.Int(1024),
 // 			SelfManagedActiveDirectory: &fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs{

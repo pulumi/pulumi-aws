@@ -25,8 +25,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ec2.NewVpcEndpointRouteTableAssociation(ctx, "example", &ec2.VpcEndpointRouteTableAssociationArgs{
-// 			RouteTableId:  pulumi.String(aws_route_table.Example.Id),
-// 			VpcEndpointId: pulumi.String(aws_vpc_endpoint.Example.Id),
+// 			RouteTableId:  pulumi.Any(aws_route_table.Example.Id),
+// 			VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err

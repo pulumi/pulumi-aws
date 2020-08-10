@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetSecretResult:
     """
@@ -82,6 +83,8 @@ class GetSecretResult:
         """
         Tags of the secret.
         """
+
+
 class AwaitableGetSecretResult(GetSecretResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -99,7 +102,8 @@ class AwaitableGetSecretResult(GetSecretResult):
             rotation_rules=self.rotation_rules,
             tags=self.tags)
 
-def get_secret(arn=None,name=None,opts=None):
+
+def get_secret(arn=None, name=None, opts=None):
     """
     Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion`.
 
@@ -126,14 +130,12 @@ def get_secret(arn=None,name=None,opts=None):
     :param str name: The name of the secret to retrieve.
     """
     __args__ = dict()
-
-
     __args__['arn'] = arn
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecret:getSecret', __args__, opts=opts).value
 
     return AwaitableGetSecretResult(

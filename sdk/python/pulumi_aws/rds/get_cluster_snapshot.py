@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetClusterSnapshotResult:
     """
@@ -121,6 +122,8 @@ class GetClusterSnapshotResult:
         """
         The VPC ID associated with the DB cluster snapshot.
         """
+
+
 class AwaitableGetClusterSnapshotResult(GetClusterSnapshotResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -149,7 +152,8 @@ class AwaitableGetClusterSnapshotResult(GetClusterSnapshotResult):
             tags=self.tags,
             vpc_id=self.vpc_id)
 
-def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifier=None,include_public=None,include_shared=None,most_recent=None,snapshot_type=None,tags=None,opts=None):
+
+def get_cluster_snapshot(db_cluster_identifier=None, db_cluster_snapshot_identifier=None, include_public=None, include_shared=None, most_recent=None, snapshot_type=None, tags=None, opts=None):
     """
     Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
 
@@ -191,8 +195,6 @@ def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifi
     :param dict tags: A map of tags for the resource.
     """
     __args__ = dict()
-
-
     __args__['dbClusterIdentifier'] = db_cluster_identifier
     __args__['dbClusterSnapshotIdentifier'] = db_cluster_snapshot_identifier
     __args__['includePublic'] = include_public
@@ -203,7 +205,7 @@ def get_cluster_snapshot(db_cluster_identifier=None,db_cluster_snapshot_identifi
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:rds/getClusterSnapshot:getClusterSnapshot', __args__, opts=opts).value
 
     return AwaitableGetClusterSnapshotResult(

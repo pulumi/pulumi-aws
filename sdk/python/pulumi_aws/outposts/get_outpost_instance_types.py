@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetOutpostInstanceTypesResult:
     """
@@ -28,6 +29,8 @@ class GetOutpostInstanceTypesResult:
         """
         Set of instance types.
         """
+
+
 class AwaitableGetOutpostInstanceTypesResult(GetOutpostInstanceTypesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -38,7 +41,8 @@ class AwaitableGetOutpostInstanceTypesResult(GetOutpostInstanceTypesResult):
             id=self.id,
             instance_types=self.instance_types)
 
-def get_outpost_instance_types(arn=None,opts=None):
+
+def get_outpost_instance_types(arn=None, opts=None):
     """
     Information about Outposts Instance Types.
 
@@ -55,13 +59,11 @@ def get_outpost_instance_types(arn=None,opts=None):
     :param str arn: Outpost Amazon Resource Name (ARN).
     """
     __args__ = dict()
-
-
     __args__['arn'] = arn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes', __args__, opts=opts).value
 
     return AwaitableGetOutpostInstanceTypesResult(

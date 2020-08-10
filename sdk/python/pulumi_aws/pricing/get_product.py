@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetProductResult:
     """
@@ -31,6 +32,8 @@ class GetProductResult:
         if service_code and not isinstance(service_code, str):
             raise TypeError("Expected argument 'service_code' to be a str")
         __self__.service_code = service_code
+
+
 class AwaitableGetProductResult(GetProductResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,7 +45,8 @@ class AwaitableGetProductResult(GetProductResult):
             result=self.result,
             service_code=self.service_code)
 
-def get_product(filters=None,service_code=None,opts=None):
+
+def get_product(filters=None, service_code=None, opts=None):
     """
     Use this data source to get the pricing information of all products in AWS.
     This data source is only available in a us-east-1 or ap-south-1 provider.
@@ -113,14 +117,12 @@ def get_product(filters=None,service_code=None,opts=None):
       * `value` (`str`) - The product attribute value that you want to filter on.
     """
     __args__ = dict()
-
-
     __args__['filters'] = filters
     __args__['serviceCode'] = service_code
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:pricing/getProduct:getProduct', __args__, opts=opts).value
 
     return AwaitableGetProductResult(

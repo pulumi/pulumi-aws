@@ -41,14 +41,14 @@ import (
 // 		_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
 // 			BrokerName: pulumi.String("example"),
 // 			Configuration: &mq.BrokerConfigurationArgs{
-// 				Id:       pulumi.String(aws_mq_configuration.Test.Id),
-// 				Revision: pulumi.String(aws_mq_configuration.Test.Latest_revision),
+// 				Id:       pulumi.Any(aws_mq_configuration.Test.Id),
+// 				Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
 // 			},
 // 			EngineType:       pulumi.String("ActiveMQ"),
 // 			EngineVersion:    pulumi.String("5.15.0"),
 // 			HostInstanceType: pulumi.String("mq.t2.micro"),
 // 			SecurityGroups: pulumi.StringArray{
-// 				pulumi.String(aws_security_group.Test.Id),
+// 				pulumi.Any(aws_security_group.Test.Id),
 // 			},
 // 			Users: mq.BrokerUserArray{
 // 				&mq.BrokerUserArgs{

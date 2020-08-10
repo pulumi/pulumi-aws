@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetLocalGatewayRouteTableResult:
     """
@@ -37,6 +38,8 @@ class GetLocalGatewayRouteTableResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
+
+
 class AwaitableGetLocalGatewayRouteTableResult(GetLocalGatewayRouteTableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -51,7 +54,8 @@ class AwaitableGetLocalGatewayRouteTableResult(GetLocalGatewayRouteTableResult):
             state=self.state,
             tags=self.tags)
 
-def get_local_gateway_route_table(filters=None,local_gateway_id=None,local_gateway_route_table_id=None,outpost_arn=None,state=None,tags=None,opts=None):
+
+def get_local_gateway_route_table(filters=None, local_gateway_id=None, local_gateway_route_table_id=None, outpost_arn=None, state=None, tags=None, opts=None):
     """
     Provides details about an EC2 Local Gateway Route Table.
 
@@ -87,8 +91,6 @@ def get_local_gateway_route_table(filters=None,local_gateway_id=None,local_gatew
         A local gateway route table will be selected if any one of the given values matches.
     """
     __args__ = dict()
-
-
     __args__['filters'] = filters
     __args__['localGatewayId'] = local_gateway_id
     __args__['localGatewayRouteTableId'] = local_gateway_route_table_id
@@ -98,7 +100,7 @@ def get_local_gateway_route_table(filters=None,local_gateway_id=None,local_gatew
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable', __args__, opts=opts).value
 
     return AwaitableGetLocalGatewayRouteTableResult(

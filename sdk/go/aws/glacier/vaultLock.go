@@ -62,8 +62,8 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := glacier.NewVaultLock(ctx, "example", &glacier.VaultLockArgs{
 // 			CompleteLock: pulumi.Bool(true),
-// 			Policy:       pulumi.String(data.Aws_iam_policy_document.Example.Json),
-// 			VaultName:    pulumi.String(aws_glacier_vault.Example.Name),
+// 			Policy:       pulumi.Any(data.Aws_iam_policy_document.Example.Json),
+// 			VaultName:    pulumi.Any(aws_glacier_vault.Example.Name),
 // 		})
 // 		if err != nil {
 // 			return err

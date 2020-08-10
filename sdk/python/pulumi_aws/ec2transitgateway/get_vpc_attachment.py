@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetVpcAttachmentResult:
     """
@@ -64,6 +65,8 @@ class GetVpcAttachmentResult:
         """
         Identifier of the AWS account that owns the EC2 VPC.
         """
+
+
 class AwaitableGetVpcAttachmentResult(GetVpcAttachmentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -80,7 +83,8 @@ class AwaitableGetVpcAttachmentResult(GetVpcAttachmentResult):
             vpc_id=self.vpc_id,
             vpc_owner_id=self.vpc_owner_id)
 
-def get_vpc_attachment(filters=None,id=None,tags=None,opts=None):
+
+def get_vpc_attachment(filters=None, id=None, tags=None, opts=None):
     """
     Get information on an EC2 Transit Gateway VPC Attachment.
 
@@ -116,15 +120,13 @@ def get_vpc_attachment(filters=None,id=None,tags=None,opts=None):
       * `values` (`list`) - List of one or more values for the filter.
     """
     __args__ = dict()
-
-
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getVpcAttachment:getVpcAttachment', __args__, opts=opts).value
 
     return AwaitableGetVpcAttachmentResult(

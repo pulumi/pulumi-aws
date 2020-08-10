@@ -37,7 +37,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
-// 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
+// 			MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
 // 			Spec: &appmesh.VirtualNodeSpecArgs{
 // 				Backends: appmesh.VirtualNodeSpecBackendArray{
 // 					&appmesh.VirtualNodeSpecBackendArgs{
@@ -84,7 +84,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
-// 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
+// 			MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
 // 			Spec: &appmesh.VirtualNodeSpecArgs{
 // 				Backends: appmesh.VirtualNodeSpecBackendArray{
 // 					&appmesh.VirtualNodeSpecBackendArgs{
@@ -130,7 +130,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
-// 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
+// 			MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
 // 			Spec: &appmesh.VirtualNodeSpecArgs{
 // 				Backends: appmesh.VirtualNodeSpecBackendArray{
 // 					&appmesh.VirtualNodeSpecBackendArgs{
@@ -180,7 +180,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := appmesh.NewVirtualNode(ctx, "serviceb1", &appmesh.VirtualNodeArgs{
-// 			MeshName: pulumi.String(aws_appmesh_mesh.Simple.Id),
+// 			MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
 // 			Spec: &appmesh.VirtualNodeSpecArgs{
 // 				Backends: appmesh.VirtualNodeSpecBackendArray{
 // 					&appmesh.VirtualNodeSpecBackendArgs{

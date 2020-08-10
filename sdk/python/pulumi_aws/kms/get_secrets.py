@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetSecretsResult:
     """
@@ -28,6 +29,8 @@ class GetSecretsResult:
         if secrets and not isinstance(secrets, list):
             raise TypeError("Expected argument 'secrets' to be a list")
         __self__.secrets = secrets
+
+
 class AwaitableGetSecretsResult(GetSecretsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -38,7 +41,8 @@ class AwaitableGetSecretsResult(GetSecretsResult):
             plaintext=self.plaintext,
             secrets=self.secrets)
 
-def get_secrets(secrets=None,opts=None):
+
+def get_secrets(secrets=None, opts=None):
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
 
@@ -53,13 +57,11 @@ def get_secrets(secrets=None,opts=None):
       * `payload` (`str`) - Base64 encoded payload, as returned from a KMS encrypt operation.
     """
     __args__ = dict()
-
-
     __args__['secrets'] = secrets
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:kms/getSecrets:getSecrets', __args__, opts=opts).value
 
     return AwaitableGetSecretsResult(

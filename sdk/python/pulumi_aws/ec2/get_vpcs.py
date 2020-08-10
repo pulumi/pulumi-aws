@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetVpcsResult:
     """
@@ -31,6 +32,8 @@ class GetVpcsResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
+
+
 class AwaitableGetVpcsResult(GetVpcsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,7 +45,8 @@ class AwaitableGetVpcsResult(GetVpcsResult):
             ids=self.ids,
             tags=self.tags)
 
-def get_vpcs(filters=None,tags=None,opts=None):
+
+def get_vpcs(filters=None, tags=None, opts=None):
     """
     This resource can be useful for getting back a list of VPC Ids for a region.
 
@@ -61,14 +65,12 @@ def get_vpcs(filters=None,tags=None,opts=None):
         A VPC will be selected if any one of the given values matches.
     """
     __args__ = dict()
-
-
     __args__['filters'] = filters
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcs:getVpcs', __args__, opts=opts).value
 
     return AwaitableGetVpcsResult(

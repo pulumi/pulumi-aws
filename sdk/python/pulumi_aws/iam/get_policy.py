@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetPolicyResult:
     """
@@ -49,6 +50,8 @@ class GetPolicyResult:
         """
         The policy document of the policy.
         """
+
+
 class AwaitableGetPolicyResult(GetPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -62,7 +65,8 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             path=self.path,
             policy=self.policy)
 
-def get_policy(arn=None,opts=None):
+
+def get_policy(arn=None, opts=None):
     """
     This data source can be used to fetch information about a specific
     IAM policy.
@@ -80,13 +84,11 @@ def get_policy(arn=None,opts=None):
     :param str arn: ARN of the IAM policy.
     """
     __args__ = dict()
-
-
     __args__['arn'] = arn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getPolicy:getPolicy', __args__, opts=opts).value
 
     return AwaitableGetPolicyResult(

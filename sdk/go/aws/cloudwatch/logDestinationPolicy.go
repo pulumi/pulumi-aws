@@ -26,8 +26,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		testDestination, err := cloudwatch.NewLogDestination(ctx, "testDestination", &cloudwatch.LogDestinationArgs{
-// 			RoleArn:   pulumi.String(aws_iam_role.Iam_for_cloudwatch.Arn),
-// 			TargetArn: pulumi.String(aws_kinesis_stream.Kinesis_for_cloudwatch.Arn),
+// 			RoleArn:   pulumi.Any(aws_iam_role.Iam_for_cloudwatch.Arn),
+// 			TargetArn: pulumi.Any(aws_kinesis_stream.Kinesis_for_cloudwatch.Arn),
 // 		})
 // 		if err != nil {
 // 			return err

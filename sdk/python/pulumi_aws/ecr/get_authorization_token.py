@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetAuthorizationTokenResult:
     """
@@ -52,6 +53,8 @@ class GetAuthorizationTokenResult:
         """
         User name decoded from the authorization token.
         """
+
+
 class AwaitableGetAuthorizationTokenResult(GetAuthorizationTokenResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -66,7 +69,8 @@ class AwaitableGetAuthorizationTokenResult(GetAuthorizationTokenResult):
             registry_id=self.registry_id,
             user_name=self.user_name)
 
-def get_authorization_token(registry_id=None,opts=None):
+
+def get_authorization_token(registry_id=None, opts=None):
     """
     The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
 
@@ -83,13 +87,11 @@ def get_authorization_token(registry_id=None,opts=None):
     :param str registry_id: AWS account ID of the ECR Repository. If not specified the default account is assumed.
     """
     __args__ = dict()
-
-
     __args__['registryId'] = registry_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecr/getAuthorizationToken:getAuthorizationToken', __args__, opts=opts).value
 
     return AwaitableGetAuthorizationTokenResult(

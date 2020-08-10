@@ -52,7 +52,7 @@ def get_env_float(*args):
 
 def get_version():
     # __name__ is set to the fully-qualified name of the current module, In our case, it will be
-    # <some module>.utilities. <some module> is the module we want to query the version for.
+    # <some module>._utilities. <some module> is the module we want to query the version for.
     root_package, *rest = __name__.split('.')
 
     # pkg_resources uses setuptools to inspect the set of installed packages. We use it here to ask

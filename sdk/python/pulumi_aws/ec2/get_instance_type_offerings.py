@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetInstanceTypeOfferingsResult:
     """
@@ -31,6 +32,8 @@ class GetInstanceTypeOfferingsResult:
         if location_type and not isinstance(location_type, str):
             raise TypeError("Expected argument 'location_type' to be a str")
         __self__.location_type = location_type
+
+
 class AwaitableGetInstanceTypeOfferingsResult(GetInstanceTypeOfferingsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,7 +45,8 @@ class AwaitableGetInstanceTypeOfferingsResult(GetInstanceTypeOfferingsResult):
             instance_types=self.instance_types,
             location_type=self.location_type)
 
-def get_instance_type_offerings(filters=None,location_type=None,opts=None):
+
+def get_instance_type_offerings(filters=None, location_type=None, opts=None):
     """
     Information about EC2 Instance Type Offerings.
 
@@ -78,14 +82,12 @@ def get_instance_type_offerings(filters=None,location_type=None,opts=None):
       * `values` (`list`) - List of one or more values for the filter.
     """
     __args__ = dict()
-
-
     __args__['filters'] = filters
     __args__['locationType'] = location_type
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings', __args__, opts=opts).value
 
     return AwaitableGetInstanceTypeOfferingsResult(

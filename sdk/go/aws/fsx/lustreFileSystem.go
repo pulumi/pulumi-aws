@@ -30,7 +30,7 @@ import (
 // 			ImportPath:      pulumi.String(fmt.Sprintf("%v%v", "s3://", aws_s3_bucket.Example.Bucket)),
 // 			StorageCapacity: pulumi.Int(1200),
 // 			SubnetIds: pulumi.String(pulumi.String{
-// 				pulumi.String(aws_subnet.Example.Id),
+// 				pulumi.Any(aws_subnet.Example.Id),
 // 			}),
 // 		})
 // 		if err != nil {

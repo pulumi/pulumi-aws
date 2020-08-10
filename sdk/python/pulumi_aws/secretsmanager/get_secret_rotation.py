@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetSecretRotationResult:
     """
@@ -40,6 +41,8 @@ class GetSecretRotationResult:
         if secret_id and not isinstance(secret_id, str):
             raise TypeError("Expected argument 'secret_id' to be a str")
         __self__.secret_id = secret_id
+
+
 class AwaitableGetSecretRotationResult(GetSecretRotationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -52,7 +55,8 @@ class AwaitableGetSecretRotationResult(GetSecretRotationResult):
             rotation_rules=self.rotation_rules,
             secret_id=self.secret_id)
 
-def get_secret_rotation(secret_id=None,opts=None):
+
+def get_secret_rotation(secret_id=None, opts=None):
     """
     Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the [`secretsmanager.Secret` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret.html). To retrieve a secret value, see the [`secretsmanager.SecretVersion` data source](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html).
 
@@ -70,13 +74,11 @@ def get_secret_rotation(secret_id=None,opts=None):
     :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
     """
     __args__ = dict()
-
-
     __args__['secretId'] = secret_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecretRotation:getSecretRotation', __args__, opts=opts).value
 
     return AwaitableGetSecretRotationResult(

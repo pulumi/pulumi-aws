@@ -36,9 +36,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = codedeploy.NewDeploymentGroup(ctx, "fooDeploymentGroup", &codedeploy.DeploymentGroupArgs{
-// 			AppName:              pulumi.String(aws_codedeploy_app.Foo_app.Name),
+// 			AppName:              pulumi.Any(aws_codedeploy_app.Foo_app.Name),
 // 			DeploymentGroupName:  pulumi.String("bar"),
-// 			ServiceRoleArn:       pulumi.String(aws_iam_role.Foo_role.Arn),
+// 			ServiceRoleArn:       pulumi.Any(aws_iam_role.Foo_role.Arn),
 // 			DeploymentConfigName: fooDeploymentConfig.ID(),
 // 			Ec2TagFilters: codedeploy.DeploymentGroupEc2TagFilterArray{
 // 				&codedeploy.DeploymentGroupEc2TagFilterArgs{
@@ -103,9 +103,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = codedeploy.NewDeploymentGroup(ctx, "fooDeploymentGroup", &codedeploy.DeploymentGroupArgs{
-// 			AppName:              pulumi.String(aws_codedeploy_app.Foo_app.Name),
+// 			AppName:              pulumi.Any(aws_codedeploy_app.Foo_app.Name),
 // 			DeploymentGroupName:  pulumi.String("bar"),
-// 			ServiceRoleArn:       pulumi.String(aws_iam_role.Foo_role.Arn),
+// 			ServiceRoleArn:       pulumi.Any(aws_iam_role.Foo_role.Arn),
 // 			DeploymentConfigName: fooDeploymentConfig.ID(),
 // 			AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
 // 				Enabled: pulumi.Bool(true),

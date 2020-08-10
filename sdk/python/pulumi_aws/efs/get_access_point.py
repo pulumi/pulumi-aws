@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetAccessPointResult:
     """
@@ -58,6 +59,8 @@ class GetAccessPointResult:
         """
         Key-value mapping of resource tags.
         """
+
+
 class AwaitableGetAccessPointResult(GetAccessPointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -74,7 +77,8 @@ class AwaitableGetAccessPointResult(GetAccessPointResult):
             root_directories=self.root_directories,
             tags=self.tags)
 
-def get_access_point(access_point_id=None,tags=None,opts=None):
+
+def get_access_point(access_point_id=None, tags=None, opts=None):
     """
     Provides information about an Elastic File System (EFS) Access Point.
 
@@ -92,14 +96,12 @@ def get_access_point(access_point_id=None,tags=None,opts=None):
     :param dict tags: Key-value mapping of resource tags.
     """
     __args__ = dict()
-
-
     __args__['accessPointId'] = access_point_id
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:efs/getAccessPoint:getAccessPoint', __args__, opts=opts).value
 
     return AwaitableGetAccessPointResult(

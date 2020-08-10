@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 __config__ = pulumi.Config('aws')
 
@@ -38,12 +38,12 @@ max_retries = __config__.get('maxRetries')
 The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
 """
 
-profile = __config__.get('profile') or utilities.get_env('AWS_PROFILE')
+profile = __config__.get('profile') or _utilities.get_env('AWS_PROFILE')
 """
 The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 """
 
-region = __config__.get('region') or utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
+region = __config__.get('region') or _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
 """
 The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
 """

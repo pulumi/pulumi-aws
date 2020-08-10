@@ -27,9 +27,9 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
-// 			ApiId:          pulumi.String(aws_apigatewayv2_api.Example.Id),
+// 			ApiId:          pulumi.Any(aws_apigatewayv2_api.Example.Id),
 // 			AuthorizerType: pulumi.String("REQUEST"),
-// 			AuthorizerUri:  pulumi.String(aws_lambda_function.Example.Invoke_arn),
+// 			AuthorizerUri:  pulumi.Any(aws_lambda_function.Example.Invoke_arn),
 // 			IdentitySources: pulumi.StringArray{
 // 				pulumi.String("route.request.header.Auth"),
 // 			},
@@ -56,7 +56,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
-// 			ApiId:          pulumi.String(aws_apigatewayv2_api.Example.Id),
+// 			ApiId:          pulumi.Any(aws_apigatewayv2_api.Example.Id),
 // 			AuthorizerType: pulumi.String("JWT"),
 // 			IdentitySources: pulumi.StringArray{
 // 				pulumi.String(fmt.Sprintf("%v%v", "$", "request.header.Authorization")),

@@ -28,9 +28,9 @@ import (
 // 			ClientLists: pulumi.StringArray{
 // 				pulumi.String("0.0.0.0/0"),
 // 			},
-// 			GatewayArn:  pulumi.String(aws_storagegateway_gateway.Example.Arn),
-// 			LocationArn: pulumi.String(aws_s3_bucket.Example.Arn),
-// 			RoleArn:     pulumi.String(aws_iam_role.Example.Arn),
+// 			GatewayArn:  pulumi.Any(aws_storagegateway_gateway.Example.Arn),
+// 			LocationArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+// 			RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
 // 		})
 // 		if err != nil {
 // 			return err

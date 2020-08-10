@@ -26,10 +26,10 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ec2transitgateway.NewVpcAttachment(ctx, "example", &ec2transitgateway.VpcAttachmentArgs{
 // 			SubnetIds: pulumi.StringArray{
-// 				pulumi.String(aws_subnet.Example.Id),
+// 				pulumi.Any(aws_subnet.Example.Id),
 // 			},
-// 			TransitGatewayId: pulumi.String(aws_ec2_transit_gateway.Example.Id),
-// 			VpcId:            pulumi.String(aws_vpc.Example.Id),
+// 			TransitGatewayId: pulumi.Any(aws_ec2_transit_gateway.Example.Id),
+// 			VpcId:            pulumi.Any(aws_vpc.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err

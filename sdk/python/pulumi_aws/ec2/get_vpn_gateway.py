@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetVpnGatewayResult:
     """
@@ -37,6 +38,8 @@ class GetVpnGatewayResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
+
+
 class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -52,7 +55,8 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
             state=self.state,
             tags=self.tags)
 
-def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=None,filters=None,id=None,state=None,tags=None,opts=None):
+
+def get_vpn_gateway(amazon_side_asn=None, attached_vpc_id=None, availability_zone=None, filters=None, id=None, state=None, tags=None, opts=None):
     """
     The VPN Gateway data source provides details about
     a specific VPN gateway.
@@ -88,8 +92,6 @@ def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=
         A VPN Gateway will be selected if any one of the given values matches.
     """
     __args__ = dict()
-
-
     __args__['amazonSideAsn'] = amazon_side_asn
     __args__['attachedVpcId'] = attached_vpc_id
     __args__['availabilityZone'] = availability_zone
@@ -100,7 +102,7 @@ def get_vpn_gateway(amazon_side_asn=None,attached_vpc_id=None,availability_zone=
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpnGateway:getVpnGateway', __args__, opts=opts).value
 
     return AwaitableGetVpnGatewayResult(

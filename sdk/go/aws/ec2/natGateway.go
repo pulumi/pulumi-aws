@@ -25,8 +25,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ec2.NewNatGateway(ctx, "gw", &ec2.NatGatewayArgs{
-// 			AllocationId: pulumi.String(aws_eip.Nat.Id),
-// 			SubnetId:     pulumi.String(aws_subnet.Example.Id),
+// 			AllocationId: pulumi.Any(aws_eip.Nat.Id),
+// 			SubnetId:     pulumi.Any(aws_subnet.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -49,8 +49,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ec2.NewNatGateway(ctx, "gw", &ec2.NatGatewayArgs{
-// 			AllocationId: pulumi.String(aws_eip.Nat.Id),
-// 			SubnetId:     pulumi.String(aws_subnet.Example.Id),
+// 			AllocationId: pulumi.Any(aws_eip.Nat.Id),
+// 			SubnetId:     pulumi.Any(aws_subnet.Example.Id),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("gw NAT"),
 // 			},

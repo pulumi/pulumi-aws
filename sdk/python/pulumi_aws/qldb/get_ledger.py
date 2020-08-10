@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetLedgerResult:
     """
@@ -34,6 +35,8 @@ class GetLedgerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
+
+
 class AwaitableGetLedgerResult(GetLedgerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -45,7 +48,8 @@ class AwaitableGetLedgerResult(GetLedgerResult):
             id=self.id,
             name=self.name)
 
-def get_ledger(name=None,opts=None):
+
+def get_ledger(name=None, opts=None):
     """
     Use this data source to fetch information about a Quantum Ledger Database.
 
@@ -62,13 +66,11 @@ def get_ledger(name=None,opts=None):
     :param str name: The friendly name of the ledger to match.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:qldb/getLedger:getLedger', __args__, opts=opts).value
 
     return AwaitableGetLedgerResult(

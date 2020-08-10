@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetRuleResult:
     """
@@ -22,6 +23,8 @@ class GetRuleResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
+
+
 class AwaitableGetRuleResult(GetRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -31,7 +34,8 @@ class AwaitableGetRuleResult(GetRuleResult):
             id=self.id,
             name=self.name)
 
-def get_rule(name=None,opts=None):
+
+def get_rule(name=None, opts=None):
     """
     `wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
 
@@ -48,13 +52,11 @@ def get_rule(name=None,opts=None):
     :param str name: The name of the WAF Regional rule.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:wafregional/getRule:getRule', __args__, opts=opts).value
 
     return AwaitableGetRuleResult(

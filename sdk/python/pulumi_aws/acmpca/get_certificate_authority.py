@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetCertificateAuthorityResult:
     """
@@ -87,6 +88,8 @@ class GetCertificateAuthorityResult:
         """
         The type of the certificate authority.
         """
+
+
 class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -106,7 +109,8 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
             tags=self.tags,
             type=self.type)
 
-def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,opts=None):
+
+def get_certificate_authority(arn=None, revocation_configurations=None, tags=None, opts=None):
     """
     Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
 
@@ -138,15 +142,13 @@ def get_certificate_authority(arn=None,revocation_configurations=None,tags=None,
         * `s3_bucket_name` (`str`)
     """
     __args__ = dict()
-
-
     __args__['arn'] = arn
     __args__['revocationConfigurations'] = revocation_configurations
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:acmpca/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts).value
 
     return AwaitableGetCertificateAuthorityResult(

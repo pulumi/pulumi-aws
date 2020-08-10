@@ -49,7 +49,7 @@ import (
 // 			SmsAuthenticationMessage: pulumi.String("Your code is {####}"),
 // 			SmsConfiguration: &cognito.UserPoolSmsConfigurationArgs{
 // 				ExternalId:   pulumi.String("example"),
-// 				SnsCallerArn: pulumi.String(aws_iam_role.Example.Arn),
+// 				SnsCallerArn: pulumi.Any(aws_iam_role.Example.Arn),
 // 			},
 // 			SoftwareTokenMfaConfiguration: &cognito.UserPoolSoftwareTokenMfaConfigurationArgs{
 // 				Enabled: pulumi.Bool(true),

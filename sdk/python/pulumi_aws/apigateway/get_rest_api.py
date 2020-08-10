@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetRestApiResult:
     """
@@ -82,6 +83,8 @@ class GetRestApiResult:
         """
         Key-value map of resource tags.
         """
+
+
 class AwaitableGetRestApiResult(GetRestApiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -101,7 +104,8 @@ class AwaitableGetRestApiResult(GetRestApiResult):
             root_resource_id=self.root_resource_id,
             tags=self.tags)
 
-def get_rest_api(name=None,tags=None,opts=None):
+
+def get_rest_api(name=None, tags=None, opts=None):
     """
     Use this data source to get the id and root_resource_id of a REST API in
     API Gateway. To fetch the REST API you must provide a name to match against.
@@ -122,14 +126,12 @@ def get_rest_api(name=None,tags=None,opts=None):
     :param dict tags: Key-value map of resource tags.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getRestApi:getRestApi', __args__, opts=opts).value
 
     return AwaitableGetRestApiResult(

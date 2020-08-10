@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetInternetGatewayResult:
     """
@@ -43,6 +44,8 @@ class GetInternetGatewayResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
+
+
 class AwaitableGetInternetGatewayResult(GetInternetGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -57,7 +60,8 @@ class AwaitableGetInternetGatewayResult(GetInternetGatewayResult):
             owner_id=self.owner_id,
             tags=self.tags)
 
-def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=None):
+
+def get_internet_gateway(filters=None, internet_gateway_id=None, tags=None, opts=None):
     """
     `ec2.InternetGateway` provides details about a specific Internet Gateway.
 
@@ -89,15 +93,13 @@ def get_internet_gateway(filters=None,internet_gateway_id=None,tags=None,opts=No
         An Internet Gateway will be selected if any one of the given values matches.
     """
     __args__ = dict()
-
-
     __args__['filters'] = filters
     __args__['internetGatewayId'] = internet_gateway_id
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts).value
 
     return AwaitableGetInternetGatewayResult(

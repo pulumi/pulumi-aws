@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetCredentialsResult:
     """
@@ -31,6 +32,8 @@ class GetCredentialsResult:
         if registry_id and not isinstance(registry_id, str):
             raise TypeError("Expected argument 'registry_id' to be a str")
         __self__.registry_id = registry_id
+
+
 class AwaitableGetCredentialsResult(GetCredentialsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -43,18 +46,17 @@ class AwaitableGetCredentialsResult(GetCredentialsResult):
             proxy_endpoint=self.proxy_endpoint,
             registry_id=self.registry_id)
 
-def get_credentials(registry_id=None,opts=None):
+
+def get_credentials(registry_id=None, opts=None):
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-
-
     __args__['registryId'] = registry_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecr/getCredentials:getCredentials', __args__, opts=opts).value
 
     return AwaitableGetCredentialsResult(

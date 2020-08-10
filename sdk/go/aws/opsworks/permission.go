@@ -28,8 +28,8 @@ import (
 // 			AllowSsh:  pulumi.Bool(true),
 // 			AllowSudo: pulumi.Bool(true),
 // 			Level:     pulumi.String("iam_only"),
-// 			UserArn:   pulumi.String(aws_iam_user.User.Arn),
-// 			StackId:   pulumi.String(aws_opsworks_stack.Stack.Id),
+// 			UserArn:   pulumi.Any(aws_iam_user.User.Arn),
+// 			StackId:   pulumi.Any(aws_opsworks_stack.Stack.Id),
 // 		})
 // 		if err != nil {
 // 			return err

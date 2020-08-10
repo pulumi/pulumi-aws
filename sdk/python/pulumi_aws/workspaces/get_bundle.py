@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetBundleResult:
     """
@@ -61,6 +62,8 @@ class GetBundleResult:
         """
         The user storage. See supported fields below.
         """
+
+
 class AwaitableGetBundleResult(GetBundleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -76,7 +79,8 @@ class AwaitableGetBundleResult(GetBundleResult):
             root_storages=self.root_storages,
             user_storages=self.user_storages)
 
-def get_bundle(bundle_id=None,name=None,owner=None,opts=None):
+
+def get_bundle(bundle_id=None, name=None, owner=None, opts=None):
     """
     Retrieve information about an AWS WorkSpaces bundle.
 
@@ -96,15 +100,13 @@ def get_bundle(bundle_id=None,name=None,owner=None,opts=None):
     :param str owner: The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
     """
     __args__ = dict()
-
-
     __args__['bundleId'] = bundle_id
     __args__['name'] = name
     __args__['owner'] = owner
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:workspaces/getBundle:getBundle', __args__, opts=opts).value
 
     return AwaitableGetBundleResult(

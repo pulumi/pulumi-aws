@@ -119,7 +119,7 @@ import (
 // 		_, err = codedeploy.NewDeploymentGroup(ctx, "exampleDeploymentGroup", &codedeploy.DeploymentGroupArgs{
 // 			AppName:             exampleApplication.Name,
 // 			DeploymentGroupName: pulumi.String("example-group"),
-// 			ServiceRoleArn:      pulumi.String(aws_iam_role.Example.Arn),
+// 			ServiceRoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
 // 			DeploymentStyle: &codedeploy.DeploymentGroupDeploymentStyleArgs{
 // 				DeploymentOption: pulumi.String("WITH_TRAFFIC_CONTROL"),
 // 				DeploymentType:   pulumi.String("BLUE_GREEN"),
@@ -127,7 +127,7 @@ import (
 // 			LoadBalancerInfo: &codedeploy.DeploymentGroupLoadBalancerInfoArgs{
 // 				ElbInfos: codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArray{
 // 					&codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArgs{
-// 						Name: pulumi.String(aws_elb.Example.Name),
+// 						Name: pulumi.Any(aws_elb.Example.Name),
 // 					},
 // 				},
 // 			},
