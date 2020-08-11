@@ -22,8 +22,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/dynamodb"
-// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/providers"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/dynamodb"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/providers"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //

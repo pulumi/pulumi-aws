@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-aws/provider/v2
+module github.com/pulumi/pulumi-aws/provider/v3
 
 go 1.14
 

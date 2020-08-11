@@ -21,7 +21,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/secretsmanager"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/secretsmanager"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -48,7 +48,7 @@ import (
 // import (
 // 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v2/go/aws/secretsmanager"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/secretsmanager"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
