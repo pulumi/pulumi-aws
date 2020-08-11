@@ -14,5 +14,6 @@ export * from "./recordType";
 export * from "./resolverEndpoint";
 export * from "./resolverRule";
 export * from "./resolverRuleAssociation";
+export * from "./vpcAssociationAuthorization";
 export * from "./zone";
 export * from "./zoneAssociation";

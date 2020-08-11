@@ -44,6 +44,8 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 type LookupRepositoryArgs struct {
 	// The name of the ECR Repository.
 	Name string `pulumi:"name"`
+	// The registry ID where the repository was created.
+	RegistryId *string `pulumi:"registryId"`
 	// A map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -52,11 +54,16 @@ type LookupRepositoryArgs struct {
 type LookupRepositoryResult struct {
 	// Full ARN of the repository.
 	Arn string `pulumi:"arn"`
+	// Encryption configuration for the repository. See Encryption Configuration below.
+	EncryptionConfigurations []GetRepositoryEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	// The registry ID where the repository was created.
-	RegistryId string `pulumi:"registryId"`
+	Id string `pulumi:"id"`
+	// Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
+	ImageScanningConfigurations []GetRepositoryImageScanningConfiguration `pulumi:"imageScanningConfigurations"`
+	// The tag mutability setting for the repository.
+	ImageTagMutability string `pulumi:"imageTagMutability"`
+	Name               string `pulumi:"name"`
+	RegistryId         string `pulumi:"registryId"`
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl string `pulumi:"repositoryUrl"`
 	// A map of tags assigned to the resource.

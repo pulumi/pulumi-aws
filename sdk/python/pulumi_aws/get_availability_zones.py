@@ -69,7 +69,7 @@ class AwaitableGetAvailabilityZonesResult(GetAvailabilityZonesResult):
             zone_ids=self.zone_ids)
 
 
-def get_availability_zones(all_availability_zones=None, exclude_names=None, exclude_zone_ids=None, filters=None, group_names=None, state=None, opts=None):
+def get_availability_zones(all_availability_zones=None, exclude_names=None, exclude_zone_ids=None, filters=None, state=None, opts=None):
     """
     The Availability Zones data source allows access to the list of AWS
     Availability Zones which can be accessed by an AWS account within the region
@@ -143,7 +143,6 @@ def get_availability_zones(all_availability_zones=None, exclude_names=None, excl
     __args__['excludeNames'] = exclude_names
     __args__['excludeZoneIds'] = exclude_zone_ids
     __args__['filters'] = filters
-    __args__['groupNames'] = group_names
     __args__['state'] = state
     if opts is None:
         opts = pulumi.InvokeOptions()

@@ -18,6 +18,11 @@ class Parameter(pulumi.CustomResource):
     """
     The ARN of the parameter.
     """
+    data_type: pulumi.Output[str]
+    """
+    The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+    ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+    """
     description: pulumi.Output[str]
     """
     The description of the parameter.
@@ -54,7 +59,7 @@ class Parameter(pulumi.CustomResource):
     """
     The version of the parameter.
     """
-    def __init__(__self__, resource_name, opts=None, allowed_pattern=None, arn=None, description=None, key_id=None, name=None, overwrite=None, tags=None, tier=None, type=None, value=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allowed_pattern=None, arn=None, data_type=None, description=None, key_id=None, name=None, overwrite=None, tags=None, tier=None, type=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides an SSM Parameter resource.
 
@@ -103,6 +108,8 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value.
         :param pulumi.Input[str] arn: The ARN of the parameter.
+        :param pulumi.Input[str] data_type: The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+               ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
         :param pulumi.Input[str] description: The description of the parameter.
         :param pulumi.Input[str] key_id: The KMS key id or arn for encrypting a SecureString.
         :param pulumi.Input[str] name: The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
@@ -131,6 +138,7 @@ class Parameter(pulumi.CustomResource):
 
             __props__['allowed_pattern'] = allowed_pattern
             __props__['arn'] = arn
+            __props__['data_type'] = data_type
             __props__['description'] = description
             __props__['key_id'] = key_id
             __props__['name'] = name
@@ -151,7 +159,7 @@ class Parameter(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allowed_pattern=None, arn=None, description=None, key_id=None, name=None, overwrite=None, tags=None, tier=None, type=None, value=None, version=None):
+    def get(resource_name, id, opts=None, allowed_pattern=None, arn=None, data_type=None, description=None, key_id=None, name=None, overwrite=None, tags=None, tier=None, type=None, value=None, version=None):
         """
         Get an existing Parameter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -161,6 +169,8 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value.
         :param pulumi.Input[str] arn: The ARN of the parameter.
+        :param pulumi.Input[str] data_type: The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+               ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
         :param pulumi.Input[str] description: The description of the parameter.
         :param pulumi.Input[str] key_id: The KMS key id or arn for encrypting a SecureString.
         :param pulumi.Input[str] name: The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
@@ -177,6 +187,7 @@ class Parameter(pulumi.CustomResource):
 
         __props__["allowed_pattern"] = allowed_pattern
         __props__["arn"] = arn
+        __props__["data_type"] = data_type
         __props__["description"] = description
         __props__["key_id"] = key_id
         __props__["name"] = name

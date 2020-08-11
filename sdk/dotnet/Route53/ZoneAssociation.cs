@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53
 {
     /// <summary>
-    /// Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones.
+    /// Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones. See the `aws.route53.VpcAssociationAuthorization` resource for setting up cross-account associations.
     /// 
     /// &gt; **NOTE:** Unless explicit association ordering is required (e.g. a separate cross-account association authorization), usage of this resource is not recommended. Use the `vpc` configuration blocks available within the `aws.route53.Zone` resource instead.
     /// 
@@ -60,6 +60,12 @@ namespace Pulumi.Aws.Route53
     /// </summary>
     public partial class ZoneAssociation : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The account ID of the account that created the hosted zone.
+        /// </summary>
+        [Output("owningAccount")]
+        public Output<string> OwningAccount { get; private set; } = null!;
+
         /// <summary>
         /// The VPC to associate with the private hosted zone.
         /// </summary>
@@ -149,6 +155,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ZoneAssociationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The account ID of the account that created the hosted zone.
+        /// </summary>
+        [Input("owningAccount")]
+        public Input<string>? OwningAccount { get; set; }
+
         /// <summary>
         /// The VPC to associate with the private hosted zone.
         /// </summary>

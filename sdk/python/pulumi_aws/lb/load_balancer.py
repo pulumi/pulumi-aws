@@ -83,6 +83,7 @@ class LoadBalancer(pulumi.CustomResource):
     A subnet mapping block as documented below.
 
       * `allocation_id` (`str`) - The allocation ID of the Elastic IP address.
+      * `privateIpv4Address` (`str`) - A private ipv4 address within the subnet to assign to the internal-facing load balancer.
       * `subnet_id` (`str`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
     """
     subnets: pulumi.Output[list]
@@ -162,6 +163,25 @@ class LoadBalancer(pulumi.CustomResource):
                 },
             ])
         ```
+        ### Specifying private IP addresses for an internal-facing load balancer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lb.LoadBalancer("example",
+            load_balancer_type="network",
+            subnet_mappings=[
+                {
+                    "privateIpv4Address": "10.0.1.15",
+                    "subnet_id": aws_subnet["example1"]["id"],
+                },
+                {
+                    "privateIpv4Address": "10.0.2.15",
+                    "subnet_id": aws_subnet["example2"]["id"],
+                },
+            ])
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,6 +216,7 @@ class LoadBalancer(pulumi.CustomResource):
         The **subnet_mappings** object supports the following:
 
           * `allocation_id` (`pulumi.Input[str]`) - The allocation ID of the Elastic IP address.
+          * `privateIpv4Address` (`pulumi.Input[str]`) - A private ipv4 address within the subnet to assign to the internal-facing load balancer.
           * `subnet_id` (`pulumi.Input[str]`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
         """
         if __name__ is not None:
@@ -287,6 +308,7 @@ class LoadBalancer(pulumi.CustomResource):
         The **subnet_mappings** object supports the following:
 
           * `allocation_id` (`pulumi.Input[str]`) - The allocation ID of the Elastic IP address.
+          * `privateIpv4Address` (`pulumi.Input[str]`) - A private ipv4 address within the subnet to assign to the internal-facing load balancer.
           * `subnet_id` (`pulumi.Input[str]`) - The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

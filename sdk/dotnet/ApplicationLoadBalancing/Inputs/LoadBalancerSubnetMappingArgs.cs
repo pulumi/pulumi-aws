@@ -19,6 +19,12 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
         public Input<string>? AllocationId { get; set; }
 
         /// <summary>
+        /// A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+        /// </summary>
+        [Input("privateIpv4Address")]
+        public Input<string>? PrivateIpv4Address { get; set; }
+
+        /// <summary>
         /// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
         /// </summary>
         [Input("subnetId", required: true)]

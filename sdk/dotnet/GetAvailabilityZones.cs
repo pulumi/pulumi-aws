@@ -167,14 +167,6 @@ namespace Pulumi.Aws
             set => _filters = value;
         }
 
-        [Input("groupNames")]
-        private List<string>? _groupNames;
-        public List<string> GroupNames
-        {
-            get => _groupNames ?? (_groupNames = new List<string>());
-            set => _groupNames = value;
-        }
-
         /// <summary>
         /// Allows to filter list of Availability Zones based on their
         /// current state. Can be either `"available"`, `"information"`, `"impaired"` or

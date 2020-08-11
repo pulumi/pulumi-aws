@@ -10,6 +10,10 @@ from .. import _utilities, _tables
 
 
 class ZoneAssociation(pulumi.CustomResource):
+    owning_account: pulumi.Output[str]
+    """
+    The account ID of the account that created the hosted zone.
+    """
     vpc_id: pulumi.Output[str]
     """
     The VPC to associate with the private hosted zone.
@@ -24,7 +28,7 @@ class ZoneAssociation(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, vpc_id=None, vpc_region=None, zone_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones.
+        Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones. See the `route53.VpcAssociationAuthorization` resource for setting up cross-account associations.
 
         > **NOTE:** Unless explicit association ordering is required (e.g. a separate cross-account association authorization), usage of this resource is not recommended. Use the `vpc` configuration blocks available within the `route53.Zone` resource instead.
 
@@ -82,6 +86,7 @@ class ZoneAssociation(pulumi.CustomResource):
             if zone_id is None:
                 raise TypeError("Missing required property 'zone_id'")
             __props__['zone_id'] = zone_id
+            __props__['owning_account'] = None
         super(ZoneAssociation, __self__).__init__(
             'aws:route53/zoneAssociation:ZoneAssociation',
             resource_name,
@@ -89,7 +94,7 @@ class ZoneAssociation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, vpc_id=None, vpc_region=None, zone_id=None):
+    def get(resource_name, id, opts=None, owning_account=None, vpc_id=None, vpc_region=None, zone_id=None):
         """
         Get an existing ZoneAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -97,6 +102,7 @@ class ZoneAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] owning_account: The account ID of the account that created the hosted zone.
         :param pulumi.Input[str] vpc_id: The VPC to associate with the private hosted zone.
         :param pulumi.Input[str] vpc_region: The VPC's region. Defaults to the region of the AWS provider.
         :param pulumi.Input[str] zone_id: The private hosted zone to associate.
@@ -105,6 +111,7 @@ class ZoneAssociation(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["owning_account"] = owning_account
         __props__["vpc_id"] = vpc_id
         __props__["vpc_region"] = vpc_region
         __props__["zone_id"] = zone_id

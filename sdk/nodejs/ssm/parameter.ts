@@ -90,6 +90,11 @@ export class Parameter extends pulumi.CustomResource {
      */
     public readonly arn!: pulumi.Output<string>;
     /**
+     * The dataType of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+     * ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+     */
+    public readonly dataType!: pulumi.Output<string>;
+    /**
      * The description of the parameter.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -140,6 +145,7 @@ export class Parameter extends pulumi.CustomResource {
             const state = argsOrState as ParameterState | undefined;
             inputs["allowedPattern"] = state ? state.allowedPattern : undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["dataType"] = state ? state.dataType : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["keyId"] = state ? state.keyId : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -159,6 +165,7 @@ export class Parameter extends pulumi.CustomResource {
             }
             inputs["allowedPattern"] = args ? args.allowedPattern : undefined;
             inputs["arn"] = args ? args.arn : undefined;
+            inputs["dataType"] = args ? args.dataType : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["keyId"] = args ? args.keyId : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -192,6 +199,11 @@ export interface ParameterState {
      * The ARN of the parameter.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The dataType of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+     * ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+     */
+    readonly dataType?: pulumi.Input<string>;
     /**
      * The description of the parameter.
      */
@@ -242,6 +254,11 @@ export interface ParameterArgs {
      * The ARN of the parameter.
      */
     readonly arn?: pulumi.Input<string>;
+    /**
+     * The dataType of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+     * ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+     */
+    readonly dataType?: pulumi.Input<string>;
     /**
      * The description of the parameter.
      */

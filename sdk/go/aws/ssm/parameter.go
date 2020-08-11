@@ -18,6 +18,9 @@ type Parameter struct {
 	AllowedPattern pulumi.StringPtrOutput `pulumi:"allowedPattern"`
 	// The ARN of the parameter.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The dataType of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+	// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+	DataType pulumi.StringOutput `pulumi:"dataType"`
 	// The description of the parameter.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The KMS key id or arn for encrypting a SecureString.
@@ -76,6 +79,9 @@ type parameterState struct {
 	AllowedPattern *string `pulumi:"allowedPattern"`
 	// The ARN of the parameter.
 	Arn *string `pulumi:"arn"`
+	// The dataType of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+	// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+	DataType *string `pulumi:"dataType"`
 	// The description of the parameter.
 	Description *string `pulumi:"description"`
 	// The KMS key id or arn for encrypting a SecureString.
@@ -101,6 +107,9 @@ type ParameterState struct {
 	AllowedPattern pulumi.StringPtrInput
 	// The ARN of the parameter.
 	Arn pulumi.StringPtrInput
+	// The dataType of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+	// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+	DataType pulumi.StringPtrInput
 	// The description of the parameter.
 	Description pulumi.StringPtrInput
 	// The KMS key id or arn for encrypting a SecureString.
@@ -130,6 +139,9 @@ type parameterArgs struct {
 	AllowedPattern *string `pulumi:"allowedPattern"`
 	// The ARN of the parameter.
 	Arn *string `pulumi:"arn"`
+	// The dataType of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+	// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+	DataType *string `pulumi:"dataType"`
 	// The description of the parameter.
 	Description *string `pulumi:"description"`
 	// The KMS key id or arn for encrypting a SecureString.
@@ -154,6 +166,9 @@ type ParameterArgs struct {
 	AllowedPattern pulumi.StringPtrInput
 	// The ARN of the parameter.
 	Arn pulumi.StringPtrInput
+	// The dataType of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+	// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+	DataType pulumi.StringPtrInput
 	// The description of the parameter.
 	Description pulumi.StringPtrInput
 	// The KMS key id or arn for encrypting a SecureString.

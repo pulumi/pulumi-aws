@@ -268,7 +268,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
     /**
-     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+     * ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
      */
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
     public readonly s3Import!: pulumi.Output<outputs.rds.ClusterS3Import | undefined>;
@@ -543,7 +543,7 @@ export interface ClusterState {
      */
     readonly readerEndpoint?: pulumi.Input<string>;
     /**
-     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+     * ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
     readonly s3Import?: pulumi.Input<inputs.rds.ClusterS3Import>;
@@ -690,7 +690,7 @@ export interface ClusterArgs {
      */
     readonly preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+     * ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
      */
     readonly replicationSourceIdentifier?: pulumi.Input<string>;
     readonly s3Import?: pulumi.Input<inputs.rds.ClusterS3Import>;

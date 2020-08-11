@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones.
+ * Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones. See the `aws.route53.VpcAssociationAuthorization` resource for setting up cross-account associations.
  *
  * > **NOTE:** Unless explicit association ordering is required (e.g. a separate cross-account association authorization), usage of this resource is not recommended. Use the `vpc` configuration blocks available within the `aws.route53.Zone` resource instead.
  *
@@ -65,6 +65,10 @@ export class ZoneAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * The account ID of the account that created the hosted zone.
+     */
+    public /*out*/ readonly owningAccount!: pulumi.Output<string>;
+    /**
      * The VPC to associate with the private hosted zone.
      */
     public readonly vpcId!: pulumi.Output<string>;
@@ -89,6 +93,7 @@ export class ZoneAssociation extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ZoneAssociationState | undefined;
+            inputs["owningAccount"] = state ? state.owningAccount : undefined;
             inputs["vpcId"] = state ? state.vpcId : undefined;
             inputs["vpcRegion"] = state ? state.vpcRegion : undefined;
             inputs["zoneId"] = state ? state.zoneId : undefined;
@@ -103,6 +108,7 @@ export class ZoneAssociation extends pulumi.CustomResource {
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["vpcRegion"] = args ? args.vpcRegion : undefined;
             inputs["zoneId"] = args ? args.zoneId : undefined;
+            inputs["owningAccount"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -119,6 +125,10 @@ export class ZoneAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ZoneAssociation resources.
  */
 export interface ZoneAssociationState {
+    /**
+     * The account ID of the account that created the hosted zone.
+     */
+    readonly owningAccount?: pulumi.Input<string>;
     /**
      * The VPC to associate with the private hosted zone.
      */

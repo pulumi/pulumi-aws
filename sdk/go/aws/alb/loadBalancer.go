@@ -46,6 +46,38 @@ import (
 // 	})
 // }
 // ```
+// ### Specifying private IP addresses for an internal-facing load balancer
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/lb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+// 			LoadBalancerType: pulumi.String("network"),
+// 			SubnetMappings: lb.LoadBalancerSubnetMappingArray{
+// 				&lb.LoadBalancerSubnetMappingArgs{
+// 					PrivateIpv4Address: pulumi.String("10.0.1.15"),
+// 					SubnetId:           pulumi.Any(aws_subnet.Example1.Id),
+// 				},
+// 				&lb.LoadBalancerSubnetMappingArgs{
+// 					PrivateIpv4Address: pulumi.String("10.0.2.15"),
+// 					SubnetId:           pulumi.Any(aws_subnet.Example2.Id),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 

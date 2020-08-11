@@ -114,6 +114,37 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// 
     /// }
     /// ```
+    /// ### Specifying private IP addresses for an internal-facing load balancer
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.LB.LoadBalancer("example", new Aws.LB.LoadBalancerArgs
+    ///         {
+    ///             LoadBalancerType = "network",
+    ///             SubnetMappings = 
+    ///             {
+    ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
+    ///                 {
+    ///                     PrivateIpv4Address = "10.0.1.15",
+    ///                     SubnetId = aws_subnet.Example1.Id,
+    ///                 },
+    ///                 new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
+    ///                 {
+    ///                     PrivateIpv4Address = "10.0.2.15",
+    ///                     SubnetId = aws_subnet.Example2.Id,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     [Obsolete(@"aws.applicationloadbalancing.LoadBalancer has been deprecated in favor of aws.alb.LoadBalancer")]
     public partial class LoadBalancer : Pulumi.CustomResource

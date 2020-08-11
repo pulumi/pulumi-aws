@@ -47,6 +47,7 @@ from .get_route_table import *
 from .get_route_tables import *
 from .get_security_group import *
 from .get_security_groups import *
+from .get_spot_price import *
 from .get_subnet import *
 from .get_subnet_ids import *
 from .get_vpc import *

@@ -79,7 +79,6 @@ export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pul
         "excludeNames": args.excludeNames,
         "excludeZoneIds": args.excludeZoneIds,
         "filters": args.filters,
-        "groupNames": args.groupNames,
         "state": args.state,
     }, opts);
 }
@@ -104,7 +103,6 @@ export interface GetAvailabilityZonesArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     readonly filters?: inputs.GetAvailabilityZonesFilter[];
-    readonly groupNames?: string[];
     /**
      * Allows to filter list of Availability Zones based on their
      * current state. Can be either `"available"`, `"information"`, `"impaired"` or
@@ -122,7 +120,7 @@ export interface GetAvailabilityZonesResult {
     readonly excludeNames?: string[];
     readonly excludeZoneIds?: string[];
     readonly filters?: outputs.GetAvailabilityZonesFilter[];
-    readonly groupNames?: string[];
+    readonly groupNames: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
