@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.0.0 (2020-08-11)
 * Upgrade to v3.0.0 of the AWS Terraform Provider
   **Please Note:**
   * A number of `deprecated` properties on resources have been removed. You can check the full list in the
@@ -13,8 +18,6 @@ CHANGELOG
 * Add ManagedPolicies.AWSXRayDaemonWriteAccess
 * Upgrade to pulumi-terraform-bridge v2.6.0
 * Upgrade to Pulumi v2.7.1
-
----
 
 ## 2.13.1 (2020-07-22)
 * Update `aws.Tags` interface to reflect changes from version `2.10.0`
