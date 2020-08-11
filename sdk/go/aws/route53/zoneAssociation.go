@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones.
+// Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones. See the `route53.VpcAssociationAuthorization` resource for setting up cross-account associations.
 //
 // > **NOTE:** Unless explicit association ordering is required (e.g. a separate cross-account association authorization), usage of this resource is not recommended. Use the `vpc` configuration blocks available within the `route53.Zone` resource instead.
 //
@@ -69,6 +69,8 @@ import (
 type ZoneAssociation struct {
 	pulumi.CustomResourceState
 
+	// The account ID of the account that created the hosted zone.
+	OwningAccount pulumi.StringOutput `pulumi:"owningAccount"`
 	// The VPC to associate with the private hosted zone.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The VPC's region. Defaults to the region of the AWS provider.
@@ -111,6 +113,8 @@ func GetZoneAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ZoneAssociation resources.
 type zoneAssociationState struct {
+	// The account ID of the account that created the hosted zone.
+	OwningAccount *string `pulumi:"owningAccount"`
 	// The VPC to associate with the private hosted zone.
 	VpcId *string `pulumi:"vpcId"`
 	// The VPC's region. Defaults to the region of the AWS provider.
@@ -120,6 +124,8 @@ type zoneAssociationState struct {
 }
 
 type ZoneAssociationState struct {
+	// The account ID of the account that created the hosted zone.
+	OwningAccount pulumi.StringPtrInput
 	// The VPC to associate with the private hosted zone.
 	VpcId pulumi.StringPtrInput
 	// The VPC's region. Defaults to the region of the AWS provider.

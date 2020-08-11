@@ -342,7 +342,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> ReaderEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+        /// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
         /// </summary>
         [Output("replicationSourceIdentifier")]
         public Output<string?> ReplicationSourceIdentifier { get; private set; } = null!;
@@ -625,7 +625,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+        /// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
         /// </summary>
         [Input("replicationSourceIdentifier")]
         public Input<string>? ReplicationSourceIdentifier { get; set; }
@@ -912,7 +912,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? ReaderEndpoint { get; set; }
 
         /// <summary>
-        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+        /// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
         /// </summary>
         [Input("replicationSourceIdentifier")]
         public Input<string>? ReplicationSourceIdentifier { get; set; }

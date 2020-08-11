@@ -287,7 +287,7 @@ def get_policy_document(override_json=None, policy_id=None, source_json=None, st
       * `notActions` (`list`) - A list of actions that this statement does *not*
         apply to. Used to apply a policy statement to all actions *except* those
         listed.
-      * `notPrincipals` (`list`) - Like `principals` except gives resources that
+      * `notPrincipals` (`list`) - Like `principals` except gives principals that
         the statement does *not* apply to.
         * `identifiers` (`list`) - List of identifiers for principals. When `type`
           is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
@@ -297,7 +297,7 @@ def get_policy_document(override_json=None, policy_id=None, source_json=None, st
         does *not* apply to. Used to apply a policy statement to all resources
         *except* those listed.
       * `principals` (`list`) - A nested configuration block (described below)
-        specifying a resource (or resource pattern) to which this statement applies.
+        specifying a principal (or principal pattern) to which this statement applies.
         * `identifiers` (`list`) - List of identifiers for principals. When `type`
           is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
         * `type` (`str`) - The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".

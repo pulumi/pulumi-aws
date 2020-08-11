@@ -845,6 +845,10 @@ export namespace alb {
          */
         allocationId?: pulumi.Input<string>;
         /**
+         * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+         */
+        privateIpv4Address?: pulumi.Input<string>;
+        /**
          * The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          */
         subnetId: pulumi.Input<string>;
@@ -1780,6 +1784,10 @@ export namespace applicationloadbalancing {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: pulumi.Input<string>;
+        /**
+         * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+         */
+        privateIpv4Address?: pulumi.Input<string>;
         /**
          * The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          */
@@ -5977,6 +5985,17 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetSpotPriceFilter {
+        /**
+         * Name of the filter.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
     export interface GetSubnetFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -7269,6 +7288,17 @@ export namespace ec2transitgateway {
 }
 
 export namespace ecr {
+    export interface RepositoryEncryptionConfiguration {
+        /**
+         * The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+         */
+        encryptionType?: pulumi.Input<string>;
+        /**
+         * The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+         */
+        kmsKey?: pulumi.Input<string>;
+    }
+
     export interface RepositoryImageScanningConfiguration {
         /**
          * Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
@@ -8388,6 +8418,10 @@ export namespace elasticloadbalancingv2 {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: pulumi.Input<string>;
+        /**
+         * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+         */
+        privateIpv4Address?: pulumi.Input<string>;
         /**
          * The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          */
@@ -9845,7 +9879,7 @@ export namespace iam {
          */
         notActions?: string[];
         /**
-         * Like `principals` except gives resources that
+         * Like `principals` except gives principals that
          * the statement does *not* apply to.
          */
         notPrincipals?: inputs.iam.GetPolicyDocumentStatementNotPrincipal[];
@@ -9857,7 +9891,7 @@ export namespace iam {
         notResources?: string[];
         /**
          * A nested configuration block (described below)
-         * specifying a resource (or resource pattern) to which this statement applies.
+         * specifying a principal (or principal pattern) to which this statement applies.
          */
         principals?: inputs.iam.GetPolicyDocumentStatementPrincipal[];
         /**
@@ -12184,6 +12218,10 @@ export namespace lb {
          */
         allocationId?: pulumi.Input<string>;
         /**
+         * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+         */
+        privateIpv4Address?: pulumi.Input<string>;
+        /**
          * The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          */
         subnetId: pulumi.Input<string>;
@@ -13186,6 +13224,17 @@ export namespace rds {
          * The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
          */
         timeoutAction?: pulumi.Input<string>;
+    }
+
+    export interface GlobalClusterGlobalClusterMember {
+        /**
+         * Amazon Resource Name (ARN) of member DB Cluster
+         */
+        dbClusterArn?: pulumi.Input<string>;
+        /**
+         * Whether the member is the primary DB Cluster
+         */
+        isWriter?: pulumi.Input<boolean>;
     }
 
     export interface InstanceS3Import {

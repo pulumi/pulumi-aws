@@ -18,6 +18,10 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
         /// </summary>
         public readonly string? AllocationId;
         /// <summary>
+        /// A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+        /// </summary>
+        public readonly string? PrivateIpv4Address;
+        /// <summary>
         /// The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
         /// </summary>
         public readonly string SubnetId;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
         private LoadBalancerSubnetMapping(
             string? allocationId,
 
+            string? privateIpv4Address,
+
             string subnetId)
         {
             AllocationId = allocationId;
+            PrivateIpv4Address = privateIpv4Address;
             SubnetId = subnetId;
         }
     }

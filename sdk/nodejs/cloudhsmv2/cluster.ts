@@ -13,10 +13,10 @@ import * as utilities from "../utilities";
  * [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html) and the [Amazon
  * CloudHSM API Reference][2].
  *
- * > **NOTE:** CloudHSM can take up to several minutes to be set up.
- * Practically no single attribute can be updated except TAGS.
+ * > **NOTE:** A CloudHSM Cluster can take several minutes to set up.
+ * Practically no single attribute can be updated, except for `tags`.
  * If you need to delete a cluster, you have to remove its HSM modules first.
- * To initialize cluster, you have to add an hsm instance to the cluster then sign CSR and upload it.
+ * To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -49,7 +49,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The list of cluster certificates.
      * * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
-     * * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state after an hsm instance is added to the cluster.
+     * * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
      * * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
      * * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
      * * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
@@ -60,11 +60,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterId!: pulumi.Output<string>;
     /**
-     * The state of the cluster.
+     * The state of the CloudHSM cluster.
      */
     public /*out*/ readonly clusterState!: pulumi.Output<string>;
     /**
-     * The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
+     * The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
      */
     public readonly hsmType!: pulumi.Output<string>;
     /**
@@ -145,7 +145,7 @@ export interface ClusterState {
     /**
      * The list of cluster certificates.
      * * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
-     * * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state after an hsm instance is added to the cluster.
+     * * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
      * * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
      * * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
      * * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
@@ -156,11 +156,11 @@ export interface ClusterState {
      */
     readonly clusterId?: pulumi.Input<string>;
     /**
-     * The state of the cluster.
+     * The state of the CloudHSM cluster.
      */
     readonly clusterState?: pulumi.Input<string>;
     /**
-     * The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
+     * The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
      */
     readonly hsmType?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
+     * The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
      */
     readonly hsmType: pulumi.Input<string>;
     /**

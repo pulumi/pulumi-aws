@@ -72,6 +72,26 @@ import {IpAddressType, LoadBalancerType} from "../alb";
  *     ],
  * });
  * ```
+ * ### Specifying private IP addresses for an internal-facing load balancer
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lb.LoadBalancer("example", {
+ *     loadBalancerType: "network",
+ *     subnetMappings: [
+ *         {
+ *             privateIpv4Address: "10.0.1.15",
+ *             subnetId: aws_subnet_example1.id,
+ *         },
+ *         {
+ *             privateIpv4Address: "10.0.2.15",
+ *             subnetId: aws_subnet_example2.id,
+ *         },
+ *     ],
+ * });
+ * ```
  *
  * @deprecated aws.applicationloadbalancing.LoadBalancer has been deprecated in favor of aws.alb.LoadBalancer
  */

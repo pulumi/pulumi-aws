@@ -46,6 +46,7 @@ export * from "./getRouteTable";
 export * from "./getRouteTables";
 export * from "./getSecurityGroup";
 export * from "./getSecurityGroups";
+export * from "./getSpotPrice";
 export * from "./getSubnet";
 export * from "./getSubnetIds";
 export * from "./getVpc";

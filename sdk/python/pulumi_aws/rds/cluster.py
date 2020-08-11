@@ -141,7 +141,7 @@ class Cluster(pulumi.CustomResource):
     """
     replication_source_identifier: pulumi.Output[str]
     """
-    ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+    ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
     """
     s3_import: pulumi.Output[dict]
     scaling_configuration: pulumi.Output[dict]
@@ -306,7 +306,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[float] port: The port on which the DB accepts connections
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
-        :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+        :param pulumi.Input[str] replication_source_identifier: ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
         :param pulumi.Input[dict] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
@@ -437,7 +437,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
         :param pulumi.Input[str] reader_endpoint: A read-only endpoint for the Aurora cluster, automatically
                load-balanced across replicas
-        :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+        :param pulumi.Input[str] replication_source_identifier: ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
         :param pulumi.Input[dict] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.

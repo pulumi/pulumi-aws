@@ -225,7 +225,7 @@ type Cluster struct {
 	// A read-only endpoint for the Aurora cluster, automatically
 	// load-balanced across replicas
 	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
-	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+	// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrOutput   `pulumi:"replicationSourceIdentifier"`
 	S3Import                    ClusterS3ImportPtrOutput `pulumi:"s3Import"`
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
@@ -337,7 +337,7 @@ type clusterState struct {
 	// A read-only endpoint for the Aurora cluster, automatically
 	// load-balanced across replicas
 	ReaderEndpoint *string `pulumi:"readerEndpoint"`
-	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+	// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
 	ReplicationSourceIdentifier *string          `pulumi:"replicationSourceIdentifier"`
 	S3Import                    *ClusterS3Import `pulumi:"s3Import"`
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
@@ -422,7 +422,7 @@ type ClusterState struct {
 	// A read-only endpoint for the Aurora cluster, automatically
 	// load-balanced across replicas
 	ReaderEndpoint pulumi.StringPtrInput
-	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+	// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
 	S3Import                    ClusterS3ImportPtrInput
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
@@ -500,7 +500,7 @@ type clusterArgs struct {
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+	// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
 	ReplicationSourceIdentifier *string          `pulumi:"replicationSourceIdentifier"`
 	S3Import                    *ClusterS3Import `pulumi:"s3Import"`
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
@@ -575,7 +575,7 @@ type ClusterArgs struct {
 	PreferredBackupWindow pulumi.StringPtrInput
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringPtrInput
-	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.
+	// ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
 	S3Import                    ClusterS3ImportPtrInput
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.

@@ -135,8 +135,7 @@ type GetAvailabilityZonesArgs struct {
 	// List of Availability Zone IDs to exclude.
 	ExcludeZoneIds []string `pulumi:"excludeZoneIds"`
 	// Configuration block(s) for filtering. Detailed below.
-	Filters    []GetAvailabilityZonesFilter `pulumi:"filters"`
-	GroupNames []string                     `pulumi:"groupNames"`
+	Filters []GetAvailabilityZonesFilter `pulumi:"filters"`
 	// Allows to filter list of Availability Zones based on their
 	// current state. Can be either `"available"`, `"information"`, `"impaired"` or
 	// `"unavailable"`. By default the list includes a complete set of Availability Zones

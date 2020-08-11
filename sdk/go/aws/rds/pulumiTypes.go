@@ -545,6 +545,112 @@ func (o ClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type GlobalClusterGlobalClusterMember struct {
+	// Amazon Resource Name (ARN) of member DB Cluster
+	DbClusterArn *string `pulumi:"dbClusterArn"`
+	// Whether the member is the primary DB Cluster
+	IsWriter *bool `pulumi:"isWriter"`
+}
+
+// GlobalClusterGlobalClusterMemberInput is an input type that accepts GlobalClusterGlobalClusterMemberArgs and GlobalClusterGlobalClusterMemberOutput values.
+// You can construct a concrete instance of `GlobalClusterGlobalClusterMemberInput` via:
+//
+//          GlobalClusterGlobalClusterMemberArgs{...}
+type GlobalClusterGlobalClusterMemberInput interface {
+	pulumi.Input
+
+	ToGlobalClusterGlobalClusterMemberOutput() GlobalClusterGlobalClusterMemberOutput
+	ToGlobalClusterGlobalClusterMemberOutputWithContext(context.Context) GlobalClusterGlobalClusterMemberOutput
+}
+
+type GlobalClusterGlobalClusterMemberArgs struct {
+	// Amazon Resource Name (ARN) of member DB Cluster
+	DbClusterArn pulumi.StringPtrInput `pulumi:"dbClusterArn"`
+	// Whether the member is the primary DB Cluster
+	IsWriter pulumi.BoolPtrInput `pulumi:"isWriter"`
+}
+
+func (GlobalClusterGlobalClusterMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalClusterGlobalClusterMember)(nil)).Elem()
+}
+
+func (i GlobalClusterGlobalClusterMemberArgs) ToGlobalClusterGlobalClusterMemberOutput() GlobalClusterGlobalClusterMemberOutput {
+	return i.ToGlobalClusterGlobalClusterMemberOutputWithContext(context.Background())
+}
+
+func (i GlobalClusterGlobalClusterMemberArgs) ToGlobalClusterGlobalClusterMemberOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalClusterMemberOutput)
+}
+
+// GlobalClusterGlobalClusterMemberArrayInput is an input type that accepts GlobalClusterGlobalClusterMemberArray and GlobalClusterGlobalClusterMemberArrayOutput values.
+// You can construct a concrete instance of `GlobalClusterGlobalClusterMemberArrayInput` via:
+//
+//          GlobalClusterGlobalClusterMemberArray{ GlobalClusterGlobalClusterMemberArgs{...} }
+type GlobalClusterGlobalClusterMemberArrayInput interface {
+	pulumi.Input
+
+	ToGlobalClusterGlobalClusterMemberArrayOutput() GlobalClusterGlobalClusterMemberArrayOutput
+	ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(context.Context) GlobalClusterGlobalClusterMemberArrayOutput
+}
+
+type GlobalClusterGlobalClusterMemberArray []GlobalClusterGlobalClusterMemberInput
+
+func (GlobalClusterGlobalClusterMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalClusterGlobalClusterMember)(nil)).Elem()
+}
+
+func (i GlobalClusterGlobalClusterMemberArray) ToGlobalClusterGlobalClusterMemberArrayOutput() GlobalClusterGlobalClusterMemberArrayOutput {
+	return i.ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GlobalClusterGlobalClusterMemberArray) ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalClusterMemberArrayOutput)
+}
+
+type GlobalClusterGlobalClusterMemberOutput struct{ *pulumi.OutputState }
+
+func (GlobalClusterGlobalClusterMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalClusterGlobalClusterMember)(nil)).Elem()
+}
+
+func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemberOutput() GlobalClusterGlobalClusterMemberOutput {
+	return o
+}
+
+func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemberOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberOutput {
+	return o
+}
+
+// Amazon Resource Name (ARN) of member DB Cluster
+func (o GlobalClusterGlobalClusterMemberOutput) DbClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalClusterGlobalClusterMember) *string { return v.DbClusterArn }).(pulumi.StringPtrOutput)
+}
+
+// Whether the member is the primary DB Cluster
+func (o GlobalClusterGlobalClusterMemberOutput) IsWriter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GlobalClusterGlobalClusterMember) *bool { return v.IsWriter }).(pulumi.BoolPtrOutput)
+}
+
+type GlobalClusterGlobalClusterMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GlobalClusterGlobalClusterMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalClusterGlobalClusterMember)(nil)).Elem()
+}
+
+func (o GlobalClusterGlobalClusterMemberArrayOutput) ToGlobalClusterGlobalClusterMemberArrayOutput() GlobalClusterGlobalClusterMemberArrayOutput {
+	return o
+}
+
+func (o GlobalClusterGlobalClusterMemberArrayOutput) ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberArrayOutput {
+	return o
+}
+
+func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) GlobalClusterGlobalClusterMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalClusterGlobalClusterMember {
+		return vs[0].([]GlobalClusterGlobalClusterMember)[vs[1].(int)]
+	}).(GlobalClusterGlobalClusterMemberOutput)
+}
+
 type InstanceS3Import struct {
 	// The bucket name where your backup is stored
 	BucketName string `pulumi:"bucketName"`
@@ -1255,6 +1361,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterS3ImportPtrOutput{})
 	pulumi.RegisterOutputType(ClusterScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterScalingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberOutput{})
+	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberArrayOutput{})
 	pulumi.RegisterOutputType(InstanceS3ImportOutput{})
 	pulumi.RegisterOutputType(InstanceS3ImportPtrOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionOutput{})

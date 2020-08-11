@@ -14,5 +14,6 @@ from .record import *
 from .resolver_endpoint import *
 from .resolver_rule import *
 from .resolver_rule_association import *
+from .vpc_association_authorization import *
 from .zone import *
 from .zone_association import *

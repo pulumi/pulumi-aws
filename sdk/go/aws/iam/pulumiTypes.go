@@ -149,7 +149,7 @@ type GetPolicyDocumentStatement struct {
 	// apply to. Used to apply a policy statement to all actions *except* those
 	// listed.
 	NotActions []string `pulumi:"notActions"`
-	// Like `principals` except gives resources that
+	// Like `principals` except gives principals that
 	// the statement does *not* apply to.
 	NotPrincipals []GetPolicyDocumentStatementNotPrincipal `pulumi:"notPrincipals"`
 	// A list of resource ARNs that this statement
@@ -157,7 +157,7 @@ type GetPolicyDocumentStatement struct {
 	// *except* those listed.
 	NotResources []string `pulumi:"notResources"`
 	// A nested configuration block (described below)
-	// specifying a resource (or resource pattern) to which this statement applies.
+	// specifying a principal (or principal pattern) to which this statement applies.
 	Principals []GetPolicyDocumentStatementPrincipal `pulumi:"principals"`
 	// A list of resource ARNs that this statement applies
 	// to. This is required by AWS if used for an IAM policy.
@@ -192,7 +192,7 @@ type GetPolicyDocumentStatementArgs struct {
 	// apply to. Used to apply a policy statement to all actions *except* those
 	// listed.
 	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
-	// Like `principals` except gives resources that
+	// Like `principals` except gives principals that
 	// the statement does *not* apply to.
 	NotPrincipals GetPolicyDocumentStatementNotPrincipalArrayInput `pulumi:"notPrincipals"`
 	// A list of resource ARNs that this statement
@@ -200,7 +200,7 @@ type GetPolicyDocumentStatementArgs struct {
 	// *except* those listed.
 	NotResources pulumi.StringArrayInput `pulumi:"notResources"`
 	// A nested configuration block (described below)
-	// specifying a resource (or resource pattern) to which this statement applies.
+	// specifying a principal (or principal pattern) to which this statement applies.
 	Principals GetPolicyDocumentStatementPrincipalArrayInput `pulumi:"principals"`
 	// A list of resource ARNs that this statement applies
 	// to. This is required by AWS if used for an IAM policy.
@@ -286,7 +286,7 @@ func (o GetPolicyDocumentStatementOutput) NotActions() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
 
-// Like `principals` except gives resources that
+// Like `principals` except gives principals that
 // the statement does *not* apply to.
 func (o GetPolicyDocumentStatementOutput) NotPrincipals() GetPolicyDocumentStatementNotPrincipalArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []GetPolicyDocumentStatementNotPrincipal { return v.NotPrincipals }).(GetPolicyDocumentStatementNotPrincipalArrayOutput)
@@ -300,7 +300,7 @@ func (o GetPolicyDocumentStatementOutput) NotResources() pulumi.StringArrayOutpu
 }
 
 // A nested configuration block (described below)
-// specifying a resource (or resource pattern) to which this statement applies.
+// specifying a principal (or principal pattern) to which this statement applies.
 func (o GetPolicyDocumentStatementOutput) Principals() GetPolicyDocumentStatementPrincipalArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []GetPolicyDocumentStatementPrincipal { return v.Principals }).(GetPolicyDocumentStatementPrincipalArrayOutput)
 }

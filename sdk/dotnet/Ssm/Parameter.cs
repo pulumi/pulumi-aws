@@ -89,6 +89,13 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+        /// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+        /// </summary>
+        [Output("dataType")]
+        public Output<string> DataType { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the parameter.
         /// </summary>
         [Output("description")]
@@ -201,6 +208,13 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+        /// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+        /// </summary>
+        [Input("dataType")]
+        public Input<string>? DataType { get; set; }
+
+        /// <summary>
         /// The description of the parameter.
         /// </summary>
         [Input("description")]
@@ -272,6 +286,13 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
+        /// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+        /// </summary>
+        [Input("dataType")]
+        public Input<string>? DataType { get; set; }
 
         /// <summary>
         /// The description of the parameter.

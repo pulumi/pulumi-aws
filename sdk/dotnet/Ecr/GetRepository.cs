@@ -50,6 +50,12 @@ namespace Pulumi.Aws.Ecr
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The registry ID where the repository was created.
+        /// </summary>
+        [Input("registryId")]
+        public string? RegistryId { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -76,13 +82,22 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public readonly string Arn;
         /// <summary>
+        /// Encryption configuration for the repository. See Encryption Configuration below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetRepositoryEncryptionConfigurationResult> EncryptionConfigurations;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string Name;
         /// <summary>
-        /// The registry ID where the repository was created.
+        /// Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
         /// </summary>
+        public readonly ImmutableArray<Outputs.GetRepositoryImageScanningConfigurationResult> ImageScanningConfigurations;
+        /// <summary>
+        /// The tag mutability setting for the repository.
+        /// </summary>
+        public readonly string ImageTagMutability;
+        public readonly string Name;
         public readonly string RegistryId;
         /// <summary>
         /// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
@@ -97,7 +112,13 @@ namespace Pulumi.Aws.Ecr
         private GetRepositoryResult(
             string arn,
 
+            ImmutableArray<Outputs.GetRepositoryEncryptionConfigurationResult> encryptionConfigurations,
+
             string id,
+
+            ImmutableArray<Outputs.GetRepositoryImageScanningConfigurationResult> imageScanningConfigurations,
+
+            string imageTagMutability,
 
             string name,
 
@@ -108,7 +129,10 @@ namespace Pulumi.Aws.Ecr
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
+            EncryptionConfigurations = encryptionConfigurations;
             Id = id;
+            ImageScanningConfigurations = imageScanningConfigurations;
+            ImageTagMutability = imageTagMutability;
             Name = name;
             RegistryId = registryId;
             RepositoryUrl = repositoryUrl;

@@ -2,12 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v3.1.0 of the AWS Terraform Provider
 
 ---
 
 ## 3.0.0 (2020-08-11)
-* Upgrade to v3.0.0 of the AWS Terraform Provider
+* Upgrade to v3.0.0 of the AWS Terraform Provider  
   **Please Note:**
   * A number of `deprecated` properties on resources have been removed. You can check the full list in the
   [upstream CHANGELOG](https://github.com/pulumi/terraform-provider-aws/blob/upstream-v3.0.0/CHANGELOG.md#300-july-31-2020)
@@ -26,7 +26,7 @@ _(none)_
 * Upgrade to v2.70.0 of the AWS Terraform Provider
 
 ## 2.12.0 (2020-07-06)
-* Upgrade to v2.69.0 of the AWS Terraform Provider
+* Upgrade to v2.69.0 of the AWS Terraform Provider  
   ** Please Note the following **
   * `ec2.CustomerGateway.bgpAsn` has changed from an `int` to `string` to allow 4-byte ASNs
 * Add `C5A` instance type family to `aws.ec2.InstanceTypes`.
@@ -39,7 +39,7 @@ _(none)_
 * Ensure `autoscaling.Group.Tag` and `autoscaling.Group.Tags` do not panic due to their underlying types in the Terraform schema
 
 ## 2.10.0 (2020-06-23)
-* Upgrade to v2.67.0 of the AWS Terraform Provider
+* Upgrade to v2.67.0 of the AWS Terraform Provider  
   ** Please Note the following **
   * The use of maps when specifying `tags` has changed to be a map that can only contain string values
   * `apigateway.state.variables` has changed to be a map that can only contain string values
@@ -87,7 +87,7 @@ _(none)_
 
 ## 2.4.0 (2020-05-11)
 * Upgrade to pulumi-terraform-bridge v2.3.1
-* Upgrade to v2.61.0 of the AWS Terraform Provider
+* Upgrade to v2.61.0 of the AWS Terraform Provider  
   ** Please Note: **
   * `aws.ssm.Document` `permissions` has changed to be a map
   * `aws.cognito.IdentityPoolRoleAttachment` `roles` has changed to be a map

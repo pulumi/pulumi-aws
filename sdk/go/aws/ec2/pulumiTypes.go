@@ -17209,6 +17209,112 @@ func (o GetSecurityGroupsFilterArrayOutput) Index(i pulumi.IntInput) GetSecurity
 	}).(GetSecurityGroupsFilterOutput)
 }
 
+type GetSpotPriceFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetSpotPriceFilterInput is an input type that accepts GetSpotPriceFilterArgs and GetSpotPriceFilterOutput values.
+// You can construct a concrete instance of `GetSpotPriceFilterInput` via:
+//
+//          GetSpotPriceFilterArgs{...}
+type GetSpotPriceFilterInput interface {
+	pulumi.Input
+
+	ToGetSpotPriceFilterOutput() GetSpotPriceFilterOutput
+	ToGetSpotPriceFilterOutputWithContext(context.Context) GetSpotPriceFilterOutput
+}
+
+type GetSpotPriceFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetSpotPriceFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpotPriceFilter)(nil)).Elem()
+}
+
+func (i GetSpotPriceFilterArgs) ToGetSpotPriceFilterOutput() GetSpotPriceFilterOutput {
+	return i.ToGetSpotPriceFilterOutputWithContext(context.Background())
+}
+
+func (i GetSpotPriceFilterArgs) ToGetSpotPriceFilterOutputWithContext(ctx context.Context) GetSpotPriceFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpotPriceFilterOutput)
+}
+
+// GetSpotPriceFilterArrayInput is an input type that accepts GetSpotPriceFilterArray and GetSpotPriceFilterArrayOutput values.
+// You can construct a concrete instance of `GetSpotPriceFilterArrayInput` via:
+//
+//          GetSpotPriceFilterArray{ GetSpotPriceFilterArgs{...} }
+type GetSpotPriceFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetSpotPriceFilterArrayOutput() GetSpotPriceFilterArrayOutput
+	ToGetSpotPriceFilterArrayOutputWithContext(context.Context) GetSpotPriceFilterArrayOutput
+}
+
+type GetSpotPriceFilterArray []GetSpotPriceFilterInput
+
+func (GetSpotPriceFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpotPriceFilter)(nil)).Elem()
+}
+
+func (i GetSpotPriceFilterArray) ToGetSpotPriceFilterArrayOutput() GetSpotPriceFilterArrayOutput {
+	return i.ToGetSpotPriceFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetSpotPriceFilterArray) ToGetSpotPriceFilterArrayOutputWithContext(ctx context.Context) GetSpotPriceFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpotPriceFilterArrayOutput)
+}
+
+type GetSpotPriceFilterOutput struct{ *pulumi.OutputState }
+
+func (GetSpotPriceFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpotPriceFilter)(nil)).Elem()
+}
+
+func (o GetSpotPriceFilterOutput) ToGetSpotPriceFilterOutput() GetSpotPriceFilterOutput {
+	return o
+}
+
+func (o GetSpotPriceFilterOutput) ToGetSpotPriceFilterOutputWithContext(ctx context.Context) GetSpotPriceFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetSpotPriceFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpotPriceFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetSpotPriceFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSpotPriceFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetSpotPriceFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSpotPriceFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpotPriceFilter)(nil)).Elem()
+}
+
+func (o GetSpotPriceFilterArrayOutput) ToGetSpotPriceFilterArrayOutput() GetSpotPriceFilterArrayOutput {
+	return o
+}
+
+func (o GetSpotPriceFilterArrayOutput) ToGetSpotPriceFilterArrayOutputWithContext(ctx context.Context) GetSpotPriceFilterArrayOutput {
+	return o
+}
+
+func (o GetSpotPriceFilterArrayOutput) Index(i pulumi.IntInput) GetSpotPriceFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpotPriceFilter {
+		return vs[0].([]GetSpotPriceFilter)[vs[1].(int)]
+	}).(GetSpotPriceFilterOutput)
+}
+
 type GetSubnetFilter struct {
 	// The name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
@@ -18683,6 +18789,8 @@ func init() {
 	pulumi.RegisterOutputType(GetSecurityGroupFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupsFilterOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetSpotPriceFilterOutput{})
+	pulumi.RegisterOutputType(GetSpotPriceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSubnetFilterOutput{})
 	pulumi.RegisterOutputType(GetSubnetFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSubnetIdsFilterOutput{})

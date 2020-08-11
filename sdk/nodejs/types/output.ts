@@ -939,6 +939,10 @@ export namespace alb {
          */
         allocationId?: string;
         /**
+         * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+         */
+        privateIpv4Address?: string;
+        /**
          * The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          */
         subnetId: string;
@@ -1961,6 +1965,10 @@ export namespace applicationloadbalancing {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: string;
+        /**
+         * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+         */
+        privateIpv4Address?: string;
         /**
          * The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          */
@@ -6778,6 +6786,17 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetSpotPriceFilter {
+        /**
+         * Name of the filter.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
     export interface GetSubnetFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -8097,6 +8116,35 @@ export namespace ec2transitgateway {
 }
 
 export namespace ecr {
+    export interface GetRepositoryEncryptionConfiguration {
+        /**
+         * The encryption type to use for the repository, either `AES256` or `KMS`.
+         */
+        encryptionType: string;
+        /**
+         * If `encryptionType` is `KMS`, the ARN of the KMS key used.
+         */
+        kmsKey: string;
+    }
+
+    export interface GetRepositoryImageScanningConfiguration {
+        /**
+         * Indicates whether images are scanned after being pushed to the repository.
+         */
+        scanOnPush: boolean;
+    }
+
+    export interface RepositoryEncryptionConfiguration {
+        /**
+         * The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+         */
+        encryptionType?: string;
+        /**
+         * The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+         */
+        kmsKey: string;
+    }
+
     export interface RepositoryImageScanningConfiguration {
         /**
          * Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
@@ -9455,6 +9503,10 @@ export namespace elasticloadbalancingv2 {
          * The allocation ID of the Elastic IP address.
          */
         allocationId?: string;
+        /**
+         * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+         */
+        privateIpv4Address?: string;
         /**
          * The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          */
@@ -11113,7 +11165,7 @@ export namespace iam {
          */
         notActions?: string[];
         /**
-         * Like `principals` except gives resources that
+         * Like `principals` except gives principals that
          * the statement does *not* apply to.
          */
         notPrincipals?: outputs.iam.GetPolicyDocumentStatementNotPrincipal[];
@@ -11125,7 +11177,7 @@ export namespace iam {
         notResources?: string[];
         /**
          * A nested configuration block (described below)
-         * specifying a resource (or resource pattern) to which this statement applies.
+         * specifying a principal (or principal pattern) to which this statement applies.
          */
         principals?: outputs.iam.GetPolicyDocumentStatementPrincipal[];
         /**
@@ -13559,6 +13611,10 @@ export namespace lb {
          */
         allocationId?: string;
         /**
+         * A private ipv4 address within the subnet to assign to the internal-facing load balancer.
+         */
+        privateIpv4Address?: string;
+        /**
          * The id of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
          */
         subnetId: string;
@@ -14676,6 +14732,17 @@ export namespace rds {
          * The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
          */
         timeoutAction?: string;
+    }
+
+    export interface GlobalClusterGlobalClusterMember {
+        /**
+         * Amazon Resource Name (ARN) of member DB Cluster
+         */
+        dbClusterArn: string;
+        /**
+         * Whether the member is the primary DB Cluster
+         */
+        isWriter: boolean;
     }
 
     export interface InstanceS3Import {

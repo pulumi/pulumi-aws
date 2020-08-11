@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<Inputs.GetPolicyDocumentStatementNotPrincipalArgs>? _notPrincipals;
 
         /// <summary>
-        /// Like `principals` except gives resources that
+        /// Like `principals` except gives principals that
         /// the statement does *not* apply to.
         /// </summary>
         public List<Inputs.GetPolicyDocumentStatementNotPrincipalArgs> NotPrincipals
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Iam.Inputs
 
         /// <summary>
         /// A nested configuration block (described below)
-        /// specifying a resource (or resource pattern) to which this statement applies.
+        /// specifying a principal (or principal pattern) to which this statement applies.
         /// </summary>
         public List<Inputs.GetPolicyDocumentStatementPrincipalArgs> Principals
         {

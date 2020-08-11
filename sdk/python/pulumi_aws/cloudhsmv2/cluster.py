@@ -14,7 +14,7 @@ class Cluster(pulumi.CustomResource):
     """
     The list of cluster certificates.
     * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
-    * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state after an hsm instance is added to the cluster.
+    * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
     * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
     * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
     * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
@@ -31,11 +31,11 @@ class Cluster(pulumi.CustomResource):
     """
     cluster_state: pulumi.Output[str]
     """
-    The state of the cluster.
+    The state of the CloudHSM cluster.
     """
     hsm_type: pulumi.Output[str]
     """
-    The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
+    The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
     """
     security_group_id: pulumi.Output[str]
     """
@@ -65,14 +65,14 @@ class Cluster(pulumi.CustomResource):
         [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html) and the [Amazon
         CloudHSM API Reference][2].
 
-        > **NOTE:** CloudHSM can take up to several minutes to be set up.
-        Practically no single attribute can be updated except TAGS.
+        > **NOTE:** A CloudHSM Cluster can take several minutes to set up.
+        Practically no single attribute can be updated, except for `tags`.
         If you need to delete a cluster, you have to remove its HSM modules first.
-        To initialize cluster, you have to add an hsm instance to the cluster then sign CSR and upload it.
+        To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] hsm_type: The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
+        :param pulumi.Input[str] hsm_type: The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
         :param pulumi.Input[str] source_backup_identifier: The id of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[list] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
@@ -124,13 +124,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] cluster_certificates: The list of cluster certificates.
                * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
-               * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state after an hsm instance is added to the cluster.
+               * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
                * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
                * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
                * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
         :param pulumi.Input[str] cluster_id: The id of the CloudHSM cluster.
-        :param pulumi.Input[str] cluster_state: The state of the cluster.
-        :param pulumi.Input[str] hsm_type: The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
+        :param pulumi.Input[str] cluster_state: The state of the CloudHSM cluster.
+        :param pulumi.Input[str] hsm_type: The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
         :param pulumi.Input[str] security_group_id: The ID of the security group associated with the CloudHSM cluster.
         :param pulumi.Input[str] source_backup_identifier: The id of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[list] subnet_ids: The IDs of subnets in which cluster will operate.

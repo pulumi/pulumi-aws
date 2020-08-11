@@ -16,17 +16,17 @@ namespace Pulumi.Aws.CloudHsmV2
     /// [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html) and the [Amazon
     /// CloudHSM API Reference][2].
     /// 
-    /// &gt; **NOTE:** CloudHSM can take up to several minutes to be set up.
-    /// Practically no single attribute can be updated except TAGS.
+    /// &gt; **NOTE:** A CloudHSM Cluster can take several minutes to set up.
+    /// Practically no single attribute can be updated, except for `tags`.
     /// If you need to delete a cluster, you have to remove its HSM modules first.
-    /// To initialize cluster, you have to add an hsm instance to the cluster then sign CSR and upload it.
+    /// To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
         /// The list of cluster certificates.
         /// * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
-        /// * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state after an hsm instance is added to the cluster.
+        /// * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
         /// * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
         /// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
         /// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
@@ -41,13 +41,13 @@ namespace Pulumi.Aws.CloudHsmV2
         public Output<string> ClusterId { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the cluster.
+        /// The state of the CloudHSM cluster.
         /// </summary>
         [Output("clusterState")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
+        /// The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
         /// </summary>
         [Output("hsmType")]
         public Output<string> HsmType { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.CloudHsmV2
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
+        /// The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
         /// </summary>
         [Input("hsmType", required: true)]
         public Input<string> HsmType { get; set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.CloudHsmV2
         /// <summary>
         /// The list of cluster certificates.
         /// * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
-        /// * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state after an hsm instance is added to the cluster.
+        /// * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
         /// * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
         /// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
         /// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
@@ -195,13 +195,13 @@ namespace Pulumi.Aws.CloudHsmV2
         public Input<string>? ClusterId { get; set; }
 
         /// <summary>
-        /// The state of the cluster.
+        /// The state of the CloudHSM cluster.
         /// </summary>
         [Input("clusterState")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// The type of HSM module in the cluster. Currently, only hsm1.medium is supported.
+        /// The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
         /// </summary>
         [Input("hsmType")]
         public Input<string>? HsmType { get; set; }
