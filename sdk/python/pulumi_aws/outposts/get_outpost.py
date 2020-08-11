@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetOutpostResult:
     """
@@ -55,6 +56,8 @@ class GetOutpostResult:
         """
         Site identifier.
         """
+
+
 class AwaitableGetOutpostResult(GetOutpostResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -70,7 +73,8 @@ class AwaitableGetOutpostResult(GetOutpostResult):
             owner_id=self.owner_id,
             site_id=self.site_id)
 
-def get_outpost(id=None,name=None,opts=None):
+
+def get_outpost(id=None, name=None, opts=None):
     """
     Provides details about an Outposts Outpost.
 
@@ -88,14 +92,12 @@ def get_outpost(id=None,name=None,opts=None):
     :param str name: Name of the Outpost.
     """
     __args__ = dict()
-
-
     __args__['id'] = id
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:outposts/getOutpost:getOutpost', __args__, opts=opts).value
 
     return AwaitableGetOutpostResult(

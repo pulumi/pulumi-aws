@@ -28,7 +28,7 @@ import (
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("Example cross-account attachment"),
 // 			},
-// 			TransitGatewayAttachmentId: pulumi.String(aws_ec2_transit_gateway_peering_attachment.Example.Id),
+// 			TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_peering_attachment.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err

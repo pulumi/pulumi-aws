@@ -32,7 +32,7 @@ import (
 // 		_, err := apigatewayv2.NewDomainName(ctx, "example", &apigatewayv2.DomainNameArgs{
 // 			DomainName: pulumi.String("ws-api.example.com"),
 // 			DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
-// 				CertificateArn: pulumi.String(aws_acm_certificate.Example.Arn),
+// 				CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
 // 				EndpointType:   pulumi.String("REGIONAL"),
 // 				SecurityPolicy: pulumi.String("TLS_1_2"),
 // 			},

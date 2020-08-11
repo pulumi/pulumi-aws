@@ -32,7 +32,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = directconnect.NewTransitVirtualInterface(ctx, "exampleTransitVirtualInterface", &directconnect.TransitVirtualInterfaceArgs{
-// 			ConnectionId:  pulumi.String(aws_dx_connection.Example.Id),
+// 			ConnectionId:  pulumi.Any(aws_dx_connection.Example.Id),
 // 			DxGatewayId:   exampleGateway.ID(),
 // 			Vlan:          pulumi.Int(4094),
 // 			AddressFamily: pulumi.String("ipv4"),

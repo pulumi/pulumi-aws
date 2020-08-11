@@ -41,7 +41,7 @@ import (
 // 			Actions: lb.ListenerRuleActionArray{
 // 				&lb.ListenerRuleActionArgs{
 // 					Type:           pulumi.String("forward"),
-// 					TargetGroupArn: pulumi.String(aws_lb_target_group.Static.Arn),
+// 					TargetGroupArn: pulumi.Any(aws_lb_target_group.Static.Arn),
 // 				},
 // 			},
 // 			Conditions: lb.ListenerRuleConditionArray{
@@ -70,7 +70,7 @@ import (
 // 			Actions: lb.ListenerRuleActionArray{
 // 				&lb.ListenerRuleActionArgs{
 // 					Type:           pulumi.String("forward"),
-// 					TargetGroupArn: pulumi.String(aws_lb_target_group.Static.Arn),
+// 					TargetGroupArn: pulumi.Any(aws_lb_target_group.Static.Arn),
 // 				},
 // 			},
 // 			Conditions: lb.ListenerRuleConditionArray{
@@ -95,11 +95,11 @@ import (
 // 					Forward: &lb.ListenerRuleActionForwardArgs{
 // 						TargetGroups: lb.ListenerRuleActionForwardTargetGroupArray{
 // 							&lb.ListenerRuleActionForwardTargetGroupArgs{
-// 								Arn:    pulumi.String(aws_lb_target_group.Main.Arn),
+// 								Arn:    pulumi.Any(aws_lb_target_group.Main.Arn),
 // 								Weight: pulumi.Int(80),
 // 							},
 // 							&lb.ListenerRuleActionForwardTargetGroupArgs{
-// 								Arn:    pulumi.String(aws_lb_target_group.Canary.Arn),
+// 								Arn:    pulumi.Any(aws_lb_target_group.Canary.Arn),
 // 								Weight: pulumi.Int(20),
 // 							},
 // 						},
@@ -203,7 +203,7 @@ import (
 // 				},
 // 				&lb.ListenerRuleActionArgs{
 // 					Type:           pulumi.String("forward"),
-// 					TargetGroupArn: pulumi.String(aws_lb_target_group.Static.Arn),
+// 					TargetGroupArn: pulumi.Any(aws_lb_target_group.Static.Arn),
 // 				},
 // 			},
 // 		})
@@ -226,7 +226,7 @@ import (
 // 				},
 // 				&lb.ListenerRuleActionArgs{
 // 					Type:           pulumi.String("forward"),
-// 					TargetGroupArn: pulumi.String(aws_lb_target_group.Static.Arn),
+// 					TargetGroupArn: pulumi.Any(aws_lb_target_group.Static.Arn),
 // 				},
 // 			},
 // 		})

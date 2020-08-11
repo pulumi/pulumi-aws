@@ -11,6 +11,8 @@ CHANGELOG
     * Major changes to the `aws.acm.Certificate` to fix a number of issues regarding perpetual diffs of propertes
     * Enabling drift detection of `loadBalancers` and `targetGroupArns` in `aws.autoscaling.Group`
 * Add ManagedPolicies.AWSXRayDaemonWriteAccess
+* Upgrade to pulumi-terraform-bridge v2.6.0
+* Upgrade to Pulumi v2.7.1
 
 ---
 

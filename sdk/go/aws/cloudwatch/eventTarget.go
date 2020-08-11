@@ -175,7 +175,7 @@ import (
 // 			Arn:     pulumi.String(fmt.Sprintf("%v%v%v", "arn:aws:ssm:", _var.Aws_region, "::document/AWS-RunShellScript")),
 // 			Input:   pulumi.String("{\"commands\":[\"halt\"]}"),
 // 			Rule:    stopInstancesEventRule.Name,
-// 			RoleArn: pulumi.String(aws_iam_role.Ssm_lifecycle.Arn),
+// 			RoleArn: pulumi.Any(aws_iam_role.Ssm_lifecycle.Arn),
 // 			RunCommandTargets: cloudwatch.EventTargetRunCommandTargetArray{
 // 				&cloudwatch.EventTargetRunCommandTargetArgs{
 // 					Key: pulumi.String("tag:Terminate"),

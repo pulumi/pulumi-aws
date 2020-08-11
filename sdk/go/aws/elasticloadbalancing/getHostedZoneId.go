@@ -28,12 +28,12 @@ import (
 // 			return err
 // 		}
 // 		_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
-// 			ZoneId: pulumi.String(aws_route53_zone.Primary.Zone_id),
+// 			ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
 // 			Name:   pulumi.String("example.com"),
 // 			Type:   pulumi.String("A"),
 // 			Aliases: route53.RecordAliasArray{
 // 				&route53.RecordAliasArgs{
-// 					Name:                 pulumi.String(aws_elb.Main.Dns_name),
+// 					Name:                 pulumi.Any(aws_elb.Main.Dns_name),
 // 					ZoneId:               pulumi.String(main.Id),
 // 					EvaluateTargetHealth: pulumi.Bool(true),
 // 				},

@@ -118,6 +118,7 @@
         "autoscaling/notificationType.ts",
         "autoscaling/policy.ts",
         "autoscaling/schedule.ts",
+        "awsMixins.ts",
         "backup/getPlan.ts",
         "backup/getSelection.ts",
         "backup/getVault.ts",

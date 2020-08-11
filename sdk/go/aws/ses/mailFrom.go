@@ -45,7 +45,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = route53.NewRecord(ctx, "exampleSesDomainMailFromMx", &route53.RecordArgs{
-// 			ZoneId: pulumi.String(aws_route53_zone.Example.Id),
+// 			ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
 // 			Name:   exampleMailFrom.MailFromDomain,
 // 			Type:   pulumi.String("MX"),
 // 			Ttl:    pulumi.Int(600),
@@ -57,7 +57,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = route53.NewRecord(ctx, "exampleSesDomainMailFromTxt", &route53.RecordArgs{
-// 			ZoneId: pulumi.String(aws_route53_zone.Example.Id),
+// 			ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
 // 			Name:   exampleMailFrom.MailFromDomain,
 // 			Type:   pulumi.String("TXT"),
 // 			Ttl:    pulumi.Int(600),

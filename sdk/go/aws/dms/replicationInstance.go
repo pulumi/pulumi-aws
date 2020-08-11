@@ -96,7 +96,7 @@ import (
 // 			PubliclyAccessible:         pulumi.Bool(true),
 // 			ReplicationInstanceClass:   pulumi.String("dms.t2.micro"),
 // 			ReplicationInstanceId:      pulumi.String("test-dms-replication-instance-tf"),
-// 			ReplicationSubnetGroupId:   pulumi.String(aws_dms_replication_subnet_group.Test - dms - replication - subnet - group - tf.Id),
+// 			ReplicationSubnetGroupId:   pulumi.Any(aws_dms_replication_subnet_group.Test - dms - replication - subnet - group - tf.Id),
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("test"),
 // 			},

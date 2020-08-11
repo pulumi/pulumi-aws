@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetDelegationSetResult:
     """
@@ -22,6 +23,8 @@ class GetDelegationSetResult:
         if name_servers and not isinstance(name_servers, list):
             raise TypeError("Expected argument 'name_servers' to be a list")
         __self__.name_servers = name_servers
+
+
 class AwaitableGetDelegationSetResult(GetDelegationSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -32,7 +35,8 @@ class AwaitableGetDelegationSetResult(GetDelegationSetResult):
             id=self.id,
             name_servers=self.name_servers)
 
-def get_delegation_set(id=None,opts=None):
+
+def get_delegation_set(id=None, opts=None):
     """
     `route53.DelegationSet` provides details about a specific Route 53 Delegation Set.
 
@@ -53,13 +57,11 @@ def get_delegation_set(id=None,opts=None):
     :param str id: The Hosted Zone id of the desired delegation set.
     """
     __args__ = dict()
-
-
     __args__['id'] = id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:route53/getDelegationSet:getDelegationSet', __args__, opts=opts).value
 
     return AwaitableGetDelegationSetResult(

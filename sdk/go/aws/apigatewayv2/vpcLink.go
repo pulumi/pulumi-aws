@@ -29,7 +29,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := apigatewayv2.NewVpcLink(ctx, "example", &apigatewayv2.VpcLinkArgs{
 // 			SecurityGroupIds: pulumi.StringArray{
-// 				pulumi.String(data.Aws_security_group.Example.Id),
+// 				pulumi.Any(data.Aws_security_group.Example.Id),
 // 			},
 // 			SubnetIds: data.Aws_subnet_ids.Example.Ids,
 // 			Tags: pulumi.StringMap{

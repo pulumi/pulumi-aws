@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
+
 
 class GetAmiIdsResult:
     """
@@ -37,6 +38,8 @@ class GetAmiIdsResult:
         if sort_ascending and not isinstance(sort_ascending, bool):
             raise TypeError("Expected argument 'sort_ascending' to be a bool")
         __self__.sort_ascending = sort_ascending
+
+
 class AwaitableGetAmiIdsResult(GetAmiIdsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -51,7 +54,8 @@ class AwaitableGetAmiIdsResult(GetAmiIdsResult):
             owners=self.owners,
             sort_ascending=self.sort_ascending)
 
-def get_ami_ids(executable_users=None,filters=None,name_regex=None,owners=None,sort_ascending=None,opts=None):
+
+def get_ami_ids(executable_users=None, filters=None, name_regex=None, owners=None, sort_ascending=None, opts=None):
     """
     Use this data source to get a list of AMI IDs matching the specified criteria.
 
@@ -88,8 +92,6 @@ def get_ami_ids(executable_users=None,filters=None,name_regex=None,owners=None,s
       * `values` (`list`)
     """
     __args__ = dict()
-
-
     __args__['executableUsers'] = executable_users
     __args__['filters'] = filters
     __args__['nameRegex'] = name_regex
@@ -98,7 +100,7 @@ def get_ami_ids(executable_users=None,filters=None,name_regex=None,owners=None,s
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getAmiIds:getAmiIds', __args__, opts=opts).value
 
     return AwaitableGetAmiIdsResult(

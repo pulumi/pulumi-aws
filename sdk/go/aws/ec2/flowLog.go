@@ -44,7 +44,7 @@ import (
 // 			IamRoleArn:     exampleRole.Arn,
 // 			LogDestination: exampleLogGroup.Arn,
 // 			TrafficType:    pulumi.String("ALL"),
-// 			VpcId:          pulumi.String(aws_vpc.Example.Id),
+// 			VpcId:          pulumi.Any(aws_vpc.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -81,7 +81,7 @@ import (
 // 			LogDestination:     exampleBucket.Arn,
 // 			LogDestinationType: pulumi.String("s3"),
 // 			TrafficType:        pulumi.String("ALL"),
-// 			VpcId:              pulumi.String(aws_vpc.Example.Id),
+// 			VpcId:              pulumi.Any(aws_vpc.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err

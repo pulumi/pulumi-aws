@@ -31,7 +31,7 @@ import (
 // 					OutputLocation: pulumi.String("s3://{aws_s3_bucket.example.bucket}/output/"),
 // 					EncryptionConfiguration: &athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{
 // 						EncryptionOption: pulumi.String("SSE_KMS"),
-// 						KmsKeyArn:        pulumi.String(aws_kms_key.Example.Arn),
+// 						KmsKeyArn:        pulumi.Any(aws_kms_key.Example.Arn),
 // 					},
 // 				},
 // 			},

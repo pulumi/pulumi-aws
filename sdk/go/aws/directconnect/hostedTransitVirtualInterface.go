@@ -27,7 +27,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := directconnect.NewHostedTransitVirtualInterface(ctx, "example", &directconnect.HostedTransitVirtualInterfaceArgs{
-// 			ConnectionId:  pulumi.String(aws_dx_connection.Example.Id),
+// 			ConnectionId:  pulumi.Any(aws_dx_connection.Example.Id),
 // 			Vlan:          pulumi.Int(4094),
 // 			AddressFamily: pulumi.String("ipv4"),
 // 			BgpAsn:        pulumi.Int(65352),

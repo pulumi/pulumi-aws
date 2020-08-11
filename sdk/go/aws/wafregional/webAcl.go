@@ -92,7 +92,7 @@ import (
 // 			Rules: wafregional.WebAclRuleArray{
 // 				&wafregional.WebAclRuleArgs{
 // 					Priority: pulumi.Int(1),
-// 					RuleId:   pulumi.String(aws_wafregional_rule_group.Example.Id),
+// 					RuleId:   pulumi.Any(aws_wafregional_rule_group.Example.Id),
 // 					Type:     pulumi.String("GROUP"),
 // 					OverrideAction: &wafregional.WebAclRuleOverrideActionArgs{
 // 						Type: pulumi.String("NONE"),
@@ -123,7 +123,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := wafregional.NewWebAcl(ctx, "example", &wafregional.WebAclArgs{
 // 			LoggingConfiguration: &wafregional.WebAclLoggingConfigurationArgs{
-// 				LogDestination: pulumi.String(aws_kinesis_firehose_delivery_stream.Example.Arn),
+// 				LogDestination: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
 // 				RedactedFields: &wafregional.WebAclLoggingConfigurationRedactedFieldsArgs{
 // 					FieldToMatches: wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{
 // 						&wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{

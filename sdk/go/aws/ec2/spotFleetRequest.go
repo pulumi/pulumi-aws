@@ -38,14 +38,14 @@ import (
 // 					Ami:                   pulumi.String("ami-1234"),
 // 					SpotPrice:             pulumi.String("2.793"),
 // 					PlacementTenancy:      pulumi.String("dedicated"),
-// 					IamInstanceProfileArn: pulumi.String(aws_iam_instance_profile.Example.Arn),
+// 					IamInstanceProfileArn: pulumi.Any(aws_iam_instance_profile.Example.Arn),
 // 				},
 // 				&ec2.SpotFleetRequestLaunchSpecificationArgs{
 // 					InstanceType:          pulumi.String("m4.4xlarge"),
 // 					Ami:                   pulumi.String("ami-5678"),
 // 					KeyName:               pulumi.String("my-key"),
 // 					SpotPrice:             pulumi.String("1.117"),
-// 					IamInstanceProfileArn: pulumi.String(aws_iam_instance_profile.Example.Arn),
+// 					IamInstanceProfileArn: pulumi.Any(aws_iam_instance_profile.Example.Arn),
 // 					AvailabilityZone:      pulumi.String("us-west-1a"),
 // 					SubnetId:              pulumi.String("subnet-1234"),
 // 					WeightedCapacity:      pulumi.String("35"),
@@ -192,13 +192,13 @@ import (
 // 					},
 // 					Overrides: ec2.SpotFleetRequestLaunchTemplateConfigOverrideArray{
 // 						&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-// 							SubnetId: pulumi.String(data.Aws_subnets.Example.Ids[0]),
+// 							SubnetId: pulumi.Any(data.Aws_subnets.Example.Ids[0]),
 // 						},
 // 						&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-// 							SubnetId: pulumi.String(data.Aws_subnets.Example.Ids[1]),
+// 							SubnetId: pulumi.Any(data.Aws_subnets.Example.Ids[1]),
 // 						},
 // 						&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-// 							SubnetId: pulumi.String(data.Aws_subnets.Example.Ids[2]),
+// 							SubnetId: pulumi.Any(data.Aws_subnets.Example.Ids[2]),
 // 						},
 // 					},
 // 				},

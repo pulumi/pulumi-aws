@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetActivityResult:
     """
@@ -31,6 +32,8 @@ class GetActivityResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
+
+
 class AwaitableGetActivityResult(GetActivityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,7 +45,8 @@ class AwaitableGetActivityResult(GetActivityResult):
             id=self.id,
             name=self.name)
 
-def get_activity(arn=None,name=None,opts=None):
+
+def get_activity(arn=None, name=None, opts=None):
     """
     Provides a Step Functions Activity data source
 
@@ -60,14 +64,12 @@ def get_activity(arn=None,name=None,opts=None):
     :param str name: The name that identifies the activity.
     """
     __args__ = dict()
-
-
     __args__['arn'] = arn
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:sfn/getActivity:getActivity', __args__, opts=opts).value
 
     return AwaitableGetActivityResult(

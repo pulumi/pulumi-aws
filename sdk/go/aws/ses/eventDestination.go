@@ -33,7 +33,7 @@ import (
 // 					ValueSource:   pulumi.String("emailHeader"),
 // 				},
 // 			},
-// 			ConfigurationSetName: pulumi.String(aws_ses_configuration_set.Example.Name),
+// 			ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
 // 			Enabled:              pulumi.Bool(true),
 // 			MatchingTypes: pulumi.StringArray{
 // 				pulumi.String("bounce"),
@@ -60,11 +60,11 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ses.NewEventDestination(ctx, "kinesis", &ses.EventDestinationArgs{
-// 			ConfigurationSetName: pulumi.String(aws_ses_configuration_set.Example.Name),
+// 			ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
 // 			Enabled:              pulumi.Bool(true),
 // 			KinesisDestination: &ses.EventDestinationKinesisDestinationArgs{
-// 				RoleArn:   pulumi.String(aws_iam_role.Example.Arn),
-// 				StreamArn: pulumi.String(aws_kinesis_firehose_delivery_stream.Example.Arn),
+// 				RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
+// 				StreamArn: pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
 // 			},
 // 			MatchingTypes: pulumi.StringArray{
 // 				pulumi.String("bounce"),
@@ -91,14 +91,14 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ses.NewEventDestination(ctx, "sns", &ses.EventDestinationArgs{
-// 			ConfigurationSetName: pulumi.String(aws_ses_configuration_set.Example.Name),
+// 			ConfigurationSetName: pulumi.Any(aws_ses_configuration_set.Example.Name),
 // 			Enabled:              pulumi.Bool(true),
 // 			MatchingTypes: pulumi.StringArray{
 // 				pulumi.String("bounce"),
 // 				pulumi.String("send"),
 // 			},
 // 			SnsDestination: &ses.EventDestinationSnsDestinationArgs{
-// 				TopicArn: pulumi.String(aws_sns_topic.Example.Arn),
+// 				TopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
 // 			},
 // 		})
 // 		if err != nil {

@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetUserPoolsResult:
     """
@@ -31,6 +32,8 @@ class GetUserPoolsResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
+
+
 class AwaitableGetUserPoolsResult(GetUserPoolsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,7 +45,8 @@ class AwaitableGetUserPoolsResult(GetUserPoolsResult):
             ids=self.ids,
             name=self.name)
 
-def get_user_pools(name=None,opts=None):
+
+def get_user_pools(name=None, opts=None):
     """
     Use this data source to get a list of cognito user pools.
 
@@ -64,13 +68,11 @@ def get_user_pools(name=None,opts=None):
     :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:cognito/getUserPools:getUserPools', __args__, opts=opts).value
 
     return AwaitableGetUserPoolsResult(

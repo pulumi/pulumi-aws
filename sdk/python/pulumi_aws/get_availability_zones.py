@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
+
 
 class GetAvailabilityZonesResult:
     """
@@ -49,6 +50,8 @@ class GetAvailabilityZonesResult:
         """
         A list of the Availability Zone IDs available to the account.
         """
+
+
 class AwaitableGetAvailabilityZonesResult(GetAvailabilityZonesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -65,7 +68,8 @@ class AwaitableGetAvailabilityZonesResult(GetAvailabilityZonesResult):
             state=self.state,
             zone_ids=self.zone_ids)
 
-def get_availability_zones(all_availability_zones=None,exclude_names=None,exclude_zone_ids=None,filters=None,group_names=None,state=None,opts=None):
+
+def get_availability_zones(all_availability_zones=None, exclude_names=None, exclude_zone_ids=None, filters=None, group_names=None, state=None, opts=None):
     """
     The Availability Zones data source allows access to the list of AWS
     Availability Zones which can be accessed by an AWS account within the region
@@ -135,8 +139,6 @@ def get_availability_zones(all_availability_zones=None,exclude_names=None,exclud
       * `values` (`list`) - Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
     """
     __args__ = dict()
-
-
     __args__['allAvailabilityZones'] = all_availability_zones
     __args__['excludeNames'] = exclude_names
     __args__['excludeZoneIds'] = exclude_zone_ids
@@ -146,7 +148,7 @@ def get_availability_zones(all_availability_zones=None,exclude_names=None,exclud
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZones:getAvailabilityZones', __args__, opts=opts).value
 
     return AwaitableGetAvailabilityZonesResult(

@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetVpcResult:
     """
@@ -92,6 +93,8 @@ class GetVpcResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
+
+
 class AwaitableGetVpcResult(GetVpcResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -115,7 +118,8 @@ class AwaitableGetVpcResult(GetVpcResult):
             state=self.state,
             tags=self.tags)
 
-def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=None,state=None,tags=None,opts=None):
+
+def get_vpc(cidr_block=None, default=None, dhcp_options_id=None, filters=None, id=None, state=None, tags=None, opts=None):
     """
     `ec2.Vpc` provides details about a specific VPC.
 
@@ -143,8 +147,6 @@ def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=No
         A VPC will be selected if any one of the given values matches.
     """
     __args__ = dict()
-
-
     __args__['cidrBlock'] = cidr_block
     __args__['default'] = default
     __args__['dhcpOptionsId'] = dhcp_options_id
@@ -155,7 +157,7 @@ def get_vpc(cidr_block=None,default=None,dhcp_options_id=None,filters=None,id=No
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpc:getVpc', __args__, opts=opts).value
 
     return AwaitableGetVpcResult(

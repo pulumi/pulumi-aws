@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetFileSystemResult:
     """
@@ -83,6 +84,8 @@ class GetFileSystemResult:
         """
         Throughput mode for the file system.
         """
+
+
 class AwaitableGetFileSystemResult(GetFileSystemResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -103,7 +106,8 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
             tags=self.tags,
             throughput_mode=self.throughput_mode)
 
-def get_file_system(creation_token=None,file_system_id=None,tags=None,opts=None):
+
+def get_file_system(creation_token=None, file_system_id=None, tags=None, opts=None):
     """
     Provides information about an Elastic File System (EFS) File System.
 
@@ -125,15 +129,13 @@ def get_file_system(creation_token=None,file_system_id=None,tags=None,opts=None)
     :param str file_system_id: The ID that identifies the file system (e.g. fs-ccfc0d65).
     """
     __args__ = dict()
-
-
     __args__['creationToken'] = creation_token
     __args__['fileSystemId'] = file_system_id
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:efs/getFileSystem:getFileSystem', __args__, opts=opts).value
 
     return AwaitableGetFileSystemResult(

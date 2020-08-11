@@ -29,7 +29,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := apigatewayv2.NewRoute(ctx, "example", &apigatewayv2.RouteArgs{
-// 			ApiId:    pulumi.String(aws_apigatewayv2_api.Example.Id),
+// 			ApiId:    pulumi.Any(aws_apigatewayv2_api.Example.Id),
 // 			RouteKey: pulumi.String(fmt.Sprintf("%v%v", "$", "default")),
 // 		})
 // 		if err != nil {

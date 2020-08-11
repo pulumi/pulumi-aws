@@ -89,7 +89,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := elasticache.NewCluster(ctx, "replica", &elasticache.ClusterArgs{
-// 			ReplicationGroupId: pulumi.String(aws_elasticache_replication_group.Example.Id),
+// 			ReplicationGroupId: pulumi.Any(aws_elasticache_replication_group.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err

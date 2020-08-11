@@ -40,7 +40,7 @@ import (
 // 			return err
 // 		}
 // 		exampleAmazonsesVerificationRecord, err := route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
-// 			ZoneId: pulumi.String(aws_route53_zone.Example.Zone_id),
+// 			ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
 // 			Name: example.ID().ApplyT(func(id string) (string, error) {
 // 				return fmt.Sprintf("%v%v", "_amazonses.", id), nil
 // 			}).(pulumi.StringOutput),

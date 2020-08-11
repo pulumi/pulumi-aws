@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetVpcEndpointResult:
     """
@@ -109,6 +110,8 @@ class GetVpcEndpointResult:
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
+
+
 class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -135,7 +138,8 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
             vpc_endpoint_type=self.vpc_endpoint_type,
             vpc_id=self.vpc_id)
 
-def get_vpc_endpoint(filters=None,id=None,service_name=None,state=None,tags=None,vpc_id=None,opts=None):
+
+def get_vpc_endpoint(filters=None, id=None, service_name=None, state=None, tags=None, vpc_id=None, opts=None):
     """
     The VPC Endpoint data source provides details about
     a specific VPC endpoint.
@@ -170,8 +174,6 @@ def get_vpc_endpoint(filters=None,id=None,service_name=None,state=None,tags=None
         A VPC Endpoint will be selected if any one of the given values matches.
     """
     __args__ = dict()
-
-
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['serviceName'] = service_name
@@ -181,7 +183,7 @@ def get_vpc_endpoint(filters=None,id=None,service_name=None,state=None,tags=None
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts).value
 
     return AwaitableGetVpcEndpointResult(

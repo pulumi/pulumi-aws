@@ -37,7 +37,7 @@ import (
 // 		fooVpcEndpointService, err := ec2.NewVpcEndpointService(ctx, "fooVpcEndpointService", &ec2.VpcEndpointServiceArgs{
 // 			AcceptanceRequired: pulumi.Bool(false),
 // 			NetworkLoadBalancerArns: pulumi.StringArray{
-// 				pulumi.String(aws_lb.Test.Arn),
+// 				pulumi.Any(aws_lb.Test.Arn),
 // 			},
 // 		})
 // 		if err != nil {

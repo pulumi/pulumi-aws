@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetSnapshotResult:
     """
@@ -136,6 +137,8 @@ class GetSnapshotResult:
         """
         Specifies the ID of the VPC associated with the DB snapshot.
         """
+
+
 class AwaitableGetSnapshotResult(GetSnapshotResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -167,7 +170,8 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             storage_type=self.storage_type,
             vpc_id=self.vpc_id)
 
-def get_snapshot(db_instance_identifier=None,db_snapshot_identifier=None,include_public=None,include_shared=None,most_recent=None,snapshot_type=None,opts=None):
+
+def get_snapshot(db_instance_identifier=None, db_snapshot_identifier=None, include_public=None, include_shared=None, most_recent=None, snapshot_type=None, opts=None):
     """
     Use this data source to get information about a DB Snapshot for use when provisioning DB instances
 
@@ -214,8 +218,6 @@ def get_snapshot(db_instance_identifier=None,db_snapshot_identifier=None,include
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared` and `public`.
     """
     __args__ = dict()
-
-
     __args__['dbInstanceIdentifier'] = db_instance_identifier
     __args__['dbSnapshotIdentifier'] = db_snapshot_identifier
     __args__['includePublic'] = include_public
@@ -225,7 +227,7 @@ def get_snapshot(db_instance_identifier=None,db_snapshot_identifier=None,include
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:rds/getSnapshot:getSnapshot', __args__, opts=opts).value
 
     return AwaitableGetSnapshotResult(

@@ -28,12 +28,12 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		barPipeline, err := codepipeline.NewPipeline(ctx, "barPipeline", &codepipeline.PipelineArgs{
-// 			RoleArn: pulumi.String(aws_iam_role.Bar.Arn),
+// 			RoleArn: pulumi.Any(aws_iam_role.Bar.Arn),
 // 			ArtifactStore: &codepipeline.PipelineArtifactStoreArgs{
-// 				Location: pulumi.String(aws_s3_bucket.Bar.Bucket),
+// 				Location: pulumi.Any(aws_s3_bucket.Bar.Bucket),
 // 				Type:     pulumi.String("S3"),
 // 				EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
-// 					Id:   pulumi.String(data.Aws_kms_alias.S3kmskey.Arn),
+// 					Id:   pulumi.Any(data.Aws_kms_alias.S3kmskey.Arn),
 // 					Type: pulumi.String("KMS"),
 // 				},
 // 			},
@@ -100,7 +100,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = github.NewRepositoryWebhook(ctx, "barRepositoryWebhook", &github.RepositoryWebhookArgs{
-// 			Repository: pulumi.String(github_repository.Repo.Name),
+// 			Repository: pulumi.Any(github_repository.Repo.Name),
 // 			Configuration: &github.RepositoryWebhookConfigurationArgs{
 // 				Url:         barWebhook.Url,
 // 				ContentType: pulumi.String("json"),

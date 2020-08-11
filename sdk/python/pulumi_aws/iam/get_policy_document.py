@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetPolicyDocumentResult:
     """
@@ -40,6 +41,8 @@ class GetPolicyDocumentResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         __self__.version = version
+
+
 class AwaitableGetPolicyDocumentResult(GetPolicyDocumentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -54,7 +57,8 @@ class AwaitableGetPolicyDocumentResult(GetPolicyDocumentResult):
             statements=self.statements,
             version=self.version)
 
-def get_policy_document(override_json=None,policy_id=None,source_json=None,statements=None,version=None,opts=None):
+
+def get_policy_document(override_json=None, policy_id=None, source_json=None, statements=None, version=None, opts=None):
     """
     Generates an IAM policy document in JSON format.
 
@@ -303,8 +307,6 @@ def get_policy_document(override_json=None,policy_id=None,source_json=None,state
       * `sid` (`str`) - An ID for the policy statement.
     """
     __args__ = dict()
-
-
     __args__['overrideJson'] = override_json
     __args__['policyId'] = policy_id
     __args__['sourceJson'] = source_json
@@ -313,7 +315,7 @@ def get_policy_document(override_json=None,policy_id=None,source_json=None,state
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:iam/getPolicyDocument:getPolicyDocument', __args__, opts=opts).value
 
     return AwaitableGetPolicyDocumentResult(

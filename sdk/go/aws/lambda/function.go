@@ -78,7 +78,7 @@ import (
 // 			return err
 // 		}
 // 		lambdaLogs, err := iam.NewRolePolicyAttachment(ctx, "lambdaLogs", &iam.RolePolicyAttachmentArgs{
-// 			Role:      pulumi.String(aws_iam_role.Iam_for_lambda.Name),
+// 			Role:      pulumi.Any(aws_iam_role.Iam_for_lambda.Name),
 // 			PolicyArn: lambdaLogging.Arn,
 // 		})
 // 		if err != nil {

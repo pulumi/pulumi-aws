@@ -2468,6 +2468,7 @@ func Provider() tfbridge.ProviderInfo {
 					"region.ts", // Region union type and constants
 					"tags.ts",   // Tags typedef (currently unused but left for compatibility)
 					"utils.ts",  // Helpers,
+					"awsMixins.ts",
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"autoscaling": {

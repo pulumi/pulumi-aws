@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetClusterResult:
     """
@@ -103,6 +104,8 @@ class GetClusterResult:
         if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
             raise TypeError("Expected argument 'vpc_security_group_ids' to be a list")
         __self__.vpc_security_group_ids = vpc_security_group_ids
+
+
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -139,7 +142,8 @@ class AwaitableGetClusterResult(GetClusterResult):
             tags=self.tags,
             vpc_security_group_ids=self.vpc_security_group_ids)
 
-def get_cluster(cluster_identifier=None,tags=None,opts=None):
+
+def get_cluster(cluster_identifier=None, tags=None, opts=None):
     """
     Provides information about an RDS cluster.
 
@@ -156,14 +160,12 @@ def get_cluster(cluster_identifier=None,tags=None,opts=None):
     :param str cluster_identifier: The cluster identifier of the RDS cluster.
     """
     __args__ = dict()
-
-
     __args__['clusterIdentifier'] = cluster_identifier
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:rds/getCluster:getCluster', __args__, opts=opts).value
 
     return AwaitableGetClusterResult(

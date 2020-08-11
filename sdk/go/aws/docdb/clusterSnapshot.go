@@ -25,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := docdb.NewClusterSnapshot(ctx, "example", &docdb.ClusterSnapshotArgs{
-// 			DbClusterIdentifier:         pulumi.String(aws_docdb_cluster.Example.Id),
+// 			DbClusterIdentifier:         pulumi.Any(aws_docdb_cluster.Example.Id),
 // 			DbClusterSnapshotIdentifier: pulumi.String("resourcetestsnapshot1234"),
 // 		})
 // 		if err != nil {

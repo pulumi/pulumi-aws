@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from . import utilities, tables
+from . import _utilities, _tables
+
 
 class GetRegionsResult:
     """
@@ -31,6 +32,8 @@ class GetRegionsResult:
         """
         Names of regions that meets the criteria.
         """
+
+
 class AwaitableGetRegionsResult(GetRegionsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,7 +45,8 @@ class AwaitableGetRegionsResult(GetRegionsResult):
             id=self.id,
             names=self.names)
 
-def get_regions(all_regions=None,filters=None,opts=None):
+
+def get_regions(all_regions=None, filters=None, opts=None):
     """
     Provides information about AWS Regions. Can be used to filter regions i.e. by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `getRegion` data source.
 
@@ -89,14 +93,12 @@ def get_regions(all_regions=None,filters=None,opts=None):
       * `values` (`list`) - Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
     """
     __args__ = dict()
-
-
     __args__['allRegions'] = all_regions
     __args__['filters'] = filters
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:index/getRegions:getRegions', __args__, opts=opts).value
 
     return AwaitableGetRegionsResult(

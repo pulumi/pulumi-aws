@@ -31,7 +31,7 @@ import (
 // 		_, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
 // 			Description: pulumi.String("tf-test-desc"),
 // 			AppversionLifecycle: &elasticbeanstalk.ApplicationAppversionLifecycleArgs{
-// 				ServiceRole:        pulumi.String(aws_iam_role.Beanstalk_service.Arn),
+// 				ServiceRole:        pulumi.Any(aws_iam_role.Beanstalk_service.Arn),
 // 				MaxCount:           pulumi.Int(128),
 // 				DeleteSourceFromS3: pulumi.Bool(true),
 // 			},

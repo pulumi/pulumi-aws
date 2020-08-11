@@ -72,7 +72,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
 // 			NamePrefix:   pulumi.String("example"),
-// 			ImageId:      pulumi.String(data.Aws_ami.Example.Id),
+// 			ImageId:      pulumi.Any(data.Aws_ami.Example.Id),
 // 			InstanceType: pulumi.String("c5.large"),
 // 		})
 // 		if err != nil {

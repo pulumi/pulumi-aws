@@ -32,7 +32,7 @@ import (
 // 			return err
 // 		}
 // 		rt, err := ec2.NewRouteTable(ctx, "rt", &ec2.RouteTableArgs{
-// 			VpcId: pulumi.String(aws_vpc.Foo.Id),
+// 			VpcId: pulumi.Any(aws_vpc.Foo.Id),
 // 		})
 // 		if err != nil {
 // 			return err

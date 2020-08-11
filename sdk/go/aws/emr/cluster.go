@@ -41,10 +41,10 @@ import (
 // 			TerminationProtection:       pulumi.Bool(false),
 // 			KeepJobFlowAliveWhenNoSteps: pulumi.Bool(true),
 // 			Ec2Attributes: &emr.ClusterEc2AttributesArgs{
-// 				SubnetId:                      pulumi.String(aws_subnet.Main.Id),
-// 				EmrManagedMasterSecurityGroup: pulumi.String(aws_security_group.Sg.Id),
-// 				EmrManagedSlaveSecurityGroup:  pulumi.String(aws_security_group.Sg.Id),
-// 				InstanceProfile:               pulumi.String(aws_iam_instance_profile.Emr_profile.Arn),
+// 				SubnetId:                      pulumi.Any(aws_subnet.Main.Id),
+// 				EmrManagedMasterSecurityGroup: pulumi.Any(aws_security_group.Sg.Id),
+// 				EmrManagedSlaveSecurityGroup:  pulumi.Any(aws_security_group.Sg.Id),
+// 				InstanceProfile:               pulumi.Any(aws_iam_instance_profile.Emr_profile.Arn),
 // 			},
 // 			MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
 // 				InstanceType: pulumi.String("m4.large"),
@@ -78,7 +78,7 @@ import (
 // 				},
 // 			},
 // 			ConfigurationsJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "  [\n", "    {\n", "      \"Classification\": \"hadoop-env\",\n", "      \"Configurations\": [\n", "        {\n", "          \"Classification\": \"export\",\n", "          \"Properties\": {\n", "            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n", "          }\n", "        }\n", "      ],\n", "      \"Properties\": {}\n", "    },\n", "    {\n", "      \"Classification\": \"spark-env\",\n", "      \"Configurations\": [\n", "        {\n", "          \"Classification\": \"export\",\n", "          \"Properties\": {\n", "            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n", "          }\n", "        }\n", "      ],\n", "      \"Properties\": {}\n", "    }\n", "  ]\n")),
-// 			ServiceRole:        pulumi.String(aws_iam_role.Iam_emr_service_role.Arn),
+// 			ServiceRole:        pulumi.Any(aws_iam_role.Iam_emr_service_role.Arn),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -236,8 +236,8 @@ import (
 // 			},
 // 			Ec2Attributes: &emr.ClusterEc2AttributesArgs{
 // 				SubnetId:                      mainSubnet.ID(),
-// 				EmrManagedMasterSecurityGroup: pulumi.String(aws_security_group.Allow_all.Id),
-// 				EmrManagedSlaveSecurityGroup:  pulumi.String(aws_security_group.Allow_all.Id),
+// 				EmrManagedMasterSecurityGroup: pulumi.Any(aws_security_group.Allow_all.Id),
+// 				EmrManagedSlaveSecurityGroup:  pulumi.Any(aws_security_group.Allow_all.Id),
 // 				InstanceProfile:               emrProfile.Arn,
 // 			},
 // 			MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{

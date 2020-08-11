@@ -32,8 +32,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-// 			GatewayArn:         pulumi.String(aws_storagegateway_cache.Example.Gateway_arn),
-// 			NetworkInterfaceId: pulumi.String(aws_instance.Example.Private_ip),
+// 			GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
+// 			NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
 // 			TargetName:         pulumi.String("example"),
 // 			VolumeSizeInBytes:  pulumi.Int(5368709120),
 // 		})
@@ -57,9 +57,9 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-// 			GatewayArn:         pulumi.String(aws_storagegateway_cache.Example.Gateway_arn),
-// 			NetworkInterfaceId: pulumi.String(aws_instance.Example.Private_ip),
-// 			SnapshotId:         pulumi.String(aws_ebs_snapshot.Example.Id),
+// 			GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
+// 			NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
+// 			SnapshotId:         pulumi.Any(aws_ebs_snapshot.Example.Id),
 // 			TargetName:         pulumi.String("example"),
 // 			VolumeSizeInBytes:  pulumi.Int(aws_ebs_snapshot.Example.Volume_size * 1024 * 1024 * 1024),
 // 		})
@@ -83,11 +83,11 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := storagegateway.NewCachesIscsiVolume(ctx, "example", &storagegateway.CachesIscsiVolumeArgs{
-// 			GatewayArn:         pulumi.String(aws_storagegateway_cache.Example.Gateway_arn),
-// 			NetworkInterfaceId: pulumi.String(aws_instance.Example.Private_ip),
-// 			SourceVolumeArn:    pulumi.String(aws_storagegateway_cached_iscsi_volume.Existing.Arn),
+// 			GatewayArn:         pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
+// 			NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
+// 			SourceVolumeArn:    pulumi.Any(aws_storagegateway_cached_iscsi_volume.Existing.Arn),
 // 			TargetName:         pulumi.String("example"),
-// 			VolumeSizeInBytes:  pulumi.String(aws_storagegateway_cached_iscsi_volume.Existing.Volume_size_in_bytes),
+// 			VolumeSizeInBytes:  pulumi.Any(aws_storagegateway_cached_iscsi_volume.Existing.Volume_size_in_bytes),
 // 		})
 // 		if err != nil {
 // 			return err

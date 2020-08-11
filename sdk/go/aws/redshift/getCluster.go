@@ -33,14 +33,14 @@ import (
 // 		_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
 // 			Destination: pulumi.String("redshift"),
 // 			S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-// 				RoleArn:           pulumi.String(aws_iam_role.Firehose_role.Arn),
-// 				BucketArn:         pulumi.String(aws_s3_bucket.Bucket.Arn),
+// 				RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
+// 				BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
 // 				BufferSize:        pulumi.Int(10),
 // 				BufferInterval:    pulumi.Int(400),
 // 				CompressionFormat: pulumi.String("GZIP"),
 // 			},
 // 			RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
-// 				RoleArn:          pulumi.String(aws_iam_role.Firehose_role.Arn),
+// 				RoleArn:          pulumi.Any(aws_iam_role.Firehose_role.Arn),
 // 				ClusterJdbcurl:   pulumi.String(fmt.Sprintf("%v%v%v%v", "jdbc:redshift://", testCluster.Endpoint, "/", testCluster.DatabaseName)),
 // 				Username:         pulumi.String("testuser"),
 // 				Password:         pulumi.String("T3stPass"),

@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetClusterResult:
     """
@@ -64,6 +65,8 @@ class GetClusterResult:
         """
         A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
         """
+
+
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -80,7 +83,8 @@ class AwaitableGetClusterResult(GetClusterResult):
             tags=self.tags,
             zookeeper_connect_string=self.zookeeper_connect_string)
 
-def get_cluster(cluster_name=None,tags=None,opts=None):
+
+def get_cluster(cluster_name=None, tags=None, opts=None):
     """
     Get information on an Amazon MSK Cluster.
 
@@ -98,14 +102,12 @@ def get_cluster(cluster_name=None,tags=None,opts=None):
     :param dict tags: Map of key-value pairs assigned to the cluster.
     """
     __args__ = dict()
-
-
     __args__['clusterName'] = cluster_name
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:msk/getCluster:getCluster', __args__, opts=opts).value
 
     return AwaitableGetClusterResult(

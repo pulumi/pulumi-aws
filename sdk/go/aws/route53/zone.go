@@ -93,7 +93,7 @@ import (
 // 		_, err := route53.NewZone(ctx, "private", &route53.ZoneArgs{
 // 			Vpcs: route53.ZoneVpcArray{
 // 				&route53.ZoneVpcArgs{
-// 					VpcId: pulumi.String(aws_vpc.Example.Id),
+// 					VpcId: pulumi.Any(aws_vpc.Example.Id),
 // 				},
 // 			},
 // 		})

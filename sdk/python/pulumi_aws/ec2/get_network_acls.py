@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetNetworkAclsResult:
     """
@@ -34,6 +35,8 @@ class GetNetworkAclsResult:
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
+
+
 class AwaitableGetNetworkAclsResult(GetNetworkAclsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -46,7 +49,8 @@ class AwaitableGetNetworkAclsResult(GetNetworkAclsResult):
             tags=self.tags,
             vpc_id=self.vpc_id)
 
-def get_network_acls(filters=None,tags=None,vpc_id=None,opts=None):
+
+def get_network_acls(filters=None, tags=None, vpc_id=None, opts=None):
     """
     ## Example Usage
 
@@ -101,15 +105,13 @@ def get_network_acls(filters=None,tags=None,vpc_id=None,opts=None):
         A VPC will be selected if any one of the given values matches.
     """
     __args__ = dict()
-
-
     __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkAcls:getNetworkAcls', __args__, opts=opts).value
 
     return AwaitableGetNetworkAclsResult(

@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetCoipPoolsResult:
     """
@@ -31,6 +32,8 @@ class GetCoipPoolsResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
+
+
 class AwaitableGetCoipPoolsResult(GetCoipPoolsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,7 +45,8 @@ class AwaitableGetCoipPoolsResult(GetCoipPoolsResult):
             pool_ids=self.pool_ids,
             tags=self.tags)
 
-def get_coip_pools(filters=None,tags=None,opts=None):
+
+def get_coip_pools(filters=None, tags=None, opts=None):
     """
     Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
 
@@ -59,14 +63,12 @@ def get_coip_pools(filters=None,tags=None,opts=None):
         A COIP Pool will be selected if any one of the given values matches.
     """
     __args__ = dict()
-
-
     __args__['filters'] = filters
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getCoipPools:getCoipPools', __args__, opts=opts).value
 
     return AwaitableGetCoipPoolsResult(

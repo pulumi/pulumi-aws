@@ -76,7 +76,7 @@ import (
 // 			S3Bucket:        pulumi.String(lambda.Bucket),
 // 			S3Key:           pulumi.String(lambda.Key),
 // 			S3ObjectVersion: pulumi.String(lambda.VersionId),
-// 			Role:            pulumi.String(aws_iam_role.Iam_for_lambda.Arn),
+// 			Role:            pulumi.Any(aws_iam_role.Iam_for_lambda.Arn),
 // 			Handler:         pulumi.String("exports.test"),
 // 		})
 // 		if err != nil {

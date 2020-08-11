@@ -29,13 +29,13 @@ import (
 // 			Type: pulumi.String("CONDITIONAL"),
 // 			Actions: glue.TriggerActionArray{
 // 				&glue.TriggerActionArgs{
-// 					JobName: pulumi.String(aws_glue_job.Example1.Name),
+// 					JobName: pulumi.Any(aws_glue_job.Example1.Name),
 // 				},
 // 			},
 // 			Predicate: &glue.TriggerPredicateArgs{
 // 				Conditions: glue.TriggerPredicateConditionArray{
 // 					&glue.TriggerPredicateConditionArgs{
-// 						JobName: pulumi.String(aws_glue_job.Example2.Name),
+// 						JobName: pulumi.Any(aws_glue_job.Example2.Name),
 // 						State:   pulumi.String("SUCCEEDED"),
 // 					},
 // 				},
@@ -64,7 +64,7 @@ import (
 // 			Type: pulumi.String("ON_DEMAND"),
 // 			Actions: glue.TriggerActionArray{
 // 				&glue.TriggerActionArgs{
-// 					JobName: pulumi.String(aws_glue_job.Example.Name),
+// 					JobName: pulumi.Any(aws_glue_job.Example.Name),
 // 				},
 // 			},
 // 		})
@@ -92,7 +92,7 @@ import (
 // 			Type:     pulumi.String("SCHEDULED"),
 // 			Actions: glue.TriggerActionArray{
 // 				&glue.TriggerActionArgs{
-// 					JobName: pulumi.String(aws_glue_job.Example.Name),
+// 					JobName: pulumi.Any(aws_glue_job.Example.Name),
 // 				},
 // 			},
 // 		})
@@ -121,13 +121,13 @@ import (
 // 			Type: pulumi.String("CONDITIONAL"),
 // 			Actions: glue.TriggerActionArray{
 // 				&glue.TriggerActionArgs{
-// 					CrawlerName: pulumi.String(aws_glue_crawler.Example1.Name),
+// 					CrawlerName: pulumi.Any(aws_glue_crawler.Example1.Name),
 // 				},
 // 			},
 // 			Predicate: &glue.TriggerPredicateArgs{
 // 				Conditions: glue.TriggerPredicateConditionArray{
 // 					&glue.TriggerPredicateConditionArgs{
-// 						JobName: pulumi.String(aws_glue_job.Example2.Name),
+// 						JobName: pulumi.Any(aws_glue_job.Example2.Name),
 // 						State:   pulumi.String("SUCCEEDED"),
 // 					},
 // 				},
@@ -158,13 +158,13 @@ import (
 // 			Type: pulumi.String("CONDITIONAL"),
 // 			Actions: glue.TriggerActionArray{
 // 				&glue.TriggerActionArgs{
-// 					JobName: pulumi.String(aws_glue_job.Example1.Name),
+// 					JobName: pulumi.Any(aws_glue_job.Example1.Name),
 // 				},
 // 			},
 // 			Predicate: &glue.TriggerPredicateArgs{
 // 				Conditions: glue.TriggerPredicateConditionArray{
 // 					&glue.TriggerPredicateConditionArgs{
-// 						CrawlerName: pulumi.String(aws_glue_crawler.Example2.Name),
+// 						CrawlerName: pulumi.Any(aws_glue_crawler.Example2.Name),
 // 						CrawlState:  pulumi.String("SUCCEEDED"),
 // 					},
 // 				},

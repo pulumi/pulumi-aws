@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetOrganizationalUnitsResult:
     """
@@ -28,6 +29,8 @@ class GetOrganizationalUnitsResult:
         if parent_id and not isinstance(parent_id, str):
             raise TypeError("Expected argument 'parent_id' to be a str")
         __self__.parent_id = parent_id
+
+
 class AwaitableGetOrganizationalUnitsResult(GetOrganizationalUnitsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -38,7 +41,8 @@ class AwaitableGetOrganizationalUnitsResult(GetOrganizationalUnitsResult):
             id=self.id,
             parent_id=self.parent_id)
 
-def get_organizational_units(parent_id=None,opts=None):
+
+def get_organizational_units(parent_id=None, opts=None):
     """
     Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
 
@@ -56,13 +60,11 @@ def get_organizational_units(parent_id=None,opts=None):
     :param str parent_id: The parent ID of the organizational unit.
     """
     __args__ = dict()
-
-
     __args__['parentId'] = parent_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:organizations/getOrganizationalUnits:getOrganizationalUnits', __args__, opts=opts).value
 
     return AwaitableGetOrganizationalUnitsResult(

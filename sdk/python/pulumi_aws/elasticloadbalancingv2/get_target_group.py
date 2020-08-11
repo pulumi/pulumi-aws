@@ -6,9 +6,10 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 warnings.warn("aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favor of aws.lb.getTargetGroup", DeprecationWarning)
+
 class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
@@ -65,6 +66,8 @@ class GetTargetGroupResult:
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         __self__.vpc_id = vpc_id
+
+
 class AwaitableGetTargetGroupResult(GetTargetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -88,7 +91,8 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             target_type=self.target_type,
             vpc_id=self.vpc_id)
 
-def get_target_group(arn=None,name=None,tags=None,opts=None):
+
+def get_target_group(arn=None, name=None, tags=None, opts=None):
     """
     > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
 
@@ -121,15 +125,13 @@ def get_target_group(arn=None,name=None,tags=None,opts=None):
     """
     pulumi.log.warn("get_target_group is deprecated: aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favor of aws.lb.getTargetGroup")
     __args__ = dict()
-
-
     __args__['arn'] = arn
     __args__['name'] = name
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:elasticloadbalancingv2/getTargetGroup:getTargetGroup', __args__, opts=opts).value
 
     return AwaitableGetTargetGroupResult(

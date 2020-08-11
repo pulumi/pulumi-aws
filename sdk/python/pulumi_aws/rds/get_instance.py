@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetInstanceResult:
     """
@@ -247,6 +248,8 @@ class GetInstanceResult:
         """
         Provides a list of VPC security group elements that the DB instance belongs to.
         """
+
+
 class AwaitableGetInstanceResult(GetInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -294,7 +297,8 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             timezone=self.timezone,
             vpc_security_groups=self.vpc_security_groups)
 
-def get_instance(db_instance_identifier=None,tags=None,opts=None):
+
+def get_instance(db_instance_identifier=None, tags=None, opts=None):
     """
     Use this data source to get information about an RDS instance
 
@@ -311,14 +315,12 @@ def get_instance(db_instance_identifier=None,tags=None,opts=None):
     :param str db_instance_identifier: The name of the RDS instance
     """
     __args__ = dict()
-
-
     __args__['dbInstanceIdentifier'] = db_instance_identifier
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:rds/getInstance:getInstance', __args__, opts=opts).value
 
     return AwaitableGetInstanceResult(

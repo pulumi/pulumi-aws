@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetLocalGatewayResult:
     """
@@ -40,6 +41,8 @@ class GetLocalGatewayResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
+
+
 class AwaitableGetLocalGatewayResult(GetLocalGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -53,7 +56,8 @@ class AwaitableGetLocalGatewayResult(GetLocalGatewayResult):
             state=self.state,
             tags=self.tags)
 
-def get_local_gateway(filters=None,id=None,state=None,tags=None,opts=None):
+
+def get_local_gateway(filters=None, id=None, state=None, tags=None, opts=None):
     """
     Provides details about an EC2 Local Gateway.
 
@@ -86,8 +90,6 @@ def get_local_gateway(filters=None,id=None,state=None,tags=None,opts=None):
         A Local Gateway will be selected if any one of the given values matches.
     """
     __args__ = dict()
-
-
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['state'] = state
@@ -95,7 +97,7 @@ def get_local_gateway(filters=None,id=None,state=None,tags=None,opts=None):
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLocalGateway:getLocalGateway', __args__, opts=opts).value
 
     return AwaitableGetLocalGatewayResult(

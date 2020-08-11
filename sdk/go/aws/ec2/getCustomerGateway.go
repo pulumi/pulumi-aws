@@ -35,7 +35,7 @@ import (
 // 			return err
 // 		}
 // 		main, err := ec2.NewVpnGateway(ctx, "main", &ec2.VpnGatewayArgs{
-// 			VpcId:         pulumi.String(aws_vpc.Main.Id),
+// 			VpcId:         pulumi.Any(aws_vpc.Main.Id),
 // 			AmazonSideAsn: pulumi.String("7224"),
 // 		})
 // 		if err != nil {

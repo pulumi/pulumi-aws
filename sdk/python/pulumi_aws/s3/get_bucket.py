@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetBucketResult:
     """
@@ -64,6 +65,8 @@ class GetBucketResult:
         """
         The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         """
+
+
 class AwaitableGetBucketResult(GetBucketResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -80,7 +83,8 @@ class AwaitableGetBucketResult(GetBucketResult):
             website_domain=self.website_domain,
             website_endpoint=self.website_endpoint)
 
-def get_bucket(bucket=None,opts=None):
+
+def get_bucket(bucket=None, opts=None):
     """
     Provides details about a specific S3 bucket.
 
@@ -122,13 +126,11 @@ def get_bucket(bucket=None,opts=None):
     :param str bucket: The name of the bucket
     """
     __args__ = dict()
-
-
     __args__['bucket'] = bucket
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucket:getBucket', __args__, opts=opts).value
 
     return AwaitableGetBucketResult(

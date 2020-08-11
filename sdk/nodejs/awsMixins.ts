@@ -72,5 +72,5 @@ declare module "." {
 // 'aws-sdk' being a well known node-module that is always available. import * as pulumiDynamoDB
 // from "./dynamodb";
 Object.defineProperty(pulumiAws, "sdk", {
-  get: () => require("aws-sdk"),
+    get: () => require("aws-sdk"),
 })

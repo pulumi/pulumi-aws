@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetMountTargetResult:
     """
@@ -88,6 +89,8 @@ class GetMountTargetResult:
         """
         ID of the mount target's subnet.
         """
+
+
 class AwaitableGetMountTargetResult(GetMountTargetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -108,7 +111,8 @@ class AwaitableGetMountTargetResult(GetMountTargetResult):
             security_groups=self.security_groups,
             subnet_id=self.subnet_id)
 
-def get_mount_target(mount_target_id=None,opts=None):
+
+def get_mount_target(mount_target_id=None, opts=None):
     """
     Provides information about an Elastic File System Mount Target (EFS).
 
@@ -129,13 +133,11 @@ def get_mount_target(mount_target_id=None,opts=None):
     :param str mount_target_id: ID of the mount target that you want to have described
     """
     __args__ = dict()
-
-
     __args__['mountTargetId'] = mount_target_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:efs/getMountTarget:getMountTarget', __args__, opts=opts).value
 
     return AwaitableGetMountTargetResult(

@@ -27,9 +27,9 @@ import (
 // 		_, err := gamelift.NewBuild(ctx, "test", &gamelift.BuildArgs{
 // 			OperatingSystem: pulumi.String("WINDOWS_2012"),
 // 			StorageLocation: &gamelift.BuildStorageLocationArgs{
-// 				Bucket:  pulumi.String(aws_s3_bucket.Test.Bucket),
-// 				Key:     pulumi.String(aws_s3_bucket_object.Test.Key),
-// 				RoleArn: pulumi.String(aws_iam_role.Test.Arn),
+// 				Bucket:  pulumi.Any(aws_s3_bucket.Test.Bucket),
+// 				Key:     pulumi.Any(aws_s3_bucket_object.Test.Key),
+// 				RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			aws_iam_role_policy.Test,

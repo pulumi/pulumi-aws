@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetDirectoryResult:
     """
@@ -94,6 +95,8 @@ class GetDirectoryResult:
         """
         The identifier of the security group that is assigned to new WorkSpaces.
         """
+
+
 class AwaitableGetDirectoryResult(GetDirectoryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -115,7 +118,8 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
             tags=self.tags,
             workspace_security_group_id=self.workspace_security_group_id)
 
-def get_directory(directory_id=None,tags=None,opts=None):
+
+def get_directory(directory_id=None, tags=None, opts=None):
     """
     Retrieve information about an AWS WorkSpaces directory.
 
@@ -133,14 +137,12 @@ def get_directory(directory_id=None,tags=None,opts=None):
     :param dict tags: A map of tags assigned to the WorkSpaces directory.
     """
     __args__ = dict()
-
-
     __args__['directoryId'] = directory_id
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:workspaces/getDirectory:getDirectory', __args__, opts=opts).value
 
     return AwaitableGetDirectoryResult(

@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetServiceAccountResult:
     """
@@ -28,6 +29,8 @@ class GetServiceAccountResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         __self__.region = region
+
+
 class AwaitableGetServiceAccountResult(GetServiceAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -38,7 +41,8 @@ class AwaitableGetServiceAccountResult(GetServiceAccountResult):
             id=self.id,
             region=self.region)
 
-def get_service_account(region=None,opts=None):
+
+def get_service_account(region=None, opts=None):
     """
     Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
     in a given region for the purpose of allowing CloudTrail to store trail data in S3.
@@ -84,13 +88,11 @@ def get_service_account(region=None,opts=None):
            Defaults to the region from the AWS provider configuration.
     """
     __args__ = dict()
-
-
     __args__['region'] = region
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:cloudtrail/getServiceAccount:getServiceAccount', __args__, opts=opts).value
 
     return AwaitableGetServiceAccountResult(

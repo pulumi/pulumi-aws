@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetDetectorResult:
     """
@@ -34,6 +35,8 @@ class GetDetectorResult:
         """
         The current status of the detector.
         """
+
+
 class AwaitableGetDetectorResult(GetDetectorResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -45,7 +48,8 @@ class AwaitableGetDetectorResult(GetDetectorResult):
             service_role_arn=self.service_role_arn,
             status=self.status)
 
-def get_detector(id=None,opts=None):
+
+def get_detector(id=None, opts=None):
     """
     Retrieve information about a GuardDuty detector.
 
@@ -62,13 +66,11 @@ def get_detector(id=None,opts=None):
     :param str id: The ID of the detector.
     """
     __args__ = dict()
-
-
     __args__['id'] = id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:guardduty/getDetector:getDetector', __args__, opts=opts).value
 
     return AwaitableGetDetectorResult(

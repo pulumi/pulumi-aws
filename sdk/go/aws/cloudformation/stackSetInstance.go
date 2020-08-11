@@ -31,7 +31,7 @@ import (
 // 		_, err := cloudformation.NewStackSetInstance(ctx, "example", &cloudformation.StackSetInstanceArgs{
 // 			AccountId:    pulumi.String("123456789012"),
 // 			Region:       pulumi.String("us-east-1"),
-// 			StackSetName: pulumi.String(aws_cloudformation_stack_set.Example.Name),
+// 			StackSetName: pulumi.Any(aws_cloudformation_stack_set.Example.Name),
 // 		})
 // 		if err != nil {
 // 			return err

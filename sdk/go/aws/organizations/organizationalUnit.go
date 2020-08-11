@@ -25,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := organizations.NewOrganizationalUnit(ctx, "example", &organizations.OrganizationalUnitArgs{
-// 			ParentId: pulumi.String(aws_organizations_organization.Example.Roots[0].Id),
+// 			ParentId: pulumi.Any(aws_organizations_organization.Example.Roots[0].Id),
 // 		})
 // 		if err != nil {
 // 			return err

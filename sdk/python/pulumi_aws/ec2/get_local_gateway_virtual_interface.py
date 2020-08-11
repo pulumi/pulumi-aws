@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetLocalGatewayVirtualInterfaceResult:
     """
@@ -61,6 +62,8 @@ class GetLocalGatewayVirtualInterfaceResult:
         """
         Virtual Local Area Network.
         """
+
+
 class AwaitableGetLocalGatewayVirtualInterfaceResult(GetLocalGatewayVirtualInterfaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -78,7 +81,8 @@ class AwaitableGetLocalGatewayVirtualInterfaceResult(GetLocalGatewayVirtualInter
             tags=self.tags,
             vlan=self.vlan)
 
-def get_local_gateway_virtual_interface(filters=None,id=None,tags=None,opts=None):
+
+def get_local_gateway_virtual_interface(filters=None, id=None, tags=None, opts=None):
     """
     Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
 
@@ -102,15 +106,13 @@ def get_local_gateway_virtual_interface(filters=None,id=None,tags=None,opts=None
       * `values` (`list`) - List of one or more values for the filter.
     """
     __args__ = dict()
-
-
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface', __args__, opts=opts).value
 
     return AwaitableGetLocalGatewayVirtualInterfaceResult(

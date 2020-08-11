@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetImageResult:
     """
@@ -49,6 +50,8 @@ class GetImageResult:
         if repository_name and not isinstance(repository_name, str):
             raise TypeError("Expected argument 'repository_name' to be a str")
         __self__.repository_name = repository_name
+
+
 class AwaitableGetImageResult(GetImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -64,7 +67,8 @@ class AwaitableGetImageResult(GetImageResult):
             registry_id=self.registry_id,
             repository_name=self.repository_name)
 
-def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=None,opts=None):
+
+def get_image(image_digest=None, image_tag=None, registry_id=None, repository_name=None, opts=None):
     """
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
 
@@ -85,8 +89,6 @@ def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=
     :param str repository_name: The name of the ECR Repository.
     """
     __args__ = dict()
-
-
     __args__['imageDigest'] = image_digest
     __args__['imageTag'] = image_tag
     __args__['registryId'] = registry_id
@@ -94,7 +96,7 @@ def get_image(image_digest=None,image_tag=None,registry_id=None,repository_name=
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:ecr/getImage:getImage', __args__, opts=opts).value
 
     return AwaitableGetImageResult(

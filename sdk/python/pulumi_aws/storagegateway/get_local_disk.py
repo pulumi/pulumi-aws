@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetLocalDiskResult:
     """
@@ -34,6 +35,8 @@ class GetLocalDiskResult:
         """
         The provider-assigned unique ID for this managed resource.
         """
+
+
 class AwaitableGetLocalDiskResult(GetLocalDiskResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -46,7 +49,8 @@ class AwaitableGetLocalDiskResult(GetLocalDiskResult):
             gateway_arn=self.gateway_arn,
             id=self.id)
 
-def get_local_disk(disk_node=None,disk_path=None,gateway_arn=None,opts=None):
+
+def get_local_disk(disk_node=None, disk_path=None, gateway_arn=None, opts=None):
     """
     Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
 
@@ -66,15 +70,13 @@ def get_local_disk(disk_node=None,disk_path=None,gateway_arn=None,opts=None):
     :param str gateway_arn: The Amazon Resource Name (ARN) of the gateway.
     """
     __args__ = dict()
-
-
     __args__['diskNode'] = disk_node
     __args__['diskPath'] = disk_path
     __args__['gatewayArn'] = gateway_arn
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('aws:storagegateway/getLocalDisk:getLocalDisk', __args__, opts=opts).value
 
     return AwaitableGetLocalDiskResult(
