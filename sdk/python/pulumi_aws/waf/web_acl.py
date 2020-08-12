@@ -25,7 +25,7 @@ class WebAcl(pulumi.CustomResource):
     Configuration block to enable WAF logging. Detailed below.
 
       * `log_destination` (`str`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-      * `redactedFields` (`dict`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
+      * `redacted_fields` (`dict`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
         * `fieldToMatches` (`list`) - Set of configuration blocks for fields to redact. Detailed below.
           * `data` (`str`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
           * `type` (`str`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
@@ -107,7 +107,7 @@ class WebAcl(pulumi.CustomResource):
 
         example = aws.waf.WebAcl("example", logging_configuration={
             "log_destination": aws_kinesis_firehose_delivery_stream["example"]["arn"],
-            "redactedFields": {
+            "redacted_fields": {
                 "fieldToMatches": [
                     {
                         "type": "URI",
@@ -137,7 +137,7 @@ class WebAcl(pulumi.CustomResource):
         The **logging_configuration** object supports the following:
 
           * `log_destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-          * `redactedFields` (`pulumi.Input[dict]`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
+          * `redacted_fields` (`pulumi.Input[dict]`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
             * `fieldToMatches` (`pulumi.Input[list]`) - Set of configuration blocks for fields to redact. Detailed below.
               * `data` (`pulumi.Input[str]`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
               * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
@@ -213,7 +213,7 @@ class WebAcl(pulumi.CustomResource):
         The **logging_configuration** object supports the following:
 
           * `log_destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-          * `redactedFields` (`pulumi.Input[dict]`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
+          * `redacted_fields` (`pulumi.Input[dict]`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
             * `fieldToMatches` (`pulumi.Input[list]`) - Set of configuration blocks for fields to redact. Detailed below.
               * `data` (`pulumi.Input[str]`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
               * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.

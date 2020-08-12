@@ -31,7 +31,7 @@ class RuleGroup(pulumi.CustomResource):
     """
     The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 
-      * `action` (`dict`) - The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.getWebAcl` level can override the rule action setting. See Action below for details.
+      * `action` (`dict`) - The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
         * `allow` (`dict`) - Instructs AWS WAF to allow the web request.
         * `block` (`dict`) - Instructs AWS WAF to block the web request.
         * `count` (`dict`) - Instructs AWS WAF to count the web request and allow it.
@@ -1644,7 +1644,7 @@ class RuleGroup(pulumi.CustomResource):
 
         The **rules** object supports the following:
 
-          * `action` (`pulumi.Input[dict]`) - The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.getWebAcl` level can override the rule action setting. See Action below for details.
+          * `action` (`pulumi.Input[dict]`) - The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
             * `allow` (`pulumi.Input[dict]`) - Instructs AWS WAF to allow the web request.
             * `block` (`pulumi.Input[dict]`) - Instructs AWS WAF to block the web request.
             * `count` (`pulumi.Input[dict]`) - Instructs AWS WAF to count the web request and allow it.
@@ -3058,7 +3058,7 @@ class RuleGroup(pulumi.CustomResource):
 
         The **rules** object supports the following:
 
-          * `action` (`pulumi.Input[dict]`) - The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.getWebAcl` level can override the rule action setting. See Action below for details.
+          * `action` (`pulumi.Input[dict]`) - The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
             * `allow` (`pulumi.Input[dict]`) - Instructs AWS WAF to allow the web request.
             * `block` (`pulumi.Input[dict]`) - Instructs AWS WAF to block the web request.
             * `count` (`pulumi.Input[dict]`) - Instructs AWS WAF to count the web request and allow it.

@@ -21,7 +21,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := wafv2.GetWebAcl(ctx, &wafv2.GetWebAclArgs{
+// 		_, err := wafv2.LookupWebAcl(ctx, &wafv2.LookupWebAclArgs{
 // 			Name:  "some-web-acl",
 // 			Scope: "REGIONAL",
 // 		}, nil)
@@ -32,8 +32,8 @@ import (
 // 	})
 // }
 // ```
-func GetWebAcl(ctx *pulumi.Context, args *GetWebAclArgs, opts ...pulumi.InvokeOption) (*GetWebAclResult, error) {
-	var rv GetWebAclResult
+func LookupWebAcl(ctx *pulumi.Context, args *LookupWebAclArgs, opts ...pulumi.InvokeOption) (*LookupWebAclResult, error) {
+	var rv LookupWebAclResult
 	err := ctx.Invoke("aws:wafv2/getWebAcl:getWebAcl", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -42,7 +42,7 @@ func GetWebAcl(ctx *pulumi.Context, args *GetWebAclArgs, opts ...pulumi.InvokeOp
 }
 
 // A collection of arguments for invoking getWebAcl.
-type GetWebAclArgs struct {
+type LookupWebAclArgs struct {
 	// The name of the WAFv2 Web ACL.
 	Name string `pulumi:"name"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -50,7 +50,7 @@ type GetWebAclArgs struct {
 }
 
 // A collection of values returned by getWebAcl.
-type GetWebAclResult struct {
+type LookupWebAclResult struct {
 	// The Amazon Resource Name (ARN) of the entity.
 	Arn string `pulumi:"arn"`
 	// The description of the WebACL that helps with identification.

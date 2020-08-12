@@ -25,7 +25,7 @@ class WebAcl(pulumi.CustomResource):
     Configuration block to enable WAF logging. Detailed below.
 
       * `log_destination` (`str`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-      * `redactedFields` (`dict`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
+      * `redacted_fields` (`dict`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
         * `fieldToMatches` (`list`) - Set of configuration blocks for fields to redact. Detailed below.
           * `data` (`str`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
           * `type` (`str`) - Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
@@ -124,7 +124,7 @@ class WebAcl(pulumi.CustomResource):
         # ... other configuration ...
         example = aws.wafregional.WebAcl("example", logging_configuration={
             "log_destination": aws_kinesis_firehose_delivery_stream["example"]["arn"],
-            "redactedFields": {
+            "redacted_fields": {
                 "fieldToMatches": [
                     {
                         "type": "URI",
@@ -154,7 +154,7 @@ class WebAcl(pulumi.CustomResource):
         The **logging_configuration** object supports the following:
 
           * `log_destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-          * `redactedFields` (`pulumi.Input[dict]`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
+          * `redacted_fields` (`pulumi.Input[dict]`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
             * `fieldToMatches` (`pulumi.Input[list]`) - Set of configuration blocks for fields to redact. Detailed below.
               * `data` (`pulumi.Input[str]`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
               * `type` (`pulumi.Input[str]`) - Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
@@ -230,7 +230,7 @@ class WebAcl(pulumi.CustomResource):
         The **logging_configuration** object supports the following:
 
           * `log_destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-          * `redactedFields` (`pulumi.Input[dict]`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
+          * `redacted_fields` (`pulumi.Input[dict]`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
             * `fieldToMatches` (`pulumi.Input[list]`) - Set of configuration blocks for fields to redact. Detailed below.
               * `data` (`pulumi.Input[str]`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
               * `type` (`pulumi.Input[str]`) - Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`

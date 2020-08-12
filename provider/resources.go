@@ -2060,10 +2060,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_waf_xss_match_set":           {Tok: awsResource(wafMod, "XssMatchSet")},
 			"aws_waf_sql_injection_match_set": {Tok: awsResource(wafMod, "SqlInjectionMatchSet")},
 			// Web Application Firewall V2 (WAFv2)
-			"aws_wafv2_ip_set":              {Tok: awsResource(wafV2Mod, "IpSet")},
-			"aws_wafv2_regex_pattern_set":   {Tok: awsResource(wafV2Mod, "RegexPatternSet")},
-			"aws_wafv2_web_acl_association": {Tok: awsResource(wafV2Mod, "WebAclAssociation")},
-			"aws_wafv2_rule_group":          {Tok: awsResource(wafV2Mod, "RuleGroup")},
+			"aws_wafv2_ip_set":                        {Tok: awsResource(wafV2Mod, "IpSet")},
+			"aws_wafv2_regex_pattern_set":             {Tok: awsResource(wafV2Mod, "RegexPatternSet")},
+			"aws_wafv2_web_acl_association":           {Tok: awsResource(wafV2Mod, "WebAclAssociation")},
+			"aws_wafv2_rule_group":                    {Tok: awsResource(wafV2Mod, "RuleGroup")},
+			"aws_wafv2_web_acl":                       {Tok: awsResource(wafV2Mod, "WebAcl")},
+			"aws_wafv2_web_acl_logging_configuration": {Tok: awsResource(wafV2Mod, "WebAclLoggingConfiguration")},
 			// Web Application Firewall (WAF) Regional
 			"aws_wafregional_byte_match_set": {
 				Tok: awsResource(wafregionalMod, "ByteMatchSet"),

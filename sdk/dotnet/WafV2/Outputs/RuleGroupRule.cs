@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRule
     {
         /// <summary>
-        /// The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.getWebAcl` level can override the rule action setting. See Action below for details.
+        /// The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleAction Action;
         /// <summary>
