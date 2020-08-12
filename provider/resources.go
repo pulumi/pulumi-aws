@@ -2063,6 +2063,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafv2_ip_set":              {Tok: awsResource(wafV2Mod, "IpSet")},
 			"aws_wafv2_regex_pattern_set":   {Tok: awsResource(wafV2Mod, "RegexPatternSet")},
 			"aws_wafv2_web_acl_association": {Tok: awsResource(wafV2Mod, "WebAclAssociation")},
+			"aws_wafv2_rule_group":          {Tok: awsResource(wafV2Mod, "RuleGroup")},
 			// Web Application Firewall (WAF) Regional
 			"aws_wafregional_byte_match_set": {
 				Tok: awsResource(wafregionalMod, "ByteMatchSet"),
@@ -2443,6 +2444,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafv2_ip_set":            {Tok: awsDataSource(wafV2Mod, "getIpSet")},
 			"aws_wafv2_regex_pattern_set": {Tok: awsDataSource(wafV2Mod, "getRegexPatternSet")},
 			"aws_wafv2_web_acl":           {Tok: awsDataSource(wafV2Mod, "getWebAcl")},
+			"aws_wafv2_rule_group":        {Tok: awsDataSource(wafV2Mod, "getRuleGroup")},
 			// Outposts
 			"aws_outposts_outpost":                {Tok: awsDataSource(outpostsMod, "getOutpost")},
 			"aws_outposts_outposts":               {Tok: awsDataSource(outpostsMod, "getOutposts")},
