@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.1.0 (2020-08-12)
 * Upgrade to v3.1.0 of the AWS Terraform Provider
 * Relax naming restrictions on `elasticache.ReplicationGroup` `replicationGroupId` to allow 40 characters as per 
   [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-replication-group.html)
-
----
 
 ## 3.0.0 (2020-08-11)
 * Upgrade to v3.0.0 of the AWS Terraform Provider  
