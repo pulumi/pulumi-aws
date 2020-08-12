@@ -4,7 +4,9 @@
 // Export members:
 export * from "./getIpSet";
 export * from "./getRegexPatternSet";
+export * from "./getRuleGroup";
 export * from "./getWebAcl";
 export * from "./ipSet";
 export * from "./regexPatternSet";
+export * from "./ruleGroup";
 export * from "./webAclAssociation";

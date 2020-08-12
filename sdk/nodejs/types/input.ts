@@ -15309,6 +15309,6390 @@ export namespace wafv2 {
          */
         regexString: pulumi.Input<string>;
     }
+
+    export interface RuleGroupRule {
+        /**
+         * The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.getWebAcl` level can override the rule action setting. See Action below for details.
+         */
+        action: pulumi.Input<inputs.wafv2.RuleGroupRuleAction>;
+        /**
+         * A friendly name of the rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
+         */
+        statement: pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>;
+        /**
+         * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+         */
+        visibilityConfig: pulumi.Input<inputs.wafv2.RuleGroupRuleVisibilityConfig>;
+    }
+
+    export interface RuleGroupRuleAction {
+        /**
+         * Instructs AWS WAF to allow the web request.
+         */
+        allow?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionAllow>;
+        /**
+         * Instructs AWS WAF to block the web request.
+         */
+        block?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionBlock>;
+        /**
+         * Instructs AWS WAF to count the web request and allow it.
+         */
+        count?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCount>;
+    }
+
+    export interface RuleGroupRuleActionAllow {
+    }
+
+    export interface RuleGroupRuleActionBlock {
+    }
+
+    export interface RuleGroupRuleActionCount {
+    }
+
+    export interface RuleGroupRuleStatement {
+        /**
+         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         */
+        andStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatement>;
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementIpSetReferenceStatement>;
+        /**
+         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         */
+        notStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatement>;
+        /**
+         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         */
+        orStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatement {
+        /**
+         * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatement {
+        /**
+         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         */
+        andStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatement>;
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         */
+        notStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatement>;
+        /**
+         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         */
+        orStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatement {
+        /**
+         * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatement {
+        /**
+         * The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatement {
+        /**
+         * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatement {
+        /**
+         * The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatement {
+        /**
+         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         */
+        andStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatement>;
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         */
+        notStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatement>;
+        /**
+         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         */
+        orStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatement {
+        /**
+         * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatement {
+        /**
+         * The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatement {
+        /**
+         * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatement {
+        /**
+         * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatement {
+        /**
+         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         */
+        andStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatement>;
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementIpSetReferenceStatement>;
+        /**
+         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         */
+        notStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatement>;
+        /**
+         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         */
+        orStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatement {
+        /**
+         * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatement {
+        /**
+         * The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatement {
+        /**
+         * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleVisibilityConfig {
+        /**
+         * A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+         */
+        cloudwatchMetricsEnabled: pulumi.Input<boolean>;
+        /**
+         * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+         */
+        sampledRequestsEnabled: pulumi.Input<boolean>;
+    }
+
+    export interface RuleGroupVisibilityConfig {
+        /**
+         * A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+         */
+        cloudwatchMetricsEnabled: pulumi.Input<boolean>;
+        /**
+         * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+         */
+        sampledRequestsEnabled: pulumi.Input<boolean>;
+    }
 }
 
 export namespace worklink {
