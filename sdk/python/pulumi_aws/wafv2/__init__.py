@@ -10,4 +10,6 @@ from .get_web_acl import *
 from .ip_set import *
 from .regex_pattern_set import *
 from .rule_group import *
+from .web_acl import *
 from .web_acl_association import *
+from .web_acl_logging_configuration import *

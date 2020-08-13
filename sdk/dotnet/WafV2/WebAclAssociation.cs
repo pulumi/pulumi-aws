@@ -11,6 +11,79 @@ namespace Pulumi.Aws.WafV2
 {
     /// <summary>
     /// Creates a WAFv2 Web ACL Association.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
+    ///         {
+    ///         });
+    ///         var exampleResource = new Aws.ApiGateway.Resource("exampleResource", new Aws.ApiGateway.ResourceArgs
+    ///         {
+    ///             RestApi = exampleRestApi.Id,
+    ///             ParentId = exampleRestApi.RootResourceId,
+    ///             PathPart = "mytestresource",
+    ///         });
+    ///         var exampleMethod = new Aws.ApiGateway.Method("exampleMethod", new Aws.ApiGateway.MethodArgs
+    ///         {
+    ///             RestApi = exampleRestApi.Id,
+    ///             ResourceId = exampleResource.Id,
+    ///             HttpMethod = "GET",
+    ///             Authorization = "NONE",
+    ///         });
+    ///         var exampleIntegration = new Aws.ApiGateway.Integration("exampleIntegration", new Aws.ApiGateway.IntegrationArgs
+    ///         {
+    ///             RestApi = exampleRestApi.Id,
+    ///             ResourceId = exampleResource.Id,
+    ///             HttpMethod = exampleMethod.HttpMethod,
+    ///             Type = "MOCK",
+    ///         });
+    ///         var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new Aws.ApiGateway.DeploymentArgs
+    ///         {
+    ///             RestApi = exampleRestApi.Id,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleIntegration,
+    ///             },
+    ///         });
+    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
+    ///         {
+    ///             StageName = "test",
+    ///             RestApi = exampleRestApi.Id,
+    ///             Deployment = exampleDeployment.Id,
+    ///         });
+    ///         var exampleWebAcl = new Aws.WafV2.WebAcl("exampleWebAcl", new Aws.WafV2.WebAclArgs
+    ///         {
+    ///             Scope = "REGIONAL",
+    ///             DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///             {
+    ///                 Allow = ,
+    ///             },
+    ///             VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///             {
+    ///                 CloudwatchMetricsEnabled = false,
+    ///                 MetricName = "friendly-metric-name",
+    ///                 SampledRequestsEnabled = false,
+    ///             },
+    ///         });
+    ///         var exampleWebAclAssociation = new Aws.WafV2.WebAclAssociation("exampleWebAclAssociation", new Aws.WafV2.WebAclAssociationArgs
+    ///         {
+    ///             ResourceArn = exampleStage.Arn,
+    ///             WebAclArn = exampleWebAcl.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class WebAclAssociation : Pulumi.CustomResource
     {

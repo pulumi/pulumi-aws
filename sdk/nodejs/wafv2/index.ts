@@ -9,4 +9,6 @@ export * from "./getWebAcl";
 export * from "./ipSet";
 export * from "./regexPatternSet";
 export * from "./ruleGroup";
+export * from "./webAcl";
 export * from "./webAclAssociation";
+export * from "./webAclLoggingConfiguration";

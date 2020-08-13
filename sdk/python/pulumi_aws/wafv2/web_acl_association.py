@@ -22,6 +22,48 @@ class WebAclAssociation(pulumi.CustomResource):
         """
         Creates a WAFv2 Web ACL Association.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
+        example_resource = aws.apigateway.Resource("exampleResource",
+            rest_api=example_rest_api.id,
+            parent_id=example_rest_api.root_resource_id,
+            path_part="mytestresource")
+        example_method = aws.apigateway.Method("exampleMethod",
+            rest_api=example_rest_api.id,
+            resource_id=example_resource.id,
+            http_method="GET",
+            authorization="NONE")
+        example_integration = aws.apigateway.Integration("exampleIntegration",
+            rest_api=example_rest_api.id,
+            resource_id=example_resource.id,
+            http_method=example_method.http_method,
+            type="MOCK")
+        example_deployment = aws.apigateway.Deployment("exampleDeployment", rest_api=example_rest_api.id,
+        opts=ResourceOptions(depends_on=[example_integration]))
+        example_stage = aws.apigateway.Stage("exampleStage",
+            stage_name="test",
+            rest_api=example_rest_api.id,
+            deployment=example_deployment.id)
+        example_web_acl = aws.wafv2.WebAcl("exampleWebAcl",
+            scope="REGIONAL",
+            default_action={
+                "allow": {},
+            },
+            visibility_config={
+                "cloudwatchMetricsEnabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampledRequestsEnabled": False,
+            })
+        example_web_acl_association = aws.wafv2.WebAclAssociation("exampleWebAclAssociation",
+            resource_arn=example_stage.arn,
+            web_acl_arn=example_web_acl.arn)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
