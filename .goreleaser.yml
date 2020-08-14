@@ -3,7 +3,7 @@ archives:
   name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'
 before:
   hooks:
-  - make -f Makefile.github tfgen
+  - make tfgen
 blobs:
 - bucket: get.pulumi.com
   folder: releases/plugins/
