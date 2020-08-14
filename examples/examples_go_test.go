@@ -16,7 +16,7 @@ func TestAccWebserverGo(t *testing.T) {
 	test := integration.ProgramTestOptions{
 		Dir: path.Join(getCwd(t), "webserver-go"),
 		Dependencies: []string{
-			"github.com/pulumi/pulumi-aws/sdk/go/v2",
+			"github.com/pulumi/pulumi-aws/sdk/go/v3",
 		},
 		Config: map[string]string{"aws:region": getEnvRegion(t)},
 	}

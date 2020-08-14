@@ -11,7 +11,7 @@
         "@pulumi/pulumi": "^2.0.0",
         "express": "^4.16.3",
         "aws-serverless-express": "^3.3.5",
-        "@pulumi/aws": "^2.0.0"
+        "@pulumi/aws": "^3.0.0"
     },
     "devDependencies": {
         "@types/node": "^8.0.0",

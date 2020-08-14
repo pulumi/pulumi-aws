@@ -12,7 +12,7 @@
         "@slack/client": "4.3.1",
         "aws-sdk": "^2.252.1",
         "express": "^4.16.3",
-        "@pulumi/aws": "^2.0.0"
+        "@pulumi/aws": "^3.0.0"
     },
     "devDependencies": {
         "@types/express": "^4.16.0",
