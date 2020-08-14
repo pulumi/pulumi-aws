@@ -59,7 +59,7 @@ jobs:
       run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
     - name: Build SDK
-      run: make -f Makefile.github build_${{ matrix.language }}
+      run: make build_${{ matrix.language }}
     - name: Check worktree clean
       run: ./ci-scripts/ci/check-worktree-is-clean
     - name: Upload artifacts
@@ -114,7 +114,7 @@ jobs:
     - name: Install Pulumi CLI
       uses: pulumi/action-install-pulumi-cli@releases/v1
     - name: Build tfgen & provider binaries
-      run: make -f Makefile.github provider
+      run: make provider
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -245,7 +245,7 @@ jobs:
         pip3 install virtualenv==20.0.23
         pip3 install pipenv
     - name: Install dependencies
-      run: make -f Makefile.github install_${{ matrix.language}}_sdk
+      run: make install_${{ matrix.language}}_sdk
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
