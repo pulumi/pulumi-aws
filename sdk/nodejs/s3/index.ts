@@ -17,4 +17,4 @@ export * from "./getBucketObject";
 export * from "./getBucketObjects";
 export * from "./inventory";
 export * from "./routingRules";
-export * from "./s3Mixins";
+export * from "./zMixins";

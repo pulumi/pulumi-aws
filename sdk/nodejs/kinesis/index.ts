@@ -5,6 +5,6 @@
 export * from "./analyticsApplication";
 export * from "./firehoseDeliveryStream";
 export * from "./getStream";
-export * from "./kinesisMixins";
 export * from "./stream";
 export * from "./videoStream";
+export * from "./zMixins";

@@ -2497,9 +2497,9 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"cloudwatch": {
 						DestFiles: []string{
-							"cloudwatchMixins.ts",
-							"eventRuleMixins.ts",
-							"logGroupMixins.ts",
+							"zMixins_eventRule.ts",
+							"zMixins_logGroup.ts",
+							"zMixins_schedule.ts",
 						},
 					},
 					"config": {
@@ -2509,7 +2509,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"dynamodb": {
 						DestFiles: []string{
-							"dynamodbMixins.ts",
+							"zMixins.ts",
 						},
 					},
 					"ec2": {
@@ -2540,13 +2540,13 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"kinesis": {
 						DestFiles: []string{
-							"kinesisMixins.ts",
+							"zMixins.ts",
 						},
 					},
 					"lambda": {
 						DestFiles: []string{
 							"runtimes.ts", // a union type and constants for available Lambda runtimes.
-							"lambdaMixins.ts",
+							"zMixins.ts",
 						},
 					},
 					"rds": {
@@ -2566,7 +2566,7 @@ func Provider() tfbridge.ProviderInfo {
 						DestFiles: []string{
 							"cannedAcl.ts", // a union type and constants for canned ACL names.
 							"routingRules.ts",
-							"s3Mixins.ts",
+							"zMixins.ts",
 						},
 					},
 					"serverless": {
@@ -2576,13 +2576,13 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"sns": {
 						DestFiles: []string{
-							"snsMixins.ts",
+							"zMixins.ts",
 						},
 					},
 					"sqs": {
 						DestFiles: []string{
 							"redrive.ts", // schema definitions for SQS redrive policies.
-							"sqsMixins.ts",
+							"zMixins.ts",
 						},
 					},
 					"ssm": {

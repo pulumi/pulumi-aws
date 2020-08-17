@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import * as pulumi from "@pulumi/pulumi";
-import * as eventRule from "./eventRuleMixins";
+import * as eventRule from "./zMixins_eventRule";
 
 /**
  * Creates a CloudWatch event that will fire based on the specified schedule.  This will create
