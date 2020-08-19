@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetSecretResult',
+    'AwaitableGetSecretResult',
+    'get_secret',
+]
 
+@pulumi.output_type
 class GetSecretResult:
     """
     A collection of values returned by getSecret.
@@ -16,13 +24,23 @@ class GetSecretResult:
     def __init__(__self__, id=None, secrets=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if secrets and not isinstance(secrets, list):
+            raise TypeError("Expected argument 'secrets' to be a list")
+        pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if secrets and not isinstance(secrets, list):
-            raise TypeError("Expected argument 'secrets' to be a list")
-        __self__.secrets = secrets
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> List['outputs.GetSecretSecretResult']:
+        return pulumi.get(self, "secrets")
 
 
 class AwaitableGetSecretResult(GetSecretResult):
@@ -35,17 +53,10 @@ class AwaitableGetSecretResult(GetSecretResult):
             secrets=self.secrets)
 
 
-def get_secret(secrets=None, opts=None):
+def get_secret(secrets: Optional[List[pulumi.InputType['GetSecretSecretArgs']]] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
     Use this data source to access information about an existing resource.
-
-
-    The **secrets** object supports the following:
-
-      * `context` (`dict`)
-      * `grantTokens` (`list`)
-      * `name` (`str`)
-      * `payload` (`str`)
     """
     __args__ = dict()
     __args__['secrets'] = secrets
@@ -53,8 +64,8 @@ def get_secret(secrets=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:kms/getSecret:getSecret', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:kms/getSecret:getSecret', __args__, opts=opts, typ=GetSecretResult).value
 
     return AwaitableGetSecretResult(
-        id=__ret__.get('id'),
-        secrets=__ret__.get('secrets'))
+        id=__ret__.id,
+        secrets=__ret__.secrets)

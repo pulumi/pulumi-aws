@@ -5,27 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['IpSet']
 
 
 class IpSet(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of the WAF IPSet.
-    """
-    ip_set_descriptors: pulumi.Output[list]
-    """
-    One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
-
-      * `type` (`str`) - The string like IPV4 or IPV6.
-      * `value` (`str`) - The CIDR notation.
-    """
-    name: pulumi.Output[str]
-    """
-    The name or description of the IPSet.
-    """
-    def __init__(__self__, resource_name, opts=None, ip_set_descriptors=None, name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 ip_set_descriptors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpSetIpSetDescriptorArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a WAF Regional IPSet Resource for use with Application Load Balancer.
 
@@ -36,26 +32,21 @@ class IpSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[
-            {
-                "type": "IPV4",
-                "value": "192.0.7.0/24",
-            },
-            {
-                "type": "IPV4",
-                "value": "10.16.16.0/16",
-            },
+            aws.wafregional.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            ),
+            aws.wafregional.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="10.16.16.0/16",
+            ),
         ])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpSetIpSetDescriptorArgs']]]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
         :param pulumi.Input[str] name: The name or description of the IPSet.
-
-        The **ip_set_descriptors** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The string like IPV4 or IPV6.
-          * `value` (`pulumi.Input[str]`) - The CIDR notation.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -84,22 +75,22 @@ class IpSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, ip_set_descriptors=None, name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            ip_set_descriptors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpSetIpSetDescriptorArgs']]]]] = None,
+            name: Optional[pulumi.Input[str]] = None) -> 'IpSet':
         """
         Get an existing IpSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the WAF IPSet.
-        :param pulumi.Input[list] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpSetIpSetDescriptorArgs']]]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
         :param pulumi.Input[str] name: The name or description of the IPSet.
-
-        The **ip_set_descriptors** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The string like IPV4 or IPV6.
-          * `value` (`pulumi.Input[str]`) - The CIDR notation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -110,8 +101,33 @@ class IpSet(pulumi.CustomResource):
         __props__["name"] = name
         return IpSet(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the WAF IPSet.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="ipSetDescriptors")
+    def ip_set_descriptors(self) -> Optional[List['outputs.IpSetIpSetDescriptor']]:
+        """
+        One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+        """
+        return pulumi.get(self, "ip_set_descriptors")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name or description of the IPSet.
+        """
+        return pulumi.get(self, "name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

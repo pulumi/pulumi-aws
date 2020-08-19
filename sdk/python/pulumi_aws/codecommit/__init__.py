@@ -6,3 +6,5 @@
 from .get_repository import *
 from .repository import *
 from .trigger import *
+from ._inputs import *
+from . import outputs

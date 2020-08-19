@@ -9,3 +9,5 @@ from .location_smb import *
 from .nfs_location import *
 from .s3_location import *
 from .task import *
+from ._inputs import *
+from . import outputs

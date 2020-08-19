@@ -5,24 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['IdentityPolicy']
 
 
 class IdentityPolicy(pulumi.CustomResource):
-    identity: pulumi.Output[str]
-    """
-    Name or Amazon Resource Name (ARN) of the SES Identity.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the policy.
-    """
-    policy: pulumi.Output[str]
-    """
-    JSON string of the policy.
-    """
-    def __init__(__self__, resource_name, opts=None, identity=None, name=None, policy=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
 
@@ -33,17 +31,17 @@ class IdentityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_policy_document = example_domain_identity.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-            "actions": [
+        example_policy_document = example_domain_identity.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=[
                 "SES:SendEmail",
                 "SES:SendRawEmail",
             ],
-            "resources": [arn],
-            "principals": [{
-                "identifiers": ["*"],
-                "type": "AWS",
-            }],
-        }]))
+            resources=[arn],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=["*"],
+                type="AWS",
+            )],
+        )]))
         example_identity_policy = aws.ses.IdentityPolicy("exampleIdentityPolicy",
             identity=example_domain_identity.arn,
             policy=example_policy_document.json)
@@ -86,13 +84,18 @@ class IdentityPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, name=None, policy=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            identity: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            policy: Optional[pulumi.Input[str]] = None) -> 'IdentityPolicy':
         """
         Get an existing IdentityPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[str] name: Name of the policy.
@@ -107,8 +110,33 @@ class IdentityPolicy(pulumi.CustomResource):
         __props__["policy"] = policy
         return IdentityPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def identity(self) -> str:
+        """
+        Name or Amazon Resource Name (ARN) of the SES Identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the policy.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> str:
+        """
+        JSON string of the policy.
+        """
+        return pulumi.get(self, "policy")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,20 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['VpnGatewayRoutePropagation']
 
 
 class VpnGatewayRoutePropagation(pulumi.CustomResource):
-    route_table_id: pulumi.Output[str]
-    """
-    The id of the `ec2.RouteTable` to propagate routes into.
-    """
-    vpn_gateway_id: pulumi.Output[str]
-    """
-    The id of the `ec2.VpnGateway` to propagate routes from.
-    """
-    def __init__(__self__, resource_name, opts=None, route_table_id=None, vpn_gateway_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 route_table_id: Optional[pulumi.Input[str]] = None,
+                 vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Requests automatic route propagation between a VPN gateway and a route table.
 
@@ -72,13 +73,17 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, route_table_id=None, vpn_gateway_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            route_table_id: Optional[pulumi.Input[str]] = None,
+            vpn_gateway_id: Optional[pulumi.Input[str]] = None) -> 'VpnGatewayRoutePropagation':
         """
         Get an existing VpnGatewayRoutePropagation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] route_table_id: The id of the `ec2.RouteTable` to propagate routes into.
         :param pulumi.Input[str] vpn_gateway_id: The id of the `ec2.VpnGateway` to propagate routes from.
@@ -91,8 +96,25 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         __props__["vpn_gateway_id"] = vpn_gateway_id
         return VpnGatewayRoutePropagation(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> str:
+        """
+        The id of the `ec2.RouteTable` to propagate routes into.
+        """
+        return pulumi.get(self, "route_table_id")
+
+    @property
+    @pulumi.getter(name="vpnGatewayId")
+    def vpn_gateway_id(self) -> str:
+        """
+        The id of the `ec2.VpnGateway` to propagate routes from.
+        """
+        return pulumi.get(self, "vpn_gateway_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

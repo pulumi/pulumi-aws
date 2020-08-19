@@ -5,18 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Trigger']
 
 
 class Trigger(pulumi.CustomResource):
-    configuration_id: pulumi.Output[str]
-    repository_name: pulumi.Output[str]
-    """
-    The name for the repository. This needs to be less than 100 characters.
-    """
-    triggers: pulumi.Output[list]
-    def __init__(__self__, resource_name, opts=None, repository_name=None, triggers=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
+                 triggers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a CodeCommit Trigger Resource.
 
@@ -29,24 +34,16 @@ class Trigger(pulumi.CustomResource):
         test_repository = aws.codecommit.Repository("testRepository", repository_name="test")
         test_trigger = aws.codecommit.Trigger("testTrigger",
             repository_name=test_repository.repository_name,
-            triggers=[{
-                "name": "all",
-                "events": ["all"],
-                "destination_arn": aws_sns_topic["test"]["arn"],
-            }])
+            triggers=[aws.codecommit.TriggerTriggerArgs(
+                name="all",
+                events=["all"],
+                destination_arn=aws_sns_topic["test"]["arn"],
+            )])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
-
-        The **triggers** object supports the following:
-
-          * `branches` (`pulumi.Input[list]`) - The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
-          * `customData` (`pulumi.Input[str]`) - Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
-          * `destination_arn` (`pulumi.Input[str]`) - The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
-          * `events` (`pulumi.Input[list]`) - The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
-          * `name` (`pulumi.Input[str]`) - The name of the trigger.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,23 +76,20 @@ class Trigger(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, configuration_id=None, repository_name=None, triggers=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            configuration_id: Optional[pulumi.Input[str]] = None,
+            repository_name: Optional[pulumi.Input[str]] = None,
+            triggers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None) -> 'Trigger':
         """
         Get an existing Trigger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
-
-        The **triggers** object supports the following:
-
-          * `branches` (`pulumi.Input[list]`) - The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
-          * `customData` (`pulumi.Input[str]`) - Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
-          * `destination_arn` (`pulumi.Input[str]`) - The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
-          * `events` (`pulumi.Input[list]`) - The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
-          * `name` (`pulumi.Input[str]`) - The name of the trigger.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -106,8 +100,27 @@ class Trigger(pulumi.CustomResource):
         __props__["triggers"] = triggers
         return Trigger(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="configurationId")
+    def configuration_id(self) -> str:
+        return pulumi.get(self, "configuration_id")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> str:
+        """
+        The name for the repository. This needs to be less than 100 characters.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> List['outputs.TriggerTrigger']:
+        return pulumi.get(self, "triggers")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

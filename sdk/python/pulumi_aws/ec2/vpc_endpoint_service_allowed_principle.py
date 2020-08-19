@@ -5,20 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['VpcEndpointServiceAllowedPrinciple']
 
 
 class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
-    principal_arn: pulumi.Output[str]
-    """
-    The ARN of the principal to allow permissions.
-    """
-    vpc_endpoint_service_id: pulumi.Output[str]
-    """
-    The ID of the VPC endpoint service to allow permission.
-    """
-    def __init__(__self__, resource_name, opts=None, principal_arn=None, vpc_endpoint_service_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 principal_arn: Optional[pulumi.Input[str]] = None,
+                 vpc_endpoint_service_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a resource to allow a principal to discover a VPC endpoint service.
 
@@ -77,13 +78,17 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, principal_arn=None, vpc_endpoint_service_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            principal_arn: Optional[pulumi.Input[str]] = None,
+            vpc_endpoint_service_id: Optional[pulumi.Input[str]] = None) -> 'VpcEndpointServiceAllowedPrinciple':
         """
         Get an existing VpcEndpointServiceAllowedPrinciple resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] principal_arn: The ARN of the principal to allow permissions.
         :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
@@ -96,8 +101,25 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         __props__["vpc_endpoint_service_id"] = vpc_endpoint_service_id
         return VpcEndpointServiceAllowedPrinciple(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="principalArn")
+    def principal_arn(self) -> str:
+        """
+        The ARN of the principal to allow permissions.
+        """
+        return pulumi.get(self, "principal_arn")
+
+    @property
+    @pulumi.getter(name="vpcEndpointServiceId")
+    def vpc_endpoint_service_id(self) -> str:
+        """
+        The ID of the VPC endpoint service to allow permission.
+        """
+        return pulumi.get(self, "vpc_endpoint_service_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

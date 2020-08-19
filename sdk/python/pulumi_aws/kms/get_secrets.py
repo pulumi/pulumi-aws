@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetSecretsResult',
+    'AwaitableGetSecretsResult',
+    'get_secrets',
+]
 
+@pulumi.output_type
 class GetSecretsResult:
     """
     A collection of values returned by getSecrets.
@@ -16,19 +24,34 @@ class GetSecretsResult:
     def __init__(__self__, id=None, plaintext=None, secrets=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if plaintext and not isinstance(plaintext, dict):
+            raise TypeError("Expected argument 'plaintext' to be a dict")
+        pulumi.set(__self__, "plaintext", plaintext)
+        if secrets and not isinstance(secrets, list):
+            raise TypeError("Expected argument 'secrets' to be a list")
+        pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if plaintext and not isinstance(plaintext, dict):
-            raise TypeError("Expected argument 'plaintext' to be a dict")
-        __self__.plaintext = plaintext
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def plaintext(self) -> Mapping[str, str]:
         """
         Map containing each `secret` `name` as the key with its decrypted plaintext value
         """
-        if secrets and not isinstance(secrets, list):
-            raise TypeError("Expected argument 'secrets' to be a list")
-        __self__.secrets = secrets
+        return pulumi.get(self, "plaintext")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> List['outputs.GetSecretsSecretResult']:
+        return pulumi.get(self, "secrets")
 
 
 class AwaitableGetSecretsResult(GetSecretsResult):
@@ -42,19 +65,13 @@ class AwaitableGetSecretsResult(GetSecretsResult):
             secrets=self.secrets)
 
 
-def get_secrets(secrets=None, opts=None):
+def get_secrets(secrets: Optional[List[pulumi.InputType['GetSecretsSecretArgs']]] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretsResult:
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
 
 
-    :param list secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
-
-    The **secrets** object supports the following:
-
-      * `context` (`dict`) - An optional mapping that makes up the Encryption Context for the secret.
-      * `grantTokens` (`list`) - An optional list of Grant Tokens for the secret.
-      * `name` (`str`) - The name to export this secret under in the attributes.
-      * `payload` (`str`) - Base64 encoded payload, as returned from a KMS encrypt operation.
+    :param List[pulumi.InputType['GetSecretsSecretArgs']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
     """
     __args__ = dict()
     __args__['secrets'] = secrets
@@ -62,9 +79,9 @@ def get_secrets(secrets=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:kms/getSecrets:getSecrets', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:kms/getSecrets:getSecrets', __args__, opts=opts, typ=GetSecretsResult).value
 
     return AwaitableGetSecretsResult(
-        id=__ret__.get('id'),
-        plaintext=__ret__.get('plaintext'),
-        secrets=__ret__.get('secrets'))
+        id=__ret__.id,
+        plaintext=__ret__.plaintext,
+        secrets=__ret__.secrets)

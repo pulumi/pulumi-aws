@@ -5,24 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['GroupMembership']
 
 
 class GroupMembership(pulumi.CustomResource):
-    group: pulumi.Output[str]
-    """
-    The IAM Group name to attach the list of `users` to
-    """
-    name: pulumi.Output[str]
-    """
-    The name to identify the Group Membership
-    """
-    users: pulumi.Output[list]
-    """
-    A list of IAM User names to associate with the Group
-    """
-    def __init__(__self__, resource_name, opts=None, group=None, name=None, users=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 group: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 users: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         > **WARNING:** Multiple iam.GroupMembership resources with the same group name will produce inconsistent behavior!
 
@@ -54,7 +52,7 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The IAM Group name to attach the list of `users` to
         :param pulumi.Input[str] name: The name to identify the Group Membership
-        :param pulumi.Input[list] users: A list of IAM User names to associate with the Group
+        :param pulumi.Input[List[pulumi.Input[str]]] users: A list of IAM User names to associate with the Group
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,17 +85,22 @@ class GroupMembership(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, group=None, name=None, users=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            group: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            users: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'GroupMembership':
         """
         Get an existing GroupMembership resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The IAM Group name to attach the list of `users` to
         :param pulumi.Input[str] name: The name to identify the Group Membership
-        :param pulumi.Input[list] users: A list of IAM User names to associate with the Group
+        :param pulumi.Input[List[pulumi.Input[str]]] users: A list of IAM User names to associate with the Group
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -108,8 +111,33 @@ class GroupMembership(pulumi.CustomResource):
         __props__["users"] = users
         return GroupMembership(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def group(self) -> str:
+        """
+        The IAM Group name to attach the list of `users` to
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name to identify the Group Membership
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def users(self) -> List[str]:
+        """
+        A list of IAM User names to associate with the Group
+        """
+        return pulumi.get(self, "users")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

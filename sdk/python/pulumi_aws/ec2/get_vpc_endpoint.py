@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetVpcEndpointResult',
+    'AwaitableGetVpcEndpointResult',
+    'get_vpc_endpoint',
+]
 
+@pulumi.output_type
 class GetVpcEndpointResult:
     """
     A collection of values returned by getVpcEndpoint.
@@ -16,100 +24,195 @@ class GetVpcEndpointResult:
     def __init__(__self__, arn=None, cidr_blocks=None, dns_entries=None, filters=None, id=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        pulumi.set(__self__, "arn", arn)
+        if cidr_blocks and not isinstance(cidr_blocks, list):
+            raise TypeError("Expected argument 'cidr_blocks' to be a list")
+        pulumi.set(__self__, "cidr_blocks", cidr_blocks)
+        if dns_entries and not isinstance(dns_entries, list):
+            raise TypeError("Expected argument 'dns_entries' to be a list")
+        pulumi.set(__self__, "dns_entries", dns_entries)
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        pulumi.set(__self__, "filters", filters)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if network_interface_ids and not isinstance(network_interface_ids, list):
+            raise TypeError("Expected argument 'network_interface_ids' to be a list")
+        pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError("Expected argument 'owner_id' to be a str")
+        pulumi.set(__self__, "owner_id", owner_id)
+        if policy and not isinstance(policy, str):
+            raise TypeError("Expected argument 'policy' to be a str")
+        pulumi.set(__self__, "policy", policy)
+        if prefix_list_id and not isinstance(prefix_list_id, str):
+            raise TypeError("Expected argument 'prefix_list_id' to be a str")
+        pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if private_dns_enabled and not isinstance(private_dns_enabled, bool):
+            raise TypeError("Expected argument 'private_dns_enabled' to be a bool")
+        pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
+        if requester_managed and not isinstance(requester_managed, bool):
+            raise TypeError("Expected argument 'requester_managed' to be a bool")
+        pulumi.set(__self__, "requester_managed", requester_managed)
+        if route_table_ids and not isinstance(route_table_ids, list):
+            raise TypeError("Expected argument 'route_table_ids' to be a list")
+        pulumi.set(__self__, "route_table_ids", route_table_ids)
+        if security_group_ids and not isinstance(security_group_ids, list):
+            raise TypeError("Expected argument 'security_group_ids' to be a list")
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if service_name and not isinstance(service_name, str):
+            raise TypeError("Expected argument 'service_name' to be a str")
+        pulumi.set(__self__, "service_name", service_name)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if subnet_ids and not isinstance(subnet_ids, list):
+            raise TypeError("Expected argument 'subnet_ids' to be a list")
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if vpc_endpoint_type and not isinstance(vpc_endpoint_type, str):
+            raise TypeError("Expected argument 'vpc_endpoint_type' to be a str")
+        pulumi.set(__self__, "vpc_endpoint_type", vpc_endpoint_type)
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError("Expected argument 'vpc_id' to be a str")
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
         """
         The Amazon Resource Name (ARN) of the VPC endpoint.
         """
-        if cidr_blocks and not isinstance(cidr_blocks, list):
-            raise TypeError("Expected argument 'cidr_blocks' to be a list")
-        __self__.cidr_blocks = cidr_blocks
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="cidrBlocks")
+    def cidr_blocks(self) -> List[str]:
         """
         The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         """
-        if dns_entries and not isinstance(dns_entries, list):
-            raise TypeError("Expected argument 'dns_entries' to be a list")
-        __self__.dns_entries = dns_entries
+        return pulumi.get(self, "cidr_blocks")
+
+    @property
+    @pulumi.getter(name="dnsEntries")
+    def dns_entries(self) -> List['outputs.GetVpcEndpointDnsEntryResult']:
         """
         The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         """
-        if filters and not isinstance(filters, list):
-            raise TypeError("Expected argument 'filters' to be a list")
-        __self__.filters = filters
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        if network_interface_ids and not isinstance(network_interface_ids, list):
-            raise TypeError("Expected argument 'network_interface_ids' to be a list")
-        __self__.network_interface_ids = network_interface_ids
+        return pulumi.get(self, "dns_entries")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[List['outputs.GetVpcEndpointFilterResult']]:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="networkInterfaceIds")
+    def network_interface_ids(self) -> List[str]:
         """
         One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
         """
-        if owner_id and not isinstance(owner_id, str):
-            raise TypeError("Expected argument 'owner_id' to be a str")
-        __self__.owner_id = owner_id
+        return pulumi.get(self, "network_interface_ids")
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> str:
         """
         The ID of the AWS account that owns the VPC endpoint.
         """
-        if policy and not isinstance(policy, str):
-            raise TypeError("Expected argument 'policy' to be a str")
-        __self__.policy = policy
+        return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> str:
         """
         The policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
         """
-        if prefix_list_id and not isinstance(prefix_list_id, str):
-            raise TypeError("Expected argument 'prefix_list_id' to be a str")
-        __self__.prefix_list_id = prefix_list_id
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="prefixListId")
+    def prefix_list_id(self) -> str:
         """
         The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
         """
-        if private_dns_enabled and not isinstance(private_dns_enabled, bool):
-            raise TypeError("Expected argument 'private_dns_enabled' to be a bool")
-        __self__.private_dns_enabled = private_dns_enabled
+        return pulumi.get(self, "prefix_list_id")
+
+    @property
+    @pulumi.getter(name="privateDnsEnabled")
+    def private_dns_enabled(self) -> bool:
         """
         Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
         """
-        if requester_managed and not isinstance(requester_managed, bool):
-            raise TypeError("Expected argument 'requester_managed' to be a bool")
-        __self__.requester_managed = requester_managed
+        return pulumi.get(self, "private_dns_enabled")
+
+    @property
+    @pulumi.getter(name="requesterManaged")
+    def requester_managed(self) -> bool:
         """
         Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
         """
-        if route_table_ids and not isinstance(route_table_ids, list):
-            raise TypeError("Expected argument 'route_table_ids' to be a list")
-        __self__.route_table_ids = route_table_ids
+        return pulumi.get(self, "requester_managed")
+
+    @property
+    @pulumi.getter(name="routeTableIds")
+    def route_table_ids(self) -> List[str]:
         """
         One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
         """
-        if security_group_ids and not isinstance(security_group_ids, list):
-            raise TypeError("Expected argument 'security_group_ids' to be a list")
-        __self__.security_group_ids = security_group_ids
+        return pulumi.get(self, "route_table_ids")
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> List[str]:
         """
         One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
         """
-        if service_name and not isinstance(service_name, str):
-            raise TypeError("Expected argument 'service_name' to be a str")
-        __self__.service_name = service_name
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
-        if subnet_ids and not isinstance(subnet_ids, list):
-            raise TypeError("Expected argument 'subnet_ids' to be a list")
-        __self__.subnet_ids = subnet_ids
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> str:
+        return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> List[str]:
         """
         One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
-        if vpc_endpoint_type and not isinstance(vpc_endpoint_type, str):
-            raise TypeError("Expected argument 'vpc_endpoint_type' to be a str")
-        __self__.vpc_endpoint_type = vpc_endpoint_type
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpcEndpointType")
+    def vpc_endpoint_type(self) -> str:
         """
         The VPC Endpoint type, `Gateway` or `Interface`.
         """
-        if vpc_id and not isinstance(vpc_id, str):
-            raise TypeError("Expected argument 'vpc_id' to be a str")
-        __self__.vpc_id = vpc_id
+        return pulumi.get(self, "vpc_endpoint_type")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        return pulumi.get(self, "vpc_id")
 
 
 class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
@@ -139,7 +242,13 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
             vpc_id=self.vpc_id)
 
 
-def get_vpc_endpoint(filters=None, id=None, service_name=None, state=None, tags=None, vpc_id=None, opts=None):
+def get_vpc_endpoint(filters: Optional[List[pulumi.InputType['GetVpcEndpointFilterArgs']]] = None,
+                     id: Optional[str] = None,
+                     service_name: Optional[str] = None,
+                     state: Optional[str] = None,
+                     tags: Optional[Mapping[str, str]] = None,
+                     vpc_id: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointResult:
     """
     The VPC Endpoint data source provides details about
     a specific VPC endpoint.
@@ -158,20 +267,13 @@ def get_vpc_endpoint(filters=None, id=None, service_name=None, state=None, tags=
     ```
 
 
-    :param list filters: Custom filter block as described below.
+    :param List[pulumi.InputType['GetVpcEndpointFilterArgs']] filters: Custom filter block as described below.
     :param str id: The ID of the specific VPC Endpoint to retrieve.
     :param str service_name: The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param str state: The state of the specific VPC Endpoint to retrieve.
-    :param dict tags: A map of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
            a pair on the specific VPC Endpoint to retrieve.
     :param str vpc_id: The ID of the VPC in which the specific VPC Endpoint is used.
-
-    The **filters** object supports the following:
-
-      * `name` (`str`) - The name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
-      * `values` (`list`) - Set of values that are accepted for the given field.
-        A VPC Endpoint will be selected if any one of the given values matches.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -184,25 +286,25 @@ def get_vpc_endpoint(filters=None, id=None, service_name=None, state=None, tags=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts, typ=GetVpcEndpointResult).value
 
     return AwaitableGetVpcEndpointResult(
-        arn=__ret__.get('arn'),
-        cidr_blocks=__ret__.get('cidrBlocks'),
-        dns_entries=__ret__.get('dnsEntries'),
-        filters=__ret__.get('filters'),
-        id=__ret__.get('id'),
-        network_interface_ids=__ret__.get('networkInterfaceIds'),
-        owner_id=__ret__.get('ownerId'),
-        policy=__ret__.get('policy'),
-        prefix_list_id=__ret__.get('prefixListId'),
-        private_dns_enabled=__ret__.get('privateDnsEnabled'),
-        requester_managed=__ret__.get('requesterManaged'),
-        route_table_ids=__ret__.get('routeTableIds'),
-        security_group_ids=__ret__.get('securityGroupIds'),
-        service_name=__ret__.get('serviceName'),
-        state=__ret__.get('state'),
-        subnet_ids=__ret__.get('subnetIds'),
-        tags=__ret__.get('tags'),
-        vpc_endpoint_type=__ret__.get('vpcEndpointType'),
-        vpc_id=__ret__.get('vpcId'))
+        arn=__ret__.arn,
+        cidr_blocks=__ret__.cidr_blocks,
+        dns_entries=__ret__.dns_entries,
+        filters=__ret__.filters,
+        id=__ret__.id,
+        network_interface_ids=__ret__.network_interface_ids,
+        owner_id=__ret__.owner_id,
+        policy=__ret__.policy,
+        prefix_list_id=__ret__.prefix_list_id,
+        private_dns_enabled=__ret__.private_dns_enabled,
+        requester_managed=__ret__.requester_managed,
+        route_table_ids=__ret__.route_table_ids,
+        security_group_ids=__ret__.security_group_ids,
+        service_name=__ret__.service_name,
+        state=__ret__.state,
+        subnet_ids=__ret__.subnet_ids,
+        tags=__ret__.tags,
+        vpc_endpoint_type=__ret__.vpc_endpoint_type,
+        vpc_id=__ret__.vpc_id)

@@ -5,87 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['EventTarget']
 
 
 class EventTarget(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The Amazon Resource Name (ARN) associated of the target.
-    """
-    batch_target: pulumi.Output[dict]
-    """
-    Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-
-      * `arraySize` (`float`) - The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-      * `jobAttempts` (`float`) - The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-      * `jobDefinition` (`str`) - The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-      * `jobName` (`str`) - The name to use for this execution of the job, if the target is an AWS Batch job.
-    """
-    ecs_target: pulumi.Output[dict]
-    """
-    Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-
-      * `group` (`str`) - Specifies an ECS task group for the task. The maximum length is 255 characters.
-      * `launch_type` (`str`) - Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
-      * `network_configuration` (`dict`) - Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
-        * `assignPublicIp` (`bool`) - Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-        * `security_groups` (`list`) - The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-        * `subnets` (`list`) - The subnets associated with the task or service.
-
-      * `platform_version` (`str`) - Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-      * `taskCount` (`float`) - The number of tasks to create based on the TaskDefinition. The default is 1.
-      * `taskDefinitionArn` (`str`) - The ARN of the task definition to use if the event target is an Amazon ECS cluster.
-    """
-    input: pulumi.Output[str]
-    """
-    Valid JSON text passed to the target.
-    """
-    input_path: pulumi.Output[str]
-    """
-    The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
-    that is used for extracting part of the matched event when passing it to the target.
-    """
-    input_transformer: pulumi.Output[dict]
-    """
-    Parameters used when you are providing a custom input to a target based on certain event data.
-
-      * `inputPaths` (`dict`) - Key value pairs specified in the form of JSONPath (for example, time = $.time)
-      * `inputTemplate` (`str`) - Structure containing the template body.
-    """
-    kinesis_target: pulumi.Output[dict]
-    """
-    Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-
-      * `partitionKeyPath` (`str`) - The JSON path to be extracted from the event and used as the partition key.
-    """
-    role_arn: pulumi.Output[str]
-    """
-    The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
-    """
-    rule: pulumi.Output[str]
-    """
-    The name of the rule you want to add targets to.
-    """
-    run_command_targets: pulumi.Output[list]
-    """
-    Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-
-      * `key` (`str`) - Can be either `tag:tag-key` or `InstanceIds`.
-      * `values` (`list`) - If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
-    """
-    sqs_target: pulumi.Output[dict]
-    """
-    Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-
-      * `messageGroupId` (`str`) - The FIFO message group ID to use as the target.
-    """
-    target_id: pulumi.Output[str]
-    """
-    The unique target assignment ID.  If missing, will generate a random, unique id.
-    """
-    def __init__(__self__, resource_name, opts=None, arn=None, batch_target=None, ecs_target=None, input=None, input_path=None, input_transformer=None, kinesis_target=None, role_arn=None, rule=None, run_command_targets=None, sqs_target=None, target_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 batch_target: Optional[pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']]] = None,
+                 ecs_target: Optional[pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']]] = None,
+                 input: Optional[pulumi.Input[str]] = None,
+                 input_path: Optional[pulumi.Input[str]] = None,
+                 input_transformer: Optional[pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']]] = None,
+                 kinesis_target: Optional[pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 rule: Optional[pulumi.Input[str]] = None,
+                 run_command_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]]] = None,
+                 sqs_target: Optional[pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']]] = None,
+                 target_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a CloudWatch Event Target resource.
 
@@ -114,14 +60,14 @@ class EventTarget(pulumi.CustomResource):
             rule=console.name,
             arn=test_stream.arn,
             run_command_targets=[
-                {
-                    "key": "tag:Name",
-                    "values": ["FooBar"],
-                },
-                {
-                    "key": "InstanceIds",
-                    "values": ["i-162058cd308bffec2"],
-                },
+                aws.cloudwatch.EventTargetRunCommandTargetArgs(
+                    key="tag:Name",
+                    values=["FooBar"],
+                ),
+                aws.cloudwatch.EventTargetRunCommandTargetArgs(
+                    key="InstanceIds",
+                    values=["i-162058cd308bffec2"],
+                ),
             ])
         ```
         ## Example SSM Document Usage
@@ -130,13 +76,13 @@ class EventTarget(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ssm_lifecycle_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["events.amazonaws.com"],
-            }],
-        }])
+        ssm_lifecycle_trust = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["events.amazonaws.com"],
+            )],
+        )])
         stop_instance = aws.ssm.Document("stopInstance",
             document_type="Command",
             content=\"\"\"  {
@@ -158,21 +104,21 @@ class EventTarget(pulumi.CustomResource):
           }
         \"\"\")
         ssm_lifecycle_policy_document = stop_instance.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[
-            {
-                "effect": "Allow",
-                "actions": ["ssm:SendCommand"],
-                "resources": ["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
-                "conditions": [{
-                    "test": "StringEquals",
-                    "variable": "ec2:ResourceTag/Terminate",
-                    "values": ["*"],
-                }],
-            },
-            {
-                "effect": "Allow",
-                "actions": ["ssm:SendCommand"],
-                "resources": [arn],
-            },
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["ssm:SendCommand"],
+                resources=["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="ec2:ResourceTag/Terminate",
+                    values=["*"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["ssm:SendCommand"],
+                resources=[arn],
+            ),
         ]))
         ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
         ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
@@ -183,10 +129,10 @@ class EventTarget(pulumi.CustomResource):
             arn=stop_instance.arn,
             rule=stop_instances_event_rule.name,
             role_arn=ssm_lifecycle_role.arn,
-            run_command_targets=[{
-                "key": "tag:Terminate",
-                "values": ["midnight"],
-            }])
+            run_command_targets=[aws.cloudwatch.EventTargetRunCommandTargetArgs(
+                key="tag:Terminate",
+                values=["midnight"],
+            )])
         ```
 
         ## Example RunCommand Usage
@@ -203,65 +149,27 @@ class EventTarget(pulumi.CustomResource):
             input="{\"commands\":[\"halt\"]}",
             rule=stop_instances_event_rule.name,
             role_arn=aws_iam_role["ssm_lifecycle"]["arn"],
-            run_command_targets=[{
-                "key": "tag:Terminate",
-                "values": ["midnight"],
-            }])
+            run_command_targets=[aws.cloudwatch.EventTargetRunCommandTargetArgs(
+                key="tag:Terminate",
+                values=["midnight"],
+            )])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) associated of the target.
-        :param pulumi.Input[dict] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[dict] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] input: Valid JSON text passed to the target.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
                that is used for extracting part of the matched event when passing it to the target.
-        :param pulumi.Input[dict] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data.
-        :param pulumi.Input[dict] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data.
+        :param pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
-        :param pulumi.Input[list] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        :param pulumi.Input[dict] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID.  If missing, will generate a random, unique id.
-
-        The **batch_target** object supports the following:
-
-          * `arraySize` (`pulumi.Input[float]`) - The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-          * `jobAttempts` (`pulumi.Input[float]`) - The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-          * `jobDefinition` (`pulumi.Input[str]`) - The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-          * `jobName` (`pulumi.Input[str]`) - The name to use for this execution of the job, if the target is an AWS Batch job.
-
-        The **ecs_target** object supports the following:
-
-          * `group` (`pulumi.Input[str]`) - Specifies an ECS task group for the task. The maximum length is 255 characters.
-          * `launch_type` (`pulumi.Input[str]`) - Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
-          * `network_configuration` (`pulumi.Input[dict]`) - Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
-            * `assignPublicIp` (`pulumi.Input[bool]`) - Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-            * `security_groups` (`pulumi.Input[list]`) - The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-            * `subnets` (`pulumi.Input[list]`) - The subnets associated with the task or service.
-
-          * `platform_version` (`pulumi.Input[str]`) - Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-          * `taskCount` (`pulumi.Input[float]`) - The number of tasks to create based on the TaskDefinition. The default is 1.
-          * `taskDefinitionArn` (`pulumi.Input[str]`) - The ARN of the task definition to use if the event target is an Amazon ECS cluster.
-
-        The **input_transformer** object supports the following:
-
-          * `inputPaths` (`pulumi.Input[dict]`) - Key value pairs specified in the form of JSONPath (for example, time = $.time)
-          * `inputTemplate` (`pulumi.Input[str]`) - Structure containing the template body.
-
-        The **kinesis_target** object supports the following:
-
-          * `partitionKeyPath` (`pulumi.Input[str]`) - The JSON path to be extracted from the event and used as the partition key.
-
-        The **run_command_targets** object supports the following:
-
-          * `key` (`pulumi.Input[str]`) - Can be either `tag:tag-key` or `InstanceIds`.
-          * `values` (`pulumi.Input[list]`) - If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
-
-        The **sqs_target** object supports the following:
-
-          * `messageGroupId` (`pulumi.Input[str]`) - The FIFO message group ID to use as the target.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -303,65 +211,41 @@ class EventTarget(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, batch_target=None, ecs_target=None, input=None, input_path=None, input_transformer=None, kinesis_target=None, role_arn=None, rule=None, run_command_targets=None, sqs_target=None, target_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            batch_target: Optional[pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']]] = None,
+            ecs_target: Optional[pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']]] = None,
+            input: Optional[pulumi.Input[str]] = None,
+            input_path: Optional[pulumi.Input[str]] = None,
+            input_transformer: Optional[pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']]] = None,
+            kinesis_target: Optional[pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']]] = None,
+            role_arn: Optional[pulumi.Input[str]] = None,
+            rule: Optional[pulumi.Input[str]] = None,
+            run_command_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]]] = None,
+            sqs_target: Optional[pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']]] = None,
+            target_id: Optional[pulumi.Input[str]] = None) -> 'EventTarget':
         """
         Get an existing EventTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) associated of the target.
-        :param pulumi.Input[dict] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[dict] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] input: Valid JSON text passed to the target.
         :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
                that is used for extracting part of the matched event when passing it to the target.
-        :param pulumi.Input[dict] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data.
-        :param pulumi.Input[dict] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data.
+        :param pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
-        :param pulumi.Input[list] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        :param pulumi.Input[dict] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
+        :param pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID.  If missing, will generate a random, unique id.
-
-        The **batch_target** object supports the following:
-
-          * `arraySize` (`pulumi.Input[float]`) - The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-          * `jobAttempts` (`pulumi.Input[float]`) - The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-          * `jobDefinition` (`pulumi.Input[str]`) - The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-          * `jobName` (`pulumi.Input[str]`) - The name to use for this execution of the job, if the target is an AWS Batch job.
-
-        The **ecs_target** object supports the following:
-
-          * `group` (`pulumi.Input[str]`) - Specifies an ECS task group for the task. The maximum length is 255 characters.
-          * `launch_type` (`pulumi.Input[str]`) - Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are EC2 or FARGATE.
-          * `network_configuration` (`pulumi.Input[dict]`) - Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
-            * `assignPublicIp` (`pulumi.Input[bool]`) - Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-            * `security_groups` (`pulumi.Input[list]`) - The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-            * `subnets` (`pulumi.Input[list]`) - The subnets associated with the task or service.
-
-          * `platform_version` (`pulumi.Input[str]`) - Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-          * `taskCount` (`pulumi.Input[float]`) - The number of tasks to create based on the TaskDefinition. The default is 1.
-          * `taskDefinitionArn` (`pulumi.Input[str]`) - The ARN of the task definition to use if the event target is an Amazon ECS cluster.
-
-        The **input_transformer** object supports the following:
-
-          * `inputPaths` (`pulumi.Input[dict]`) - Key value pairs specified in the form of JSONPath (for example, time = $.time)
-          * `inputTemplate` (`pulumi.Input[str]`) - Structure containing the template body.
-
-        The **kinesis_target** object supports the following:
-
-          * `partitionKeyPath` (`pulumi.Input[str]`) - The JSON path to be extracted from the event and used as the partition key.
-
-        The **run_command_targets** object supports the following:
-
-          * `key` (`pulumi.Input[str]`) - Can be either `tag:tag-key` or `InstanceIds`.
-          * `values` (`pulumi.Input[list]`) - If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
-
-        The **sqs_target** object supports the following:
-
-          * `messageGroupId` (`pulumi.Input[str]`) - The FIFO message group ID to use as the target.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -381,8 +265,106 @@ class EventTarget(pulumi.CustomResource):
         __props__["target_id"] = target_id
         return EventTarget(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) associated of the target.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="batchTarget")
+    def batch_target(self) -> Optional['outputs.EventTargetBatchTarget']:
+        """
+        Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
+        """
+        return pulumi.get(self, "batch_target")
+
+    @property
+    @pulumi.getter(name="ecsTarget")
+    def ecs_target(self) -> Optional['outputs.EventTargetEcsTarget']:
+        """
+        Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
+        """
+        return pulumi.get(self, "ecs_target")
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional[str]:
+        """
+        Valid JSON text passed to the target.
+        """
+        return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter(name="inputPath")
+    def input_path(self) -> Optional[str]:
+        """
+        The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
+        that is used for extracting part of the matched event when passing it to the target.
+        """
+        return pulumi.get(self, "input_path")
+
+    @property
+    @pulumi.getter(name="inputTransformer")
+    def input_transformer(self) -> Optional['outputs.EventTargetInputTransformer']:
+        """
+        Parameters used when you are providing a custom input to a target based on certain event data.
+        """
+        return pulumi.get(self, "input_transformer")
+
+    @property
+    @pulumi.getter(name="kinesisTarget")
+    def kinesis_target(self) -> Optional['outputs.EventTargetKinesisTarget']:
+        """
+        Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
+        """
+        return pulumi.get(self, "kinesis_target")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter
+    def rule(self) -> str:
+        """
+        The name of the rule you want to add targets to.
+        """
+        return pulumi.get(self, "rule")
+
+    @property
+    @pulumi.getter(name="runCommandTargets")
+    def run_command_targets(self) -> Optional[List['outputs.EventTargetRunCommandTarget']]:
+        """
+        Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
+        """
+        return pulumi.get(self, "run_command_targets")
+
+    @property
+    @pulumi.getter(name="sqsTarget")
+    def sqs_target(self) -> Optional['outputs.EventTargetSqsTarget']:
+        """
+        Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
+        """
+        return pulumi.get(self, "sqs_target")
+
+    @property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> str:
+        """
+        The unique target assignment ID.  If missing, will generate a random, unique id.
+        """
+        return pulumi.get(self, "target_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

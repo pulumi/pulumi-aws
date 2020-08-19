@@ -8,3 +8,5 @@ from .endpoint_configuration import *
 from .model import *
 from .notebook_instance import *
 from .notebook_instance_lifecycle_configuration import *
+from ._inputs import *
+from . import outputs

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetCertificateResult',
+    'AwaitableGetCertificateResult',
+    'get_certificate',
+]
 
+@pulumi.output_type
 class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
@@ -16,37 +22,77 @@ class GetCertificateResult:
     def __init__(__self__, arn=None, domain=None, id=None, key_types=None, most_recent=None, statuses=None, tags=None, types=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        pulumi.set(__self__, "arn", arn)
+        if domain and not isinstance(domain, str):
+            raise TypeError("Expected argument 'domain' to be a str")
+        pulumi.set(__self__, "domain", domain)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if key_types and not isinstance(key_types, list):
+            raise TypeError("Expected argument 'key_types' to be a list")
+        pulumi.set(__self__, "key_types", key_types)
+        if most_recent and not isinstance(most_recent, bool):
+            raise TypeError("Expected argument 'most_recent' to be a bool")
+        pulumi.set(__self__, "most_recent", most_recent)
+        if statuses and not isinstance(statuses, list):
+            raise TypeError("Expected argument 'statuses' to be a list")
+        pulumi.set(__self__, "statuses", statuses)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if types and not isinstance(types, list):
+            raise TypeError("Expected argument 'types' to be a list")
+        pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
         """
         Set to the ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
         """
-        if domain and not isinstance(domain, str):
-            raise TypeError("Expected argument 'domain' to be a str")
-        __self__.domain = domain
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if key_types and not isinstance(key_types, list):
-            raise TypeError("Expected argument 'key_types' to be a list")
-        __self__.key_types = key_types
-        if most_recent and not isinstance(most_recent, bool):
-            raise TypeError("Expected argument 'most_recent' to be a bool")
-        __self__.most_recent = most_recent
-        if statuses and not isinstance(statuses, list):
-            raise TypeError("Expected argument 'statuses' to be a list")
-        __self__.statuses = statuses
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="keyTypes")
+    def key_types(self) -> Optional[List[str]]:
+        return pulumi.get(self, "key_types")
+
+    @property
+    @pulumi.getter(name="mostRecent")
+    def most_recent(self) -> Optional[bool]:
+        return pulumi.get(self, "most_recent")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Optional[List[str]]:
+        return pulumi.get(self, "statuses")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags for the resource.
         """
-        if types and not isinstance(types, list):
-            raise TypeError("Expected argument 'types' to be a list")
-        __self__.types = types
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[List[str]]:
+        return pulumi.get(self, "types")
 
 
 class AwaitableGetCertificateResult(GetCertificateResult):
@@ -65,7 +111,13 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             types=self.types)
 
 
-def get_certificate(domain=None, key_types=None, most_recent=None, statuses=None, tags=None, types=None, opts=None):
+def get_certificate(domain: Optional[str] = None,
+                    key_types: Optional[List[str]] = None,
+                    most_recent: Optional[bool] = None,
+                    statuses: Optional[List[str]] = None,
+                    tags: Optional[Mapping[str, str]] = None,
+                    types: Optional[List[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Use this data source to get the ARN of a certificate in AWS Certificate
     Manager (ACM), you can reference
@@ -83,13 +135,13 @@ def get_certificate(domain=None, key_types=None, most_recent=None, statuses=None
 
 
     :param str domain: The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
-    :param list key_types: A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
+    :param List[str] key_types: A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
     :param bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-    :param list statuses: A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+    :param List[str] statuses: A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
            `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
            are returned.
-    :param dict tags: A mapping of tags for the resource.
-    :param list types: A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+    :param Mapping[str, str] tags: A mapping of tags for the resource.
+    :param List[str] types: A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -102,14 +154,14 @@ def get_certificate(domain=None, key_types=None, most_recent=None, statuses=None
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:acm/getCertificate:getCertificate', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:acm/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        arn=__ret__.get('arn'),
-        domain=__ret__.get('domain'),
-        id=__ret__.get('id'),
-        key_types=__ret__.get('keyTypes'),
-        most_recent=__ret__.get('mostRecent'),
-        statuses=__ret__.get('statuses'),
-        tags=__ret__.get('tags'),
-        types=__ret__.get('types'))
+        arn=__ret__.arn,
+        domain=__ret__.domain,
+        id=__ret__.id,
+        key_types=__ret__.key_types,
+        most_recent=__ret__.most_recent,
+        statuses=__ret__.statuses,
+        tags=__ret__.tags,
+        types=__ret__.types)

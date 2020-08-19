@@ -5,39 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['RegexMatchSet']
 
 
 class RegexMatchSet(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    Amazon Resource Name (ARN)
-    """
-    name: pulumi.Output[str]
-    """
-    The name or description of the Regex Match Set.
-    """
-    regex_match_tuples: pulumi.Output[list]
-    """
-    The regular expression pattern that you want AWS WAF to search for in web requests,
-    the location in requests that you want AWS WAF to search, and other settings. See below.
-
-      * `fieldToMatch` (`dict`) - The part of a web request that you want to search, such as a specified header or a query string.
-        * `data` (`str`) - When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
-          If `type` is any other value, omit this field.
-        * `type` (`str`) - The part of the web request that you want AWS WAF to search for a specified string.
-          e.g. `HEADER`, `METHOD` or `BODY`.
-          See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-          for all supported values.
-
-      * `regexPatternSetId` (`str`) - The ID of a `WAF Regex Pattern Set`.
-      * `textTransformation` (`str`) - Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-        e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-        See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-        for all supported values.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, regex_match_tuples=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 regex_match_tuples: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a WAF Regex Match Set Resource
 
@@ -51,37 +35,21 @@ class RegexMatchSet(pulumi.CustomResource):
             "one",
             "two",
         ])
-        example_regex_match_set = aws.waf.RegexMatchSet("exampleRegexMatchSet", regex_match_tuples=[{
-            "fieldToMatch": {
-                "data": "User-Agent",
-                "type": "HEADER",
-            },
-            "regexPatternSetId": example_regex_pattern_set.id,
-            "textTransformation": "NONE",
-        }])
+        example_regex_match_set = aws.waf.RegexMatchSet("exampleRegexMatchSet", regex_match_tuples=[aws.waf.RegexMatchSetRegexMatchTupleArgs(
+            field_to_match=aws.waf.RegexMatchSetRegexMatchTupleFieldToMatchArgs(
+                data="User-Agent",
+                type="HEADER",
+            ),
+            regex_pattern_set_id=example_regex_pattern_set.id,
+            text_transformation="NONE",
+        )])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the Regex Match Set.
-        :param pulumi.Input[list] regex_match_tuples: The regular expression pattern that you want AWS WAF to search for in web requests,
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]] regex_match_tuples: The regular expression pattern that you want AWS WAF to search for in web requests,
                the location in requests that you want AWS WAF to search, and other settings. See below.
-
-        The **regex_match_tuples** object supports the following:
-
-          * `fieldToMatch` (`pulumi.Input[dict]`) - The part of a web request that you want to search, such as a specified header or a query string.
-            * `data` (`pulumi.Input[str]`) - When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
-              If `type` is any other value, omit this field.
-            * `type` (`pulumi.Input[str]`) - The part of the web request that you want AWS WAF to search for a specified string.
-              e.g. `HEADER`, `METHOD` or `BODY`.
-              See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-              for all supported values.
-
-          * `regexPatternSetId` (`pulumi.Input[str]`) - The ID of a `WAF Regex Pattern Set`.
-          * `textTransformation` (`pulumi.Input[str]`) - Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-            e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-            See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-            for all supported values.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,34 +78,23 @@ class RegexMatchSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, name=None, regex_match_tuples=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            regex_match_tuples: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]]] = None) -> 'RegexMatchSet':
         """
         Get an existing RegexMatchSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
         :param pulumi.Input[str] name: The name or description of the Regex Match Set.
-        :param pulumi.Input[list] regex_match_tuples: The regular expression pattern that you want AWS WAF to search for in web requests,
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RegexMatchSetRegexMatchTupleArgs']]]] regex_match_tuples: The regular expression pattern that you want AWS WAF to search for in web requests,
                the location in requests that you want AWS WAF to search, and other settings. See below.
-
-        The **regex_match_tuples** object supports the following:
-
-          * `fieldToMatch` (`pulumi.Input[dict]`) - The part of a web request that you want to search, such as a specified header or a query string.
-            * `data` (`pulumi.Input[str]`) - When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
-              If `type` is any other value, omit this field.
-            * `type` (`pulumi.Input[str]`) - The part of the web request that you want AWS WAF to search for a specified string.
-              e.g. `HEADER`, `METHOD` or `BODY`.
-              See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
-              for all supported values.
-
-          * `regexPatternSetId` (`pulumi.Input[str]`) - The ID of a `WAF Regex Pattern Set`.
-          * `textTransformation` (`pulumi.Input[str]`) - Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-            e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-            See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-            for all supported values.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -148,8 +105,34 @@ class RegexMatchSet(pulumi.CustomResource):
         __props__["regex_match_tuples"] = regex_match_tuples
         return RegexMatchSet(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        Amazon Resource Name (ARN)
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name or description of the Regex Match Set.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="regexMatchTuples")
+    def regex_match_tuples(self) -> Optional[List['outputs.RegexMatchSetRegexMatchTuple']]:
+        """
+        The regular expression pattern that you want AWS WAF to search for in web requests,
+        the location in requests that you want AWS WAF to search, and other settings. See below.
+        """
+        return pulumi.get(self, "regex_match_tuples")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

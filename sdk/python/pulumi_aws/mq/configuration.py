@@ -5,46 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Configuration']
 
 
 class Configuration(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of the configuration.
-    """
-    data: pulumi.Output[str]
-    """
-    The broker configuration in XML format.
-    See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
-    for supported parameters and format of the XML.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the configuration.
-    """
-    engine_type: pulumi.Output[str]
-    """
-    The type of broker engine.
-    """
-    engine_version: pulumi.Output[str]
-    """
-    The version of the broker engine.
-    """
-    latest_revision: pulumi.Output[float]
-    """
-    The latest revision of the configuration.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the configuration
-    """
-    tags: pulumi.Output[dict]
-    """
-    A map of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, data=None, description=None, engine_type=None, engine_version=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 data: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 engine_type: Optional[pulumi.Input[str]] = None,
+                 engine_version: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an MQ Configuration Resource.
 
@@ -81,7 +60,7 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] engine_type: The type of broker engine.
         :param pulumi.Input[str] engine_version: The version of the broker engine.
         :param pulumi.Input[str] name: The name of the configuration
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,13 +100,23 @@ class Configuration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, data=None, description=None, engine_type=None, engine_version=None, latest_revision=None, name=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            data: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            engine_type: Optional[pulumi.Input[str]] = None,
+            engine_version: Optional[pulumi.Input[str]] = None,
+            latest_revision: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Configuration':
         """
         Get an existing Configuration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the configuration.
         :param pulumi.Input[str] data: The broker configuration in XML format.
@@ -138,7 +127,7 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: The version of the broker engine.
         :param pulumi.Input[float] latest_revision: The latest revision of the configuration.
         :param pulumi.Input[str] name: The name of the configuration
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -154,8 +143,75 @@ class Configuration(pulumi.CustomResource):
         __props__["tags"] = tags
         return Configuration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the configuration.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def data(self) -> str:
+        """
+        The broker configuration in XML format.
+        See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
+        for supported parameters and format of the XML.
+        """
+        return pulumi.get(self, "data")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="engineType")
+    def engine_type(self) -> str:
+        """
+        The type of broker engine.
+        """
+        return pulumi.get(self, "engine_type")
+
+    @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> str:
+        """
+        The version of the broker engine.
+        """
+        return pulumi.get(self, "engine_version")
+
+    @property
+    @pulumi.getter(name="latestRevision")
+    def latest_revision(self) -> float:
+        """
+        The latest revision of the configuration.
+        """
+        return pulumi.get(self, "latest_revision")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the configuration
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

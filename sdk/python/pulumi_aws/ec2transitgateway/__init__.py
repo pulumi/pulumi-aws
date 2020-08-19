@@ -17,3 +17,5 @@ from .route_table_propagation import *
 from .transit_gateway import *
 from .vpc_attachment import *
 from .vpc_attachment_accepter import *
+from ._inputs import *
+from . import outputs

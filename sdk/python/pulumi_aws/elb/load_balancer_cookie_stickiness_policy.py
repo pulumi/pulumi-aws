@@ -5,32 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['LoadBalancerCookieStickinessPolicy']
 
 
 class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
-    cookie_expiration_period: pulumi.Output[float]
-    """
-    The time period after which
-    the session cookie should be considered stale, expressed in seconds.
-    """
-    lb_port: pulumi.Output[float]
-    """
-    The load balancer port to which the policy
-    should be applied. This must be an active listener on the load
-    balancer.
-    """
-    load_balancer: pulumi.Output[str]
-    """
-    The load balancer to which the policy
-    should be attached.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the stickiness policy.
-    """
-    def __init__(__self__, resource_name, opts=None, cookie_expiration_period=None, lb_port=None, load_balancer=None, name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cookie_expiration_period: Optional[pulumi.Input[float]] = None,
+                 lb_port: Optional[pulumi.Input[float]] = None,
+                 load_balancer: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
 
@@ -42,12 +33,12 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
 
         lb = aws.elb.LoadBalancer("lb",
             availability_zones=["us-east-1a"],
-            listeners=[{
-                "instance_port": 8000,
-                "instanceProtocol": "http",
-                "lb_port": 80,
-                "lbProtocol": "http",
-            }])
+            listeners=[aws.elb.LoadBalancerListenerArgs(
+                instance_port=8000,
+                instance_protocol="http",
+                lb_port=80,
+                lb_protocol="http",
+            )])
         foo = aws.elb.LoadBalancerCookieStickinessPolicy("foo",
             load_balancer=lb.id,
             lb_port=80,
@@ -99,13 +90,19 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, cookie_expiration_period=None, lb_port=None, load_balancer=None, name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cookie_expiration_period: Optional[pulumi.Input[float]] = None,
+            lb_port: Optional[pulumi.Input[float]] = None,
+            load_balancer: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None) -> 'LoadBalancerCookieStickinessPolicy':
         """
         Get an existing LoadBalancerCookieStickinessPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] cookie_expiration_period: The time period after which
                the session cookie should be considered stale, expressed in seconds.
@@ -126,8 +123,45 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         __props__["name"] = name
         return LoadBalancerCookieStickinessPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="cookieExpirationPeriod")
+    def cookie_expiration_period(self) -> Optional[float]:
+        """
+        The time period after which
+        the session cookie should be considered stale, expressed in seconds.
+        """
+        return pulumi.get(self, "cookie_expiration_period")
+
+    @property
+    @pulumi.getter(name="lbPort")
+    def lb_port(self) -> float:
+        """
+        The load balancer port to which the policy
+        should be applied. This must be an active listener on the load
+        balancer.
+        """
+        return pulumi.get(self, "lb_port")
+
+    @property
+    @pulumi.getter(name="loadBalancer")
+    def load_balancer(self) -> str:
+        """
+        The load balancer to which the policy
+        should be attached.
+        """
+        return pulumi.get(self, "load_balancer")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the stickiness policy.
+        """
+        return pulumi.get(self, "name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -108,3 +108,5 @@ from .vpn_connection_route import *
 from .vpn_gateway import *
 from .vpn_gateway_attachment import *
 from .vpn_gateway_route_propagation import *
+from ._inputs import *
+from . import outputs

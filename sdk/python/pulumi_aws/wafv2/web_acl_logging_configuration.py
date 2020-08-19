@@ -5,36 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['WebAclLoggingConfiguration']
 
 
 class WebAclLoggingConfiguration(pulumi.CustomResource):
-    log_destination_configs: pulumi.Output[list]
-    """
-    The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
-    """
-    redacted_fields: pulumi.Output[list]
-    """
-    The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported.
-
-      * `allQueryArguments` (`dict`) - Inspect all query arguments.
-      * `body` (`dict`) - Inspect the request body, which immediately follows the request headers.
-      * `method` (`dict`) - Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-      * `queryString` (`dict`) - Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-      * `singleHeader` (`dict`) - Inspect a single header. See Single Header below for details.
-        * `name` (`str`) - The name of the query header to inspect. This setting must be provided as lower case characters.
-
-      * `singleQueryArgument` (`dict`) - Inspect a single query argument. See Single Query Argument below for details.
-        * `name` (`str`) - The name of the query header to inspect. This setting must be provided as lower case characters.
-
-      * `uriPath` (`dict`) - Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-    """
-    resource_arn: pulumi.Output[str]
-    """
-    The Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
-    """
-    def __init__(__self__, resource_name, opts=None, log_destination_configs=None, redacted_fields=None, resource_arn=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 log_destination_configs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 redacted_fields: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArgs']]]]] = None,
+                 resource_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Creates a WAFv2 Web ACL Logging Configuration resource.
 
@@ -51,32 +39,18 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         example = aws.wafv2.WebAclLoggingConfiguration("example",
             log_destination_configs=[aws_kinesis_firehose_delivery_stream["example"]["arn"]],
             resource_arn=aws_wafv2_web_acl["example"]["arn"],
-            redacted_fields=[{
-                "singleHeader": {
-                    "name": "user-agent",
-                },
-            }])
+            redacted_fields=[aws.wafv2.WebAclLoggingConfigurationRedactedFieldArgs(
+                single_header=aws.wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs(
+                    name="user-agent",
+                ),
+            )])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] log_destination_configs: The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
-        :param pulumi.Input[list] redacted_fields: The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported.
+        :param pulumi.Input[List[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArgs']]]] redacted_fields: The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
-
-        The **redacted_fields** object supports the following:
-
-          * `allQueryArguments` (`pulumi.Input[dict]`) - Inspect all query arguments.
-          * `body` (`pulumi.Input[dict]`) - Inspect the request body, which immediately follows the request headers.
-          * `method` (`pulumi.Input[dict]`) - Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-          * `queryString` (`pulumi.Input[dict]`) - Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-          * `singleHeader` (`pulumi.Input[dict]`) - Inspect a single header. See Single Header below for details.
-            * `name` (`pulumi.Input[str]`) - The name of the query header to inspect. This setting must be provided as lower case characters.
-
-          * `singleQueryArgument` (`pulumi.Input[dict]`) - Inspect a single query argument. See Single Query Argument below for details.
-            * `name` (`pulumi.Input[str]`) - The name of the query header to inspect. This setting must be provided as lower case characters.
-
-          * `uriPath` (`pulumi.Input[dict]`) - Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,31 +83,22 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, log_destination_configs=None, redacted_fields=None, resource_arn=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            log_destination_configs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            redacted_fields: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArgs']]]]] = None,
+            resource_arn: Optional[pulumi.Input[str]] = None) -> 'WebAclLoggingConfiguration':
         """
         Get an existing WebAclLoggingConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] log_destination_configs: The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
-        :param pulumi.Input[list] redacted_fields: The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported.
+        :param pulumi.Input[List[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArgs']]]] redacted_fields: The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
-
-        The **redacted_fields** object supports the following:
-
-          * `allQueryArguments` (`pulumi.Input[dict]`) - Inspect all query arguments.
-          * `body` (`pulumi.Input[dict]`) - Inspect the request body, which immediately follows the request headers.
-          * `method` (`pulumi.Input[dict]`) - Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-          * `queryString` (`pulumi.Input[dict]`) - Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-          * `singleHeader` (`pulumi.Input[dict]`) - Inspect a single header. See Single Header below for details.
-            * `name` (`pulumi.Input[str]`) - The name of the query header to inspect. This setting must be provided as lower case characters.
-
-          * `singleQueryArgument` (`pulumi.Input[dict]`) - Inspect a single query argument. See Single Query Argument below for details.
-            * `name` (`pulumi.Input[str]`) - The name of the query header to inspect. This setting must be provided as lower case characters.
-
-          * `uriPath` (`pulumi.Input[dict]`) - Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -144,8 +109,33 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         __props__["resource_arn"] = resource_arn
         return WebAclLoggingConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="logDestinationConfigs")
+    def log_destination_configs(self) -> List[str]:
+        """
+        The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
+        """
+        return pulumi.get(self, "log_destination_configs")
+
+    @property
+    @pulumi.getter(name="redactedFields")
+    def redacted_fields(self) -> Optional[List['outputs.WebAclLoggingConfigurationRedactedField']]:
+        """
+        The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported.
+        """
+        return pulumi.get(self, "redacted_fields")
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+        """
+        return pulumi.get(self, "resource_arn")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

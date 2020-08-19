@@ -5,24 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['VpcAssociationAuthorization']
 
 
 class VpcAssociationAuthorization(pulumi.CustomResource):
-    vpc_id: pulumi.Output[str]
-    """
-    The VPC to authorize for association with the private hosted zone.
-    """
-    vpc_region: pulumi.Output[str]
-    """
-    The VPC's region. Defaults to the region of the AWS provider.
-    """
-    zone_id: pulumi.Output[str]
-    """
-    The ID of the private hosted zone that you want to authorize associating a VPC with.
-    """
-    def __init__(__self__, resource_name, opts=None, vpc_id=None, vpc_region=None, zone_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 vpc_region: Optional[pulumi.Input[str]] = None,
+                 zone_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Authorizes a VPC in a peer account to be associated with a local Route53 Hosted Zone.
 
@@ -38,9 +36,9 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             cidr_block="10.6.0.0/16",
             enable_dns_hostnames=True,
             enable_dns_support=True)
-        example_zone = aws.route53.Zone("exampleZone", vpcs=[{
-            "vpc_id": example_vpc.id,
-        }])
+        example_zone = aws.route53.Zone("exampleZone", vpcs=[aws.route53.ZoneVpcArgs(
+            vpc_id=example_vpc.id,
+        )])
         alternate_vpc = aws.ec2.Vpc("alternateVpc",
             cidr_block="10.7.0.0/16",
             enable_dns_hostnames=True,
@@ -92,13 +90,18 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, vpc_id=None, vpc_region=None, zone_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            vpc_id: Optional[pulumi.Input[str]] = None,
+            vpc_region: Optional[pulumi.Input[str]] = None,
+            zone_id: Optional[pulumi.Input[str]] = None) -> 'VpcAssociationAuthorization':
         """
         Get an existing VpcAssociationAuthorization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] vpc_id: The VPC to authorize for association with the private hosted zone.
         :param pulumi.Input[str] vpc_region: The VPC's region. Defaults to the region of the AWS provider.
@@ -113,8 +116,33 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         __props__["zone_id"] = zone_id
         return VpcAssociationAuthorization(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        """
+        The VPC to authorize for association with the private hosted zone.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @property
+    @pulumi.getter(name="vpcRegion")
+    def vpc_region(self) -> str:
+        """
+        The VPC's region. Defaults to the region of the AWS provider.
+        """
+        return pulumi.get(self, "vpc_region")
+
+    @property
+    @pulumi.getter(name="zoneId")
+    def zone_id(self) -> str:
+        """
+        The ID of the private hosted zone that you want to authorize associating a VPC with.
+        """
+        return pulumi.get(self, "zone_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

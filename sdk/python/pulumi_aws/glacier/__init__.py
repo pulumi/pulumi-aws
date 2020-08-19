@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .vault import *
 from .vault_lock import *
+from ._inputs import *
+from . import outputs

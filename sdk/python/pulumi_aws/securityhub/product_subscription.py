@@ -5,20 +5,20 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['ProductSubscription']
 
 
 class ProductSubscription(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
-    """
-    product_arn: pulumi.Output[str]
-    """
-    The ARN of the product that generates findings that you want to import into Security Hub - see below.
-    """
-    def __init__(__self__, resource_name, opts=None, product_arn=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 product_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Subscribes to a Security Hub product.
 
@@ -66,13 +66,17 @@ class ProductSubscription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, product_arn=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            product_arn: Optional[pulumi.Input[str]] = None) -> 'ProductSubscription':
         """
         Get an existing ProductSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
         :param pulumi.Input[str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
@@ -85,8 +89,25 @@ class ProductSubscription(pulumi.CustomResource):
         __props__["product_arn"] = product_arn
         return ProductSubscription(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="productArn")
+    def product_arn(self) -> str:
+        """
+        The ARN of the product that generates findings that you want to import into Security Hub - see below.
+        """
+        return pulumi.get(self, "product_arn")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

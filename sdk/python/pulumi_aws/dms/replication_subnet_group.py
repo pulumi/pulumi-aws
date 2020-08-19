@@ -5,33 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['ReplicationSubnetGroup']
 
 
 class ReplicationSubnetGroup(pulumi.CustomResource):
-    replication_subnet_group_arn: pulumi.Output[str]
-    replication_subnet_group_description: pulumi.Output[str]
-    """
-    The description for the subnet group.
-    """
-    replication_subnet_group_id: pulumi.Output[str]
-    """
-    The name for the replication subnet group. This value is stored as a lowercase string.
-    """
-    subnet_ids: pulumi.Output[list]
-    """
-    A list of the EC2 subnet IDs for the subnet group.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A map of tags to assign to the resource.
-    """
-    vpc_id: pulumi.Output[str]
-    """
-    The ID of the VPC the subnet group is in.
-    """
-    def __init__(__self__, resource_name, opts=None, replication_subnet_group_description=None, replication_subnet_group_id=None, subnet_ids=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 replication_subnet_group_description: Optional[pulumi.Input[str]] = None,
+                 replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
 
@@ -55,8 +45,8 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.
         :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
-        :param pulumi.Input[list] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[List[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,18 +84,26 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, replication_subnet_group_arn=None, replication_subnet_group_description=None, replication_subnet_group_id=None, subnet_ids=None, tags=None, vpc_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            replication_subnet_group_arn: Optional[pulumi.Input[str]] = None,
+            replication_subnet_group_description: Optional[pulumi.Input[str]] = None,
+            replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
+            subnet_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            vpc_id: Optional[pulumi.Input[str]] = None) -> 'ReplicationSubnetGroup':
         """
         Get an existing ReplicationSubnetGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.
         :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
-        :param pulumi.Input[list] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[List[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the VPC the subnet group is in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -120,8 +118,54 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         __props__["vpc_id"] = vpc_id
         return ReplicationSubnetGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="replicationSubnetGroupArn")
+    def replication_subnet_group_arn(self) -> str:
+        return pulumi.get(self, "replication_subnet_group_arn")
+
+    @property
+    @pulumi.getter(name="replicationSubnetGroupDescription")
+    def replication_subnet_group_description(self) -> str:
+        """
+        The description for the subnet group.
+        """
+        return pulumi.get(self, "replication_subnet_group_description")
+
+    @property
+    @pulumi.getter(name="replicationSubnetGroupId")
+    def replication_subnet_group_id(self) -> str:
+        """
+        The name for the replication subnet group. This value is stored as a lowercase string.
+        """
+        return pulumi.get(self, "replication_subnet_group_id")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> List[str]:
+        """
+        A list of the EC2 subnet IDs for the subnet group.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        """
+        The ID of the VPC the subnet group is in.
+        """
+        return pulumi.get(self, "vpc_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetReplicationGroupResult',
+    'AwaitableGetReplicationGroupResult',
+    'get_replication_group',
+]
 
+@pulumi.output_type
 class GetReplicationGroupResult:
     """
     A collection of values returned by getReplicationGroup.
@@ -16,82 +22,147 @@ class GetReplicationGroupResult:
     def __init__(__self__, auth_token_enabled=None, automatic_failover_enabled=None, configuration_endpoint_address=None, id=None, member_clusters=None, node_type=None, number_cache_clusters=None, port=None, primary_endpoint_address=None, replication_group_description=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
         if auth_token_enabled and not isinstance(auth_token_enabled, bool):
             raise TypeError("Expected argument 'auth_token_enabled' to be a bool")
-        __self__.auth_token_enabled = auth_token_enabled
+        pulumi.set(__self__, "auth_token_enabled", auth_token_enabled)
+        if automatic_failover_enabled and not isinstance(automatic_failover_enabled, bool):
+            raise TypeError("Expected argument 'automatic_failover_enabled' to be a bool")
+        pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
+        if configuration_endpoint_address and not isinstance(configuration_endpoint_address, str):
+            raise TypeError("Expected argument 'configuration_endpoint_address' to be a str")
+        pulumi.set(__self__, "configuration_endpoint_address", configuration_endpoint_address)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if member_clusters and not isinstance(member_clusters, list):
+            raise TypeError("Expected argument 'member_clusters' to be a list")
+        pulumi.set(__self__, "member_clusters", member_clusters)
+        if node_type and not isinstance(node_type, str):
+            raise TypeError("Expected argument 'node_type' to be a str")
+        pulumi.set(__self__, "node_type", node_type)
+        if number_cache_clusters and not isinstance(number_cache_clusters, float):
+            raise TypeError("Expected argument 'number_cache_clusters' to be a float")
+        pulumi.set(__self__, "number_cache_clusters", number_cache_clusters)
+        if port and not isinstance(port, float):
+            raise TypeError("Expected argument 'port' to be a float")
+        pulumi.set(__self__, "port", port)
+        if primary_endpoint_address and not isinstance(primary_endpoint_address, str):
+            raise TypeError("Expected argument 'primary_endpoint_address' to be a str")
+        pulumi.set(__self__, "primary_endpoint_address", primary_endpoint_address)
+        if replication_group_description and not isinstance(replication_group_description, str):
+            raise TypeError("Expected argument 'replication_group_description' to be a str")
+        pulumi.set(__self__, "replication_group_description", replication_group_description)
+        if replication_group_id and not isinstance(replication_group_id, str):
+            raise TypeError("Expected argument 'replication_group_id' to be a str")
+        pulumi.set(__self__, "replication_group_id", replication_group_id)
+        if snapshot_retention_limit and not isinstance(snapshot_retention_limit, float):
+            raise TypeError("Expected argument 'snapshot_retention_limit' to be a float")
+        pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
+        if snapshot_window and not isinstance(snapshot_window, str):
+            raise TypeError("Expected argument 'snapshot_window' to be a str")
+        pulumi.set(__self__, "snapshot_window", snapshot_window)
+
+    @property
+    @pulumi.getter(name="authTokenEnabled")
+    def auth_token_enabled(self) -> bool:
         """
         A flag that enables using an AuthToken (password) when issuing Redis commands.
         """
-        if automatic_failover_enabled and not isinstance(automatic_failover_enabled, bool):
-            raise TypeError("Expected argument 'automatic_failover_enabled' to be a bool")
-        __self__.automatic_failover_enabled = automatic_failover_enabled
+        return pulumi.get(self, "auth_token_enabled")
+
+    @property
+    @pulumi.getter(name="automaticFailoverEnabled")
+    def automatic_failover_enabled(self) -> bool:
         """
         A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
         """
-        if configuration_endpoint_address and not isinstance(configuration_endpoint_address, str):
-            raise TypeError("Expected argument 'configuration_endpoint_address' to be a str")
-        __self__.configuration_endpoint_address = configuration_endpoint_address
+        return pulumi.get(self, "automatic_failover_enabled")
+
+    @property
+    @pulumi.getter(name="configurationEndpointAddress")
+    def configuration_endpoint_address(self) -> str:
         """
         The configuration endpoint address to allow host discovery.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "configuration_endpoint_address")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if member_clusters and not isinstance(member_clusters, list):
-            raise TypeError("Expected argument 'member_clusters' to be a list")
-        __self__.member_clusters = member_clusters
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="memberClusters")
+    def member_clusters(self) -> List[str]:
         """
         The identifiers of all the nodes that are part of this replication group.
         """
-        if node_type and not isinstance(node_type, str):
-            raise TypeError("Expected argument 'node_type' to be a str")
-        __self__.node_type = node_type
+        return pulumi.get(self, "member_clusters")
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> str:
         """
         The cluster node type.
         """
-        if number_cache_clusters and not isinstance(number_cache_clusters, float):
-            raise TypeError("Expected argument 'number_cache_clusters' to be a float")
-        __self__.number_cache_clusters = number_cache_clusters
+        return pulumi.get(self, "node_type")
+
+    @property
+    @pulumi.getter(name="numberCacheClusters")
+    def number_cache_clusters(self) -> float:
         """
         The number of cache clusters that the replication group has.
         """
-        if port and not isinstance(port, float):
-            raise TypeError("Expected argument 'port' to be a float")
-        __self__.port = port
+        return pulumi.get(self, "number_cache_clusters")
+
+    @property
+    @pulumi.getter
+    def port(self) -> float:
         """
         The port number on which the configuration endpoint will accept connections.
         """
-        if primary_endpoint_address and not isinstance(primary_endpoint_address, str):
-            raise TypeError("Expected argument 'primary_endpoint_address' to be a str")
-        __self__.primary_endpoint_address = primary_endpoint_address
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="primaryEndpointAddress")
+    def primary_endpoint_address(self) -> str:
         """
         The endpoint of the primary node in this node group (shard).
         """
-        if replication_group_description and not isinstance(replication_group_description, str):
-            raise TypeError("Expected argument 'replication_group_description' to be a str")
-        __self__.replication_group_description = replication_group_description
+        return pulumi.get(self, "primary_endpoint_address")
+
+    @property
+    @pulumi.getter(name="replicationGroupDescription")
+    def replication_group_description(self) -> str:
         """
         The description of the replication group.
         """
-        if replication_group_id and not isinstance(replication_group_id, str):
-            raise TypeError("Expected argument 'replication_group_id' to be a str")
-        __self__.replication_group_id = replication_group_id
+        return pulumi.get(self, "replication_group_description")
+
+    @property
+    @pulumi.getter(name="replicationGroupId")
+    def replication_group_id(self) -> str:
         """
         The identifier for the replication group.
         """
-        if snapshot_retention_limit and not isinstance(snapshot_retention_limit, float):
-            raise TypeError("Expected argument 'snapshot_retention_limit' to be a float")
-        __self__.snapshot_retention_limit = snapshot_retention_limit
+        return pulumi.get(self, "replication_group_id")
+
+    @property
+    @pulumi.getter(name="snapshotRetentionLimit")
+    def snapshot_retention_limit(self) -> float:
         """
         The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
         """
-        if snapshot_window and not isinstance(snapshot_window, str):
-            raise TypeError("Expected argument 'snapshot_window' to be a str")
-        __self__.snapshot_window = snapshot_window
+        return pulumi.get(self, "snapshot_retention_limit")
+
+    @property
+    @pulumi.getter(name="snapshotWindow")
+    def snapshot_window(self) -> str:
         """
         The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
         """
+        return pulumi.get(self, "snapshot_window")
 
 
 class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
@@ -115,7 +186,8 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             snapshot_window=self.snapshot_window)
 
 
-def get_replication_group(replication_group_id=None, opts=None):
+def get_replication_group(replication_group_id: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationGroupResult:
     """
     Use this data source to get information about an Elasticache Replication Group.
 
@@ -137,19 +209,19 @@ def get_replication_group(replication_group_id=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:elasticache/getReplicationGroup:getReplicationGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:elasticache/getReplicationGroup:getReplicationGroup', __args__, opts=opts, typ=GetReplicationGroupResult).value
 
     return AwaitableGetReplicationGroupResult(
-        auth_token_enabled=__ret__.get('authTokenEnabled'),
-        automatic_failover_enabled=__ret__.get('automaticFailoverEnabled'),
-        configuration_endpoint_address=__ret__.get('configurationEndpointAddress'),
-        id=__ret__.get('id'),
-        member_clusters=__ret__.get('memberClusters'),
-        node_type=__ret__.get('nodeType'),
-        number_cache_clusters=__ret__.get('numberCacheClusters'),
-        port=__ret__.get('port'),
-        primary_endpoint_address=__ret__.get('primaryEndpointAddress'),
-        replication_group_description=__ret__.get('replicationGroupDescription'),
-        replication_group_id=__ret__.get('replicationGroupId'),
-        snapshot_retention_limit=__ret__.get('snapshotRetentionLimit'),
-        snapshot_window=__ret__.get('snapshotWindow'))
+        auth_token_enabled=__ret__.auth_token_enabled,
+        automatic_failover_enabled=__ret__.automatic_failover_enabled,
+        configuration_endpoint_address=__ret__.configuration_endpoint_address,
+        id=__ret__.id,
+        member_clusters=__ret__.member_clusters,
+        node_type=__ret__.node_type,
+        number_cache_clusters=__ret__.number_cache_clusters,
+        port=__ret__.port,
+        primary_endpoint_address=__ret__.primary_endpoint_address,
+        replication_group_description=__ret__.replication_group_description,
+        replication_group_id=__ret__.replication_group_id,
+        snapshot_retention_limit=__ret__.snapshot_retention_limit,
+        snapshot_window=__ret__.snapshot_window)

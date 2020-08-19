@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetTableResult',
+    'AwaitableGetTableResult',
+    'get_table',
+]
 
+@pulumi.output_type
 class GetTableResult:
     """
     A collection of values returned by getTable.
@@ -16,67 +24,167 @@ class GetTableResult:
     def __init__(__self__, arn=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        pulumi.set(__self__, "arn", arn)
         if attributes and not isinstance(attributes, list):
             raise TypeError("Expected argument 'attributes' to be a list")
-        __self__.attributes = attributes
+        pulumi.set(__self__, "attributes", attributes)
         if billing_mode and not isinstance(billing_mode, str):
             raise TypeError("Expected argument 'billing_mode' to be a str")
-        __self__.billing_mode = billing_mode
+        pulumi.set(__self__, "billing_mode", billing_mode)
         if global_secondary_indexes and not isinstance(global_secondary_indexes, list):
             raise TypeError("Expected argument 'global_secondary_indexes' to be a list")
-        __self__.global_secondary_indexes = global_secondary_indexes
+        pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
         if hash_key and not isinstance(hash_key, str):
             raise TypeError("Expected argument 'hash_key' to be a str")
-        __self__.hash_key = hash_key
+        pulumi.set(__self__, "hash_key", hash_key)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if local_secondary_indexes and not isinstance(local_secondary_indexes, list):
+            raise TypeError("Expected argument 'local_secondary_indexes' to be a list")
+        pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if point_in_time_recovery and not isinstance(point_in_time_recovery, dict):
+            raise TypeError("Expected argument 'point_in_time_recovery' to be a dict")
+        pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+        if range_key and not isinstance(range_key, str):
+            raise TypeError("Expected argument 'range_key' to be a str")
+        pulumi.set(__self__, "range_key", range_key)
+        if read_capacity and not isinstance(read_capacity, float):
+            raise TypeError("Expected argument 'read_capacity' to be a float")
+        pulumi.set(__self__, "read_capacity", read_capacity)
+        if replicas and not isinstance(replicas, list):
+            raise TypeError("Expected argument 'replicas' to be a list")
+        pulumi.set(__self__, "replicas", replicas)
+        if server_side_encryption and not isinstance(server_side_encryption, dict):
+            raise TypeError("Expected argument 'server_side_encryption' to be a dict")
+        pulumi.set(__self__, "server_side_encryption", server_side_encryption)
+        if stream_arn and not isinstance(stream_arn, str):
+            raise TypeError("Expected argument 'stream_arn' to be a str")
+        pulumi.set(__self__, "stream_arn", stream_arn)
+        if stream_enabled and not isinstance(stream_enabled, bool):
+            raise TypeError("Expected argument 'stream_enabled' to be a bool")
+        pulumi.set(__self__, "stream_enabled", stream_enabled)
+        if stream_label and not isinstance(stream_label, str):
+            raise TypeError("Expected argument 'stream_label' to be a str")
+        pulumi.set(__self__, "stream_label", stream_label)
+        if stream_view_type and not isinstance(stream_view_type, str):
+            raise TypeError("Expected argument 'stream_view_type' to be a str")
+        pulumi.set(__self__, "stream_view_type", stream_view_type)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if ttl and not isinstance(ttl, dict):
+            raise TypeError("Expected argument 'ttl' to be a dict")
+        pulumi.set(__self__, "ttl", ttl)
+        if write_capacity and not isinstance(write_capacity, float):
+            raise TypeError("Expected argument 'write_capacity' to be a float")
+        pulumi.set(__self__, "write_capacity", write_capacity)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> List['outputs.GetTableAttributeResult']:
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="billingMode")
+    def billing_mode(self) -> str:
+        return pulumi.get(self, "billing_mode")
+
+    @property
+    @pulumi.getter(name="globalSecondaryIndexes")
+    def global_secondary_indexes(self) -> List['outputs.GetTableGlobalSecondaryIndexResult']:
+        return pulumi.get(self, "global_secondary_indexes")
+
+    @property
+    @pulumi.getter(name="hashKey")
+    def hash_key(self) -> str:
+        return pulumi.get(self, "hash_key")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if local_secondary_indexes and not isinstance(local_secondary_indexes, list):
-            raise TypeError("Expected argument 'local_secondary_indexes' to be a list")
-        __self__.local_secondary_indexes = local_secondary_indexes
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if point_in_time_recovery and not isinstance(point_in_time_recovery, dict):
-            raise TypeError("Expected argument 'point_in_time_recovery' to be a dict")
-        __self__.point_in_time_recovery = point_in_time_recovery
-        if range_key and not isinstance(range_key, str):
-            raise TypeError("Expected argument 'range_key' to be a str")
-        __self__.range_key = range_key
-        if read_capacity and not isinstance(read_capacity, float):
-            raise TypeError("Expected argument 'read_capacity' to be a float")
-        __self__.read_capacity = read_capacity
-        if replicas and not isinstance(replicas, list):
-            raise TypeError("Expected argument 'replicas' to be a list")
-        __self__.replicas = replicas
-        if server_side_encryption and not isinstance(server_side_encryption, dict):
-            raise TypeError("Expected argument 'server_side_encryption' to be a dict")
-        __self__.server_side_encryption = server_side_encryption
-        if stream_arn and not isinstance(stream_arn, str):
-            raise TypeError("Expected argument 'stream_arn' to be a str")
-        __self__.stream_arn = stream_arn
-        if stream_enabled and not isinstance(stream_enabled, bool):
-            raise TypeError("Expected argument 'stream_enabled' to be a bool")
-        __self__.stream_enabled = stream_enabled
-        if stream_label and not isinstance(stream_label, str):
-            raise TypeError("Expected argument 'stream_label' to be a str")
-        __self__.stream_label = stream_label
-        if stream_view_type and not isinstance(stream_view_type, str):
-            raise TypeError("Expected argument 'stream_view_type' to be a str")
-        __self__.stream_view_type = stream_view_type
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
-        if ttl and not isinstance(ttl, dict):
-            raise TypeError("Expected argument 'ttl' to be a dict")
-        __self__.ttl = ttl
-        if write_capacity and not isinstance(write_capacity, float):
-            raise TypeError("Expected argument 'write_capacity' to be a float")
-        __self__.write_capacity = write_capacity
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="localSecondaryIndexes")
+    def local_secondary_indexes(self) -> List['outputs.GetTableLocalSecondaryIndexResult']:
+        return pulumi.get(self, "local_secondary_indexes")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pointInTimeRecovery")
+    def point_in_time_recovery(self) -> 'outputs.GetTablePointInTimeRecoveryResult':
+        return pulumi.get(self, "point_in_time_recovery")
+
+    @property
+    @pulumi.getter(name="rangeKey")
+    def range_key(self) -> str:
+        return pulumi.get(self, "range_key")
+
+    @property
+    @pulumi.getter(name="readCapacity")
+    def read_capacity(self) -> float:
+        return pulumi.get(self, "read_capacity")
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> List['outputs.GetTableReplicaResult']:
+        return pulumi.get(self, "replicas")
+
+    @property
+    @pulumi.getter(name="serverSideEncryption")
+    def server_side_encryption(self) -> 'outputs.GetTableServerSideEncryptionResult':
+        return pulumi.get(self, "server_side_encryption")
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> str:
+        return pulumi.get(self, "stream_arn")
+
+    @property
+    @pulumi.getter(name="streamEnabled")
+    def stream_enabled(self) -> bool:
+        return pulumi.get(self, "stream_enabled")
+
+    @property
+    @pulumi.getter(name="streamLabel")
+    def stream_label(self) -> str:
+        return pulumi.get(self, "stream_label")
+
+    @property
+    @pulumi.getter(name="streamViewType")
+    def stream_view_type(self) -> str:
+        return pulumi.get(self, "stream_view_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> 'outputs.GetTableTtlResult':
+        return pulumi.get(self, "ttl")
+
+    @property
+    @pulumi.getter(name="writeCapacity")
+    def write_capacity(self) -> float:
+        return pulumi.get(self, "write_capacity")
 
 
 class AwaitableGetTableResult(GetTableResult):
@@ -107,7 +215,10 @@ class AwaitableGetTableResult(GetTableResult):
             write_capacity=self.write_capacity)
 
 
-def get_table(name=None, server_side_encryption=None, tags=None, opts=None):
+def get_table(name: Optional[str] = None,
+              server_side_encryption: Optional[pulumi.InputType['GetTableServerSideEncryptionArgs']] = None,
+              tags: Optional[Mapping[str, str]] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
     Provides information about a DynamoDB table.
 
@@ -122,11 +233,6 @@ def get_table(name=None, server_side_encryption=None, tags=None, opts=None):
 
 
     :param str name: The name of the DynamoDB table.
-
-    The **server_side_encryption** object supports the following:
-
-      * `enabled` (`bool`)
-      * `kms_key_arn` (`str`)
     """
     __args__ = dict()
     __args__['name'] = name
@@ -136,26 +242,26 @@ def get_table(name=None, server_side_encryption=None, tags=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:dynamodb/getTable:getTable', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:dynamodb/getTable:getTable', __args__, opts=opts, typ=GetTableResult).value
 
     return AwaitableGetTableResult(
-        arn=__ret__.get('arn'),
-        attributes=__ret__.get('attributes'),
-        billing_mode=__ret__.get('billingMode'),
-        global_secondary_indexes=__ret__.get('globalSecondaryIndexes'),
-        hash_key=__ret__.get('hashKey'),
-        id=__ret__.get('id'),
-        local_secondary_indexes=__ret__.get('localSecondaryIndexes'),
-        name=__ret__.get('name'),
-        point_in_time_recovery=__ret__.get('pointInTimeRecovery'),
-        range_key=__ret__.get('rangeKey'),
-        read_capacity=__ret__.get('readCapacity'),
-        replicas=__ret__.get('replicas'),
-        server_side_encryption=__ret__.get('serverSideEncryption'),
-        stream_arn=__ret__.get('streamArn'),
-        stream_enabled=__ret__.get('streamEnabled'),
-        stream_label=__ret__.get('streamLabel'),
-        stream_view_type=__ret__.get('streamViewType'),
-        tags=__ret__.get('tags'),
-        ttl=__ret__.get('ttl'),
-        write_capacity=__ret__.get('writeCapacity'))
+        arn=__ret__.arn,
+        attributes=__ret__.attributes,
+        billing_mode=__ret__.billing_mode,
+        global_secondary_indexes=__ret__.global_secondary_indexes,
+        hash_key=__ret__.hash_key,
+        id=__ret__.id,
+        local_secondary_indexes=__ret__.local_secondary_indexes,
+        name=__ret__.name,
+        point_in_time_recovery=__ret__.point_in_time_recovery,
+        range_key=__ret__.range_key,
+        read_capacity=__ret__.read_capacity,
+        replicas=__ret__.replicas,
+        server_side_encryption=__ret__.server_side_encryption,
+        stream_arn=__ret__.stream_arn,
+        stream_enabled=__ret__.stream_enabled,
+        stream_label=__ret__.stream_label,
+        stream_view_type=__ret__.stream_view_type,
+        tags=__ret__.tags,
+        ttl=__ret__.ttl,
+        write_capacity=__ret__.write_capacity)

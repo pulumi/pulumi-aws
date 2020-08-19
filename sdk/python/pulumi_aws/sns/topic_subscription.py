@@ -5,48 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['TopicSubscription']
 
 
 class TopicSubscription(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of the subscription stored as a more user-friendly property
-    """
-    confirmation_timeout_in_minutes: pulumi.Output[float]
-    """
-    Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
-    """
-    delivery_policy: pulumi.Output[str]
-    """
-    JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
-    """
-    endpoint: pulumi.Output[str]
-    """
-    The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
-    """
-    endpoint_auto_confirms: pulumi.Output[bool]
-    """
-    Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
-    """
-    filter_policy: pulumi.Output[str]
-    """
-    JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
-    """
-    protocol: pulumi.Output[str]
-    """
-    The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
-    """
-    raw_message_delivery: pulumi.Output[bool]
-    """
-    Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
-    """
-    topic: pulumi.Output[str]
-    """
-    The ARN of the SNS topic to subscribe to
-    """
-    def __init__(__self__, resource_name, opts=None, confirmation_timeout_in_minutes=None, delivery_policy=None, endpoint=None, endpoint_auto_confirms=None, filter_policy=None, protocol=None, raw_message_delivery=None, topic=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 confirmation_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+                 delivery_policy: Optional[pulumi.Input[str]] = None,
+                 endpoint: Optional[pulumi.Input[str]] = None,
+                 endpoint_auto_confirms: Optional[pulumi.Input[bool]] = None,
+                 filter_policy: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 raw_message_delivery: Optional[pulumi.Input[bool]] = None,
+                 topic: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to.
         This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests
@@ -116,8 +95,8 @@ class TopicSubscription(pulumi.CustomResource):
             }
         sns_topic_policy = aws.iam.get_policy_document(policy_id="__default_policy_ID",
             statements=[
-                {
-                    "actions": [
+                aws.iam.GetPolicyDocumentStatementArgs(
+                    actions=[
                         "SNS:Subscribe",
                         "SNS:SetTopicAttributes",
                         "SNS:RemovePermission",
@@ -128,75 +107,75 @@ class TopicSubscription(pulumi.CustomResource):
                         "SNS:DeleteTopic",
                         "SNS:AddPermission",
                     ],
-                    "conditions": [{
-                        "test": "StringEquals",
-                        "variable": "AWS:SourceOwner",
-                        "values": [sns["account-id"]],
-                    }],
-                    "effect": "Allow",
-                    "principals": [{
-                        "type": "AWS",
-                        "identifiers": ["*"],
-                    }],
-                    "resources": [f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
-                    "sid": "__default_statement_ID",
-                },
-                {
-                    "actions": [
+                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                        test="StringEquals",
+                        variable="AWS:SourceOwner",
+                        values=[sns["account-id"]],
+                    )],
+                    effect="Allow",
+                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                        type="AWS",
+                        identifiers=["*"],
+                    )],
+                    resources=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
+                    sid="__default_statement_ID",
+                ),
+                aws.iam.GetPolicyDocumentStatementArgs(
+                    actions=[
                         "SNS:Subscribe",
                         "SNS:Receive",
                     ],
-                    "conditions": [{
-                        "test": "StringLike",
-                        "variable": "SNS:Endpoint",
-                        "values": [f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
-                    }],
-                    "effect": "Allow",
-                    "principals": [{
-                        "type": "AWS",
-                        "identifiers": ["*"],
-                    }],
-                    "resources": [f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
-                    "sid": "__console_sub_0",
-                },
+                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                        test="StringLike",
+                        variable="SNS:Endpoint",
+                        values=[f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
+                    )],
+                    effect="Allow",
+                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                        type="AWS",
+                        identifiers=["*"],
+                    )],
+                    resources=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
+                    sid="__console_sub_0",
+                ),
             ])
         sqs_queue_policy = aws.iam.get_policy_document(policy_id=f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}/SQSDefaultPolicy",
-            statements=[{
-                "sid": "example-sns-topic",
-                "effect": "Allow",
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": ["*"],
-                }],
-                "actions": ["SQS:SendMessage"],
-                "resources": [f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
-                "conditions": [{
-                    "test": "ArnEquals",
-                    "variable": "aws:SourceArn",
-                    "values": [f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
-                }],
-            }])
+            statements=[aws.iam.GetPolicyDocumentStatementArgs(
+                sid="example-sns-topic",
+                effect="Allow",
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="AWS",
+                    identifiers=["*"],
+                )],
+                actions=["SQS:SendMessage"],
+                resources=[f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="ArnEquals",
+                    variable="aws:SourceArn",
+                    values=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
+                )],
+            )])
         # provider to manage SNS topics
         aws_sns = pulumi.providers.Aws("awsSns",
             region=sns["region"],
-            assume_role={
-                "roleArn": f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
-                "sessionName": f"sns-{sns['region']}",
-            })
+            assume_role=aws.config.AssumeRoleArgs(
+                role_arn=f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
+                session_name=f"sns-{sns['region']}",
+            ))
         # provider to manage SQS queues
         aws_sqs = pulumi.providers.Aws("awsSqs",
             region=sqs["region"],
-            assume_role={
-                "roleArn": f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
-                "sessionName": f"sqs-{sqs['region']}",
-            })
+            assume_role=aws.config.AssumeRoleArgs(
+                role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
+                session_name=f"sqs-{sqs['region']}",
+            ))
         # provider to subscribe SQS to SNS (using the SQS account but the SNS region)
         sns2sqs = pulumi.providers.Aws("sns2sqs",
             region=sns["region"],
-            assume_role={
-                "roleArn": f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
-                "sessionName": f"sns2sqs-{sns['region']}",
-            })
+            assume_role=aws.config.AssumeRoleArgs(
+                role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
+                session_name=f"sns2sqs-{sns['region']}",
+            ))
         sns_topic_topic = aws.sns.Topic("sns-topicTopic",
             display_name=sns["display_name"],
             policy=sns_topic_policy.json,
@@ -219,7 +198,7 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] filter_policy: JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
         :param pulumi.Input[str] protocol: The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
         :param pulumi.Input[bool] raw_message_delivery: Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
-        :param pulumi.Input[dict] topic: The ARN of the SNS topic to subscribe to
+        :param pulumi.Input[str] topic: The ARN of the SNS topic to subscribe to
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -260,13 +239,24 @@ class TopicSubscription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, confirmation_timeout_in_minutes=None, delivery_policy=None, endpoint=None, endpoint_auto_confirms=None, filter_policy=None, protocol=None, raw_message_delivery=None, topic=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            confirmation_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+            delivery_policy: Optional[pulumi.Input[str]] = None,
+            endpoint: Optional[pulumi.Input[str]] = None,
+            endpoint_auto_confirms: Optional[pulumi.Input[bool]] = None,
+            filter_policy: Optional[pulumi.Input[str]] = None,
+            protocol: Optional[pulumi.Input[str]] = None,
+            raw_message_delivery: Optional[pulumi.Input[bool]] = None,
+            topic: Optional[pulumi.Input[str]] = None) -> 'TopicSubscription':
         """
         Get an existing TopicSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the subscription stored as a more user-friendly property
         :param pulumi.Input[float] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
@@ -276,7 +266,7 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] filter_policy: JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
         :param pulumi.Input[str] protocol: The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
         :param pulumi.Input[bool] raw_message_delivery: Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
-        :param pulumi.Input[dict] topic: The ARN of the SNS topic to subscribe to
+        :param pulumi.Input[str] topic: The ARN of the SNS topic to subscribe to
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -293,8 +283,81 @@ class TopicSubscription(pulumi.CustomResource):
         __props__["topic"] = topic
         return TopicSubscription(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the subscription stored as a more user-friendly property
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="confirmationTimeoutInMinutes")
+    def confirmation_timeout_in_minutes(self) -> Optional[float]:
+        """
+        Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
+        """
+        return pulumi.get(self, "confirmation_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="deliveryPolicy")
+    def delivery_policy(self) -> Optional[str]:
+        """
+        JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
+        """
+        return pulumi.get(self, "delivery_policy")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="endpointAutoConfirms")
+    def endpoint_auto_confirms(self) -> Optional[bool]:
+        """
+        Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
+        """
+        return pulumi.get(self, "endpoint_auto_confirms")
+
+    @property
+    @pulumi.getter(name="filterPolicy")
+    def filter_policy(self) -> Optional[str]:
+        """
+        JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
+        """
+        return pulumi.get(self, "filter_policy")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="rawMessageDelivery")
+    def raw_message_delivery(self) -> Optional[bool]:
+        """
+        Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
+        """
+        return pulumi.get(self, "raw_message_delivery")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> str:
+        """
+        The ARN of the SNS topic to subscribe to
+        """
+        return pulumi.get(self, "topic")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

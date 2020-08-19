@@ -5,24 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Workflow']
 
 
 class Workflow(pulumi.CustomResource):
-    default_run_properties: pulumi.Output[dict]
-    """
-    A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-    """
-    description: pulumi.Output[str]
-    """
-    Description of the workflow.
-    """
-    name: pulumi.Output[str]
-    """
-    The name you assign to this workflow.
-    """
-    def __init__(__self__, resource_name, opts=None, default_run_properties=None, description=None, name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 default_run_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Glue Workflow resource.
         The workflow graph (DAG) can be build using the `glue.Trigger` resource.
@@ -38,26 +36,26 @@ class Workflow(pulumi.CustomResource):
         example_start = aws.glue.Trigger("example-start",
             type="ON_DEMAND",
             workflow_name=example.name,
-            actions=[{
-                "jobName": "example-job",
-            }])
+            actions=[aws.glue.TriggerActionArgs(
+                job_name="example-job",
+            )])
         example_inner = aws.glue.Trigger("example-inner",
             type="CONDITIONAL",
             workflow_name=example.name,
-            predicate={
-                "conditions": [{
-                    "jobName": "example-job",
-                    "state": "SUCCEEDED",
-                }],
-            },
-            actions=[{
-                "jobName": "another-example-job",
-            }])
+            predicate=aws.glue.TriggerPredicateArgs(
+                conditions=[aws.glue.TriggerPredicateConditionArgs(
+                    job_name="example-job",
+                    state="SUCCEEDED",
+                )],
+            ),
+            actions=[aws.glue.TriggerActionArgs(
+                job_name="another-example-job",
+            )])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        :param pulumi.Input[Mapping[str, Any]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[str] description: Description of the workflow.
         :param pulumi.Input[str] name: The name you assign to this workflow.
         """
@@ -88,15 +86,20 @@ class Workflow(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, default_run_properties=None, description=None, name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            default_run_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None) -> 'Workflow':
         """
         Get an existing Workflow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        :param pulumi.Input[Mapping[str, Any]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[str] description: Description of the workflow.
         :param pulumi.Input[str] name: The name you assign to this workflow.
         """
@@ -109,8 +112,33 @@ class Workflow(pulumi.CustomResource):
         __props__["name"] = name
         return Workflow(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="defaultRunProperties")
+    def default_run_properties(self) -> Optional[Mapping[str, Any]]:
+        """
+        A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        """
+        return pulumi.get(self, "default_run_properties")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the workflow.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name you assign to this workflow.
+        """
+        return pulumi.get(self, "name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

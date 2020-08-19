@@ -5,79 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Budget']
 
 
 class Budget(pulumi.CustomResource):
-    account_id: pulumi.Output[str]
-    """
-    The ID of the target account for budget. Will use current user's account_id by default if omitted.
-    """
-    budget_type: pulumi.Output[str]
-    """
-    Whether this budget tracks monetary cost or usage.
-    """
-    cost_filters: pulumi.Output[dict]
-    """
-    Map of CostFilters key/value pairs to apply to the budget.
-    """
-    cost_types: pulumi.Output[dict]
-    """
-    Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
-
-      * `includeCredit` (`bool`) - A boolean value whether to include credits in the cost budget. Defaults to `true`
-      * `includeDiscount` (`bool`) - Specifies whether a budget includes discounts. Defaults to `true`
-      * `includeOtherSubscription` (`bool`) - A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
-      * `includeRecurring` (`bool`) - A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
-      * `includeRefund` (`bool`) - A boolean value whether to include refunds in the cost budget. Defaults to `true`
-      * `includeSubscription` (`bool`) - A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
-      * `includeSupport` (`bool`) - A boolean value whether to include support costs in the cost budget. Defaults to `true`
-      * `includeTax` (`bool`) - A boolean value whether to include tax in the cost budget. Defaults to `true`
-      * `includeUpfront` (`bool`) - A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-      * `useAmortized` (`bool`) - Specifies whether a budget uses the amortized rate. Defaults to `false`
-      * `useBlended` (`bool`) - A boolean value whether to use blended costs in the cost budget. Defaults to `false`
-    """
-    limit_amount: pulumi.Output[str]
-    """
-    The amount of cost or usage being measured for a budget.
-    """
-    limit_unit: pulumi.Output[str]
-    """
-    The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of a budget. Unique within accounts.
-    """
-    name_prefix: pulumi.Output[str]
-    """
-    The prefix of the name of a budget. Unique within accounts.
-    """
-    notifications: pulumi.Output[list]
-    """
-    Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
-
-      * `comparison_operator` (`str`) - (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-      * `notification_type` (`str`) - (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-      * `subscriberEmailAddresses` (`list`) - (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
-      * `subscriberSnsTopicArns` (`list`) - (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
-      * `threshold` (`float`) - (Required) Threshold when the notification should be sent.
-      * `thresholdType` (`str`) - (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-    """
-    time_period_end: pulumi.Output[str]
-    """
-    The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
-    """
-    time_period_start: pulumi.Output[str]
-    """
-    The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
-    """
-    time_unit: pulumi.Output[str]
-    """
-    The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
-    """
-    def __init__(__self__, resource_name, opts=None, account_id=None, budget_type=None, cost_filters=None, cost_types=None, limit_amount=None, limit_unit=None, name=None, name_prefix=None, notifications=None, time_period_end=None, time_period_start=None, time_unit=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 budget_type: Optional[pulumi.Input[str]] = None,
+                 cost_filters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 cost_types: Optional[pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']]] = None,
+                 limit_amount: Optional[pulumi.Input[str]] = None,
+                 limit_unit: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 notifications: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BudgetNotificationArgs']]]]] = None,
+                 time_period_end: Optional[pulumi.Input[str]] = None,
+                 time_period_start: Optional[pulumi.Input[str]] = None,
+                 time_unit: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
 
@@ -94,13 +48,13 @@ class Budget(pulumi.CustomResource):
             },
             limit_amount="1200",
             limit_unit="USD",
-            notifications=[{
-                "comparison_operator": "GREATER_THAN",
-                "notification_type": "FORECASTED",
-                "subscriberEmailAddresses": ["test@example.com"],
-                "threshold": 100,
-                "thresholdType": "PERCENTAGE",
-            }],
+            notifications=[aws.budgets.BudgetNotificationArgs(
+                comparison_operator="GREATER_THAN",
+                notification_type="FORECASTED",
+                subscriber_email_addresses=["test@example.com"],
+                threshold=100,
+                threshold_type="PERCENTAGE",
+            )],
             time_period_end="2087-06-15_00:00",
             time_period_start="2017-07-01_00:00",
             time_unit="MONTHLY")
@@ -138,18 +92,18 @@ class Budget(pulumi.CustomResource):
 
         savings_plan_utilization = aws.budgets.Budget("savingsPlanUtilization",
             budget_type="SAVINGS_PLANS_UTILIZATION",
-            cost_types={
-                "includeCredit": False,
-                "includeDiscount": False,
-                "includeOtherSubscription": False,
-                "includeRecurring": False,
-                "includeRefund": False,
-                "includeSubscription": True,
-                "includeSupport": False,
-                "includeTax": False,
-                "includeUpfront": False,
-                "useBlended": False,
-            },
+            cost_types=aws.budgets.BudgetCostTypesArgs(
+                include_credit=False,
+                include_discount=False,
+                include_other_subscription=False,
+                include_recurring=False,
+                include_refund=False,
+                include_subscription=True,
+                include_support=False,
+                include_tax=False,
+                include_upfront=False,
+                use_blended=False,
+            ),
             limit_amount="100.0",
             limit_unit="PERCENTAGE")
         ```
@@ -165,18 +119,18 @@ class Budget(pulumi.CustomResource):
             cost_filters={
                 "Service": "Amazon Relational Database Service",
             },
-            cost_types={
-                "includeCredit": False,
-                "includeDiscount": False,
-                "includeOtherSubscription": False,
-                "includeRecurring": False,
-                "includeRefund": False,
-                "includeSubscription": True,
-                "includeSupport": False,
-                "includeTax": False,
-                "includeUpfront": False,
-                "useBlended": False,
-            },
+            cost_types=aws.budgets.BudgetCostTypesArgs(
+                include_credit=False,
+                include_discount=False,
+                include_other_subscription=False,
+                include_recurring=False,
+                include_refund=False,
+                include_subscription=True,
+                include_support=False,
+                include_tax=False,
+                include_upfront=False,
+                use_blended=False,
+            ),
             limit_amount="100.0",
             limit_unit="PERCENTAGE")
         ```
@@ -185,39 +139,16 @@ class Budget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
         :param pulumi.Input[str] budget_type: Whether this budget tracks monetary cost or usage.
-        :param pulumi.Input[dict] cost_filters: Map of CostFilters key/value pairs to apply to the budget.
-        :param pulumi.Input[dict] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filters: Map of CostFilters key/value pairs to apply to the budget.
+        :param pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
         :param pulumi.Input[str] limit_amount: The amount of cost or usage being measured for a budget.
         :param pulumi.Input[str] limit_unit: The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         :param pulumi.Input[str] name: The name of a budget. Unique within accounts.
         :param pulumi.Input[str] name_prefix: The prefix of the name of a budget. Unique within accounts.
-        :param pulumi.Input[list] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BudgetNotificationArgs']]]] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
         :param pulumi.Input[str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[str] time_period_start: The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
-
-        The **cost_types** object supports the following:
-
-          * `includeCredit` (`pulumi.Input[bool]`) - A boolean value whether to include credits in the cost budget. Defaults to `true`
-          * `includeDiscount` (`pulumi.Input[bool]`) - Specifies whether a budget includes discounts. Defaults to `true`
-          * `includeOtherSubscription` (`pulumi.Input[bool]`) - A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
-          * `includeRecurring` (`pulumi.Input[bool]`) - A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
-          * `includeRefund` (`pulumi.Input[bool]`) - A boolean value whether to include refunds in the cost budget. Defaults to `true`
-          * `includeSubscription` (`pulumi.Input[bool]`) - A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
-          * `includeSupport` (`pulumi.Input[bool]`) - A boolean value whether to include support costs in the cost budget. Defaults to `true`
-          * `includeTax` (`pulumi.Input[bool]`) - A boolean value whether to include tax in the cost budget. Defaults to `true`
-          * `includeUpfront` (`pulumi.Input[bool]`) - A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-          * `useAmortized` (`pulumi.Input[bool]`) - Specifies whether a budget uses the amortized rate. Defaults to `false`
-          * `useBlended` (`pulumi.Input[bool]`) - A boolean value whether to use blended costs in the cost budget. Defaults to `false`
-
-        The **notifications** object supports the following:
-
-          * `comparison_operator` (`pulumi.Input[str]`) - (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-          * `notification_type` (`pulumi.Input[str]`) - (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-          * `subscriberEmailAddresses` (`pulumi.Input[list]`) - (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
-          * `subscriberSnsTopicArns` (`pulumi.Input[list]`) - (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
-          * `threshold` (`pulumi.Input[float]`) - (Required) Threshold when the notification should be sent.
-          * `thresholdType` (`pulumi.Input[str]`) - (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -265,49 +196,40 @@ class Budget(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_id=None, budget_type=None, cost_filters=None, cost_types=None, limit_amount=None, limit_unit=None, name=None, name_prefix=None, notifications=None, time_period_end=None, time_period_start=None, time_unit=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
+            budget_type: Optional[pulumi.Input[str]] = None,
+            cost_filters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            cost_types: Optional[pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']]] = None,
+            limit_amount: Optional[pulumi.Input[str]] = None,
+            limit_unit: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            name_prefix: Optional[pulumi.Input[str]] = None,
+            notifications: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BudgetNotificationArgs']]]]] = None,
+            time_period_end: Optional[pulumi.Input[str]] = None,
+            time_period_start: Optional[pulumi.Input[str]] = None,
+            time_unit: Optional[pulumi.Input[str]] = None) -> 'Budget':
         """
         Get an existing Budget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
         :param pulumi.Input[str] budget_type: Whether this budget tracks monetary cost or usage.
-        :param pulumi.Input[dict] cost_filters: Map of CostFilters key/value pairs to apply to the budget.
-        :param pulumi.Input[dict] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filters: Map of CostFilters key/value pairs to apply to the budget.
+        :param pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
         :param pulumi.Input[str] limit_amount: The amount of cost or usage being measured for a budget.
         :param pulumi.Input[str] limit_unit: The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         :param pulumi.Input[str] name: The name of a budget. Unique within accounts.
         :param pulumi.Input[str] name_prefix: The prefix of the name of a budget. Unique within accounts.
-        :param pulumi.Input[list] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BudgetNotificationArgs']]]] notifications: Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
         :param pulumi.Input[str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[str] time_period_start: The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
-
-        The **cost_types** object supports the following:
-
-          * `includeCredit` (`pulumi.Input[bool]`) - A boolean value whether to include credits in the cost budget. Defaults to `true`
-          * `includeDiscount` (`pulumi.Input[bool]`) - Specifies whether a budget includes discounts. Defaults to `true`
-          * `includeOtherSubscription` (`pulumi.Input[bool]`) - A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
-          * `includeRecurring` (`pulumi.Input[bool]`) - A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
-          * `includeRefund` (`pulumi.Input[bool]`) - A boolean value whether to include refunds in the cost budget. Defaults to `true`
-          * `includeSubscription` (`pulumi.Input[bool]`) - A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
-          * `includeSupport` (`pulumi.Input[bool]`) - A boolean value whether to include support costs in the cost budget. Defaults to `true`
-          * `includeTax` (`pulumi.Input[bool]`) - A boolean value whether to include tax in the cost budget. Defaults to `true`
-          * `includeUpfront` (`pulumi.Input[bool]`) - A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-          * `useAmortized` (`pulumi.Input[bool]`) - Specifies whether a budget uses the amortized rate. Defaults to `false`
-          * `useBlended` (`pulumi.Input[bool]`) - A boolean value whether to use blended costs in the cost budget. Defaults to `false`
-
-        The **notifications** object supports the following:
-
-          * `comparison_operator` (`pulumi.Input[str]`) - (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-          * `notification_type` (`pulumi.Input[str]`) - (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-          * `subscriberEmailAddresses` (`pulumi.Input[list]`) - (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
-          * `subscriberSnsTopicArns` (`pulumi.Input[list]`) - (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
-          * `threshold` (`pulumi.Input[float]`) - (Required) Threshold when the notification should be sent.
-          * `thresholdType` (`pulumi.Input[str]`) - (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -327,8 +249,105 @@ class Budget(pulumi.CustomResource):
         __props__["time_unit"] = time_unit
         return Budget(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="budgetType")
+    def budget_type(self) -> str:
+        """
+        Whether this budget tracks monetary cost or usage.
+        """
+        return pulumi.get(self, "budget_type")
+
+    @property
+    @pulumi.getter(name="costFilters")
+    def cost_filters(self) -> Mapping[str, str]:
+        """
+        Map of CostFilters key/value pairs to apply to the budget.
+        """
+        return pulumi.get(self, "cost_filters")
+
+    @property
+    @pulumi.getter(name="costTypes")
+    def cost_types(self) -> 'outputs.BudgetCostTypes':
+        """
+        Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
+        """
+        return pulumi.get(self, "cost_types")
+
+    @property
+    @pulumi.getter(name="limitAmount")
+    def limit_amount(self) -> str:
+        """
+        The amount of cost or usage being measured for a budget.
+        """
+        return pulumi.get(self, "limit_amount")
+
+    @property
+    @pulumi.getter(name="limitUnit")
+    def limit_unit(self) -> str:
+        """
+        The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        """
+        return pulumi.get(self, "limit_unit")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of a budget. Unique within accounts.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> str:
+        """
+        The prefix of the name of a budget. Unique within accounts.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[List['outputs.BudgetNotification']]:
+        """
+        Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
+        """
+        return pulumi.get(self, "notifications")
+
+    @property
+    @pulumi.getter(name="timePeriodEnd")
+    def time_period_end(self) -> Optional[str]:
+        """
+        The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+        """
+        return pulumi.get(self, "time_period_end")
+
+    @property
+    @pulumi.getter(name="timePeriodStart")
+    def time_period_start(self) -> str:
+        """
+        The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        """
+        return pulumi.get(self, "time_period_start")
+
+    @property
+    @pulumi.getter(name="timeUnit")
+    def time_unit(self) -> str:
+        """
+        The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
+        """
+        return pulumi.get(self, "time_unit")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

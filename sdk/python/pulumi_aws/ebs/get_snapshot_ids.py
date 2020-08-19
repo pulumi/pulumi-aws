@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetSnapshotIdsResult',
+    'AwaitableGetSnapshotIdsResult',
+    'get_snapshot_ids',
+]
 
+@pulumi.output_type
 class GetSnapshotIdsResult:
     """
     A collection of values returned by getSnapshotIds.
@@ -16,22 +24,47 @@ class GetSnapshotIdsResult:
     def __init__(__self__, filters=None, id=None, ids=None, owners=None, restorable_by_user_ids=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
-        __self__.filters = filters
+        pulumi.set(__self__, "filters", filters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if ids and not isinstance(ids, list):
+            raise TypeError("Expected argument 'ids' to be a list")
+        pulumi.set(__self__, "ids", ids)
+        if owners and not isinstance(owners, list):
+            raise TypeError("Expected argument 'owners' to be a list")
+        pulumi.set(__self__, "owners", owners)
+        if restorable_by_user_ids and not isinstance(restorable_by_user_ids, list):
+            raise TypeError("Expected argument 'restorable_by_user_ids' to be a list")
+        pulumi.set(__self__, "restorable_by_user_ids", restorable_by_user_ids)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[List['outputs.GetSnapshotIdsFilterResult']]:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if ids and not isinstance(ids, list):
-            raise TypeError("Expected argument 'ids' to be a list")
-        __self__.ids = ids
-        if owners and not isinstance(owners, list):
-            raise TypeError("Expected argument 'owners' to be a list")
-        __self__.owners = owners
-        if restorable_by_user_ids and not isinstance(restorable_by_user_ids, list):
-            raise TypeError("Expected argument 'restorable_by_user_ids' to be a list")
-        __self__.restorable_by_user_ids = restorable_by_user_ids
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def ids(self) -> List[str]:
+        return pulumi.get(self, "ids")
+
+    @property
+    @pulumi.getter
+    def owners(self) -> Optional[List[str]]:
+        return pulumi.get(self, "owners")
+
+    @property
+    @pulumi.getter(name="restorableByUserIds")
+    def restorable_by_user_ids(self) -> Optional[List[str]]:
+        return pulumi.get(self, "restorable_by_user_ids")
 
 
 class AwaitableGetSnapshotIdsResult(GetSnapshotIdsResult):
@@ -47,7 +80,10 @@ class AwaitableGetSnapshotIdsResult(GetSnapshotIdsResult):
             restorable_by_user_ids=self.restorable_by_user_ids)
 
 
-def get_snapshot_ids(filters=None, owners=None, restorable_by_user_ids=None, opts=None):
+def get_snapshot_ids(filters: Optional[List[pulumi.InputType['GetSnapshotIdsFilterArgs']]] = None,
+                     owners: Optional[List[str]] = None,
+                     restorable_by_user_ids: Optional[List[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotIdsResult:
     """
     Use this data source to get a list of EBS Snapshot IDs matching the specified
     criteria.
@@ -59,29 +95,24 @@ def get_snapshot_ids(filters=None, owners=None, restorable_by_user_ids=None, opt
     import pulumi_aws as aws
 
     ebs_volumes = aws.ebs.get_snapshot_ids(filters=[
-            {
-                "name": "volume-size",
-                "values": ["40"],
-            },
-            {
-                "name": "tag:Name",
-                "values": ["Example"],
-            },
+            aws.ebs.GetSnapshotIdsFilterArgs(
+                name="volume-size",
+                values=["40"],
+            ),
+            aws.ebs.GetSnapshotIdsFilterArgs(
+                name="tag:Name",
+                values=["Example"],
+            ),
         ],
         owners=["self"])
     ```
 
 
-    :param list filters: One or more name/value pairs to filter off of. There are
+    :param List[pulumi.InputType['GetSnapshotIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-volumes in the AWS CLI reference][1].
-    :param list owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-    :param list restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
-
-    The **filters** object supports the following:
-
-      * `name` (`str`)
-      * `values` (`list`)
+    :param List[str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    :param List[str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -91,11 +122,11 @@ def get_snapshot_ids(filters=None, owners=None, restorable_by_user_ids=None, opt
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshotIds:getSnapshotIds', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshotIds:getSnapshotIds', __args__, opts=opts, typ=GetSnapshotIdsResult).value
 
     return AwaitableGetSnapshotIdsResult(
-        filters=__ret__.get('filters'),
-        id=__ret__.get('id'),
-        ids=__ret__.get('ids'),
-        owners=__ret__.get('owners'),
-        restorable_by_user_ids=__ret__.get('restorableByUserIds'))
+        filters=__ret__.filters,
+        id=__ret__.id,
+        ids=__ret__.ids,
+        owners=__ret__.owners,
+        restorable_by_user_ids=__ret__.restorable_by_user_ids)

@@ -5,28 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['IpGroup']
 
 
 class IpGroup(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    The description.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the IP group.
-    """
-    rules: pulumi.Output[list]
-    """
-    One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-
-      * `description` (`str`) - The description.
-      * `source` (`str`) - The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
-    """
-    tags: pulumi.Output[dict]
-    def __init__(__self__, resource_name, opts=None, description=None, name=None, rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpGroupRuleArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an IP access control group in AWS WorkSpaces Service
 
@@ -43,12 +40,7 @@ class IpGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] name: The name of the IP group.
-        :param pulumi.Input[list] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-
-        The **rules** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - The description.
-          * `source` (`pulumi.Input[str]`) - The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpGroupRuleArgs']]]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,22 +70,23 @@ class IpGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, name=None, rules=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpGroupRuleArgs']]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'IpGroup':
         """
         Get an existing IpGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] name: The name of the IP group.
-        :param pulumi.Input[list] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-
-        The **rules** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - The description.
-          * `source` (`pulumi.Input[str]`) - The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpGroupRuleArgs']]]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -105,8 +98,38 @@ class IpGroup(pulumi.CustomResource):
         __props__["tags"] = tags
         return IpGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the IP group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[List['outputs.IpGroupRule']]:
+        """
+        One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

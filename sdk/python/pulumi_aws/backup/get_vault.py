@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetVaultResult',
+    'AwaitableGetVaultResult',
+    'get_vault',
+]
 
+@pulumi.output_type
 class GetVaultResult:
     """
     A collection of values returned by getVault.
@@ -16,37 +22,67 @@ class GetVaultResult:
     def __init__(__self__, arn=None, id=None, kms_key_arn=None, name=None, recovery_points=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        pulumi.set(__self__, "arn", arn)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if kms_key_arn and not isinstance(kms_key_arn, str):
+            raise TypeError("Expected argument 'kms_key_arn' to be a str")
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if recovery_points and not isinstance(recovery_points, float):
+            raise TypeError("Expected argument 'recovery_points' to be a float")
+        pulumi.set(__self__, "recovery_points", recovery_points)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
         """
         The ARN of the vault.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if kms_key_arn and not isinstance(kms_key_arn, str):
-            raise TypeError("Expected argument 'kms_key_arn' to be a str")
-        __self__.kms_key_arn = kms_key_arn
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> str:
         """
         The server-side encryption key that is used to protect your backups.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if recovery_points and not isinstance(recovery_points, float):
-            raise TypeError("Expected argument 'recovery_points' to be a float")
-        __self__.recovery_points = recovery_points
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="recoveryPoints")
+    def recovery_points(self) -> float:
         """
         The number of recovery points that are stored in a backup vault.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "recovery_points")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         Metadata that you can assign to help organize the resources that you create.
         """
+        return pulumi.get(self, "tags")
 
 
 class AwaitableGetVaultResult(GetVaultResult):
@@ -63,7 +99,9 @@ class AwaitableGetVaultResult(GetVaultResult):
             tags=self.tags)
 
 
-def get_vault(name=None, tags=None, opts=None):
+def get_vault(name: Optional[str] = None,
+              tags: Optional[Mapping[str, str]] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVaultResult:
     """
     Use this data source to get information on an existing backup vault.
 
@@ -78,7 +116,7 @@ def get_vault(name=None, tags=None, opts=None):
 
 
     :param str name: The name of the backup vault.
-    :param dict tags: Metadata that you can assign to help organize the resources that you create.
+    :param Mapping[str, str] tags: Metadata that you can assign to help organize the resources that you create.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -87,12 +125,12 @@ def get_vault(name=None, tags=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:backup/getVault:getVault', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:backup/getVault:getVault', __args__, opts=opts, typ=GetVaultResult).value
 
     return AwaitableGetVaultResult(
-        arn=__ret__.get('arn'),
-        id=__ret__.get('id'),
-        kms_key_arn=__ret__.get('kmsKeyArn'),
-        name=__ret__.get('name'),
-        recovery_points=__ret__.get('recoveryPoints'),
-        tags=__ret__.get('tags'))
+        arn=__ret__.arn,
+        id=__ret__.id,
+        kms_key_arn=__ret__.kms_key_arn,
+        name=__ret__.name,
+        recovery_points=__ret__.recovery_points,
+        tags=__ret__.tags)

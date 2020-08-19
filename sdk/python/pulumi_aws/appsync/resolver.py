@@ -5,57 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Resolver']
 
 
 class Resolver(pulumi.CustomResource):
-    api_id: pulumi.Output[str]
-    """
-    The API ID for the GraphQL API.
-    """
-    arn: pulumi.Output[str]
-    """
-    The ARN
-    """
-    caching_config: pulumi.Output[dict]
-    """
-    The CachingConfig.
-
-      * `cachingKeys` (`list`) - The list of caching key.
-      * `ttl` (`float`) - The TTL in seconds.
-    """
-    data_source: pulumi.Output[str]
-    """
-    The DataSource name.
-    """
-    field: pulumi.Output[str]
-    """
-    The field name from the schema defined in the GraphQL API.
-    """
-    kind: pulumi.Output[str]
-    """
-    The resolver type. Valid values are `UNIT` and `PIPELINE`.
-    """
-    pipeline_config: pulumi.Output[dict]
-    """
-    The PipelineConfig.
-
-      * `functions` (`list`) - The list of Function ID.
-    """
-    request_template: pulumi.Output[str]
-    """
-    The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
-    """
-    response_template: pulumi.Output[str]
-    """
-    The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
-    """
-    type: pulumi.Output[str]
-    """
-    The type name from the schema defined in the GraphQL API.
-    """
-    def __init__(__self__, resource_name, opts=None, api_id=None, caching_config=None, data_source=None, field=None, kind=None, pipeline_config=None, request_template=None, response_template=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_id: Optional[pulumi.Input[str]] = None,
+                 caching_config: Optional[pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']]] = None,
+                 data_source: Optional[pulumi.Input[str]] = None,
+                 field: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
+                 request_template: Optional[pulumi.Input[str]] = None,
+                 response_template: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an AppSync Resolver.
 
@@ -88,9 +61,9 @@ class Resolver(pulumi.CustomResource):
         test_data_source = aws.appsync.DataSource("testDataSource",
             api_id=test_graph_ql_api.id,
             type="HTTP",
-            http_config={
-                "endpoint": "http://example.com",
-            })
+            http_config=aws.appsync.DataSourceHttpConfigArgs(
+                endpoint="http://example.com",
+            ))
         # UNIT type resolver (default)
         test_resolver = aws.appsync.Resolver("testResolver",
             api_id=test_graph_ql_api.id,
@@ -112,13 +85,13 @@ class Resolver(pulumi.CustomResource):
             $utils.appendError($ctx.result.body, $ctx.result.statusCode)
         #end
         \"\"\",
-            caching_config={
-                "cachingKeys": [
+            caching_config=aws.appsync.ResolverCachingConfigArgs(
+                caching_keys=[
                     "$context.identity.sub",
                     "$context.arguments.id",
                 ],
-                "ttl": 60,
-            })
+                ttl=60,
+            ))
         # PIPELINE type resolver
         mutation_pipeline_test = aws.appsync.Resolver("mutationPipelineTest",
             type="Mutation",
@@ -127,35 +100,26 @@ class Resolver(pulumi.CustomResource):
             request_template="{}",
             response_template="$util.toJson($ctx.result)",
             kind="PIPELINE",
-            pipeline_config={
-                "functions": [
+            pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
+                functions=[
                     aws_appsync_function["test1"]["function_id"],
                     aws_appsync_function["test2"]["function_id"],
                     aws_appsync_function["test3"]["function_id"],
                 ],
-            })
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
-        :param pulumi.Input[dict] caching_config: The CachingConfig.
+        :param pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']] caching_config: The CachingConfig.
         :param pulumi.Input[str] data_source: The DataSource name.
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
-        :param pulumi.Input[dict] pipeline_config: The PipelineConfig.
+        :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: The PipelineConfig.
         :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
-
-        The **caching_config** object supports the following:
-
-          * `cachingKeys` (`pulumi.Input[list]`) - The list of caching key.
-          * `ttl` (`pulumi.Input[float]`) - The TTL in seconds.
-
-        The **pipeline_config** object supports the following:
-
-          * `functions` (`pulumi.Input[list]`) - The list of Function ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -201,33 +165,36 @@ class Resolver(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_id=None, arn=None, caching_config=None, data_source=None, field=None, kind=None, pipeline_config=None, request_template=None, response_template=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_id: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            caching_config: Optional[pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']]] = None,
+            data_source: Optional[pulumi.Input[str]] = None,
+            field: Optional[pulumi.Input[str]] = None,
+            kind: Optional[pulumi.Input[str]] = None,
+            pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
+            request_template: Optional[pulumi.Input[str]] = None,
+            response_template: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'Resolver':
         """
         Get an existing Resolver resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
         :param pulumi.Input[str] arn: The ARN
-        :param pulumi.Input[dict] caching_config: The CachingConfig.
+        :param pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']] caching_config: The CachingConfig.
         :param pulumi.Input[str] data_source: The DataSource name.
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
-        :param pulumi.Input[dict] pipeline_config: The PipelineConfig.
+        :param pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']] pipeline_config: The PipelineConfig.
         :param pulumi.Input[str] request_template: The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] response_template: The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
-
-        The **caching_config** object supports the following:
-
-          * `cachingKeys` (`pulumi.Input[list]`) - The list of caching key.
-          * `ttl` (`pulumi.Input[float]`) - The TTL in seconds.
-
-        The **pipeline_config** object supports the following:
-
-          * `functions` (`pulumi.Input[list]`) - The list of Function ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -245,8 +212,89 @@ class Resolver(pulumi.CustomResource):
         __props__["type"] = type
         return Resolver(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> str:
+        """
+        The API ID for the GraphQL API.
+        """
+        return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="cachingConfig")
+    def caching_config(self) -> Optional['outputs.ResolverCachingConfig']:
+        """
+        The CachingConfig.
+        """
+        return pulumi.get(self, "caching_config")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[str]:
+        """
+        The DataSource name.
+        """
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter
+    def field(self) -> str:
+        """
+        The field name from the schema defined in the GraphQL API.
+        """
+        return pulumi.get(self, "field")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The resolver type. Valid values are `UNIT` and `PIPELINE`.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="pipelineConfig")
+    def pipeline_config(self) -> Optional['outputs.ResolverPipelineConfig']:
+        """
+        The PipelineConfig.
+        """
+        return pulumi.get(self, "pipeline_config")
+
+    @property
+    @pulumi.getter(name="requestTemplate")
+    def request_template(self) -> str:
+        """
+        The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
+        """
+        return pulumi.get(self, "request_template")
+
+    @property
+    @pulumi.getter(name="responseTemplate")
+    def response_template(self) -> str:
+        """
+        The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
+        """
+        return pulumi.get(self, "response_template")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type name from the schema defined in the GraphQL API.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

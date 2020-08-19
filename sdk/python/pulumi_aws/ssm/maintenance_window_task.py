@@ -5,92 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['MaintenanceWindowTask']
 
 
 class MaintenanceWindowTask(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    The description of the maintenance window task.
-    """
-    max_concurrency: pulumi.Output[str]
-    """
-    The maximum number of targets this task can be run for in parallel.
-    """
-    max_errors: pulumi.Output[str]
-    """
-    The maximum number of errors allowed before this task stops being scheduled.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the maintenance window task.
-    """
-    priority: pulumi.Output[float]
-    """
-    The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-    """
-    service_role_arn: pulumi.Output[str]
-    """
-    The role that should be assumed when executing the task.
-    """
-    targets: pulumi.Output[list]
-    """
-    The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-
-      * `key` (`str`)
-      * `values` (`list`) - The array of strings.
-    """
-    task_arn: pulumi.Output[str]
-    """
-    The ARN of the task to execute.
-    """
-    task_invocation_parameters: pulumi.Output[dict]
-    """
-    Configuration block with parameters for task execution.
-
-      * `automationParameters` (`dict`) - The parameters for an AUTOMATION task type. Documented below.
-        * `document_version` (`str`) - The version of an Automation document to use during task execution.
-        * `parameters` (`list`) - The parameters for the RUN_COMMAND task execution. Documented below.
-          * `name` (`str`) - The parameter name.
-          * `values` (`list`) - The array of strings.
-
-      * `lambdaParameters` (`dict`) - The parameters for a LAMBDA task type. Documented below.
-        * `clientContext` (`str`) - Pass client-specific information to the Lambda function that you are invoking.
-        * `payload` (`str`) - JSON to provide to your Lambda function as input.
-        * `qualifier` (`str`) - Specify a Lambda function version or alias name.
-
-      * `runCommandParameters` (`dict`) - The parameters for a RUN_COMMAND task type. Documented below.
-        * `comment` (`str`) - Information about the command(s) to execute.
-        * `documentHash` (`str`) - The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
-        * `documentHashType` (`str`) - SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
-        * `notificationConfig` (`dict`) - Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
-          * `notificationArn` (`str`) - An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
-          * `notificationEvents` (`list`) - The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-          * `notification_type` (`str`) - When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-
-        * `outputS3Bucket` (`str`) - The name of the Amazon S3 bucket.
-        * `outputS3KeyPrefix` (`str`) - The Amazon S3 bucket subfolder.
-        * `parameters` (`list`) - The parameters for the RUN_COMMAND task execution. Documented below.
-          * `name` (`str`) - The parameter name.
-          * `values` (`list`) - The array of strings.
-
-        * `service_role_arn` (`str`) - The IAM service role to assume during task execution.
-        * `timeoutSeconds` (`float`) - If this time is reached and the command has not already started executing, it doesn't run.
-
-      * `stepFunctionsParameters` (`dict`) - The parameters for a STEP_FUNCTIONS task type. Documented below.
-        * `input` (`str`) - The inputs for the STEP_FUNCTION task.
-        * `name` (`str`) - The name of the STEP_FUNCTION task.
-    """
-    task_type: pulumi.Output[str]
-    """
-    The type of task being registered. The only allowed value is `RUN_COMMAND`.
-    """
-    window_id: pulumi.Output[str]
-    """
-    The Id of the maintenance window to register the task with.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, max_concurrency=None, max_errors=None, name=None, priority=None, service_role_arn=None, targets=None, task_arn=None, task_invocation_parameters=None, task_type=None, window_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 max_concurrency: Optional[pulumi.Input[str]] = None,
+                 max_errors: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[float]] = None,
+                 service_role_arn: Optional[pulumi.Input[str]] = None,
+                 targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTargetArgs']]]]] = None,
+                 task_arn: Optional[pulumi.Input[str]] = None,
+                 task_invocation_parameters: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']]] = None,
+                 task_type: Optional[pulumi.Input[str]] = None,
+                 window_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an SSM Maintenance Window Task resource
 
@@ -102,26 +42,26 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency=2,
-            max_errors=1,
+            max_concurrency="2",
+            max_errors="1",
             priority=1,
             service_role_arn=aws_iam_role["example"]["arn"],
             task_arn="AWS-RestartEC2Instance",
             task_type="AUTOMATION",
             window_id=aws_ssm_maintenance_window["example"]["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [aws_instance["example"]["id"]],
-            }],
-            task_invocation_parameters={
-                "automationParameters": {
-                    "document_version": "$LATEST",
-                    "parameters": [{
-                        "name": "InstanceId",
-                        "values": [aws_instance["example"]["id"]],
-                    }],
-                },
-            })
+            targets=[aws.ssm.MaintenanceWindowTaskTargetArgs(
+                key="InstanceIds",
+                values=[aws_instance["example"]["id"]],
+            )],
+            task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
+                automation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs(
+                    document_version="$LATEST",
+                    parameters=[aws.ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs(
+                        name="InstanceId",
+                        values=[aws_instance["example"]["id"]],
+                    )],
+                ),
+            ))
         ```
         ### Run Command Tasks
 
@@ -130,34 +70,34 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency=2,
-            max_errors=1,
+            max_concurrency="2",
+            max_errors="1",
             priority=1,
             service_role_arn=aws_iam_role["example"]["arn"],
             task_arn="AWS-RunShellScript",
             task_type="RUN_COMMAND",
             window_id=aws_ssm_maintenance_window["example"]["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [aws_instance["example"]["id"]],
-            }],
-            task_invocation_parameters={
-                "runCommandParameters": {
-                    "outputS3Bucket": aws_s3_bucket["example"]["bucket"],
-                    "outputS3KeyPrefix": "output",
-                    "service_role_arn": aws_iam_role["example"]["arn"],
-                    "timeoutSeconds": 600,
-                    "notificationConfig": {
-                        "notificationArn": aws_sns_topic["example"]["arn"],
-                        "notificationEvents": ["All"],
-                        "notification_type": "Command",
-                    },
-                    "parameters": [{
-                        "name": "commands",
-                        "values": ["date"],
-                    }],
-                },
-            })
+            targets=[aws.ssm.MaintenanceWindowTaskTargetArgs(
+                key="InstanceIds",
+                values=[aws_instance["example"]["id"]],
+            )],
+            task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
+                run_command_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs(
+                    output_s3_bucket=aws_s3_bucket["example"]["bucket"],
+                    output_s3_key_prefix="output",
+                    service_role_arn=aws_iam_role["example"]["arn"],
+                    timeout_seconds=600,
+                    notification_config=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs(
+                        notification_arn=aws_sns_topic["example"]["arn"],
+                        notification_events=["All"],
+                        notification_type="Command",
+                    ),
+                    parameters=[aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs(
+                        name="commands",
+                        values=["date"],
+                    )],
+                ),
+            ))
         ```
         ### Step Function Tasks
 
@@ -166,23 +106,23 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency=2,
-            max_errors=1,
+            max_concurrency="2",
+            max_errors="1",
             priority=1,
             service_role_arn=aws_iam_role["example"]["arn"],
             task_arn=aws_sfn_activity["example"]["id"],
             task_type="STEP_FUNCTIONS",
             window_id=aws_ssm_maintenance_window["example"]["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [aws_instance["example"]["id"]],
-            }],
-            task_invocation_parameters={
-                "stepFunctionsParameters": {
-                    "input": "{\"key1\":\"value1\"}",
-                    "name": "example",
-                },
-            })
+            targets=[aws.ssm.MaintenanceWindowTaskTargetArgs(
+                key="InstanceIds",
+                values=[aws_instance["example"]["id"]],
+            )],
+            task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
+                step_functions_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs(
+                    input="{\"key1\":\"value1\"}",
+                    name="example",
+                ),
+            ))
         ```
 
         :param str resource_name: The name of the resource.
@@ -193,51 +133,11 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the maintenance window task.
         :param pulumi.Input[float] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task.
-        :param pulumi.Input[list] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTargetArgs']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[str] task_arn: The ARN of the task to execute.
-        :param pulumi.Input[dict] task_invocation_parameters: Configuration block with parameters for task execution.
+        :param pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']] task_invocation_parameters: Configuration block with parameters for task execution.
         :param pulumi.Input[str] task_type: The type of task being registered. The only allowed value is `RUN_COMMAND`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
-
-        The **targets** object supports the following:
-
-          * `key` (`pulumi.Input[str]`)
-          * `values` (`pulumi.Input[list]`) - The array of strings.
-
-        The **task_invocation_parameters** object supports the following:
-
-          * `automationParameters` (`pulumi.Input[dict]`) - The parameters for an AUTOMATION task type. Documented below.
-            * `document_version` (`pulumi.Input[str]`) - The version of an Automation document to use during task execution.
-            * `parameters` (`pulumi.Input[list]`) - The parameters for the RUN_COMMAND task execution. Documented below.
-              * `name` (`pulumi.Input[str]`) - The parameter name.
-              * `values` (`pulumi.Input[list]`) - The array of strings.
-
-          * `lambdaParameters` (`pulumi.Input[dict]`) - The parameters for a LAMBDA task type. Documented below.
-            * `clientContext` (`pulumi.Input[str]`) - Pass client-specific information to the Lambda function that you are invoking.
-            * `payload` (`pulumi.Input[str]`) - JSON to provide to your Lambda function as input.
-            * `qualifier` (`pulumi.Input[str]`) - Specify a Lambda function version or alias name.
-
-          * `runCommandParameters` (`pulumi.Input[dict]`) - The parameters for a RUN_COMMAND task type. Documented below.
-            * `comment` (`pulumi.Input[str]`) - Information about the command(s) to execute.
-            * `documentHash` (`pulumi.Input[str]`) - The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
-            * `documentHashType` (`pulumi.Input[str]`) - SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
-            * `notificationConfig` (`pulumi.Input[dict]`) - Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
-              * `notificationArn` (`pulumi.Input[str]`) - An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
-              * `notificationEvents` (`pulumi.Input[list]`) - The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-              * `notification_type` (`pulumi.Input[str]`) - When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-
-            * `outputS3Bucket` (`pulumi.Input[str]`) - The name of the Amazon S3 bucket.
-            * `outputS3KeyPrefix` (`pulumi.Input[str]`) - The Amazon S3 bucket subfolder.
-            * `parameters` (`pulumi.Input[list]`) - The parameters for the RUN_COMMAND task execution. Documented below.
-              * `name` (`pulumi.Input[str]`) - The parameter name.
-              * `values` (`pulumi.Input[list]`) - The array of strings.
-
-            * `service_role_arn` (`pulumi.Input[str]`) - The IAM service role to assume during task execution.
-            * `timeoutSeconds` (`pulumi.Input[float]`) - If this time is reached and the command has not already started executing, it doesn't run.
-
-          * `stepFunctionsParameters` (`pulumi.Input[dict]`) - The parameters for a STEP_FUNCTIONS task type. Documented below.
-            * `input` (`pulumi.Input[str]`) - The inputs for the STEP_FUNCTION task.
-            * `name` (`pulumi.Input[str]`) - The name of the STEP_FUNCTION task.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -288,13 +188,26 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, max_concurrency=None, max_errors=None, name=None, priority=None, service_role_arn=None, targets=None, task_arn=None, task_invocation_parameters=None, task_type=None, window_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            max_concurrency: Optional[pulumi.Input[str]] = None,
+            max_errors: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            priority: Optional[pulumi.Input[float]] = None,
+            service_role_arn: Optional[pulumi.Input[str]] = None,
+            targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTargetArgs']]]]] = None,
+            task_arn: Optional[pulumi.Input[str]] = None,
+            task_invocation_parameters: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']]] = None,
+            task_type: Optional[pulumi.Input[str]] = None,
+            window_id: Optional[pulumi.Input[str]] = None) -> 'MaintenanceWindowTask':
         """
         Get an existing MaintenanceWindowTask resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the maintenance window task.
         :param pulumi.Input[str] max_concurrency: The maximum number of targets this task can be run for in parallel.
@@ -302,51 +215,11 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the maintenance window task.
         :param pulumi.Input[float] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task.
-        :param pulumi.Input[list] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTargetArgs']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[str] task_arn: The ARN of the task to execute.
-        :param pulumi.Input[dict] task_invocation_parameters: Configuration block with parameters for task execution.
+        :param pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']] task_invocation_parameters: Configuration block with parameters for task execution.
         :param pulumi.Input[str] task_type: The type of task being registered. The only allowed value is `RUN_COMMAND`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
-
-        The **targets** object supports the following:
-
-          * `key` (`pulumi.Input[str]`)
-          * `values` (`pulumi.Input[list]`) - The array of strings.
-
-        The **task_invocation_parameters** object supports the following:
-
-          * `automationParameters` (`pulumi.Input[dict]`) - The parameters for an AUTOMATION task type. Documented below.
-            * `document_version` (`pulumi.Input[str]`) - The version of an Automation document to use during task execution.
-            * `parameters` (`pulumi.Input[list]`) - The parameters for the RUN_COMMAND task execution. Documented below.
-              * `name` (`pulumi.Input[str]`) - The parameter name.
-              * `values` (`pulumi.Input[list]`) - The array of strings.
-
-          * `lambdaParameters` (`pulumi.Input[dict]`) - The parameters for a LAMBDA task type. Documented below.
-            * `clientContext` (`pulumi.Input[str]`) - Pass client-specific information to the Lambda function that you are invoking.
-            * `payload` (`pulumi.Input[str]`) - JSON to provide to your Lambda function as input.
-            * `qualifier` (`pulumi.Input[str]`) - Specify a Lambda function version or alias name.
-
-          * `runCommandParameters` (`pulumi.Input[dict]`) - The parameters for a RUN_COMMAND task type. Documented below.
-            * `comment` (`pulumi.Input[str]`) - Information about the command(s) to execute.
-            * `documentHash` (`pulumi.Input[str]`) - The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
-            * `documentHashType` (`pulumi.Input[str]`) - SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
-            * `notificationConfig` (`pulumi.Input[dict]`) - Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
-              * `notificationArn` (`pulumi.Input[str]`) - An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
-              * `notificationEvents` (`pulumi.Input[list]`) - The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
-              * `notification_type` (`pulumi.Input[str]`) - When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
-
-            * `outputS3Bucket` (`pulumi.Input[str]`) - The name of the Amazon S3 bucket.
-            * `outputS3KeyPrefix` (`pulumi.Input[str]`) - The Amazon S3 bucket subfolder.
-            * `parameters` (`pulumi.Input[list]`) - The parameters for the RUN_COMMAND task execution. Documented below.
-              * `name` (`pulumi.Input[str]`) - The parameter name.
-              * `values` (`pulumi.Input[list]`) - The array of strings.
-
-            * `service_role_arn` (`pulumi.Input[str]`) - The IAM service role to assume during task execution.
-            * `timeoutSeconds` (`pulumi.Input[float]`) - If this time is reached and the command has not already started executing, it doesn't run.
-
-          * `stepFunctionsParameters` (`pulumi.Input[dict]`) - The parameters for a STEP_FUNCTIONS task type. Documented below.
-            * `input` (`pulumi.Input[str]`) - The inputs for the STEP_FUNCTION task.
-            * `name` (`pulumi.Input[str]`) - The name of the STEP_FUNCTION task.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -365,8 +238,97 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         __props__["window_id"] = window_id
         return MaintenanceWindowTask(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the maintenance window task.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> str:
+        """
+        The maximum number of targets this task can be run for in parallel.
+        """
+        return pulumi.get(self, "max_concurrency")
+
+    @property
+    @pulumi.getter(name="maxErrors")
+    def max_errors(self) -> str:
+        """
+        The maximum number of errors allowed before this task stops being scheduled.
+        """
+        return pulumi.get(self, "max_errors")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the maintenance window task.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[float]:
+        """
+        The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="serviceRoleArn")
+    def service_role_arn(self) -> str:
+        """
+        The role that should be assumed when executing the task.
+        """
+        return pulumi.get(self, "service_role_arn")
+
+    @property
+    @pulumi.getter
+    def targets(self) -> List['outputs.MaintenanceWindowTaskTarget']:
+        """
+        The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        """
+        return pulumi.get(self, "targets")
+
+    @property
+    @pulumi.getter(name="taskArn")
+    def task_arn(self) -> str:
+        """
+        The ARN of the task to execute.
+        """
+        return pulumi.get(self, "task_arn")
+
+    @property
+    @pulumi.getter(name="taskInvocationParameters")
+    def task_invocation_parameters(self) -> Optional['outputs.MaintenanceWindowTaskTaskInvocationParameters']:
+        """
+        Configuration block with parameters for task execution.
+        """
+        return pulumi.get(self, "task_invocation_parameters")
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> str:
+        """
+        The type of task being registered. The only allowed value is `RUN_COMMAND`.
+        """
+        return pulumi.get(self, "task_type")
+
+    @property
+    @pulumi.getter(name="windowId")
+    def window_id(self) -> str:
+        """
+        The Id of the maintenance window to register the task with.
+        """
+        return pulumi.get(self, "window_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

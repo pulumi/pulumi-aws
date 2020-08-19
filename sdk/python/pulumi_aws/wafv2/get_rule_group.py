@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetRuleGroupResult',
+    'AwaitableGetRuleGroupResult',
+    'get_rule_group',
+]
 
+@pulumi.output_type
 class GetRuleGroupResult:
     """
     A collection of values returned by getRuleGroup.
@@ -16,28 +22,53 @@ class GetRuleGroupResult:
     def __init__(__self__, arn=None, description=None, id=None, name=None, scope=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        pulumi.set(__self__, "arn", arn)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if scope and not isinstance(scope, str):
+            raise TypeError("Expected argument 'scope' to be a str")
+        pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
         """
         The Amazon Resource Name (ARN) of the entity.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         The description of the rule group that helps with identification.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if scope and not isinstance(scope, str):
-            raise TypeError("Expected argument 'scope' to be a str")
-        __self__.scope = scope
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> str:
+        return pulumi.get(self, "scope")
 
 
 class AwaitableGetRuleGroupResult(GetRuleGroupResult):
@@ -53,7 +84,9 @@ class AwaitableGetRuleGroupResult(GetRuleGroupResult):
             scope=self.scope)
 
 
-def get_rule_group(name=None, scope=None, opts=None):
+def get_rule_group(name: Optional[str] = None,
+                   scope: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleGroupResult:
     """
     Retrieves the summary of a WAFv2 Rule Group.
 
@@ -78,11 +111,11 @@ def get_rule_group(name=None, scope=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:wafv2/getRuleGroup:getRuleGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:wafv2/getRuleGroup:getRuleGroup', __args__, opts=opts, typ=GetRuleGroupResult).value
 
     return AwaitableGetRuleGroupResult(
-        arn=__ret__.get('arn'),
-        description=__ret__.get('description'),
-        id=__ret__.get('id'),
-        name=__ret__.get('name'),
-        scope=__ret__.get('scope'))
+        arn=__ret__.arn,
+        description=__ret__.description,
+        id=__ret__.id,
+        name=__ret__.name,
+        scope=__ret__.scope)

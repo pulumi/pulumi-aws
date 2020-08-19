@@ -5,40 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Certificate']
 
 
 class Certificate(pulumi.CustomResource):
-    active: pulumi.Output[bool]
-    """
-    Boolean flag to indicate if the certificate should be active
-    """
-    arn: pulumi.Output[str]
-    """
-    The ARN of the created certificate.
-    """
-    certificate_pem: pulumi.Output[str]
-    """
-    The certificate data, in PEM format.
-    """
-    csr: pulumi.Output[str]
-    """
-    The certificate signing request. Review
-    [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-    for more information on generating a certificate from a certificate signing request (CSR).
-    If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
-    for more information on generating keys and a certificate.
-    """
-    private_key: pulumi.Output[str]
-    """
-    When no CSR is provided, the private key.
-    """
-    public_key: pulumi.Output[str]
-    """
-    When no CSR is provided, the public key.
-    """
-    def __init__(__self__, resource_name, opts=None, active=None, csr=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 csr: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Creates and manages an AWS IoT certificate.
 
@@ -103,13 +84,21 @@ class Certificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, active=None, arn=None, certificate_pem=None, csr=None, private_key=None, public_key=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: Optional[pulumi.Input[bool]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            certificate_pem: Optional[pulumi.Input[str]] = None,
+            csr: Optional[pulumi.Input[str]] = None,
+            private_key: Optional[pulumi.Input[str]] = None,
+            public_key: Optional[pulumi.Input[str]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Boolean flag to indicate if the certificate should be active
         :param pulumi.Input[str] arn: The ARN of the created certificate.
@@ -134,8 +123,61 @@ class Certificate(pulumi.CustomResource):
         __props__["public_key"] = public_key
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def active(self) -> bool:
+        """
+        Boolean flag to indicate if the certificate should be active
+        """
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the created certificate.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="certificatePem")
+    def certificate_pem(self) -> str:
+        """
+        The certificate data, in PEM format.
+        """
+        return pulumi.get(self, "certificate_pem")
+
+    @property
+    @pulumi.getter
+    def csr(self) -> Optional[str]:
+        """
+        The certificate signing request. Review
+        [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+        for more information on generating a certificate from a certificate signing request (CSR).
+        If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+        for more information on generating keys and a certificate.
+        """
+        return pulumi.get(self, "csr")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        When no CSR is provided, the private key.
+        """
+        return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> str:
+        """
+        When no CSR is provided, the public key.
+        """
+        return pulumi.get(self, "public_key")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

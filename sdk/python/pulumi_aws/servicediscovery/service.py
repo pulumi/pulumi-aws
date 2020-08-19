@@ -5,57 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Service']
 
 
 class Service(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of the service.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the service.
-    """
-    dns_config: pulumi.Output[dict]
-    """
-    A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
-
-      * `dnsRecords` (`list`) - An array that contains one DnsRecord object for each resource record set.
-        * `ttl` (`float`) - The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-        * `type` (`str`) - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-
-      * `namespace_id` (`str`) - The ID of the namespace to use for DNS configuration.
-      * `routingPolicy` (`str`) - The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-    """
-    health_check_config: pulumi.Output[dict]
-    """
-    A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
-
-      * `failure_threshold` (`float`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
-      * `resource_path` (`str`) - The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
-      * `type` (`str`) - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-    """
-    health_check_custom_config: pulumi.Output[dict]
-    """
-    A complex type that contains settings for ECS managed health checks.
-
-      * `failure_threshold` (`float`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the service.
-    """
-    namespace_id: pulumi.Output[str]
-    """
-    The ID of the namespace to use for DNS configuration.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A map of tags to assign to the service.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, dns_config=None, health_check_config=None, health_check_custom_config=None, name=None, namespace_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 dns_config: Optional[pulumi.Input[pulumi.InputType['ServiceDnsConfigArgs']]] = None,
+                 health_check_config: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigArgs']]] = None,
+                 health_check_custom_config: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckCustomConfigArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Service Discovery Service resource.
 
@@ -73,17 +44,17 @@ class Service(pulumi.CustomResource):
             description="example",
             vpc=example_vpc.id)
         example_service = aws.servicediscovery.Service("exampleService",
-            dns_config={
-                "namespace_id": example_private_dns_namespace.id,
-                "dnsRecords": [{
-                    "ttl": 10,
-                    "type": "A",
-                }],
-                "routingPolicy": "MULTIVALUE",
-            },
-            health_check_custom_config={
-                "failure_threshold": 1,
-            })
+            dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
+                namespace_id=example_private_dns_namespace.id,
+                dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
+                    ttl=10,
+                    type="A",
+                )],
+                routing_policy="MULTIVALUE",
+            ),
+            health_check_custom_config=aws.servicediscovery.ServiceHealthCheckCustomConfigArgs(
+                failure_threshold=1,
+            ))
         ```
 
         ```python
@@ -92,48 +63,29 @@ class Service(pulumi.CustomResource):
 
         example_public_dns_namespace = aws.servicediscovery.PublicDnsNamespace("examplePublicDnsNamespace", description="example")
         example_service = aws.servicediscovery.Service("exampleService",
-            dns_config={
-                "namespace_id": example_public_dns_namespace.id,
-                "dnsRecords": [{
-                    "ttl": 10,
-                    "type": "A",
-                }],
-            },
-            health_check_config={
-                "failure_threshold": 10,
-                "resource_path": "path",
-                "type": "HTTP",
-            })
+            dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
+                namespace_id=example_public_dns_namespace.id,
+                dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
+                    ttl=10,
+                    type="A",
+                )],
+            ),
+            health_check_config=aws.servicediscovery.ServiceHealthCheckConfigArgs(
+                failure_threshold=10,
+                resource_path="path",
+                type="HTTP",
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the service.
-        :param pulumi.Input[dict] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
-        :param pulumi.Input[dict] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
-        :param pulumi.Input[dict] health_check_custom_config: A complex type that contains settings for ECS managed health checks.
+        :param pulumi.Input[pulumi.InputType['ServiceDnsConfigArgs']] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+        :param pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigArgs']] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+        :param pulumi.Input[pulumi.InputType['ServiceHealthCheckCustomConfigArgs']] health_check_custom_config: A complex type that contains settings for ECS managed health checks.
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] namespace_id: The ID of the namespace to use for DNS configuration.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the service.
-
-        The **dns_config** object supports the following:
-
-          * `dnsRecords` (`pulumi.Input[list]`) - An array that contains one DnsRecord object for each resource record set.
-            * `ttl` (`pulumi.Input[float]`) - The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-            * `type` (`pulumi.Input[str]`) - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-
-          * `namespace_id` (`pulumi.Input[str]`) - The ID of the namespace to use for DNS configuration.
-          * `routingPolicy` (`pulumi.Input[str]`) - The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-
-        The **health_check_config** object supports the following:
-
-          * `failure_threshold` (`pulumi.Input[float]`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
-          * `resource_path` (`pulumi.Input[str]`) - The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
-          * `type` (`pulumi.Input[str]`) - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-
-        The **health_check_custom_config** object supports the following:
-
-          * `failure_threshold` (`pulumi.Input[float]`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -167,41 +119,32 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, description=None, dns_config=None, health_check_config=None, health_check_custom_config=None, name=None, namespace_id=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            dns_config: Optional[pulumi.Input[pulumi.InputType['ServiceDnsConfigArgs']]] = None,
+            health_check_config: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigArgs']]] = None,
+            health_check_custom_config: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckCustomConfigArgs']]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            namespace_id: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the service.
         :param pulumi.Input[str] description: The description of the service.
-        :param pulumi.Input[dict] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
-        :param pulumi.Input[dict] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
-        :param pulumi.Input[dict] health_check_custom_config: A complex type that contains settings for ECS managed health checks.
+        :param pulumi.Input[pulumi.InputType['ServiceDnsConfigArgs']] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+        :param pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigArgs']] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+        :param pulumi.Input[pulumi.InputType['ServiceHealthCheckCustomConfigArgs']] health_check_custom_config: A complex type that contains settings for ECS managed health checks.
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] namespace_id: The ID of the namespace to use for DNS configuration.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the service.
-
-        The **dns_config** object supports the following:
-
-          * `dnsRecords` (`pulumi.Input[list]`) - An array that contains one DnsRecord object for each resource record set.
-            * `ttl` (`pulumi.Input[float]`) - The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-            * `type` (`pulumi.Input[str]`) - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-
-          * `namespace_id` (`pulumi.Input[str]`) - The ID of the namespace to use for DNS configuration.
-          * `routingPolicy` (`pulumi.Input[str]`) - The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-
-        The **health_check_config** object supports the following:
-
-          * `failure_threshold` (`pulumi.Input[float]`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
-          * `resource_path` (`pulumi.Input[str]`) - The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
-          * `type` (`pulumi.Input[str]`) - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-
-        The **health_check_custom_config** object supports the following:
-
-          * `failure_threshold` (`pulumi.Input[float]`) - The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -217,8 +160,73 @@ class Service(pulumi.CustomResource):
         __props__["tags"] = tags
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the service.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the service.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="dnsConfig")
+    def dns_config(self) -> Optional['outputs.ServiceDnsConfig']:
+        """
+        A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+        """
+        return pulumi.get(self, "dns_config")
+
+    @property
+    @pulumi.getter(name="healthCheckConfig")
+    def health_check_config(self) -> Optional['outputs.ServiceHealthCheckConfig']:
+        """
+        A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+        """
+        return pulumi.get(self, "health_check_config")
+
+    @property
+    @pulumi.getter(name="healthCheckCustomConfig")
+    def health_check_custom_config(self) -> Optional['outputs.ServiceHealthCheckCustomConfig']:
+        """
+        A complex type that contains settings for ECS managed health checks.
+        """
+        return pulumi.get(self, "health_check_custom_config")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the service.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namespaceId")
+    def namespace_id(self) -> str:
+        """
+        The ID of the namespace to use for DNS configuration.
+        """
+        return pulumi.get(self, "namespace_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the service.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

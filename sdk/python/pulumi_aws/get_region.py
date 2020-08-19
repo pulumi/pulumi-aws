@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
 
+__all__ = [
+    'GetRegionResult',
+    'AwaitableGetRegionResult',
+    'get_region',
+]
 
+@pulumi.output_type
 class GetRegionResult:
     """
     A collection of values returned by getRegion.
@@ -16,28 +22,48 @@ class GetRegionResult:
     def __init__(__self__, description=None, endpoint=None, id=None, name=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        pulumi.set(__self__, "endpoint", endpoint)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         The region's description in this format: "Location (Region name)".
         """
-        if endpoint and not isinstance(endpoint, str):
-            raise TypeError("Expected argument 'endpoint' to be a str")
-        __self__.endpoint = endpoint
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
         """
         The EC2 endpoint for the selected region.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the selected region.
         """
+        return pulumi.get(self, "name")
 
 
 class AwaitableGetRegionResult(GetRegionResult):
@@ -52,7 +78,9 @@ class AwaitableGetRegionResult(GetRegionResult):
             name=self.name)
 
 
-def get_region(endpoint=None, name=None, opts=None):
+def get_region(endpoint: Optional[str] = None,
+               name: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegionResult:
     """
     `getRegion` provides details about a specific AWS region.
 
@@ -84,10 +112,10 @@ def get_region(endpoint=None, name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:index/getRegion:getRegion', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:index/getRegion:getRegion', __args__, opts=opts, typ=GetRegionResult).value
 
     return AwaitableGetRegionResult(
-        description=__ret__.get('description'),
-        endpoint=__ret__.get('endpoint'),
-        id=__ret__.get('id'),
-        name=__ret__.get('name'))
+        description=__ret__.description,
+        endpoint=__ret__.endpoint,
+        id=__ret__.id,
+        name=__ret__.name)

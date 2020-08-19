@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .member_account_association import *
 from .s3_bucket_association import *
+from ._inputs import *
+from . import outputs

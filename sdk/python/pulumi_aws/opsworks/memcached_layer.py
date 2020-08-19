@@ -5,97 +5,43 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['MemcachedLayer']
 
 
 class MemcachedLayer(pulumi.CustomResource):
-    allocated_memory: pulumi.Output[float]
-    """
-    Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.
-    """
-    arn: pulumi.Output[str]
-    """
-    The Amazon Resource Name(ARN) of the layer.
-    """
-    auto_assign_elastic_ips: pulumi.Output[bool]
-    """
-    Whether to automatically assign an elastic IP address to the layer's instances.
-    """
-    auto_assign_public_ips: pulumi.Output[bool]
-    """
-    For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-    """
-    auto_healing: pulumi.Output[bool]
-    """
-    Whether to enable auto-healing for the layer.
-    """
-    custom_configure_recipes: pulumi.Output[list]
-    custom_deploy_recipes: pulumi.Output[list]
-    custom_instance_profile_arn: pulumi.Output[str]
-    """
-    The ARN of an IAM profile that will be used for the layer's instances.
-    """
-    custom_json: pulumi.Output[str]
-    """
-    Custom JSON attributes to apply to the layer.
-    """
-    custom_security_group_ids: pulumi.Output[list]
-    """
-    Ids for a set of security groups to apply to the layer's instances.
-    """
-    custom_setup_recipes: pulumi.Output[list]
-    custom_shutdown_recipes: pulumi.Output[list]
-    custom_undeploy_recipes: pulumi.Output[list]
-    drain_elb_on_shutdown: pulumi.Output[bool]
-    """
-    Whether to enable Elastic Load Balancing connection draining.
-    """
-    ebs_volumes: pulumi.Output[list]
-    """
-    `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-
-      * `encrypted` (`bool`)
-      * `iops` (`float`) - For PIOPS volumes, the IOPS per disk.
-      * `mountPoint` (`str`) - The path to mount the EBS volume on the layer's instances.
-      * `numberOfDisks` (`float`) - The number of disks to use for the EBS volume.
-      * `raidLevel` (`str`) - The RAID level to use for the volume.
-      * `size` (`float`) - The size of the volume in gigabytes.
-      * `type` (`str`) - The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-    """
-    elastic_load_balancer: pulumi.Output[str]
-    """
-    Name of an Elastic Load Balancer to attach to this layer
-    """
-    install_updates_on_boot: pulumi.Output[bool]
-    """
-    Whether to install OS and package updates on each instance when it boots.
-    """
-    instance_shutdown_timeout: pulumi.Output[float]
-    """
-    The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-    """
-    name: pulumi.Output[str]
-    """
-    A human-readable name for the layer.
-    """
-    stack_id: pulumi.Output[str]
-    """
-    The id of the stack the layer will belong to.
-    """
-    system_packages: pulumi.Output[list]
-    """
-    Names of a set of system packages to install on the layer's instances.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A map of tags to assign to the resource.
-    """
-    use_ebs_optimized_instances: pulumi.Output[bool]
-    """
-    Whether to use EBS-optimized instances.
-    """
-    def __init__(__self__, resource_name, opts=None, allocated_memory=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, name=None, stack_id=None, system_packages=None, tags=None, use_ebs_optimized_instances=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allocated_memory: Optional[pulumi.Input[float]] = None,
+                 auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
+                 auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
+                 auto_healing: Optional[pulumi.Input[bool]] = None,
+                 custom_configure_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 custom_deploy_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
+                 custom_json: Optional[pulumi.Input[str]] = None,
+                 custom_security_group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 custom_setup_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 custom_shutdown_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 custom_undeploy_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
+                 ebs_volumes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MemcachedLayerEbsVolumeArgs']]]]] = None,
+                 elastic_load_balancer: Optional[pulumi.Input[str]] = None,
+                 install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
+                 instance_shutdown_timeout: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 stack_id: Optional[pulumi.Input[str]] = None,
+                 system_packages: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an OpsWorks memcached layer resource.
 
@@ -116,27 +62,17 @@ class MemcachedLayer(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
-        :param pulumi.Input[list] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
+        :param pulumi.Input[List[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[list] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MemcachedLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[float] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
-        :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[List[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
-
-        The **ebs_volumes** object supports the following:
-
-          * `encrypted` (`pulumi.Input[bool]`)
-          * `iops` (`pulumi.Input[float]`) - For PIOPS volumes, the IOPS per disk.
-          * `mountPoint` (`pulumi.Input[str]`) - The path to mount the EBS volume on the layer's instances.
-          * `numberOfDisks` (`pulumi.Input[float]`) - The number of disks to use for the EBS volume.
-          * `raidLevel` (`pulumi.Input[str]`) - The RAID level to use for the volume.
-          * `size` (`pulumi.Input[float]`) - The size of the volume in gigabytes.
-          * `type` (`pulumi.Input[str]`) - The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -187,13 +123,38 @@ class MemcachedLayer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allocated_memory=None, arn=None, auto_assign_elastic_ips=None, auto_assign_public_ips=None, auto_healing=None, custom_configure_recipes=None, custom_deploy_recipes=None, custom_instance_profile_arn=None, custom_json=None, custom_security_group_ids=None, custom_setup_recipes=None, custom_shutdown_recipes=None, custom_undeploy_recipes=None, drain_elb_on_shutdown=None, ebs_volumes=None, elastic_load_balancer=None, install_updates_on_boot=None, instance_shutdown_timeout=None, name=None, stack_id=None, system_packages=None, tags=None, use_ebs_optimized_instances=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allocated_memory: Optional[pulumi.Input[float]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
+            auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
+            auto_healing: Optional[pulumi.Input[bool]] = None,
+            custom_configure_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            custom_deploy_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
+            custom_json: Optional[pulumi.Input[str]] = None,
+            custom_security_group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            custom_setup_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            custom_shutdown_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            custom_undeploy_recipes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
+            ebs_volumes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MemcachedLayerEbsVolumeArgs']]]]] = None,
+            elastic_load_balancer: Optional[pulumi.Input[str]] = None,
+            install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
+            instance_shutdown_timeout: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            stack_id: Optional[pulumi.Input[str]] = None,
+            system_packages: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None) -> 'MemcachedLayer':
         """
         Get an existing MemcachedLayer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] allocated_memory: Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.
         :param pulumi.Input[str] arn: The Amazon Resource Name(ARN) of the layer.
@@ -202,27 +163,17 @@ class MemcachedLayer(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
-        :param pulumi.Input[list] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
+        :param pulumi.Input[List[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[list] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MemcachedLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[float] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] stack_id: The id of the stack the layer will belong to.
-        :param pulumi.Input[list] system_packages: Names of a set of system packages to install on the layer's instances.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[List[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
-
-        The **ebs_volumes** object supports the following:
-
-          * `encrypted` (`pulumi.Input[bool]`)
-          * `iops` (`pulumi.Input[float]`) - For PIOPS volumes, the IOPS per disk.
-          * `mountPoint` (`pulumi.Input[str]`) - The path to mount the EBS volume on the layer's instances.
-          * `numberOfDisks` (`pulumi.Input[float]`) - The number of disks to use for the EBS volume.
-          * `raidLevel` (`pulumi.Input[str]`) - The RAID level to use for the volume.
-          * `size` (`pulumi.Input[float]`) - The size of the volume in gigabytes.
-          * `type` (`pulumi.Input[str]`) - The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -253,8 +204,178 @@ class MemcachedLayer(pulumi.CustomResource):
         __props__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
         return MemcachedLayer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allocatedMemory")
+    def allocated_memory(self) -> Optional[float]:
+        """
+        Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.
+        """
+        return pulumi.get(self, "allocated_memory")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name(ARN) of the layer.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="autoAssignElasticIps")
+    def auto_assign_elastic_ips(self) -> Optional[bool]:
+        """
+        Whether to automatically assign an elastic IP address to the layer's instances.
+        """
+        return pulumi.get(self, "auto_assign_elastic_ips")
+
+    @property
+    @pulumi.getter(name="autoAssignPublicIps")
+    def auto_assign_public_ips(self) -> Optional[bool]:
+        """
+        For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+        """
+        return pulumi.get(self, "auto_assign_public_ips")
+
+    @property
+    @pulumi.getter(name="autoHealing")
+    def auto_healing(self) -> Optional[bool]:
+        """
+        Whether to enable auto-healing for the layer.
+        """
+        return pulumi.get(self, "auto_healing")
+
+    @property
+    @pulumi.getter(name="customConfigureRecipes")
+    def custom_configure_recipes(self) -> Optional[List[str]]:
+        return pulumi.get(self, "custom_configure_recipes")
+
+    @property
+    @pulumi.getter(name="customDeployRecipes")
+    def custom_deploy_recipes(self) -> Optional[List[str]]:
+        return pulumi.get(self, "custom_deploy_recipes")
+
+    @property
+    @pulumi.getter(name="customInstanceProfileArn")
+    def custom_instance_profile_arn(self) -> Optional[str]:
+        """
+        The ARN of an IAM profile that will be used for the layer's instances.
+        """
+        return pulumi.get(self, "custom_instance_profile_arn")
+
+    @property
+    @pulumi.getter(name="customJson")
+    def custom_json(self) -> Optional[str]:
+        """
+        Custom JSON attributes to apply to the layer.
+        """
+        return pulumi.get(self, "custom_json")
+
+    @property
+    @pulumi.getter(name="customSecurityGroupIds")
+    def custom_security_group_ids(self) -> Optional[List[str]]:
+        """
+        Ids for a set of security groups to apply to the layer's instances.
+        """
+        return pulumi.get(self, "custom_security_group_ids")
+
+    @property
+    @pulumi.getter(name="customSetupRecipes")
+    def custom_setup_recipes(self) -> Optional[List[str]]:
+        return pulumi.get(self, "custom_setup_recipes")
+
+    @property
+    @pulumi.getter(name="customShutdownRecipes")
+    def custom_shutdown_recipes(self) -> Optional[List[str]]:
+        return pulumi.get(self, "custom_shutdown_recipes")
+
+    @property
+    @pulumi.getter(name="customUndeployRecipes")
+    def custom_undeploy_recipes(self) -> Optional[List[str]]:
+        return pulumi.get(self, "custom_undeploy_recipes")
+
+    @property
+    @pulumi.getter(name="drainElbOnShutdown")
+    def drain_elb_on_shutdown(self) -> Optional[bool]:
+        """
+        Whether to enable Elastic Load Balancing connection draining.
+        """
+        return pulumi.get(self, "drain_elb_on_shutdown")
+
+    @property
+    @pulumi.getter(name="ebsVolumes")
+    def ebs_volumes(self) -> Optional[List['outputs.MemcachedLayerEbsVolume']]:
+        """
+        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        """
+        return pulumi.get(self, "ebs_volumes")
+
+    @property
+    @pulumi.getter(name="elasticLoadBalancer")
+    def elastic_load_balancer(self) -> Optional[str]:
+        """
+        Name of an Elastic Load Balancer to attach to this layer
+        """
+        return pulumi.get(self, "elastic_load_balancer")
+
+    @property
+    @pulumi.getter(name="installUpdatesOnBoot")
+    def install_updates_on_boot(self) -> Optional[bool]:
+        """
+        Whether to install OS and package updates on each instance when it boots.
+        """
+        return pulumi.get(self, "install_updates_on_boot")
+
+    @property
+    @pulumi.getter(name="instanceShutdownTimeout")
+    def instance_shutdown_timeout(self) -> Optional[float]:
+        """
+        The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+        """
+        return pulumi.get(self, "instance_shutdown_timeout")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A human-readable name for the layer.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="stackId")
+    def stack_id(self) -> str:
+        """
+        The id of the stack the layer will belong to.
+        """
+        return pulumi.get(self, "stack_id")
+
+    @property
+    @pulumi.getter(name="systemPackages")
+    def system_packages(self) -> Optional[List[str]]:
+        """
+        Names of a set of system packages to install on the layer's instances.
+        """
+        return pulumi.get(self, "system_packages")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="useEbsOptimizedInstances")
+    def use_ebs_optimized_instances(self) -> Optional[bool]:
+        """
+        Whether to use EBS-optimized instances.
+        """
+        return pulumi.get(self, "use_ebs_optimized_instances")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

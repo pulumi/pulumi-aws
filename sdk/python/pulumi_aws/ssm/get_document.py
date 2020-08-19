@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetDocumentResult',
+    'AwaitableGetDocumentResult',
+    'get_document',
+]
 
+@pulumi.output_type
 class GetDocumentResult:
     """
     A collection of values returned by getDocument.
@@ -16,37 +22,72 @@ class GetDocumentResult:
     def __init__(__self__, arn=None, content=None, document_format=None, document_type=None, document_version=None, id=None, name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        pulumi.set(__self__, "arn", arn)
+        if content and not isinstance(content, str):
+            raise TypeError("Expected argument 'content' to be a str")
+        pulumi.set(__self__, "content", content)
+        if document_format and not isinstance(document_format, str):
+            raise TypeError("Expected argument 'document_format' to be a str")
+        pulumi.set(__self__, "document_format", document_format)
+        if document_type and not isinstance(document_type, str):
+            raise TypeError("Expected argument 'document_type' to be a str")
+        pulumi.set(__self__, "document_type", document_type)
+        if document_version and not isinstance(document_version, str):
+            raise TypeError("Expected argument 'document_version' to be a str")
+        pulumi.set(__self__, "document_version", document_version)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
         """
         The ARN of the document.
         """
-        if content and not isinstance(content, str):
-            raise TypeError("Expected argument 'content' to be a str")
-        __self__.content = content
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
         """
         The contents of the document.
         """
-        if document_format and not isinstance(document_format, str):
-            raise TypeError("Expected argument 'document_format' to be a str")
-        __self__.document_format = document_format
-        if document_type and not isinstance(document_type, str):
-            raise TypeError("Expected argument 'document_type' to be a str")
-        __self__.document_type = document_type
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="documentFormat")
+    def document_format(self) -> Optional[str]:
+        return pulumi.get(self, "document_format")
+
+    @property
+    @pulumi.getter(name="documentType")
+    def document_type(self) -> str:
         """
         The type of the document.
         """
-        if document_version and not isinstance(document_version, str):
-            raise TypeError("Expected argument 'document_version' to be a str")
-        __self__.document_version = document_version
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "document_type")
+
+    @property
+    @pulumi.getter(name="documentVersion")
+    def document_version(self) -> Optional[str]:
+        return pulumi.get(self, "document_version")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 class AwaitableGetDocumentResult(GetDocumentResult):
@@ -64,7 +105,10 @@ class AwaitableGetDocumentResult(GetDocumentResult):
             name=self.name)
 
 
-def get_document(document_format=None, document_version=None, name=None, opts=None):
+def get_document(document_format: Optional[str] = None,
+                 document_version: Optional[str] = None,
+                 name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDocumentResult:
     """
     Gets the contents of the specified Systems Manager document.
 
@@ -104,13 +148,13 @@ def get_document(document_format=None, document_version=None, name=None, opts=No
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:ssm/getDocument:getDocument', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:ssm/getDocument:getDocument', __args__, opts=opts, typ=GetDocumentResult).value
 
     return AwaitableGetDocumentResult(
-        arn=__ret__.get('arn'),
-        content=__ret__.get('content'),
-        document_format=__ret__.get('documentFormat'),
-        document_type=__ret__.get('documentType'),
-        document_version=__ret__.get('documentVersion'),
-        id=__ret__.get('id'),
-        name=__ret__.get('name'))
+        arn=__ret__.arn,
+        content=__ret__.content,
+        document_format=__ret__.document_format,
+        document_type=__ret__.document_type,
+        document_version=__ret__.document_version,
+        id=__ret__.id,
+        name=__ret__.name)

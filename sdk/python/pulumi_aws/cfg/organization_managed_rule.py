@@ -5,56 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['OrganizationManagedRule']
 
 
 class OrganizationManagedRule(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    Amazon Resource Name (ARN) of the rule
-    """
-    description: pulumi.Output[str]
-    """
-    Description of the rule
-    """
-    excluded_accounts: pulumi.Output[list]
-    """
-    List of AWS account identifiers to exclude from the rule
-    """
-    input_parameters: pulumi.Output[str]
-    """
-    A string in JSON format that is passed to the AWS Config Rule Lambda Function
-    """
-    maximum_execution_frequency: pulumi.Output[str]
-    """
-    The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the rule
-    """
-    resource_id_scope: pulumi.Output[str]
-    """
-    Identifier of the AWS resource to evaluate
-    """
-    resource_types_scopes: pulumi.Output[list]
-    """
-    List of types of AWS resources to evaluate
-    """
-    rule_identifier: pulumi.Output[str]
-    """
-    Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
-    """
-    tag_key_scope: pulumi.Output[str]
-    """
-    Tag key of AWS resources to evaluate
-    """
-    tag_value_scope: pulumi.Output[str]
-    """
-    Tag value of AWS resources to evaluate
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, excluded_accounts=None, input_parameters=None, maximum_execution_frequency=None, name=None, resource_id_scope=None, resource_types_scopes=None, rule_identifier=None, tag_key_scope=None, tag_value_scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 excluded_accounts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 input_parameters: Optional[pulumi.Input[str]] = None,
+                 maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_id_scope: Optional[pulumi.Input[str]] = None,
+                 resource_types_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 rule_identifier: Optional[pulumi.Input[str]] = None,
+                 tag_key_scope: Optional[pulumi.Input[str]] = None,
+                 tag_value_scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Config Organization Managed Rule. More information about these rules can be found in the [Enabling AWS Config Rules Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. For working with Organization Custom Rules (those invoking a custom Lambda Function), see the `cfg.OrganizationCustomRule` resource.
 
@@ -78,12 +51,12 @@ class OrganizationManagedRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[list] excluded_accounts: List of AWS account identifiers to exclude from the rule
+        :param pulumi.Input[List[pulumi.Input[str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         :param pulumi.Input[str] name: The name of the rule
         :param pulumi.Input[str] resource_id_scope: Identifier of the AWS resource to evaluate
-        :param pulumi.Input[list] resource_types_scopes: List of types of AWS resources to evaluate
+        :param pulumi.Input[List[pulumi.Input[str]]] resource_types_scopes: List of types of AWS resources to evaluate
         :param pulumi.Input[str] rule_identifier: Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
         :param pulumi.Input[str] tag_key_scope: Tag key of AWS resources to evaluate
         :param pulumi.Input[str] tag_value_scope: Tag value of AWS resources to evaluate
@@ -125,22 +98,35 @@ class OrganizationManagedRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, description=None, excluded_accounts=None, input_parameters=None, maximum_execution_frequency=None, name=None, resource_id_scope=None, resource_types_scopes=None, rule_identifier=None, tag_key_scope=None, tag_value_scope=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            excluded_accounts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            input_parameters: Optional[pulumi.Input[str]] = None,
+            maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            resource_id_scope: Optional[pulumi.Input[str]] = None,
+            resource_types_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            rule_identifier: Optional[pulumi.Input[str]] = None,
+            tag_key_scope: Optional[pulumi.Input[str]] = None,
+            tag_value_scope: Optional[pulumi.Input[str]] = None) -> 'OrganizationManagedRule':
         """
         Get an existing OrganizationManagedRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the rule
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[list] excluded_accounts: List of AWS account identifiers to exclude from the rule
+        :param pulumi.Input[List[pulumi.Input[str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         :param pulumi.Input[str] name: The name of the rule
         :param pulumi.Input[str] resource_id_scope: Identifier of the AWS resource to evaluate
-        :param pulumi.Input[list] resource_types_scopes: List of types of AWS resources to evaluate
+        :param pulumi.Input[List[pulumi.Input[str]]] resource_types_scopes: List of types of AWS resources to evaluate
         :param pulumi.Input[str] rule_identifier: Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
         :param pulumi.Input[str] tag_key_scope: Tag key of AWS resources to evaluate
         :param pulumi.Input[str] tag_value_scope: Tag value of AWS resources to evaluate
@@ -162,8 +148,97 @@ class OrganizationManagedRule(pulumi.CustomResource):
         __props__["tag_value_scope"] = tag_value_scope
         return OrganizationManagedRule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the rule
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the rule
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="excludedAccounts")
+    def excluded_accounts(self) -> Optional[List[str]]:
+        """
+        List of AWS account identifiers to exclude from the rule
+        """
+        return pulumi.get(self, "excluded_accounts")
+
+    @property
+    @pulumi.getter(name="inputParameters")
+    def input_parameters(self) -> Optional[str]:
+        """
+        A string in JSON format that is passed to the AWS Config Rule Lambda Function
+        """
+        return pulumi.get(self, "input_parameters")
+
+    @property
+    @pulumi.getter(name="maximumExecutionFrequency")
+    def maximum_execution_frequency(self) -> Optional[str]:
+        """
+        The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
+        """
+        return pulumi.get(self, "maximum_execution_frequency")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the rule
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceIdScope")
+    def resource_id_scope(self) -> Optional[str]:
+        """
+        Identifier of the AWS resource to evaluate
+        """
+        return pulumi.get(self, "resource_id_scope")
+
+    @property
+    @pulumi.getter(name="resourceTypesScopes")
+    def resource_types_scopes(self) -> Optional[List[str]]:
+        """
+        List of types of AWS resources to evaluate
+        """
+        return pulumi.get(self, "resource_types_scopes")
+
+    @property
+    @pulumi.getter(name="ruleIdentifier")
+    def rule_identifier(self) -> str:
+        """
+        Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
+        """
+        return pulumi.get(self, "rule_identifier")
+
+    @property
+    @pulumi.getter(name="tagKeyScope")
+    def tag_key_scope(self) -> Optional[str]:
+        """
+        Tag key of AWS resources to evaluate
+        """
+        return pulumi.get(self, "tag_key_scope")
+
+    @property
+    @pulumi.getter(name="tagValueScope")
+    def tag_value_scope(self) -> Optional[str]:
+        """
+        Tag value of AWS resources to evaluate
+        """
+        return pulumi.get(self, "tag_value_scope")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

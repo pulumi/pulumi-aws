@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetSubnetIdsResult',
+    'AwaitableGetSubnetIdsResult',
+    'get_subnet_ids',
+]
 
+@pulumi.output_type
 class GetSubnetIdsResult:
     """
     A collection of values returned by getSubnetIds.
@@ -16,25 +24,50 @@ class GetSubnetIdsResult:
     def __init__(__self__, filters=None, id=None, ids=None, tags=None, vpc_id=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
-        __self__.filters = filters
+        pulumi.set(__self__, "filters", filters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if ids and not isinstance(ids, list):
+            raise TypeError("Expected argument 'ids' to be a list")
+        pulumi.set(__self__, "ids", ids)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError("Expected argument 'vpc_id' to be a str")
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[List['outputs.GetSubnetIdsFilterResult']]:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if ids and not isinstance(ids, list):
-            raise TypeError("Expected argument 'ids' to be a list")
-        __self__.ids = ids
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def ids(self) -> List[str]:
         """
         A set of all the subnet ids found. This data source will fail if none are found.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
-        if vpc_id and not isinstance(vpc_id, str):
-            raise TypeError("Expected argument 'vpc_id' to be a str")
-        __self__.vpc_id = vpc_id
+        return pulumi.get(self, "ids")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        return pulumi.get(self, "vpc_id")
 
 
 class AwaitableGetSubnetIdsResult(GetSubnetIdsResult):
@@ -50,7 +83,10 @@ class AwaitableGetSubnetIdsResult(GetSubnetIdsResult):
             vpc_id=self.vpc_id)
 
 
-def get_subnet_ids(filters=None, tags=None, vpc_id=None, opts=None):
+def get_subnet_ids(filters: Optional[List[pulumi.InputType['GetSubnetIdsFilterArgs']]] = None,
+                   tags: Optional[Mapping[str, str]] = None,
+                   vpc_id: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetIdsResult:
     """
     `ec2.getSubnetIds` provides a set of ids for a vpc_id
 
@@ -90,18 +126,10 @@ def get_subnet_ids(filters=None, tags=None, vpc_id=None, opts=None):
     ```
 
 
-    :param list filters: Custom filter block as described below.
-    :param dict tags: A map of tags, each pair of which must exactly match
+    :param List[pulumi.InputType['GetSubnetIdsFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
            a pair on the desired subnets.
     :param str vpc_id: The VPC ID that you want to filter from.
-
-    The **filters** object supports the following:
-
-      * `name` (`str`) - The name of the field to filter by, as defined by
-        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-        For example, if matching against tag `Name`, use:
-      * `values` (`list`) - Set of values that are accepted for the given field.
-        Subnet IDs will be selected if any one of the given values match.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -111,11 +139,11 @@ def get_subnet_ids(filters=None, tags=None, vpc_id=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getSubnetIds:getSubnetIds', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getSubnetIds:getSubnetIds', __args__, opts=opts, typ=GetSubnetIdsResult).value
 
     return AwaitableGetSubnetIdsResult(
-        filters=__ret__.get('filters'),
-        id=__ret__.get('id'),
-        ids=__ret__.get('ids'),
-        tags=__ret__.get('tags'),
-        vpc_id=__ret__.get('vpcId'))
+        filters=__ret__.filters,
+        id=__ret__.id,
+        ids=__ret__.ids,
+        tags=__ret__.tags,
+        vpc_id=__ret__.vpc_id)

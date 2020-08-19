@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetDetectorResult',
+    'AwaitableGetDetectorResult',
+    'get_detector',
+]
 
+@pulumi.output_type
 class GetDetectorResult:
     """
     A collection of values returned by getDetector.
@@ -16,25 +22,45 @@ class GetDetectorResult:
     def __init__(__self__, finding_publishing_frequency=None, id=None, service_role_arn=None, status=None):
         if finding_publishing_frequency and not isinstance(finding_publishing_frequency, str):
             raise TypeError("Expected argument 'finding_publishing_frequency' to be a str")
-        __self__.finding_publishing_frequency = finding_publishing_frequency
+        pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if service_role_arn and not isinstance(service_role_arn, str):
+            raise TypeError("Expected argument 'service_role_arn' to be a str")
+        pulumi.set(__self__, "service_role_arn", service_role_arn)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="findingPublishingFrequency")
+    def finding_publishing_frequency(self) -> str:
         """
         The frequency of notifications sent about subsequent finding occurrences.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        if service_role_arn and not isinstance(service_role_arn, str):
-            raise TypeError("Expected argument 'service_role_arn' to be a str")
-        __self__.service_role_arn = service_role_arn
+        return pulumi.get(self, "finding_publishing_frequency")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="serviceRoleArn")
+    def service_role_arn(self) -> str:
         """
         The service-linked role that grants GuardDuty access to the resources in the AWS account.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "service_role_arn")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         The current status of the detector.
         """
+        return pulumi.get(self, "status")
 
 
 class AwaitableGetDetectorResult(GetDetectorResult):
@@ -49,7 +75,8 @@ class AwaitableGetDetectorResult(GetDetectorResult):
             status=self.status)
 
 
-def get_detector(id=None, opts=None):
+def get_detector(id: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDetectorResult:
     """
     Retrieve information about a GuardDuty detector.
 
@@ -71,10 +98,10 @@ def get_detector(id=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:guardduty/getDetector:getDetector', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:guardduty/getDetector:getDetector', __args__, opts=opts, typ=GetDetectorResult).value
 
     return AwaitableGetDetectorResult(
-        finding_publishing_frequency=__ret__.get('findingPublishingFrequency'),
-        id=__ret__.get('id'),
-        service_role_arn=__ret__.get('serviceRoleArn'),
-        status=__ret__.get('status'))
+        finding_publishing_frequency=__ret__.finding_publishing_frequency,
+        id=__ret__.id,
+        service_role_arn=__ret__.service_role_arn,
+        status=__ret__.status)

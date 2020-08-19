@@ -5,76 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Fleet']
 
 
 class Fleet(pulumi.CustomResource):
-    excess_capacity_termination_policy: pulumi.Output[str]
-    """
-    Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
-    """
-    launch_template_config: pulumi.Output[dict]
-    """
-    Nested argument containing EC2 Launch Template configurations. Defined below.
-
-      * `launchTemplateSpecification` (`dict`) - Nested argument containing EC2 Launch Template to use. Defined below.
-        * `launchTemplateId` (`str`) - ID of the launch template.
-        * `launchTemplateName` (`str`) - Name of the launch template.
-        * `version` (`str`) - Version number of the launch template.
-
-      * `overrides` (`list`) - Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
-        * `availability_zone` (`str`) - Availability Zone in which to launch the instances.
-        * `instance_type` (`str`) - Instance type.
-        * `maxPrice` (`str`) - Maximum price per unit hour that you are willing to pay for a Spot Instance.
-        * `priority` (`float`) - Priority for the launch template override. If `on_demand_options` `allocation_strategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
-        * `subnet_id` (`str`) - ID of the subnet in which to launch the instances.
-        * `weightedCapacity` (`float`) - Number of units provided by the specified instance type.
-    """
-    on_demand_options: pulumi.Output[dict]
-    """
-    Nested argument containing On-Demand configurations. Defined below.
-
-      * `allocation_strategy` (`str`) - How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
-    """
-    replace_unhealthy_instances: pulumi.Output[bool]
-    """
-    Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
-    """
-    spot_options: pulumi.Output[dict]
-    """
-    Nested argument containing Spot configurations. Defined below.
-
-      * `allocation_strategy` (`str`) - How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
-      * `instanceInterruptionBehavior` (`str`) - Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
-      * `instance_pools_to_use_count` (`float`) - Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-    """
-    target_capacity_specification: pulumi.Output[dict]
-    """
-    Nested argument containing target capacity configurations. Defined below.
-
-      * `defaultTargetCapacityType` (`str`) - Default target capacity type. Valid values: `on-demand`, `spot`.
-      * `onDemandTargetCapacity` (`float`) - The number of On-Demand units to request.
-      * `spotTargetCapacity` (`float`) - The number of Spot units to request.
-      * `totalTargetCapacity` (`float`) - The number of units to request, filled using `default_target_capacity_type`.
-    """
-    terminate_instances: pulumi.Output[bool]
-    """
-    Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-    """
-    terminate_instances_with_expiration: pulumi.Output[bool]
-    """
-    Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
-    """
-    def __init__(__self__, resource_name, opts=None, excess_capacity_termination_policy=None, launch_template_config=None, on_demand_options=None, replace_unhealthy_instances=None, spot_options=None, tags=None, target_capacity_specification=None, terminate_instances=None, terminate_instances_with_expiration=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
+                 launch_template_config: Optional[pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']]] = None,
+                 on_demand_options: Optional[pulumi.Input[pulumi.InputType['FleetOnDemandOptionsArgs']]] = None,
+                 replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
+                 spot_options: Optional[pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_capacity_specification: Optional[pulumi.Input[pulumi.InputType['FleetTargetCapacitySpecificationArgs']]] = None,
+                 terminate_instances: Optional[pulumi.Input[bool]] = None,
+                 terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a resource to manage EC2 Fleets.
 
@@ -85,62 +40,30 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.Fleet("example",
-            launch_template_config={
-                "launchTemplateSpecification": {
-                    "launchTemplateId": aws_launch_template["example"]["id"],
-                    "version": aws_launch_template["example"]["latest_version"],
-                },
-            },
-            target_capacity_specification={
-                "defaultTargetCapacityType": "spot",
-                "totalTargetCapacity": 5,
-            })
+            launch_template_config=aws.ec2.FleetLaunchTemplateConfigArgs(
+                launch_template_specification=aws.ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs(
+                    launch_template_id=aws_launch_template["example"]["id"],
+                    version=aws_launch_template["example"]["latest_version"],
+                ),
+            ),
+            target_capacity_specification=aws.ec2.FleetTargetCapacitySpecificationArgs(
+                default_target_capacity_type="spot",
+                total_target_capacity=5,
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] excess_capacity_termination_policy: Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
-        :param pulumi.Input[dict] launch_template_config: Nested argument containing EC2 Launch Template configurations. Defined below.
-        :param pulumi.Input[dict] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
+        :param pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']] launch_template_config: Nested argument containing EC2 Launch Template configurations. Defined below.
+        :param pulumi.Input[pulumi.InputType['FleetOnDemandOptionsArgs']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
         :param pulumi.Input[bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
-        :param pulumi.Input[dict] spot_options: Nested argument containing Spot configurations. Defined below.
-        :param pulumi.Input[dict] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-        :param pulumi.Input[dict] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
+        :param pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']] spot_options: Nested argument containing Spot configurations. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
+        :param pulumi.Input[pulumi.InputType['FleetTargetCapacitySpecificationArgs']] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
         :param pulumi.Input[bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
         :param pulumi.Input[str] type: The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
-
-        The **launch_template_config** object supports the following:
-
-          * `launchTemplateSpecification` (`pulumi.Input[dict]`) - Nested argument containing EC2 Launch Template to use. Defined below.
-            * `launchTemplateId` (`pulumi.Input[str]`) - ID of the launch template.
-            * `launchTemplateName` (`pulumi.Input[str]`) - Name of the launch template.
-            * `version` (`pulumi.Input[str]`) - Version number of the launch template.
-
-          * `overrides` (`pulumi.Input[list]`) - Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
-            * `availability_zone` (`pulumi.Input[str]`) - Availability Zone in which to launch the instances.
-            * `instance_type` (`pulumi.Input[str]`) - Instance type.
-            * `maxPrice` (`pulumi.Input[str]`) - Maximum price per unit hour that you are willing to pay for a Spot Instance.
-            * `priority` (`pulumi.Input[float]`) - Priority for the launch template override. If `on_demand_options` `allocation_strategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
-            * `subnet_id` (`pulumi.Input[str]`) - ID of the subnet in which to launch the instances.
-            * `weightedCapacity` (`pulumi.Input[float]`) - Number of units provided by the specified instance type.
-
-        The **on_demand_options** object supports the following:
-
-          * `allocation_strategy` (`pulumi.Input[str]`) - How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
-
-        The **spot_options** object supports the following:
-
-          * `allocation_strategy` (`pulumi.Input[str]`) - How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
-          * `instanceInterruptionBehavior` (`pulumi.Input[str]`) - Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
-          * `instance_pools_to_use_count` (`pulumi.Input[float]`) - Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
-
-        The **target_capacity_specification** object supports the following:
-
-          * `defaultTargetCapacityType` (`pulumi.Input[str]`) - Default target capacity type. Valid values: `on-demand`, `spot`.
-          * `onDemandTargetCapacity` (`pulumi.Input[float]`) - The number of On-Demand units to request.
-          * `spotTargetCapacity` (`pulumi.Input[float]`) - The number of Spot units to request.
-          * `totalTargetCapacity` (`pulumi.Input[float]`) - The number of units to request, filled using `default_target_capacity_type`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -180,56 +103,36 @@ class Fleet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, excess_capacity_termination_policy=None, launch_template_config=None, on_demand_options=None, replace_unhealthy_instances=None, spot_options=None, tags=None, target_capacity_specification=None, terminate_instances=None, terminate_instances_with_expiration=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
+            launch_template_config: Optional[pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']]] = None,
+            on_demand_options: Optional[pulumi.Input[pulumi.InputType['FleetOnDemandOptionsArgs']]] = None,
+            replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
+            spot_options: Optional[pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            target_capacity_specification: Optional[pulumi.Input[pulumi.InputType['FleetTargetCapacitySpecificationArgs']]] = None,
+            terminate_instances: Optional[pulumi.Input[bool]] = None,
+            terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'Fleet':
         """
         Get an existing Fleet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] excess_capacity_termination_policy: Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
-        :param pulumi.Input[dict] launch_template_config: Nested argument containing EC2 Launch Template configurations. Defined below.
-        :param pulumi.Input[dict] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
+        :param pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']] launch_template_config: Nested argument containing EC2 Launch Template configurations. Defined below.
+        :param pulumi.Input[pulumi.InputType['FleetOnDemandOptionsArgs']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
         :param pulumi.Input[bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
-        :param pulumi.Input[dict] spot_options: Nested argument containing Spot configurations. Defined below.
-        :param pulumi.Input[dict] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
-        :param pulumi.Input[dict] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
+        :param pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']] spot_options: Nested argument containing Spot configurations. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
+        :param pulumi.Input[pulumi.InputType['FleetTargetCapacitySpecificationArgs']] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
         :param pulumi.Input[bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
         :param pulumi.Input[str] type: The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
-
-        The **launch_template_config** object supports the following:
-
-          * `launchTemplateSpecification` (`pulumi.Input[dict]`) - Nested argument containing EC2 Launch Template to use. Defined below.
-            * `launchTemplateId` (`pulumi.Input[str]`) - ID of the launch template.
-            * `launchTemplateName` (`pulumi.Input[str]`) - Name of the launch template.
-            * `version` (`pulumi.Input[str]`) - Version number of the launch template.
-
-          * `overrides` (`pulumi.Input[list]`) - Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
-            * `availability_zone` (`pulumi.Input[str]`) - Availability Zone in which to launch the instances.
-            * `instance_type` (`pulumi.Input[str]`) - Instance type.
-            * `maxPrice` (`pulumi.Input[str]`) - Maximum price per unit hour that you are willing to pay for a Spot Instance.
-            * `priority` (`pulumi.Input[float]`) - Priority for the launch template override. If `on_demand_options` `allocation_strategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
-            * `subnet_id` (`pulumi.Input[str]`) - ID of the subnet in which to launch the instances.
-            * `weightedCapacity` (`pulumi.Input[float]`) - Number of units provided by the specified instance type.
-
-        The **on_demand_options** object supports the following:
-
-          * `allocation_strategy` (`pulumi.Input[str]`) - How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
-
-        The **spot_options** object supports the following:
-
-          * `allocation_strategy` (`pulumi.Input[str]`) - How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
-          * `instanceInterruptionBehavior` (`pulumi.Input[str]`) - Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
-          * `instance_pools_to_use_count` (`pulumi.Input[float]`) - Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
-
-        The **target_capacity_specification** object supports the following:
-
-          * `defaultTargetCapacityType` (`pulumi.Input[str]`) - Default target capacity type. Valid values: `on-demand`, `spot`.
-          * `onDemandTargetCapacity` (`pulumi.Input[float]`) - The number of On-Demand units to request.
-          * `spotTargetCapacity` (`pulumi.Input[float]`) - The number of Spot units to request.
-          * `totalTargetCapacity` (`pulumi.Input[float]`) - The number of units to request, filled using `default_target_capacity_type`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -247,8 +150,89 @@ class Fleet(pulumi.CustomResource):
         __props__["type"] = type
         return Fleet(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="excessCapacityTerminationPolicy")
+    def excess_capacity_termination_policy(self) -> Optional[str]:
+        """
+        Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
+        """
+        return pulumi.get(self, "excess_capacity_termination_policy")
+
+    @property
+    @pulumi.getter(name="launchTemplateConfig")
+    def launch_template_config(self) -> 'outputs.FleetLaunchTemplateConfig':
+        """
+        Nested argument containing EC2 Launch Template configurations. Defined below.
+        """
+        return pulumi.get(self, "launch_template_config")
+
+    @property
+    @pulumi.getter(name="onDemandOptions")
+    def on_demand_options(self) -> Optional['outputs.FleetOnDemandOptions']:
+        """
+        Nested argument containing On-Demand configurations. Defined below.
+        """
+        return pulumi.get(self, "on_demand_options")
+
+    @property
+    @pulumi.getter(name="replaceUnhealthyInstances")
+    def replace_unhealthy_instances(self) -> Optional[bool]:
+        """
+        Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
+        """
+        return pulumi.get(self, "replace_unhealthy_instances")
+
+    @property
+    @pulumi.getter(name="spotOptions")
+    def spot_options(self) -> Optional['outputs.FleetSpotOptions']:
+        """
+        Nested argument containing Spot configurations. Defined below.
+        """
+        return pulumi.get(self, "spot_options")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetCapacitySpecification")
+    def target_capacity_specification(self) -> 'outputs.FleetTargetCapacitySpecification':
+        """
+        Nested argument containing target capacity configurations. Defined below.
+        """
+        return pulumi.get(self, "target_capacity_specification")
+
+    @property
+    @pulumi.getter(name="terminateInstances")
+    def terminate_instances(self) -> Optional[bool]:
+        """
+        Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
+        """
+        return pulumi.get(self, "terminate_instances")
+
+    @property
+    @pulumi.getter(name="terminateInstancesWithExpiration")
+    def terminate_instances_with_expiration(self) -> Optional[bool]:
+        """
+        Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
+        """
+        return pulumi.get(self, "terminate_instances_with_expiration")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,40 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['InstanceProfile']
 
 
 class InstanceProfile(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN assigned by AWS to the instance profile.
-    """
-    create_date: pulumi.Output[str]
-    """
-    The creation timestamp of the instance profile.
-    """
-    name: pulumi.Output[str]
-    """
-    The profile's name. If omitted, this provider will assign a random, unique name.
-    """
-    name_prefix: pulumi.Output[str]
-    """
-    Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-    """
-    path: pulumi.Output[str]
-    """
-    Path in which to create the profile.
-    """
-    role: pulumi.Output[str]
-    """
-    The role name to include in the profile.
-    """
-    unique_id: pulumi.Output[str]
-    """
-    The [unique ID][1] assigned by AWS.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, name_prefix=None, path=None, role=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an IAM instance profile.
 
@@ -72,7 +55,7 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.Input[str] name: The profile's name. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path in which to create the profile.
-        :param pulumi.Input[dict] role: The role name to include in the profile.
+        :param pulumi.Input[str] role: The role name to include in the profile.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,20 +88,29 @@ class InstanceProfile(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, create_date=None, name=None, name_prefix=None, path=None, role=None, unique_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            create_date: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            name_prefix: Optional[pulumi.Input[str]] = None,
+            path: Optional[pulumi.Input[str]] = None,
+            role: Optional[pulumi.Input[str]] = None,
+            unique_id: Optional[pulumi.Input[str]] = None) -> 'InstanceProfile':
         """
         Get an existing InstanceProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN assigned by AWS to the instance profile.
         :param pulumi.Input[str] create_date: The creation timestamp of the instance profile.
         :param pulumi.Input[str] name: The profile's name. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path in which to create the profile.
-        :param pulumi.Input[dict] role: The role name to include in the profile.
+        :param pulumi.Input[str] role: The role name to include in the profile.
         :param pulumi.Input[str] unique_id: The [unique ID][1] assigned by AWS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -134,8 +126,65 @@ class InstanceProfile(pulumi.CustomResource):
         __props__["unique_id"] = unique_id
         return InstanceProfile(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN assigned by AWS to the instance profile.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="createDate")
+    def create_date(self) -> str:
+        """
+        The creation timestamp of the instance profile.
+        """
+        return pulumi.get(self, "create_date")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The profile's name. If omitted, this provider will assign a random, unique name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[str]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Path in which to create the profile.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        The role name to include in the profile.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="uniqueId")
+    def unique_id(self) -> str:
+        """
+        The [unique ID][1] assigned by AWS.
+        """
+        return pulumi.get(self, "unique_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

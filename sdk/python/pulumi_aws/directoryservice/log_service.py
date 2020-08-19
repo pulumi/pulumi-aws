@@ -5,20 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['LogService']
 
 
 class LogService(pulumi.CustomResource):
-    directory_id: pulumi.Output[str]
-    """
-    The id of directory.
-    """
-    log_group_name: pulumi.Output[str]
-    """
-    Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-    """
-    def __init__(__self__, resource_name, opts=None, directory_id=None, log_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 directory_id: Optional[pulumi.Input[str]] = None,
+                 log_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
 
@@ -29,18 +30,18 @@ class LogService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=14)
-        ad_log_policy_policy_document = example_log_group.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
-            "actions": [
+        ad_log_policy_policy_document = example_log_group.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=[
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
-            "principals": [{
-                "identifiers": ["ds.amazonaws.com"],
-                "type": "Service",
-            }],
-            "resources": [f"{arn}:*"],
-            "effect": "Allow",
-        }]))
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=["ds.amazonaws.com"],
+                type="Service",
+            )],
+            resources=[f"{arn}:*"],
+            effect="Allow",
+        )]))
         ad_log_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("ad-log-policyLogResourcePolicy",
             policy_document=ad_log_policy_policy_document.json,
             policy_name="ad-log-policy")
@@ -84,13 +85,17 @@ class LogService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, directory_id=None, log_group_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            directory_id: Optional[pulumi.Input[str]] = None,
+            log_group_name: Optional[pulumi.Input[str]] = None) -> 'LogService':
         """
         Get an existing LogService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] directory_id: The id of directory.
         :param pulumi.Input[str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
@@ -103,8 +108,25 @@ class LogService(pulumi.CustomResource):
         __props__["log_group_name"] = log_group_name
         return LogService(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="directoryId")
+    def directory_id(self) -> str:
+        """
+        The id of directory.
+        """
+        return pulumi.get(self, "directory_id")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> str:
+        """
+        Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+        """
+        return pulumi.get(self, "log_group_name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

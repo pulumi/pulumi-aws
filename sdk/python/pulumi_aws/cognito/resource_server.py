@@ -5,32 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ResourceServer']
 
 
 class ResourceServer(pulumi.CustomResource):
-    identifier: pulumi.Output[str]
-    """
-    An identifier for the resource server.
-    """
-    name: pulumi.Output[str]
-    """
-    A name for the resource server.
-    """
-    scope_identifiers: pulumi.Output[list]
-    """
-    A list of all scopes configured for this resource server in the format identifier/scope_name.
-    """
-    scopes: pulumi.Output[list]
-    """
-    A list of Authorization Scope.
-
-      * `scopeDescription` (`str`) - The scope description.
-      * `scopeName` (`str`) - The scope name.
-    """
-    user_pool_id: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, identifier=None, name=None, scopes=None, user_pool_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 identifier: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]]] = None,
+                 user_pool_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Cognito Resource Server.
 
@@ -55,10 +48,10 @@ class ResourceServer(pulumi.CustomResource):
         pool = aws.cognito.UserPool("pool")
         resource = aws.cognito.ResourceServer("resource",
             identifier="https://example.com",
-            scopes=[{
-                "scopeDescription": "a Sample Scope Description",
-                "scopeName": "sample-scope",
-            }],
+            scopes=[aws.cognito.ResourceServerScopeArgs(
+                scope_description="a Sample Scope Description",
+                scope_name="sample-scope",
+            )],
             user_pool_id=pool.id)
         ```
 
@@ -66,12 +59,7 @@ class ResourceServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identifier: An identifier for the resource server.
         :param pulumi.Input[str] name: A name for the resource server.
-        :param pulumi.Input[list] scopes: A list of Authorization Scope.
-
-        The **scopes** object supports the following:
-
-          * `scopeDescription` (`pulumi.Input[str]`) - The scope description.
-          * `scopeName` (`pulumi.Input[str]`) - The scope name.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]] scopes: A list of Authorization Scope.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -106,23 +94,25 @@ class ResourceServer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identifier=None, name=None, scope_identifiers=None, scopes=None, user_pool_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            identifier: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            scope_identifiers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            scopes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]]] = None,
+            user_pool_id: Optional[pulumi.Input[str]] = None) -> 'ResourceServer':
         """
         Get an existing ResourceServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identifier: An identifier for the resource server.
         :param pulumi.Input[str] name: A name for the resource server.
-        :param pulumi.Input[list] scope_identifiers: A list of all scopes configured for this resource server in the format identifier/scope_name.
-        :param pulumi.Input[list] scopes: A list of Authorization Scope.
-
-        The **scopes** object supports the following:
-
-          * `scopeDescription` (`pulumi.Input[str]`) - The scope description.
-          * `scopeName` (`pulumi.Input[str]`) - The scope name.
+        :param pulumi.Input[List[pulumi.Input[str]]] scope_identifiers: A list of all scopes configured for this resource server in the format identifier/scope_name.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]] scopes: A list of Authorization Scope.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -135,8 +125,46 @@ class ResourceServer(pulumi.CustomResource):
         __props__["user_pool_id"] = user_pool_id
         return ResourceServer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def identifier(self) -> str:
+        """
+        An identifier for the resource server.
+        """
+        return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A name for the resource server.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="scopeIdentifiers")
+    def scope_identifiers(self) -> List[str]:
+        """
+        A list of all scopes configured for this resource server in the format identifier/scope_name.
+        """
+        return pulumi.get(self, "scope_identifiers")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[List['outputs.ResourceServerScope']]:
+        """
+        A list of Authorization Scope.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> str:
+        return pulumi.get(self, "user_pool_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

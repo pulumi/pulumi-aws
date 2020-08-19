@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetClusterAuthResult',
+    'AwaitableGetClusterAuthResult',
+    'get_cluster_auth',
+]
 
+@pulumi.output_type
 class GetClusterAuthResult:
     """
     A collection of values returned by getClusterAuth.
@@ -16,19 +22,34 @@ class GetClusterAuthResult:
     def __init__(__self__, id=None, name=None, token=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if token and not isinstance(token, str):
+            raise TypeError("Expected argument 'token' to be a str")
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if token and not isinstance(token, str):
-            raise TypeError("Expected argument 'token' to be a str")
-        __self__.token = token
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
         """
         The token to use to authenticate with the cluster.
         """
+        return pulumi.get(self, "token")
 
 
 class AwaitableGetClusterAuthResult(GetClusterAuthResult):
@@ -42,7 +63,8 @@ class AwaitableGetClusterAuthResult(GetClusterAuthResult):
             token=self.token)
 
 
-def get_cluster_auth(name=None, opts=None):
+def get_cluster_auth(name: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterAuthResult:
     """
     Get an authentication token to communicate with an EKS cluster.
 
@@ -60,9 +82,9 @@ def get_cluster_auth(name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:eks/getClusterAuth:getClusterAuth', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:eks/getClusterAuth:getClusterAuth', __args__, opts=opts, typ=GetClusterAuthResult).value
 
     return AwaitableGetClusterAuthResult(
-        id=__ret__.get('id'),
-        name=__ret__.get('name'),
-        token=__ret__.get('token'))
+        id=__ret__.id,
+        name=__ret__.name,
+        token=__ret__.token)

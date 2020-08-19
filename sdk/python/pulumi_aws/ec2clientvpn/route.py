@@ -5,30 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Route']
 
 
 class Route(pulumi.CustomResource):
-    client_vpn_endpoint_id: pulumi.Output[str]
-    """
-    The ID of the Client VPN endpoint.
-    """
-    description: pulumi.Output[str]
-    """
-    A brief description of the authorization rule.
-    """
-    destination_cidr_block: pulumi.Output[str]
-    """
-    The IPv4 address range, in CIDR notation, of the route destination.
-    """
-    origin: pulumi.Output[str]
-    target_vpc_subnet_id: pulumi.Output[str]
-    """
-    The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-    """
-    type: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, client_vpn_endpoint_id=None, description=None, destination_cidr_block=None, target_vpc_subnet_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 destination_cidr_block: Optional[pulumi.Input[str]] = None,
+                 target_vpc_subnet_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides additional routes for AWS Client VPN endpoints. For more information on usage, please see the
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
@@ -43,13 +36,13 @@ class Route(pulumi.CustomResource):
             description="Example Client VPN endpoint",
             server_certificate_arn=aws_acm_certificate["example"]["arn"],
             client_cidr_block="10.0.0.0/16",
-            authentication_options=[{
-                "type": "certificate-authentication",
-                "rootCertificateChainArn": aws_acm_certificate["example"]["arn"],
-            }],
-            connection_log_options={
-                "enabled": False,
-            })
+            authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
+                type="certificate-authentication",
+                root_certificate_chain_arn=aws_acm_certificate["example"]["arn"],
+            )],
+            connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
+                enabled=False,
+            ))
         example_network_association = aws.ec2clientvpn.NetworkAssociation("exampleNetworkAssociation",
             client_vpn_endpoint_id=example_endpoint.id,
             subnet_id=aws_subnet["example"]["id"])
@@ -109,13 +102,21 @@ class Route(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, client_vpn_endpoint_id=None, description=None, destination_cidr_block=None, origin=None, target_vpc_subnet_id=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            destination_cidr_block: Optional[pulumi.Input[str]] = None,
+            origin: Optional[pulumi.Input[str]] = None,
+            target_vpc_subnet_id: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'Route':
         """
         Get an existing Route resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[str] description: A brief description of the authorization rule.
@@ -134,8 +135,51 @@ class Route(pulumi.CustomResource):
         __props__["type"] = type
         return Route(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="clientVpnEndpointId")
+    def client_vpn_endpoint_id(self) -> str:
+        """
+        The ID of the Client VPN endpoint.
+        """
+        return pulumi.get(self, "client_vpn_endpoint_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A brief description of the authorization rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationCidrBlock")
+    def destination_cidr_block(self) -> str:
+        """
+        The IPv4 address range, in CIDR notation, of the route destination.
+        """
+        return pulumi.get(self, "destination_cidr_block")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> str:
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter(name="targetVpcSubnetId")
+    def target_vpc_subnet_id(self) -> str:
+        """
+        The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+        """
+        return pulumi.get(self, "target_vpc_subnet_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

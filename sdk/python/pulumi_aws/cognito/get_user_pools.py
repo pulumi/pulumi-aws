@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetUserPoolsResult',
+    'AwaitableGetUserPoolsResult',
+    'get_user_pools',
+]
 
+@pulumi.output_type
 class GetUserPoolsResult:
     """
     A collection of values returned by getUserPools.
@@ -16,22 +22,42 @@ class GetUserPoolsResult:
     def __init__(__self__, arns=None, id=None, ids=None, name=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
-        __self__.arns = arns
+        pulumi.set(__self__, "arns", arns)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if ids and not isinstance(ids, list):
+            raise TypeError("Expected argument 'ids' to be a list")
+        pulumi.set(__self__, "ids", ids)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arns(self) -> List[str]:
+        return pulumi.get(self, "arns")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if ids and not isinstance(ids, list):
-            raise TypeError("Expected argument 'ids' to be a list")
-        __self__.ids = ids
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def ids(self) -> List[str]:
         """
         The list of cognito user pool ids.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "ids")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 class AwaitableGetUserPoolsResult(GetUserPoolsResult):
@@ -46,7 +72,8 @@ class AwaitableGetUserPoolsResult(GetUserPoolsResult):
             name=self.name)
 
 
-def get_user_pools(name=None, opts=None):
+def get_user_pools(name: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolsResult:
     """
     Use this data source to get a list of cognito user pools.
 
@@ -73,10 +100,10 @@ def get_user_pools(name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:cognito/getUserPools:getUserPools', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:cognito/getUserPools:getUserPools', __args__, opts=opts, typ=GetUserPoolsResult).value
 
     return AwaitableGetUserPoolsResult(
-        arns=__ret__.get('arns'),
-        id=__ret__.get('id'),
-        ids=__ret__.get('ids'),
-        name=__ret__.get('name'))
+        arns=__ret__.arns,
+        id=__ret__.id,
+        ids=__ret__.ids,
+        name=__ret__.name)

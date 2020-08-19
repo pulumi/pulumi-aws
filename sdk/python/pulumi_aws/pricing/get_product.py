@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetProductResult',
+    'AwaitableGetProductResult',
+    'get_product',
+]
 
+@pulumi.output_type
 class GetProductResult:
     """
     A collection of values returned by getProduct.
@@ -16,22 +24,42 @@ class GetProductResult:
     def __init__(__self__, filters=None, id=None, result=None, service_code=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
-        __self__.filters = filters
+        pulumi.set(__self__, "filters", filters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if result and not isinstance(result, str):
+            raise TypeError("Expected argument 'result' to be a str")
+        pulumi.set(__self__, "result", result)
+        if service_code and not isinstance(service_code, str):
+            raise TypeError("Expected argument 'service_code' to be a str")
+        pulumi.set(__self__, "service_code", service_code)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> List['outputs.GetProductFilterResult']:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if result and not isinstance(result, str):
-            raise TypeError("Expected argument 'result' to be a str")
-        __self__.result = result
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def result(self) -> str:
         """
         Set to the product returned from the API.
         """
-        if service_code and not isinstance(service_code, str):
-            raise TypeError("Expected argument 'service_code' to be a str")
-        __self__.service_code = service_code
+        return pulumi.get(self, "result")
+
+    @property
+    @pulumi.getter(name="serviceCode")
+    def service_code(self) -> str:
+        return pulumi.get(self, "service_code")
 
 
 class AwaitableGetProductResult(GetProductResult):
@@ -46,7 +74,9 @@ class AwaitableGetProductResult(GetProductResult):
             service_code=self.service_code)
 
 
-def get_product(filters=None, service_code=None, opts=None):
+def get_product(filters: Optional[List[pulumi.InputType['GetProductFilterArgs']]] = None,
+                service_code: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
     Use this data source to get the pricing information of all products in AWS.
     This data source is only available in a us-east-1 or ap-south-1 provider.
@@ -58,34 +88,34 @@ def get_product(filters=None, service_code=None, opts=None):
     import pulumi_aws as aws
 
     example = aws.pricing.get_product(filters=[
-            {
-                "field": "instanceType",
-                "value": "c5.xlarge",
-            },
-            {
-                "field": "operatingSystem",
-                "value": "Linux",
-            },
-            {
-                "field": "location",
-                "value": "US East (N. Virginia)",
-            },
-            {
-                "field": "preInstalledSw",
-                "value": "NA",
-            },
-            {
-                "field": "licenseModel",
-                "value": "No License required",
-            },
-            {
-                "field": "tenancy",
-                "value": "Shared",
-            },
-            {
-                "field": "capacitystatus",
-                "value": "Used",
-            },
+            aws.pricing.GetProductFilterArgs(
+                field="instanceType",
+                value="c5.xlarge",
+            ),
+            aws.pricing.GetProductFilterArgs(
+                field="operatingSystem",
+                value="Linux",
+            ),
+            aws.pricing.GetProductFilterArgs(
+                field="location",
+                value="US East (N. Virginia)",
+            ),
+            aws.pricing.GetProductFilterArgs(
+                field="preInstalledSw",
+                value="NA",
+            ),
+            aws.pricing.GetProductFilterArgs(
+                field="licenseModel",
+                value="No License required",
+            ),
+            aws.pricing.GetProductFilterArgs(
+                field="tenancy",
+                value="Shared",
+            ),
+            aws.pricing.GetProductFilterArgs(
+                field="capacitystatus",
+                value="Used",
+            ),
         ],
         service_code="AmazonEC2")
     ```
@@ -95,26 +125,21 @@ def get_product(filters=None, service_code=None, opts=None):
     import pulumi_aws as aws
 
     example = aws.pricing.get_product(filters=[
-            {
-                "field": "instanceType",
-                "value": "ds1.xlarge",
-            },
-            {
-                "field": "location",
-                "value": "US East (N. Virginia)",
-            },
+            aws.pricing.GetProductFilterArgs(
+                field="instanceType",
+                value="ds1.xlarge",
+            ),
+            aws.pricing.GetProductFilterArgs(
+                field="location",
+                value="US East (N. Virginia)",
+            ),
         ],
         service_code="AmazonRedshift")
     ```
 
 
-    :param list filters: A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+    :param List[pulumi.InputType['GetProductFilterArgs']] filters: A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
     :param str service_code: The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
-
-    The **filters** object supports the following:
-
-      * `field` (`str`) - The product attribute name that you want to filter on.
-      * `value` (`str`) - The product attribute value that you want to filter on.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -123,10 +148,10 @@ def get_product(filters=None, service_code=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:pricing/getProduct:getProduct', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:pricing/getProduct:getProduct', __args__, opts=opts, typ=GetProductResult).value
 
     return AwaitableGetProductResult(
-        filters=__ret__.get('filters'),
-        id=__ret__.get('id'),
-        result=__ret__.get('result'),
-        service_code=__ret__.get('serviceCode'))
+        filters=__ret__.filters,
+        id=__ret__.id,
+        result=__ret__.result,
+        service_code=__ret__.service_code)

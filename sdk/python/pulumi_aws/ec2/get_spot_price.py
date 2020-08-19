@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetSpotPriceResult',
+    'AwaitableGetSpotPriceResult',
+    'get_spot_price',
+]
 
+@pulumi.output_type
 class GetSpotPriceResult:
     """
     A collection of values returned by getSpotPrice.
@@ -16,31 +24,61 @@ class GetSpotPriceResult:
     def __init__(__self__, availability_zone=None, filters=None, id=None, instance_type=None, spot_price=None, spot_price_timestamp=None):
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
-        __self__.availability_zone = availability_zone
+        pulumi.set(__self__, "availability_zone", availability_zone)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
-        __self__.filters = filters
+        pulumi.set(__self__, "filters", filters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if instance_type and not isinstance(instance_type, str):
+            raise TypeError("Expected argument 'instance_type' to be a str")
+        pulumi.set(__self__, "instance_type", instance_type)
+        if spot_price and not isinstance(spot_price, str):
+            raise TypeError("Expected argument 'spot_price' to be a str")
+        pulumi.set(__self__, "spot_price", spot_price)
+        if spot_price_timestamp and not isinstance(spot_price_timestamp, str):
+            raise TypeError("Expected argument 'spot_price_timestamp' to be a str")
+        pulumi.set(__self__, "spot_price_timestamp", spot_price_timestamp)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[List['outputs.GetSpotPriceFilterResult']]:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if instance_type and not isinstance(instance_type, str):
-            raise TypeError("Expected argument 'instance_type' to be a str")
-        __self__.instance_type = instance_type
-        if spot_price and not isinstance(spot_price, str):
-            raise TypeError("Expected argument 'spot_price' to be a str")
-        __self__.spot_price = spot_price
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[str]:
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="spotPrice")
+    def spot_price(self) -> str:
         """
         The most recent Spot Price value for the given instance type and AZ.
         """
-        if spot_price_timestamp and not isinstance(spot_price_timestamp, str):
-            raise TypeError("Expected argument 'spot_price_timestamp' to be a str")
-        __self__.spot_price_timestamp = spot_price_timestamp
+        return pulumi.get(self, "spot_price")
+
+    @property
+    @pulumi.getter(name="spotPriceTimestamp")
+    def spot_price_timestamp(self) -> str:
         """
         The timestamp at which the Spot Price value was published.
         """
+        return pulumi.get(self, "spot_price_timestamp")
 
 
 class AwaitableGetSpotPriceResult(GetSpotPriceResult):
@@ -57,19 +95,17 @@ class AwaitableGetSpotPriceResult(GetSpotPriceResult):
             spot_price_timestamp=self.spot_price_timestamp)
 
 
-def get_spot_price(availability_zone=None, filters=None, instance_type=None, opts=None):
+def get_spot_price(availability_zone: Optional[str] = None,
+                   filters: Optional[List[pulumi.InputType['GetSpotPriceFilterArgs']]] = None,
+                   instance_type: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpotPriceResult:
     """
     Information about most recent Spot Price for a given EC2 instance.
 
 
     :param str availability_zone: The availability zone in which to query Spot price information.
-    :param list filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
+    :param List[pulumi.InputType['GetSpotPriceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
     :param str instance_type: The type of instance for which to query Spot Price information.
-
-    The **filters** object supports the following:
-
-      * `name` (`str`) - Name of the filter.
-      * `values` (`list`) - List of one or more values for the filter.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
@@ -79,12 +115,12 @@ def get_spot_price(availability_zone=None, filters=None, instance_type=None, opt
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getSpotPrice:getSpotPrice', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getSpotPrice:getSpotPrice', __args__, opts=opts, typ=GetSpotPriceResult).value
 
     return AwaitableGetSpotPriceResult(
-        availability_zone=__ret__.get('availabilityZone'),
-        filters=__ret__.get('filters'),
-        id=__ret__.get('id'),
-        instance_type=__ret__.get('instanceType'),
-        spot_price=__ret__.get('spotPrice'),
-        spot_price_timestamp=__ret__.get('spotPriceTimestamp'))
+        availability_zone=__ret__.availability_zone,
+        filters=__ret__.filters,
+        id=__ret__.id,
+        instance_type=__ret__.instance_type,
+        spot_price=__ret__.spot_price,
+        spot_price_timestamp=__ret__.spot_price_timestamp)

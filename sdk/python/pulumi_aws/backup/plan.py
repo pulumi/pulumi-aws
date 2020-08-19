@@ -5,49 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Plan']
 
 
 class Plan(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of the backup plan.
-    """
-    name: pulumi.Output[str]
-    """
-    The display name of a backup plan.
-    """
-    rules: pulumi.Output[list]
-    """
-    A rule object that specifies a scheduled task that is used to back up a selection of resources.
-
-      * `completionWindow` (`float`) - The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
-      * `copyActions` (`list`) - Configuration block(s) with copy operation settings. Detailed below.
-        * `destinationVaultArn` (`str`) - An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
-        * `lifecycle` (`dict`) - The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
-          * `coldStorageAfter` (`float`) - Specifies the number of days after creation that a recovery point is moved to cold storage.
-          * `deleteAfter` (`float`) - Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
-
-      * `lifecycle` (`dict`) - The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
-        * `coldStorageAfter` (`float`) - Specifies the number of days after creation that a recovery point is moved to cold storage.
-        * `deleteAfter` (`float`) - Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
-
-      * `recoveryPointTags` (`dict`) - Metadata that you can assign to help organize the resources that you create.
-      * `rule_name` (`str`) - An display name for a backup rule.
-      * `schedule` (`str`) - A CRON expression specifying when AWS Backup initiates a backup job.
-      * `startWindow` (`float`) - The amount of time in minutes before beginning a backup.
-      * `targetVaultName` (`str`) - The name of a logical container where backups are stored.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Metadata that you can assign to help organize the plans you create.
-    """
-    version: pulumi.Output[str]
-    """
-    Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PlanRuleArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an AWS Backup plan resource.
 
@@ -57,37 +32,18 @@ class Plan(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.backup.Plan("example", rules=[{
-            "rule_name": "tf_example_backup_rule",
-            "targetVaultName": aws_backup_vault["test"]["name"],
-            "schedule": "cron(0 12 * * ? *)",
-        }])
+        example = aws.backup.Plan("example", rules=[aws.backup.PlanRuleArgs(
+            rule_name="tf_example_backup_rule",
+            target_vault_name=aws_backup_vault["test"]["name"],
+            schedule="cron(0 12 * * ? *)",
+        )])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The display name of a backup plan.
-        :param pulumi.Input[list] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
-        :param pulumi.Input[dict] tags: Metadata that you can assign to help organize the plans you create.
-
-        The **rules** object supports the following:
-
-          * `completionWindow` (`pulumi.Input[float]`) - The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
-          * `copyActions` (`pulumi.Input[list]`) - Configuration block(s) with copy operation settings. Detailed below.
-            * `destinationVaultArn` (`pulumi.Input[str]`) - An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
-            * `lifecycle` (`pulumi.Input[dict]`) - The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
-              * `coldStorageAfter` (`pulumi.Input[float]`) - Specifies the number of days after creation that a recovery point is moved to cold storage.
-              * `deleteAfter` (`pulumi.Input[float]`) - Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
-
-          * `lifecycle` (`pulumi.Input[dict]`) - The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
-            * `coldStorageAfter` (`pulumi.Input[float]`) - Specifies the number of days after creation that a recovery point is moved to cold storage.
-            * `deleteAfter` (`pulumi.Input[float]`) - Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
-
-          * `recoveryPointTags` (`pulumi.Input[dict]`) - Metadata that you can assign to help organize the resources that you create.
-          * `rule_name` (`pulumi.Input[str]`) - An display name for a backup rule.
-          * `schedule` (`pulumi.Input[str]`) - A CRON expression specifying when AWS Backup initiates a backup job.
-          * `startWindow` (`pulumi.Input[float]`) - The amount of time in minutes before beginning a backup.
-          * `targetVaultName` (`pulumi.Input[str]`) - The name of a logical container where backups are stored.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PlanRuleArgs']]]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the plans you create.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -120,38 +76,26 @@ class Plan(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, name=None, rules=None, tags=None, version=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PlanRuleArgs']]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            version: Optional[pulumi.Input[str]] = None) -> 'Plan':
         """
         Get an existing Plan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the backup plan.
         :param pulumi.Input[str] name: The display name of a backup plan.
-        :param pulumi.Input[list] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
-        :param pulumi.Input[dict] tags: Metadata that you can assign to help organize the plans you create.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PlanRuleArgs']]]] rules: A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the plans you create.
         :param pulumi.Input[str] version: Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-
-        The **rules** object supports the following:
-
-          * `completionWindow` (`pulumi.Input[float]`) - The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
-          * `copyActions` (`pulumi.Input[list]`) - Configuration block(s) with copy operation settings. Detailed below.
-            * `destinationVaultArn` (`pulumi.Input[str]`) - An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
-            * `lifecycle` (`pulumi.Input[dict]`) - The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
-              * `coldStorageAfter` (`pulumi.Input[float]`) - Specifies the number of days after creation that a recovery point is moved to cold storage.
-              * `deleteAfter` (`pulumi.Input[float]`) - Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
-
-          * `lifecycle` (`pulumi.Input[dict]`) - The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
-            * `coldStorageAfter` (`pulumi.Input[float]`) - Specifies the number of days after creation that a recovery point is moved to cold storage.
-            * `deleteAfter` (`pulumi.Input[float]`) - Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
-
-          * `recoveryPointTags` (`pulumi.Input[dict]`) - Metadata that you can assign to help organize the resources that you create.
-          * `rule_name` (`pulumi.Input[str]`) - An display name for a backup rule.
-          * `schedule` (`pulumi.Input[str]`) - A CRON expression specifying when AWS Backup initiates a backup job.
-          * `startWindow` (`pulumi.Input[float]`) - The amount of time in minutes before beginning a backup.
-          * `targetVaultName` (`pulumi.Input[str]`) - The name of a logical container where backups are stored.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -164,8 +108,49 @@ class Plan(pulumi.CustomResource):
         __props__["version"] = version
         return Plan(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the backup plan.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The display name of a backup plan.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> List['outputs.PlanRule']:
+        """
+        A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata that you can assign to help organize the plans you create.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
 
+__all__ = [
+    'GetPartitionResult',
+    'AwaitableGetPartitionResult',
+    'get_partition',
+]
 
+@pulumi.output_type
 class GetPartitionResult:
     """
     A collection of values returned by getPartition.
@@ -16,16 +22,31 @@ class GetPartitionResult:
     def __init__(__self__, dns_suffix=None, id=None, partition=None):
         if dns_suffix and not isinstance(dns_suffix, str):
             raise TypeError("Expected argument 'dns_suffix' to be a str")
-        __self__.dns_suffix = dns_suffix
+        pulumi.set(__self__, "dns_suffix", dns_suffix)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if partition and not isinstance(partition, str):
+            raise TypeError("Expected argument 'partition' to be a str")
+        pulumi.set(__self__, "partition", partition)
+
+    @property
+    @pulumi.getter(name="dnsSuffix")
+    def dns_suffix(self) -> str:
+        return pulumi.get(self, "dns_suffix")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if partition and not isinstance(partition, str):
-            raise TypeError("Expected argument 'partition' to be a str")
-        __self__.partition = partition
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def partition(self) -> str:
+        return pulumi.get(self, "partition")
 
 
 class AwaitableGetPartitionResult(GetPartitionResult):
@@ -39,7 +60,7 @@ class AwaitableGetPartitionResult(GetPartitionResult):
             partition=self.partition)
 
 
-def get_partition(opts=None):
+def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartitionResult:
     """
     Use this data source to lookup current AWS partition in which this provider is working
 
@@ -50,11 +71,11 @@ def get_partition(opts=None):
     import pulumi_aws as aws
 
     current = aws.get_partition()
-    s3_policy = aws.iam.get_policy_document(statements=[{
-        "actions": ["s3:ListBucket"],
-        "resources": [f"arn:{current.partition}:s3:::my-bucket"],
-        "sid": "1",
-    }])
+    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        actions=["s3:ListBucket"],
+        resources=[f"arn:{current.partition}:s3:::my-bucket"],
+        sid="1",
+    )])
     ```
     """
     __args__ = dict()
@@ -62,9 +83,9 @@ def get_partition(opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:index/getPartition:getPartition', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:index/getPartition:getPartition', __args__, opts=opts, typ=GetPartitionResult).value
 
     return AwaitableGetPartitionResult(
-        dns_suffix=__ret__.get('dnsSuffix'),
-        id=__ret__.get('id'),
-        partition=__ret__.get('partition'))
+        dns_suffix=__ret__.dns_suffix,
+        id=__ret__.id,
+        partition=__ret__.partition)

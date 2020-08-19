@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetOrganizationalUnitsResult',
+    'AwaitableGetOrganizationalUnitsResult',
+    'get_organizational_units',
+]
 
+@pulumi.output_type
 class GetOrganizationalUnitsResult:
     """
     A collection of values returned by getOrganizationalUnits.
@@ -16,19 +23,34 @@ class GetOrganizationalUnitsResult:
     def __init__(__self__, childrens=None, id=None, parent_id=None):
         if childrens and not isinstance(childrens, list):
             raise TypeError("Expected argument 'childrens' to be a list")
-        __self__.childrens = childrens
+        pulumi.set(__self__, "childrens", childrens)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if parent_id and not isinstance(parent_id, str):
+            raise TypeError("Expected argument 'parent_id' to be a str")
+        pulumi.set(__self__, "parent_id", parent_id)
+
+    @property
+    @pulumi.getter
+    def childrens(self) -> List['outputs.GetOrganizationalUnitsChildrenResult']:
         """
         List of child organizational units, which have the following attributes:
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "childrens")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if parent_id and not isinstance(parent_id, str):
-            raise TypeError("Expected argument 'parent_id' to be a str")
-        __self__.parent_id = parent_id
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="parentId")
+    def parent_id(self) -> str:
+        return pulumi.get(self, "parent_id")
 
 
 class AwaitableGetOrganizationalUnitsResult(GetOrganizationalUnitsResult):
@@ -42,7 +64,8 @@ class AwaitableGetOrganizationalUnitsResult(GetOrganizationalUnitsResult):
             parent_id=self.parent_id)
 
 
-def get_organizational_units(parent_id=None, opts=None):
+def get_organizational_units(parent_id: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationalUnitsResult:
     """
     Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
 
@@ -53,7 +76,7 @@ def get_organizational_units(parent_id=None, opts=None):
     import pulumi_aws as aws
 
     org = aws.organizations.get_organization()
-    ou = aws.organizations.get_organizational_units(parent_id=org.roots[0]["id"])
+    ou = aws.organizations.get_organizational_units(parent_id=org.roots[0].id)
     ```
 
 
@@ -65,9 +88,9 @@ def get_organizational_units(parent_id=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:organizations/getOrganizationalUnits:getOrganizationalUnits', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:organizations/getOrganizationalUnits:getOrganizationalUnits', __args__, opts=opts, typ=GetOrganizationalUnitsResult).value
 
     return AwaitableGetOrganizationalUnitsResult(
-        childrens=__ret__.get('childrens'),
-        id=__ret__.get('id'),
-        parent_id=__ret__.get('parentId'))
+        childrens=__ret__.childrens,
+        id=__ret__.id,
+        parent_id=__ret__.parent_id)

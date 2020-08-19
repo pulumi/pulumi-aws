@@ -6,12 +6,39 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
+from . import outputs
+
+__all__ = ['Provider']
 
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, access_key=None, allowed_account_ids=None, assume_role=None, endpoints=None, forbidden_account_ids=None, ignore_tags=None, insecure=None, max_retries=None, profile=None, region=None, s3_force_path_style=None, secret_key=None, shared_credentials_file=None, skip_credentials_validation=None, skip_get_ec2_platforms=None, skip_metadata_api_check=None, skip_region_validation=None, skip_requesting_account_id=None, token=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_key: Optional[pulumi.Input[str]] = None,
+                 allowed_account_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
+                 endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
+                 forbidden_account_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
+                 insecure: Optional[pulumi.Input[bool]] = None,
+                 max_retries: Optional[pulumi.Input[float]] = None,
+                 profile: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 s3_force_path_style: Optional[pulumi.Input[bool]] = None,
+                 secret_key: Optional[pulumi.Input[str]] = None,
+                 shared_credentials_file: Optional[pulumi.Input[str]] = None,
+                 skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
+                 skip_get_ec2_platforms: Optional[pulumi.Input[bool]] = None,
+                 skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
+                 skip_region_validation: Optional[pulumi.Input[bool]] = None,
+                 skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
+                 token: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The provider type for the aws package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -21,7 +48,7 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-        :param pulumi.Input[dict] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
+        :param pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
         :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
         :param pulumi.Input[float] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
@@ -38,164 +65,6 @@ class Provider(pulumi.ProviderResource):
                not public (yet).
         :param pulumi.Input[bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
         :param pulumi.Input[str] token: session token. A session token is only required if you are using temporary security credentials.
-
-        The **assume_role** object supports the following:
-
-          * `duration_seconds` (`pulumi.Input[float]`)
-          * `external_id` (`pulumi.Input[str]`)
-          * `policy` (`pulumi.Input[str]`)
-          * `policy_arns` (`pulumi.Input[list]`)
-          * `role_arn` (`pulumi.Input[str]`)
-          * `session_name` (`pulumi.Input[str]`)
-          * `tags` (`pulumi.Input[dict]`)
-          * `transitive_tag_keys` (`pulumi.Input[list]`)
-
-        The **endpoints** object supports the following:
-
-          * `accessanalyzer` (`pulumi.Input[str]`)
-          * `acm` (`pulumi.Input[str]`)
-          * `acmpca` (`pulumi.Input[str]`)
-          * `amplify` (`pulumi.Input[str]`)
-          * `apigateway` (`pulumi.Input[str]`)
-          * `applicationautoscaling` (`pulumi.Input[str]`)
-          * `applicationinsights` (`pulumi.Input[str]`)
-          * `appmesh` (`pulumi.Input[str]`)
-          * `appstream` (`pulumi.Input[str]`)
-          * `appsync` (`pulumi.Input[str]`)
-          * `athena` (`pulumi.Input[str]`)
-          * `autoscaling` (`pulumi.Input[str]`)
-          * `autoscalingplans` (`pulumi.Input[str]`)
-          * `backup` (`pulumi.Input[str]`)
-          * `batch` (`pulumi.Input[str]`)
-          * `budgets` (`pulumi.Input[str]`)
-          * `cloud9` (`pulumi.Input[str]`)
-          * `cloudformation` (`pulumi.Input[str]`)
-          * `cloudfront` (`pulumi.Input[str]`)
-          * `cloudhsm` (`pulumi.Input[str]`)
-          * `cloudsearch` (`pulumi.Input[str]`)
-          * `cloudtrail` (`pulumi.Input[str]`)
-          * `cloudwatch` (`pulumi.Input[str]`)
-          * `cloudwatchevents` (`pulumi.Input[str]`)
-          * `cloudwatchlogs` (`pulumi.Input[str]`)
-          * `codeartifact` (`pulumi.Input[str]`)
-          * `codebuild` (`pulumi.Input[str]`)
-          * `codecommit` (`pulumi.Input[str]`)
-          * `codedeploy` (`pulumi.Input[str]`)
-          * `codepipeline` (`pulumi.Input[str]`)
-          * `cognitoidentity` (`pulumi.Input[str]`)
-          * `cognitoidp` (`pulumi.Input[str]`)
-          * `configservice` (`pulumi.Input[str]`)
-          * `cur` (`pulumi.Input[str]`)
-          * `dataexchange` (`pulumi.Input[str]`)
-          * `datapipeline` (`pulumi.Input[str]`)
-          * `datasync` (`pulumi.Input[str]`)
-          * `dax` (`pulumi.Input[str]`)
-          * `devicefarm` (`pulumi.Input[str]`)
-          * `directconnect` (`pulumi.Input[str]`)
-          * `dlm` (`pulumi.Input[str]`)
-          * `dms` (`pulumi.Input[str]`)
-          * `docdb` (`pulumi.Input[str]`)
-          * `ds` (`pulumi.Input[str]`)
-          * `dynamodb` (`pulumi.Input[str]`)
-          * `ec2` (`pulumi.Input[str]`)
-          * `ecr` (`pulumi.Input[str]`)
-          * `ecs` (`pulumi.Input[str]`)
-          * `efs` (`pulumi.Input[str]`)
-          * `eks` (`pulumi.Input[str]`)
-          * `elasticache` (`pulumi.Input[str]`)
-          * `elasticbeanstalk` (`pulumi.Input[str]`)
-          * `elastictranscoder` (`pulumi.Input[str]`)
-          * `elb` (`pulumi.Input[str]`)
-          * `emr` (`pulumi.Input[str]`)
-          * `es` (`pulumi.Input[str]`)
-          * `firehose` (`pulumi.Input[str]`)
-          * `fms` (`pulumi.Input[str]`)
-          * `forecast` (`pulumi.Input[str]`)
-          * `fsx` (`pulumi.Input[str]`)
-          * `gamelift` (`pulumi.Input[str]`)
-          * `glacier` (`pulumi.Input[str]`)
-          * `globalaccelerator` (`pulumi.Input[str]`)
-          * `glue` (`pulumi.Input[str]`)
-          * `greengrass` (`pulumi.Input[str]`)
-          * `guardduty` (`pulumi.Input[str]`)
-          * `iam` (`pulumi.Input[str]`)
-          * `imagebuilder` (`pulumi.Input[str]`)
-          * `inspector` (`pulumi.Input[str]`)
-          * `iot` (`pulumi.Input[str]`)
-          * `iotanalytics` (`pulumi.Input[str]`)
-          * `iotevents` (`pulumi.Input[str]`)
-          * `kafka` (`pulumi.Input[str]`)
-          * `kinesis` (`pulumi.Input[str]`)
-          * `kinesisanalytics` (`pulumi.Input[str]`)
-          * `kinesisanalyticsv2` (`pulumi.Input[str]`)
-          * `kinesisvideo` (`pulumi.Input[str]`)
-          * `kms` (`pulumi.Input[str]`)
-          * `lakeformation` (`pulumi.Input[str]`)
-          * `lambda` (`pulumi.Input[str]`)
-          * `lexmodels` (`pulumi.Input[str]`)
-          * `licensemanager` (`pulumi.Input[str]`)
-          * `lightsail` (`pulumi.Input[str]`)
-          * `macie` (`pulumi.Input[str]`)
-          * `managedblockchain` (`pulumi.Input[str]`)
-          * `marketplacecatalog` (`pulumi.Input[str]`)
-          * `mediaconnect` (`pulumi.Input[str]`)
-          * `mediaconvert` (`pulumi.Input[str]`)
-          * `medialive` (`pulumi.Input[str]`)
-          * `mediapackage` (`pulumi.Input[str]`)
-          * `mediastore` (`pulumi.Input[str]`)
-          * `mediastoredata` (`pulumi.Input[str]`)
-          * `mq` (`pulumi.Input[str]`)
-          * `neptune` (`pulumi.Input[str]`)
-          * `networkmanager` (`pulumi.Input[str]`)
-          * `opsworks` (`pulumi.Input[str]`)
-          * `organizations` (`pulumi.Input[str]`)
-          * `outposts` (`pulumi.Input[str]`)
-          * `personalize` (`pulumi.Input[str]`)
-          * `pinpoint` (`pulumi.Input[str]`)
-          * `pricing` (`pulumi.Input[str]`)
-          * `qldb` (`pulumi.Input[str]`)
-          * `quicksight` (`pulumi.Input[str]`)
-          * `ram` (`pulumi.Input[str]`)
-          * `rds` (`pulumi.Input[str]`)
-          * `redshift` (`pulumi.Input[str]`)
-          * `resourcegroups` (`pulumi.Input[str]`)
-          * `resourcegroupstaggingapi` (`pulumi.Input[str]`)
-          * `route53` (`pulumi.Input[str]`)
-          * `route53domains` (`pulumi.Input[str]`)
-          * `route53resolver` (`pulumi.Input[str]`)
-          * `s3` (`pulumi.Input[str]`)
-          * `s3control` (`pulumi.Input[str]`)
-          * `sagemaker` (`pulumi.Input[str]`)
-          * `sdb` (`pulumi.Input[str]`)
-          * `secretsmanager` (`pulumi.Input[str]`)
-          * `securityhub` (`pulumi.Input[str]`)
-          * `serverlessrepo` (`pulumi.Input[str]`)
-          * `servicecatalog` (`pulumi.Input[str]`)
-          * `servicediscovery` (`pulumi.Input[str]`)
-          * `servicequotas` (`pulumi.Input[str]`)
-          * `ses` (`pulumi.Input[str]`)
-          * `shield` (`pulumi.Input[str]`)
-          * `sns` (`pulumi.Input[str]`)
-          * `sqs` (`pulumi.Input[str]`)
-          * `ssm` (`pulumi.Input[str]`)
-          * `stepfunctions` (`pulumi.Input[str]`)
-          * `storagegateway` (`pulumi.Input[str]`)
-          * `sts` (`pulumi.Input[str]`)
-          * `swf` (`pulumi.Input[str]`)
-          * `synthetics` (`pulumi.Input[str]`)
-          * `transfer` (`pulumi.Input[str]`)
-          * `waf` (`pulumi.Input[str]`)
-          * `wafregional` (`pulumi.Input[str]`)
-          * `wafv2` (`pulumi.Input[str]`)
-          * `worklink` (`pulumi.Input[str]`)
-          * `workmail` (`pulumi.Input[str]`)
-          * `workspaces` (`pulumi.Input[str]`)
-          * `xray` (`pulumi.Input[str]`)
-
-        The **ignore_tags** object supports the following:
-
-          * `key_prefixes` (`pulumi.Input[list]`)
-          * `keys` (`pulumi.Input[list]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -248,3 +117,4 @@ class Provider(pulumi.ProviderResource):
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetImageResult',
+    'AwaitableGetImageResult',
+    'get_image',
+]
 
+@pulumi.output_type
 class GetImageResult:
     """
     A collection of values returned by getImage.
@@ -16,40 +22,80 @@ class GetImageResult:
     def __init__(__self__, id=None, image_digest=None, image_pushed_at=None, image_size_in_bytes=None, image_tag=None, image_tags=None, registry_id=None, repository_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if image_digest and not isinstance(image_digest, str):
+            raise TypeError("Expected argument 'image_digest' to be a str")
+        pulumi.set(__self__, "image_digest", image_digest)
+        if image_pushed_at and not isinstance(image_pushed_at, float):
+            raise TypeError("Expected argument 'image_pushed_at' to be a float")
+        pulumi.set(__self__, "image_pushed_at", image_pushed_at)
+        if image_size_in_bytes and not isinstance(image_size_in_bytes, float):
+            raise TypeError("Expected argument 'image_size_in_bytes' to be a float")
+        pulumi.set(__self__, "image_size_in_bytes", image_size_in_bytes)
+        if image_tag and not isinstance(image_tag, str):
+            raise TypeError("Expected argument 'image_tag' to be a str")
+        pulumi.set(__self__, "image_tag", image_tag)
+        if image_tags and not isinstance(image_tags, list):
+            raise TypeError("Expected argument 'image_tags' to be a list")
+        pulumi.set(__self__, "image_tags", image_tags)
+        if registry_id and not isinstance(registry_id, str):
+            raise TypeError("Expected argument 'registry_id' to be a str")
+        pulumi.set(__self__, "registry_id", registry_id)
+        if repository_name and not isinstance(repository_name, str):
+            raise TypeError("Expected argument 'repository_name' to be a str")
+        pulumi.set(__self__, "repository_name", repository_name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if image_digest and not isinstance(image_digest, str):
-            raise TypeError("Expected argument 'image_digest' to be a str")
-        __self__.image_digest = image_digest
-        if image_pushed_at and not isinstance(image_pushed_at, float):
-            raise TypeError("Expected argument 'image_pushed_at' to be a float")
-        __self__.image_pushed_at = image_pushed_at
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="imageDigest")
+    def image_digest(self) -> str:
+        return pulumi.get(self, "image_digest")
+
+    @property
+    @pulumi.getter(name="imagePushedAt")
+    def image_pushed_at(self) -> float:
         """
         The date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
         """
-        if image_size_in_bytes and not isinstance(image_size_in_bytes, float):
-            raise TypeError("Expected argument 'image_size_in_bytes' to be a float")
-        __self__.image_size_in_bytes = image_size_in_bytes
+        return pulumi.get(self, "image_pushed_at")
+
+    @property
+    @pulumi.getter(name="imageSizeInBytes")
+    def image_size_in_bytes(self) -> float:
         """
         The size, in bytes, of the image in the repository.
         """
-        if image_tag and not isinstance(image_tag, str):
-            raise TypeError("Expected argument 'image_tag' to be a str")
-        __self__.image_tag = image_tag
-        if image_tags and not isinstance(image_tags, list):
-            raise TypeError("Expected argument 'image_tags' to be a list")
-        __self__.image_tags = image_tags
+        return pulumi.get(self, "image_size_in_bytes")
+
+    @property
+    @pulumi.getter(name="imageTag")
+    def image_tag(self) -> Optional[str]:
+        return pulumi.get(self, "image_tag")
+
+    @property
+    @pulumi.getter(name="imageTags")
+    def image_tags(self) -> List[str]:
         """
         The list of tags associated with this image.
         """
-        if registry_id and not isinstance(registry_id, str):
-            raise TypeError("Expected argument 'registry_id' to be a str")
-        __self__.registry_id = registry_id
-        if repository_name and not isinstance(repository_name, str):
-            raise TypeError("Expected argument 'repository_name' to be a str")
-        __self__.repository_name = repository_name
+        return pulumi.get(self, "image_tags")
+
+    @property
+    @pulumi.getter(name="registryId")
+    def registry_id(self) -> str:
+        return pulumi.get(self, "registry_id")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> str:
+        return pulumi.get(self, "repository_name")
 
 
 class AwaitableGetImageResult(GetImageResult):
@@ -68,7 +114,11 @@ class AwaitableGetImageResult(GetImageResult):
             repository_name=self.repository_name)
 
 
-def get_image(image_digest=None, image_tag=None, registry_id=None, repository_name=None, opts=None):
+def get_image(image_digest: Optional[str] = None,
+              image_tag: Optional[str] = None,
+              registry_id: Optional[str] = None,
+              repository_name: Optional[str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
 
@@ -97,14 +147,14 @@ def get_image(image_digest=None, image_tag=None, registry_id=None, repository_na
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:ecr/getImage:getImage', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:ecr/getImage:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
-        id=__ret__.get('id'),
-        image_digest=__ret__.get('imageDigest'),
-        image_pushed_at=__ret__.get('imagePushedAt'),
-        image_size_in_bytes=__ret__.get('imageSizeInBytes'),
-        image_tag=__ret__.get('imageTag'),
-        image_tags=__ret__.get('imageTags'),
-        registry_id=__ret__.get('registryId'),
-        repository_name=__ret__.get('repositoryName'))
+        id=__ret__.id,
+        image_digest=__ret__.image_digest,
+        image_pushed_at=__ret__.image_pushed_at,
+        image_size_in_bytes=__ret__.image_size_in_bytes,
+        image_tag=__ret__.image_tag,
+        image_tags=__ret__.image_tags,
+        registry_id=__ret__.registry_id,
+        repository_name=__ret__.repository_name)

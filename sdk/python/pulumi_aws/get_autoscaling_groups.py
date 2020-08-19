@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetAutoscalingGroupsResult',
+    'AwaitableGetAutoscalingGroupsResult',
+    'get_autoscaling_groups',
+]
 
+@pulumi.output_type
 class GetAutoscalingGroupsResult:
     """
     A collection of values returned by getAutoscalingGroups.
@@ -16,25 +24,45 @@ class GetAutoscalingGroupsResult:
     def __init__(__self__, arns=None, filters=None, id=None, names=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
-        __self__.arns = arns
+        pulumi.set(__self__, "arns", arns)
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        pulumi.set(__self__, "filters", filters)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if names and not isinstance(names, list):
+            raise TypeError("Expected argument 'names' to be a list")
+        pulumi.set(__self__, "names", names)
+
+    @property
+    @pulumi.getter
+    def arns(self) -> List[str]:
         """
         A list of the Autoscaling Groups Arns in the current region.
         """
-        if filters and not isinstance(filters, list):
-            raise TypeError("Expected argument 'filters' to be a list")
-        __self__.filters = filters
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "arns")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[List['outputs.GetAutoscalingGroupsFilterResult']]:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if names and not isinstance(names, list):
-            raise TypeError("Expected argument 'names' to be a list")
-        __self__.names = names
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def names(self) -> List[str]:
         """
         A list of the Autoscaling Groups in the current region.
         """
+        return pulumi.get(self, "names")
 
 
 class AwaitableGetAutoscalingGroupsResult(GetAutoscalingGroupsResult):
@@ -49,7 +77,8 @@ class AwaitableGetAutoscalingGroupsResult(GetAutoscalingGroupsResult):
             names=self.names)
 
 
-def get_autoscaling_groups(filters=None, opts=None):
+def get_autoscaling_groups(filters: Optional[List[pulumi.InputType['GetAutoscalingGroupsFilterArgs']]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutoscalingGroupsResult:
     """
     The Autoscaling Groups data source allows access to the list of AWS
     ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
@@ -61,14 +90,14 @@ def get_autoscaling_groups(filters=None, opts=None):
     import pulumi_aws as aws
 
     groups = aws.get_autoscaling_groups(filters=[
-        {
-            "name": "key",
-            "values": ["Team"],
-        },
-        {
-            "name": "value",
-            "values": ["Pets"],
-        },
+        aws.GetAutoscalingGroupsFilterArgs(
+            name="key",
+            values=["Team"],
+        ),
+        aws.GetAutoscalingGroupsFilterArgs(
+            name="value",
+            values=["Pets"],
+        ),
     ])
     slack_notifications = aws.autoscaling.Notification("slackNotifications",
         group_names=groups.names,
@@ -82,12 +111,7 @@ def get_autoscaling_groups(filters=None, opts=None):
     ```
 
 
-    :param list filters: A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-
-    The **filters** object supports the following:
-
-      * `name` (`str`) - The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
-      * `values` (`list`) - The value of the filter.
+    :param List[pulumi.InputType['GetAutoscalingGroupsFilterArgs']] filters: A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -95,10 +119,10 @@ def get_autoscaling_groups(filters=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:index/getAutoscalingGroups:getAutoscalingGroups', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:index/getAutoscalingGroups:getAutoscalingGroups', __args__, opts=opts, typ=GetAutoscalingGroupsResult).value
 
     return AwaitableGetAutoscalingGroupsResult(
-        arns=__ret__.get('arns'),
-        filters=__ret__.get('filters'),
-        id=__ret__.get('id'),
-        names=__ret__.get('names'))
+        arns=__ret__.arns,
+        filters=__ret__.filters,
+        id=__ret__.id,
+        names=__ret__.names)
