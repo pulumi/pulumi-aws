@@ -5,8 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+
+__all__ = [
+    'access_key',
+    'allowed_account_ids',
+    'assume_role',
+    'endpoints',
+    'forbidden_account_ids',
+    'ignore_tags',
+    'insecure',
+    'max_retries',
+    'profile',
+    'region',
+    's3_force_path_style',
+    'secret_key',
+    'shared_credentials_file',
+    'skip_credentials_validation',
+    'skip_get_ec2_platforms',
+    'skip_metadata_api_check',
+    'skip_region_validation',
+    'skip_requesting_account_id',
+    'token',
+]
 
 __config__ = pulumi.Config('aws')
 

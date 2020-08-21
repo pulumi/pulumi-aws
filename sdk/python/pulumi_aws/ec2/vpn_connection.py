@@ -5,106 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['VpnConnection']
 
 
 class VpnConnection(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    Amazon Resource Name (ARN) of the VPN Connection.
-    """
-    customer_gateway_configuration: pulumi.Output[str]
-    """
-    The configuration information for the VPN connection's customer gateway (in the native XML format).
-    """
-    customer_gateway_id: pulumi.Output[str]
-    """
-    The ID of the customer gateway.
-    """
-    routes: pulumi.Output[list]
-    static_routes_only: pulumi.Output[bool]
-    """
-    Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Tags to apply to the connection.
-    """
-    transit_gateway_attachment_id: pulumi.Output[str]
-    """
-    When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
-    """
-    transit_gateway_id: pulumi.Output[str]
-    """
-    The ID of the EC2 Transit Gateway.
-    """
-    tunnel1_address: pulumi.Output[str]
-    """
-    The public IP address of the first VPN tunnel.
-    """
-    tunnel1_bgp_asn: pulumi.Output[str]
-    """
-    The bgp asn number of the first VPN tunnel.
-    """
-    tunnel1_bgp_holdtime: pulumi.Output[float]
-    """
-    The bgp holdtime of the first VPN tunnel.
-    """
-    tunnel1_cgw_inside_address: pulumi.Output[str]
-    """
-    The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
-    """
-    tunnel1_inside_cidr: pulumi.Output[str]
-    """
-    The CIDR block of the inside IP addresses for the first VPN tunnel.
-    """
-    tunnel1_preshared_key: pulumi.Output[str]
-    """
-    The preshared key of the first VPN tunnel.
-    """
-    tunnel1_vgw_inside_address: pulumi.Output[str]
-    """
-    The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
-    """
-    tunnel2_address: pulumi.Output[str]
-    """
-    The public IP address of the second VPN tunnel.
-    """
-    tunnel2_bgp_asn: pulumi.Output[str]
-    """
-    The bgp asn number of the second VPN tunnel.
-    """
-    tunnel2_bgp_holdtime: pulumi.Output[float]
-    """
-    The bgp holdtime of the second VPN tunnel.
-    """
-    tunnel2_cgw_inside_address: pulumi.Output[str]
-    """
-    The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
-    """
-    tunnel2_inside_cidr: pulumi.Output[str]
-    """
-    The CIDR block of the inside IP addresses for the second VPN tunnel.
-    """
-    tunnel2_preshared_key: pulumi.Output[str]
-    """
-    The preshared key of the second VPN tunnel.
-    """
-    tunnel2_vgw_inside_address: pulumi.Output[str]
-    """
-    The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
-    """
-    type: pulumi.Output[str]
-    """
-    The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
-    """
-    vgw_telemetries: pulumi.Output[list]
-    vpn_gateway_id: pulumi.Output[str]
-    """
-    The ID of the Virtual Private Gateway.
-    """
-    def __init__(__self__, resource_name, opts=None, customer_gateway_id=None, static_routes_only=None, tags=None, transit_gateway_id=None, tunnel1_inside_cidr=None, tunnel1_preshared_key=None, tunnel2_inside_cidr=None, tunnel2_preshared_key=None, type=None, vpn_gateway_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 customer_gateway_id: Optional[pulumi.Input[str]] = None,
+                 static_routes_only: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
+                 tunnel1_preshared_key: Optional[pulumi.Input[str]] = None,
+                 tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
+                 tunnel2_preshared_key: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an EC2 VPN connection. These objects can be connected to customer gateways, and allow you to establish tunnels between your network and Amazon.
 
@@ -122,7 +47,7 @@ class VpnConnection(pulumi.CustomResource):
 
         example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
         example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
-            bgp_asn=65000,
+            bgp_asn="65000",
             ip_address="172.0.0.1",
             type="ipsec.1")
         example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
@@ -139,7 +64,7 @@ class VpnConnection(pulumi.CustomResource):
         vpc = aws.ec2.Vpc("vpc", cidr_block="10.0.0.0/16")
         vpn_gateway = aws.ec2.VpnGateway("vpnGateway", vpc_id=vpc.id)
         customer_gateway = aws.ec2.CustomerGateway("customerGateway",
-            bgp_asn=65000,
+            bgp_asn="65000",
             ip_address="172.0.0.1",
             type="ipsec.1")
         main = aws.ec2.VpnConnection("main",
@@ -153,7 +78,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-        :param pulumi.Input[dict] tags: Tags to apply to the connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel.
         :param pulumi.Input[str] tunnel1_preshared_key: The preshared key of the first VPN tunnel.
@@ -215,19 +140,46 @@ class VpnConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, customer_gateway_configuration=None, customer_gateway_id=None, routes=None, static_routes_only=None, tags=None, transit_gateway_attachment_id=None, transit_gateway_id=None, tunnel1_address=None, tunnel1_bgp_asn=None, tunnel1_bgp_holdtime=None, tunnel1_cgw_inside_address=None, tunnel1_inside_cidr=None, tunnel1_preshared_key=None, tunnel1_vgw_inside_address=None, tunnel2_address=None, tunnel2_bgp_asn=None, tunnel2_bgp_holdtime=None, tunnel2_cgw_inside_address=None, tunnel2_inside_cidr=None, tunnel2_preshared_key=None, tunnel2_vgw_inside_address=None, type=None, vgw_telemetries=None, vpn_gateway_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            customer_gateway_configuration: Optional[pulumi.Input[str]] = None,
+            customer_gateway_id: Optional[pulumi.Input[str]] = None,
+            routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnConnectionRouteArgs']]]]] = None,
+            static_routes_only: Optional[pulumi.Input[bool]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+            transit_gateway_id: Optional[pulumi.Input[str]] = None,
+            tunnel1_address: Optional[pulumi.Input[str]] = None,
+            tunnel1_bgp_asn: Optional[pulumi.Input[str]] = None,
+            tunnel1_bgp_holdtime: Optional[pulumi.Input[float]] = None,
+            tunnel1_cgw_inside_address: Optional[pulumi.Input[str]] = None,
+            tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
+            tunnel1_preshared_key: Optional[pulumi.Input[str]] = None,
+            tunnel1_vgw_inside_address: Optional[pulumi.Input[str]] = None,
+            tunnel2_address: Optional[pulumi.Input[str]] = None,
+            tunnel2_bgp_asn: Optional[pulumi.Input[str]] = None,
+            tunnel2_bgp_holdtime: Optional[pulumi.Input[float]] = None,
+            tunnel2_cgw_inside_address: Optional[pulumi.Input[str]] = None,
+            tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
+            tunnel2_preshared_key: Optional[pulumi.Input[str]] = None,
+            tunnel2_vgw_inside_address: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None,
+            vgw_telemetries: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnConnectionVgwTelemetryArgs']]]]] = None,
+            vpn_gateway_id: Optional[pulumi.Input[str]] = None) -> 'VpnConnection':
         """
         Get an existing VpnConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the VPN Connection.
         :param pulumi.Input[str] customer_gateway_configuration: The configuration information for the VPN connection's customer gateway (in the native XML format).
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
-        :param pulumi.Input[dict] tags: Tags to apply to the connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection.
         :param pulumi.Input[str] transit_gateway_attachment_id: When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[str] tunnel1_address: The public IP address of the first VPN tunnel.
@@ -246,20 +198,6 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] tunnel2_vgw_inside_address: The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
         :param pulumi.Input[str] type: The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
         :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
-
-        The **routes** object supports the following:
-
-          * `destination_cidr_block` (`pulumi.Input[str]`)
-          * `source` (`pulumi.Input[str]`)
-          * `state` (`pulumi.Input[str]`)
-
-        The **vgw_telemetries** object supports the following:
-
-          * `acceptedRouteCount` (`pulumi.Input[float]`)
-          * `lastStatusChange` (`pulumi.Input[str]`)
-          * `outsideIpAddress` (`pulumi.Input[str]`)
-          * `status` (`pulumi.Input[str]`)
-          * `statusMessage` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -292,8 +230,203 @@ class VpnConnection(pulumi.CustomResource):
         __props__["vpn_gateway_id"] = vpn_gateway_id
         return VpnConnection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the VPN Connection.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="customerGatewayConfiguration")
+    def customer_gateway_configuration(self) -> str:
+        """
+        The configuration information for the VPN connection's customer gateway (in the native XML format).
+        """
+        return pulumi.get(self, "customer_gateway_configuration")
+
+    @property
+    @pulumi.getter(name="customerGatewayId")
+    def customer_gateway_id(self) -> str:
+        """
+        The ID of the customer gateway.
+        """
+        return pulumi.get(self, "customer_gateway_id")
+
+    @property
+    @pulumi.getter
+    def routes(self) -> List['outputs.VpnConnectionRoute']:
+        return pulumi.get(self, "routes")
+
+    @property
+    @pulumi.getter(name="staticRoutesOnly")
+    def static_routes_only(self) -> bool:
+        """
+        Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
+        """
+        return pulumi.get(self, "static_routes_only")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags to apply to the connection.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="transitGatewayAttachmentId")
+    def transit_gateway_attachment_id(self) -> str:
+        """
+        When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_id")
+
+    @property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> Optional[str]:
+        """
+        The ID of the EC2 Transit Gateway.
+        """
+        return pulumi.get(self, "transit_gateway_id")
+
+    @property
+    @pulumi.getter(name="tunnel1Address")
+    def tunnel1_address(self) -> str:
+        """
+        The public IP address of the first VPN tunnel.
+        """
+        return pulumi.get(self, "tunnel1_address")
+
+    @property
+    @pulumi.getter(name="tunnel1BgpAsn")
+    def tunnel1_bgp_asn(self) -> str:
+        """
+        The bgp asn number of the first VPN tunnel.
+        """
+        return pulumi.get(self, "tunnel1_bgp_asn")
+
+    @property
+    @pulumi.getter(name="tunnel1BgpHoldtime")
+    def tunnel1_bgp_holdtime(self) -> float:
+        """
+        The bgp holdtime of the first VPN tunnel.
+        """
+        return pulumi.get(self, "tunnel1_bgp_holdtime")
+
+    @property
+    @pulumi.getter(name="tunnel1CgwInsideAddress")
+    def tunnel1_cgw_inside_address(self) -> str:
+        """
+        The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
+        """
+        return pulumi.get(self, "tunnel1_cgw_inside_address")
+
+    @property
+    @pulumi.getter(name="tunnel1InsideCidr")
+    def tunnel1_inside_cidr(self) -> str:
+        """
+        The CIDR block of the inside IP addresses for the first VPN tunnel.
+        """
+        return pulumi.get(self, "tunnel1_inside_cidr")
+
+    @property
+    @pulumi.getter(name="tunnel1PresharedKey")
+    def tunnel1_preshared_key(self) -> str:
+        """
+        The preshared key of the first VPN tunnel.
+        """
+        return pulumi.get(self, "tunnel1_preshared_key")
+
+    @property
+    @pulumi.getter(name="tunnel1VgwInsideAddress")
+    def tunnel1_vgw_inside_address(self) -> str:
+        """
+        The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
+        """
+        return pulumi.get(self, "tunnel1_vgw_inside_address")
+
+    @property
+    @pulumi.getter(name="tunnel2Address")
+    def tunnel2_address(self) -> str:
+        """
+        The public IP address of the second VPN tunnel.
+        """
+        return pulumi.get(self, "tunnel2_address")
+
+    @property
+    @pulumi.getter(name="tunnel2BgpAsn")
+    def tunnel2_bgp_asn(self) -> str:
+        """
+        The bgp asn number of the second VPN tunnel.
+        """
+        return pulumi.get(self, "tunnel2_bgp_asn")
+
+    @property
+    @pulumi.getter(name="tunnel2BgpHoldtime")
+    def tunnel2_bgp_holdtime(self) -> float:
+        """
+        The bgp holdtime of the second VPN tunnel.
+        """
+        return pulumi.get(self, "tunnel2_bgp_holdtime")
+
+    @property
+    @pulumi.getter(name="tunnel2CgwInsideAddress")
+    def tunnel2_cgw_inside_address(self) -> str:
+        """
+        The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
+        """
+        return pulumi.get(self, "tunnel2_cgw_inside_address")
+
+    @property
+    @pulumi.getter(name="tunnel2InsideCidr")
+    def tunnel2_inside_cidr(self) -> str:
+        """
+        The CIDR block of the inside IP addresses for the second VPN tunnel.
+        """
+        return pulumi.get(self, "tunnel2_inside_cidr")
+
+    @property
+    @pulumi.getter(name="tunnel2PresharedKey")
+    def tunnel2_preshared_key(self) -> str:
+        """
+        The preshared key of the second VPN tunnel.
+        """
+        return pulumi.get(self, "tunnel2_preshared_key")
+
+    @property
+    @pulumi.getter(name="tunnel2VgwInsideAddress")
+    def tunnel2_vgw_inside_address(self) -> str:
+        """
+        The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
+        """
+        return pulumi.get(self, "tunnel2_vgw_inside_address")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vgwTelemetries")
+    def vgw_telemetries(self) -> List['outputs.VpnConnectionVgwTelemetry']:
+        return pulumi.get(self, "vgw_telemetries")
+
+    @property
+    @pulumi.getter(name="vpnGatewayId")
+    def vpn_gateway_id(self) -> Optional[str]:
+        """
+        The ID of the Virtual Private Gateway.
+        """
+        return pulumi.get(self, "vpn_gateway_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

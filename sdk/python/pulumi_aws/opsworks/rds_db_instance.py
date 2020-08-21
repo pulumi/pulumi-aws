@@ -5,28 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['RdsDbInstance']
 
 
 class RdsDbInstance(pulumi.CustomResource):
-    db_password: pulumi.Output[str]
-    """
-    A db password
-    """
-    db_user: pulumi.Output[str]
-    """
-    A db username
-    """
-    rds_db_instance_arn: pulumi.Output[str]
-    """
-    The db instance to register for this stack. Changing this will force a new resource.
-    """
-    stack_id: pulumi.Output[str]
-    """
-    The stack to register a db instance for. Changing this will force a new resource.
-    """
-    def __init__(__self__, resource_name, opts=None, db_password=None, db_user=None, rds_db_instance_arn=None, stack_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 db_password: Optional[pulumi.Input[str]] = None,
+                 db_user: Optional[pulumi.Input[str]] = None,
+                 rds_db_instance_arn: Optional[pulumi.Input[str]] = None,
+                 stack_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an OpsWorks RDS DB Instance resource.
 
@@ -88,13 +83,19 @@ class RdsDbInstance(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, db_password=None, db_user=None, rds_db_instance_arn=None, stack_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            db_password: Optional[pulumi.Input[str]] = None,
+            db_user: Optional[pulumi.Input[str]] = None,
+            rds_db_instance_arn: Optional[pulumi.Input[str]] = None,
+            stack_id: Optional[pulumi.Input[str]] = None) -> 'RdsDbInstance':
         """
         Get an existing RdsDbInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_password: A db password
         :param pulumi.Input[str] db_user: A db username
@@ -111,8 +112,41 @@ class RdsDbInstance(pulumi.CustomResource):
         __props__["stack_id"] = stack_id
         return RdsDbInstance(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="dbPassword")
+    def db_password(self) -> str:
+        """
+        A db password
+        """
+        return pulumi.get(self, "db_password")
+
+    @property
+    @pulumi.getter(name="dbUser")
+    def db_user(self) -> str:
+        """
+        A db username
+        """
+        return pulumi.get(self, "db_user")
+
+    @property
+    @pulumi.getter(name="rdsDbInstanceArn")
+    def rds_db_instance_arn(self) -> str:
+        """
+        The db instance to register for this stack. Changing this will force a new resource.
+        """
+        return pulumi.get(self, "rds_db_instance_arn")
+
+    @property
+    @pulumi.getter(name="stackId")
+    def stack_id(self) -> str:
+        """
+        The stack to register a db instance for. Changing this will force a new resource.
+        """
+        return pulumi.get(self, "stack_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

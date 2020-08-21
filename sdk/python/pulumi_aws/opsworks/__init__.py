@@ -19,3 +19,5 @@ from .rds_db_instance import *
 from .stack import *
 from .static_web_layer import *
 from .user_profile import *
+from ._inputs import *
+from . import outputs

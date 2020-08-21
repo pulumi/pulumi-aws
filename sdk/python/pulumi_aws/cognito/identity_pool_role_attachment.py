@@ -5,34 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['IdentityPoolRoleAttachment']
 
 
 class IdentityPoolRoleAttachment(pulumi.CustomResource):
-    identity_pool_id: pulumi.Output[str]
-    """
-    An identity pool ID in the format REGION:GUID.
-    """
-    role_mappings: pulumi.Output[list]
-    """
-    A List of Role Mapping.
-
-      * `ambiguousRoleResolution` (`str`) - Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-      * `identity_provider` (`str`) - A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
-      * `mappingRules` (`list`) - The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-        * `claim` (`str`) - The claim name that must be present in the token, for example, "isAdmin" or "paid".
-        * `matchType` (`str`) - The match condition that specifies how closely the claim value in the IdP token must match Value.
-        * `role_arn` (`str`) - The role ARN.
-        * `value` (`str`) - A brief string that the claim must match, for example, "paid" or "yes".
-
-      * `type` (`str`) - The role mapping type.
-    """
-    roles: pulumi.Output[dict]
-    """
-    The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-    """
-    def __init__(__self__, resource_name, opts=None, identity_pool_id=None, role_mappings=None, roles=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 identity_pool_id: Optional[pulumi.Input[str]] = None,
+                 role_mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IdentityPoolRoleAttachmentRoleMappingArgs']]]]] = None,
+                 roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an AWS Cognito Identity Pool Roles Attachment.
 
@@ -92,17 +82,17 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
             role=authenticated_role.id)
         main_identity_pool_role_attachment = aws.cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment",
             identity_pool_id=main_identity_pool.id,
-            role_mappings=[{
-                "ambiguousRoleResolution": "AuthenticatedRole",
-                "identity_provider": "graph.facebook.com",
-                "mappingRules": [{
-                    "claim": "isAdmin",
-                    "matchType": "Equals",
-                    "role_arn": authenticated_role.arn,
-                    "value": "paid",
-                }],
-                "type": "Rules",
-            }],
+            role_mappings=[aws.cognito.IdentityPoolRoleAttachmentRoleMappingArgs(
+                ambiguous_role_resolution="AuthenticatedRole",
+                identity_provider="graph.facebook.com",
+                mapping_rules=[aws.cognito.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs(
+                    claim="isAdmin",
+                    match_type="Equals",
+                    role_arn=authenticated_role.arn,
+                    value="paid",
+                )],
+                type="Rules",
+            )],
             roles={
                 "authenticated": authenticated_role.arn,
             })
@@ -111,20 +101,8 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format REGION:GUID.
-        :param pulumi.Input[list] role_mappings: A List of Role Mapping.
-        :param pulumi.Input[dict] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-
-        The **role_mappings** object supports the following:
-
-          * `ambiguousRoleResolution` (`pulumi.Input[str]`) - Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-          * `identity_provider` (`pulumi.Input[str]`) - A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
-          * `mappingRules` (`pulumi.Input[list]`) - The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-            * `claim` (`pulumi.Input[str]`) - The claim name that must be present in the token, for example, "isAdmin" or "paid".
-            * `matchType` (`pulumi.Input[str]`) - The match condition that specifies how closely the claim value in the IdP token must match Value.
-            * `role_arn` (`pulumi.Input[str]`) - The role ARN.
-            * `value` (`pulumi.Input[str]`) - A brief string that the claim must match, for example, "paid" or "yes".
-
-          * `type` (`pulumi.Input[str]`) - The role mapping type.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IdentityPoolRoleAttachmentRoleMappingArgs']]]] role_mappings: A List of Role Mapping.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -157,29 +135,22 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity_pool_id=None, role_mappings=None, roles=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            identity_pool_id: Optional[pulumi.Input[str]] = None,
+            role_mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IdentityPoolRoleAttachmentRoleMappingArgs']]]]] = None,
+            roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'IdentityPoolRoleAttachment':
         """
         Get an existing IdentityPoolRoleAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format REGION:GUID.
-        :param pulumi.Input[list] role_mappings: A List of Role Mapping.
-        :param pulumi.Input[dict] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-
-        The **role_mappings** object supports the following:
-
-          * `ambiguousRoleResolution` (`pulumi.Input[str]`) - Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-          * `identity_provider` (`pulumi.Input[str]`) - A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
-          * `mappingRules` (`pulumi.Input[list]`) - The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-            * `claim` (`pulumi.Input[str]`) - The claim name that must be present in the token, for example, "isAdmin" or "paid".
-            * `matchType` (`pulumi.Input[str]`) - The match condition that specifies how closely the claim value in the IdP token must match Value.
-            * `role_arn` (`pulumi.Input[str]`) - The role ARN.
-            * `value` (`pulumi.Input[str]`) - A brief string that the claim must match, for example, "paid" or "yes".
-
-          * `type` (`pulumi.Input[str]`) - The role mapping type.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IdentityPoolRoleAttachmentRoleMappingArgs']]]] role_mappings: A List of Role Mapping.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -190,8 +161,33 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         __props__["roles"] = roles
         return IdentityPoolRoleAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="identityPoolId")
+    def identity_pool_id(self) -> str:
+        """
+        An identity pool ID in the format REGION:GUID.
+        """
+        return pulumi.get(self, "identity_pool_id")
+
+    @property
+    @pulumi.getter(name="roleMappings")
+    def role_mappings(self) -> Optional[List['outputs.IdentityPoolRoleAttachmentRoleMapping']]:
+        """
+        A List of Role Mapping.
+        """
+        return pulumi.get(self, "role_mappings")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Mapping[str, str]:
+        """
+        The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+        """
+        return pulumi.get(self, "roles")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

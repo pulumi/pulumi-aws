@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from .vars import *
+from . import outputs

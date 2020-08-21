@@ -5,28 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['UserPolicy']
 
 
 class UserPolicy(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    The name of the policy. If omitted, this provider will assign a random, unique name.
-    """
-    name_prefix: pulumi.Output[str]
-    """
-    Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-    """
-    policy: pulumi.Output[str]
-    """
-    The policy document. This is a JSON formatted string.
-    """
-    user: pulumi.Output[str]
-    """
-    IAM user to which to attach this policy.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, name_prefix=None, policy=None, user=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 user: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an IAM policy attached to a user.
 
@@ -59,7 +54,7 @@ class UserPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[dict] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] user: IAM user to which to attach this policy.
         """
         if __name__ is not None:
@@ -94,17 +89,23 @@ class UserPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, name_prefix=None, policy=None, user=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            name_prefix: Optional[pulumi.Input[str]] = None,
+            policy: Optional[pulumi.Input[str]] = None,
+            user: Optional[pulumi.Input[str]] = None) -> 'UserPolicy':
         """
         Get an existing UserPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[dict] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] user: IAM user to which to attach this policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -117,8 +118,41 @@ class UserPolicy(pulumi.CustomResource):
         __props__["user"] = user
         return UserPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the policy. If omitted, this provider will assign a random, unique name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[str]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> str:
+        """
+        The policy document. This is a JSON formatted string.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def user(self) -> str:
+        """
+        IAM user to which to attach this policy.
+        """
+        return pulumi.get(self, "user")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

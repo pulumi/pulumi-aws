@@ -5,29 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Application']
 
 
 class Application(pulumi.CustomResource):
-    appversion_lifecycle: pulumi.Output[dict]
-    arn: pulumi.Output[str]
-    """
-    The ARN assigned by AWS for this Elastic Beanstalk Application.
-    """
-    description: pulumi.Output[str]
-    """
-    Short description of the application
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the application, must be unique within your account
-    """
-    tags: pulumi.Output[dict]
-    """
-    Key-value map of tags for the Elastic Beanstalk Application.
-    """
-    def __init__(__self__, resource_name, opts=None, appversion_lifecycle=None, description=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 appversion_lifecycle: Optional[pulumi.Input[pulumi.InputType['ApplicationAppversionLifecycleArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an Elastic Beanstalk Application Resource. Elastic Beanstalk allows
         you to deploy and manage applications in the AWS cloud without worrying about
@@ -44,25 +40,18 @@ class Application(pulumi.CustomResource):
 
         tftest = aws.elasticbeanstalk.Application("tftest",
             description="tf-test-desc",
-            appversion_lifecycle={
-                "service_role": aws_iam_role["beanstalk_service"]["arn"],
-                "maxCount": 128,
-                "deleteSourceFromS3": True,
-            })
+            appversion_lifecycle=aws.elasticbeanstalk.ApplicationAppversionLifecycleArgs(
+                service_role=aws_iam_role["beanstalk_service"]["arn"],
+                max_count=128,
+                delete_source_from_s3=True,
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Short description of the application
         :param pulumi.Input[str] name: The name of the application, must be unique within your account
-        :param pulumi.Input[dict] tags: Key-value map of tags for the Elastic Beanstalk Application.
-
-        The **appversion_lifecycle** object supports the following:
-
-          * `deleteSourceFromS3` (`pulumi.Input[bool]`) - Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-          * `maxAgeInDays` (`pulumi.Input[float]`) - The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-          * `maxCount` (`pulumi.Input[float]`) - The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-          * `service_role` (`pulumi.Input[str]`) - The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,25 +82,25 @@ class Application(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, appversion_lifecycle=None, arn=None, description=None, name=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            appversion_lifecycle: Optional[pulumi.Input[pulumi.InputType['ApplicationAppversionLifecycleArgs']]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN assigned by AWS for this Elastic Beanstalk Application.
         :param pulumi.Input[str] description: Short description of the application
         :param pulumi.Input[str] name: The name of the application, must be unique within your account
-        :param pulumi.Input[dict] tags: Key-value map of tags for the Elastic Beanstalk Application.
-
-        The **appversion_lifecycle** object supports the following:
-
-          * `deleteSourceFromS3` (`pulumi.Input[bool]`) - Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-          * `maxAgeInDays` (`pulumi.Input[float]`) - The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-          * `maxCount` (`pulumi.Input[float]`) - The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-          * `service_role` (`pulumi.Input[str]`) - The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -124,8 +113,46 @@ class Application(pulumi.CustomResource):
         __props__["tags"] = tags
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="appversionLifecycle")
+    def appversion_lifecycle(self) -> Optional['outputs.ApplicationAppversionLifecycle']:
+        return pulumi.get(self, "appversion_lifecycle")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN assigned by AWS for this Elastic Beanstalk Application.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Short description of the application
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the application, must be unique within your account
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value map of tags for the Elastic Beanstalk Application.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetInvocationResult',
+    'AwaitableGetInvocationResult',
+    'get_invocation',
+]
 
+@pulumi.output_type
 class GetInvocationResult:
     """
     A collection of values returned by getInvocation.
@@ -16,25 +22,50 @@ class GetInvocationResult:
     def __init__(__self__, function_name=None, id=None, input=None, qualifier=None, result=None):
         if function_name and not isinstance(function_name, str):
             raise TypeError("Expected argument 'function_name' to be a str")
-        __self__.function_name = function_name
+        pulumi.set(__self__, "function_name", function_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if input and not isinstance(input, str):
+            raise TypeError("Expected argument 'input' to be a str")
+        pulumi.set(__self__, "input", input)
+        if qualifier and not isinstance(qualifier, str):
+            raise TypeError("Expected argument 'qualifier' to be a str")
+        pulumi.set(__self__, "qualifier", qualifier)
+        if result and not isinstance(result, str):
+            raise TypeError("Expected argument 'result' to be a str")
+        pulumi.set(__self__, "result", result)
+
+    @property
+    @pulumi.getter(name="functionName")
+    def function_name(self) -> str:
+        return pulumi.get(self, "function_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if input and not isinstance(input, str):
-            raise TypeError("Expected argument 'input' to be a str")
-        __self__.input = input
-        if qualifier and not isinstance(qualifier, str):
-            raise TypeError("Expected argument 'qualifier' to be a str")
-        __self__.qualifier = qualifier
-        if result and not isinstance(result, str):
-            raise TypeError("Expected argument 'result' to be a str")
-        __self__.result = result
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def input(self) -> str:
+        return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter
+    def qualifier(self) -> Optional[str]:
+        return pulumi.get(self, "qualifier")
+
+    @property
+    @pulumi.getter
+    def result(self) -> str:
         """
         String result of the lambda function invocation.
         """
+        return pulumi.get(self, "result")
 
 
 class AwaitableGetInvocationResult(GetInvocationResult):
@@ -50,7 +81,10 @@ class AwaitableGetInvocationResult(GetInvocationResult):
             result=self.result)
 
 
-def get_invocation(function_name=None, input=None, qualifier=None, opts=None):
+def get_invocation(function_name: Optional[str] = None,
+                   input: Optional[str] = None,
+                   qualifier: Optional[str] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInvocationResult:
     """
     Use this data source to invoke custom lambda functions as data source.
     The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
@@ -70,11 +104,11 @@ def get_invocation(function_name=None, input=None, qualifier=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:lambda/getInvocation:getInvocation', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:lambda/getInvocation:getInvocation', __args__, opts=opts, typ=GetInvocationResult).value
 
     return AwaitableGetInvocationResult(
-        function_name=__ret__.get('functionName'),
-        id=__ret__.get('id'),
-        input=__ret__.get('input'),
-        qualifier=__ret__.get('qualifier'),
-        result=__ret__.get('result'))
+        function_name=__ret__.function_name,
+        id=__ret__.id,
+        input=__ret__.input,
+        qualifier=__ret__.qualifier,
+        result=__ret__.result)

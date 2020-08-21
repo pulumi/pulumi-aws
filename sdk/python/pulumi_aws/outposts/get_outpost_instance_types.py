@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetOutpostInstanceTypesResult',
+    'AwaitableGetOutpostInstanceTypesResult',
+    'get_outpost_instance_types',
+]
 
+@pulumi.output_type
 class GetOutpostInstanceTypesResult:
     """
     A collection of values returned by getOutpostInstanceTypes.
@@ -16,19 +22,34 @@ class GetOutpostInstanceTypesResult:
     def __init__(__self__, arn=None, id=None, instance_types=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        pulumi.set(__self__, "arn", arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if instance_types and not isinstance(instance_types, list):
+            raise TypeError("Expected argument 'instance_types' to be a list")
+        pulumi.set(__self__, "instance_types", instance_types)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if instance_types and not isinstance(instance_types, list):
-            raise TypeError("Expected argument 'instance_types' to be a list")
-        __self__.instance_types = instance_types
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="instanceTypes")
+    def instance_types(self) -> List[str]:
         """
         Set of instance types.
         """
+        return pulumi.get(self, "instance_types")
 
 
 class AwaitableGetOutpostInstanceTypesResult(GetOutpostInstanceTypesResult):
@@ -42,7 +63,8 @@ class AwaitableGetOutpostInstanceTypesResult(GetOutpostInstanceTypesResult):
             instance_types=self.instance_types)
 
 
-def get_outpost_instance_types(arn=None, opts=None):
+def get_outpost_instance_types(arn: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostInstanceTypesResult:
     """
     Information about Outposts Instance Types.
 
@@ -64,9 +86,9 @@ def get_outpost_instance_types(arn=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes', __args__, opts=opts, typ=GetOutpostInstanceTypesResult).value
 
     return AwaitableGetOutpostInstanceTypesResult(
-        arn=__ret__.get('arn'),
-        id=__ret__.get('id'),
-        instance_types=__ret__.get('instanceTypes'))
+        arn=__ret__.arn,
+        id=__ret__.id,
+        instance_types=__ret__.instance_types)

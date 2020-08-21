@@ -5,10 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetGroupResult',
+    'AwaitableGetGroupResult',
+    'get_group',
+]
 
+@pulumi.output_type
 class GetGroupResult:
     """
     A collection of values returned by getGroup.
@@ -16,37 +23,67 @@ class GetGroupResult:
     def __init__(__self__, arn=None, group_id=None, group_name=None, id=None, path=None, users=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        pulumi.set(__self__, "arn", arn)
+        if group_id and not isinstance(group_id, str):
+            raise TypeError("Expected argument 'group_id' to be a str")
+        pulumi.set(__self__, "group_id", group_id)
+        if group_name and not isinstance(group_name, str):
+            raise TypeError("Expected argument 'group_name' to be a str")
+        pulumi.set(__self__, "group_name", group_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if path and not isinstance(path, str):
+            raise TypeError("Expected argument 'path' to be a str")
+        pulumi.set(__self__, "path", path)
+        if users and not isinstance(users, list):
+            raise TypeError("Expected argument 'users' to be a list")
+        pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
         """
         The Amazon Resource Name (ARN) specifying the iam user.
         """
-        if group_id and not isinstance(group_id, str):
-            raise TypeError("Expected argument 'group_id' to be a str")
-        __self__.group_id = group_id
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
         """
         The stable and unique string identifying the group.
         """
-        if group_name and not isinstance(group_name, str):
-            raise TypeError("Expected argument 'group_name' to be a str")
-        __self__.group_name = group_name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> str:
+        return pulumi.get(self, "group_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if path and not isinstance(path, str):
-            raise TypeError("Expected argument 'path' to be a str")
-        __self__.path = path
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
         """
         The path to the iam user.
         """
-        if users and not isinstance(users, list):
-            raise TypeError("Expected argument 'users' to be a list")
-        __self__.users = users
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def users(self) -> List['outputs.GetGroupUserResult']:
         """
         List of objects containing group member information. See supported fields below.
         """
+        return pulumi.get(self, "users")
 
 
 class AwaitableGetGroupResult(GetGroupResult):
@@ -63,7 +100,8 @@ class AwaitableGetGroupResult(GetGroupResult):
             users=self.users)
 
 
-def get_group(group_name=None, opts=None):
+def get_group(group_name: Optional[str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     This data source can be used to fetch information about a specific
     IAM group. By using this data source, you can reference IAM group
@@ -87,12 +125,12 @@ def get_group(group_name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:iam/getGroup:getGroup', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:iam/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        arn=__ret__.get('arn'),
-        group_id=__ret__.get('groupId'),
-        group_name=__ret__.get('groupName'),
-        id=__ret__.get('id'),
-        path=__ret__.get('path'),
-        users=__ret__.get('users'))
+        arn=__ret__.arn,
+        group_id=__ret__.group_id,
+        group_name=__ret__.group_name,
+        id=__ret__.id,
+        path=__ret__.path,
+        users=__ret__.users)

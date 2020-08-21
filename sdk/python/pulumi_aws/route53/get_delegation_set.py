@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetDelegationSetResult',
+    'AwaitableGetDelegationSetResult',
+    'get_delegation_set',
+]
 
+@pulumi.output_type
 class GetDelegationSetResult:
     """
     A collection of values returned by getDelegationSet.
@@ -16,13 +22,28 @@ class GetDelegationSetResult:
     def __init__(__self__, caller_reference=None, id=None, name_servers=None):
         if caller_reference and not isinstance(caller_reference, str):
             raise TypeError("Expected argument 'caller_reference' to be a str")
-        __self__.caller_reference = caller_reference
+        pulumi.set(__self__, "caller_reference", caller_reference)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
         if name_servers and not isinstance(name_servers, list):
             raise TypeError("Expected argument 'name_servers' to be a list")
-        __self__.name_servers = name_servers
+        pulumi.set(__self__, "name_servers", name_servers)
+
+    @property
+    @pulumi.getter(name="callerReference")
+    def caller_reference(self) -> str:
+        return pulumi.get(self, "caller_reference")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="nameServers")
+    def name_servers(self) -> List[str]:
+        return pulumi.get(self, "name_servers")
 
 
 class AwaitableGetDelegationSetResult(GetDelegationSetResult):
@@ -36,7 +57,8 @@ class AwaitableGetDelegationSetResult(GetDelegationSetResult):
             name_servers=self.name_servers)
 
 
-def get_delegation_set(id=None, opts=None):
+def get_delegation_set(id: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDelegationSetResult:
     """
     `route53.DelegationSet` provides details about a specific Route 53 Delegation Set.
 
@@ -62,9 +84,9 @@ def get_delegation_set(id=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:route53/getDelegationSet:getDelegationSet', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:route53/getDelegationSet:getDelegationSet', __args__, opts=opts, typ=GetDelegationSetResult).value
 
     return AwaitableGetDelegationSetResult(
-        caller_reference=__ret__.get('callerReference'),
-        id=__ret__.get('id'),
-        name_servers=__ret__.get('nameServers'))
+        caller_reference=__ret__.caller_reference,
+        id=__ret__.id,
+        name_servers=__ret__.name_servers)

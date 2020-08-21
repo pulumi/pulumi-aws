@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetRegionsResult',
+    'AwaitableGetRegionsResult',
+    'get_regions',
+]
 
+@pulumi.output_type
 class GetRegionsResult:
     """
     A collection of values returned by getRegions.
@@ -16,22 +24,42 @@ class GetRegionsResult:
     def __init__(__self__, all_regions=None, filters=None, id=None, names=None):
         if all_regions and not isinstance(all_regions, bool):
             raise TypeError("Expected argument 'all_regions' to be a bool")
-        __self__.all_regions = all_regions
+        pulumi.set(__self__, "all_regions", all_regions)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
-        __self__.filters = filters
+        pulumi.set(__self__, "filters", filters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if names and not isinstance(names, list):
+            raise TypeError("Expected argument 'names' to be a list")
+        pulumi.set(__self__, "names", names)
+
+    @property
+    @pulumi.getter(name="allRegions")
+    def all_regions(self) -> Optional[bool]:
+        return pulumi.get(self, "all_regions")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[List['outputs.GetRegionsFilterResult']]:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if names and not isinstance(names, list):
-            raise TypeError("Expected argument 'names' to be a list")
-        __self__.names = names
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def names(self) -> List[str]:
         """
         Names of regions that meets the criteria.
         """
+        return pulumi.get(self, "names")
 
 
 class AwaitableGetRegionsResult(GetRegionsResult):
@@ -46,7 +74,9 @@ class AwaitableGetRegionsResult(GetRegionsResult):
             names=self.names)
 
 
-def get_regions(all_regions=None, filters=None, opts=None):
+def get_regions(all_regions: Optional[bool] = None,
+                filters: Optional[List[pulumi.InputType['GetRegionsFilterArgs']]] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegionsResult:
     """
     Provides information about AWS Regions. Can be used to filter regions i.e. by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `getRegion` data source.
 
@@ -77,20 +107,15 @@ def get_regions(all_regions=None, filters=None, opts=None):
     import pulumi_aws as aws
 
     current = aws.get_regions(all_regions=True,
-        filters=[{
-            "name": "opt-in-status",
-            "values": ["not-opted-in"],
-        }])
+        filters=[aws.GetRegionsFilterArgs(
+            name="opt-in-status",
+            values=["not-opted-in"],
+        )])
     ```
 
 
     :param bool all_regions: If true the source will query all regions regardless of availability.
-    :param list filters: Configuration block(s) to use as filters. Detailed below.
-
-    The **filters** object supports the following:
-
-      * `name` (`str`) - The name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-      * `values` (`list`) - Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    :param List[pulumi.InputType['GetRegionsFilterArgs']] filters: Configuration block(s) to use as filters. Detailed below.
     """
     __args__ = dict()
     __args__['allRegions'] = all_regions
@@ -99,10 +124,10 @@ def get_regions(all_regions=None, filters=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:index/getRegions:getRegions', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:index/getRegions:getRegions', __args__, opts=opts, typ=GetRegionsResult).value
 
     return AwaitableGetRegionsResult(
-        all_regions=__ret__.get('allRegions'),
-        filters=__ret__.get('filters'),
-        id=__ret__.get('id'),
-        names=__ret__.get('names'))
+        all_regions=__ret__.all_regions,
+        filters=__ret__.filters,
+        id=__ret__.id,
+        names=__ret__.names)

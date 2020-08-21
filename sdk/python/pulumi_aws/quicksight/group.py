@@ -5,32 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Group']
 
 
 class Group(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    Amazon Resource Name (ARN) of group
-    """
-    aws_account_id: pulumi.Output[str]
-    """
-    The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-    """
-    description: pulumi.Output[str]
-    """
-    A description for the group.
-    """
-    group_name: pulumi.Output[str]
-    """
-    A name for the group.
-    """
-    namespace: pulumi.Output[str]
-    """
-    The namespace. Currently, you should set this to `default`.
-    """
-    def __init__(__self__, resource_name, opts=None, aws_account_id=None, description=None, group_name=None, namespace=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_account_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 namespace: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Resource for managing QuickSight Group
 
@@ -81,13 +72,20 @@ class Group(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, aws_account_id=None, description=None, group_name=None, namespace=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            aws_account_id: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            group_name: Optional[pulumi.Input[str]] = None,
+            namespace: Optional[pulumi.Input[str]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of group
         :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
@@ -106,8 +104,49 @@ class Group(pulumi.CustomResource):
         __props__["namespace"] = namespace
         return Group(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of group
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsAccountId")
+    def aws_account_id(self) -> str:
+        """
+        The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+        """
+        return pulumi.get(self, "aws_account_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for the group.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> str:
+        """
+        A name for the group.
+        """
+        return pulumi.get(self, "group_name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        The namespace. Currently, you should set this to `default`.
+        """
+        return pulumi.get(self, "namespace")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

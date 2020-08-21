@@ -22,10 +22,10 @@ import * as utilities from "../utilities";
  * const myObjects = aws.s3.getBucketObjects({
  *     bucket: "ourcorp",
  * });
- * const objectInfo = Promise.all([myObjects.then(myObjects => myObjects.keys).length, myObjects.then(myObjects => myObjects.keys)[__index], myObjects]).then(([length, keys, myObjects]) => .map(__index => aws.s3.getBucketObject({
- *     key: keys,
- *     bucket: myObjects.bucket,
- * })));
+ * const objectInfo = .map(__index => aws.s3.getBucketObject({
+ *     key: _arg0_,
+ *     bucket: _arg1_.bucket,
+ * }));
  * ```
  */
 export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectsResult> {

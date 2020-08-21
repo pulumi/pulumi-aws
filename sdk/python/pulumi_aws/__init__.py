@@ -19,6 +19,8 @@ from .get_prefix_list import *
 from .get_region import *
 from .get_regions import *
 from .provider import *
+from ._inputs import *
+from . import outputs
 
 # Make subpackages available:
 from . import (

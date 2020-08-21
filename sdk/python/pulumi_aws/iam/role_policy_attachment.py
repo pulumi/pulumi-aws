@@ -5,20 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['RolePolicyAttachment']
 
 
 class RolePolicyAttachment(pulumi.CustomResource):
-    policy_arn: pulumi.Output[str]
-    """
-    The ARN of the policy you want to apply
-    """
-    role: pulumi.Output[str]
-    """
-    The role the policy should be applied to
-    """
-    def __init__(__self__, resource_name, opts=None, policy_arn=None, role=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Attaches a Managed IAM Policy to an IAM role
 
@@ -69,7 +70,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[dict] role: The role the policy should be applied to
+        :param pulumi.Input[str] role: The role the policy should be applied to
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -101,16 +102,20 @@ class RolePolicyAttachment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, policy_arn=None, role=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            policy_arn: Optional[pulumi.Input[str]] = None,
+            role: Optional[pulumi.Input[str]] = None) -> 'RolePolicyAttachment':
         """
         Get an existing RolePolicyAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[dict] role: The role the policy should be applied to
+        :param pulumi.Input[str] role: The role the policy should be applied to
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -120,8 +125,25 @@ class RolePolicyAttachment(pulumi.CustomResource):
         __props__["role"] = role
         return RolePolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="policyArn")
+    def policy_arn(self) -> str:
+        """
+        The ARN of the policy you want to apply
+        """
+        return pulumi.get(self, "policy_arn")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        The role the policy should be applied to
+        """
+        return pulumi.get(self, "role")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

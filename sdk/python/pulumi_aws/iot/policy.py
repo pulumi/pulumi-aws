@@ -5,28 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Policy']
 
 
 class Policy(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN assigned by AWS to this policy.
-    """
-    default_version_id: pulumi.Output[str]
-    """
-    The default version of this policy.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the policy.
-    """
-    policy: pulumi.Output[str]
-    """
-    The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, policy=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an IoT policy.
 
@@ -87,13 +80,19 @@ class Policy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, default_version_id=None, name=None, policy=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            default_version_id: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            policy: Optional[pulumi.Input[str]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN assigned by AWS to this policy.
         :param pulumi.Input[str] default_version_id: The default version of this policy.
@@ -110,8 +109,41 @@ class Policy(pulumi.CustomResource):
         __props__["policy"] = policy
         return Policy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN assigned by AWS to this policy.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="defaultVersionId")
+    def default_version_id(self) -> str:
+        """
+        The default version of this policy.
+        """
+        return pulumi.get(self, "default_version_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the policy.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> str:
+        """
+        The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
+        """
+        return pulumi.get(self, "policy")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

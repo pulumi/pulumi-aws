@@ -5,48 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['ServerCertificate']
 
 
 class ServerCertificate(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The Amazon Resource Name (ARN) specifying the server certificate.
-    """
-    certificate_body: pulumi.Output[str]
-    """
-    The contents of the public key certificate in
-    PEM-encoded format.
-    """
-    certificate_chain: pulumi.Output[str]
-    """
-    The contents of the certificate chain.
-    This is typically a concatenation of the PEM-encoded public key certificates
-    of the chain.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the Server Certificate. Do not include the
-    path in this value. If omitted, this provider will assign a random, unique name.
-    """
-    name_prefix: pulumi.Output[str]
-    """
-    Creates a unique name beginning with the specified
-    prefix. Conflicts with `name`.
-    """
-    path: pulumi.Output[str]
-    """
-    The IAM path for the server certificate.  If it is not
-    included, it defaults to a slash (/). If this certificate is for use with
-    AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
-    See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
-    """
-    private_key: pulumi.Output[str]
-    """
-    The contents of the private key in PEM-encoded format.
-    """
-    def __init__(__self__, resource_name, opts=None, arn=None, certificate_body=None, certificate_chain=None, name=None, name_prefix=None, path=None, private_key=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 certificate_body: Optional[pulumi.Input[str]] = None,
+                 certificate_chain: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 private_key: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an IAM Server Certificate resource to upload Server Certificates.
         Certs uploaded to IAM can easily work with other AWS services such as:
@@ -113,13 +91,13 @@ class ServerCertificate(pulumi.CustomResource):
         ourapp = aws.elb.LoadBalancer("ourapp",
             availability_zones=["us-west-2a"],
             cross_zone_load_balancing=True,
-            listeners=[{
-                "instance_port": 8000,
-                "instanceProtocol": "http",
-                "lb_port": 443,
-                "lbProtocol": "https",
-                "sslCertificateId": test_cert.arn,
-            }])
+            listeners=[aws.elb.LoadBalancerListenerArgs(
+                instance_port=8000,
+                instance_protocol="http",
+                lb_port=443,
+                lb_protocol="https",
+                ssl_certificate_id=test_cert.arn,
+            )])
         ```
 
         :param str resource_name: The name of the resource.
@@ -175,13 +153,22 @@ class ServerCertificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, certificate_body=None, certificate_chain=None, name=None, name_prefix=None, path=None, private_key=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            certificate_body: Optional[pulumi.Input[str]] = None,
+            certificate_chain: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            name_prefix: Optional[pulumi.Input[str]] = None,
+            path: Optional[pulumi.Input[str]] = None,
+            private_key: Optional[pulumi.Input[str]] = None) -> 'ServerCertificate':
         """
         Get an existing ServerCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the server certificate.
         :param pulumi.Input[str] certificate_body: The contents of the public key certificate in
@@ -212,8 +199,73 @@ class ServerCertificate(pulumi.CustomResource):
         __props__["private_key"] = private_key
         return ServerCertificate(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) specifying the server certificate.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="certificateBody")
+    def certificate_body(self) -> str:
+        """
+        The contents of the public key certificate in
+        PEM-encoded format.
+        """
+        return pulumi.get(self, "certificate_body")
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> Optional[str]:
+        """
+        The contents of the certificate chain.
+        This is typically a concatenation of the PEM-encoded public key certificates
+        of the chain.
+        """
+        return pulumi.get(self, "certificate_chain")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Server Certificate. Do not include the
+        path in this value. If omitted, this provider will assign a random, unique name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[str]:
+        """
+        Creates a unique name beginning with the specified
+        prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The IAM path for the server certificate.  If it is not
+        included, it defaults to a slash (/). If this certificate is for use with
+        AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
+        See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        The contents of the private key in PEM-encoded format.
+        """
+        return pulumi.get(self, "private_key")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

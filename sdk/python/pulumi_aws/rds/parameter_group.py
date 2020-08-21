@@ -5,46 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ParameterGroup']
 
 
 class ParameterGroup(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of the db parameter group.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the DB parameter group. Defaults to "Managed by Pulumi".
-    """
-    family: pulumi.Output[str]
-    """
-    The family of the DB parameter group.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the DB parameter.
-    """
-    name_prefix: pulumi.Output[str]
-    """
-    Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-    """
-    parameters: pulumi.Output[list]
-    """
-    A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-
-      * `applyMethod` (`str`) - "immediate" (default), or "pending-reboot". Some
-        engines can't apply some parameters without a reboot, and you will need to
-        specify "pending-reboot" here.
-      * `name` (`str`) - The name of the DB parameter.
-      * `value` (`str`) - The value of the DB parameter.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A map of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, family=None, name=None, name_prefix=None, parameters=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 family: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an RDS DB parameter group resource .Documentation of the available parameters for various RDS engines can be found at:
 
@@ -63,14 +44,14 @@ class ParameterGroup(pulumi.CustomResource):
         default = aws.rds.ParameterGroup("default",
             family="mysql5.6",
             parameters=[
-                {
-                    "name": "character_set_server",
-                    "value": "utf8",
-                },
-                {
-                    "name": "character_set_client",
-                    "value": "utf8",
-                },
+                aws.rds.ParameterGroupParameterArgs(
+                    name="character_set_server",
+                    value="utf8",
+                ),
+                aws.rds.ParameterGroupParameterArgs(
+                    name="character_set_client",
+                    value="utf8",
+                ),
             ])
         ```
 
@@ -80,16 +61,8 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] family: The family of the DB parameter group.
         :param pulumi.Input[str] name: The name of the DB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[list] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
-
-        The **parameters** object supports the following:
-
-          * `applyMethod` (`pulumi.Input[str]`) - "immediate" (default), or "pending-reboot". Some
-            engines can't apply some parameters without a reboot, and you will need to
-            specify "pending-reboot" here.
-          * `name` (`pulumi.Input[str]`) - The name of the DB parameter.
-          * `value` (`pulumi.Input[str]`) - The value of the DB parameter.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -126,29 +99,30 @@ class ParameterGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, description=None, family=None, name=None, name_prefix=None, parameters=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            family: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            name_prefix: Optional[pulumi.Input[str]] = None,
+            parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ParameterGroup':
         """
         Get an existing ParameterGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the db parameter group.
         :param pulumi.Input[str] description: The description of the DB parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the DB parameter group.
         :param pulumi.Input[str] name: The name of the DB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[list] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
-
-        The **parameters** object supports the following:
-
-          * `applyMethod` (`pulumi.Input[str]`) - "immediate" (default), or "pending-reboot". Some
-            engines can't apply some parameters without a reboot, and you will need to
-            specify "pending-reboot" here.
-          * `name` (`pulumi.Input[str]`) - The name of the DB parameter.
-          * `value` (`pulumi.Input[str]`) - The value of the DB parameter.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -163,8 +137,65 @@ class ParameterGroup(pulumi.CustomResource):
         __props__["tags"] = tags
         return ParameterGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the db parameter group.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the DB parameter group. Defaults to "Managed by Pulumi".
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def family(self) -> str:
+        """
+        The family of the DB parameter group.
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the DB parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> str:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[List['outputs.ParameterGroupParameter']]:
+        """
+        A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

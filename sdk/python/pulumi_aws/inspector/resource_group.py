@@ -5,20 +5,20 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['ResourceGroup']
 
 
 class ResourceGroup(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The resource group ARN.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
-    """
-    def __init__(__self__, resource_name, opts=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an Amazon Inspector resource group resource.
 
@@ -36,7 +36,7 @@ class ResourceGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] tags: Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,16 +66,20 @@ class ResourceGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ResourceGroup':
         """
         Get an existing ResourceGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The resource group ARN.
-        :param pulumi.Input[dict] tags: Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -85,8 +89,25 @@ class ResourceGroup(pulumi.CustomResource):
         __props__["tags"] = tags
         return ResourceGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The resource group ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

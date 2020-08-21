@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetStateMachineResult',
+    'AwaitableGetStateMachineResult',
+    'get_state_machine',
+]
 
+@pulumi.output_type
 class GetStateMachineResult:
     """
     A collection of values returned by getStateMachine.
@@ -16,43 +22,78 @@ class GetStateMachineResult:
     def __init__(__self__, arn=None, creation_date=None, definition=None, id=None, name=None, role_arn=None, status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        pulumi.set(__self__, "arn", arn)
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
+        pulumi.set(__self__, "creation_date", creation_date)
+        if definition and not isinstance(definition, str):
+            raise TypeError("Expected argument 'definition' to be a str")
+        pulumi.set(__self__, "definition", definition)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if role_arn and not isinstance(role_arn, str):
+            raise TypeError("Expected argument 'role_arn' to be a str")
+        pulumi.set(__self__, "role_arn", role_arn)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
         """
         Set to the arn of the state function.
         """
-        if creation_date and not isinstance(creation_date, str):
-            raise TypeError("Expected argument 'creation_date' to be a str")
-        __self__.creation_date = creation_date
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> str:
         """
         The date the state machine was created.
         """
-        if definition and not isinstance(definition, str):
-            raise TypeError("Expected argument 'definition' to be a str")
-        __self__.definition = definition
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def definition(self) -> str:
         """
         Set to the state machine definition.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if role_arn and not isinstance(role_arn, str):
-            raise TypeError("Expected argument 'role_arn' to be a str")
-        __self__.role_arn = role_arn
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
         """
         Set to the role_arn used by the state function.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         Set to the current status of the state machine.
         """
+        return pulumi.get(self, "status")
 
 
 class AwaitableGetStateMachineResult(GetStateMachineResult):
@@ -70,7 +111,8 @@ class AwaitableGetStateMachineResult(GetStateMachineResult):
             status=self.status)
 
 
-def get_state_machine(name=None, opts=None):
+def get_state_machine(name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStateMachineResult:
     """
     Use this data source to get the ARN of a State Machine in AWS Step
     Function (SFN). By using this data source, you can reference a
@@ -94,13 +136,13 @@ def get_state_machine(name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:sfn/getStateMachine:getStateMachine', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:sfn/getStateMachine:getStateMachine', __args__, opts=opts, typ=GetStateMachineResult).value
 
     return AwaitableGetStateMachineResult(
-        arn=__ret__.get('arn'),
-        creation_date=__ret__.get('creationDate'),
-        definition=__ret__.get('definition'),
-        id=__ret__.get('id'),
-        name=__ret__.get('name'),
-        role_arn=__ret__.get('roleArn'),
-        status=__ret__.get('status'))
+        arn=__ret__.arn,
+        creation_date=__ret__.creation_date,
+        definition=__ret__.definition,
+        id=__ret__.id,
+        name=__ret__.name,
+        role_arn=__ret__.role_arn,
+        status=__ret__.status)

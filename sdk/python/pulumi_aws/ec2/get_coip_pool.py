@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetCoipPoolResult',
+    'AwaitableGetCoipPoolResult',
+    'get_coip_pool',
+]
 
+@pulumi.output_type
 class GetCoipPoolResult:
     """
     A collection of values returned by getCoipPool.
@@ -16,28 +24,58 @@ class GetCoipPoolResult:
     def __init__(__self__, filters=None, id=None, local_gateway_route_table_id=None, pool_cidrs=None, pool_id=None, tags=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
-        __self__.filters = filters
+        pulumi.set(__self__, "filters", filters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if local_gateway_route_table_id and not isinstance(local_gateway_route_table_id, str):
+            raise TypeError("Expected argument 'local_gateway_route_table_id' to be a str")
+        pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
+        if pool_cidrs and not isinstance(pool_cidrs, list):
+            raise TypeError("Expected argument 'pool_cidrs' to be a list")
+        pulumi.set(__self__, "pool_cidrs", pool_cidrs)
+        if pool_id and not isinstance(pool_id, str):
+            raise TypeError("Expected argument 'pool_id' to be a str")
+        pulumi.set(__self__, "pool_id", pool_id)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[List['outputs.GetCoipPoolFilterResult']]:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if local_gateway_route_table_id and not isinstance(local_gateway_route_table_id, str):
-            raise TypeError("Expected argument 'local_gateway_route_table_id' to be a str")
-        __self__.local_gateway_route_table_id = local_gateway_route_table_id
-        if pool_cidrs and not isinstance(pool_cidrs, list):
-            raise TypeError("Expected argument 'pool_cidrs' to be a list")
-        __self__.pool_cidrs = pool_cidrs
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="localGatewayRouteTableId")
+    def local_gateway_route_table_id(self) -> str:
+        return pulumi.get(self, "local_gateway_route_table_id")
+
+    @property
+    @pulumi.getter(name="poolCidrs")
+    def pool_cidrs(self) -> List[str]:
         """
         Set of CIDR blocks in pool
         """
-        if pool_id and not isinstance(pool_id, str):
-            raise TypeError("Expected argument 'pool_id' to be a str")
-        __self__.pool_id = pool_id
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "pool_cidrs")
+
+    @property
+    @pulumi.getter(name="poolId")
+    def pool_id(self) -> str:
+        return pulumi.get(self, "pool_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        return pulumi.get(self, "tags")
 
 
 class AwaitableGetCoipPoolResult(GetCoipPoolResult):
@@ -54,7 +92,11 @@ class AwaitableGetCoipPoolResult(GetCoipPoolResult):
             tags=self.tags)
 
 
-def get_coip_pool(filters=None, local_gateway_route_table_id=None, pool_id=None, tags=None, opts=None):
+def get_coip_pool(filters: Optional[List[pulumi.InputType['GetCoipPoolFilterArgs']]] = None,
+                  local_gateway_route_table_id: Optional[str] = None,
+                  pool_id: Optional[str] = None,
+                  tags: Optional[Mapping[str, str]] = None,
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCoipPoolResult:
     """
     Provides details about a specific EC2 Customer-Owned IP Pool.
 
@@ -78,15 +120,8 @@ def get_coip_pool(filters=None, local_gateway_route_table_id=None, pool_id=None,
 
     :param str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
     :param str pool_id: The id of the specific COIP Pool to retrieve.
-    :param dict tags: A mapping of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
            a pair on the desired COIP Pool.
-
-    The **filters** object supports the following:
-
-      * `name` (`str`) - The name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
-      * `values` (`list`) - Set of values that are accepted for the given field.
-        A COIP Pool will be selected if any one of the given values matches.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -97,12 +132,12 @@ def get_coip_pool(filters=None, local_gateway_route_table_id=None, pool_id=None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getCoipPool:getCoipPool', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getCoipPool:getCoipPool', __args__, opts=opts, typ=GetCoipPoolResult).value
 
     return AwaitableGetCoipPoolResult(
-        filters=__ret__.get('filters'),
-        id=__ret__.get('id'),
-        local_gateway_route_table_id=__ret__.get('localGatewayRouteTableId'),
-        pool_cidrs=__ret__.get('poolCidrs'),
-        pool_id=__ret__.get('poolId'),
-        tags=__ret__.get('tags'))
+        filters=__ret__.filters,
+        id=__ret__.id,
+        local_gateway_route_table_id=__ret__.local_gateway_route_table_id,
+        pool_cidrs=__ret__.pool_cidrs,
+        pool_id=__ret__.pool_id,
+        tags=__ret__.tags)

@@ -5,145 +5,43 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['TopicRule']
 
 
 class TopicRule(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of the topic rule
-    """
-    cloudwatch_alarm: pulumi.Output[dict]
-    cloudwatch_metric: pulumi.Output[dict]
-    description: pulumi.Output[str]
-    """
-    The description of the rule.
-    """
-    dynamodb: pulumi.Output[dict]
-    dynamodbv2s: pulumi.Output[list]
-    elasticsearch: pulumi.Output[dict]
-    enabled: pulumi.Output[bool]
-    """
-    Specifies whether the rule is enabled.
-    """
-    error_action: pulumi.Output[dict]
-    """
-    Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
-
-      * `cloudwatch_alarm` (`dict`)
-        * `alarmName` (`str`) - The CloudWatch alarm name.
-        * `role_arn` (`str`) - The IAM role ARN that allows access to the CloudWatch alarm.
-        * `stateReason` (`str`) - The reason for the alarm change.
-        * `stateValue` (`str`) - The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-
-      * `cloudwatch_metric` (`dict`)
-        * `metric_name` (`str`) - The CloudWatch metric name.
-        * `metricNamespace` (`str`) - The CloudWatch metric namespace name.
-        * `metricTimestamp` (`str`) - An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-        * `metricUnit` (`str`) - The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-        * `metricValue` (`str`) - The CloudWatch metric value.
-        * `role_arn` (`str`) - The IAM role ARN that allows access to the CloudWatch metric.
-
-      * `dynamodb` (`dict`)
-        * `hashKeyField` (`str`) - The hash key name.
-        * `hashKeyType` (`str`) - The hash key type. Valid values are "STRING" or "NUMBER".
-        * `hashKeyValue` (`str`) - The hash key value.
-        * `operation` (`str`) - The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
-        * `payloadField` (`str`) - The action payload.
-        * `rangeKeyField` (`str`) - The range key name.
-        * `rangeKeyType` (`str`) - The range key type. Valid values are "STRING" or "NUMBER".
-        * `rangeKeyValue` (`str`) - The range key value.
-        * `role_arn` (`str`) - The ARN of the IAM role that grants access to the DynamoDB table.
-        * `table_name` (`str`) - The name of the DynamoDB table.
-
-      * `dynamodbv2` (`dict`)
-        * `putItem` (`dict`) - Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-          * `table_name` (`str`) - The name of the DynamoDB table.
-
-        * `role_arn` (`str`) - The IAM role ARN that allows access to the CloudWatch alarm.
-
-      * `elasticsearch` (`dict`)
-        * `endpoint` (`str`) - The endpoint of your Elasticsearch domain.
-        * `id` (`str`) - The unique identifier for the document you are storing.
-        * `index` (`str`) - The Elasticsearch index where you want to store your data.
-        * `role_arn` (`str`) - The IAM role ARN that has access to Elasticsearch.
-        * `type` (`str`) - The type of document you are storing.
-
-      * `firehose` (`dict`)
-        * `deliveryStreamName` (`str`) - The delivery stream name.
-        * `role_arn` (`str`) - The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-        * `separator` (`str`) - A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-
-      * `iot_analytics` (`dict`)
-        * `channelName` (`str`) - Name of AWS IOT Analytics channel.
-        * `role_arn` (`str`) - The ARN of the IAM role that grants access.
-
-      * `iot_events` (`dict`)
-        * `inputName` (`str`) - The name of the AWS IoT Events input.
-        * `messageId` (`str`) - Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-        * `role_arn` (`str`) - The ARN of the IAM role that grants access.
-
-      * `kinesis` (`dict`)
-        * `partitionKey` (`str`) - The partition key.
-        * `role_arn` (`str`) - The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-        * `streamName` (`str`) - The name of the Amazon Kinesis stream.
-
-      * `lambda` (`dict`)
-        * `function_arn` (`str`) - The ARN of the Lambda function.
-
-      * `republish` (`dict`)
-        * `qos` (`float`) - The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-        * `role_arn` (`str`) - The ARN of the IAM role that grants access.
-        * `topic` (`str`) - The name of the MQTT topic the message should be republished to.
-
-      * `s3` (`dict`)
-        * `bucket_name` (`str`) - The Amazon S3 bucket name.
-        * `key` (`str`) - The object key.
-        * `role_arn` (`str`) - The IAM role ARN that allows access to the CloudWatch alarm.
-
-      * `sns` (`dict`)
-        * `messageFormat` (`str`) - The message format of the message to publish. Accepted values are "JSON" and "RAW".
-        * `role_arn` (`str`) - The ARN of the IAM role that grants access.
-        * `target_arn` (`str`) - The ARN of the SNS topic.
-
-      * `sqs` (`dict`)
-        * `queue_url` (`str`) - The URL of the Amazon SQS queue.
-        * `role_arn` (`str`) - The ARN of the IAM role that grants access.
-        * `useBase64` (`bool`) - Specifies whether to use Base64 encoding.
-
-      * `step_functions` (`dict`)
-        * `executionNamePrefix` (`str`) - The prefix used to generate, along with a UUID, the unique state machine execution name.
-        * `role_arn` (`str`) - The ARN of the IAM role that grants access to start execution of the state machine.
-        * `stateMachineName` (`str`) - The name of the Step Functions state machine whose execution will be started.
-    """
-    firehose: pulumi.Output[dict]
-    iot_analytics: pulumi.Output[list]
-    iot_events: pulumi.Output[list]
-    kinesis: pulumi.Output[dict]
-    lambda_: pulumi.Output[dict]
-    name: pulumi.Output[str]
-    """
-    The name of the rule.
-    """
-    republish: pulumi.Output[dict]
-    s3: pulumi.Output[dict]
-    sns: pulumi.Output[dict]
-    sql: pulumi.Output[str]
-    """
-    The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-    """
-    sql_version: pulumi.Output[str]
-    """
-    The version of the SQL rules engine to use when evaluating the rule.
-    """
-    sqs: pulumi.Output[dict]
-    step_functions: pulumi.Output[list]
-    tags: pulumi.Output[dict]
-    """
-    Key-value map of resource tags
-    """
-    def __init__(__self__, resource_name, opts=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, dynamodbv2s=None, elasticsearch=None, enabled=None, error_action=None, firehose=None, iot_analytics=None, iot_events=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, step_functions=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cloudwatch_alarm: Optional[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchAlarmArgs']]] = None,
+                 cloudwatch_metric: Optional[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchMetricArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 dynamodb: Optional[pulumi.Input[pulumi.InputType['TopicRuleDynamodbArgs']]] = None,
+                 dynamodbv2s: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleDynamodbv2Args']]]]] = None,
+                 elasticsearch: Optional[pulumi.Input[pulumi.InputType['TopicRuleElasticsearchArgs']]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 error_action: Optional[pulumi.Input[pulumi.InputType['TopicRuleErrorActionArgs']]] = None,
+                 firehose: Optional[pulumi.Input[pulumi.InputType['TopicRuleFirehoseArgs']]] = None,
+                 iot_analytics: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleIotAnalyticArgs']]]]] = None,
+                 iot_events: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleIotEventArgs']]]]] = None,
+                 kinesis: Optional[pulumi.Input[pulumi.InputType['TopicRuleKinesisArgs']]] = None,
+                 lambda_: Optional[pulumi.Input[pulumi.InputType['TopicRuleLambdaArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 republish: Optional[pulumi.Input[pulumi.InputType['TopicRuleRepublishArgs']]] = None,
+                 s3: Optional[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]] = None,
+                 sns: Optional[pulumi.Input[pulumi.InputType['TopicRuleSnsArgs']]] = None,
+                 sql: Optional[pulumi.Input[str]] = None,
+                 sql_version: Optional[pulumi.Input[str]] = None,
+                 sqs: Optional[pulumi.Input[pulumi.InputType['TopicRuleSqsArgs']]] = None,
+                 step_functions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleStepFunctionArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         ## Example Usage
 
@@ -171,18 +69,18 @@ class TopicRule(pulumi.CustomResource):
             enabled=True,
             sql="SELECT * FROM 'topic/test'",
             sql_version="2016-03-23",
-            sns={
-                "messageFormat": "RAW",
-                "role_arn": role.arn,
-                "target_arn": mytopic.arn,
-            },
-            error_action={
-                "sns": {
-                    "messageFormat": "RAW",
-                    "role_arn": role.arn,
-                    "target_arn": myerrortopic.arn,
-                },
-            })
+            sns=aws.iot.TopicRuleSnsArgs(
+                message_format="RAW",
+                role_arn=role.arn,
+                target_arn=mytopic.arn,
+            ),
+            error_action=aws.iot.TopicRuleErrorActionArgs(
+                sns=aws.iot.TopicRuleErrorActionSnsArgs(
+                    message_format="RAW",
+                    role_arn=role.arn,
+                    target_arn=myerrortopic.arn,
+                ),
+            ))
         iam_policy_for_lambda = aws.iam.RolePolicy("iamPolicyForLambda",
             role=role.id,
             policy=mytopic.arn.apply(lambda arn: f\"\"\"{{
@@ -204,200 +102,11 @@ class TopicRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the rule.
         :param pulumi.Input[bool] enabled: Specifies whether the rule is enabled.
-        :param pulumi.Input[dict] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        :param pulumi.Input[pulumi.InputType['TopicRuleErrorActionArgs']] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
-        :param pulumi.Input[dict] tags: Key-value map of resource tags
-
-        The **cloudwatch_alarm** object supports the following:
-
-          * `alarmName` (`pulumi.Input[str]`) - The CloudWatch alarm name.
-          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
-          * `stateReason` (`pulumi.Input[str]`) - The reason for the alarm change.
-          * `stateValue` (`pulumi.Input[str]`) - The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-
-        The **cloudwatch_metric** object supports the following:
-
-          * `metric_name` (`pulumi.Input[str]`) - The CloudWatch metric name.
-          * `metricNamespace` (`pulumi.Input[str]`) - The CloudWatch metric namespace name.
-          * `metricTimestamp` (`pulumi.Input[str]`) - An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-          * `metricUnit` (`pulumi.Input[str]`) - The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-          * `metricValue` (`pulumi.Input[str]`) - The CloudWatch metric value.
-          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch metric.
-
-        The **dynamodb** object supports the following:
-
-          * `hashKeyField` (`pulumi.Input[str]`) - The hash key name.
-          * `hashKeyType` (`pulumi.Input[str]`) - The hash key type. Valid values are "STRING" or "NUMBER".
-          * `hashKeyValue` (`pulumi.Input[str]`) - The hash key value.
-          * `operation` (`pulumi.Input[str]`) - The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
-          * `payloadField` (`pulumi.Input[str]`) - The action payload.
-          * `rangeKeyField` (`pulumi.Input[str]`) - The range key name.
-          * `rangeKeyType` (`pulumi.Input[str]`) - The range key type. Valid values are "STRING" or "NUMBER".
-          * `rangeKeyValue` (`pulumi.Input[str]`) - The range key value.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the DynamoDB table.
-          * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
-
-        The **dynamodbv2s** object supports the following:
-
-          * `putItem` (`pulumi.Input[dict]`) - Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-            * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
-
-          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
-
-        The **elasticsearch** object supports the following:
-
-          * `endpoint` (`pulumi.Input[str]`) - The endpoint of your Elasticsearch domain.
-          * `id` (`pulumi.Input[str]`) - The unique identifier for the document you are storing.
-          * `index` (`pulumi.Input[str]`) - The Elasticsearch index where you want to store your data.
-          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that has access to Elasticsearch.
-          * `type` (`pulumi.Input[str]`) - The type of document you are storing.
-
-        The **error_action** object supports the following:
-
-          * `cloudwatch_alarm` (`pulumi.Input[dict]`)
-            * `alarmName` (`pulumi.Input[str]`) - The CloudWatch alarm name.
-            * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
-            * `stateReason` (`pulumi.Input[str]`) - The reason for the alarm change.
-            * `stateValue` (`pulumi.Input[str]`) - The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-
-          * `cloudwatch_metric` (`pulumi.Input[dict]`)
-            * `metric_name` (`pulumi.Input[str]`) - The CloudWatch metric name.
-            * `metricNamespace` (`pulumi.Input[str]`) - The CloudWatch metric namespace name.
-            * `metricTimestamp` (`pulumi.Input[str]`) - An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-            * `metricUnit` (`pulumi.Input[str]`) - The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-            * `metricValue` (`pulumi.Input[str]`) - The CloudWatch metric value.
-            * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch metric.
-
-          * `dynamodb` (`pulumi.Input[dict]`)
-            * `hashKeyField` (`pulumi.Input[str]`) - The hash key name.
-            * `hashKeyType` (`pulumi.Input[str]`) - The hash key type. Valid values are "STRING" or "NUMBER".
-            * `hashKeyValue` (`pulumi.Input[str]`) - The hash key value.
-            * `operation` (`pulumi.Input[str]`) - The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
-            * `payloadField` (`pulumi.Input[str]`) - The action payload.
-            * `rangeKeyField` (`pulumi.Input[str]`) - The range key name.
-            * `rangeKeyType` (`pulumi.Input[str]`) - The range key type. Valid values are "STRING" or "NUMBER".
-            * `rangeKeyValue` (`pulumi.Input[str]`) - The range key value.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the DynamoDB table.
-            * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
-
-          * `dynamodbv2` (`pulumi.Input[dict]`)
-            * `putItem` (`pulumi.Input[dict]`) - Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-              * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
-
-            * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
-
-          * `elasticsearch` (`pulumi.Input[dict]`)
-            * `endpoint` (`pulumi.Input[str]`) - The endpoint of your Elasticsearch domain.
-            * `id` (`pulumi.Input[str]`) - The unique identifier for the document you are storing.
-            * `index` (`pulumi.Input[str]`) - The Elasticsearch index where you want to store your data.
-            * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that has access to Elasticsearch.
-            * `type` (`pulumi.Input[str]`) - The type of document you are storing.
-
-          * `firehose` (`pulumi.Input[dict]`)
-            * `deliveryStreamName` (`pulumi.Input[str]`) - The delivery stream name.
-            * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-            * `separator` (`pulumi.Input[str]`) - A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-
-          * `iot_analytics` (`pulumi.Input[dict]`)
-            * `channelName` (`pulumi.Input[str]`) - Name of AWS IOT Analytics channel.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-
-          * `iot_events` (`pulumi.Input[dict]`)
-            * `inputName` (`pulumi.Input[str]`) - The name of the AWS IoT Events input.
-            * `messageId` (`pulumi.Input[str]`) - Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-
-          * `kinesis` (`pulumi.Input[dict]`)
-            * `partitionKey` (`pulumi.Input[str]`) - The partition key.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-            * `streamName` (`pulumi.Input[str]`) - The name of the Amazon Kinesis stream.
-
-          * `lambda` (`pulumi.Input[dict]`)
-            * `function_arn` (`pulumi.Input[str]`) - The ARN of the Lambda function.
-
-          * `republish` (`pulumi.Input[dict]`)
-            * `qos` (`pulumi.Input[float]`) - The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-            * `topic` (`pulumi.Input[str]`) - The name of the MQTT topic the message should be republished to.
-
-          * `s3` (`pulumi.Input[dict]`)
-            * `bucket_name` (`pulumi.Input[str]`) - The Amazon S3 bucket name.
-            * `key` (`pulumi.Input[str]`) - The object key.
-            * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
-
-          * `sns` (`pulumi.Input[dict]`)
-            * `messageFormat` (`pulumi.Input[str]`) - The message format of the message to publish. Accepted values are "JSON" and "RAW".
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-            * `target_arn` (`pulumi.Input[str]`) - The ARN of the SNS topic.
-
-          * `sqs` (`pulumi.Input[dict]`)
-            * `queue_url` (`pulumi.Input[str]`) - The URL of the Amazon SQS queue.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-            * `useBase64` (`pulumi.Input[bool]`) - Specifies whether to use Base64 encoding.
-
-          * `step_functions` (`pulumi.Input[dict]`)
-            * `executionNamePrefix` (`pulumi.Input[str]`) - The prefix used to generate, along with a UUID, the unique state machine execution name.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to start execution of the state machine.
-            * `stateMachineName` (`pulumi.Input[str]`) - The name of the Step Functions state machine whose execution will be started.
-
-        The **firehose** object supports the following:
-
-          * `deliveryStreamName` (`pulumi.Input[str]`) - The delivery stream name.
-          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-          * `separator` (`pulumi.Input[str]`) - A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-
-        The **iot_analytics** object supports the following:
-
-          * `channelName` (`pulumi.Input[str]`) - Name of AWS IOT Analytics channel.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-
-        The **iot_events** object supports the following:
-
-          * `inputName` (`pulumi.Input[str]`) - The name of the AWS IoT Events input.
-          * `messageId` (`pulumi.Input[str]`) - Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-
-        The **kinesis** object supports the following:
-
-          * `partitionKey` (`pulumi.Input[str]`) - The partition key.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-          * `streamName` (`pulumi.Input[str]`) - The name of the Amazon Kinesis stream.
-
-        The **lambda_** object supports the following:
-
-          * `function_arn` (`pulumi.Input[str]`) - The ARN of the Lambda function.
-
-        The **republish** object supports the following:
-
-          * `qos` (`pulumi.Input[float]`) - The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-          * `topic` (`pulumi.Input[str]`) - The name of the MQTT topic the message should be republished to.
-
-        The **s3** object supports the following:
-
-          * `bucket_name` (`pulumi.Input[str]`) - The Amazon S3 bucket name.
-          * `key` (`pulumi.Input[str]`) - The object key.
-          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
-
-        The **sns** object supports the following:
-
-          * `messageFormat` (`pulumi.Input[str]`) - The message format of the message to publish. Accepted values are "JSON" and "RAW".
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-          * `target_arn` (`pulumi.Input[str]`) - The ARN of the SNS topic.
-
-        The **sqs** object supports the following:
-
-          * `queue_url` (`pulumi.Input[str]`) - The URL of the Amazon SQS queue.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-          * `useBase64` (`pulumi.Input[bool]`) - Specifies whether to use Base64 encoding.
-
-        The **step_functions** object supports the following:
-
-          * `executionNamePrefix` (`pulumi.Input[str]`) - The prefix used to generate, along with a UUID, the unique state machine execution name.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to start execution of the state machine.
-          * `stateMachineName` (`pulumi.Input[str]`) - The name of the Step Functions state machine whose execution will be started.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -452,211 +161,47 @@ class TopicRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, cloudwatch_alarm=None, cloudwatch_metric=None, description=None, dynamodb=None, dynamodbv2s=None, elasticsearch=None, enabled=None, error_action=None, firehose=None, iot_analytics=None, iot_events=None, kinesis=None, lambda_=None, name=None, republish=None, s3=None, sns=None, sql=None, sql_version=None, sqs=None, step_functions=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            cloudwatch_alarm: Optional[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchAlarmArgs']]] = None,
+            cloudwatch_metric: Optional[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchMetricArgs']]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            dynamodb: Optional[pulumi.Input[pulumi.InputType['TopicRuleDynamodbArgs']]] = None,
+            dynamodbv2s: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleDynamodbv2Args']]]]] = None,
+            elasticsearch: Optional[pulumi.Input[pulumi.InputType['TopicRuleElasticsearchArgs']]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
+            error_action: Optional[pulumi.Input[pulumi.InputType['TopicRuleErrorActionArgs']]] = None,
+            firehose: Optional[pulumi.Input[pulumi.InputType['TopicRuleFirehoseArgs']]] = None,
+            iot_analytics: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleIotAnalyticArgs']]]]] = None,
+            iot_events: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleIotEventArgs']]]]] = None,
+            kinesis: Optional[pulumi.Input[pulumi.InputType['TopicRuleKinesisArgs']]] = None,
+            lambda_: Optional[pulumi.Input[pulumi.InputType['TopicRuleLambdaArgs']]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            republish: Optional[pulumi.Input[pulumi.InputType['TopicRuleRepublishArgs']]] = None,
+            s3: Optional[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]] = None,
+            sns: Optional[pulumi.Input[pulumi.InputType['TopicRuleSnsArgs']]] = None,
+            sql: Optional[pulumi.Input[str]] = None,
+            sql_version: Optional[pulumi.Input[str]] = None,
+            sqs: Optional[pulumi.Input[pulumi.InputType['TopicRuleSqsArgs']]] = None,
+            step_functions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleStepFunctionArgs']]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'TopicRule':
         """
         Get an existing TopicRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the topic rule
         :param pulumi.Input[str] description: The description of the rule.
         :param pulumi.Input[bool] enabled: Specifies whether the rule is enabled.
-        :param pulumi.Input[dict] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        :param pulumi.Input[pulumi.InputType['TopicRuleErrorActionArgs']] error_action: Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] sql: The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         :param pulumi.Input[str] sql_version: The version of the SQL rules engine to use when evaluating the rule.
-        :param pulumi.Input[dict] tags: Key-value map of resource tags
-
-        The **cloudwatch_alarm** object supports the following:
-
-          * `alarmName` (`pulumi.Input[str]`) - The CloudWatch alarm name.
-          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
-          * `stateReason` (`pulumi.Input[str]`) - The reason for the alarm change.
-          * `stateValue` (`pulumi.Input[str]`) - The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-
-        The **cloudwatch_metric** object supports the following:
-
-          * `metric_name` (`pulumi.Input[str]`) - The CloudWatch metric name.
-          * `metricNamespace` (`pulumi.Input[str]`) - The CloudWatch metric namespace name.
-          * `metricTimestamp` (`pulumi.Input[str]`) - An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-          * `metricUnit` (`pulumi.Input[str]`) - The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-          * `metricValue` (`pulumi.Input[str]`) - The CloudWatch metric value.
-          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch metric.
-
-        The **dynamodb** object supports the following:
-
-          * `hashKeyField` (`pulumi.Input[str]`) - The hash key name.
-          * `hashKeyType` (`pulumi.Input[str]`) - The hash key type. Valid values are "STRING" or "NUMBER".
-          * `hashKeyValue` (`pulumi.Input[str]`) - The hash key value.
-          * `operation` (`pulumi.Input[str]`) - The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
-          * `payloadField` (`pulumi.Input[str]`) - The action payload.
-          * `rangeKeyField` (`pulumi.Input[str]`) - The range key name.
-          * `rangeKeyType` (`pulumi.Input[str]`) - The range key type. Valid values are "STRING" or "NUMBER".
-          * `rangeKeyValue` (`pulumi.Input[str]`) - The range key value.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the DynamoDB table.
-          * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
-
-        The **dynamodbv2s** object supports the following:
-
-          * `putItem` (`pulumi.Input[dict]`) - Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-            * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
-
-          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
-
-        The **elasticsearch** object supports the following:
-
-          * `endpoint` (`pulumi.Input[str]`) - The endpoint of your Elasticsearch domain.
-          * `id` (`pulumi.Input[str]`) - The unique identifier for the document you are storing.
-          * `index` (`pulumi.Input[str]`) - The Elasticsearch index where you want to store your data.
-          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that has access to Elasticsearch.
-          * `type` (`pulumi.Input[str]`) - The type of document you are storing.
-
-        The **error_action** object supports the following:
-
-          * `cloudwatch_alarm` (`pulumi.Input[dict]`)
-            * `alarmName` (`pulumi.Input[str]`) - The CloudWatch alarm name.
-            * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
-            * `stateReason` (`pulumi.Input[str]`) - The reason for the alarm change.
-            * `stateValue` (`pulumi.Input[str]`) - The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-
-          * `cloudwatch_metric` (`pulumi.Input[dict]`)
-            * `metric_name` (`pulumi.Input[str]`) - The CloudWatch metric name.
-            * `metricNamespace` (`pulumi.Input[str]`) - The CloudWatch metric namespace name.
-            * `metricTimestamp` (`pulumi.Input[str]`) - An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-            * `metricUnit` (`pulumi.Input[str]`) - The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-            * `metricValue` (`pulumi.Input[str]`) - The CloudWatch metric value.
-            * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch metric.
-
-          * `dynamodb` (`pulumi.Input[dict]`)
-            * `hashKeyField` (`pulumi.Input[str]`) - The hash key name.
-            * `hashKeyType` (`pulumi.Input[str]`) - The hash key type. Valid values are "STRING" or "NUMBER".
-            * `hashKeyValue` (`pulumi.Input[str]`) - The hash key value.
-            * `operation` (`pulumi.Input[str]`) - The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
-            * `payloadField` (`pulumi.Input[str]`) - The action payload.
-            * `rangeKeyField` (`pulumi.Input[str]`) - The range key name.
-            * `rangeKeyType` (`pulumi.Input[str]`) - The range key type. Valid values are "STRING" or "NUMBER".
-            * `rangeKeyValue` (`pulumi.Input[str]`) - The range key value.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the DynamoDB table.
-            * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
-
-          * `dynamodbv2` (`pulumi.Input[dict]`)
-            * `putItem` (`pulumi.Input[dict]`) - Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-              * `table_name` (`pulumi.Input[str]`) - The name of the DynamoDB table.
-
-            * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
-
-          * `elasticsearch` (`pulumi.Input[dict]`)
-            * `endpoint` (`pulumi.Input[str]`) - The endpoint of your Elasticsearch domain.
-            * `id` (`pulumi.Input[str]`) - The unique identifier for the document you are storing.
-            * `index` (`pulumi.Input[str]`) - The Elasticsearch index where you want to store your data.
-            * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that has access to Elasticsearch.
-            * `type` (`pulumi.Input[str]`) - The type of document you are storing.
-
-          * `firehose` (`pulumi.Input[dict]`)
-            * `deliveryStreamName` (`pulumi.Input[str]`) - The delivery stream name.
-            * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-            * `separator` (`pulumi.Input[str]`) - A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-
-          * `iot_analytics` (`pulumi.Input[dict]`)
-            * `channelName` (`pulumi.Input[str]`) - Name of AWS IOT Analytics channel.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-
-          * `iot_events` (`pulumi.Input[dict]`)
-            * `inputName` (`pulumi.Input[str]`) - The name of the AWS IoT Events input.
-            * `messageId` (`pulumi.Input[str]`) - Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-
-          * `kinesis` (`pulumi.Input[dict]`)
-            * `partitionKey` (`pulumi.Input[str]`) - The partition key.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-            * `streamName` (`pulumi.Input[str]`) - The name of the Amazon Kinesis stream.
-
-          * `lambda` (`pulumi.Input[dict]`)
-            * `function_arn` (`pulumi.Input[str]`) - The ARN of the Lambda function.
-
-          * `republish` (`pulumi.Input[dict]`)
-            * `qos` (`pulumi.Input[float]`) - The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-            * `topic` (`pulumi.Input[str]`) - The name of the MQTT topic the message should be republished to.
-
-          * `s3` (`pulumi.Input[dict]`)
-            * `bucket_name` (`pulumi.Input[str]`) - The Amazon S3 bucket name.
-            * `key` (`pulumi.Input[str]`) - The object key.
-            * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
-
-          * `sns` (`pulumi.Input[dict]`)
-            * `messageFormat` (`pulumi.Input[str]`) - The message format of the message to publish. Accepted values are "JSON" and "RAW".
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-            * `target_arn` (`pulumi.Input[str]`) - The ARN of the SNS topic.
-
-          * `sqs` (`pulumi.Input[dict]`)
-            * `queue_url` (`pulumi.Input[str]`) - The URL of the Amazon SQS queue.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-            * `useBase64` (`pulumi.Input[bool]`) - Specifies whether to use Base64 encoding.
-
-          * `step_functions` (`pulumi.Input[dict]`)
-            * `executionNamePrefix` (`pulumi.Input[str]`) - The prefix used to generate, along with a UUID, the unique state machine execution name.
-            * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to start execution of the state machine.
-            * `stateMachineName` (`pulumi.Input[str]`) - The name of the Step Functions state machine whose execution will be started.
-
-        The **firehose** object supports the following:
-
-          * `deliveryStreamName` (`pulumi.Input[str]`) - The delivery stream name.
-          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-          * `separator` (`pulumi.Input[str]`) - A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-
-        The **iot_analytics** object supports the following:
-
-          * `channelName` (`pulumi.Input[str]`) - Name of AWS IOT Analytics channel.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-
-        The **iot_events** object supports the following:
-
-          * `inputName` (`pulumi.Input[str]`) - The name of the AWS IoT Events input.
-          * `messageId` (`pulumi.Input[str]`) - Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-
-        The **kinesis** object supports the following:
-
-          * `partitionKey` (`pulumi.Input[str]`) - The partition key.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-          * `streamName` (`pulumi.Input[str]`) - The name of the Amazon Kinesis stream.
-
-        The **lambda_** object supports the following:
-
-          * `function_arn` (`pulumi.Input[str]`) - The ARN of the Lambda function.
-
-        The **republish** object supports the following:
-
-          * `qos` (`pulumi.Input[float]`) - The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-          * `topic` (`pulumi.Input[str]`) - The name of the MQTT topic the message should be republished to.
-
-        The **s3** object supports the following:
-
-          * `bucket_name` (`pulumi.Input[str]`) - The Amazon S3 bucket name.
-          * `key` (`pulumi.Input[str]`) - The object key.
-          * `role_arn` (`pulumi.Input[str]`) - The IAM role ARN that allows access to the CloudWatch alarm.
-
-        The **sns** object supports the following:
-
-          * `messageFormat` (`pulumi.Input[str]`) - The message format of the message to publish. Accepted values are "JSON" and "RAW".
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-          * `target_arn` (`pulumi.Input[str]`) - The ARN of the SNS topic.
-
-        The **sqs** object supports the following:
-
-          * `queue_url` (`pulumi.Input[str]`) - The URL of the Amazon SQS queue.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access.
-          * `useBase64` (`pulumi.Input[bool]`) - Specifies whether to use Base64 encoding.
-
-        The **step_functions** object supports the following:
-
-          * `executionNamePrefix` (`pulumi.Input[str]`) - The prefix used to generate, along with a UUID, the unique state machine execution name.
-          * `role_arn` (`pulumi.Input[str]`) - The ARN of the IAM role that grants access to start execution of the state machine.
-          * `stateMachineName` (`pulumi.Input[str]`) - The name of the Step Functions state machine whose execution will be started.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -687,8 +232,148 @@ class TopicRule(pulumi.CustomResource):
         __props__["tags"] = tags
         return TopicRule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the topic rule
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="cloudwatchAlarm")
+    def cloudwatch_alarm(self) -> Optional['outputs.TopicRuleCloudwatchAlarm']:
+        return pulumi.get(self, "cloudwatch_alarm")
+
+    @property
+    @pulumi.getter(name="cloudwatchMetric")
+    def cloudwatch_metric(self) -> Optional['outputs.TopicRuleCloudwatchMetric']:
+        return pulumi.get(self, "cloudwatch_metric")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def dynamodb(self) -> Optional['outputs.TopicRuleDynamodb']:
+        return pulumi.get(self, "dynamodb")
+
+    @property
+    @pulumi.getter
+    def dynamodbv2s(self) -> Optional[List['outputs.TopicRuleDynamodbv2']]:
+        return pulumi.get(self, "dynamodbv2s")
+
+    @property
+    @pulumi.getter
+    def elasticsearch(self) -> Optional['outputs.TopicRuleElasticsearch']:
+        return pulumi.get(self, "elasticsearch")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Specifies whether the rule is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="errorAction")
+    def error_action(self) -> Optional['outputs.TopicRuleErrorAction']:
+        """
+        Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        """
+        return pulumi.get(self, "error_action")
+
+    @property
+    @pulumi.getter
+    def firehose(self) -> Optional['outputs.TopicRuleFirehose']:
+        return pulumi.get(self, "firehose")
+
+    @property
+    @pulumi.getter(name="iotAnalytics")
+    def iot_analytics(self) -> Optional[List['outputs.TopicRuleIotAnalytic']]:
+        return pulumi.get(self, "iot_analytics")
+
+    @property
+    @pulumi.getter(name="iotEvents")
+    def iot_events(self) -> Optional[List['outputs.TopicRuleIotEvent']]:
+        return pulumi.get(self, "iot_events")
+
+    @property
+    @pulumi.getter
+    def kinesis(self) -> Optional['outputs.TopicRuleKinesis']:
+        return pulumi.get(self, "kinesis")
+
+    @property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> Optional['outputs.TopicRuleLambda']:
+        return pulumi.get(self, "lambda_")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def republish(self) -> Optional['outputs.TopicRuleRepublish']:
+        return pulumi.get(self, "republish")
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.TopicRuleS3']:
+        return pulumi.get(self, "s3")
+
+    @property
+    @pulumi.getter
+    def sns(self) -> Optional['outputs.TopicRuleSns']:
+        return pulumi.get(self, "sns")
+
+    @property
+    @pulumi.getter
+    def sql(self) -> str:
+        """
+        The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
+        """
+        return pulumi.get(self, "sql")
+
+    @property
+    @pulumi.getter(name="sqlVersion")
+    def sql_version(self) -> str:
+        """
+        The version of the SQL rules engine to use when evaluating the rule.
+        """
+        return pulumi.get(self, "sql_version")
+
+    @property
+    @pulumi.getter
+    def sqs(self) -> Optional['outputs.TopicRuleSqs']:
+        return pulumi.get(self, "sqs")
+
+    @property
+    @pulumi.getter(name="stepFunctions")
+    def step_functions(self) -> Optional[List['outputs.TopicRuleStepFunction']]:
+        return pulumi.get(self, "step_functions")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

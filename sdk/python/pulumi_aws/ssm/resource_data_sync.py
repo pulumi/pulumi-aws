@@ -5,26 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ResourceDataSync']
 
 
 class ResourceDataSync(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    Name for the configuration.
-    """
-    s3_destination: pulumi.Output[dict]
-    """
-    Amazon S3 configuration details for the sync.
-
-      * `bucket_name` (`str`) - Name of S3 bucket where the aggregated data is stored.
-      * `kms_key_arn` (`str`) - ARN of an encryption key for a destination in Amazon S3.
-      * `prefix` (`str`) - Prefix for the bucket.
-      * `region` (`str`) - Region with the bucket targeted by the Resource Data Sync.
-      * `syncFormat` (`str`) - A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, s3_destination=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 s3_destination: Optional[pulumi.Input[pulumi.InputType['ResourceDataSyncS3DestinationArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a SSM resource data sync.
 
@@ -66,24 +63,16 @@ class ResourceDataSync(pulumi.CustomResource):
             ]
         }
         \"\"\")
-        foo = aws.ssm.ResourceDataSync("foo", s3_destination={
-            "bucket_name": hoge_bucket.bucket,
-            "region": hoge_bucket.region,
-        })
+        foo = aws.ssm.ResourceDataSync("foo", s3_destination=aws.ssm.ResourceDataSyncS3DestinationArgs(
+            bucket_name=hoge_bucket.bucket,
+            region=hoge_bucket.region,
+        ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name for the configuration.
-        :param pulumi.Input[dict] s3_destination: Amazon S3 configuration details for the sync.
-
-        The **s3_destination** object supports the following:
-
-          * `bucket_name` (`pulumi.Input[str]`) - Name of S3 bucket where the aggregated data is stored.
-          * `kms_key_arn` (`pulumi.Input[str]`) - ARN of an encryption key for a destination in Amazon S3.
-          * `prefix` (`pulumi.Input[str]`) - Prefix for the bucket.
-          * `region` (`pulumi.Input[str]`) - Region with the bucket targeted by the Resource Data Sync.
-          * `syncFormat` (`pulumi.Input[str]`) - A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
+        :param pulumi.Input[pulumi.InputType['ResourceDataSyncS3DestinationArgs']] s3_destination: Amazon S3 configuration details for the sync.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,24 +102,20 @@ class ResourceDataSync(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, s3_destination=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            s3_destination: Optional[pulumi.Input[pulumi.InputType['ResourceDataSyncS3DestinationArgs']]] = None) -> 'ResourceDataSync':
         """
         Get an existing ResourceDataSync resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name for the configuration.
-        :param pulumi.Input[dict] s3_destination: Amazon S3 configuration details for the sync.
-
-        The **s3_destination** object supports the following:
-
-          * `bucket_name` (`pulumi.Input[str]`) - Name of S3 bucket where the aggregated data is stored.
-          * `kms_key_arn` (`pulumi.Input[str]`) - ARN of an encryption key for a destination in Amazon S3.
-          * `prefix` (`pulumi.Input[str]`) - Prefix for the bucket.
-          * `region` (`pulumi.Input[str]`) - Region with the bucket targeted by the Resource Data Sync.
-          * `syncFormat` (`pulumi.Input[str]`) - A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
+        :param pulumi.Input[pulumi.InputType['ResourceDataSyncS3DestinationArgs']] s3_destination: Amazon S3 configuration details for the sync.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -140,8 +125,25 @@ class ResourceDataSync(pulumi.CustomResource):
         __props__["s3_destination"] = s3_destination
         return ResourceDataSync(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name for the configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="s3Destination")
+    def s3_destination(self) -> 'outputs.ResourceDataSyncS3Destination':
+        """
+        Amazon S3 configuration details for the sync.
+        """
+        return pulumi.get(self, "s3_destination")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

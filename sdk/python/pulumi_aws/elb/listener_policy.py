@@ -5,24 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['ListenerPolicy']
 
 
 class ListenerPolicy(pulumi.CustomResource):
-    load_balancer_name: pulumi.Output[str]
-    """
-    The load balancer to attach the policy to.
-    """
-    load_balancer_port: pulumi.Output[float]
-    """
-    The load balancer listener port to apply the policy to.
-    """
-    policy_names: pulumi.Output[list]
-    """
-    List of Policy Names to apply to the backend server.
-    """
-    def __init__(__self__, resource_name, opts=None, load_balancer_name=None, load_balancer_port=None, policy_names=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 load_balancer_name: Optional[pulumi.Input[str]] = None,
+                 load_balancer_port: Optional[pulumi.Input[float]] = None,
+                 policy_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Attaches a load balancer policy to an ELB Listener.
 
@@ -35,13 +33,13 @@ class ListenerPolicy(pulumi.CustomResource):
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
             availability_zones=["us-east-1a"],
-            listeners=[{
-                "instance_port": 443,
-                "instanceProtocol": "http",
-                "lb_port": 443,
-                "lbProtocol": "https",
-                "sslCertificateId": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-            }],
+            listeners=[aws.elb.LoadBalancerListenerArgs(
+                instance_port=443,
+                instance_protocol="http",
+                lb_port=443,
+                lb_protocol="https",
+                ssl_certificate_id="arn:aws:iam::000000000000:server-certificate/wu-tang.net",
+            )],
             tags={
                 "Name": "wu-tang",
             })
@@ -50,14 +48,14 @@ class ListenerPolicy(pulumi.CustomResource):
             policy_name="wu-tang-ssl",
             policy_type_name="SSLNegotiationPolicyType",
             policy_attributes=[
-                {
-                    "name": "ECDHE-ECDSA-AES128-GCM-SHA256",
-                    "value": "true",
-                },
-                {
-                    "name": "Protocol-TLSv1.2",
-                    "value": "true",
-                },
+                aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
+                    name="ECDHE-ECDSA-AES128-GCM-SHA256",
+                    value="true",
+                ),
+                aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
+                    name="Protocol-TLSv1.2",
+                    value="true",
+                ),
             ])
         wu_tang_listener_policies_443 = aws.elb.ListenerPolicy("wu-tang-listener-policies-443",
             load_balancer_name=wu_tang.name,
@@ -74,13 +72,13 @@ class ListenerPolicy(pulumi.CustomResource):
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
             availability_zones=["us-east-1a"],
-            listeners=[{
-                "instance_port": 443,
-                "instanceProtocol": "http",
-                "lb_port": 443,
-                "lbProtocol": "https",
-                "sslCertificateId": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-            }],
+            listeners=[aws.elb.LoadBalancerListenerArgs(
+                instance_port=443,
+                instance_protocol="http",
+                lb_port=443,
+                lb_protocol="https",
+                ssl_certificate_id="arn:aws:iam::000000000000:server-certificate/wu-tang.net",
+            )],
             tags={
                 "Name": "wu-tang",
             })
@@ -88,10 +86,10 @@ class ListenerPolicy(pulumi.CustomResource):
             load_balancer_name=wu_tang.name,
             policy_name="wu-tang-ssl",
             policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[{
-                "name": "Reference-Security-Policy",
-                "value": "ELBSecurityPolicy-TLS-1-1-2017-01",
-            }])
+            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
+                name="Reference-Security-Policy",
+                value="ELBSecurityPolicy-TLS-1-1-2017-01",
+            )])
         wu_tang_listener_policies_443 = aws.elb.ListenerPolicy("wu-tang-listener-policies-443",
             load_balancer_name=wu_tang.name,
             load_balancer_port=443,
@@ -104,7 +102,7 @@ class ListenerPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[float] load_balancer_port: The load balancer listener port to apply the policy to.
-        :param pulumi.Input[list] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[List[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -139,17 +137,22 @@ class ListenerPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, load_balancer_name=None, load_balancer_port=None, policy_names=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            load_balancer_name: Optional[pulumi.Input[str]] = None,
+            load_balancer_port: Optional[pulumi.Input[float]] = None,
+            policy_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'ListenerPolicy':
         """
         Get an existing ListenerPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[float] load_balancer_port: The load balancer listener port to apply the policy to.
-        :param pulumi.Input[list] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[List[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -160,8 +163,33 @@ class ListenerPolicy(pulumi.CustomResource):
         __props__["policy_names"] = policy_names
         return ListenerPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="loadBalancerName")
+    def load_balancer_name(self) -> str:
+        """
+        The load balancer to attach the policy to.
+        """
+        return pulumi.get(self, "load_balancer_name")
+
+    @property
+    @pulumi.getter(name="loadBalancerPort")
+    def load_balancer_port(self) -> float:
+        """
+        The load balancer listener port to apply the policy to.
+        """
+        return pulumi.get(self, "load_balancer_port")
+
+    @property
+    @pulumi.getter(name="policyNames")
+    def policy_names(self) -> Optional[List[str]]:
+        """
+        List of Policy Names to apply to the backend server.
+        """
+        return pulumi.get(self, "policy_names")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetClusterResult',
+    'AwaitableGetClusterResult',
+    'get_cluster',
+]
 
+@pulumi.output_type
 class GetClusterResult:
     """
     A collection of values returned by getCluster.
@@ -16,55 +22,100 @@ class GetClusterResult:
     def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_tls=None, cluster_name=None, id=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        pulumi.set(__self__, "arn", arn)
+        if bootstrap_brokers and not isinstance(bootstrap_brokers, str):
+            raise TypeError("Expected argument 'bootstrap_brokers' to be a str")
+        pulumi.set(__self__, "bootstrap_brokers", bootstrap_brokers)
+        if bootstrap_brokers_tls and not isinstance(bootstrap_brokers_tls, str):
+            raise TypeError("Expected argument 'bootstrap_brokers_tls' to be a str")
+        pulumi.set(__self__, "bootstrap_brokers_tls", bootstrap_brokers_tls)
+        if cluster_name and not isinstance(cluster_name, str):
+            raise TypeError("Expected argument 'cluster_name' to be a str")
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if kafka_version and not isinstance(kafka_version, str):
+            raise TypeError("Expected argument 'kafka_version' to be a str")
+        pulumi.set(__self__, "kafka_version", kafka_version)
+        if number_of_broker_nodes and not isinstance(number_of_broker_nodes, float):
+            raise TypeError("Expected argument 'number_of_broker_nodes' to be a float")
+        pulumi.set(__self__, "number_of_broker_nodes", number_of_broker_nodes)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if zookeeper_connect_string and not isinstance(zookeeper_connect_string, str):
+            raise TypeError("Expected argument 'zookeeper_connect_string' to be a str")
+        pulumi.set(__self__, "zookeeper_connect_string", zookeeper_connect_string)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
         """
         Amazon Resource Name (ARN) of the MSK cluster.
         """
-        if bootstrap_brokers and not isinstance(bootstrap_brokers, str):
-            raise TypeError("Expected argument 'bootstrap_brokers' to be a str")
-        __self__.bootstrap_brokers = bootstrap_brokers
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="bootstrapBrokers")
+    def bootstrap_brokers(self) -> str:
         """
         A comma separated list of one or more hostname:port pairs of Kafka brokers suitable to boostrap connectivity to the Kafka cluster.
         """
-        if bootstrap_brokers_tls and not isinstance(bootstrap_brokers_tls, str):
-            raise TypeError("Expected argument 'bootstrap_brokers_tls' to be a str")
-        __self__.bootstrap_brokers_tls = bootstrap_brokers_tls
+        return pulumi.get(self, "bootstrap_brokers")
+
+    @property
+    @pulumi.getter(name="bootstrapBrokersTls")
+    def bootstrap_brokers_tls(self) -> str:
         """
         A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster.
         """
-        if cluster_name and not isinstance(cluster_name, str):
-            raise TypeError("Expected argument 'cluster_name' to be a str")
-        __self__.cluster_name = cluster_name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "bootstrap_brokers_tls")
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> str:
+        return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if kafka_version and not isinstance(kafka_version, str):
-            raise TypeError("Expected argument 'kafka_version' to be a str")
-        __self__.kafka_version = kafka_version
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="kafkaVersion")
+    def kafka_version(self) -> str:
         """
         Apache Kafka version.
         """
-        if number_of_broker_nodes and not isinstance(number_of_broker_nodes, float):
-            raise TypeError("Expected argument 'number_of_broker_nodes' to be a float")
-        __self__.number_of_broker_nodes = number_of_broker_nodes
+        return pulumi.get(self, "kafka_version")
+
+    @property
+    @pulumi.getter(name="numberOfBrokerNodes")
+    def number_of_broker_nodes(self) -> float:
         """
         Number of broker nodes in the cluster.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "number_of_broker_nodes")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         Map of key-value pairs assigned to the cluster.
         """
-        if zookeeper_connect_string and not isinstance(zookeeper_connect_string, str):
-            raise TypeError("Expected argument 'zookeeper_connect_string' to be a str")
-        __self__.zookeeper_connect_string = zookeeper_connect_string
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="zookeeperConnectString")
+    def zookeeper_connect_string(self) -> str:
         """
         A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
         """
+        return pulumi.get(self, "zookeeper_connect_string")
 
 
 class AwaitableGetClusterResult(GetClusterResult):
@@ -84,7 +135,9 @@ class AwaitableGetClusterResult(GetClusterResult):
             zookeeper_connect_string=self.zookeeper_connect_string)
 
 
-def get_cluster(cluster_name=None, tags=None, opts=None):
+def get_cluster(cluster_name: Optional[str] = None,
+                tags: Optional[Mapping[str, str]] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Get information on an Amazon MSK Cluster.
 
@@ -99,7 +152,7 @@ def get_cluster(cluster_name=None, tags=None, opts=None):
 
 
     :param str cluster_name: Name of the cluster.
-    :param dict tags: Map of key-value pairs assigned to the cluster.
+    :param Mapping[str, str] tags: Map of key-value pairs assigned to the cluster.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -108,15 +161,15 @@ def get_cluster(cluster_name=None, tags=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:msk/getCluster:getCluster', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:msk/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        arn=__ret__.get('arn'),
-        bootstrap_brokers=__ret__.get('bootstrapBrokers'),
-        bootstrap_brokers_tls=__ret__.get('bootstrapBrokersTls'),
-        cluster_name=__ret__.get('clusterName'),
-        id=__ret__.get('id'),
-        kafka_version=__ret__.get('kafkaVersion'),
-        number_of_broker_nodes=__ret__.get('numberOfBrokerNodes'),
-        tags=__ret__.get('tags'),
-        zookeeper_connect_string=__ret__.get('zookeeperConnectString'))
+        arn=__ret__.arn,
+        bootstrap_brokers=__ret__.bootstrap_brokers,
+        bootstrap_brokers_tls=__ret__.bootstrap_brokers_tls,
+        cluster_name=__ret__.cluster_name,
+        id=__ret__.id,
+        kafka_version=__ret__.kafka_version,
+        number_of_broker_nodes=__ret__.number_of_broker_nodes,
+        tags=__ret__.tags,
+        zookeeper_connect_string=__ret__.zookeeper_connect_string)

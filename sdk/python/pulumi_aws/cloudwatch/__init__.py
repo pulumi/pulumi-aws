@@ -16,3 +16,5 @@ from .log_resource_policy import *
 from .log_stream import *
 from .log_subscription_filter import *
 from .metric_alarm import *
+from ._inputs import *
+from . import outputs

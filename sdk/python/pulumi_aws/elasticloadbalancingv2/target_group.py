@@ -5,99 +5,39 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['TargetGroup']
 
 warnings.warn("aws.elasticloadbalancingv2.TargetGroup has been deprecated in favor of aws.lb.TargetGroup", DeprecationWarning)
 
 
 class TargetGroup(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of the Target Group (matches `id`)
-    """
-    arn_suffix: pulumi.Output[str]
-    """
-    The ARN suffix for use with CloudWatch Metrics.
-    """
-    deregistration_delay: pulumi.Output[float]
-    """
-    The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-    """
-    health_check: pulumi.Output[dict]
-    """
-    A Health Check block. Health Check blocks are documented below.
-
-      * `enabled` (`bool`) - Boolean to enable / disable `stickiness`. Default is `true`
-      * `healthyThreshold` (`float`) - The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
-      * `interval` (`float`) - The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
-      * `matcher` (`str`) - The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-      * `path` (`str`) - The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-      * `port` (`str`) - The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-      * `protocol` (`str`) - The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-      * `timeout` (`float`) - The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
-      * `unhealthyThreshold` (`float`) - The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
-    """
-    lambda_multi_value_headers_enabled: pulumi.Output[bool]
-    """
-    Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
-    """
-    load_balancing_algorithm_type: pulumi.Output[str]
-    """
-    Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the target group. If omitted, this provider will assign a random, unique name.
-    """
-    name_prefix: pulumi.Output[str]
-    """
-    Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-    """
-    port: pulumi.Output[float]
-    """
-    The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-    """
-    protocol: pulumi.Output[str]
-    """
-    The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-    """
-    proxy_protocol_v2: pulumi.Output[bool]
-    """
-    Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
-    """
-    slow_start: pulumi.Output[float]
-    """
-    The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-    """
-    stickiness: pulumi.Output[dict]
-    """
-    A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
-
-      * `cookieDuration` (`float`) - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
-      * `enabled` (`bool`) - Indicates whether  health checks are enabled. Defaults to true.
-      * `type` (`str`) - The type of sticky sessions. The only current possible value is `lb_cookie`.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A map of tags to assign to the resource.
-    """
-    target_type: pulumi.Output[str]
-    """
-    The type of target that you must specify when registering targets with this target group.
-    The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
-    The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
-    If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group,
-    the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
-    You can't specify publicly routable IP addresses.
-    """
-    vpc_id: pulumi.Output[str]
-    """
-    The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-    """
     warnings.warn("aws.elasticloadbalancingv2.TargetGroup has been deprecated in favor of aws.lb.TargetGroup", DeprecationWarning)
 
-    def __init__(__self__, resource_name, opts=None, deregistration_delay=None, health_check=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, name_prefix=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 deregistration_delay: Optional[pulumi.Input[float]] = None,
+                 health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']]] = None,
+                 lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
+                 load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[float]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
+                 slow_start: Optional[pulumi.Input[float]] = None,
+                 stickiness: Optional[pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_type: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Target Group resource for use with Load Balancer resources.
 
@@ -141,7 +81,7 @@ class TargetGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        :param pulumi.Input[dict] health_check: A Health Check block. Health Check blocks are documented below.
+        :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: A Health Check block. Health Check blocks are documented below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
         :param pulumi.Input[str] name: The name of the target group. If omitted, this provider will assign a random, unique name.
@@ -150,8 +90,8 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[bool] proxy_protocol_v2: Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
         :param pulumi.Input[float] slow_start: The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        :param pulumi.Input[dict] stickiness: A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']] stickiness: A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] target_type: The type of target that you must specify when registering targets with this target group.
                The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
                The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -159,24 +99,6 @@ class TargetGroup(pulumi.CustomResource):
                the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
                You can't specify publicly routable IP addresses.
         :param pulumi.Input[str] vpc_id: The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-
-        The **health_check** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`) - Boolean to enable / disable `stickiness`. Default is `true`
-          * `healthyThreshold` (`pulumi.Input[float]`) - The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
-          * `interval` (`pulumi.Input[float]`) - The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
-          * `matcher` (`pulumi.Input[str]`) - The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-          * `path` (`pulumi.Input[str]`) - The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-          * `port` (`pulumi.Input[str]`) - The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-          * `protocol` (`pulumi.Input[str]`) - The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-          * `timeout` (`pulumi.Input[float]`) - The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
-          * `unhealthyThreshold` (`pulumi.Input[float]`) - The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
-
-        The **stickiness** object supports the following:
-
-          * `cookieDuration` (`pulumi.Input[float]`) - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
-          * `enabled` (`pulumi.Input[bool]`) - Indicates whether  health checks are enabled. Defaults to true.
-          * `type` (`pulumi.Input[str]`) - The type of sticky sessions. The only current possible value is `lb_cookie`.
         """
         pulumi.log.warn("TargetGroup is deprecated: aws.elasticloadbalancingv2.TargetGroup has been deprecated in favor of aws.lb.TargetGroup")
         if __name__ is not None:
@@ -219,18 +141,36 @@ class TargetGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, name_prefix=None, port=None, protocol=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            arn_suffix: Optional[pulumi.Input[str]] = None,
+            deregistration_delay: Optional[pulumi.Input[float]] = None,
+            health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']]] = None,
+            lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
+            load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            name_prefix: Optional[pulumi.Input[str]] = None,
+            port: Optional[pulumi.Input[float]] = None,
+            protocol: Optional[pulumi.Input[str]] = None,
+            proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
+            slow_start: Optional[pulumi.Input[float]] = None,
+            stickiness: Optional[pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            target_type: Optional[pulumi.Input[str]] = None,
+            vpc_id: Optional[pulumi.Input[str]] = None) -> 'TargetGroup':
         """
         Get an existing TargetGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the Target Group (matches `id`)
         :param pulumi.Input[str] arn_suffix: The ARN suffix for use with CloudWatch Metrics.
         :param pulumi.Input[float] deregistration_delay: The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        :param pulumi.Input[dict] health_check: A Health Check block. Health Check blocks are documented below.
+        :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: A Health Check block. Health Check blocks are documented below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
         :param pulumi.Input[str] name: The name of the target group. If omitted, this provider will assign a random, unique name.
@@ -239,8 +179,8 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[bool] proxy_protocol_v2: Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
         :param pulumi.Input[float] slow_start: The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        :param pulumi.Input[dict] stickiness: A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']] stickiness: A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] target_type: The type of target that you must specify when registering targets with this target group.
                The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
                The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -248,24 +188,6 @@ class TargetGroup(pulumi.CustomResource):
                the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
                You can't specify publicly routable IP addresses.
         :param pulumi.Input[str] vpc_id: The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-
-        The **health_check** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`) - Boolean to enable / disable `stickiness`. Default is `true`
-          * `healthyThreshold` (`pulumi.Input[float]`) - The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
-          * `interval` (`pulumi.Input[float]`) - The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
-          * `matcher` (`pulumi.Input[str]`) - The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-          * `path` (`pulumi.Input[str]`) - The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
-          * `port` (`pulumi.Input[str]`) - The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-          * `protocol` (`pulumi.Input[str]`) - The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-          * `timeout` (`pulumi.Input[float]`) - The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
-          * `unhealthyThreshold` (`pulumi.Input[float]`) - The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
-
-        The **stickiness** object supports the following:
-
-          * `cookieDuration` (`pulumi.Input[float]`) - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
-          * `enabled` (`pulumi.Input[bool]`) - Indicates whether  health checks are enabled. Defaults to true.
-          * `type` (`pulumi.Input[str]`) - The type of sticky sessions. The only current possible value is `lb_cookie`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -289,8 +211,142 @@ class TargetGroup(pulumi.CustomResource):
         __props__["vpc_id"] = vpc_id
         return TargetGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the Target Group (matches `id`)
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="arnSuffix")
+    def arn_suffix(self) -> str:
+        """
+        The ARN suffix for use with CloudWatch Metrics.
+        """
+        return pulumi.get(self, "arn_suffix")
+
+    @property
+    @pulumi.getter(name="deregistrationDelay")
+    def deregistration_delay(self) -> Optional[float]:
+        """
+        The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
+        """
+        return pulumi.get(self, "deregistration_delay")
+
+    @property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> 'outputs.TargetGroupHealthCheck':
+        """
+        A Health Check block. Health Check blocks are documented below.
+        """
+        return pulumi.get(self, "health_check")
+
+    @property
+    @pulumi.getter(name="lambdaMultiValueHeadersEnabled")
+    def lambda_multi_value_headers_enabled(self) -> Optional[bool]:
+        """
+        Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        """
+        return pulumi.get(self, "lambda_multi_value_headers_enabled")
+
+    @property
+    @pulumi.getter(name="loadBalancingAlgorithmType")
+    def load_balancing_algorithm_type(self) -> str:
+        """
+        Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
+        """
+        return pulumi.get(self, "load_balancing_algorithm_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the target group. If omitted, this provider will assign a random, unique name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[str]:
+        """
+        Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[float]:
+        """
+        The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="proxyProtocolV2")
+    def proxy_protocol_v2(self) -> Optional[bool]:
+        """
+        Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
+        """
+        return pulumi.get(self, "proxy_protocol_v2")
+
+    @property
+    @pulumi.getter(name="slowStart")
+    def slow_start(self) -> Optional[float]:
+        """
+        The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
+        """
+        return pulumi.get(self, "slow_start")
+
+    @property
+    @pulumi.getter
+    def stickiness(self) -> 'outputs.TargetGroupStickiness':
+        """
+        A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
+        """
+        return pulumi.get(self, "stickiness")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[str]:
+        """
+        The type of target that you must specify when registering targets with this target group.
+        The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
+        The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses.
+        If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group,
+        the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10).
+        You can't specify publicly routable IP addresses.
+        """
+        return pulumi.get(self, "target_type")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[str]:
+        """
+        The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
+        """
+        return pulumi.get(self, "vpc_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

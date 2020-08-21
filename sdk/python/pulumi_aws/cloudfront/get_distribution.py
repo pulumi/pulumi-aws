@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetDistributionResult',
+    'AwaitableGetDistributionResult',
+    'get_distribution',
+]
 
+@pulumi.output_type
 class GetDistributionResult:
     """
     A collection of values returned by getDistribution.
@@ -16,65 +22,115 @@ class GetDistributionResult:
     def __init__(__self__, arn=None, domain_name=None, enabled=None, etag=None, hosted_zone_id=None, id=None, in_progress_validation_batches=None, last_modified_time=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        pulumi.set(__self__, "arn", arn)
+        if domain_name and not isinstance(domain_name, str):
+            raise TypeError("Expected argument 'domain_name' to be a str")
+        pulumi.set(__self__, "domain_name", domain_name)
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        pulumi.set(__self__, "enabled", enabled)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
+        if hosted_zone_id and not isinstance(hosted_zone_id, str):
+            raise TypeError("Expected argument 'hosted_zone_id' to be a str")
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if in_progress_validation_batches and not isinstance(in_progress_validation_batches, float):
+            raise TypeError("Expected argument 'in_progress_validation_batches' to be a float")
+        pulumi.set(__self__, "in_progress_validation_batches", in_progress_validation_batches)
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
         """
         The ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
         """
-        if domain_name and not isinstance(domain_name, str):
-            raise TypeError("Expected argument 'domain_name' to be a str")
-        __self__.domain_name = domain_name
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
         """
         The domain name corresponding to the distribution. For
         example: `d604721fxaaqy9.cloudfront.net`.
         """
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError("Expected argument 'enabled' to be a bool")
-        __self__.enabled = enabled
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        __self__.etag = etag
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
         """
         The current version of the distribution's information. For example:
         `E2QWRUHAPOMQZL`.
         """
-        if hosted_zone_id and not isinstance(hosted_zone_id, str):
-            raise TypeError("Expected argument 'hosted_zone_id' to be a str")
-        __self__.hosted_zone_id = hosted_zone_id
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> str:
         """
         The CloudFront Route 53 zone ID that can be used to
         route an [Alias Resource Record Set][7] to. This attribute is simply an
         alias for the zone ID `Z2FDTNDATAQYW2`.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "hosted_zone_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
         """
-        if in_progress_validation_batches and not isinstance(in_progress_validation_batches, float):
-            raise TypeError("Expected argument 'in_progress_validation_batches' to be a float")
-        __self__.in_progress_validation_batches = in_progress_validation_batches
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="inProgressValidationBatches")
+    def in_progress_validation_batches(self) -> float:
         """
         The number of invalidation batches
         currently in progress.
         """
-        if last_modified_time and not isinstance(last_modified_time, str):
-            raise TypeError("Expected argument 'last_modified_time' to be a str")
-        __self__.last_modified_time = last_modified_time
+        return pulumi.get(self, "in_progress_validation_batches")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
         """
         The date and time the distribution was last modified.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         The current status of the distribution. `Deployed` if the
         distribution's information is fully propagated throughout the Amazon
         CloudFront system.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "tags")
 
 
 class AwaitableGetDistributionResult(GetDistributionResult):
@@ -95,7 +151,9 @@ class AwaitableGetDistributionResult(GetDistributionResult):
             tags=self.tags)
 
 
-def get_distribution(id=None, tags=None, opts=None):
+def get_distribution(id: Optional[str] = None,
+                     tags: Optional[Mapping[str, str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributionResult:
     """
     Use this data source to retrieve information about a CloudFront distribution.
 
@@ -118,16 +176,16 @@ def get_distribution(id=None, tags=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:cloudfront/getDistribution:getDistribution', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:cloudfront/getDistribution:getDistribution', __args__, opts=opts, typ=GetDistributionResult).value
 
     return AwaitableGetDistributionResult(
-        arn=__ret__.get('arn'),
-        domain_name=__ret__.get('domainName'),
-        enabled=__ret__.get('enabled'),
-        etag=__ret__.get('etag'),
-        hosted_zone_id=__ret__.get('hostedZoneId'),
-        id=__ret__.get('id'),
-        in_progress_validation_batches=__ret__.get('inProgressValidationBatches'),
-        last_modified_time=__ret__.get('lastModifiedTime'),
-        status=__ret__.get('status'),
-        tags=__ret__.get('tags'))
+        arn=__ret__.arn,
+        domain_name=__ret__.domain_name,
+        enabled=__ret__.enabled,
+        etag=__ret__.etag,
+        hosted_zone_id=__ret__.hosted_zone_id,
+        id=__ret__.id,
+        in_progress_validation_batches=__ret__.in_progress_validation_batches,
+        last_modified_time=__ret__.last_modified_time,
+        status=__ret__.status,
+        tags=__ret__.tags)

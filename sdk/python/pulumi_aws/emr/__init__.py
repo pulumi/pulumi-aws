@@ -6,3 +6,5 @@
 from .cluster import *
 from .instance_group import *
 from .security_configuration import *
+from ._inputs import *
+from . import outputs

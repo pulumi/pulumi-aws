@@ -5,36 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['AssessmentTemplate']
 
 
 class AssessmentTemplate(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The template assessment ARN.
-    """
-    duration: pulumi.Output[float]
-    """
-    The duration of the inspector run.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the assessment template.
-    """
-    rules_package_arns: pulumi.Output[list]
-    """
-    The rules to be used during the run.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Key-value map of tags for the Inspector assessment template.
-    """
-    target_arn: pulumi.Output[str]
-    """
-    The assessment target ARN to attach the template to.
-    """
-    def __init__(__self__, resource_name, opts=None, duration=None, name=None, rules_package_arns=None, tags=None, target_arn=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 duration: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rules_package_arns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_arn: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Inspector assessment template
 
@@ -59,8 +47,8 @@ class AssessmentTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] duration: The duration of the inspector run.
         :param pulumi.Input[str] name: The name of the assessment template.
-        :param pulumi.Input[list] rules_package_arns: The rules to be used during the run.
-        :param pulumi.Input[dict] tags: Key-value map of tags for the Inspector assessment template.
+        :param pulumi.Input[List[pulumi.Input[str]]] rules_package_arns: The rules to be used during the run.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Inspector assessment template.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
         """
         if __name__ is not None:
@@ -99,19 +87,27 @@ class AssessmentTemplate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, duration=None, name=None, rules_package_arns=None, tags=None, target_arn=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            duration: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            rules_package_arns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            target_arn: Optional[pulumi.Input[str]] = None) -> 'AssessmentTemplate':
         """
         Get an existing AssessmentTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The template assessment ARN.
         :param pulumi.Input[float] duration: The duration of the inspector run.
         :param pulumi.Input[str] name: The name of the assessment template.
-        :param pulumi.Input[list] rules_package_arns: The rules to be used during the run.
-        :param pulumi.Input[dict] tags: Key-value map of tags for the Inspector assessment template.
+        :param pulumi.Input[List[pulumi.Input[str]]] rules_package_arns: The rules to be used during the run.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Inspector assessment template.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -126,8 +122,57 @@ class AssessmentTemplate(pulumi.CustomResource):
         __props__["target_arn"] = target_arn
         return AssessmentTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The template assessment ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> float:
+        """
+        The duration of the inspector run.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the assessment template.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="rulesPackageArns")
+    def rules_package_arns(self) -> List[str]:
+        """
+        The rules to be used during the run.
+        """
+        return pulumi.get(self, "rules_package_arns")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value map of tags for the Inspector assessment template.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetArn")
+    def target_arn(self) -> str:
+        """
+        The assessment target ARN to attach the template to.
+        """
+        return pulumi.get(self, "target_arn")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

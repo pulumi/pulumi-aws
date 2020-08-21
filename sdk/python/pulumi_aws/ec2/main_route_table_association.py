@@ -5,25 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['MainRouteTableAssociation']
 
 
 class MainRouteTableAssociation(pulumi.CustomResource):
-    original_route_table_id: pulumi.Output[str]
-    """
-    Used internally, see __Notes__ below
-    """
-    route_table_id: pulumi.Output[str]
-    """
-    The ID of the Route Table to set as the new
-    main route table for the target VPC
-    """
-    vpc_id: pulumi.Output[str]
-    """
-    The ID of the VPC whose main route table should be set
-    """
-    def __init__(__self__, resource_name, opts=None, route_table_id=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 route_table_id: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a resource for managing the main routing table of a VPC.
 
@@ -83,13 +79,18 @@ class MainRouteTableAssociation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, original_route_table_id=None, route_table_id=None, vpc_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            original_route_table_id: Optional[pulumi.Input[str]] = None,
+            route_table_id: Optional[pulumi.Input[str]] = None,
+            vpc_id: Optional[pulumi.Input[str]] = None) -> 'MainRouteTableAssociation':
         """
         Get an existing MainRouteTableAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] original_route_table_id: Used internally, see __Notes__ below
         :param pulumi.Input[str] route_table_id: The ID of the Route Table to set as the new
@@ -105,8 +106,34 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         __props__["vpc_id"] = vpc_id
         return MainRouteTableAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="originalRouteTableId")
+    def original_route_table_id(self) -> str:
+        """
+        Used internally, see __Notes__ below
+        """
+        return pulumi.get(self, "original_route_table_id")
+
+    @property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> str:
+        """
+        The ID of the Route Table to set as the new
+        main route table for the target VPC
+        """
+        return pulumi.get(self, "route_table_id")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        """
+        The ID of the VPC whose main route table should be set
+        """
+        return pulumi.get(self, "vpc_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

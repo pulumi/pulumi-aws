@@ -5,20 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['QueuePolicy']
 
 
 class QueuePolicy(pulumi.CustomResource):
-    policy: pulumi.Output[str]
-    """
-    The JSON policy for the SQS queue.
-    """
-    queue_url: pulumi.Output[str]
-    """
-    The URL of the SQS Queue to which to attach the policy
-    """
-    def __init__(__self__, resource_name, opts=None, policy=None, queue_url=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 queue_url: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Allows you to set a policy of an SQS Queue
         while referencing ARN of the queue within the policy.
@@ -55,7 +56,7 @@ class QueuePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] policy: The JSON policy for the SQS queue.
+        :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
         """
         if __name__ is not None:
@@ -88,15 +89,19 @@ class QueuePolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, policy=None, queue_url=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            policy: Optional[pulumi.Input[str]] = None,
+            queue_url: Optional[pulumi.Input[str]] = None) -> 'QueuePolicy':
         """
         Get an existing QueuePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] policy: The JSON policy for the SQS queue.
+        :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -107,8 +112,25 @@ class QueuePolicy(pulumi.CustomResource):
         __props__["queue_url"] = queue_url
         return QueuePolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def policy(self) -> str:
+        """
+        The JSON policy for the SQS queue.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="queueUrl")
+    def queue_url(self) -> str:
+        """
+        The URL of the SQS Queue to which to attach the policy
+        """
+        return pulumi.get(self, "queue_url")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

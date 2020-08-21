@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetServiceQuotaResult',
+    'AwaitableGetServiceQuotaResult',
+    'get_service_quota',
+]
 
+@pulumi.output_type
 class GetServiceQuotaResult:
     """
     A collection of values returned by getServiceQuota.
@@ -16,55 +22,105 @@ class GetServiceQuotaResult:
     def __init__(__self__, adjustable=None, arn=None, default_value=None, global_quota=None, id=None, quota_code=None, quota_name=None, service_code=None, service_name=None, value=None):
         if adjustable and not isinstance(adjustable, bool):
             raise TypeError("Expected argument 'adjustable' to be a bool")
-        __self__.adjustable = adjustable
+        pulumi.set(__self__, "adjustable", adjustable)
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
+        if default_value and not isinstance(default_value, float):
+            raise TypeError("Expected argument 'default_value' to be a float")
+        pulumi.set(__self__, "default_value", default_value)
+        if global_quota and not isinstance(global_quota, bool):
+            raise TypeError("Expected argument 'global_quota' to be a bool")
+        pulumi.set(__self__, "global_quota", global_quota)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if quota_code and not isinstance(quota_code, str):
+            raise TypeError("Expected argument 'quota_code' to be a str")
+        pulumi.set(__self__, "quota_code", quota_code)
+        if quota_name and not isinstance(quota_name, str):
+            raise TypeError("Expected argument 'quota_name' to be a str")
+        pulumi.set(__self__, "quota_name", quota_name)
+        if service_code and not isinstance(service_code, str):
+            raise TypeError("Expected argument 'service_code' to be a str")
+        pulumi.set(__self__, "service_code", service_code)
+        if service_name and not isinstance(service_name, str):
+            raise TypeError("Expected argument 'service_name' to be a str")
+        pulumi.set(__self__, "service_name", service_name)
+        if value and not isinstance(value, float):
+            raise TypeError("Expected argument 'value' to be a float")
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def adjustable(self) -> bool:
         """
         Whether the service quota is adjustable.
         """
-        if arn and not isinstance(arn, str):
-            raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        return pulumi.get(self, "adjustable")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
         """
         Amazon Resource Name (ARN) of the service quota.
         """
-        if default_value and not isinstance(default_value, float):
-            raise TypeError("Expected argument 'default_value' to be a float")
-        __self__.default_value = default_value
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> float:
         """
         Default value of the service quota.
         """
-        if global_quota and not isinstance(global_quota, bool):
-            raise TypeError("Expected argument 'global_quota' to be a bool")
-        __self__.global_quota = global_quota
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter(name="globalQuota")
+    def global_quota(self) -> bool:
         """
         Whether the service quota is global for the AWS account.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "global_quota")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if quota_code and not isinstance(quota_code, str):
-            raise TypeError("Expected argument 'quota_code' to be a str")
-        __self__.quota_code = quota_code
-        if quota_name and not isinstance(quota_name, str):
-            raise TypeError("Expected argument 'quota_name' to be a str")
-        __self__.quota_name = quota_name
-        if service_code and not isinstance(service_code, str):
-            raise TypeError("Expected argument 'service_code' to be a str")
-        __self__.service_code = service_code
-        if service_name and not isinstance(service_name, str):
-            raise TypeError("Expected argument 'service_name' to be a str")
-        __self__.service_name = service_name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="quotaCode")
+    def quota_code(self) -> str:
+        return pulumi.get(self, "quota_code")
+
+    @property
+    @pulumi.getter(name="quotaName")
+    def quota_name(self) -> str:
+        return pulumi.get(self, "quota_name")
+
+    @property
+    @pulumi.getter(name="serviceCode")
+    def service_code(self) -> str:
+        return pulumi.get(self, "service_code")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> str:
         """
         Name of the service.
         """
-        if value and not isinstance(value, float):
-            raise TypeError("Expected argument 'value' to be a float")
-        __self__.value = value
+        return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
         """
         Current value of the service quota.
         """
+        return pulumi.get(self, "value")
 
 
 class AwaitableGetServiceQuotaResult(GetServiceQuotaResult):
@@ -85,7 +141,10 @@ class AwaitableGetServiceQuotaResult(GetServiceQuotaResult):
             value=self.value)
 
 
-def get_service_quota(quota_code=None, quota_name=None, service_code=None, opts=None):
+def get_service_quota(quota_code: Optional[str] = None,
+                      quota_name: Optional[str] = None,
+                      service_code: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceQuotaResult:
     """
     Retrieve information about a Service Quota.
 
@@ -114,16 +173,16 @@ def get_service_quota(quota_code=None, quota_name=None, service_code=None, opts=
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:servicequotas/getServiceQuota:getServiceQuota', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:servicequotas/getServiceQuota:getServiceQuota', __args__, opts=opts, typ=GetServiceQuotaResult).value
 
     return AwaitableGetServiceQuotaResult(
-        adjustable=__ret__.get('adjustable'),
-        arn=__ret__.get('arn'),
-        default_value=__ret__.get('defaultValue'),
-        global_quota=__ret__.get('globalQuota'),
-        id=__ret__.get('id'),
-        quota_code=__ret__.get('quotaCode'),
-        quota_name=__ret__.get('quotaName'),
-        service_code=__ret__.get('serviceCode'),
-        service_name=__ret__.get('serviceName'),
-        value=__ret__.get('value'))
+        adjustable=__ret__.adjustable,
+        arn=__ret__.arn,
+        default_value=__ret__.default_value,
+        global_quota=__ret__.global_quota,
+        id=__ret__.id,
+        quota_code=__ret__.quota_code,
+        quota_name=__ret__.quota_name,
+        service_code=__ret__.service_code,
+        service_name=__ret__.service_name,
+        value=__ret__.value)

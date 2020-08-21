@@ -5,27 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ParameterGroup']
 
 
 class ParameterGroup(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    A description of the parameter group.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the parameter group.
-    """
-    parameters: pulumi.Output[list]
-    """
-    The parameters of the parameter group.
-
-      * `name` (`str`) - The name of the parameter.
-      * `value` (`str`) - The value for the parameter.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, name=None, parameters=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a DAX Parameter Group resource.
 
@@ -36,14 +33,14 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dax.ParameterGroup("example", parameters=[
-            {
-                "name": "query-ttl-millis",
-                "value": "100000",
-            },
-            {
-                "name": "record-ttl-millis",
-                "value": "100000",
-            },
+            aws.dax.ParameterGroupParameterArgs(
+                name="query-ttl-millis",
+                value="100000",
+            ),
+            aws.dax.ParameterGroupParameterArgs(
+                name="record-ttl-millis",
+                value="100000",
+            ),
         ])
         ```
 
@@ -51,12 +48,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] name: The name of the parameter group.
-        :param pulumi.Input[list] parameters: The parameters of the parameter group.
-
-        The **parameters** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The name of the parameter.
-          * `value` (`pulumi.Input[str]`) - The value for the parameter.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: The parameters of the parameter group.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,22 +77,22 @@ class ParameterGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, name=None, parameters=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None) -> 'ParameterGroup':
         """
         Get an existing ParameterGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] name: The name of the parameter group.
-        :param pulumi.Input[list] parameters: The parameters of the parameter group.
-
-        The **parameters** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The name of the parameter.
-          * `value` (`pulumi.Input[str]`) - The value for the parameter.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: The parameters of the parameter group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -111,8 +103,33 @@ class ParameterGroup(pulumi.CustomResource):
         __props__["parameters"] = parameters
         return ParameterGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the parameter group.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the parameter group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> List['outputs.ParameterGroupParameter']:
+        """
+        The parameters of the parameter group.
+        """
+        return pulumi.get(self, "parameters")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

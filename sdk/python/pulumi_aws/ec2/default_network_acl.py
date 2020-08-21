@@ -5,70 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['DefaultNetworkAcl']
 
 
 class DefaultNetworkAcl(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of the Default Network ACL
-    """
-    default_network_acl_id: pulumi.Output[str]
-    """
-    The Network ACL ID to manage. This
-    attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
-    """
-    egress: pulumi.Output[list]
-    """
-    Specifies an egress rule. Parameters defined below.
-
-      * `action` (`str`) - The action to take.
-      * `cidr_block` (`str`) - The CIDR block to match. This must be a
-        valid network mask.
-      * `from_port` (`float`) - The from port to match.
-      * `icmp_code` (`float`) - The ICMP type code to be used. Default 0.
-      * `icmp_type` (`float`) - The ICMP type to be used. Default 0.
-      * `ipv6_cidr_block` (`str`) - The IPv6 CIDR block.
-      * `protocol` (`str`) - The protocol to match. If using the -1 'all'
-        protocol, you must specify a from and to port of 0.
-      * `ruleNo` (`float`) - The rule number. Used for ordering.
-      * `to_port` (`float`) - The to port to match.
-    """
-    ingress: pulumi.Output[list]
-    """
-    Specifies an ingress rule. Parameters defined below.
-
-      * `action` (`str`) - The action to take.
-      * `cidr_block` (`str`) - The CIDR block to match. This must be a
-        valid network mask.
-      * `from_port` (`float`) - The from port to match.
-      * `icmp_code` (`float`) - The ICMP type code to be used. Default 0.
-      * `icmp_type` (`float`) - The ICMP type to be used. Default 0.
-      * `ipv6_cidr_block` (`str`) - The IPv6 CIDR block.
-      * `protocol` (`str`) - The protocol to match. If using the -1 'all'
-        protocol, you must specify a from and to port of 0.
-      * `ruleNo` (`float`) - The rule number. Used for ordering.
-      * `to_port` (`float`) - The to port to match.
-    """
-    owner_id: pulumi.Output[str]
-    """
-    The ID of the AWS account that owns the Default Network ACL
-    """
-    subnet_ids: pulumi.Output[list]
-    """
-    A list of Subnet IDs to apply the ACL to. See the
-    notes below on managing Subnets in the Default Network ACL
-    """
-    tags: pulumi.Output[dict]
-    """
-    A map of tags to assign to the resource.
-    """
-    vpc_id: pulumi.Output[str]
-    """
-    The ID of the associated VPC
-    """
-    def __init__(__self__, resource_name, opts=None, default_network_acl_id=None, egress=None, ingress=None, subnet_ids=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 default_network_acl_id: Optional[pulumi.Input[str]] = None,
+                 egress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultNetworkAclEgressArgs']]]]] = None,
+                 ingress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultNetworkAclIngressArgs']]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a resource to manage the default AWS Network ACL. VPC Only.
 
@@ -108,22 +64,22 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultNetworkAcl("default",
             default_network_acl_id=mainvpc.default_network_acl_id,
-            ingress=[{
-                "protocol": -1,
-                "ruleNo": 100,
-                "action": "allow",
-                "cidr_block": mainvpc.cidr_block,
-                "from_port": 0,
-                "to_port": 0,
-            }],
-            egress=[{
-                "protocol": -1,
-                "ruleNo": 100,
-                "action": "allow",
-                "cidr_block": "0.0.0.0/0",
-                "from_port": 0,
-                "to_port": 0,
-            }])
+            ingress=[aws.ec2.DefaultNetworkAclIngressArgs(
+                protocol="-1",
+                rule_no=100,
+                action="allow",
+                cidr_block=mainvpc.cidr_block,
+                from_port=0,
+                to_port=0,
+            )],
+            egress=[aws.ec2.DefaultNetworkAclEgressArgs(
+                protocol="-1",
+                rule_no=100,
+                action="allow",
+                cidr_block="0.0.0.0/0",
+                from_port=0,
+                to_port=0,
+            )])
         ```
 
         ## Example config to deny all Egress traffic, allowing Ingress
@@ -138,14 +94,14 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultNetworkAcl("default",
             default_network_acl_id=mainvpc.default_network_acl_id,
-            ingress=[{
-                "protocol": -1,
-                "ruleNo": 100,
-                "action": "allow",
-                "cidr_block": mainvpc.cidr_block,
-                "from_port": 0,
-                "to_port": 0,
-            }])
+            ingress=[aws.ec2.DefaultNetworkAclIngressArgs(
+                protocol="-1",
+                rule_no=100,
+                action="allow",
+                cidr_block=mainvpc.cidr_block,
+                from_port=0,
+                to_port=0,
+            )])
         ```
 
         ## Example config to deny all traffic to any Subnet in the Default Network ACL
@@ -167,39 +123,11 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_network_acl_id: The Network ACL ID to manage. This
                attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
-        :param pulumi.Input[list] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[list] ingress: Specifies an ingress rule. Parameters defined below.
-        :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to. See the
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultNetworkAclEgressArgs']]]] egress: Specifies an egress rule. Parameters defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultNetworkAclIngressArgs']]]] ingress: Specifies an ingress rule. Parameters defined below.
+        :param pulumi.Input[List[pulumi.Input[str]]] subnet_ids: A list of Subnet IDs to apply the ACL to. See the
                notes below on managing Subnets in the Default Network ACL
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
-
-        The **egress** object supports the following:
-
-          * `action` (`pulumi.Input[str]`) - The action to take.
-          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
-            valid network mask.
-          * `from_port` (`pulumi.Input[float]`) - The from port to match.
-          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
-          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
-          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
-          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
-            protocol, you must specify a from and to port of 0.
-          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
-          * `to_port` (`pulumi.Input[float]`) - The to port to match.
-
-        The **ingress** object supports the following:
-
-          * `action` (`pulumi.Input[str]`) - The action to take.
-          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
-            valid network mask.
-          * `from_port` (`pulumi.Input[float]`) - The from port to match.
-          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
-          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
-          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
-          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
-            protocol, you must specify a from and to port of 0.
-          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
-          * `to_port` (`pulumi.Input[float]`) - The to port to match.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -235,52 +163,34 @@ class DefaultNetworkAcl(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, default_network_acl_id=None, egress=None, ingress=None, owner_id=None, subnet_ids=None, tags=None, vpc_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            default_network_acl_id: Optional[pulumi.Input[str]] = None,
+            egress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultNetworkAclEgressArgs']]]]] = None,
+            ingress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultNetworkAclIngressArgs']]]]] = None,
+            owner_id: Optional[pulumi.Input[str]] = None,
+            subnet_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            vpc_id: Optional[pulumi.Input[str]] = None) -> 'DefaultNetworkAcl':
         """
         Get an existing DefaultNetworkAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the Default Network ACL
         :param pulumi.Input[str] default_network_acl_id: The Network ACL ID to manage. This
                attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
-        :param pulumi.Input[list] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[list] ingress: Specifies an ingress rule. Parameters defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultNetworkAclEgressArgs']]]] egress: Specifies an egress rule. Parameters defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultNetworkAclIngressArgs']]]] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the Default Network ACL
-        :param pulumi.Input[list] subnet_ids: A list of Subnet IDs to apply the ACL to. See the
+        :param pulumi.Input[List[pulumi.Input[str]]] subnet_ids: A list of Subnet IDs to apply the ACL to. See the
                notes below on managing Subnets in the Default Network ACL
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC
-
-        The **egress** object supports the following:
-
-          * `action` (`pulumi.Input[str]`) - The action to take.
-          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
-            valid network mask.
-          * `from_port` (`pulumi.Input[float]`) - The from port to match.
-          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
-          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
-          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
-          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
-            protocol, you must specify a from and to port of 0.
-          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
-          * `to_port` (`pulumi.Input[float]`) - The to port to match.
-
-        The **ingress** object supports the following:
-
-          * `action` (`pulumi.Input[str]`) - The action to take.
-          * `cidr_block` (`pulumi.Input[str]`) - The CIDR block to match. This must be a
-            valid network mask.
-          * `from_port` (`pulumi.Input[float]`) - The from port to match.
-          * `icmp_code` (`pulumi.Input[float]`) - The ICMP type code to be used. Default 0.
-          * `icmp_type` (`pulumi.Input[float]`) - The ICMP type to be used. Default 0.
-          * `ipv6_cidr_block` (`pulumi.Input[str]`) - The IPv6 CIDR block.
-          * `protocol` (`pulumi.Input[str]`) - The protocol to match. If using the -1 'all'
-            protocol, you must specify a from and to port of 0.
-          * `ruleNo` (`pulumi.Input[float]`) - The rule number. Used for ordering.
-          * `to_port` (`pulumi.Input[float]`) - The to port to match.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -296,8 +206,75 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         __props__["vpc_id"] = vpc_id
         return DefaultNetworkAcl(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the Default Network ACL
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="defaultNetworkAclId")
+    def default_network_acl_id(self) -> str:
+        """
+        The Network ACL ID to manage. This
+        attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+        """
+        return pulumi.get(self, "default_network_acl_id")
+
+    @property
+    @pulumi.getter
+    def egress(self) -> Optional[List['outputs.DefaultNetworkAclEgress']]:
+        """
+        Specifies an egress rule. Parameters defined below.
+        """
+        return pulumi.get(self, "egress")
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional[List['outputs.DefaultNetworkAclIngress']]:
+        """
+        Specifies an ingress rule. Parameters defined below.
+        """
+        return pulumi.get(self, "ingress")
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> str:
+        """
+        The ID of the AWS account that owns the Default Network ACL
+        """
+        return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[List[str]]:
+        """
+        A list of Subnet IDs to apply the ACL to. See the
+        notes below on managing Subnets in the Default Network ACL
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        """
+        The ID of the associated VPC
+        """
+        return pulumi.get(self, "vpc_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

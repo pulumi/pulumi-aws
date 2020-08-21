@@ -16,3 +16,5 @@ from .get_bucket import *
 from .get_bucket_object import *
 from .get_bucket_objects import *
 from .inventory import *
+from ._inputs import *
+from . import outputs

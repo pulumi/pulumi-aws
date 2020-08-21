@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetPolicyDocumentResult',
+    'AwaitableGetPolicyDocumentResult',
+    'get_policy_document',
+]
 
+@pulumi.output_type
 class GetPolicyDocumentResult:
     """
     A collection of values returned by getPolicyDocument.
@@ -16,31 +24,66 @@ class GetPolicyDocumentResult:
     def __init__(__self__, id=None, json=None, override_json=None, policy_id=None, source_json=None, statements=None, version=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if json and not isinstance(json, str):
+            raise TypeError("Expected argument 'json' to be a str")
+        pulumi.set(__self__, "json", json)
+        if override_json and not isinstance(override_json, str):
+            raise TypeError("Expected argument 'override_json' to be a str")
+        pulumi.set(__self__, "override_json", override_json)
+        if policy_id and not isinstance(policy_id, str):
+            raise TypeError("Expected argument 'policy_id' to be a str")
+        pulumi.set(__self__, "policy_id", policy_id)
+        if source_json and not isinstance(source_json, str):
+            raise TypeError("Expected argument 'source_json' to be a str")
+        pulumi.set(__self__, "source_json", source_json)
+        if statements and not isinstance(statements, list):
+            raise TypeError("Expected argument 'statements' to be a list")
+        pulumi.set(__self__, "statements", statements)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if json and not isinstance(json, str):
-            raise TypeError("Expected argument 'json' to be a str")
-        __self__.json = json
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def json(self) -> str:
         """
         The above arguments serialized as a standard JSON policy document.
         """
-        if override_json and not isinstance(override_json, str):
-            raise TypeError("Expected argument 'override_json' to be a str")
-        __self__.override_json = override_json
-        if policy_id and not isinstance(policy_id, str):
-            raise TypeError("Expected argument 'policy_id' to be a str")
-        __self__.policy_id = policy_id
-        if source_json and not isinstance(source_json, str):
-            raise TypeError("Expected argument 'source_json' to be a str")
-        __self__.source_json = source_json
-        if statements and not isinstance(statements, list):
-            raise TypeError("Expected argument 'statements' to be a list")
-        __self__.statements = statements
-        if version and not isinstance(version, str):
-            raise TypeError("Expected argument 'version' to be a str")
-        __self__.version = version
+        return pulumi.get(self, "json")
+
+    @property
+    @pulumi.getter(name="overrideJson")
+    def override_json(self) -> Optional[str]:
+        return pulumi.get(self, "override_json")
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[str]:
+        return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="sourceJson")
+    def source_json(self) -> Optional[str]:
+        return pulumi.get(self, "source_json")
+
+    @property
+    @pulumi.getter
+    def statements(self) -> Optional[List['outputs.GetPolicyDocumentStatementResult']]:
+        return pulumi.get(self, "statements")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        return pulumi.get(self, "version")
 
 
 class AwaitableGetPolicyDocumentResult(GetPolicyDocumentResult):
@@ -58,7 +101,12 @@ class AwaitableGetPolicyDocumentResult(GetPolicyDocumentResult):
             version=self.version)
 
 
-def get_policy_document(override_json=None, policy_id=None, source_json=None, statements=None, version=None, opts=None):
+def get_policy_document(override_json: Optional[str] = None,
+                        policy_id: Optional[str] = None,
+                        source_json: Optional[str] = None,
+                        statements: Optional[List[pulumi.InputType['GetPolicyDocumentStatementArgs']]] = None,
+                        version: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDocumentResult:
     """
     Generates an IAM policy document in JSON format.
 
@@ -71,34 +119,34 @@ def get_policy_document(override_json=None, policy_id=None, source_json=None, st
     import pulumi_aws as aws
 
     example_policy_document = aws.iam.get_policy_document(statements=[
-        {
-            "sid": "1",
-            "actions": [
+        aws.iam.GetPolicyDocumentStatementArgs(
+            sid="1",
+            actions=[
                 "s3:ListAllMyBuckets",
                 "s3:GetBucketLocation",
             ],
-            "resources": ["arn:aws:s3:::*"],
-        },
-        {
-            "actions": ["s3:ListBucket"],
-            "resources": [f"arn:aws:s3:::{var['s3_bucket_name']}"],
-            "conditions": [{
-                "test": "StringLike",
-                "variable": "s3:prefix",
-                "values": [
+            resources=["arn:aws:s3:::*"],
+        ),
+        aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["s3:ListBucket"],
+            resources=[f"arn:aws:s3:::{var['s3_bucket_name']}"],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="StringLike",
+                variable="s3:prefix",
+                values=[
                     "",
                     "home/",
                     "home/&{aws:username}/",
                 ],
-            }],
-        },
-        {
-            "actions": ["s3:*"],
-            "resources": [
+            )],
+        ),
+        aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["s3:*"],
+            resources=[
                 f"arn:aws:s3:::{var['s3_bucket_name']}/home/&{{aws:username}}",
                 f"arn:aws:s3:::{var['s3_bucket_name']}/home/&{{aws:username}}/*",
             ],
-        },
+        ),
     ])
     example_policy = aws.iam.Policy("examplePolicy",
         path="/",
@@ -135,26 +183,26 @@ def get_policy_document(override_json=None, policy_id=None, source_json=None, st
     import pulumi
     import pulumi_aws as aws
 
-    event_stream_bucket_role_assume_role_policy = aws.iam.get_policy_document(statements=[{
-        "actions": ["sts:AssumeRole"],
-        "principals": [
-            {
-                "type": "Service",
-                "identifiers": ["firehose.amazonaws.com"],
-            },
-            {
-                "type": "AWS",
-                "identifiers": [var["trusted_role_arn"]],
-            },
-            {
-                "type": "Federated",
-                "identifiers": [
+    event_stream_bucket_role_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        actions=["sts:AssumeRole"],
+        principals=[
+            aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["firehose.amazonaws.com"],
+            ),
+            aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=[var["trusted_role_arn"]],
+            ),
+            aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Federated",
+                identifiers=[
                     f"arn:aws:iam::{var['account_id']}:saml-provider/{var['provider_name']}",
                     "cognito-identity.amazonaws.com",
                 ],
-            },
+            ),
         ],
-    }])
+    )])
     ```
 
     ## Example with Source and Override
@@ -166,44 +214,44 @@ def get_policy_document(override_json=None, policy_id=None, source_json=None, st
     import pulumi_aws as aws
 
     source = aws.iam.get_policy_document(statements=[
-        {
-            "actions": ["ec2:*"],
-            "resources": ["*"],
-        },
-        {
-            "sid": "SidToOverwrite",
-            "actions": ["s3:*"],
-            "resources": ["*"],
-        },
+        aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["ec2:*"],
+            resources=["*"],
+        ),
+        aws.iam.GetPolicyDocumentStatementArgs(
+            sid="SidToOverwrite",
+            actions=["s3:*"],
+            resources=["*"],
+        ),
     ])
     source_json_example = aws.iam.get_policy_document(source_json=source.json,
-        statements=[{
-            "sid": "SidToOverwrite",
-            "actions": ["s3:*"],
-            "resources": [
+        statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="SidToOverwrite",
+            actions=["s3:*"],
+            resources=[
                 "arn:aws:s3:::somebucket",
                 "arn:aws:s3:::somebucket/*",
             ],
-        }])
-    override = aws.iam.get_policy_document(statements=[{
-        "sid": "SidToOverwrite",
-        "actions": ["s3:*"],
-        "resources": ["*"],
-    }])
+        )])
+    override = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        sid="SidToOverwrite",
+        actions=["s3:*"],
+        resources=["*"],
+    )])
     override_json_example = aws.iam.get_policy_document(override_json=override.json,
         statements=[
-            {
-                "actions": ["ec2:*"],
-                "resources": ["*"],
-            },
-            {
-                "sid": "SidToOverwrite",
-                "actions": ["s3:*"],
-                "resources": [
+            aws.iam.GetPolicyDocumentStatementArgs(
+                actions=["ec2:*"],
+                resources=["*"],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="SidToOverwrite",
+                actions=["s3:*"],
+                resources=[
                     "arn:aws:s3:::somebucket",
                     "arn:aws:s3:::somebucket/*",
                 ],
-            },
+            ),
         ])
     ```
 
@@ -229,16 +277,16 @@ def get_policy_document(override_json=None, policy_id=None, source_json=None, st
     import pulumi
     import pulumi_aws as aws
 
-    source = aws.iam.get_policy_document(statements=[{
-        "sid": "OverridePlaceholder",
-        "actions": ["ec2:DescribeAccountAttributes"],
-        "resources": ["*"],
-    }])
-    override = aws.iam.get_policy_document(statements=[{
-        "sid": "OverridePlaceholder",
-        "actions": ["s3:GetObject"],
-        "resources": ["*"],
-    }])
+    source = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        sid="OverridePlaceholder",
+        actions=["ec2:DescribeAccountAttributes"],
+        resources=["*"],
+    )])
+    override = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        sid="OverridePlaceholder",
+        actions=["s3:GetObject"],
+        resources=["*"],
+    )])
     politik = aws.iam.get_policy_document(source_json=source.json,
         override_json=override.json)
     ```
@@ -259,52 +307,9 @@ def get_policy_document(override_json=None, policy_id=None, source_json=None, st
            current policy document.  Statements with non-blank `sid`s in the current
            policy document will overwrite statements with the same `sid` in the source
            json.  Statements without an `sid` cannot be overwritten.
-    :param list statements: A nested configuration block (described below)
+    :param List[pulumi.InputType['GetPolicyDocumentStatementArgs']] statements: A nested configuration block (described below)
            configuring one *statement* to be included in the policy document.
     :param str version: IAM policy document version. Valid values: `2008-10-17`, `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
-
-    The **statements** object supports the following:
-
-      * `actions` (`list`) - A list of actions that this statement either allows
-        or denies. For example, ``["ec2:RunInstances", "s3:*"]``.
-      * `conditions` (`list`) - A nested configuration block (described below)
-        that defines a further, possibly-service-specific condition that constrains
-        whether this statement applies.
-        * `test` (`str`) - The name of the
-          [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html)
-          to evaluate.
-        * `values` (`list`) - The values to evaluate the condition against. If multiple
-          values are provided, the condition matches if at least one of them applies.
-          (That is, the tests are combined with the "OR" boolean operation.)
-        * `variable` (`str`) - The name of a
-          [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys)
-          to apply the condition to. Context variables may either be standard AWS
-          variables starting with `aws:`, or service-specific variables prefixed with
-          the service name.
-
-      * `effect` (`str`) - Either "Allow" or "Deny", to specify whether this
-        statement allows or denies the given actions. The default is "Allow".
-      * `notActions` (`list`) - A list of actions that this statement does *not*
-        apply to. Used to apply a policy statement to all actions *except* those
-        listed.
-      * `notPrincipals` (`list`) - Like `principals` except gives principals that
-        the statement does *not* apply to.
-        * `identifiers` (`list`) - List of identifiers for principals. When `type`
-          is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
-        * `type` (`str`) - The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
-
-      * `notResources` (`list`) - A list of resource ARNs that this statement
-        does *not* apply to. Used to apply a policy statement to all resources
-        *except* those listed.
-      * `principals` (`list`) - A nested configuration block (described below)
-        specifying a principal (or principal pattern) to which this statement applies.
-        * `identifiers` (`list`) - List of identifiers for principals. When `type`
-          is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
-        * `type` (`str`) - The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
-
-      * `resources` (`list`) - A list of resource ARNs that this statement applies
-        to. This is required by AWS if used for an IAM policy.
-      * `sid` (`str`) - An ID for the policy statement.
     """
     __args__ = dict()
     __args__['overrideJson'] = override_json
@@ -316,13 +321,13 @@ def get_policy_document(override_json=None, policy_id=None, source_json=None, st
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:iam/getPolicyDocument:getPolicyDocument', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:iam/getPolicyDocument:getPolicyDocument', __args__, opts=opts, typ=GetPolicyDocumentResult).value
 
     return AwaitableGetPolicyDocumentResult(
-        id=__ret__.get('id'),
-        json=__ret__.get('json'),
-        override_json=__ret__.get('overrideJson'),
-        policy_id=__ret__.get('policyId'),
-        source_json=__ret__.get('sourceJson'),
-        statements=__ret__.get('statements'),
-        version=__ret__.get('version'))
+        id=__ret__.id,
+        json=__ret__.json,
+        override_json=__ret__.override_json,
+        policy_id=__ret__.policy_id,
+        source_json=__ret__.source_json,
+        statements=__ret__.statements,
+        version=__ret__.version)

@@ -5,42 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['LinkAggregationGroup']
 
 
 class LinkAggregationGroup(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of the LAG.
-    * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
-    """
-    connections_bandwidth: pulumi.Output[str]
-    """
-    The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
-    """
-    force_destroy: pulumi.Output[bool]
-    """
-    A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
-    """
-    has_logical_redundancy: pulumi.Output[str]
-    """
-    Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-    """
-    jumbo_frame_capable: pulumi.Output[bool]
-    location: pulumi.Output[str]
-    """
-    The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the LAG.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A map of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, connections_bandwidth=None, force_destroy=None, location=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 connections_bandwidth: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Direct Connect LAG. Connections can be added to the LAG via the `directconnect.Connection` and `directconnect.ConnectionAssociation` resources.
 
@@ -64,7 +46,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
         :param pulumi.Input[str] location: The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         :param pulumi.Input[str] name: The name of the LAG.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -102,13 +84,23 @@ class LinkAggregationGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, connections_bandwidth=None, force_destroy=None, has_logical_redundancy=None, jumbo_frame_capable=None, location=None, name=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            connections_bandwidth: Optional[pulumi.Input[str]] = None,
+            force_destroy: Optional[pulumi.Input[bool]] = None,
+            has_logical_redundancy: Optional[pulumi.Input[str]] = None,
+            jumbo_frame_capable: Optional[pulumi.Input[bool]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LinkAggregationGroup':
         """
         Get an existing LinkAggregationGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the LAG.
                * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
@@ -117,7 +109,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] has_logical_redundancy: Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
         :param pulumi.Input[str] location: The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         :param pulumi.Input[str] name: The name of the LAG.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -133,8 +125,71 @@ class LinkAggregationGroup(pulumi.CustomResource):
         __props__["tags"] = tags
         return LinkAggregationGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the LAG.
+        * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="connectionsBandwidth")
+    def connections_bandwidth(self) -> str:
+        """
+        The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+        """
+        return pulumi.get(self, "connections_bandwidth")
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[bool]:
+        """
+        A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @property
+    @pulumi.getter(name="hasLogicalRedundancy")
+    def has_logical_redundancy(self) -> str:
+        """
+        Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
+        """
+        return pulumi.get(self, "has_logical_redundancy")
+
+    @property
+    @pulumi.getter(name="jumboFrameCapable")
+    def jumbo_frame_capable(self) -> bool:
+        return pulumi.get(self, "jumbo_frame_capable")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the LAG.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

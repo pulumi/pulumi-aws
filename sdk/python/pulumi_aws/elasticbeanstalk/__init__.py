@@ -10,3 +10,5 @@ from .environment import *
 from .get_application import *
 from .get_hosted_zone import *
 from .get_solution_stack import *
+from ._inputs import *
+from . import outputs

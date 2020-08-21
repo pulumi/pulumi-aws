@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetRateBasedModResult',
+    'AwaitableGetRateBasedModResult',
+    'get_rate_based_mod',
+]
 
+@pulumi.output_type
 class GetRateBasedModResult:
     """
     A collection of values returned by getRateBasedMod.
@@ -16,13 +22,23 @@ class GetRateBasedModResult:
     def __init__(__self__, id=None, name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 class AwaitableGetRateBasedModResult(GetRateBasedModResult):
@@ -35,7 +51,8 @@ class AwaitableGetRateBasedModResult(GetRateBasedModResult):
             name=self.name)
 
 
-def get_rate_based_mod(name=None, opts=None):
+def get_rate_based_mod(name: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRateBasedModResult:
     """
     `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
 
@@ -57,8 +74,8 @@ def get_rate_based_mod(name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:wafregional/getRateBasedMod:getRateBasedMod', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:wafregional/getRateBasedMod:getRateBasedMod', __args__, opts=opts, typ=GetRateBasedModResult).value
 
     return AwaitableGetRateBasedModResult(
-        id=__ret__.get('id'),
-        name=__ret__.get('name'))
+        id=__ret__.id,
+        name=__ret__.name)

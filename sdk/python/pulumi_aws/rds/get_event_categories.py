@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetEventCategoriesResult',
+    'AwaitableGetEventCategoriesResult',
+    'get_event_categories',
+]
 
+@pulumi.output_type
 class GetEventCategoriesResult:
     """
     A collection of values returned by getEventCategories.
@@ -16,19 +22,34 @@ class GetEventCategoriesResult:
     def __init__(__self__, event_categories=None, id=None, source_type=None):
         if event_categories and not isinstance(event_categories, list):
             raise TypeError("Expected argument 'event_categories' to be a list")
-        __self__.event_categories = event_categories
+        pulumi.set(__self__, "event_categories", event_categories)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if source_type and not isinstance(source_type, str):
+            raise TypeError("Expected argument 'source_type' to be a str")
+        pulumi.set(__self__, "source_type", source_type)
+
+    @property
+    @pulumi.getter(name="eventCategories")
+    def event_categories(self) -> List[str]:
         """
         A list of the event categories.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "event_categories")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if source_type and not isinstance(source_type, str):
-            raise TypeError("Expected argument 'source_type' to be a str")
-        __self__.source_type = source_type
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[str]:
+        return pulumi.get(self, "source_type")
 
 
 class AwaitableGetEventCategoriesResult(GetEventCategoriesResult):
@@ -42,7 +63,8 @@ class AwaitableGetEventCategoriesResult(GetEventCategoriesResult):
             source_type=self.source_type)
 
 
-def get_event_categories(source_type=None, opts=None):
+def get_event_categories(source_type: Optional[str] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventCategoriesResult:
     """
     ## Example Usage
 
@@ -75,9 +97,9 @@ def get_event_categories(source_type=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:rds/getEventCategories:getEventCategories', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:rds/getEventCategories:getEventCategories', __args__, opts=opts, typ=GetEventCategoriesResult).value
 
     return AwaitableGetEventCategoriesResult(
-        event_categories=__ret__.get('eventCategories'),
-        id=__ret__.get('id'),
-        source_type=__ret__.get('sourceType'))
+        event_categories=__ret__.event_categories,
+        id=__ret__.id,
+        source_type=__ret__.source_type)

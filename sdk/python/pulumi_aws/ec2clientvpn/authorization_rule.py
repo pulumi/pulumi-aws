@@ -5,32 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['AuthorizationRule']
 
 
 class AuthorizationRule(pulumi.CustomResource):
-    access_group_id: pulumi.Output[str]
-    """
-    The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
-    """
-    authorize_all_groups: pulumi.Output[bool]
-    """
-    Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
-    """
-    client_vpn_endpoint_id: pulumi.Output[str]
-    """
-    The ID of the Client VPN endpoint.
-    """
-    description: pulumi.Output[str]
-    """
-    A brief description of the authorization rule.
-    """
-    target_network_cidr: pulumi.Output[str]
-    """
-    The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
-    """
-    def __init__(__self__, resource_name, opts=None, access_group_id=None, authorize_all_groups=None, client_vpn_endpoint_id=None, description=None, target_network_cidr=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_group_id: Optional[pulumi.Input[str]] = None,
+                 authorize_all_groups: Optional[pulumi.Input[bool]] = None,
+                 client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 target_network_cidr: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides authorization rules for AWS Client VPN endpoints. For more information on usage, please see the
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
@@ -88,13 +80,20 @@ class AuthorizationRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_group_id=None, authorize_all_groups=None, client_vpn_endpoint_id=None, description=None, target_network_cidr=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_group_id: Optional[pulumi.Input[str]] = None,
+            authorize_all_groups: Optional[pulumi.Input[bool]] = None,
+            client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            target_network_cidr: Optional[pulumi.Input[str]] = None) -> 'AuthorizationRule':
         """
         Get an existing AuthorizationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_group_id: The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
         :param pulumi.Input[bool] authorize_all_groups: Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
@@ -113,8 +112,49 @@ class AuthorizationRule(pulumi.CustomResource):
         __props__["target_network_cidr"] = target_network_cidr
         return AuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessGroupId")
+    def access_group_id(self) -> Optional[str]:
+        """
+        The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
+        """
+        return pulumi.get(self, "access_group_id")
+
+    @property
+    @pulumi.getter(name="authorizeAllGroups")
+    def authorize_all_groups(self) -> Optional[bool]:
+        """
+        Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
+        """
+        return pulumi.get(self, "authorize_all_groups")
+
+    @property
+    @pulumi.getter(name="clientVpnEndpointId")
+    def client_vpn_endpoint_id(self) -> str:
+        """
+        The ID of the Client VPN endpoint.
+        """
+        return pulumi.get(self, "client_vpn_endpoint_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A brief description of the authorization rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="targetNetworkCidr")
+    def target_network_cidr(self) -> str:
+        """
+        The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+        """
+        return pulumi.get(self, "target_network_cidr")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

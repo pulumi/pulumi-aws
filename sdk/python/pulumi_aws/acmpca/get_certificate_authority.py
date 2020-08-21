@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetCertificateAuthorityResult',
+    'AwaitableGetCertificateAuthorityResult',
+    'get_certificate_authority',
+]
 
+@pulumi.output_type
 class GetCertificateAuthorityResult:
     """
     A collection of values returned by getCertificateAuthority.
@@ -16,46 +24,97 @@ class GetCertificateAuthorityResult:
     def __init__(__self__, arn=None, certificate=None, certificate_chain=None, certificate_signing_request=None, id=None, not_after=None, not_before=None, revocation_configurations=None, serial=None, status=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        pulumi.set(__self__, "arn", arn)
         if certificate and not isinstance(certificate, str):
             raise TypeError("Expected argument 'certificate' to be a str")
-        __self__.certificate = certificate
+        pulumi.set(__self__, "certificate", certificate)
+        if certificate_chain and not isinstance(certificate_chain, str):
+            raise TypeError("Expected argument 'certificate_chain' to be a str")
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if certificate_signing_request and not isinstance(certificate_signing_request, str):
+            raise TypeError("Expected argument 'certificate_signing_request' to be a str")
+        pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if not_after and not isinstance(not_after, str):
+            raise TypeError("Expected argument 'not_after' to be a str")
+        pulumi.set(__self__, "not_after", not_after)
+        if not_before and not isinstance(not_before, str):
+            raise TypeError("Expected argument 'not_before' to be a str")
+        pulumi.set(__self__, "not_before", not_before)
+        if revocation_configurations and not isinstance(revocation_configurations, list):
+            raise TypeError("Expected argument 'revocation_configurations' to be a list")
+        pulumi.set(__self__, "revocation_configurations", revocation_configurations)
+        if serial and not isinstance(serial, str):
+            raise TypeError("Expected argument 'serial' to be a str")
+        pulumi.set(__self__, "serial", serial)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> str:
         """
         Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
         """
-        if certificate_chain and not isinstance(certificate_chain, str):
-            raise TypeError("Expected argument 'certificate_chain' to be a str")
-        __self__.certificate_chain = certificate_chain
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
         """
         Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
         """
-        if certificate_signing_request and not isinstance(certificate_signing_request, str):
-            raise TypeError("Expected argument 'certificate_signing_request' to be a str")
-        __self__.certificate_signing_request = certificate_signing_request
+        return pulumi.get(self, "certificate_chain")
+
+    @property
+    @pulumi.getter(name="certificateSigningRequest")
+    def certificate_signing_request(self) -> str:
         """
         The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "certificate_signing_request")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if not_after and not isinstance(not_after, str):
-            raise TypeError("Expected argument 'not_after' to be a str")
-        __self__.not_after = not_after
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="notAfter")
+    def not_after(self) -> str:
         """
         Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         """
-        if not_before and not isinstance(not_before, str):
-            raise TypeError("Expected argument 'not_before' to be a str")
-        __self__.not_before = not_before
+        return pulumi.get(self, "not_after")
+
+    @property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> str:
         """
         Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         """
-        if revocation_configurations and not isinstance(revocation_configurations, list):
-            raise TypeError("Expected argument 'revocation_configurations' to be a list")
-        __self__.revocation_configurations = revocation_configurations
+        return pulumi.get(self, "not_before")
+
+    @property
+    @pulumi.getter(name="revocationConfigurations")
+    def revocation_configurations(self) -> List['outputs.GetCertificateAuthorityRevocationConfigurationResult']:
         """
         Nested attribute containing revocation configuration.
         * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
@@ -64,30 +123,39 @@ class GetCertificateAuthorityResult:
         * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
         * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
         """
-        if serial and not isinstance(serial, str):
-            raise TypeError("Expected argument 'serial' to be a str")
-        __self__.serial = serial
+        return pulumi.get(self, "revocation_configurations")
+
+    @property
+    @pulumi.getter
+    def serial(self) -> str:
         """
         Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
         """
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        __self__.status = status
+        return pulumi.get(self, "serial")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
         """
         Status of the certificate authority.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         Specifies a key-value map of user-defined tags that are attached to the certificate authority.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the certificate authority.
         """
+        return pulumi.get(self, "type")
 
 
 class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
@@ -110,7 +178,10 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
             type=self.type)
 
 
-def get_certificate_authority(arn=None, revocation_configurations=None, tags=None, opts=None):
+def get_certificate_authority(arn: Optional[str] = None,
+                              revocation_configurations: Optional[List[pulumi.InputType['GetCertificateAuthorityRevocationConfigurationArgs']]] = None,
+                              tags: Optional[Mapping[str, str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateAuthorityResult:
     """
     Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
 
@@ -125,21 +196,13 @@ def get_certificate_authority(arn=None, revocation_configurations=None, tags=Non
 
 
     :param str arn: Amazon Resource Name (ARN) of the certificate authority.
-    :param list revocation_configurations: Nested attribute containing revocation configuration.
+    :param List[pulumi.InputType['GetCertificateAuthorityRevocationConfigurationArgs']] revocation_configurations: Nested attribute containing revocation configuration.
            * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
            * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
            * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
            * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
            * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
-    :param dict tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority.
-
-    The **revocation_configurations** object supports the following:
-
-      * `crlConfigurations` (`list`)
-        * `customCname` (`str`)
-        * `enabled` (`bool`)
-        * `expirationInDays` (`float`)
-        * `s3_bucket_name` (`str`)
+    :param Mapping[str, str] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -149,18 +212,18 @@ def get_certificate_authority(arn=None, revocation_configurations=None, tags=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:acmpca/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:acmpca/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts, typ=GetCertificateAuthorityResult).value
 
     return AwaitableGetCertificateAuthorityResult(
-        arn=__ret__.get('arn'),
-        certificate=__ret__.get('certificate'),
-        certificate_chain=__ret__.get('certificateChain'),
-        certificate_signing_request=__ret__.get('certificateSigningRequest'),
-        id=__ret__.get('id'),
-        not_after=__ret__.get('notAfter'),
-        not_before=__ret__.get('notBefore'),
-        revocation_configurations=__ret__.get('revocationConfigurations'),
-        serial=__ret__.get('serial'),
-        status=__ret__.get('status'),
-        tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        arn=__ret__.arn,
+        certificate=__ret__.certificate,
+        certificate_chain=__ret__.certificate_chain,
+        certificate_signing_request=__ret__.certificate_signing_request,
+        id=__ret__.id,
+        not_after=__ret__.not_after,
+        not_before=__ret__.not_before,
+        revocation_configurations=__ret__.revocation_configurations,
+        serial=__ret__.serial,
+        status=__ret__.status,
+        tags=__ret__.tags,
+        type=__ret__.type)

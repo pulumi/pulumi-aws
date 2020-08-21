@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetVpcAttachmentResult',
+    'AwaitableGetVpcAttachmentResult',
+    'get_vpc_attachment',
+]
 
+@pulumi.output_type
 class GetVpcAttachmentResult:
     """
     A collection of values returned by getVpcAttachment.
@@ -16,55 +24,100 @@ class GetVpcAttachmentResult:
     def __init__(__self__, dns_support=None, filters=None, id=None, ipv6_support=None, subnet_ids=None, tags=None, transit_gateway_id=None, vpc_id=None, vpc_owner_id=None):
         if dns_support and not isinstance(dns_support, str):
             raise TypeError("Expected argument 'dns_support' to be a str")
-        __self__.dns_support = dns_support
+        pulumi.set(__self__, "dns_support", dns_support)
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        pulumi.set(__self__, "filters", filters)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if ipv6_support and not isinstance(ipv6_support, str):
+            raise TypeError("Expected argument 'ipv6_support' to be a str")
+        pulumi.set(__self__, "ipv6_support", ipv6_support)
+        if subnet_ids and not isinstance(subnet_ids, list):
+            raise TypeError("Expected argument 'subnet_ids' to be a list")
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if transit_gateway_id and not isinstance(transit_gateway_id, str):
+            raise TypeError("Expected argument 'transit_gateway_id' to be a str")
+        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError("Expected argument 'vpc_id' to be a str")
+        pulumi.set(__self__, "vpc_id", vpc_id)
+        if vpc_owner_id and not isinstance(vpc_owner_id, str):
+            raise TypeError("Expected argument 'vpc_owner_id' to be a str")
+        pulumi.set(__self__, "vpc_owner_id", vpc_owner_id)
+
+    @property
+    @pulumi.getter(name="dnsSupport")
+    def dns_support(self) -> str:
         """
         Whether DNS support is enabled.
         """
-        if filters and not isinstance(filters, list):
-            raise TypeError("Expected argument 'filters' to be a list")
-        __self__.filters = filters
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "dns_support")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[List['outputs.GetVpcAttachmentFilterResult']]:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
         """
         EC2 Transit Gateway VPC Attachment identifier
         """
-        if ipv6_support and not isinstance(ipv6_support, str):
-            raise TypeError("Expected argument 'ipv6_support' to be a str")
-        __self__.ipv6_support = ipv6_support
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipv6Support")
+    def ipv6_support(self) -> str:
         """
         Whether IPv6 support is enabled.
         """
-        if subnet_ids and not isinstance(subnet_ids, list):
-            raise TypeError("Expected argument 'subnet_ids' to be a list")
-        __self__.subnet_ids = subnet_ids
+        return pulumi.get(self, "ipv6_support")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> List[str]:
         """
         Identifiers of EC2 Subnets.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         Key-value tags for the EC2 Transit Gateway VPC Attachment
         """
-        if transit_gateway_id and not isinstance(transit_gateway_id, str):
-            raise TypeError("Expected argument 'transit_gateway_id' to be a str")
-        __self__.transit_gateway_id = transit_gateway_id
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> str:
         """
         EC2 Transit Gateway identifier
         """
-        if vpc_id and not isinstance(vpc_id, str):
-            raise TypeError("Expected argument 'vpc_id' to be a str")
-        __self__.vpc_id = vpc_id
+        return pulumi.get(self, "transit_gateway_id")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
         """
         Identifier of EC2 VPC.
         """
-        if vpc_owner_id and not isinstance(vpc_owner_id, str):
-            raise TypeError("Expected argument 'vpc_owner_id' to be a str")
-        __self__.vpc_owner_id = vpc_owner_id
+        return pulumi.get(self, "vpc_id")
+
+    @property
+    @pulumi.getter(name="vpcOwnerId")
+    def vpc_owner_id(self) -> str:
         """
         Identifier of the AWS account that owns the EC2 VPC.
         """
+        return pulumi.get(self, "vpc_owner_id")
 
 
 class AwaitableGetVpcAttachmentResult(GetVpcAttachmentResult):
@@ -84,7 +137,10 @@ class AwaitableGetVpcAttachmentResult(GetVpcAttachmentResult):
             vpc_owner_id=self.vpc_owner_id)
 
 
-def get_vpc_attachment(filters=None, id=None, tags=None, opts=None):
+def get_vpc_attachment(filters: Optional[List[pulumi.InputType['GetVpcAttachmentFilterArgs']]] = None,
+                       id: Optional[str] = None,
+                       tags: Optional[Mapping[str, str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcAttachmentResult:
     """
     Get information on an EC2 Transit Gateway VPC Attachment.
 
@@ -95,10 +151,10 @@ def get_vpc_attachment(filters=None, id=None, tags=None, opts=None):
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_vpc_attachment(filters=[{
-        "name": "vpc-id",
-        "values": ["vpc-12345678"],
-    }])
+    example = aws.ec2transitgateway.get_vpc_attachment(filters=[aws.ec2transitgateway.GetVpcAttachmentFilterArgs(
+        name="vpc-id",
+        values=["vpc-12345678"],
+    )])
     ```
     ### By Identifier
 
@@ -110,14 +166,9 @@ def get_vpc_attachment(filters=None, id=None, tags=None, opts=None):
     ```
 
 
-    :param list filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param List[pulumi.InputType['GetVpcAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway VPC Attachment.
-    :param dict tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
-
-    The **filters** object supports the following:
-
-      * `name` (`str`) - Name of the filter.
-      * `values` (`list`) - List of one or more values for the filter.
+    :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -127,15 +178,15 @@ def get_vpc_attachment(filters=None, id=None, tags=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getVpcAttachment:getVpcAttachment', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getVpcAttachment:getVpcAttachment', __args__, opts=opts, typ=GetVpcAttachmentResult).value
 
     return AwaitableGetVpcAttachmentResult(
-        dns_support=__ret__.get('dnsSupport'),
-        filters=__ret__.get('filters'),
-        id=__ret__.get('id'),
-        ipv6_support=__ret__.get('ipv6Support'),
-        subnet_ids=__ret__.get('subnetIds'),
-        tags=__ret__.get('tags'),
-        transit_gateway_id=__ret__.get('transitGatewayId'),
-        vpc_id=__ret__.get('vpcId'),
-        vpc_owner_id=__ret__.get('vpcOwnerId'))
+        dns_support=__ret__.dns_support,
+        filters=__ret__.filters,
+        id=__ret__.id,
+        ipv6_support=__ret__.ipv6_support,
+        subnet_ids=__ret__.subnet_ids,
+        tags=__ret__.tags,
+        transit_gateway_id=__ret__.transit_gateway_id,
+        vpc_id=__ret__.vpc_id,
+        vpc_owner_id=__ret__.vpc_owner_id)

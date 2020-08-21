@@ -5,59 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['WebAcl']
 
 
 class WebAcl(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of the WAF WebACL.
-    """
-    default_action: pulumi.Output[dict]
-    """
-    Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-
-      * `type` (`str`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-    """
-    logging_configuration: pulumi.Output[dict]
-    """
-    Configuration block to enable WAF logging. Detailed below.
-
-      * `log_destination` (`str`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-      * `redacted_fields` (`dict`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
-        * `fieldToMatches` (`list`) - Set of configuration blocks for fields to redact. Detailed below.
-          * `data` (`str`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
-          * `type` (`str`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-    """
-    metric_name: pulumi.Output[str]
-    """
-    The name or description for the Amazon CloudWatch metric of this web ACL.
-    """
-    name: pulumi.Output[str]
-    """
-    The name or description of the web ACL.
-    """
-    rules: pulumi.Output[list]
-    """
-    Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-
-      * `action` (`dict`) - The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Not used if `type` is `GROUP`.
-        * `type` (`str`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-
-      * `overrideAction` (`dict`) - Override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Only used if `type` is `GROUP`.
-        * `type` (`str`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-
-      * `priority` (`float`) - Specifies the order in which the rules in a WebACL are evaluated.
-        Rules with a lower value are evaluated before rules with a higher value.
-      * `rule_id` (`str`) - ID of the associated WAF (Global) rule (e.g. `waf.Rule`). WAF (Regional) rules cannot be used.
-      * `type` (`str`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Key-value map of resource tags
-    """
-    def __init__(__self__, resource_name, opts=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
+                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationArgs']]] = None,
+                 metric_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a WAF Web ACL Resource
 
@@ -67,31 +35,31 @@ class WebAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.waf.IpSet("ipset", ip_set_descriptors=[{
-            "type": "IPV4",
-            "value": "192.0.7.0/24",
-        }])
+        ipset = aws.waf.IpSet("ipset", ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
+            type="IPV4",
+            value="192.0.7.0/24",
+        )])
         wafrule = aws.waf.Rule("wafrule",
             metric_name="tfWAFRule",
-            predicates=[{
-                "dataId": ipset.id,
-                "negated": False,
-                "type": "IPMatch",
-            }],
+            predicates=[aws.waf.RulePredicateArgs(
+                data_id=ipset.id,
+                negated=False,
+                type="IPMatch",
+            )],
             opts=ResourceOptions(depends_on=[ipset]))
         waf_acl = aws.waf.WebAcl("wafAcl",
             metric_name="tfWebACL",
-            default_action={
-                "type": "ALLOW",
-            },
-            rules=[{
-                "action": {
-                    "type": "BLOCK",
-                },
-                "priority": 1,
-                "rule_id": wafrule.id,
-                "type": "REGULAR",
-            }],
+            default_action=aws.waf.WebAclDefaultActionArgs(
+                type="ALLOW",
+            ),
+            rules=[aws.waf.WebAclRuleArgs(
+                action=aws.waf.WebAclRuleActionArgs(
+                    type="BLOCK",
+                ),
+                priority=1,
+                rule_id=wafrule.id,
+                type="REGULAR",
+            )],
             opts=ResourceOptions(depends_on=[
                     ipset,
                     wafrule,
@@ -105,9 +73,9 @@ class WebAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.waf.WebAcl("example", logging_configuration={
-            "log_destination": aws_kinesis_firehose_delivery_stream["example"]["arn"],
-            "redacted_fields": {
+        example = aws.waf.WebAcl("example", logging_configuration=aws.waf.WebAclLoggingConfigurationArgs(
+            log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+            redacted_fields={
                 "fieldToMatches": [
                     {
                         "type": "URI",
@@ -118,42 +86,17 @@ class WebAcl(pulumi.CustomResource):
                     },
                 ],
             },
-        })
+        ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] default_action: Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-        :param pulumi.Input[dict] logging_configuration: Configuration block to enable WAF logging. Detailed below.
+        :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
+        :param pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationArgs']] logging_configuration: Configuration block to enable WAF logging. Detailed below.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[str] name: The name or description of the web ACL.
-        :param pulumi.Input[list] rules: Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-        :param pulumi.Input[dict] tags: Key-value map of resource tags
-
-        The **default_action** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-
-        The **logging_configuration** object supports the following:
-
-          * `log_destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-          * `redacted_fields` (`pulumi.Input[dict]`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
-            * `fieldToMatches` (`pulumi.Input[list]`) - Set of configuration blocks for fields to redact. Detailed below.
-              * `data` (`pulumi.Input[str]`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
-              * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-
-        The **rules** object supports the following:
-
-          * `action` (`pulumi.Input[dict]`) - The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Not used if `type` is `GROUP`.
-            * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-
-          * `overrideAction` (`pulumi.Input[dict]`) - Override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Only used if `type` is `GROUP`.
-            * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-
-          * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules in a WebACL are evaluated.
-            Rules with a lower value are evaluated before rules with a higher value.
-          * `rule_id` (`pulumi.Input[str]`) - ID of the associated WAF (Global) rule (e.g. `waf.Rule`). WAF (Regional) rules cannot be used.
-          * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -190,46 +133,30 @@ class WebAcl(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, default_action=None, logging_configuration=None, metric_name=None, name=None, rules=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
+            logging_configuration: Optional[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationArgs']]] = None,
+            metric_name: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'WebAcl':
         """
         Get an existing WebAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the WAF WebACL.
-        :param pulumi.Input[dict] default_action: Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
-        :param pulumi.Input[dict] logging_configuration: Configuration block to enable WAF logging. Detailed below.
+        :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
+        :param pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationArgs']] logging_configuration: Configuration block to enable WAF logging. Detailed below.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
         :param pulumi.Input[str] name: The name or description of the web ACL.
-        :param pulumi.Input[list] rules: Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
-        :param pulumi.Input[dict] tags: Key-value map of resource tags
-
-        The **default_action** object supports the following:
-
-          * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-
-        The **logging_configuration** object supports the following:
-
-          * `log_destination` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-          * `redacted_fields` (`pulumi.Input[dict]`) - Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
-            * `fieldToMatches` (`pulumi.Input[list]`) - Set of configuration blocks for fields to redact. Detailed below.
-              * `data` (`pulumi.Input[str]`) - When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
-              * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-
-        The **rules** object supports the following:
-
-          * `action` (`pulumi.Input[dict]`) - The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Not used if `type` is `GROUP`.
-            * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-
-          * `overrideAction` (`pulumi.Input[dict]`) - Override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Only used if `type` is `GROUP`.
-            * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-
-          * `priority` (`pulumi.Input[float]`) - Specifies the order in which the rules in a WebACL are evaluated.
-            Rules with a lower value are evaluated before rules with a higher value.
-          * `rule_id` (`pulumi.Input[str]`) - ID of the associated WAF (Global) rule (e.g. `waf.Rule`). WAF (Regional) rules cannot be used.
-          * `type` (`pulumi.Input[str]`) - The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -244,8 +171,65 @@ class WebAcl(pulumi.CustomResource):
         __props__["tags"] = tags
         return WebAcl(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the WAF WebACL.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> 'outputs.WebAclDefaultAction':
+        """
+        Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="loggingConfiguration")
+    def logging_configuration(self) -> Optional['outputs.WebAclLoggingConfiguration']:
+        """
+        Configuration block to enable WAF logging. Detailed below.
+        """
+        return pulumi.get(self, "logging_configuration")
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> str:
+        """
+        The name or description for the Amazon CloudWatch metric of this web ACL.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name or description of the web ACL.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[List['outputs.WebAclRule']]:
+        """
+        Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

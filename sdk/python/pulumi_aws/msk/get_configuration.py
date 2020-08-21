@@ -5,10 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
 
+__all__ = [
+    'GetConfigurationResult',
+    'AwaitableGetConfigurationResult',
+    'get_configuration',
+]
 
+@pulumi.output_type
 class GetConfigurationResult:
     """
     A collection of values returned by getConfiguration.
@@ -16,43 +22,78 @@ class GetConfigurationResult:
     def __init__(__self__, arn=None, description=None, id=None, kafka_versions=None, latest_revision=None, name=None, server_properties=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
-        __self__.arn = arn
+        pulumi.set(__self__, "arn", arn)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if kafka_versions and not isinstance(kafka_versions, list):
+            raise TypeError("Expected argument 'kafka_versions' to be a list")
+        pulumi.set(__self__, "kafka_versions", kafka_versions)
+        if latest_revision and not isinstance(latest_revision, float):
+            raise TypeError("Expected argument 'latest_revision' to be a float")
+        pulumi.set(__self__, "latest_revision", latest_revision)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if server_properties and not isinstance(server_properties, str):
+            raise TypeError("Expected argument 'server_properties' to be a str")
+        pulumi.set(__self__, "server_properties", server_properties)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
         """
         Amazon Resource Name (ARN) of the configuration.
         """
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         Description of the configuration.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if kafka_versions and not isinstance(kafka_versions, list):
-            raise TypeError("Expected argument 'kafka_versions' to be a list")
-        __self__.kafka_versions = kafka_versions
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="kafkaVersions")
+    def kafka_versions(self) -> List[str]:
         """
         List of Apache Kafka versions which can use this configuration.
         """
-        if latest_revision and not isinstance(latest_revision, float):
-            raise TypeError("Expected argument 'latest_revision' to be a float")
-        __self__.latest_revision = latest_revision
+        return pulumi.get(self, "kafka_versions")
+
+    @property
+    @pulumi.getter(name="latestRevision")
+    def latest_revision(self) -> float:
         """
         Latest revision of the configuration.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if server_properties and not isinstance(server_properties, str):
-            raise TypeError("Expected argument 'server_properties' to be a str")
-        __self__.server_properties = server_properties
+        return pulumi.get(self, "latest_revision")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serverProperties")
+    def server_properties(self) -> str:
         """
         Contents of the server.properties file.
         """
+        return pulumi.get(self, "server_properties")
 
 
 class AwaitableGetConfigurationResult(GetConfigurationResult):
@@ -70,7 +111,8 @@ class AwaitableGetConfigurationResult(GetConfigurationResult):
             server_properties=self.server_properties)
 
 
-def get_configuration(name=None, opts=None):
+def get_configuration(name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationResult:
     """
     Get information on an Amazon MSK Configuration.
 
@@ -92,13 +134,13 @@ def get_configuration(name=None, opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:msk/getConfiguration:getConfiguration', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:msk/getConfiguration:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult).value
 
     return AwaitableGetConfigurationResult(
-        arn=__ret__.get('arn'),
-        description=__ret__.get('description'),
-        id=__ret__.get('id'),
-        kafka_versions=__ret__.get('kafkaVersions'),
-        latest_revision=__ret__.get('latestRevision'),
-        name=__ret__.get('name'),
-        server_properties=__ret__.get('serverProperties'))
+        arn=__ret__.arn,
+        description=__ret__.description,
+        id=__ret__.id,
+        kafka_versions=__ret__.kafka_versions,
+        latest_revision=__ret__.latest_revision,
+        name=__ret__.name,
+        server_properties=__ret__.server_properties)

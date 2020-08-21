@@ -5,115 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Cluster']
 
 
 class Cluster(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-    """
-    bootstrap_brokers: pulumi.Output[str]
-    """
-    A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
-    """
-    bootstrap_brokers_tls: pulumi.Output[str]
-    """
-    A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
-    """
-    broker_node_group_info: pulumi.Output[dict]
-    """
-    Configuration block for the broker nodes of the Kafka cluster.
-
-      * `azDistribution` (`str`) - The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
-      * `clientSubnets` (`list`) - A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-      * `ebsVolumeSize` (`float`) - The size in GiB of the EBS volume for the data drive on each broker node.
-      * `instance_type` (`str`) - Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-      * `security_groups` (`list`) - A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-    """
-    client_authentication: pulumi.Output[dict]
-    """
-    Configuration block for specifying a client authentication. See below.
-
-      * `tls` (`dict`) - Configuration block for specifying TLS client authentication. See below.
-        * `certificateAuthorityArns` (`list`) - List of ACM Certificate Authority Amazon Resource Names (ARNs).
-    """
-    cluster_name: pulumi.Output[str]
-    """
-    Name of the MSK cluster.
-    """
-    configuration_info: pulumi.Output[dict]
-    """
-    Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
-
-      * `arn` (`str`) - Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-      * `revision` (`float`) - Revision of the MSK Configuration to use in the cluster.
-    """
-    current_version: pulumi.Output[str]
-    """
-    Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
-    * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
-    """
-    encryption_info: pulumi.Output[dict]
-    """
-    Configuration block for specifying encryption. See below.
-
-      * `encryptionAtRestKmsKeyArn` (`str`) - You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
-      * `encryptionInTransit` (`dict`) - Configuration block to specify encryption in transit. See below.
-        * `clientBroker` (`str`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
-        * `inCluster` (`bool`) - Whether data communication among broker nodes is encrypted. Default value: `true`.
-    """
-    enhanced_monitoring: pulumi.Output[str]
-    """
-    Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
-    """
-    kafka_version: pulumi.Output[str]
-    """
-    Specify the desired Kafka software version.
-    """
-    logging_info: pulumi.Output[dict]
-    """
-    Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
-
-      * `brokerLogs` (`dict`) - Configuration block for Broker Logs settings for logging info. See below.
-        * `cloudwatchLogs` (`dict`)
-          * `enabled` (`bool`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
-          * `log_group` (`str`) - Name of the Cloudwatch Log Group to deliver logs to.
-
-        * `firehose` (`dict`)
-          * `deliveryStream` (`str`) - Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-          * `enabled` (`bool`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
-
-        * `s3` (`dict`)
-          * `bucket` (`str`) - Name of the S3 bucket to deliver logs to.
-          * `enabled` (`bool`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
-          * `prefix` (`str`) - Prefix to append to the folder name.
-    """
-    number_of_broker_nodes: pulumi.Output[float]
-    """
-    The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
-    """
-    open_monitoring: pulumi.Output[dict]
-    """
-    Configuration block for JMX and Node monitoring for the MSK cluster. See below.
-
-      * `prometheus` (`dict`) - Configuration block for Prometheus settings for open monitoring. See below.
-        * `jmxExporter` (`dict`) - Configuration block for JMX Exporter. See below.
-          * `enabledInBroker` (`bool`) - Indicates whether you want to enable or disable the JMX Exporter.
-
-        * `nodeExporter` (`dict`) - Configuration block for Node Exporter. See below.
-          * `enabledInBroker` (`bool`) - Indicates whether you want to enable or disable the JMX Exporter.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A map of tags to assign to the resource
-    """
-    zookeeper_connect_string: pulumi.Output[str]
-    """
-    A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
-    """
-    def __init__(__self__, resource_name, opts=None, broker_node_group_info=None, client_authentication=None, cluster_name=None, configuration_info=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, logging_info=None, number_of_broker_nodes=None, open_monitoring=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 broker_node_group_info: Optional[pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']]] = None,
+                 client_authentication: Optional[pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 configuration_info: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']]] = None,
+                 encryption_info: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']]] = None,
+                 enhanced_monitoring: Optional[pulumi.Input[str]] = None,
+                 kafka_version: Optional[pulumi.Input[str]] = None,
+                 logging_info: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']]] = None,
+                 number_of_broker_nodes: Optional[pulumi.Input[float]] = None,
+                 open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages AWS Managed Streaming for Kafka cluster
 
@@ -157,10 +74,10 @@ class Cluster(pulumi.CustomResource):
         \"\"\")
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="s3",
-            s3_configuration={
-                "role_arn": firehose_role.arn,
-                "bucketArn": bucket.arn,
-            },
+            s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
+                role_arn=firehose_role.arn,
+                bucket_arn=bucket.arn,
+            ),
             tags={
                 "LogDeliveryEnabled": "placeholder",
             })
@@ -168,46 +85,46 @@ class Cluster(pulumi.CustomResource):
             cluster_name="example",
             kafka_version="2.4.1",
             number_of_broker_nodes=3,
-            broker_node_group_info={
-                "instance_type": "kafka.m5.large",
-                "ebsVolumeSize": 1000,
-                "clientSubnets": [
+            broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
+                instance_type="kafka.m5.large",
+                ebs_volume_size=1000,
+                client_subnets=[
                     subnet_az1.id,
                     subnet_az2.id,
                     subnet_az3.id,
                 ],
-                "security_groups": [sg.id],
-            },
-            encryption_info={
-                "encryptionAtRestKmsKeyArn": kms.arn,
-            },
-            open_monitoring={
-                "prometheus": {
-                    "jmxExporter": {
-                        "enabledInBroker": True,
-                    },
-                    "nodeExporter": {
-                        "enabledInBroker": True,
-                    },
-                },
-            },
-            logging_info={
-                "brokerLogs": {
-                    "cloudwatchLogs": {
-                        "enabled": True,
-                        "log_group": test.name,
-                    },
-                    "firehose": {
-                        "enabled": True,
-                        "deliveryStream": test_stream.name,
-                    },
-                    "s3": {
-                        "enabled": True,
-                        "bucket": bucket.id,
-                        "prefix": "logs/msk-",
-                    },
-                },
-            },
+                security_groups=[sg.id],
+            ),
+            encryption_info=aws.msk.ClusterEncryptionInfoArgs(
+                encryption_at_rest_kms_key_arn=kms.arn,
+            ),
+            open_monitoring=aws.msk.ClusterOpenMonitoringArgs(
+                prometheus=aws.msk.ClusterOpenMonitoringPrometheusArgs(
+                    jmx_exporter=aws.msk.ClusterOpenMonitoringPrometheusJmxExporterArgs(
+                        enabled_in_broker=True,
+                    ),
+                    node_exporter=aws.msk.ClusterOpenMonitoringPrometheusNodeExporterArgs(
+                        enabled_in_broker=True,
+                    ),
+                ),
+            ),
+            logging_info=aws.msk.ClusterLoggingInfoArgs(
+                broker_logs=aws.msk.ClusterLoggingInfoBrokerLogsArgs(
+                    cloudwatch_logs=aws.msk.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs(
+                        enabled=True,
+                        log_group=test.name,
+                    ),
+                    firehose=aws.msk.ClusterLoggingInfoBrokerLogsFirehoseArgs(
+                        enabled=True,
+                        delivery_stream=test_stream.name,
+                    ),
+                    s3=aws.msk.ClusterLoggingInfoBrokerLogsS3Args(
+                        enabled=True,
+                        bucket=bucket.id,
+                        prefix="logs/msk-",
+                    ),
+                ),
+            ),
             tags={
                 "foo": "bar",
             })
@@ -217,67 +134,17 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
-        :param pulumi.Input[dict] client_authentication: Configuration block for specifying a client authentication. See below.
+        :param pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
+        :param pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']] client_authentication: Configuration block for specifying a client authentication. See below.
         :param pulumi.Input[str] cluster_name: Name of the MSK cluster.
-        :param pulumi.Input[dict] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
-        :param pulumi.Input[dict] encryption_info: Configuration block for specifying encryption. See below.
+        :param pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+        :param pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']] encryption_info: Configuration block for specifying encryption. See below.
         :param pulumi.Input[str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         :param pulumi.Input[str] kafka_version: Specify the desired Kafka software version.
-        :param pulumi.Input[dict] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+        :param pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         :param pulumi.Input[float] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
-        :param pulumi.Input[dict] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource
-
-        The **broker_node_group_info** object supports the following:
-
-          * `azDistribution` (`pulumi.Input[str]`) - The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
-          * `clientSubnets` (`pulumi.Input[list]`) - A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-          * `ebsVolumeSize` (`pulumi.Input[float]`) - The size in GiB of the EBS volume for the data drive on each broker node.
-          * `instance_type` (`pulumi.Input[str]`) - Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-          * `security_groups` (`pulumi.Input[list]`) - A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-
-        The **client_authentication** object supports the following:
-
-          * `tls` (`pulumi.Input[dict]`) - Configuration block for specifying TLS client authentication. See below.
-            * `certificateAuthorityArns` (`pulumi.Input[list]`) - List of ACM Certificate Authority Amazon Resource Names (ARNs).
-
-        The **configuration_info** object supports the following:
-
-          * `arn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-          * `revision` (`pulumi.Input[float]`) - Revision of the MSK Configuration to use in the cluster.
-
-        The **encryption_info** object supports the following:
-
-          * `encryptionAtRestKmsKeyArn` (`pulumi.Input[str]`) - You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
-          * `encryptionInTransit` (`pulumi.Input[dict]`) - Configuration block to specify encryption in transit. See below.
-            * `clientBroker` (`pulumi.Input[str]`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
-            * `inCluster` (`pulumi.Input[bool]`) - Whether data communication among broker nodes is encrypted. Default value: `true`.
-
-        The **logging_info** object supports the following:
-
-          * `brokerLogs` (`pulumi.Input[dict]`) - Configuration block for Broker Logs settings for logging info. See below.
-            * `cloudwatchLogs` (`pulumi.Input[dict]`)
-              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
-              * `log_group` (`pulumi.Input[str]`) - Name of the Cloudwatch Log Group to deliver logs to.
-
-            * `firehose` (`pulumi.Input[dict]`)
-              * `deliveryStream` (`pulumi.Input[str]`) - Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
-
-            * `s3` (`pulumi.Input[dict]`)
-              * `bucket` (`pulumi.Input[str]`) - Name of the S3 bucket to deliver logs to.
-              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
-              * `prefix` (`pulumi.Input[str]`) - Prefix to append to the folder name.
-
-        The **open_monitoring** object supports the following:
-
-          * `prometheus` (`pulumi.Input[dict]`) - Configuration block for Prometheus settings for open monitoring. See below.
-            * `jmxExporter` (`pulumi.Input[dict]`) - Configuration block for JMX Exporter. See below.
-              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter.
-
-            * `nodeExporter` (`pulumi.Input[dict]`) - Configuration block for Node Exporter. See below.
-              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter.
+        :param pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -327,81 +194,49 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, bootstrap_brokers=None, bootstrap_brokers_tls=None, broker_node_group_info=None, client_authentication=None, cluster_name=None, configuration_info=None, current_version=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, logging_info=None, number_of_broker_nodes=None, open_monitoring=None, tags=None, zookeeper_connect_string=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            bootstrap_brokers: Optional[pulumi.Input[str]] = None,
+            bootstrap_brokers_tls: Optional[pulumi.Input[str]] = None,
+            broker_node_group_info: Optional[pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']]] = None,
+            client_authentication: Optional[pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']]] = None,
+            cluster_name: Optional[pulumi.Input[str]] = None,
+            configuration_info: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']]] = None,
+            current_version: Optional[pulumi.Input[str]] = None,
+            encryption_info: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']]] = None,
+            enhanced_monitoring: Optional[pulumi.Input[str]] = None,
+            kafka_version: Optional[pulumi.Input[str]] = None,
+            logging_info: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']]] = None,
+            number_of_broker_nodes: Optional[pulumi.Input[float]] = None,
+            open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            zookeeper_connect_string: Optional[pulumi.Input[str]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
         :param pulumi.Input[str] bootstrap_brokers: A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
         :param pulumi.Input[str] bootstrap_brokers_tls: A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
-        :param pulumi.Input[dict] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
-        :param pulumi.Input[dict] client_authentication: Configuration block for specifying a client authentication. See below.
+        :param pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
+        :param pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']] client_authentication: Configuration block for specifying a client authentication. See below.
         :param pulumi.Input[str] cluster_name: Name of the MSK cluster.
-        :param pulumi.Input[dict] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+        :param pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
         :param pulumi.Input[str] current_version: Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
                * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
-        :param pulumi.Input[dict] encryption_info: Configuration block for specifying encryption. See below.
+        :param pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']] encryption_info: Configuration block for specifying encryption. See below.
         :param pulumi.Input[str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         :param pulumi.Input[str] kafka_version: Specify the desired Kafka software version.
-        :param pulumi.Input[dict] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+        :param pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         :param pulumi.Input[float] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
-        :param pulumi.Input[dict] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource
+        :param pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource
         :param pulumi.Input[str] zookeeper_connect_string: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
-
-        The **broker_node_group_info** object supports the following:
-
-          * `azDistribution` (`pulumi.Input[str]`) - The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
-          * `clientSubnets` (`pulumi.Input[list]`) - A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-          * `ebsVolumeSize` (`pulumi.Input[float]`) - The size in GiB of the EBS volume for the data drive on each broker node.
-          * `instance_type` (`pulumi.Input[str]`) - Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-          * `security_groups` (`pulumi.Input[list]`) - A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-
-        The **client_authentication** object supports the following:
-
-          * `tls` (`pulumi.Input[dict]`) - Configuration block for specifying TLS client authentication. See below.
-            * `certificateAuthorityArns` (`pulumi.Input[list]`) - List of ACM Certificate Authority Amazon Resource Names (ARNs).
-
-        The **configuration_info** object supports the following:
-
-          * `arn` (`pulumi.Input[str]`) - Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-          * `revision` (`pulumi.Input[float]`) - Revision of the MSK Configuration to use in the cluster.
-
-        The **encryption_info** object supports the following:
-
-          * `encryptionAtRestKmsKeyArn` (`pulumi.Input[str]`) - You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
-          * `encryptionInTransit` (`pulumi.Input[dict]`) - Configuration block to specify encryption in transit. See below.
-            * `clientBroker` (`pulumi.Input[str]`) - Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
-            * `inCluster` (`pulumi.Input[bool]`) - Whether data communication among broker nodes is encrypted. Default value: `true`.
-
-        The **logging_info** object supports the following:
-
-          * `brokerLogs` (`pulumi.Input[dict]`) - Configuration block for Broker Logs settings for logging info. See below.
-            * `cloudwatchLogs` (`pulumi.Input[dict]`)
-              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
-              * `log_group` (`pulumi.Input[str]`) - Name of the Cloudwatch Log Group to deliver logs to.
-
-            * `firehose` (`pulumi.Input[dict]`)
-              * `deliveryStream` (`pulumi.Input[str]`) - Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
-
-            * `s3` (`pulumi.Input[dict]`)
-              * `bucket` (`pulumi.Input[str]`) - Name of the S3 bucket to deliver logs to.
-              * `enabled` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
-              * `prefix` (`pulumi.Input[str]`) - Prefix to append to the folder name.
-
-        The **open_monitoring** object supports the following:
-
-          * `prometheus` (`pulumi.Input[dict]`) - Configuration block for Prometheus settings for open monitoring. See below.
-            * `jmxExporter` (`pulumi.Input[dict]`) - Configuration block for JMX Exporter. See below.
-              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter.
-
-            * `nodeExporter` (`pulumi.Input[dict]`) - Configuration block for Node Exporter. See below.
-              * `enabledInBroker` (`pulumi.Input[bool]`) - Indicates whether you want to enable or disable the JMX Exporter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -425,8 +260,138 @@ class Cluster(pulumi.CustomResource):
         __props__["zookeeper_connect_string"] = zookeeper_connect_string
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="bootstrapBrokers")
+    def bootstrap_brokers(self) -> str:
+        """
+        A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`.
+        """
+        return pulumi.get(self, "bootstrap_brokers")
+
+    @property
+    @pulumi.getter(name="bootstrapBrokersTls")
+    def bootstrap_brokers_tls(self) -> str:
+        """
+        A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`.
+        """
+        return pulumi.get(self, "bootstrap_brokers_tls")
+
+    @property
+    @pulumi.getter(name="brokerNodeGroupInfo")
+    def broker_node_group_info(self) -> 'outputs.ClusterBrokerNodeGroupInfo':
+        """
+        Configuration block for the broker nodes of the Kafka cluster.
+        """
+        return pulumi.get(self, "broker_node_group_info")
+
+    @property
+    @pulumi.getter(name="clientAuthentication")
+    def client_authentication(self) -> Optional['outputs.ClusterClientAuthentication']:
+        """
+        Configuration block for specifying a client authentication. See below.
+        """
+        return pulumi.get(self, "client_authentication")
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> str:
+        """
+        Name of the MSK cluster.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter(name="configurationInfo")
+    def configuration_info(self) -> Optional['outputs.ClusterConfigurationInfo']:
+        """
+        Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+        """
+        return pulumi.get(self, "configuration_info")
+
+    @property
+    @pulumi.getter(name="currentVersion")
+    def current_version(self) -> str:
+        """
+        Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+        * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
+        """
+        return pulumi.get(self, "current_version")
+
+    @property
+    @pulumi.getter(name="encryptionInfo")
+    def encryption_info(self) -> Optional['outputs.ClusterEncryptionInfo']:
+        """
+        Configuration block for specifying encryption. See below.
+        """
+        return pulumi.get(self, "encryption_info")
+
+    @property
+    @pulumi.getter(name="enhancedMonitoring")
+    def enhanced_monitoring(self) -> Optional[str]:
+        """
+        Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+        """
+        return pulumi.get(self, "enhanced_monitoring")
+
+    @property
+    @pulumi.getter(name="kafkaVersion")
+    def kafka_version(self) -> str:
+        """
+        Specify the desired Kafka software version.
+        """
+        return pulumi.get(self, "kafka_version")
+
+    @property
+    @pulumi.getter(name="loggingInfo")
+    def logging_info(self) -> Optional['outputs.ClusterLoggingInfo']:
+        """
+        Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+        """
+        return pulumi.get(self, "logging_info")
+
+    @property
+    @pulumi.getter(name="numberOfBrokerNodes")
+    def number_of_broker_nodes(self) -> float:
+        """
+        The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+        """
+        return pulumi.get(self, "number_of_broker_nodes")
+
+    @property
+    @pulumi.getter(name="openMonitoring")
+    def open_monitoring(self) -> Optional['outputs.ClusterOpenMonitoring']:
+        """
+        Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+        """
+        return pulumi.get(self, "open_monitoring")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the resource
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="zookeeperConnectString")
+    def zookeeper_connect_string(self) -> str:
+        """
+        A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster.
+        """
+        return pulumi.get(self, "zookeeper_connect_string")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

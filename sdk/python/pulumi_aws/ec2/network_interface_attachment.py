@@ -5,32 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['NetworkInterfaceAttachment']
 
 
 class NetworkInterfaceAttachment(pulumi.CustomResource):
-    attachment_id: pulumi.Output[str]
-    """
-    The ENI Attachment ID.
-    """
-    device_index: pulumi.Output[float]
-    """
-    Network interface index (int).
-    """
-    instance_id: pulumi.Output[str]
-    """
-    Instance ID to attach.
-    """
-    network_interface_id: pulumi.Output[str]
-    """
-    ENI ID to attach.
-    """
-    status: pulumi.Output[str]
-    """
-    The status of the Network Interface Attachment.
-    """
-    def __init__(__self__, resource_name, opts=None, device_index=None, instance_id=None, network_interface_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 device_index: Optional[pulumi.Input[float]] = None,
+                 instance_id: Optional[pulumi.Input[str]] = None,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Attach an Elastic network interface (ENI) resource with EC2 instance.
 
@@ -87,13 +77,20 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, attachment_id=None, device_index=None, instance_id=None, network_interface_id=None, status=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            attachment_id: Optional[pulumi.Input[str]] = None,
+            device_index: Optional[pulumi.Input[float]] = None,
+            instance_id: Optional[pulumi.Input[str]] = None,
+            network_interface_id: Optional[pulumi.Input[str]] = None,
+            status: Optional[pulumi.Input[str]] = None) -> 'NetworkInterfaceAttachment':
         """
         Get an existing NetworkInterfaceAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] attachment_id: The ENI Attachment ID.
         :param pulumi.Input[float] device_index: Network interface index (int).
@@ -112,8 +109,49 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         __props__["status"] = status
         return NetworkInterfaceAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> str:
+        """
+        The ENI Attachment ID.
+        """
+        return pulumi.get(self, "attachment_id")
+
+    @property
+    @pulumi.getter(name="deviceIndex")
+    def device_index(self) -> float:
+        """
+        Network interface index (int).
+        """
+        return pulumi.get(self, "device_index")
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> str:
+        """
+        Instance ID to attach.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> str:
+        """
+        ENI ID to attach.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the Network Interface Attachment.
+        """
+        return pulumi.get(self, "status")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

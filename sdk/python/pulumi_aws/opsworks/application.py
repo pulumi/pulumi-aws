@@ -5,95 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Application']
 
 
 class Application(pulumi.CustomResource):
-    app_sources: pulumi.Output[list]
-    """
-    SCM configuration of the app as described below.
-
-      * `password` (`str`) - Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-      * `revision` (`str`) - For sources that are version-aware, the revision to use.
-      * `sshKey` (`str`) - SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-      * `type` (`str`) - The type of source to use. For example, "archive".
-      * `url` (`str`) - The URL where the app resource can be found.
-      * `username` (`str`) - Username to use when authenticating to the source.
-    """
-    auto_bundle_on_deploy: pulumi.Output[str]
-    """
-    Run bundle install when deploying for application of type `rails`.
-    """
-    aws_flow_ruby_settings: pulumi.Output[str]
-    """
-    Specify activity and workflow workers for your app using the aws-flow gem.
-    """
-    data_source_arn: pulumi.Output[str]
-    """
-    The data source's ARN.
-    """
-    data_source_database_name: pulumi.Output[str]
-    """
-    The database name.
-    """
-    data_source_type: pulumi.Output[str]
-    """
-    The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
-    """
-    description: pulumi.Output[str]
-    """
-    A description of the app.
-    """
-    document_root: pulumi.Output[str]
-    """
-    Subfolder for the document root for application of type `rails`.
-    """
-    domains: pulumi.Output[list]
-    """
-    A list of virtual host alias.
-    """
-    enable_ssl: pulumi.Output[bool]
-    """
-    Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-    """
-    environments: pulumi.Output[list]
-    """
-    Object to define environment variables.  Object is described below.
-
-      * `key` (`str`) - Variable name.
-      * `secure` (`bool`) - Set visibility of the variable value to `true` or `false`.
-      * `value` (`str`) - Variable value.
-    """
-    name: pulumi.Output[str]
-    """
-    A human-readable name for the application.
-    """
-    rails_env: pulumi.Output[str]
-    """
-    The name of the Rails environment for application of type `rails`.
-    """
-    short_name: pulumi.Output[str]
-    """
-    A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-    """
-    ssl_configurations: pulumi.Output[list]
-    """
-    The SSL configuration of the app. Object is described below.
-
-      * `certificate` (`str`) - The contents of the certificate's domain.crt file.
-      * `chain` (`str`) - Can be used to specify an intermediate certificate authority key or client authentication.
-      * `private_key` (`str`) - The private key; the contents of the certificate's domain.key file.
-    """
-    stack_id: pulumi.Output[str]
-    """
-    The id of the stack the application will belong to.
-    """
-    type: pulumi.Output[str]
-    """
-    Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
-    """
-    def __init__(__self__, resource_name, opts=None, app_sources=None, auto_bundle_on_deploy=None, aws_flow_ruby_settings=None, data_source_arn=None, data_source_database_name=None, data_source_type=None, description=None, document_root=None, domains=None, enable_ssl=None, environments=None, name=None, rails_env=None, short_name=None, ssl_configurations=None, stack_id=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_sources: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationAppSourceArgs']]]]] = None,
+                 auto_bundle_on_deploy: Optional[pulumi.Input[str]] = None,
+                 aws_flow_ruby_settings: Optional[pulumi.Input[str]] = None,
+                 data_source_arn: Optional[pulumi.Input[str]] = None,
+                 data_source_database_name: Optional[pulumi.Input[str]] = None,
+                 data_source_type: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 document_root: Optional[pulumi.Input[str]] = None,
+                 domains: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 enable_ssl: Optional[pulumi.Input[bool]] = None,
+                 environments: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rails_env: Optional[pulumi.Input[str]] = None,
+                 short_name: Optional[pulumi.Input[str]] = None,
+                 ssl_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArgs']]]]] = None,
+                 stack_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an OpsWorks application resource.
 
@@ -112,29 +55,29 @@ class Application(pulumi.CustomResource):
                 "example.com",
                 "sub.example.com",
             ],
-            environments=[{
-                "key": "key",
-                "value": "value",
-                "secure": False,
-            }],
-            app_sources=[{
-                "type": "git",
-                "revision": "master",
-                "url": "https://github.com/example.git",
-            }],
+            environments=[aws.opsworks.ApplicationEnvironmentArgs(
+                key="key",
+                value="value",
+                secure=False,
+            )],
+            app_sources=[aws.opsworks.ApplicationAppSourceArgs(
+                type="git",
+                revision="master",
+                url="https://github.com/example.git",
+            )],
             enable_ssl=True,
-            ssl_configurations=[{
-                "private_key": (lambda path: open(path).read())("./foobar.key"),
-                "certificate": (lambda path: open(path).read())("./foobar.crt"),
-            }],
+            ssl_configurations=[aws.opsworks.ApplicationSslConfigurationArgs(
+                private_key=(lambda path: open(path).read())("./foobar.key"),
+                certificate=(lambda path: open(path).read())("./foobar.crt"),
+            )],
             document_root="public",
-            auto_bundle_on_deploy=True,
+            auto_bundle_on_deploy="true",
             rails_env="staging")
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] app_sources: SCM configuration of the app as described below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationAppSourceArgs']]]] app_sources: SCM configuration of the app as described below.
         :param pulumi.Input[str] auto_bundle_on_deploy: Run bundle install when deploying for application of type `rails`.
         :param pulumi.Input[str] aws_flow_ruby_settings: Specify activity and workflow workers for your app using the aws-flow gem.
         :param pulumi.Input[str] data_source_arn: The data source's ARN.
@@ -142,36 +85,15 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] data_source_type: The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
         :param pulumi.Input[str] description: A description of the app.
         :param pulumi.Input[str] document_root: Subfolder for the document root for application of type `rails`.
-        :param pulumi.Input[list] domains: A list of virtual host alias.
+        :param pulumi.Input[List[pulumi.Input[str]]] domains: A list of virtual host alias.
         :param pulumi.Input[bool] enable_ssl: Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-        :param pulumi.Input[list] environments: Object to define environment variables.  Object is described below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArgs']]]] environments: Object to define environment variables.  Object is described below.
         :param pulumi.Input[str] name: A human-readable name for the application.
         :param pulumi.Input[str] rails_env: The name of the Rails environment for application of type `rails`.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-        :param pulumi.Input[list] ssl_configurations: The SSL configuration of the app. Object is described below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArgs']]]] ssl_configurations: The SSL configuration of the app. Object is described below.
         :param pulumi.Input[str] stack_id: The id of the stack the application will belong to.
         :param pulumi.Input[str] type: Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
-
-        The **app_sources** object supports the following:
-
-          * `password` (`pulumi.Input[str]`) - Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-          * `revision` (`pulumi.Input[str]`) - For sources that are version-aware, the revision to use.
-          * `sshKey` (`pulumi.Input[str]`) - SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-          * `type` (`pulumi.Input[str]`) - The type of source to use. For example, "archive".
-          * `url` (`pulumi.Input[str]`) - The URL where the app resource can be found.
-          * `username` (`pulumi.Input[str]`) - Username to use when authenticating to the source.
-
-        The **environments** object supports the following:
-
-          * `key` (`pulumi.Input[str]`) - Variable name.
-          * `secure` (`pulumi.Input[bool]`) - Set visibility of the variable value to `true` or `false`.
-          * `value` (`pulumi.Input[str]`) - Variable value.
-
-        The **ssl_configurations** object supports the following:
-
-          * `certificate` (`pulumi.Input[str]`) - The contents of the certificate's domain.crt file.
-          * `chain` (`pulumi.Input[str]`) - Can be used to specify an intermediate certificate authority key or client authentication.
-          * `private_key` (`pulumi.Input[str]`) - The private key; the contents of the certificate's domain.key file.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -218,15 +140,34 @@ class Application(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_sources=None, auto_bundle_on_deploy=None, aws_flow_ruby_settings=None, data_source_arn=None, data_source_database_name=None, data_source_type=None, description=None, document_root=None, domains=None, enable_ssl=None, environments=None, name=None, rails_env=None, short_name=None, ssl_configurations=None, stack_id=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_sources: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationAppSourceArgs']]]]] = None,
+            auto_bundle_on_deploy: Optional[pulumi.Input[str]] = None,
+            aws_flow_ruby_settings: Optional[pulumi.Input[str]] = None,
+            data_source_arn: Optional[pulumi.Input[str]] = None,
+            data_source_database_name: Optional[pulumi.Input[str]] = None,
+            data_source_type: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            document_root: Optional[pulumi.Input[str]] = None,
+            domains: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            enable_ssl: Optional[pulumi.Input[bool]] = None,
+            environments: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArgs']]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            rails_env: Optional[pulumi.Input[str]] = None,
+            short_name: Optional[pulumi.Input[str]] = None,
+            ssl_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArgs']]]]] = None,
+            stack_id: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] app_sources: SCM configuration of the app as described below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationAppSourceArgs']]]] app_sources: SCM configuration of the app as described below.
         :param pulumi.Input[str] auto_bundle_on_deploy: Run bundle install when deploying for application of type `rails`.
         :param pulumi.Input[str] aws_flow_ruby_settings: Specify activity and workflow workers for your app using the aws-flow gem.
         :param pulumi.Input[str] data_source_arn: The data source's ARN.
@@ -234,36 +175,15 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] data_source_type: The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
         :param pulumi.Input[str] description: A description of the app.
         :param pulumi.Input[str] document_root: Subfolder for the document root for application of type `rails`.
-        :param pulumi.Input[list] domains: A list of virtual host alias.
+        :param pulumi.Input[List[pulumi.Input[str]]] domains: A list of virtual host alias.
         :param pulumi.Input[bool] enable_ssl: Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-        :param pulumi.Input[list] environments: Object to define environment variables.  Object is described below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArgs']]]] environments: Object to define environment variables.  Object is described below.
         :param pulumi.Input[str] name: A human-readable name for the application.
         :param pulumi.Input[str] rails_env: The name of the Rails environment for application of type `rails`.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-        :param pulumi.Input[list] ssl_configurations: The SSL configuration of the app. Object is described below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArgs']]]] ssl_configurations: The SSL configuration of the app. Object is described below.
         :param pulumi.Input[str] stack_id: The id of the stack the application will belong to.
         :param pulumi.Input[str] type: Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
-
-        The **app_sources** object supports the following:
-
-          * `password` (`pulumi.Input[str]`) - Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-          * `revision` (`pulumi.Input[str]`) - For sources that are version-aware, the revision to use.
-          * `sshKey` (`pulumi.Input[str]`) - SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-          * `type` (`pulumi.Input[str]`) - The type of source to use. For example, "archive".
-          * `url` (`pulumi.Input[str]`) - The URL where the app resource can be found.
-          * `username` (`pulumi.Input[str]`) - Username to use when authenticating to the source.
-
-        The **environments** object supports the following:
-
-          * `key` (`pulumi.Input[str]`) - Variable name.
-          * `secure` (`pulumi.Input[bool]`) - Set visibility of the variable value to `true` or `false`.
-          * `value` (`pulumi.Input[str]`) - Variable value.
-
-        The **ssl_configurations** object supports the following:
-
-          * `certificate` (`pulumi.Input[str]`) - The contents of the certificate's domain.crt file.
-          * `chain` (`pulumi.Input[str]`) - Can be used to specify an intermediate certificate authority key or client authentication.
-          * `private_key` (`pulumi.Input[str]`) - The private key; the contents of the certificate's domain.key file.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -288,8 +208,145 @@ class Application(pulumi.CustomResource):
         __props__["type"] = type
         return Application(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="appSources")
+    def app_sources(self) -> List['outputs.ApplicationAppSource']:
+        """
+        SCM configuration of the app as described below.
+        """
+        return pulumi.get(self, "app_sources")
+
+    @property
+    @pulumi.getter(name="autoBundleOnDeploy")
+    def auto_bundle_on_deploy(self) -> Optional[str]:
+        """
+        Run bundle install when deploying for application of type `rails`.
+        """
+        return pulumi.get(self, "auto_bundle_on_deploy")
+
+    @property
+    @pulumi.getter(name="awsFlowRubySettings")
+    def aws_flow_ruby_settings(self) -> Optional[str]:
+        """
+        Specify activity and workflow workers for your app using the aws-flow gem.
+        """
+        return pulumi.get(self, "aws_flow_ruby_settings")
+
+    @property
+    @pulumi.getter(name="dataSourceArn")
+    def data_source_arn(self) -> Optional[str]:
+        """
+        The data source's ARN.
+        """
+        return pulumi.get(self, "data_source_arn")
+
+    @property
+    @pulumi.getter(name="dataSourceDatabaseName")
+    def data_source_database_name(self) -> Optional[str]:
+        """
+        The database name.
+        """
+        return pulumi.get(self, "data_source_database_name")
+
+    @property
+    @pulumi.getter(name="dataSourceType")
+    def data_source_type(self) -> Optional[str]:
+        """
+        The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
+        """
+        return pulumi.get(self, "data_source_type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the app.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="documentRoot")
+    def document_root(self) -> Optional[str]:
+        """
+        Subfolder for the document root for application of type `rails`.
+        """
+        return pulumi.get(self, "document_root")
+
+    @property
+    @pulumi.getter
+    def domains(self) -> Optional[List[str]]:
+        """
+        A list of virtual host alias.
+        """
+        return pulumi.get(self, "domains")
+
+    @property
+    @pulumi.getter(name="enableSsl")
+    def enable_ssl(self) -> Optional[bool]:
+        """
+        Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
+        """
+        return pulumi.get(self, "enable_ssl")
+
+    @property
+    @pulumi.getter
+    def environments(self) -> Optional[List['outputs.ApplicationEnvironment']]:
+        """
+        Object to define environment variables.  Object is described below.
+        """
+        return pulumi.get(self, "environments")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A human-readable name for the application.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="railsEnv")
+    def rails_env(self) -> Optional[str]:
+        """
+        The name of the Rails environment for application of type `rails`.
+        """
+        return pulumi.get(self, "rails_env")
+
+    @property
+    @pulumi.getter(name="shortName")
+    def short_name(self) -> str:
+        """
+        A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
+        """
+        return pulumi.get(self, "short_name")
+
+    @property
+    @pulumi.getter(name="sslConfigurations")
+    def ssl_configurations(self) -> Optional[List['outputs.ApplicationSslConfiguration']]:
+        """
+        The SSL configuration of the app. Object is described below.
+        """
+        return pulumi.get(self, "ssl_configurations")
+
+    @property
+    @pulumi.getter(name="stackId")
+    def stack_id(self) -> str:
+        """
+        The id of the stack the application will belong to.
+        """
+        return pulumi.get(self, "stack_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

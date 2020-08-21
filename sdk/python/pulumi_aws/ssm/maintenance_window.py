@@ -5,56 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['MaintenanceWindow']
 
 
 class MaintenanceWindow(pulumi.CustomResource):
-    allow_unassociated_targets: pulumi.Output[bool]
-    """
-    Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
-    """
-    cutoff: pulumi.Output[float]
-    """
-    The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-    """
-    description: pulumi.Output[str]
-    """
-    A description for the maintenance window.
-    """
-    duration: pulumi.Output[float]
-    """
-    The duration of the Maintenance Window in hours.
-    """
-    enabled: pulumi.Output[bool]
-    """
-    Whether the maintenance window is enabled. Default: `true`.
-    """
-    end_date: pulumi.Output[str]
-    """
-    Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the maintenance window.
-    """
-    schedule: pulumi.Output[str]
-    """
-    The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
-    """
-    schedule_timezone: pulumi.Output[str]
-    """
-    Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
-    """
-    start_date: pulumi.Output[str]
-    """
-    Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A map of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, allow_unassociated_targets=None, cutoff=None, description=None, duration=None, enabled=None, end_date=None, name=None, schedule=None, schedule_timezone=None, start_date=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_unassociated_targets: Optional[pulumi.Input[bool]] = None,
+                 cutoff: Optional[pulumi.Input[float]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 duration: Optional[pulumi.Input[float]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 end_date: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input[str]] = None,
+                 schedule_timezone: Optional[pulumi.Input[str]] = None,
+                 start_date: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an SSM Maintenance Window resource
 
@@ -82,7 +56,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param pulumi.Input[str] schedule: The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
         :param pulumi.Input[str] schedule_timezone: Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         :param pulumi.Input[str] start_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,13 +99,26 @@ class MaintenanceWindow(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allow_unassociated_targets=None, cutoff=None, description=None, duration=None, enabled=None, end_date=None, name=None, schedule=None, schedule_timezone=None, start_date=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_unassociated_targets: Optional[pulumi.Input[bool]] = None,
+            cutoff: Optional[pulumi.Input[float]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            duration: Optional[pulumi.Input[float]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
+            end_date: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            schedule: Optional[pulumi.Input[str]] = None,
+            schedule_timezone: Optional[pulumi.Input[str]] = None,
+            start_date: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'MaintenanceWindow':
         """
         Get an existing MaintenanceWindow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_unassociated_targets: Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
         :param pulumi.Input[float] cutoff: The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
@@ -143,7 +130,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param pulumi.Input[str] schedule: The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
         :param pulumi.Input[str] schedule_timezone: Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         :param pulumi.Input[str] start_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -162,8 +149,97 @@ class MaintenanceWindow(pulumi.CustomResource):
         __props__["tags"] = tags
         return MaintenanceWindow(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allowUnassociatedTargets")
+    def allow_unassociated_targets(self) -> Optional[bool]:
+        """
+        Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
+        """
+        return pulumi.get(self, "allow_unassociated_targets")
+
+    @property
+    @pulumi.getter
+    def cutoff(self) -> float:
+        """
+        The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
+        """
+        return pulumi.get(self, "cutoff")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for the maintenance window.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> float:
+        """
+        The duration of the Maintenance Window in hours.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether the maintenance window is enabled. Default: `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> Optional[str]:
+        """
+        Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
+        """
+        return pulumi.get(self, "end_date")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the maintenance window.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> str:
+        """
+        The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="scheduleTimezone")
+    def schedule_timezone(self) -> Optional[str]:
+        """
+        Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
+        """
+        return pulumi.get(self, "schedule_timezone")
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[str]:
+        """
+        Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
+        """
+        return pulumi.get(self, "start_date")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

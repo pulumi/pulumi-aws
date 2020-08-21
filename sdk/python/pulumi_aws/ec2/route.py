@@ -5,56 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Route']
 
 
 class Route(pulumi.CustomResource):
-    destination_cidr_block: pulumi.Output[str]
-    """
-    The destination CIDR block.
-    """
-    destination_ipv6_cidr_block: pulumi.Output[str]
-    """
-    The destination IPv6 CIDR block.
-    """
-    destination_prefix_list_id: pulumi.Output[str]
-    egress_only_gateway_id: pulumi.Output[str]
-    """
-    Identifier of a VPC Egress Only Internet Gateway.
-    """
-    gateway_id: pulumi.Output[str]
-    """
-    Identifier of a VPC internet gateway or a virtual private gateway.
-    """
-    instance_id: pulumi.Output[str]
-    """
-    Identifier of an EC2 instance.
-    """
-    instance_owner_id: pulumi.Output[str]
-    nat_gateway_id: pulumi.Output[str]
-    """
-    Identifier of a VPC NAT gateway.
-    """
-    network_interface_id: pulumi.Output[str]
-    """
-    Identifier of an EC2 network interface.
-    """
-    origin: pulumi.Output[str]
-    route_table_id: pulumi.Output[str]
-    """
-    The ID of the routing table.
-    """
-    state: pulumi.Output[str]
-    transit_gateway_id: pulumi.Output[str]
-    """
-    Identifier of an EC2 Transit Gateway.
-    """
-    vpc_peering_connection_id: pulumi.Output[str]
-    """
-    Identifier of a VPC peering connection.
-    """
-    def __init__(__self__, resource_name, opts=None, destination_cidr_block=None, destination_ipv6_cidr_block=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 destination_cidr_block: Optional[pulumi.Input[str]] = None,
+                 destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 egress_only_gateway_id: Optional[pulumi.Input[str]] = None,
+                 gateway_id: Optional[pulumi.Input[str]] = None,
+                 instance_id: Optional[pulumi.Input[str]] = None,
+                 nat_gateway_id: Optional[pulumi.Input[str]] = None,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 route_table_id: Optional[pulumi.Input[str]] = None,
+                 transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a resource to create a routing table entry (a route) in a VPC routing table.
 
@@ -145,13 +118,29 @@ class Route(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, destination_cidr_block=None, destination_ipv6_cidr_block=None, destination_prefix_list_id=None, egress_only_gateway_id=None, gateway_id=None, instance_id=None, instance_owner_id=None, nat_gateway_id=None, network_interface_id=None, origin=None, route_table_id=None, state=None, transit_gateway_id=None, vpc_peering_connection_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            destination_cidr_block: Optional[pulumi.Input[str]] = None,
+            destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+            destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
+            egress_only_gateway_id: Optional[pulumi.Input[str]] = None,
+            gateway_id: Optional[pulumi.Input[str]] = None,
+            instance_id: Optional[pulumi.Input[str]] = None,
+            instance_owner_id: Optional[pulumi.Input[str]] = None,
+            nat_gateway_id: Optional[pulumi.Input[str]] = None,
+            network_interface_id: Optional[pulumi.Input[str]] = None,
+            origin: Optional[pulumi.Input[str]] = None,
+            route_table_id: Optional[pulumi.Input[str]] = None,
+            state: Optional[pulumi.Input[str]] = None,
+            transit_gateway_id: Optional[pulumi.Input[str]] = None,
+            vpc_peering_connection_id: Optional[pulumi.Input[str]] = None) -> 'Route':
         """
         Get an existing Route resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
@@ -184,8 +173,109 @@ class Route(pulumi.CustomResource):
         __props__["vpc_peering_connection_id"] = vpc_peering_connection_id
         return Route(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="destinationCidrBlock")
+    def destination_cidr_block(self) -> Optional[str]:
+        """
+        The destination CIDR block.
+        """
+        return pulumi.get(self, "destination_cidr_block")
+
+    @property
+    @pulumi.getter(name="destinationIpv6CidrBlock")
+    def destination_ipv6_cidr_block(self) -> Optional[str]:
+        """
+        The destination IPv6 CIDR block.
+        """
+        return pulumi.get(self, "destination_ipv6_cidr_block")
+
+    @property
+    @pulumi.getter(name="destinationPrefixListId")
+    def destination_prefix_list_id(self) -> str:
+        return pulumi.get(self, "destination_prefix_list_id")
+
+    @property
+    @pulumi.getter(name="egressOnlyGatewayId")
+    def egress_only_gateway_id(self) -> str:
+        """
+        Identifier of a VPC Egress Only Internet Gateway.
+        """
+        return pulumi.get(self, "egress_only_gateway_id")
+
+    @property
+    @pulumi.getter(name="gatewayId")
+    def gateway_id(self) -> str:
+        """
+        Identifier of a VPC internet gateway or a virtual private gateway.
+        """
+        return pulumi.get(self, "gateway_id")
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> str:
+        """
+        Identifier of an EC2 instance.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter(name="instanceOwnerId")
+    def instance_owner_id(self) -> str:
+        return pulumi.get(self, "instance_owner_id")
+
+    @property
+    @pulumi.getter(name="natGatewayId")
+    def nat_gateway_id(self) -> str:
+        """
+        Identifier of a VPC NAT gateway.
+        """
+        return pulumi.get(self, "nat_gateway_id")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> str:
+        """
+        Identifier of an EC2 network interface.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> str:
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> str:
+        """
+        The ID of the routing table.
+        """
+        return pulumi.get(self, "route_table_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> Optional[str]:
+        """
+        Identifier of an EC2 Transit Gateway.
+        """
+        return pulumi.get(self, "transit_gateway_id")
+
+    @property
+    @pulumi.getter(name="vpcPeeringConnectionId")
+    def vpc_peering_connection_id(self) -> Optional[str]:
+        """
+        Identifier of a VPC peering connection.
+        """
+        return pulumi.get(self, "vpc_peering_connection_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

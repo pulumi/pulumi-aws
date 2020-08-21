@@ -5,88 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['SecurityGroup']
 
 
 class SecurityGroup(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of the security group
-    """
-    description: pulumi.Output[str]
-    """
-    Description of this egress rule.
-    """
-    egress: pulumi.Output[list]
-    """
-    Can be specified multiple times for each
-    egress rule. Each egress block supports fields documented below.
-
-      * `cidr_blocks` (`list`) - List of CIDR blocks.
-      * `description` (`str`) - Description of this egress rule.
-      * `from_port` (`float`) - The start port (or ICMP type number if protocol is "icmp")
-      * `ipv6_cidr_blocks` (`list`) - List of IPv6 CIDR blocks.
-      * `prefix_list_ids` (`list`) - List of prefix list IDs (for allowing access to VPC endpoints)
-      * `protocol` (`str`) - The protocol. If you select a protocol of
-        "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-      * `security_groups` (`list`) - List of security group Group Names if using
-        EC2-Classic, or Group IDs if using a VPC.
-      * `self` (`bool`) - If true, the security group itself will be added as
-        a source to this egress rule.
-      * `to_port` (`float`) - The end range port (or ICMP code if protocol is "icmp").
-    """
-    ingress: pulumi.Output[list]
-    """
-    Can be specified multiple times for each
-    ingress rule. Each ingress block supports fields documented below.
-
-      * `cidr_blocks` (`list`) - List of CIDR blocks.
-      * `description` (`str`) - Description of this egress rule.
-      * `from_port` (`float`) - The start port (or ICMP type number if protocol is "icmp")
-      * `ipv6_cidr_blocks` (`list`) - List of IPv6 CIDR blocks.
-      * `prefix_list_ids` (`list`) - List of prefix list IDs (for allowing access to VPC endpoints)
-      * `protocol` (`str`) - The protocol. If you select a protocol of
-        "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-      * `security_groups` (`list`) - List of security group Group Names if using
-        EC2-Classic, or Group IDs if using a VPC.
-      * `self` (`bool`) - If true, the security group itself will be added as
-        a source to this egress rule.
-      * `to_port` (`float`) - The end range port (or ICMP code if protocol is "icmp").
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the security group. If omitted, this provider will
-    assign a random, unique name
-    """
-    name_prefix: pulumi.Output[str]
-    """
-    Creates a unique name beginning with the specified
-    prefix. Conflicts with `name`.
-    """
-    owner_id: pulumi.Output[str]
-    """
-    The owner ID.
-    """
-    revoke_rules_on_delete: pulumi.Output[bool]
-    """
-    Instruct this provider to revoke all of the
-    Security Groups attached ingress and egress rules before deleting the rule
-    itself. This is normally not needed, however certain AWS services such as
-    Elastic Map Reduce may automatically add required rules to security groups used
-    with the service, and those rules may contain a cyclic dependency that prevent
-    the security groups from being destroyed without removing the dependency first.
-    Default `false`
-    """
-    tags: pulumi.Output[dict]
-    """
-    A map of tags to assign to the resource.
-    """
-    vpc_id: pulumi.Output[str]
-    """
-    The VPC ID.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, egress=None, ingress=None, name=None, name_prefix=None, revoke_rules_on_delete=None, tags=None, vpc_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 egress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]]] = None,
+                 ingress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a security group resource.
 
@@ -112,19 +53,19 @@ class SecurityGroup(pulumi.CustomResource):
         allow_tls = aws.ec2.SecurityGroup("allowTls",
             description="Allow TLS inbound traffic",
             vpc_id=aws_vpc["main"]["id"],
-            ingress=[{
-                "description": "TLS from VPC",
-                "from_port": 443,
-                "to_port": 443,
-                "protocol": "tcp",
-                "cidr_blocks": [aws_vpc["main"]["cidr_block"]],
-            }],
-            egress=[{
-                "from_port": 0,
-                "to_port": 0,
-                "protocol": "-1",
-                "cidr_blocks": ["0.0.0.0/0"],
-            }],
+            ingress=[aws.ec2.SecurityGroupIngressArgs(
+                description="TLS from VPC",
+                from_port=443,
+                to_port=443,
+                protocol="tcp",
+                cidr_blocks=[aws_vpc["main"]["cidr_block"]],
+            )],
+            egress=[aws.ec2.SecurityGroupEgressArgs(
+                from_port=0,
+                to_port=0,
+                protocol="-1",
+                cidr_blocks=["0.0.0.0/0"],
+            )],
             tags={
                 "Name": "allow_tls",
             })
@@ -146,9 +87,9 @@ class SecurityGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of this egress rule.
-        :param pulumi.Input[list] egress: Can be specified multiple times for each
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]] egress: Can be specified multiple times for each
                egress rule. Each egress block supports fields documented below.
-        :param pulumi.Input[list] ingress: Can be specified multiple times for each
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]] ingress: Can be specified multiple times for each
                ingress rule. Each ingress block supports fields documented below.
         :param pulumi.Input[str] name: The name of the security group. If omitted, this provider will
                assign a random, unique name
@@ -161,38 +102,8 @@ class SecurityGroup(pulumi.CustomResource):
                with the service, and those rules may contain a cyclic dependency that prevent
                the security groups from being destroyed without removing the dependency first.
                Default `false`
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
-
-        The **egress** object supports the following:
-
-          * `cidr_blocks` (`pulumi.Input[list]`) - List of CIDR blocks.
-          * `description` (`pulumi.Input[str]`) - Description of this egress rule.
-          * `from_port` (`pulumi.Input[float]`) - The start port (or ICMP type number if protocol is "icmp")
-          * `ipv6_cidr_blocks` (`pulumi.Input[list]`) - List of IPv6 CIDR blocks.
-          * `prefix_list_ids` (`pulumi.Input[list]`) - List of prefix list IDs (for allowing access to VPC endpoints)
-          * `protocol` (`pulumi.Input[str]`) - The protocol. If you select a protocol of
-            "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-          * `security_groups` (`pulumi.Input[list]`) - List of security group Group Names if using
-            EC2-Classic, or Group IDs if using a VPC.
-          * `self` (`pulumi.Input[bool]`) - If true, the security group itself will be added as
-            a source to this egress rule.
-          * `to_port` (`pulumi.Input[float]`) - The end range port (or ICMP code if protocol is "icmp").
-
-        The **ingress** object supports the following:
-
-          * `cidr_blocks` (`pulumi.Input[list]`) - List of CIDR blocks.
-          * `description` (`pulumi.Input[str]`) - Description of this egress rule.
-          * `from_port` (`pulumi.Input[float]`) - The start port (or ICMP type number if protocol is "icmp")
-          * `ipv6_cidr_blocks` (`pulumi.Input[list]`) - List of IPv6 CIDR blocks.
-          * `prefix_list_ids` (`pulumi.Input[list]`) - List of prefix list IDs (for allowing access to VPC endpoints)
-          * `protocol` (`pulumi.Input[str]`) - The protocol. If you select a protocol of
-            "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-          * `security_groups` (`pulumi.Input[list]`) - List of security group Group Names if using
-            EC2-Classic, or Group IDs if using a VPC.
-          * `self` (`pulumi.Input[bool]`) - If true, the security group itself will be added as
-            a source to this egress rule.
-          * `to_port` (`pulumi.Input[float]`) - The end range port (or ICMP code if protocol is "icmp").
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -230,19 +141,31 @@ class SecurityGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, description=None, egress=None, ingress=None, name=None, name_prefix=None, owner_id=None, revoke_rules_on_delete=None, tags=None, vpc_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            egress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]]] = None,
+            ingress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            name_prefix: Optional[pulumi.Input[str]] = None,
+            owner_id: Optional[pulumi.Input[str]] = None,
+            revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            vpc_id: Optional[pulumi.Input[str]] = None) -> 'SecurityGroup':
         """
         Get an existing SecurityGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the security group
         :param pulumi.Input[str] description: Description of this egress rule.
-        :param pulumi.Input[list] egress: Can be specified multiple times for each
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]] egress: Can be specified multiple times for each
                egress rule. Each egress block supports fields documented below.
-        :param pulumi.Input[list] ingress: Can be specified multiple times for each
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]] ingress: Can be specified multiple times for each
                ingress rule. Each ingress block supports fields documented below.
         :param pulumi.Input[str] name: The name of the security group. If omitted, this provider will
                assign a random, unique name
@@ -256,38 +179,8 @@ class SecurityGroup(pulumi.CustomResource):
                with the service, and those rules may contain a cyclic dependency that prevent
                the security groups from being destroyed without removing the dependency first.
                Default `false`
-        :param pulumi.Input[dict] tags: A map of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
-
-        The **egress** object supports the following:
-
-          * `cidr_blocks` (`pulumi.Input[list]`) - List of CIDR blocks.
-          * `description` (`pulumi.Input[str]`) - Description of this egress rule.
-          * `from_port` (`pulumi.Input[float]`) - The start port (or ICMP type number if protocol is "icmp")
-          * `ipv6_cidr_blocks` (`pulumi.Input[list]`) - List of IPv6 CIDR blocks.
-          * `prefix_list_ids` (`pulumi.Input[list]`) - List of prefix list IDs (for allowing access to VPC endpoints)
-          * `protocol` (`pulumi.Input[str]`) - The protocol. If you select a protocol of
-            "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-          * `security_groups` (`pulumi.Input[list]`) - List of security group Group Names if using
-            EC2-Classic, or Group IDs if using a VPC.
-          * `self` (`pulumi.Input[bool]`) - If true, the security group itself will be added as
-            a source to this egress rule.
-          * `to_port` (`pulumi.Input[float]`) - The end range port (or ICMP code if protocol is "icmp").
-
-        The **ingress** object supports the following:
-
-          * `cidr_blocks` (`pulumi.Input[list]`) - List of CIDR blocks.
-          * `description` (`pulumi.Input[str]`) - Description of this egress rule.
-          * `from_port` (`pulumi.Input[float]`) - The start port (or ICMP type number if protocol is "icmp")
-          * `ipv6_cidr_blocks` (`pulumi.Input[list]`) - List of IPv6 CIDR blocks.
-          * `prefix_list_ids` (`pulumi.Input[list]`) - List of prefix list IDs (for allowing access to VPC endpoints)
-          * `protocol` (`pulumi.Input[str]`) - The protocol. If you select a protocol of
-            "-1" (semantically equivalent to `"all"`, which is not a valid value here), you must specify a "from_port" and "to_port" equal to 0. If not icmp, tcp, udp, or "-1" use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-          * `security_groups` (`pulumi.Input[list]`) - List of security group Group Names if using
-            EC2-Classic, or Group IDs if using a VPC.
-          * `self` (`pulumi.Input[bool]`) - If true, the security group itself will be added as
-            a source to this egress rule.
-          * `to_port` (`pulumi.Input[float]`) - The end range port (or ICMP code if protocol is "icmp").
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -305,8 +198,99 @@ class SecurityGroup(pulumi.CustomResource):
         __props__["vpc_id"] = vpc_id
         return SecurityGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the security group
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of this egress rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def egress(self) -> List['outputs.SecurityGroupEgress']:
+        """
+        Can be specified multiple times for each
+        egress rule. Each egress block supports fields documented below.
+        """
+        return pulumi.get(self, "egress")
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> List['outputs.SecurityGroupIngress']:
+        """
+        Can be specified multiple times for each
+        ingress rule. Each ingress block supports fields documented below.
+        """
+        return pulumi.get(self, "ingress")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the security group. If omitted, this provider will
+        assign a random, unique name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[str]:
+        """
+        Creates a unique name beginning with the specified
+        prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> str:
+        """
+        The owner ID.
+        """
+        return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter(name="revokeRulesOnDelete")
+    def revoke_rules_on_delete(self) -> Optional[bool]:
+        """
+        Instruct this provider to revoke all of the
+        Security Groups attached ingress and egress rules before deleting the rule
+        itself. This is normally not needed, however certain AWS services such as
+        Elastic Map Reduce may automatically add required rules to security groups used
+        with the service, and those rules may contain a cyclic dependency that prevent
+        the security groups from being destroyed without removing the dependency first.
+        Default `false`
+        """
+        return pulumi.get(self, "revoke_rules_on_delete")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        """
+        The VPC ID.
+        """
+        return pulumi.get(self, "vpc_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

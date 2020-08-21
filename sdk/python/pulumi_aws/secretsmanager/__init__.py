@@ -9,3 +9,5 @@ from .get_secret_version import *
 from .secret import *
 from .secret_rotation import *
 from .secret_version import *
+from ._inputs import *
+from . import outputs

@@ -5,48 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Classifier']
 
 
 class Classifier(pulumi.CustomResource):
-    csv_classifier: pulumi.Output[dict]
-    """
-    A classifier for Csv content. Defined below.
-
-      * `allowSingleColumn` (`bool`) - Enables the processing of files that contain only one column.
-      * `containsHeader` (`str`) - Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
-      * `delimiter` (`str`) - The delimiter used in the Csv to separate columns.
-      * `disableValueTrimming` (`bool`) - Specifies whether to trim column values.
-      * `headers` (`list`) - A list of strings representing column names.
-      * `quoteSymbol` (`str`) - A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
-    """
-    grok_classifier: pulumi.Output[dict]
-    """
-    A classifier that uses grok patterns. Defined below.
-
-      * `classification` (`str`) - An identifier of the data format that the classifier matches.
-      * `customPatterns` (`str`) - Custom grok patterns used by this classifier.
-      * `grokPattern` (`str`) - The grok pattern used by this classifier.
-    """
-    json_classifier: pulumi.Output[dict]
-    """
-    A classifier for JSON content. Defined below.
-
-      * `jsonPath` (`str`) - A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the classifier.
-    """
-    xml_classifier: pulumi.Output[dict]
-    """
-    A classifier for XML content. Defined below.
-
-      * `classification` (`str`) - An identifier of the data format that the classifier matches.
-      * `rowTag` (`str`) - The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
-    """
-    def __init__(__self__, resource_name, opts=None, csv_classifier=None, grok_classifier=None, json_classifier=None, name=None, xml_classifier=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 csv_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierCsvClassifierArgs']]] = None,
+                 grok_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierGrokClassifierArgs']]] = None,
+                 json_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierJsonClassifierArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 xml_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierXmlClassifierArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Glue Classifier resource.
 
@@ -59,17 +37,17 @@ class Classifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", csv_classifier={
-            "allowSingleColumn": False,
-            "containsHeader": "PRESENT",
-            "delimiter": ",",
-            "disableValueTrimming": False,
-            "headers": [
+        example = aws.glue.Classifier("example", csv_classifier=aws.glue.ClassifierCsvClassifierArgs(
+            allow_single_column=False,
+            contains_header="PRESENT",
+            delimiter=",",
+            disable_value_trimming=False,
+            headers=[
                 "example1",
                 "example2",
             ],
-            "quoteSymbol": "'",
-        })
+            quote_symbol="'",
+        ))
         ```
         ### Grok Classifier
 
@@ -77,10 +55,10 @@ class Classifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", grok_classifier={
-            "classification": "example",
-            "grokPattern": "example",
-        })
+        example = aws.glue.Classifier("example", grok_classifier=aws.glue.ClassifierGrokClassifierArgs(
+            classification="example",
+            grok_pattern="example",
+        ))
         ```
         ### JSON Classifier
 
@@ -88,9 +66,9 @@ class Classifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", json_classifier={
-            "jsonPath": "example",
-        })
+        example = aws.glue.Classifier("example", json_classifier=aws.glue.ClassifierJsonClassifierArgs(
+            json_path="example",
+        ))
         ```
         ### XML Classifier
 
@@ -98,43 +76,19 @@ class Classifier(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", xml_classifier={
-            "classification": "example",
-            "rowTag": "example",
-        })
+        example = aws.glue.Classifier("example", xml_classifier=aws.glue.ClassifierXmlClassifierArgs(
+            classification="example",
+            row_tag="example",
+        ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] csv_classifier: A classifier for Csv content. Defined below.
-        :param pulumi.Input[dict] grok_classifier: A classifier that uses grok patterns. Defined below.
-        :param pulumi.Input[dict] json_classifier: A classifier for JSON content. Defined below.
+        :param pulumi.Input[pulumi.InputType['ClassifierCsvClassifierArgs']] csv_classifier: A classifier for Csv content. Defined below.
+        :param pulumi.Input[pulumi.InputType['ClassifierGrokClassifierArgs']] grok_classifier: A classifier that uses grok patterns. Defined below.
+        :param pulumi.Input[pulumi.InputType['ClassifierJsonClassifierArgs']] json_classifier: A classifier for JSON content. Defined below.
         :param pulumi.Input[str] name: The name of the classifier.
-        :param pulumi.Input[dict] xml_classifier: A classifier for XML content. Defined below.
-
-        The **csv_classifier** object supports the following:
-
-          * `allowSingleColumn` (`pulumi.Input[bool]`) - Enables the processing of files that contain only one column.
-          * `containsHeader` (`pulumi.Input[str]`) - Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
-          * `delimiter` (`pulumi.Input[str]`) - The delimiter used in the Csv to separate columns.
-          * `disableValueTrimming` (`pulumi.Input[bool]`) - Specifies whether to trim column values.
-          * `headers` (`pulumi.Input[list]`) - A list of strings representing column names.
-          * `quoteSymbol` (`pulumi.Input[str]`) - A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
-
-        The **grok_classifier** object supports the following:
-
-          * `classification` (`pulumi.Input[str]`) - An identifier of the data format that the classifier matches.
-          * `customPatterns` (`pulumi.Input[str]`) - Custom grok patterns used by this classifier.
-          * `grokPattern` (`pulumi.Input[str]`) - The grok pattern used by this classifier.
-
-        The **json_classifier** object supports the following:
-
-          * `jsonPath` (`pulumi.Input[str]`) - A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
-
-        The **xml_classifier** object supports the following:
-
-          * `classification` (`pulumi.Input[str]`) - An identifier of the data format that the classifier matches.
-          * `rowTag` (`pulumi.Input[str]`) - The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
+        :param pulumi.Input[pulumi.InputType['ClassifierXmlClassifierArgs']] xml_classifier: A classifier for XML content. Defined below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -165,43 +119,26 @@ class Classifier(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, csv_classifier=None, grok_classifier=None, json_classifier=None, name=None, xml_classifier=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            csv_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierCsvClassifierArgs']]] = None,
+            grok_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierGrokClassifierArgs']]] = None,
+            json_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierJsonClassifierArgs']]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            xml_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierXmlClassifierArgs']]] = None) -> 'Classifier':
         """
         Get an existing Classifier resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] csv_classifier: A classifier for Csv content. Defined below.
-        :param pulumi.Input[dict] grok_classifier: A classifier that uses grok patterns. Defined below.
-        :param pulumi.Input[dict] json_classifier: A classifier for JSON content. Defined below.
+        :param pulumi.Input[pulumi.InputType['ClassifierCsvClassifierArgs']] csv_classifier: A classifier for Csv content. Defined below.
+        :param pulumi.Input[pulumi.InputType['ClassifierGrokClassifierArgs']] grok_classifier: A classifier that uses grok patterns. Defined below.
+        :param pulumi.Input[pulumi.InputType['ClassifierJsonClassifierArgs']] json_classifier: A classifier for JSON content. Defined below.
         :param pulumi.Input[str] name: The name of the classifier.
-        :param pulumi.Input[dict] xml_classifier: A classifier for XML content. Defined below.
-
-        The **csv_classifier** object supports the following:
-
-          * `allowSingleColumn` (`pulumi.Input[bool]`) - Enables the processing of files that contain only one column.
-          * `containsHeader` (`pulumi.Input[str]`) - Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
-          * `delimiter` (`pulumi.Input[str]`) - The delimiter used in the Csv to separate columns.
-          * `disableValueTrimming` (`pulumi.Input[bool]`) - Specifies whether to trim column values.
-          * `headers` (`pulumi.Input[list]`) - A list of strings representing column names.
-          * `quoteSymbol` (`pulumi.Input[str]`) - A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
-
-        The **grok_classifier** object supports the following:
-
-          * `classification` (`pulumi.Input[str]`) - An identifier of the data format that the classifier matches.
-          * `customPatterns` (`pulumi.Input[str]`) - Custom grok patterns used by this classifier.
-          * `grokPattern` (`pulumi.Input[str]`) - The grok pattern used by this classifier.
-
-        The **json_classifier** object supports the following:
-
-          * `jsonPath` (`pulumi.Input[str]`) - A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
-
-        The **xml_classifier** object supports the following:
-
-          * `classification` (`pulumi.Input[str]`) - An identifier of the data format that the classifier matches.
-          * `rowTag` (`pulumi.Input[str]`) - The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
+        :param pulumi.Input[pulumi.InputType['ClassifierXmlClassifierArgs']] xml_classifier: A classifier for XML content. Defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -214,8 +151,49 @@ class Classifier(pulumi.CustomResource):
         __props__["xml_classifier"] = xml_classifier
         return Classifier(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="csvClassifier")
+    def csv_classifier(self) -> Optional['outputs.ClassifierCsvClassifier']:
+        """
+        A classifier for Csv content. Defined below.
+        """
+        return pulumi.get(self, "csv_classifier")
+
+    @property
+    @pulumi.getter(name="grokClassifier")
+    def grok_classifier(self) -> Optional['outputs.ClassifierGrokClassifier']:
+        """
+        A classifier that uses grok patterns. Defined below.
+        """
+        return pulumi.get(self, "grok_classifier")
+
+    @property
+    @pulumi.getter(name="jsonClassifier")
+    def json_classifier(self) -> Optional['outputs.ClassifierJsonClassifier']:
+        """
+        A classifier for JSON content. Defined below.
+        """
+        return pulumi.get(self, "json_classifier")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the classifier.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="xmlClassifier")
+    def xml_classifier(self) -> Optional['outputs.ClassifierXmlClassifier']:
+        """
+        A classifier for XML content. Defined below.
+        """
+        return pulumi.get(self, "xml_classifier")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

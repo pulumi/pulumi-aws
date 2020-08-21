@@ -5,10 +5,18 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
+__all__ = [
+    'GetLocalGatewayRouteTableResult',
+    'AwaitableGetLocalGatewayRouteTableResult',
+    'get_local_gateway_route_table',
+]
 
+@pulumi.output_type
 class GetLocalGatewayRouteTableResult:
     """
     A collection of values returned by getLocalGatewayRouteTable.
@@ -16,28 +24,63 @@ class GetLocalGatewayRouteTableResult:
     def __init__(__self__, filters=None, id=None, local_gateway_id=None, local_gateway_route_table_id=None, outpost_arn=None, state=None, tags=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
-        __self__.filters = filters
+        pulumi.set(__self__, "filters", filters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if local_gateway_id and not isinstance(local_gateway_id, str):
+            raise TypeError("Expected argument 'local_gateway_id' to be a str")
+        pulumi.set(__self__, "local_gateway_id", local_gateway_id)
+        if local_gateway_route_table_id and not isinstance(local_gateway_route_table_id, str):
+            raise TypeError("Expected argument 'local_gateway_route_table_id' to be a str")
+        pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
+        if outpost_arn and not isinstance(outpost_arn, str):
+            raise TypeError("Expected argument 'outpost_arn' to be a str")
+        pulumi.set(__self__, "outpost_arn", outpost_arn)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[List['outputs.GetLocalGatewayRouteTableFilterResult']]:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if local_gateway_id and not isinstance(local_gateway_id, str):
-            raise TypeError("Expected argument 'local_gateway_id' to be a str")
-        __self__.local_gateway_id = local_gateway_id
-        if local_gateway_route_table_id and not isinstance(local_gateway_route_table_id, str):
-            raise TypeError("Expected argument 'local_gateway_route_table_id' to be a str")
-        __self__.local_gateway_route_table_id = local_gateway_route_table_id
-        if outpost_arn and not isinstance(outpost_arn, str):
-            raise TypeError("Expected argument 'outpost_arn' to be a str")
-        __self__.outpost_arn = outpost_arn
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="localGatewayId")
+    def local_gateway_id(self) -> str:
+        return pulumi.get(self, "local_gateway_id")
+
+    @property
+    @pulumi.getter(name="localGatewayRouteTableId")
+    def local_gateway_route_table_id(self) -> str:
+        return pulumi.get(self, "local_gateway_route_table_id")
+
+    @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> str:
+        return pulumi.get(self, "outpost_arn")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        return pulumi.get(self, "tags")
 
 
 class AwaitableGetLocalGatewayRouteTableResult(GetLocalGatewayRouteTableResult):
@@ -55,7 +98,13 @@ class AwaitableGetLocalGatewayRouteTableResult(GetLocalGatewayRouteTableResult):
             tags=self.tags)
 
 
-def get_local_gateway_route_table(filters=None, local_gateway_id=None, local_gateway_route_table_id=None, outpost_arn=None, state=None, tags=None, opts=None):
+def get_local_gateway_route_table(filters: Optional[List[pulumi.InputType['GetLocalGatewayRouteTableFilterArgs']]] = None,
+                                  local_gateway_id: Optional[str] = None,
+                                  local_gateway_route_table_id: Optional[str] = None,
+                                  outpost_arn: Optional[str] = None,
+                                  state: Optional[str] = None,
+                                  tags: Optional[Mapping[str, str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayRouteTableResult:
     """
     Provides details about an EC2 Local Gateway Route Table.
 
@@ -80,15 +129,8 @@ def get_local_gateway_route_table(filters=None, local_gateway_id=None, local_gat
     :param str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
     :param str outpost_arn: The arn of the Outpost the local gateway route table is associated with.
     :param str state: The state of the local gateway route table.
-    :param dict tags: A mapping of tags, each pair of which must exactly match
+    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
            a pair on the desired local gateway route table.
-
-    The **filters** object supports the following:
-
-      * `name` (`str`) - The name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
-      * `values` (`list`) - Set of values that are accepted for the given field.
-        A local gateway route table will be selected if any one of the given values matches.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -101,13 +143,13 @@ def get_local_gateway_route_table(filters=None, local_gateway_id=None, local_gat
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable', __args__, opts=opts, typ=GetLocalGatewayRouteTableResult).value
 
     return AwaitableGetLocalGatewayRouteTableResult(
-        filters=__ret__.get('filters'),
-        id=__ret__.get('id'),
-        local_gateway_id=__ret__.get('localGatewayId'),
-        local_gateway_route_table_id=__ret__.get('localGatewayRouteTableId'),
-        outpost_arn=__ret__.get('outpostArn'),
-        state=__ret__.get('state'),
-        tags=__ret__.get('tags'))
+        filters=__ret__.filters,
+        id=__ret__.id,
+        local_gateway_id=__ret__.local_gateway_id,
+        local_gateway_route_table_id=__ret__.local_gateway_route_table_id,
+        outpost_arn=__ret__.outpost_arn,
+        state=__ret__.state,
+        tags=__ret__.tags)

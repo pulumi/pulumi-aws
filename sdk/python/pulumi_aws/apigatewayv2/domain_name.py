@@ -5,39 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['DomainName']
 
 
 class DomainName(pulumi.CustomResource):
-    api_mapping_selection_expression: pulumi.Output[str]
-    """
-    The [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
-    """
-    arn: pulumi.Output[str]
-    """
-    The ARN of the domain name.
-    """
-    domain_name: pulumi.Output[str]
-    """
-    The domain name.
-    """
-    domain_name_configuration: pulumi.Output[dict]
-    """
-    The domain name configuration.
-
-      * `certificate_arn` (`str`) - The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-        Use the `acm.Certificate` resource to configure an ACM certificate.
-      * `endpoint_type` (`str`) - The endpoint type. Valid values: `REGIONAL`.
-      * `hosted_zone_id` (`str`) - The Amazon Route 53 Hosted Zone ID of the endpoint.
-      * `security_policy` (`str`) - The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-      * `targetDomainName` (`str`) - The target domain name.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A map of tags to assign to the domain name.
-    """
-    def __init__(__self__, resource_name, opts=None, domain_name=None, domain_name_configuration=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_name_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an Amazon API Gateway Version 2 domain name.
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
@@ -54,27 +39,18 @@ class DomainName(pulumi.CustomResource):
 
         example = aws.apigatewayv2.DomainName("example",
             domain_name="ws-api.example.com",
-            domain_name_configuration={
-                "certificate_arn": aws_acm_certificate["example"]["arn"],
-                "endpoint_type": "REGIONAL",
-                "security_policy": "TLS_1_2",
-            })
+            domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
+                certificate_arn=aws_acm_certificate["example"]["arn"],
+                endpoint_type="REGIONAL",
+                security_policy="TLS_1_2",
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The domain name.
-        :param pulumi.Input[dict] domain_name_configuration: The domain name configuration.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the domain name.
-
-        The **domain_name_configuration** object supports the following:
-
-          * `certificate_arn` (`pulumi.Input[str]`) - The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-            Use the `acm.Certificate` resource to configure an ACM certificate.
-          * `endpoint_type` (`pulumi.Input[str]`) - The endpoint type. Valid values: `REGIONAL`.
-          * `hosted_zone_id` (`pulumi.Input[str]`) - The Amazon Route 53 Hosted Zone ID of the endpoint.
-          * `security_policy` (`pulumi.Input[str]`) - The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-          * `targetDomainName` (`pulumi.Input[str]`) - The target domain name.
+        :param pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']] domain_name_configuration: The domain name configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the domain name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,28 +85,26 @@ class DomainName(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_mapping_selection_expression=None, arn=None, domain_name=None, domain_name_configuration=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_mapping_selection_expression: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            domain_name: Optional[pulumi.Input[str]] = None,
+            domain_name_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'DomainName':
         """
         Get an existing DomainName resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_mapping_selection_expression: The [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
         :param pulumi.Input[str] arn: The ARN of the domain name.
         :param pulumi.Input[str] domain_name: The domain name.
-        :param pulumi.Input[dict] domain_name_configuration: The domain name configuration.
-        :param pulumi.Input[dict] tags: A map of tags to assign to the domain name.
-
-        The **domain_name_configuration** object supports the following:
-
-          * `certificate_arn` (`pulumi.Input[str]`) - The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-            Use the `acm.Certificate` resource to configure an ACM certificate.
-          * `endpoint_type` (`pulumi.Input[str]`) - The endpoint type. Valid values: `REGIONAL`.
-          * `hosted_zone_id` (`pulumi.Input[str]`) - The Amazon Route 53 Hosted Zone ID of the endpoint.
-          * `security_policy` (`pulumi.Input[str]`) - The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-          * `targetDomainName` (`pulumi.Input[str]`) - The target domain name.
+        :param pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']] domain_name_configuration: The domain name configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the domain name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -143,8 +117,49 @@ class DomainName(pulumi.CustomResource):
         __props__["tags"] = tags
         return DomainName(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="apiMappingSelectionExpression")
+    def api_mapping_selection_expression(self) -> str:
+        """
+        The [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
+        """
+        return pulumi.get(self, "api_mapping_selection_expression")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the domain name.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        """
+        The domain name.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="domainNameConfiguration")
+    def domain_name_configuration(self) -> 'outputs.DomainNameDomainNameConfiguration':
+        """
+        The domain name configuration.
+        """
+        return pulumi.get(self, "domain_name_configuration")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to the domain name.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

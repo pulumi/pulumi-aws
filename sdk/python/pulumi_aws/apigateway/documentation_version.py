@@ -5,24 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['DocumentationVersion']
 
 
 class DocumentationVersion(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    The description of the API documentation version.
-    """
-    rest_api_id: pulumi.Output[str]
-    """
-    The ID of the associated Rest API
-    """
-    version: pulumi.Output[str]
-    """
-    The version identifier of the API documentation snapshot.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, rest_api_id=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 rest_api_id: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a resource to manage an API Gateway Documentation Version.
 
@@ -34,9 +32,9 @@ class DocumentationVersion(pulumi.CustomResource):
 
         example_rest_api = aws.apigateway.RestApi("exampleRestApi")
         example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
-            location={
-                "type": "API",
-            },
+            location=aws.apigateway.DocumentationPartLocationArgs(
+                type="API",
+            ),
             properties="{\"description\":\"Example\"}",
             rest_api_id=example_rest_api.id)
         example_documentation_version = aws.apigateway.DocumentationVersion("exampleDocumentationVersion",
@@ -83,13 +81,18 @@ class DocumentationVersion(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, rest_api_id=None, version=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            rest_api_id: Optional[pulumi.Input[str]] = None,
+            version: Optional[pulumi.Input[str]] = None) -> 'DocumentationVersion':
         """
         Get an existing DocumentationVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the API documentation version.
         :param pulumi.Input[str] rest_api_id: The ID of the associated Rest API
@@ -104,8 +107,33 @@ class DocumentationVersion(pulumi.CustomResource):
         __props__["version"] = version
         return DocumentationVersion(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the API documentation version.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="restApiId")
+    def rest_api_id(self) -> str:
+        """
+        The ID of the associated Rest API
+        """
+        return pulumi.get(self, "rest_api_id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version identifier of the API documentation snapshot.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

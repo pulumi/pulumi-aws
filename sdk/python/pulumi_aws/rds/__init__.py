@@ -22,3 +22,5 @@ from .role_association import *
 from .security_group import *
 from .snapshot import *
 from .subnet_group import *
+from ._inputs import *
+from . import outputs

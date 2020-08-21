@@ -5,51 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['EndpointGroup']
 
 
 class EndpointGroup(pulumi.CustomResource):
-    endpoint_configurations: pulumi.Output[list]
-    """
-    The list of endpoint objects. Fields documented below.
-
-      * `endpoint_id` (`str`) - An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-      * `weight` (`float`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-    """
-    endpoint_group_region: pulumi.Output[str]
-    """
-    The name of the AWS Region where the endpoint group is located.
-    """
-    health_check_interval_seconds: pulumi.Output[float]
-    """
-    The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
-    """
-    health_check_path: pulumi.Output[str]
-    """
-    If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).
-    """
-    health_check_port: pulumi.Output[float]
-    """
-    The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-    """
-    health_check_protocol: pulumi.Output[str]
-    """
-    The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
-    """
-    listener_arn: pulumi.Output[str]
-    """
-    The Amazon Resource Name (ARN) of the listener.
-    """
-    threshold_count: pulumi.Output[float]
-    """
-    The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
-    """
-    traffic_dial_percentage: pulumi.Output[float]
-    """
-    The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
-    """
-    def __init__(__self__, resource_name, opts=None, endpoint_configurations=None, endpoint_group_region=None, health_check_interval_seconds=None, health_check_path=None, health_check_port=None, health_check_protocol=None, listener_arn=None, threshold_count=None, traffic_dial_percentage=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 endpoint_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]]] = None,
+                 endpoint_group_region: Optional[pulumi.Input[str]] = None,
+                 health_check_interval_seconds: Optional[pulumi.Input[float]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 health_check_port: Optional[pulumi.Input[float]] = None,
+                 health_check_protocol: Optional[pulumi.Input[str]] = None,
+                 listener_arn: Optional[pulumi.Input[str]] = None,
+                 threshold_count: Optional[pulumi.Input[float]] = None,
+                 traffic_dial_percentage: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Global Accelerator endpoint group.
 
@@ -61,15 +40,15 @@ class EndpointGroup(pulumi.CustomResource):
 
         example = aws.globalaccelerator.EndpointGroup("example",
             listener_arn=aws_globalaccelerator_listener["example"]["id"],
-            endpoint_configurations=[{
-                "endpoint_id": aws_lb["example"]["arn"],
-                "weight": 100,
-            }])
+            endpoint_configurations=[aws.globalaccelerator.EndpointGroupEndpointConfigurationArgs(
+                endpoint_id=aws_lb["example"]["arn"],
+                weight=100,
+            )])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] endpoint_configurations: The list of endpoint objects. Fields documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]] endpoint_configurations: The list of endpoint objects. Fields documented below.
         :param pulumi.Input[str] endpoint_group_region: The name of the AWS Region where the endpoint group is located.
         :param pulumi.Input[float] health_check_interval_seconds: The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
         :param pulumi.Input[str] health_check_path: If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).
@@ -78,11 +57,6 @@ class EndpointGroup(pulumi.CustomResource):
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[float] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
-
-        The **endpoint_configurations** object supports the following:
-
-          * `endpoint_id` (`pulumi.Input[str]`) - An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-          * `weight` (`pulumi.Input[float]`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,15 +93,26 @@ class EndpointGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, endpoint_configurations=None, endpoint_group_region=None, health_check_interval_seconds=None, health_check_path=None, health_check_port=None, health_check_protocol=None, listener_arn=None, threshold_count=None, traffic_dial_percentage=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            endpoint_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]]] = None,
+            endpoint_group_region: Optional[pulumi.Input[str]] = None,
+            health_check_interval_seconds: Optional[pulumi.Input[float]] = None,
+            health_check_path: Optional[pulumi.Input[str]] = None,
+            health_check_port: Optional[pulumi.Input[float]] = None,
+            health_check_protocol: Optional[pulumi.Input[str]] = None,
+            listener_arn: Optional[pulumi.Input[str]] = None,
+            threshold_count: Optional[pulumi.Input[float]] = None,
+            traffic_dial_percentage: Optional[pulumi.Input[float]] = None) -> 'EndpointGroup':
         """
         Get an existing EndpointGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] endpoint_configurations: The list of endpoint objects. Fields documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]] endpoint_configurations: The list of endpoint objects. Fields documented below.
         :param pulumi.Input[str] endpoint_group_region: The name of the AWS Region where the endpoint group is located.
         :param pulumi.Input[float] health_check_interval_seconds: The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
         :param pulumi.Input[str] health_check_path: If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).
@@ -136,11 +121,6 @@ class EndpointGroup(pulumi.CustomResource):
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[float] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
-
-        The **endpoint_configurations** object supports the following:
-
-          * `endpoint_id` (`pulumi.Input[str]`) - An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-          * `weight` (`pulumi.Input[float]`) - The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -157,8 +137,81 @@ class EndpointGroup(pulumi.CustomResource):
         __props__["traffic_dial_percentage"] = traffic_dial_percentage
         return EndpointGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="endpointConfigurations")
+    def endpoint_configurations(self) -> Optional[List['outputs.EndpointGroupEndpointConfiguration']]:
+        """
+        The list of endpoint objects. Fields documented below.
+        """
+        return pulumi.get(self, "endpoint_configurations")
+
+    @property
+    @pulumi.getter(name="endpointGroupRegion")
+    def endpoint_group_region(self) -> str:
+        """
+        The name of the AWS Region where the endpoint group is located.
+        """
+        return pulumi.get(self, "endpoint_group_region")
+
+    @property
+    @pulumi.getter(name="healthCheckIntervalSeconds")
+    def health_check_interval_seconds(self) -> Optional[float]:
+        """
+        The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+        """
+        return pulumi.get(self, "health_check_interval_seconds")
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[str]:
+        """
+        If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @property
+    @pulumi.getter(name="healthCheckPort")
+    def health_check_port(self) -> Optional[float]:
+        """
+        The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
+        """
+        return pulumi.get(self, "health_check_port")
+
+    @property
+    @pulumi.getter(name="healthCheckProtocol")
+    def health_check_protocol(self) -> Optional[str]:
+        """
+        The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
+        """
+        return pulumi.get(self, "health_check_protocol")
+
+    @property
+    @pulumi.getter(name="listenerArn")
+    def listener_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the listener.
+        """
+        return pulumi.get(self, "listener_arn")
+
+    @property
+    @pulumi.getter(name="thresholdCount")
+    def threshold_count(self) -> Optional[float]:
+        """
+        The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
+        """
+        return pulumi.get(self, "threshold_count")
+
+    @property
+    @pulumi.getter(name="trafficDialPercentage")
+    def traffic_dial_percentage(self) -> Optional[float]:
+        """
+        The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
+        """
+        return pulumi.get(self, "traffic_dial_percentage")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

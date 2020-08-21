@@ -5,28 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Template']
 
 
 class Template(pulumi.CustomResource):
-    html: pulumi.Output[str]
-    """
-    The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
-    """
-    subject: pulumi.Output[str]
-    """
-    The subject line of the email.
-    """
-    text: pulumi.Output[str]
-    """
-    The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
-    """
-    def __init__(__self__, resource_name, opts=None, html=None, name=None, subject=None, text=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 html: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 subject: Optional[pulumi.Input[str]] = None,
+                 text: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a resource to create a SES template.
 
@@ -79,13 +74,19 @@ class Template(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, html=None, name=None, subject=None, text=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            html: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            subject: Optional[pulumi.Input[str]] = None,
+            text: Optional[pulumi.Input[str]] = None) -> 'Template':
         """
         Get an existing Template resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] html: The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         :param pulumi.Input[str] name: The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
@@ -102,8 +103,41 @@ class Template(pulumi.CustomResource):
         __props__["text"] = text
         return Template(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def html(self) -> Optional[str]:
+        """
+        The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+        """
+        return pulumi.get(self, "html")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        """
+        The subject line of the email.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[str]:
+        """
+        The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+        """
+        return pulumi.get(self, "text")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,20 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['FileSystemPolicy']
 
 
 class FileSystemPolicy(pulumi.CustomResource):
-    file_system_id: pulumi.Output[str]
-    """
-    The ID of the EFS file system.
-    """
-    policy: pulumi.Output[str]
-    """
-    The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
-    """
-    def __init__(__self__, resource_name, opts=None, file_system_id=None, policy=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 file_system_id: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an Elastic File System (EFS) File System Policy resource.
 
@@ -92,13 +93,17 @@ class FileSystemPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, file_system_id=None, policy=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            file_system_id: Optional[pulumi.Input[str]] = None,
+            policy: Optional[pulumi.Input[str]] = None) -> 'FileSystemPolicy':
         """
         Get an existing FileSystemPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] file_system_id: The ID of the EFS file system.
         :param pulumi.Input[str] policy: The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
@@ -111,8 +116,25 @@ class FileSystemPolicy(pulumi.CustomResource):
         __props__["policy"] = policy
         return FileSystemPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> str:
+        """
+        The ID of the EFS file system.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> str:
+        """
+        The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+        """
+        return pulumi.get(self, "policy")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

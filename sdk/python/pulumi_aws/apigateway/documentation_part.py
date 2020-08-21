@@ -5,30 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['DocumentationPart']
 
 
 class DocumentationPart(pulumi.CustomResource):
-    location: pulumi.Output[dict]
-    """
-    The location of the targeted API entity of the to-be-created documentation part. See below.
-
-      * `method` (`str`) - The HTTP verb of a method. The default value is `*` for any method.
-      * `name` (`str`) - The name of the targeted API entity.
-      * `path` (`str`) - The URL path of the target. The default value is `/` for the root resource.
-      * `status_code` (`str`) - The HTTP status code of a response. The default value is `*` for any status code.
-      * `type` (`str`) - The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
-    """
-    properties: pulumi.Output[str]
-    """
-    A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
-    """
-    rest_api_id: pulumi.Output[str]
-    """
-    The ID of the associated Rest API
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, properties=None, rest_api_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']]] = None,
+                 properties: Optional[pulumi.Input[str]] = None,
+                 rest_api_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a settings of an API Gateway Documentation Part.
 
@@ -40,28 +34,20 @@ class DocumentationPart(pulumi.CustomResource):
 
         example_rest_api = aws.apigateway.RestApi("exampleRestApi")
         example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
-            location={
-                "type": "METHOD",
-                "method": "GET",
-                "path": "/example",
-            },
+            location=aws.apigateway.DocumentationPartLocationArgs(
+                type="METHOD",
+                method="GET",
+                path="/example",
+            ),
             properties="{\"description\":\"Example description\"}",
             rest_api_id=example_rest_api.id)
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] location: The location of the targeted API entity of the to-be-created documentation part. See below.
+        :param pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']] location: The location of the targeted API entity of the to-be-created documentation part. See below.
         :param pulumi.Input[str] properties: A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
         :param pulumi.Input[str] rest_api_id: The ID of the associated Rest API
-
-        The **location** object supports the following:
-
-          * `method` (`pulumi.Input[str]`) - The HTTP verb of a method. The default value is `*` for any method.
-          * `name` (`pulumi.Input[str]`) - The name of the targeted API entity.
-          * `path` (`pulumi.Input[str]`) - The URL path of the target. The default value is `/` for the root resource.
-          * `status_code` (`pulumi.Input[str]`) - The HTTP status code of a response. The default value is `*` for any status code.
-          * `type` (`pulumi.Input[str]`) - The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,25 +82,22 @@ class DocumentationPart(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, properties=None, rest_api_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            location: Optional[pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']]] = None,
+            properties: Optional[pulumi.Input[str]] = None,
+            rest_api_id: Optional[pulumi.Input[str]] = None) -> 'DocumentationPart':
         """
         Get an existing DocumentationPart resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] location: The location of the targeted API entity of the to-be-created documentation part. See below.
+        :param pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']] location: The location of the targeted API entity of the to-be-created documentation part. See below.
         :param pulumi.Input[str] properties: A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
         :param pulumi.Input[str] rest_api_id: The ID of the associated Rest API
-
-        The **location** object supports the following:
-
-          * `method` (`pulumi.Input[str]`) - The HTTP verb of a method. The default value is `*` for any method.
-          * `name` (`pulumi.Input[str]`) - The name of the targeted API entity.
-          * `path` (`pulumi.Input[str]`) - The URL path of the target. The default value is `/` for the root resource.
-          * `status_code` (`pulumi.Input[str]`) - The HTTP status code of a response. The default value is `*` for any status code.
-          * `type` (`pulumi.Input[str]`) - The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -125,8 +108,33 @@ class DocumentationPart(pulumi.CustomResource):
         __props__["rest_api_id"] = rest_api_id
         return DocumentationPart(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> 'outputs.DocumentationPartLocation':
+        """
+        The location of the targeted API entity of the to-be-created documentation part. See below.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> str:
+        """
+        A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="restApiId")
+    def rest_api_id(self) -> str:
+        """
+        The ID of the associated Rest API
+        """
+        return pulumi.get(self, "rest_api_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

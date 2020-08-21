@@ -5,48 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['EnvironmentEC2']
 
 
 class EnvironmentEC2(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The ARN of the environment.
-    """
-    automatic_stop_time_minutes: pulumi.Output[float]
-    """
-    The number of minutes until the running instance is shut down after the environment has last been used.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the environment.
-    """
-    instance_type: pulumi.Output[str]
-    """
-    The type of instance to connect to the environment, e.g. `t2.micro`.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the environment.
-    """
-    owner_arn: pulumi.Output[str]
-    """
-    The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
-    """
-    subnet_id: pulumi.Output[str]
-    """
-    The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-    """
-    tags: pulumi.Output[dict]
-    """
-    Key-value map of resource tags
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the environment (e.g. `ssh` or `ec2`)
-    """
-    def __init__(__self__, resource_name, opts=None, automatic_stop_time_minutes=None, description=None, instance_type=None, name=None, owner_arn=None, subnet_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automatic_stop_time_minutes: Optional[pulumi.Input[float]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner_arn: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Cloud9 EC2 Development Environment.
 
@@ -67,7 +45,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        :param pulumi.Input[dict] tags: Key-value map of resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -104,13 +82,24 @@ class EnvironmentEC2(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, automatic_stop_time_minutes=None, description=None, instance_type=None, name=None, owner_arn=None, subnet_id=None, tags=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            automatic_stop_time_minutes: Optional[pulumi.Input[float]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            instance_type: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            owner_arn: Optional[pulumi.Input[str]] = None,
+            subnet_id: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'EnvironmentEC2':
         """
         Get an existing EnvironmentEC2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the environment.
         :param pulumi.Input[float] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
@@ -119,7 +108,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-        :param pulumi.Input[dict] tags: Key-value map of resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         :param pulumi.Input[str] type: The type of the environment (e.g. `ssh` or `ec2`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -137,8 +126,81 @@ class EnvironmentEC2(pulumi.CustomResource):
         __props__["type"] = type
         return EnvironmentEC2(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the environment.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="automaticStopTimeMinutes")
+    def automatic_stop_time_minutes(self) -> Optional[float]:
+        """
+        The number of minutes until the running instance is shut down after the environment has last been used.
+        """
+        return pulumi.get(self, "automatic_stop_time_minutes")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the environment.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        The type of instance to connect to the environment, e.g. `t2.micro`.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the environment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ownerArn")
+    def owner_arn(self) -> str:
+        """
+        The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
+        """
+        return pulumi.get(self, "owner_arn")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value map of resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the environment (e.g. `ssh` or `ec2`)
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

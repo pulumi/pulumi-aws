@@ -5,118 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['LaunchConfiguration']
 
 
 class LaunchConfiguration(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The Amazon Resource Name of the launch configuration.
-    """
-    associate_public_ip_address: pulumi.Output[bool]
-    """
-    Associate a public ip address with an instance in a VPC.
-    """
-    ebs_block_devices: pulumi.Output[list]
-    """
-    Additional EBS block devices to attach to the
-    instance.  See Block Devices below for details.
-
-      * `deleteOnTermination` (`bool`)
-      * `device_name` (`str`)
-      * `encrypted` (`bool`)
-      * `iops` (`float`)
-      * `noDevice` (`bool`)
-      * `snapshot_id` (`str`)
-      * `volume_size` (`float`)
-      * `volumeType` (`str`)
-    """
-    ebs_optimized: pulumi.Output[bool]
-    """
-    If true, the launched EC2 instance will be EBS-optimized.
-    """
-    enable_monitoring: pulumi.Output[bool]
-    """
-    Enables/disables detailed monitoring. This is enabled by default.
-    """
-    ephemeral_block_devices: pulumi.Output[list]
-    """
-    Customize Ephemeral (also known as
-    "Instance Store") volumes on the instance. See Block Devices below for details.
-
-      * `device_name` (`str`)
-      * `virtualName` (`str`)
-    """
-    iam_instance_profile: pulumi.Output[str]
-    """
-    The name attribute of the IAM instance profile to associate
-    with launched instances.
-    """
-    image_id: pulumi.Output[str]
-    """
-    The EC2 image ID to launch.
-    """
-    instance_type: pulumi.Output[str]
-    """
-    The size of instance to launch.
-    """
-    key_name: pulumi.Output[str]
-    """
-    The key name that should be used for the instance.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the launch configuration. If you leave
-    this blank, this provider will auto-generate a unique name.
-    """
-    name_prefix: pulumi.Output[str]
-    """
-    Creates a unique name beginning with the specified
-    prefix. Conflicts with `name`.
-    """
-    placement_tenancy: pulumi.Output[str]
-    """
-    The tenancy of the instance. Valid values are
-    `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
-    for more details
-    """
-    root_block_device: pulumi.Output[dict]
-    """
-    Customize details about the root block
-    device of the instance. See Block Devices below for details.
-
-      * `deleteOnTermination` (`bool`)
-      * `encrypted` (`bool`)
-      * `iops` (`float`)
-      * `volume_size` (`float`)
-      * `volumeType` (`str`)
-    """
-    security_groups: pulumi.Output[list]
-    """
-    A list of associated security group IDS.
-    """
-    spot_price: pulumi.Output[str]
-    """
-    The maximum price to use for reserving spot instances.
-    """
-    user_data: pulumi.Output[str]
-    """
-    The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
-    """
-    user_data_base64: pulumi.Output[str]
-    """
-    Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-    """
-    vpc_classic_link_id: pulumi.Output[str]
-    """
-    The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-    """
-    vpc_classic_link_security_groups: pulumi.Output[list]
-    """
-    The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-    """
-    def __init__(__self__, resource_name, opts=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, name_prefix=None, placement_tenancy=None, root_block_device=None, security_groups=None, spot_price=None, user_data=None, user_data_base64=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]]] = None,
+                 ebs_optimized: Optional[pulumi.Input[bool]] = None,
+                 enable_monitoring: Optional[pulumi.Input[bool]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LaunchConfigurationEphemeralBlockDeviceArgs']]]]] = None,
+                 iam_instance_profile: Optional[pulumi.Input[str]] = None,
+                 image_id: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 placement_tenancy: Optional[pulumi.Input[str]] = None,
+                 root_block_device: Optional[pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']]] = None,
+                 security_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 spot_price: Optional[pulumi.Input[str]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None,
+                 user_data_base64: Optional[pulumi.Input[str]] = None,
+                 vpc_classic_link_id: Optional[pulumi.Input[str]] = None,
+                 vpc_classic_link_security_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a resource to create a new launch configuration, used for autoscaling groups.
 
@@ -128,14 +50,14 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         ubuntu = aws.get_ami(most_recent=True,
             filters=[
-                {
-                    "name": "name",
-                    "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
-                },
-                {
-                    "name": "virtualization-type",
-                    "values": ["hvm"],
-                },
+                aws.GetAmiFilterArgs(
+                    name="name",
+                    values=["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+                ),
+                aws.GetAmiFilterArgs(
+                    name="virtualization-type",
+                    values=["hvm"],
+                ),
             ],
             owners=["099720109477"])
         as_conf = aws.ec2.LaunchConfiguration("asConf",
@@ -158,14 +80,14 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         ubuntu = aws.get_ami(most_recent=True,
             filters=[
-                {
-                    "name": "name",
-                    "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
-                },
-                {
-                    "name": "virtualization-type",
-                    "values": ["hvm"],
-                },
+                aws.GetAmiFilterArgs(
+                    name="name",
+                    values=["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+                ),
+                aws.GetAmiFilterArgs(
+                    name="virtualization-type",
+                    values=["hvm"],
+                ),
             ],
             owners=["099720109477"])
         as_conf = aws.ec2.LaunchConfiguration("asConf",
@@ -197,14 +119,14 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         ubuntu = aws.get_ami(most_recent=True,
             filters=[
-                {
-                    "name": "name",
-                    "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
-                },
-                {
-                    "name": "virtualization-type",
-                    "values": ["hvm"],
-                },
+                aws.GetAmiFilterArgs(
+                    name="name",
+                    values=["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+                ),
+                aws.GetAmiFilterArgs(
+                    name="virtualization-type",
+                    values=["hvm"],
+                ),
             ],
             owners=["099720109477"])
         as_conf = aws.ec2.LaunchConfiguration("asConf",
@@ -273,13 +195,13 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
-        :param pulumi.Input[list] ebs_block_devices: Additional EBS block devices to attach to the
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]] ebs_block_devices: Additional EBS block devices to attach to the
                instance.  See Block Devices below for details.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
-        :param pulumi.Input[list] ephemeral_block_devices: Customize Ephemeral (also known as
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LaunchConfigurationEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Customize Ephemeral (also known as
                "Instance Store") volumes on the instance. See Block Devices below for details.
-        :param pulumi.Input[dict] iam_instance_profile: The name attribute of the IAM instance profile to associate
+        :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate
                with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
@@ -291,38 +213,14 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are
                `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
                for more details
-        :param pulumi.Input[dict] root_block_device: Customize details about the root block
+        :param pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']] root_block_device: Customize details about the root block
                device of the instance. See Block Devices below for details.
-        :param pulumi.Input[list] security_groups: A list of associated security group IDS.
+        :param pulumi.Input[List[pulumi.Input[str]]] security_groups: A list of associated security group IDS.
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         :param pulumi.Input[str] vpc_classic_link_id: The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        :param pulumi.Input[list] vpc_classic_link_security_groups: The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-
-        The **ebs_block_devices** object supports the following:
-
-          * `deleteOnTermination` (`pulumi.Input[bool]`)
-          * `device_name` (`pulumi.Input[str]`)
-          * `encrypted` (`pulumi.Input[bool]`)
-          * `iops` (`pulumi.Input[float]`)
-          * `noDevice` (`pulumi.Input[bool]`)
-          * `snapshot_id` (`pulumi.Input[str]`)
-          * `volume_size` (`pulumi.Input[float]`)
-          * `volumeType` (`pulumi.Input[str]`)
-
-        The **ephemeral_block_devices** object supports the following:
-
-          * `device_name` (`pulumi.Input[str]`)
-          * `virtualName` (`pulumi.Input[str]`)
-
-        The **root_block_device** object supports the following:
-
-          * `deleteOnTermination` (`pulumi.Input[bool]`)
-          * `encrypted` (`pulumi.Input[bool]`)
-          * `iops` (`pulumi.Input[float]`)
-          * `volume_size` (`pulumi.Input[float]`)
-          * `volumeType` (`pulumi.Input[str]`)
+        :param pulumi.Input[List[pulumi.Input[str]]] vpc_classic_link_security_groups: The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -372,23 +270,45 @@ class LaunchConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, image_id=None, instance_type=None, key_name=None, name=None, name_prefix=None, placement_tenancy=None, root_block_device=None, security_groups=None, spot_price=None, user_data=None, user_data_base64=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
+            ebs_block_devices: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]]] = None,
+            ebs_optimized: Optional[pulumi.Input[bool]] = None,
+            enable_monitoring: Optional[pulumi.Input[bool]] = None,
+            ephemeral_block_devices: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LaunchConfigurationEphemeralBlockDeviceArgs']]]]] = None,
+            iam_instance_profile: Optional[pulumi.Input[str]] = None,
+            image_id: Optional[pulumi.Input[str]] = None,
+            instance_type: Optional[pulumi.Input[str]] = None,
+            key_name: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            name_prefix: Optional[pulumi.Input[str]] = None,
+            placement_tenancy: Optional[pulumi.Input[str]] = None,
+            root_block_device: Optional[pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']]] = None,
+            security_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            spot_price: Optional[pulumi.Input[str]] = None,
+            user_data: Optional[pulumi.Input[str]] = None,
+            user_data_base64: Optional[pulumi.Input[str]] = None,
+            vpc_classic_link_id: Optional[pulumi.Input[str]] = None,
+            vpc_classic_link_security_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'LaunchConfiguration':
         """
         Get an existing LaunchConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name of the launch configuration.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
-        :param pulumi.Input[list] ebs_block_devices: Additional EBS block devices to attach to the
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]] ebs_block_devices: Additional EBS block devices to attach to the
                instance.  See Block Devices below for details.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
-        :param pulumi.Input[list] ephemeral_block_devices: Customize Ephemeral (also known as
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LaunchConfigurationEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Customize Ephemeral (also known as
                "Instance Store") volumes on the instance. See Block Devices below for details.
-        :param pulumi.Input[dict] iam_instance_profile: The name attribute of the IAM instance profile to associate
+        :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate
                with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
@@ -400,38 +320,14 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are
                `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
                for more details
-        :param pulumi.Input[dict] root_block_device: Customize details about the root block
+        :param pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']] root_block_device: Customize details about the root block
                device of the instance. See Block Devices below for details.
-        :param pulumi.Input[list] security_groups: A list of associated security group IDS.
+        :param pulumi.Input[List[pulumi.Input[str]]] security_groups: A list of associated security group IDS.
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         :param pulumi.Input[str] vpc_classic_link_id: The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        :param pulumi.Input[list] vpc_classic_link_security_groups: The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-
-        The **ebs_block_devices** object supports the following:
-
-          * `deleteOnTermination` (`pulumi.Input[bool]`)
-          * `device_name` (`pulumi.Input[str]`)
-          * `encrypted` (`pulumi.Input[bool]`)
-          * `iops` (`pulumi.Input[float]`)
-          * `noDevice` (`pulumi.Input[bool]`)
-          * `snapshot_id` (`pulumi.Input[str]`)
-          * `volume_size` (`pulumi.Input[float]`)
-          * `volumeType` (`pulumi.Input[str]`)
-
-        The **ephemeral_block_devices** object supports the following:
-
-          * `device_name` (`pulumi.Input[str]`)
-          * `virtualName` (`pulumi.Input[str]`)
-
-        The **root_block_device** object supports the following:
-
-          * `deleteOnTermination` (`pulumi.Input[bool]`)
-          * `encrypted` (`pulumi.Input[bool]`)
-          * `iops` (`pulumi.Input[float]`)
-          * `volume_size` (`pulumi.Input[float]`)
-          * `volumeType` (`pulumi.Input[str]`)
+        :param pulumi.Input[List[pulumi.Input[str]]] vpc_classic_link_security_groups: The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -459,8 +355,177 @@ class LaunchConfiguration(pulumi.CustomResource):
         __props__["vpc_classic_link_security_groups"] = vpc_classic_link_security_groups
         return LaunchConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name of the launch configuration.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="associatePublicIpAddress")
+    def associate_public_ip_address(self) -> Optional[bool]:
+        """
+        Associate a public ip address with an instance in a VPC.
+        """
+        return pulumi.get(self, "associate_public_ip_address")
+
+    @property
+    @pulumi.getter(name="ebsBlockDevices")
+    def ebs_block_devices(self) -> List['outputs.LaunchConfigurationEbsBlockDevice']:
+        """
+        Additional EBS block devices to attach to the
+        instance.  See Block Devices below for details.
+        """
+        return pulumi.get(self, "ebs_block_devices")
+
+    @property
+    @pulumi.getter(name="ebsOptimized")
+    def ebs_optimized(self) -> bool:
+        """
+        If true, the launched EC2 instance will be EBS-optimized.
+        """
+        return pulumi.get(self, "ebs_optimized")
+
+    @property
+    @pulumi.getter(name="enableMonitoring")
+    def enable_monitoring(self) -> Optional[bool]:
+        """
+        Enables/disables detailed monitoring. This is enabled by default.
+        """
+        return pulumi.get(self, "enable_monitoring")
+
+    @property
+    @pulumi.getter(name="ephemeralBlockDevices")
+    def ephemeral_block_devices(self) -> Optional[List['outputs.LaunchConfigurationEphemeralBlockDevice']]:
+        """
+        Customize Ephemeral (also known as
+        "Instance Store") volumes on the instance. See Block Devices below for details.
+        """
+        return pulumi.get(self, "ephemeral_block_devices")
+
+    @property
+    @pulumi.getter(name="iamInstanceProfile")
+    def iam_instance_profile(self) -> Optional[str]:
+        """
+        The name attribute of the IAM instance profile to associate
+        with launched instances.
+        """
+        return pulumi.get(self, "iam_instance_profile")
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> str:
+        """
+        The EC2 image ID to launch.
+        """
+        return pulumi.get(self, "image_id")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        The size of instance to launch.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        The key name that should be used for the instance.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the launch configuration. If you leave
+        this blank, this provider will auto-generate a unique name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[str]:
+        """
+        Creates a unique name beginning with the specified
+        prefix. Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter(name="placementTenancy")
+    def placement_tenancy(self) -> Optional[str]:
+        """
+        The tenancy of the instance. Valid values are
+        `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
+        for more details
+        """
+        return pulumi.get(self, "placement_tenancy")
+
+    @property
+    @pulumi.getter(name="rootBlockDevice")
+    def root_block_device(self) -> 'outputs.LaunchConfigurationRootBlockDevice':
+        """
+        Customize details about the root block
+        device of the instance. See Block Devices below for details.
+        """
+        return pulumi.get(self, "root_block_device")
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[List[str]]:
+        """
+        A list of associated security group IDS.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @property
+    @pulumi.getter(name="spotPrice")
+    def spot_price(self) -> Optional[str]:
+        """
+        The maximum price to use for reserving spot instances.
+        """
+        return pulumi.get(self, "spot_price")
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[str]:
+        """
+        The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+        """
+        return pulumi.get(self, "user_data")
+
+    @property
+    @pulumi.getter(name="userDataBase64")
+    def user_data_base64(self) -> Optional[str]:
+        """
+        Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+        """
+        return pulumi.get(self, "user_data_base64")
+
+    @property
+    @pulumi.getter(name="vpcClassicLinkId")
+    def vpc_classic_link_id(self) -> Optional[str]:
+        """
+        The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
+        """
+        return pulumi.get(self, "vpc_classic_link_id")
+
+    @property
+    @pulumi.getter(name="vpcClassicLinkSecurityGroups")
+    def vpc_classic_link_security_groups(self) -> Optional[List[str]]:
+        """
+        The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
+        """
+        return pulumi.get(self, "vpc_classic_link_security_groups")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

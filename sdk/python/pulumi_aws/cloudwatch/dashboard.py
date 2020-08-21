@@ -5,24 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Dashboard']
 
 
 class Dashboard(pulumi.CustomResource):
-    dashboard_arn: pulumi.Output[str]
-    """
-    The Amazon Resource Name (ARN) of the dashboard.
-    """
-    dashboard_body: pulumi.Output[str]
-    """
-    The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-    """
-    dashboard_name: pulumi.Output[str]
-    """
-    The name of the dashboard.
-    """
-    def __init__(__self__, resource_name, opts=None, dashboard_body=None, dashboard_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dashboard_body: Optional[pulumi.Input[str]] = None,
+                 dashboard_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a CloudWatch Dashboard resource.
 
@@ -109,13 +106,18 @@ class Dashboard(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, dashboard_arn=None, dashboard_body=None, dashboard_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dashboard_arn: Optional[pulumi.Input[str]] = None,
+            dashboard_body: Optional[pulumi.Input[str]] = None,
+            dashboard_name: Optional[pulumi.Input[str]] = None) -> 'Dashboard':
         """
         Get an existing Dashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dashboard_arn: The Amazon Resource Name (ARN) of the dashboard.
         :param pulumi.Input[str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
@@ -130,8 +132,33 @@ class Dashboard(pulumi.CustomResource):
         __props__["dashboard_name"] = dashboard_name
         return Dashboard(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="dashboardArn")
+    def dashboard_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the dashboard.
+        """
+        return pulumi.get(self, "dashboard_arn")
+
+    @property
+    @pulumi.getter(name="dashboardBody")
+    def dashboard_body(self) -> str:
+        """
+        The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
+        """
+        return pulumi.get(self, "dashboard_body")
+
+    @property
+    @pulumi.getter(name="dashboardName")
+    def dashboard_name(self) -> str:
+        """
+        The name of the dashboard.
+        """
+        return pulumi.get(self, "dashboard_name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

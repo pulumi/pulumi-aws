@@ -5,44 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['ServiceLinkedRole']
 
 
 class ServiceLinkedRole(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The Amazon Resource Name (ARN) specifying the role.
-    """
-    aws_service_name: pulumi.Output[str]
-    """
-    The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-    """
-    create_date: pulumi.Output[str]
-    """
-    The creation date of the IAM role.
-    """
-    custom_suffix: pulumi.Output[str]
-    """
-    Additional string appended to the role name. Not all AWS services support custom suffixes.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the role.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the role.
-    """
-    path: pulumi.Output[str]
-    """
-    The path of the role.
-    """
-    unique_id: pulumi.Output[str]
-    """
-    The stable and unique string identifying the role.
-    """
-    def __init__(__self__, resource_name, opts=None, aws_service_name=None, custom_suffix=None, description=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_service_name: Optional[pulumi.Input[str]] = None,
+                 custom_suffix: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
 
@@ -95,13 +73,23 @@ class ServiceLinkedRole(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, aws_service_name=None, create_date=None, custom_suffix=None, description=None, name=None, path=None, unique_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            aws_service_name: Optional[pulumi.Input[str]] = None,
+            create_date: Optional[pulumi.Input[str]] = None,
+            custom_suffix: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            path: Optional[pulumi.Input[str]] = None,
+            unique_id: Optional[pulumi.Input[str]] = None) -> 'ServiceLinkedRole':
         """
         Get an existing ServiceLinkedRole resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the role.
         :param pulumi.Input[str] aws_service_name: The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
@@ -126,8 +114,73 @@ class ServiceLinkedRole(pulumi.CustomResource):
         __props__["unique_id"] = unique_id
         return ServiceLinkedRole(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) specifying the role.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsServiceName")
+    def aws_service_name(self) -> str:
+        """
+        The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
+        """
+        return pulumi.get(self, "aws_service_name")
+
+    @property
+    @pulumi.getter(name="createDate")
+    def create_date(self) -> str:
+        """
+        The creation date of the IAM role.
+        """
+        return pulumi.get(self, "create_date")
+
+    @property
+    @pulumi.getter(name="customSuffix")
+    def custom_suffix(self) -> Optional[str]:
+        """
+        Additional string appended to the role name. Not all AWS services support custom suffixes.
+        """
+        return pulumi.get(self, "custom_suffix")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the role.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the role.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path of the role.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="uniqueId")
+    def unique_id(self) -> str:
+        """
+        The stable and unique string identifying the role.
+        """
+        return pulumi.get(self, "unique_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

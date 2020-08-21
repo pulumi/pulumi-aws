@@ -5,33 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+
+__all__ = ['Alias']
 
 
 class Alias(pulumi.CustomResource):
-    arn: pulumi.Output[str]
-    """
-    The Amazon Resource Name (ARN) of the key alias.
-    """
-    name: pulumi.Output[str]
-    """
-    The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
-    """
-    name_prefix: pulumi.Output[str]
-    """
-    Creates an unique alias beginning with the specified prefix.
-    The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-    """
-    target_key_arn: pulumi.Output[str]
-    """
-    The Amazon Resource Name (ARN) of the target key identifier.
-    """
-    target_key_id: pulumi.Output[str]
-    """
-    Identifier for the key for which the alias is for, can be either an ARN or key_id.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, name_prefix=None, target_key_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
+                 target_key_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
         but API (hence this provider too) allows you to create as many aliases as
@@ -85,13 +74,20 @@ class Alias(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, arn=None, name=None, name_prefix=None, target_key_arn=None, target_key_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            name_prefix: Optional[pulumi.Input[str]] = None,
+            target_key_arn: Optional[pulumi.Input[str]] = None,
+            target_key_id: Optional[pulumi.Input[str]] = None) -> 'Alias':
         """
         Get an existing Alias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the key alias.
         :param pulumi.Input[str] name: The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
@@ -111,8 +107,50 @@ class Alias(pulumi.CustomResource):
         __props__["target_key_id"] = target_key_id
         return Alias(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the key alias.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[str]:
+        """
+        Creates an unique alias beginning with the specified prefix.
+        The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+        """
+        return pulumi.get(self, "name_prefix")
+
+    @property
+    @pulumi.getter(name="targetKeyArn")
+    def target_key_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the target key identifier.
+        """
+        return pulumi.get(self, "target_key_arn")
+
+    @property
+    @pulumi.getter(name="targetKeyId")
+    def target_key_id(self) -> str:
+        """
+        Identifier for the key for which the alias is for, can be either an ARN or key_id.
+        """
+        return pulumi.get(self, "target_key_id")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

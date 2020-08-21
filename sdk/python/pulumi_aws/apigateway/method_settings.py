@@ -5,39 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['MethodSettings']
 
 
 class MethodSettings(pulumi.CustomResource):
-    method_path: pulumi.Output[str]
-    """
-    Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
-    """
-    rest_api: pulumi.Output[str]
-    """
-    The ID of the REST API
-    """
-    settings: pulumi.Output[dict]
-    """
-    The settings block, see below.
-
-      * `cacheDataEncrypted` (`bool`) - Specifies whether the cached responses are encrypted.
-      * `cacheTtlInSeconds` (`float`) - Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
-      * `cachingEnabled` (`bool`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
-      * `dataTraceEnabled` (`bool`) - Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
-      * `loggingLevel` (`str`) - Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
-      * `metricsEnabled` (`bool`) - Specifies whether Amazon CloudWatch metrics are enabled for this method.
-      * `requireAuthorizationForCacheControl` (`bool`) - Specifies whether authorization is required for a cache invalidation request.
-      * `throttlingBurstLimit` (`float`) - Specifies the throttling burst limit. Default: `-1` (throttling disabled).
-      * `throttlingRateLimit` (`float`) - Specifies the throttling rate limit. Default: `-1` (throttling disabled).
-      * `unauthorizedCacheControlHeaderStrategy` (`str`) - Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
-    """
-    stage_name: pulumi.Output[str]
-    """
-    The name of the stage
-    """
-    def __init__(__self__, resource_name, opts=None, method_path=None, rest_api=None, settings=None, stage_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 method_path: Optional[pulumi.Input[str]] = None,
+                 rest_api: Optional[pulumi.Input[str]] = None,
+                 settings: Optional[pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']]] = None,
+                 stage_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides an API Gateway Method Settings, e.g. logging or monitoring.
 
@@ -80,31 +66,18 @@ class MethodSettings(pulumi.CustomResource):
             rest_api=test_rest_api.id,
             stage_name=test_stage.stage_name,
             method_path=pulumi.Output.all(test_resource.path_part, test_method.http_method).apply(lambda path_part, http_method: f"{path_part}/{http_method}"),
-            settings={
-                "metricsEnabled": True,
-                "loggingLevel": "INFO",
-            })
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                metrics_enabled=True,
+                logging_level="INFO",
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
-        :param pulumi.Input[dict] rest_api: The ID of the REST API
-        :param pulumi.Input[dict] settings: The settings block, see below.
+        :param pulumi.Input[str] rest_api: The ID of the REST API
+        :param pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']] settings: The settings block, see below.
         :param pulumi.Input[str] stage_name: The name of the stage
-
-        The **settings** object supports the following:
-
-          * `cacheDataEncrypted` (`pulumi.Input[bool]`) - Specifies whether the cached responses are encrypted.
-          * `cacheTtlInSeconds` (`pulumi.Input[float]`) - Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
-          * `cachingEnabled` (`pulumi.Input[bool]`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
-          * `dataTraceEnabled` (`pulumi.Input[bool]`) - Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
-          * `loggingLevel` (`pulumi.Input[str]`) - Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
-          * `metricsEnabled` (`pulumi.Input[bool]`) - Specifies whether Amazon CloudWatch metrics are enabled for this method.
-          * `requireAuthorizationForCacheControl` (`pulumi.Input[bool]`) - Specifies whether authorization is required for a cache invalidation request.
-          * `throttlingBurstLimit` (`pulumi.Input[float]`) - Specifies the throttling burst limit. Default: `-1` (throttling disabled).
-          * `throttlingRateLimit` (`pulumi.Input[float]`) - Specifies the throttling rate limit. Default: `-1` (throttling disabled).
-          * `unauthorizedCacheControlHeaderStrategy` (`pulumi.Input[str]`) - Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -142,31 +115,24 @@ class MethodSettings(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, method_path=None, rest_api=None, settings=None, stage_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            method_path: Optional[pulumi.Input[str]] = None,
+            rest_api: Optional[pulumi.Input[str]] = None,
+            settings: Optional[pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']]] = None,
+            stage_name: Optional[pulumi.Input[str]] = None) -> 'MethodSettings':
         """
         Get an existing MethodSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
-        :param pulumi.Input[dict] rest_api: The ID of the REST API
-        :param pulumi.Input[dict] settings: The settings block, see below.
+        :param pulumi.Input[str] rest_api: The ID of the REST API
+        :param pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']] settings: The settings block, see below.
         :param pulumi.Input[str] stage_name: The name of the stage
-
-        The **settings** object supports the following:
-
-          * `cacheDataEncrypted` (`pulumi.Input[bool]`) - Specifies whether the cached responses are encrypted.
-          * `cacheTtlInSeconds` (`pulumi.Input[float]`) - Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
-          * `cachingEnabled` (`pulumi.Input[bool]`) - Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
-          * `dataTraceEnabled` (`pulumi.Input[bool]`) - Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
-          * `loggingLevel` (`pulumi.Input[str]`) - Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
-          * `metricsEnabled` (`pulumi.Input[bool]`) - Specifies whether Amazon CloudWatch metrics are enabled for this method.
-          * `requireAuthorizationForCacheControl` (`pulumi.Input[bool]`) - Specifies whether authorization is required for a cache invalidation request.
-          * `throttlingBurstLimit` (`pulumi.Input[float]`) - Specifies the throttling burst limit. Default: `-1` (throttling disabled).
-          * `throttlingRateLimit` (`pulumi.Input[float]`) - Specifies the throttling rate limit. Default: `-1` (throttling disabled).
-          * `unauthorizedCacheControlHeaderStrategy` (`pulumi.Input[str]`) - Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -178,8 +144,41 @@ class MethodSettings(pulumi.CustomResource):
         __props__["stage_name"] = stage_name
         return MethodSettings(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="methodPath")
+    def method_path(self) -> str:
+        """
+        Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage.
+        """
+        return pulumi.get(self, "method_path")
+
+    @property
+    @pulumi.getter(name="restApi")
+    def rest_api(self) -> str:
+        """
+        The ID of the REST API
+        """
+        return pulumi.get(self, "rest_api")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> 'outputs.MethodSettingsSettings':
+        """
+        The settings block, see below.
+        """
+        return pulumi.get(self, "settings")
+
+    @property
+    @pulumi.getter(name="stageName")
+    def stage_name(self) -> str:
+        """
+        The name of the stage
+        """
+        return pulumi.get(self, "stage_name")
+
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
