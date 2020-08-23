@@ -4,7 +4,7 @@
 package examples
 
 import (
-	"path"
+	"path/filepath"
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
@@ -13,7 +13,7 @@ import (
 func TestAccWebserverCs(t *testing.T) {
 	test := getCSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "webserver-cs"),
+			Dir: filepath.Join(getCwd(t), "webserver-cs"),
 		})
 
 	integration.ProgramTest(t, &test)

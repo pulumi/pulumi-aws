@@ -5,7 +5,7 @@ package examples
 
 import (
 	"os"
-	"path"
+	"path/filepath"
 	"testing"
 
 	"github.com/aws/aws-sdk-go/aws"
@@ -18,7 +18,7 @@ import (
 func TestAccMinimal(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "minimal"),
+			Dir: filepath.Join(getCwd(t), "minimal"),
 		})
 
 	integration.ProgramTest(t, &test)
@@ -27,7 +27,7 @@ func TestAccMinimal(t *testing.T) {
 func TestAccExpress(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "express"),
+			Dir:           filepath.Join(getCwd(t), "express"),
 			RunUpdateTest: true,
 		})
 
@@ -37,7 +37,7 @@ func TestAccExpress(t *testing.T) {
 func TestAccBucketWithS3State(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "bucket"),
+			Dir:           filepath.Join(getCwd(t), "bucket"),
 			RunUpdateTest: true,
 			CloudURL:      "s3://ci-remote-state-bucket",
 		})
@@ -48,7 +48,7 @@ func TestAccBucketWithS3State(t *testing.T) {
 func TestAccCloudWatch(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "cloudwatch"),
+			Dir:           filepath.Join(getCwd(t), "cloudwatch"),
 			RunUpdateTest: true,
 		})
 
@@ -58,7 +58,7 @@ func TestAccCloudWatch(t *testing.T) {
 func TestAccLogGroup(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "logGroup"),
+			Dir:           filepath.Join(getCwd(t), "logGroup"),
 			RunUpdateTest: false,
 		})
 
@@ -68,7 +68,7 @@ func TestAccLogGroup(t *testing.T) {
 func TestAccQueue(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "queue"),
+			Dir:           filepath.Join(getCwd(t), "queue"),
 			RunUpdateTest: true,
 		})
 
@@ -78,7 +78,7 @@ func TestAccQueue(t *testing.T) {
 func TestAccStream(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "stream"),
+			Dir:           filepath.Join(getCwd(t), "stream"),
 			RunUpdateTest: true,
 		})
 
@@ -88,7 +88,7 @@ func TestAccStream(t *testing.T) {
 func TestAccTable(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "table"),
+			Dir:           filepath.Join(getCwd(t), "table"),
 			RunUpdateTest: true,
 		})
 
@@ -98,7 +98,7 @@ func TestAccTable(t *testing.T) {
 func TestAccTopic(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "topic"),
+			Dir:           filepath.Join(getCwd(t), "topic"),
 			RunUpdateTest: true,
 		})
 
@@ -108,7 +108,7 @@ func TestAccTopic(t *testing.T) {
 func TestAccSsmParameter(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "ssmparameter"),
+			Dir:           filepath.Join(getCwd(t), "ssmparameter"),
 			RunUpdateTest: true,
 		})
 
@@ -118,7 +118,7 @@ func TestAccSsmParameter(t *testing.T) {
 func TestAccSsmParameterWithS3State(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "ssmparameter"),
+			Dir:           filepath.Join(getCwd(t), "ssmparameter"),
 			RunUpdateTest: true,
 			CloudURL:      "s3://ci-remote-state-bucket",
 		})
@@ -129,7 +129,7 @@ func TestAccSsmParameterWithS3State(t *testing.T) {
 func TestAccRoute53(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "route53"),
+			Dir:           filepath.Join(getCwd(t), "route53"),
 			RunUpdateTest: true,
 		})
 
@@ -139,7 +139,7 @@ func TestAccRoute53(t *testing.T) {
 func TestAccLambdaLayer(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "lambda-layer"),
+			Dir:           filepath.Join(getCwd(t), "lambda-layer"),
 			RunUpdateTest: true,
 		})
 
@@ -149,7 +149,7 @@ func TestAccLambdaLayer(t *testing.T) {
 func TestAccEcr(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "ecr"),
+			Dir:           filepath.Join(getCwd(t), "ecr"),
 			RunUpdateTest: true,
 		})
 
@@ -159,7 +159,7 @@ func TestAccEcr(t *testing.T) {
 func TestAccAlbLegacy(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "alb-legacy"),
+			Dir: filepath.Join(getCwd(t), "alb-legacy"),
 			// RunUpdateTest: true,
 		})
 
@@ -169,7 +169,7 @@ func TestAccAlbLegacy(t *testing.T) {
 func TestAccAlbNew(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "alb-new"),
+			Dir: filepath.Join(getCwd(t), "alb-new"),
 			// RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
@@ -186,7 +186,7 @@ func TestAccAlbNew(t *testing.T) {
 func TestAccDeleteBeforeCreate(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "delete_before_create", "mount_target", "step1"),
+			Dir:           filepath.Join(getCwd(t), "delete_before_create", "mount_target", "step1"),
 			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
@@ -206,11 +206,11 @@ func TestAccDeleteBeforeCreate(t *testing.T) {
 func TestAccIgnoreChanges(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "ignoreChanges"),
+			Dir:           filepath.Join(getCwd(t), "ignoreChanges"),
 			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
-					Dir:      path.Join(getCwd(t), "ignoreChanges", "step1"),
+					Dir:      filepath.Join(getCwd(t), "ignoreChanges", "step1"),
 					Additive: true,
 					ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
 						// Verify that the change to `"bar"` was succesfully ignored.
@@ -226,7 +226,7 @@ func TestAccIgnoreChanges(t *testing.T) {
 func TestAccRenameSesConfiguration(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "rename-ses-configuration-set"),
+			Dir:           filepath.Join(getCwd(t), "rename-ses-configuration-set"),
 			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
@@ -242,7 +242,7 @@ func TestAccRenameSesConfiguration(t *testing.T) {
 func TestAccServerlessFunctions(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "serverless_functions"),
+			Dir:           filepath.Join(getCwd(t), "serverless_functions"),
 			RunUpdateTest: true,
 			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 				// Since we are relying on the AWS credentials file locally, we need to
@@ -276,16 +276,16 @@ func TestAccWebserver(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "webserver"),
+			Dir: filepath.Join(getCwd(t), "webserver"),
 			EditDirs: []integration.EditDir{
 				// First, look up the server just created using get.  No new resources.
-				createEditDir(path.Join(getCwd(t), "webserver", "variants", "get")),
+				createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "get")),
 				// Next, patch the ingress rules by adding port 20: should be a quick update.
-				createEditDir(path.Join(getCwd(t), "webserver", "variants", "ssh")),
+				createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "ssh")),
 				// Now do the reverse; this basically ensures that an update that deletes a property works.
-				createEditDir(path.Join(getCwd(t), "webserver")),
+				createEditDir(filepath.Join(getCwd(t), "webserver")),
 				// Next patch the security group description, necessitating a full replacement of resources.
-				createEditDir(path.Join(getCwd(t), "webserver", "variants", "ssh_description")),
+				createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "ssh_description")),
 			}})
 
 	integration.ProgramTest(t, &test)
@@ -295,7 +295,7 @@ func TestAccWebserverVariants(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "webserver", "variants", "zones"),
+			Dir:           filepath.Join(getCwd(t), "webserver", "variants", "zones"),
 			RunUpdateTest: true,
 		})
 
@@ -306,7 +306,7 @@ func TestAccWebserverComp(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "webserver-comp"),
+			Dir:           filepath.Join(getCwd(t), "webserver-comp"),
 			RunUpdateTest: true,
 			Secrets: map[string]string{
 				"aws:accessKey": os.Getenv("AWS_ACCESS_KEY_ID"),
@@ -321,7 +321,7 @@ func TestAccServerlessRaw(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "serverless-raw"),
+			Dir:           filepath.Join(getCwd(t), "serverless-raw"),
 			RunUpdateTest: true,
 			// Two changes are known to occur during refresh of the resources in this example:
 			// * `~  aws:apigateway:Method myrestapi-method updated changes: + authorizationScopes,...`
@@ -336,7 +336,7 @@ func TestAccServerless(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "serverless"),
+			Dir:           filepath.Join(getCwd(t), "serverless"),
 			RunUpdateTest: true,
 		})
 
@@ -347,7 +347,7 @@ func TestAccMultipleRegions(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "multiple-regions"),
+			Dir: filepath.Join(getCwd(t), "multiple-regions"),
 			// RunUpdateTest: true,
 		})
 
