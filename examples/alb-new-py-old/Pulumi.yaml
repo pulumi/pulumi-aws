@@ -1,0 +1,3 @@
+name: alb-legacy-py-old
+runtime: python
+description: Back compat test to ensure that applicationloadbalancing can still be used, specifying inputs with dicts.

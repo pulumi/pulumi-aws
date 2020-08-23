@@ -4,7 +4,6 @@
 package examples
 
 import (
-	"path"
 	"path/filepath"
 	"testing"
 
@@ -14,7 +13,7 @@ import (
 func TestAccBucketPy(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "bucket-py"),
+			Dir:           filepath.Join(getCwd(t), "bucket-py"),
 			RunUpdateTest: true,
 		})
 
@@ -22,40 +21,63 @@ func TestAccBucketPy(t *testing.T) {
 }
 
 func TestAccWebserverPy(t *testing.T) {
-	test := getPythonBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "webserver-py"),
-			RunUpdateTest: true,
-		})
+	for _, dir := range []string{"webserver-py", "webserver-py-old"} {
+		t.Run(dir, func(t *testing.T) {
 
-	integration.ProgramTest(t, &test)
+			test := getPythonBaseOptions(t).
+				With(integration.ProgramTestOptions{
+					Dir: filepath.Join(getCwd(t), dir),
+					// TODO[pulumi/pulumi-aws#1087]: Set RunUpdateTest to true for all tests.
+					RunUpdateTest: dir != "webserver-py",
+				})
+
+			integration.ProgramTest(t, &test)
+		})
+	}
 }
 
 func TestAccAlbLegacyPy(t *testing.T) {
-	test := getPythonBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "alb-legacy-py"),
-			RunUpdateTest: true,
-		})
+	for _, dir := range []string{"alb-legacy-py", "alb-legacy-py-old"} {
+		t.Run(dir, func(t *testing.T) {
+			test := getPythonBaseOptions(t).
+				With(integration.ProgramTestOptions{
+					Dir: filepath.Join(getCwd(t), dir),
+					// TODO[pulumi/pulumi-aws#1087]: Set RunUpdateTest to true for all tests.
+					RunUpdateTest: dir != "alb-legacy-py",
+					EditDirs: []integration.EditDir{
+						{
+							Dir:             "step2",
+							Additive:        true,
+							ExpectNoChanges: true,
+						},
+					},
+				})
 
-	integration.ProgramTest(t, &test)
+			integration.ProgramTest(t, &test)
+		})
+	}
 }
 
 func TestAccAlbNewPy(t *testing.T) {
-	test := getPythonBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "alb-new-py"),
-			RunUpdateTest: true,
-			EditDirs: []integration.EditDir{
-				{
-					Dir:             "step2",
-					Additive:        true,
-					ExpectNoChanges: true,
-				},
-			},
-		})
+	for _, dir := range []string{"alb-new-py", "alb-new-py-old"} {
+		t.Run(dir, func(t *testing.T) {
+			test := getPythonBaseOptions(t).
+				With(integration.ProgramTestOptions{
+					Dir: filepath.Join(getCwd(t), dir),
+					// TODO[pulumi/pulumi-aws#1087]: Set RunUpdateTest to true for all tests.
+					RunUpdateTest: dir != "alb-new-py",
+					EditDirs: []integration.EditDir{
+						{
+							Dir:             "step2",
+							Additive:        true,
+							ExpectNoChanges: true,
+						},
+					},
+				})
 
-	integration.ProgramTest(t, &test)
+			integration.ProgramTest(t, &test)
+		})
+	}
 }
 
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
