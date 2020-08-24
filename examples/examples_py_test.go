@@ -26,9 +26,8 @@ func TestAccWebserverPy(t *testing.T) {
 
 			test := getPythonBaseOptions(t).
 				With(integration.ProgramTestOptions{
-					Dir: filepath.Join(getCwd(t), dir),
-					// TODO[pulumi/pulumi-aws#1087]: Set RunUpdateTest to true for all tests.
-					RunUpdateTest: dir != "webserver-py",
+					Dir:           filepath.Join(getCwd(t), dir),
+					RunUpdateTest: true,
 				})
 
 			integration.ProgramTest(t, &test)
@@ -41,9 +40,8 @@ func TestAccAlbLegacyPy(t *testing.T) {
 		t.Run(dir, func(t *testing.T) {
 			test := getPythonBaseOptions(t).
 				With(integration.ProgramTestOptions{
-					Dir: filepath.Join(getCwd(t), dir),
-					// TODO[pulumi/pulumi-aws#1087]: Set RunUpdateTest to true for all tests.
-					RunUpdateTest: dir != "alb-legacy-py",
+					Dir:           filepath.Join(getCwd(t), dir),
+					RunUpdateTest: true,
 					EditDirs: []integration.EditDir{
 						{
 							Dir:             "step2",
@@ -63,9 +61,8 @@ func TestAccAlbNewPy(t *testing.T) {
 		t.Run(dir, func(t *testing.T) {
 			test := getPythonBaseOptions(t).
 				With(integration.ProgramTestOptions{
-					Dir: filepath.Join(getCwd(t), dir),
-					// TODO[pulumi/pulumi-aws#1087]: Set RunUpdateTest to true for all tests.
-					RunUpdateTest: dir != "alb-new-py",
+					Dir:           filepath.Join(getCwd(t), dir),
+					RunUpdateTest: true,
 					EditDirs: []integration.EditDir{
 						{
 							Dir:             "step2",
