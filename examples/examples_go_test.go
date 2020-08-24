@@ -4,7 +4,7 @@
 package examples
 
 import (
-	"path"
+	"path/filepath"
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
@@ -14,7 +14,7 @@ func TestAccWebserverGo(t *testing.T) {
 	t.Skip("Chicken and egg wile creating this new major version")
 	skipIfShort(t)
 	test := integration.ProgramTestOptions{
-		Dir: path.Join(getCwd(t), "webserver-go"),
+		Dir: filepath.Join(getCwd(t), "webserver-go"),
 		Dependencies: []string{
 			"github.com/pulumi/pulumi-aws/sdk/go/v3",
 		},

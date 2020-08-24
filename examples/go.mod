@@ -6,6 +6,7 @@ require (
 	github.com/aws/aws-sdk-go v1.29.30
 	github.com/onsi/ginkgo v1.12.0 // indirect
 	github.com/onsi/gomega v1.9.0 // indirect
+	github.com/pulumi/pulumi-aws/sdk/v3 v3.1.0
 	github.com/pulumi/pulumi/pkg/v2 v2.0.0
 	github.com/pulumi/pulumi/sdk/v2 v2.2.1
 	github.com/stretchr/testify v1.5.1
