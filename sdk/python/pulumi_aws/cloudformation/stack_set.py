@@ -13,7 +13,7 @@ __all__ = ['StackSet']
 
 class StackSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administration_role_arn: Optional[pulumi.Input[str]] = None,
                  capabilities: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -186,7 +186,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administrationRoleArn")
-    def administration_role_arn(self) -> str:
+    def administration_role_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Number (ARN) of the IAM Role in the administrator account.
         """
@@ -194,7 +194,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the StackSet.
         """
@@ -202,7 +202,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[List[str]]:
+    def capabilities(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         """
@@ -210,7 +210,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the StackSet.
         """
@@ -218,7 +218,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionRoleName")
-    def execution_role_name(self) -> Optional[str]:
+    def execution_role_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole`.
         """
@@ -226,7 +226,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         """
@@ -234,7 +234,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         """
@@ -242,7 +242,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stackSetId")
-    def stack_set_id(self) -> str:
+    def stack_set_id(self) -> pulumi.Output[str]:
         """
         Unique identifier of the StackSet.
         """
@@ -250,7 +250,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified.
         """
@@ -258,7 +258,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateBody")
-    def template_body(self) -> str:
+    def template_body(self) -> pulumi.Output[str]:
         """
         String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
         """
@@ -266,7 +266,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateUrl")
-    def template_url(self) -> Optional[str]:
+    def template_url(self) -> pulumi.Output[Optional[str]]:
         """
         String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
         """

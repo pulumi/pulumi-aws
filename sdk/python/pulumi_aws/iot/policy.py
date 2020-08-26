@@ -13,7 +13,7 @@ __all__ = ['Policy']
 
 class Policy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN assigned by AWS to this policy.
         """
@@ -119,7 +119,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultVersionId")
-    def default_version_id(self) -> str:
+    def default_version_id(self) -> pulumi.Output[str]:
         """
         The default version of this policy.
         """
@@ -127,7 +127,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the policy.
         """
@@ -135,7 +135,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
         """

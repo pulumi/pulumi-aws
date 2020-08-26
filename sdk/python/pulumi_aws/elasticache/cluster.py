@@ -15,7 +15,7 @@ __all__ = ['Cluster']
 
 class Cluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -319,7 +319,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> bool:
+    def apply_immediately(self) -> pulumi.Output[bool]:
         """
         Specifies whether any database modifications
         are applied immediately, or during the next maintenance window. Default is
@@ -330,12 +330,12 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> pulumi.Output[str]:
         """
         The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone.
         """
@@ -343,7 +343,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azMode")
-    def az_mode(self) -> str:
+    def az_mode(self) -> pulumi.Output[str]:
         """
         Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`
         """
@@ -351,7 +351,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheNodes")
-    def cache_nodes(self) -> List['outputs.ClusterCacheNode']:
+    def cache_nodes(self) -> pulumi.Output[List['outputs.ClusterCacheNode']]:
         """
         List of node objects including `id`, `address`, `port` and `availability_zone`.
         Referenceable e.g. as `${aws_elasticache_cluster.bar.cache_nodes.0.address}`
@@ -360,7 +360,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterAddress")
-    def cluster_address(self) -> str:
+    def cluster_address(self) -> pulumi.Output[str]:
         """
         (Memcached only) The DNS name of the cache cluster without the port appended.
         """
@@ -368,7 +368,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> str:
+    def cluster_id(self) -> pulumi.Output[str]:
         """
         Group identifier. ElastiCache converts
         this name to lowercase
@@ -377,7 +377,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationEndpoint")
-    def configuration_endpoint(self) -> str:
+    def configuration_endpoint(self) -> pulumi.Output[str]:
         """
         (Memcached only) The configuration endpoint to allow host discovery.
         """
@@ -385,7 +385,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> str:
+    def engine(self) -> pulumi.Output[str]:
         """
         Name of the cache engine to be used for this cache cluster.
         Valid values for this parameter are `memcached` or `redis`
@@ -394,7 +394,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> pulumi.Output[str]:
         """
         Version number of the cache engine to be used.
         See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
@@ -404,7 +404,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> str:
+    def maintenance_window(self) -> pulumi.Output[str]:
         """
         Specifies the weekly time range for when maintenance
         on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
@@ -414,7 +414,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeType")
-    def node_type(self) -> str:
+    def node_type(self) -> pulumi.Output[str]:
         """
         The compute and memory capacity of the nodes. See
         [Available Cache Node Types](https://aws.amazon.com/elasticache/details#Available_Cache_Node_Types) for
@@ -424,7 +424,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationTopicArn")
-    def notification_topic_arn(self) -> Optional[str]:
+    def notification_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
         An Amazon Resource Name (ARN) of an
         SNS topic to send ElastiCache notifications to. Example:
@@ -434,7 +434,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numCacheNodes")
-    def num_cache_nodes(self) -> float:
+    def num_cache_nodes(self) -> pulumi.Output[float]:
         """
         The initial number of cache nodes that the
         cache cluster will have. For Redis, this value must be 1. For Memcache, this
@@ -445,7 +445,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> str:
+    def parameter_group_name(self) -> pulumi.Output[str]:
         """
         Name of the parameter group to associate
         with this cache cluster
@@ -454,7 +454,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> pulumi.Output[float]:
         """
         The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`.
         """
@@ -462,7 +462,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredAvailabilityZones")
-    def preferred_availability_zones(self) -> Optional[List[str]]:
+    def preferred_availability_zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         """
@@ -470,7 +470,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationGroupId")
-    def replication_group_id(self) -> str:
+    def replication_group_id(self) -> pulumi.Output[str]:
         """
         The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         """
@@ -478,7 +478,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> List[str]:
+    def security_group_ids(self) -> pulumi.Output[List[str]]:
         """
         One or more VPC security groups associated
         with the cache cluster
@@ -487,7 +487,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> List[str]:
+    def security_group_names(self) -> pulumi.Output[List[str]]:
         """
         List of security group
         names to associate with this cache cluster
@@ -496,7 +496,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotArns")
-    def snapshot_arns(self) -> Optional[List[str]]:
+    def snapshot_arns(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A single-element string list containing an
         Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
@@ -506,7 +506,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> Optional[str]:
+    def snapshot_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of a snapshot from which to restore data into the new node group.  Changing the `snapshot_name` forces a new resource.
         """
@@ -514,7 +514,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotRetentionLimit")
-    def snapshot_retention_limit(self) -> Optional[float]:
+    def snapshot_retention_limit(self) -> pulumi.Output[Optional[float]]:
         """
         The number of days for which ElastiCache will
         retain automatic cache cluster snapshots before deleting them. For example, if you set
@@ -526,7 +526,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotWindow")
-    def snapshot_window(self) -> str:
+    def snapshot_window(self) -> pulumi.Output[str]:
         """
         The daily time range (in UTC) during which ElastiCache will
         begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
@@ -535,7 +535,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetGroupName")
-    def subnet_group_name(self) -> str:
+    def subnet_group_name(self) -> pulumi.Output[str]:
         """
         Name of the subnet group to be used
         for the cache cluster.
@@ -544,7 +544,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource
         """

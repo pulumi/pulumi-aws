@@ -13,7 +13,7 @@ __all__ = ['KeyPair']
 
 class KeyPair(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_name_prefix: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The key pair ARN.
         """
@@ -130,7 +130,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fingerprint(self) -> str:
+    def fingerprint(self) -> pulumi.Output[str]:
         """
         The MD5 public key fingerprint as specified in section 4 of RFC 4716.
         """
@@ -138,7 +138,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
+    def key_name(self) -> pulumi.Output[str]:
         """
         The name for the key pair.
         """
@@ -146,7 +146,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyNamePrefix")
-    def key_name_prefix(self) -> Optional[str]:
+    def key_name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
         """
@@ -154,7 +154,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyPairId")
-    def key_pair_id(self) -> str:
+    def key_pair_id(self) -> pulumi.Output[str]:
         """
         The key pair ID.
         """
@@ -162,7 +162,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> str:
+    def public_key(self) -> pulumi.Output[str]:
         """
         The public key material.
         """
@@ -170,7 +170,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

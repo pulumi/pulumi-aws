@@ -15,7 +15,7 @@ __all__ = ['Policy']
 
 class Policy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  adjustment_type: Optional[pulumi.Input[str]] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
@@ -172,7 +172,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adjustmentType")
-    def adjustment_type(self) -> Optional[str]:
+    def adjustment_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         """
@@ -180,7 +180,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN assigned by AWS to the scaling policy.
         """
@@ -188,7 +188,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
-    def autoscaling_group_name(self) -> str:
+    def autoscaling_group_name(self) -> pulumi.Output[str]:
         """
         The name of the autoscaling group.
         """
@@ -196,7 +196,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cooldown(self) -> Optional[float]:
+    def cooldown(self) -> pulumi.Output[Optional[float]]:
         """
         The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         """
@@ -204,7 +204,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="estimatedInstanceWarmup")
-    def estimated_instance_warmup(self) -> Optional[float]:
+    def estimated_instance_warmup(self) -> pulumi.Output[Optional[float]]:
         """
         The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         """
@@ -212,7 +212,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metricAggregationType")
-    def metric_aggregation_type(self) -> str:
+    def metric_aggregation_type(self) -> pulumi.Output[str]:
         """
         The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         """
@@ -220,12 +220,12 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minAdjustmentMagnitude")
-    def min_adjustment_magnitude(self) -> Optional[float]:
+    def min_adjustment_magnitude(self) -> pulumi.Output[Optional[float]]:
         return pulumi.get(self, "min_adjustment_magnitude")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the dimension.
         """
@@ -233,7 +233,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> Optional[str]:
+    def policy_type(self) -> pulumi.Output[Optional[str]]:
         """
         The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         """
@@ -241,7 +241,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scalingAdjustment")
-    def scaling_adjustment(self) -> Optional[float]:
+    def scaling_adjustment(self) -> pulumi.Output[Optional[float]]:
         """
         The number of members by which to
         scale, when the adjustment bounds are breached. A positive value scales
@@ -251,7 +251,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stepAdjustments")
-    def step_adjustments(self) -> Optional[List['outputs.PolicyStepAdjustment']]:
+    def step_adjustments(self) -> pulumi.Output[Optional[List['outputs.PolicyStepAdjustment']]]:
         """
         A set of adjustments that manage
         group scaling. These have the following structure:
@@ -260,7 +260,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetTrackingConfiguration")
-    def target_tracking_configuration(self) -> Optional['outputs.PolicyTargetTrackingConfiguration']:
+    def target_tracking_configuration(self) -> pulumi.Output[Optional['outputs.PolicyTargetTrackingConfiguration']]:
         """
         A target tracking policy. These have the following structure:
         """

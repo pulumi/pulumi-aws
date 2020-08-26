@@ -15,7 +15,7 @@ __all__ = ['PeeringConnectionOptions']
 
 class PeeringConnectionOptions(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accepter: Optional[pulumi.Input[pulumi.InputType['PeeringConnectionOptionsAccepterArgs']]] = None,
                  requester: Optional[pulumi.Input[pulumi.InputType['PeeringConnectionOptionsRequesterArgs']]] = None,
@@ -181,7 +181,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def accepter(self) -> 'outputs.PeeringConnectionOptionsAccepter':
+    def accepter(self) -> pulumi.Output['outputs.PeeringConnectionOptionsAccepter']:
         """
         An optional configuration block that allows for [VPC Peering Connection]
         (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
@@ -191,7 +191,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def requester(self) -> 'outputs.PeeringConnectionOptionsRequester':
+    def requester(self) -> pulumi.Output['outputs.PeeringConnectionOptionsRequester']:
         """
         A optional configuration block that allows for [VPC Peering Connection]
         (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
@@ -201,7 +201,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
-    def vpc_peering_connection_id(self) -> str:
+    def vpc_peering_connection_id(self) -> pulumi.Output[str]:
         """
         The ID of the requester VPC peering connection.
         """

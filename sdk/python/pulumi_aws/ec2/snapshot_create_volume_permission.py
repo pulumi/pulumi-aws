@@ -13,7 +13,7 @@ __all__ = ['SnapshotCreateVolumePermission']
 
 class SnapshotCreateVolumePermission(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> pulumi.Output[str]:
         """
         An AWS Account ID to add create volume permissions
         """
@@ -106,7 +106,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> str:
+    def snapshot_id(self) -> pulumi.Output[str]:
         """
         A snapshot ID
         """

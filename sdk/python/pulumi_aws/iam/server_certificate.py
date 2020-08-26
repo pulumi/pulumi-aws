@@ -13,7 +13,7 @@ __all__ = ['ServerCertificate']
 
 class ServerCertificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  certificate_body: Optional[pulumi.Input[str]] = None,
@@ -201,7 +201,7 @@ class ServerCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) specifying the server certificate.
         """
@@ -209,7 +209,7 @@ class ServerCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateBody")
-    def certificate_body(self) -> str:
+    def certificate_body(self) -> pulumi.Output[str]:
         """
         The contents of the public key certificate in
         PEM-encoded format.
@@ -218,7 +218,7 @@ class ServerCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> Optional[str]:
+    def certificate_chain(self) -> pulumi.Output[Optional[str]]:
         """
         The contents of the certificate chain.
         This is typically a concatenation of the PEM-encoded public key certificates
@@ -228,7 +228,7 @@ class ServerCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Server Certificate. Do not include the
         path in this value. If omitted, this provider will assign a random, unique name.
@@ -237,7 +237,7 @@ class ServerCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified
         prefix. Conflicts with `name`.
@@ -246,7 +246,7 @@ class ServerCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[str]:
+    def path(self) -> pulumi.Output[Optional[str]]:
         """
         The IAM path for the server certificate.  If it is not
         included, it defaults to a slash (/). If this certificate is for use with
@@ -257,7 +257,7 @@ class ServerCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> str:
+    def private_key(self) -> pulumi.Output[str]:
         """
         The contents of the private key in PEM-encoded format.
         """

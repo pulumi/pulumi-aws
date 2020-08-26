@@ -13,7 +13,7 @@ __all__ = ['Domain']
 
 class Domain(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -95,7 +95,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Lightsail domain
         """
@@ -103,7 +103,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         The name of the Lightsail domain to manage
         """

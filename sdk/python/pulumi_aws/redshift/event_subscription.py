@@ -13,7 +13,7 @@ __all__ = ['EventSubscription']
 
 class EventSubscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_categories: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -160,17 +160,17 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="customerAwsId")
-    def customer_aws_id(self) -> str:
+    def customer_aws_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "customer_aws_id")
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean flag to enable/disable the subscription. Defaults to true.
         """
@@ -178,7 +178,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventCategories")
-    def event_categories(self) -> Optional[List[str]]:
+    def event_categories(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
         """
@@ -186,7 +186,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Redshift event subscription.
         """
@@ -194,7 +194,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def severity(self) -> Optional[str]:
+    def severity(self) -> pulumi.Output[Optional[str]]:
         """
         The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
         """
@@ -202,7 +202,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> str:
+    def sns_topic_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the SNS topic to send events to.
         """
@@ -210,7 +210,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceIds")
-    def source_ids(self) -> Optional[List[str]]:
+    def source_ids(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
         """
@@ -218,7 +218,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[str]:
+    def source_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
         """
@@ -226,12 +226,12 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

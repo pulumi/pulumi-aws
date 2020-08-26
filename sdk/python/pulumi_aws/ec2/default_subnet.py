@@ -13,7 +13,7 @@ __all__ = ['DefaultSubnet']
 
 class DefaultSubnet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
@@ -141,27 +141,27 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="assignIpv6AddressOnCreation")
-    def assign_ipv6_address_on_creation(self) -> bool:
+    def assign_ipv6_address_on_creation(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "assign_ipv6_address_on_creation")
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> pulumi.Output[str]:
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> str:
+    def availability_zone_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "availability_zone_id")
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> str:
+    def cidr_block(self) -> pulumi.Output[str]:
         """
         The CIDR block for the subnet.
         """
@@ -169,7 +169,7 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> str:
+    def ipv6_cidr_block(self) -> pulumi.Output[str]:
         """
         The IPv6 CIDR block.
         """
@@ -177,12 +177,12 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6CidrBlockAssociationId")
-    def ipv6_cidr_block_association_id(self) -> str:
+    def ipv6_cidr_block_association_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "ipv6_cidr_block_association_id")
 
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")
-    def map_public_ip_on_launch(self) -> bool:
+    def map_public_ip_on_launch(self) -> pulumi.Output[bool]:
         """
         Specify true to indicate
         that instances launched into the subnet should be assigned
@@ -192,12 +192,12 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> Optional[str]:
+    def outpost_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> pulumi.Output[str]:
         """
         The ID of the AWS account that owns the subnet.
         """
@@ -205,7 +205,7 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -213,7 +213,7 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The VPC ID.
         """

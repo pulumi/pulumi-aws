@@ -19,7 +19,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
     warnings.warn("aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SslNegotiationPolicyAttributeArgs']]]]] = None,
                  lb_port: Optional[pulumi.Input[float]] = None,
@@ -158,7 +158,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[List['outputs.SslNegotiationPolicyAttribute']]:
+    def attributes(self) -> pulumi.Output[Optional[List['outputs.SslNegotiationPolicyAttribute']]]:
         """
         An SSL Negotiation policy attribute. Each has two properties:
         """
@@ -166,7 +166,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lbPort")
-    def lb_port(self) -> float:
+    def lb_port(self) -> pulumi.Output[float]:
         """
         The load balancer port to which the policy
         should be applied. This must be an active listener on the load
@@ -176,7 +176,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancer")
-    def load_balancer(self) -> str:
+    def load_balancer(self) -> pulumi.Output[str]:
         """
         The load balancer to which the policy
         should be attached.
@@ -185,7 +185,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the attribute
         """

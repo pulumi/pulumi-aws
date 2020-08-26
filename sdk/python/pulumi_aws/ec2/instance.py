@@ -15,7 +15,7 @@ __all__ = ['Instance']
 
 class Instance(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ami: Optional[pulumi.Input[str]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
@@ -384,7 +384,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ami(self) -> str:
+    def ami(self) -> pulumi.Output[str]:
         """
         The AMI to use for the instance.
         """
@@ -392,7 +392,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the instance.
         """
@@ -400,7 +400,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associatePublicIpAddress")
-    def associate_public_ip_address(self) -> bool:
+    def associate_public_ip_address(self) -> pulumi.Output[bool]:
         """
         Associate a public ip address with an instance in a VPC.  Boolean value.
         """
@@ -408,7 +408,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> pulumi.Output[str]:
         """
         The AZ to start the instance in.
         """
@@ -416,7 +416,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cpuCoreCount")
-    def cpu_core_count(self) -> float:
+    def cpu_core_count(self) -> pulumi.Output[float]:
         """
         Sets the number of CPU cores for an instance. This option is
         only supported on creation of instance type that support CPU Options
@@ -426,7 +426,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cpuThreadsPerCore")
-    def cpu_threads_per_core(self) -> float:
+    def cpu_threads_per_core(self) -> pulumi.Output[float]:
         """
         If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         """
@@ -434,7 +434,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creditSpecification")
-    def credit_specification(self) -> Optional['outputs.InstanceCreditSpecification']:
+    def credit_specification(self) -> pulumi.Output[Optional['outputs.InstanceCreditSpecification']]:
         """
         Customize the credit specification of the instance. See Credit Specification below for more details.
         """
@@ -442,7 +442,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableApiTermination")
-    def disable_api_termination(self) -> Optional[bool]:
+    def disable_api_termination(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, enables [EC2 Instance
         Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
@@ -451,7 +451,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> List['outputs.InstanceEbsBlockDevice']:
+    def ebs_block_devices(self) -> pulumi.Output[List['outputs.InstanceEbsBlockDevice']]:
         """
         Additional EBS block devices to attach to the
         instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
@@ -460,7 +460,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[bool]:
+    def ebs_optimized(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the launched EC2 instance will be EBS-optimized.
         Note that if this is not set on an instance type that is optimized by default then
@@ -472,7 +472,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> List['outputs.InstanceEphemeralBlockDevice']:
+    def ephemeral_block_devices(self) -> pulumi.Output[List['outputs.InstanceEphemeralBlockDevice']]:
         """
         Customize Ephemeral (also known as
         "Instance Store") volumes on the instance. See Block Devices below for details.
@@ -481,7 +481,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="getPasswordData")
-    def get_password_data(self) -> Optional[bool]:
+    def get_password_data(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         """
@@ -489,7 +489,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hibernation(self) -> Optional[bool]:
+    def hibernation(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the launched EC2 instance will support hibernation.
         """
@@ -497,7 +497,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostId")
-    def host_id(self) -> str:
+    def host_id(self) -> pulumi.Output[str]:
         """
         The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         """
@@ -505,7 +505,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional[str]:
+    def iam_instance_profile(self) -> pulumi.Output[Optional[str]]:
         """
         The IAM Instance Profile to
         launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
@@ -514,7 +514,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
-    def instance_initiated_shutdown_behavior(self) -> Optional[str]:
+    def instance_initiated_shutdown_behavior(self) -> pulumi.Output[Optional[str]]:
         """
         Shutdown behavior for the
         instance. Amazon defaults this to `stop` for EBS-backed instances and
@@ -525,7 +525,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceState")
-    def instance_state(self) -> str:
+    def instance_state(self) -> pulumi.Output[str]:
         """
         The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
         """
@@ -533,7 +533,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> pulumi.Output[str]:
         """
         The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         """
@@ -541,7 +541,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6AddressCount")
-    def ipv6_address_count(self) -> float:
+    def ipv6_address_count(self) -> pulumi.Output[float]:
         """
         A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         """
@@ -549,7 +549,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> List[str]:
+    def ipv6_addresses(self) -> pulumi.Output[List[str]]:
         """
         Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         """
@@ -557,7 +557,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
+    def key_name(self) -> pulumi.Output[str]:
         """
         The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         """
@@ -565,7 +565,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> 'outputs.InstanceMetadataOptions':
+    def metadata_options(self) -> pulumi.Output['outputs.InstanceMetadataOptions']:
         """
         Customize the metadata options of the instance. See Metadata Options below for more details.
         """
@@ -573,7 +573,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def monitoring(self) -> Optional[bool]:
+    def monitoring(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         """
@@ -581,7 +581,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> List['outputs.InstanceNetworkInterface']:
+    def network_interfaces(self) -> pulumi.Output[List['outputs.InstanceNetworkInterface']]:
         """
         Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         """
@@ -589,7 +589,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> str:
+    def outpost_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Outpost the instance is assigned to.
         """
@@ -597,7 +597,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordData")
-    def password_data(self) -> str:
+    def password_data(self) -> pulumi.Output[str]:
         """
         Base-64 encoded encrypted password data for the instance.
         Useful for getting the administrator password for instances running Microsoft Windows.
@@ -609,7 +609,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="placementGroup")
-    def placement_group(self) -> str:
+    def placement_group(self) -> pulumi.Output[str]:
         """
         The Placement Group to start the instance in.
         """
@@ -617,7 +617,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryNetworkInterfaceId")
-    def primary_network_interface_id(self) -> str:
+    def primary_network_interface_id(self) -> pulumi.Output[str]:
         """
         The ID of the instance's primary network interface.
         """
@@ -625,7 +625,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDns")
-    def private_dns(self) -> str:
+    def private_dns(self) -> pulumi.Output[str]:
         """
         The private DNS name assigned to the instance. Can only be
         used inside the Amazon EC2, and only available if you've enabled DNS hostnames
@@ -635,7 +635,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> str:
+    def private_ip(self) -> pulumi.Output[str]:
         """
         Private IP address to associate with the
         instance in a VPC.
@@ -644,7 +644,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicDns")
-    def public_dns(self) -> str:
+    def public_dns(self) -> pulumi.Output[str]:
         """
         The public DNS name assigned to the instance. For EC2-VPC, this
         is only available if you've enabled DNS hostnames for your VPC
@@ -653,7 +653,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIp")
-    def public_ip(self) -> str:
+    def public_ip(self) -> pulumi.Output[str]:
         """
         The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip`, as this field will change after the EIP is attached.
         """
@@ -661,7 +661,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootBlockDevice")
-    def root_block_device(self) -> 'outputs.InstanceRootBlockDevice':
+    def root_block_device(self) -> pulumi.Output['outputs.InstanceRootBlockDevice']:
         """
         Customize details about the root block
         device of the instance. See Block Devices below for details.
@@ -670,7 +670,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryPrivateIps")
-    def secondary_private_ips(self) -> List[str]:
+    def secondary_private_ips(self) -> pulumi.Output[List[str]]:
         """
         A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         """
@@ -678,7 +678,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> List[str]:
+    def security_groups(self) -> pulumi.Output[List[str]]:
         """
         A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
         """
@@ -686,7 +686,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceDestCheck")
-    def source_dest_check(self) -> Optional[bool]:
+    def source_dest_check(self) -> pulumi.Output[Optional[bool]]:
         """
         Controls if traffic is routed to the instance when
         the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -695,7 +695,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The VPC Subnet ID to launch in.
         """
@@ -703,7 +703,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -711,7 +711,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tenancy(self) -> str:
+    def tenancy(self) -> pulumi.Output[str]:
         """
         The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         """
@@ -719,7 +719,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[str]:
+    def user_data(self) -> pulumi.Output[Optional[str]]:
         """
         The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         """
@@ -727,7 +727,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userDataBase64")
-    def user_data_base64(self) -> Optional[str]:
+    def user_data_base64(self) -> pulumi.Output[Optional[str]]:
         """
         Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         """
@@ -735,7 +735,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeTags")
-    def volume_tags(self) -> Mapping[str, str]:
+    def volume_tags(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags to assign to the devices created by the instance at launch time.
         """
@@ -743,7 +743,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> List[str]:
+    def vpc_security_group_ids(self) -> pulumi.Output[List[str]]:
         """
         A list of security group IDs to associate with.
         """

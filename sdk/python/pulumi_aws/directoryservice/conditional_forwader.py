@@ -13,7 +13,7 @@ __all__ = ['ConditionalForwader']
 
 class ConditionalForwader(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  dns_ips: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -106,7 +106,7 @@ class ConditionalForwader(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> str:
+    def directory_id(self) -> pulumi.Output[str]:
         """
         The id of directory.
         """
@@ -114,7 +114,7 @@ class ConditionalForwader(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsIps")
-    def dns_ips(self) -> List[str]:
+    def dns_ips(self) -> pulumi.Output[List[str]]:
         """
         A list of forwarder IP addresses.
         """
@@ -122,7 +122,7 @@ class ConditionalForwader(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remoteDomainName")
-    def remote_domain_name(self) -> str:
+    def remote_domain_name(self) -> pulumi.Output[str]:
         """
         The fully qualified domain name of the remote domain for which forwarders will be used.
         """

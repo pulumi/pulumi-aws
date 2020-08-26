@@ -13,7 +13,7 @@ __all__ = ['Policy']
 
 class Policy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN assigned by AWS to this policy.
         """
@@ -138,7 +138,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the IAM policy.
         """
@@ -146,7 +146,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the policy. If omitted, this provider will assign a random, unique name.
         """
@@ -154,7 +154,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -162,7 +162,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[str]:
+    def path(self) -> pulumi.Output[Optional[str]]:
         """
         Path in which to create the policy.
         See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
@@ -171,7 +171,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         The policy document. This is a JSON formatted string.
         """

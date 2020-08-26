@@ -13,7 +13,7 @@ __all__ = ['Key']
 
 class Key(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_master_key_spec: Optional[pulumi.Input[str]] = None,
                  deletion_window_in_days: Optional[pulumi.Input[float]] = None,
@@ -142,7 +142,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the key.
         """
@@ -150,7 +150,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerMasterKeySpec")
-    def customer_master_key_spec(self) -> Optional[str]:
+    def customer_master_key_spec(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
         Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
@@ -159,7 +159,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deletionWindowInDays")
-    def deletion_window_in_days(self) -> Optional[float]:
+    def deletion_window_in_days(self) -> pulumi.Output[Optional[float]]:
         """
         Duration in days after which the key is deleted
         after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
@@ -168,7 +168,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         The description of the key as viewed in AWS console.
         """
@@ -176,7 +176,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableKeyRotation")
-    def enable_key_rotation(self) -> Optional[bool]:
+    def enable_key_rotation(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
         is enabled. Defaults to false.
@@ -185,7 +185,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[bool]:
+    def is_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the key is enabled. Defaults to true.
         """
@@ -193,7 +193,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> str:
+    def key_id(self) -> pulumi.Output[str]:
         """
         The globally unique identifier for the key.
         """
@@ -201,7 +201,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> Optional[str]:
+    def key_usage(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
         Defaults to `ENCRYPT_DECRYPT`.
@@ -210,7 +210,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         A valid policy JSON document.
         """
@@ -218,7 +218,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the object.
         """

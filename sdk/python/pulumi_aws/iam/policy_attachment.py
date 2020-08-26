@@ -13,7 +13,7 @@ __all__ = ['PolicyAttachment']
 
 class PolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The group(s) the policy should be applied to
         """
@@ -155,7 +155,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the attachment. This cannot be an empty string.
         """
@@ -163,7 +163,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> str:
+    def policy_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the policy you want to apply
         """
@@ -171,7 +171,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def roles(self) -> Optional[List[str]]:
+    def roles(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The role(s) the policy should be applied to
         """
@@ -179,7 +179,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[List[str]]:
+    def users(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The user(s) the policy should be applied to
         """

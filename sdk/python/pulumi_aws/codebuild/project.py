@@ -15,7 +15,7 @@ __all__ = ['Project']
 
 class Project(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifacts: Optional[pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']]] = None,
                  badge_enabled: Optional[pulumi.Input[bool]] = None,
@@ -363,7 +363,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the CodeBuild project.
         """
@@ -371,7 +371,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> 'outputs.ProjectArtifacts':
+    def artifacts(self) -> pulumi.Output['outputs.ProjectArtifacts']:
         """
         Information about the project's build output artifacts. Artifact blocks are documented below.
         """
@@ -379,7 +379,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="badgeEnabled")
-    def badge_enabled(self) -> Optional[bool]:
+    def badge_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
         """
@@ -387,7 +387,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="badgeUrl")
-    def badge_url(self) -> str:
+    def badge_url(self) -> pulumi.Output[str]:
         """
         The URL of the build badge when `badge_enabled` is enabled.
         """
@@ -395,7 +395,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="buildTimeout")
-    def build_timeout(self) -> Optional[float]:
+    def build_timeout(self) -> pulumi.Output[Optional[float]]:
         """
         How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
         """
@@ -403,7 +403,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cache(self) -> Optional['outputs.ProjectCache']:
+    def cache(self) -> pulumi.Output[Optional['outputs.ProjectCache']]:
         """
         Information about the cache storage for the project. Cache blocks are documented below.
         """
@@ -411,7 +411,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         A short description of the project.
         """
@@ -419,7 +419,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> str:
+    def encryption_key(self) -> pulumi.Output[str]:
         """
         The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         """
@@ -427,7 +427,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def environment(self) -> 'outputs.ProjectEnvironment':
+    def environment(self) -> pulumi.Output['outputs.ProjectEnvironment']:
         """
         Information about the project's build environment. Environment blocks are documented below.
         """
@@ -435,7 +435,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logsConfig")
-    def logs_config(self) -> Optional['outputs.ProjectLogsConfig']:
+    def logs_config(self) -> pulumi.Output[Optional['outputs.ProjectLogsConfig']]:
         """
         Configuration for the builds to store log data to CloudWatch or S3.
         """
@@ -443,7 +443,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The projects name.
         """
@@ -451,7 +451,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queuedTimeout")
-    def queued_timeout(self) -> Optional[float]:
+    def queued_timeout(self) -> pulumi.Output[Optional[float]]:
         """
         How long in minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
         """
@@ -459,7 +459,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryArtifacts")
-    def secondary_artifacts(self) -> Optional[List['outputs.ProjectSecondaryArtifact']]:
+    def secondary_artifacts(self) -> pulumi.Output[Optional[List['outputs.ProjectSecondaryArtifact']]]:
         """
         A set of secondary artifacts to be used inside the build. Secondary artifacts blocks are documented below.
         """
@@ -467,7 +467,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondarySources")
-    def secondary_sources(self) -> Optional[List['outputs.ProjectSecondarySource']]:
+    def secondary_sources(self) -> pulumi.Output[Optional[List['outputs.ProjectSecondarySource']]]:
         """
         A set of secondary sources to be used inside the build. Secondary sources blocks are documented below.
         """
@@ -475,7 +475,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceRole")
-    def service_role(self) -> str:
+    def service_role(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         """
@@ -483,7 +483,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> 'outputs.ProjectSource':
+    def source(self) -> pulumi.Output['outputs.ProjectSource']:
         """
         Information about the project's input source code. Source blocks are documented below.
         """
@@ -491,7 +491,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceVersion")
-    def source_version(self) -> Optional[str]:
+    def source_version(self) -> pulumi.Output[Optional[str]]:
         """
         A version of the build input to be built for this project. If not specified, the latest version is used.
         """
@@ -499,7 +499,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -507,7 +507,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional['outputs.ProjectVpcConfig']:
+    def vpc_config(self) -> pulumi.Output[Optional['outputs.ProjectVpcConfig']]:
         """
         Configuration for the builds to run inside a VPC. VPC config blocks are documented below.
         """

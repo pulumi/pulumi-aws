@@ -15,7 +15,7 @@ __all__ = ['RuleGroup']
 
 class RuleGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activated_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RuleGroupActivatedRuleArgs']]]]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
@@ -117,7 +117,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activatedRules")
-    def activated_rules(self) -> Optional[List['outputs.RuleGroupActivatedRule']]:
+    def activated_rules(self) -> pulumi.Output[Optional[List['outputs.RuleGroupActivatedRule']]]:
         """
         A list of activated rules, see below
         """
@@ -125,7 +125,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the WAF rule group.
         """
@@ -133,7 +133,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> str:
+    def metric_name(self) -> pulumi.Output[str]:
         """
         A friendly name for the metrics from the rule group
         """
@@ -141,7 +141,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A friendly name of the rule group
         """
@@ -149,7 +149,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

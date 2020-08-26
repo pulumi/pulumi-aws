@@ -13,7 +13,7 @@ __all__ = ['Route']
 
 class Route(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  api_key_required: Optional[pulumi.Input[bool]] = None,
@@ -156,7 +156,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> str:
+    def api_id(self) -> pulumi.Output[str]:
         """
         The API identifier.
         """
@@ -164,7 +164,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiKeyRequired")
-    def api_key_required(self) -> Optional[bool]:
+    def api_key_required(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean whether an API key is required for the route. Defaults to `false`.
         """
@@ -172,7 +172,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationScopes")
-    def authorization_scopes(self) -> Optional[List[str]]:
+    def authorization_scopes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
         """
@@ -180,7 +180,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> Optional[str]:
+    def authorization_type(self) -> pulumi.Output[Optional[str]]:
         """
         The authorization type for the route.
         For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
@@ -191,7 +191,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizerId")
-    def authorizer_id(self) -> Optional[str]:
+    def authorizer_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the `apigatewayv2.Authorizer` resource to be associated with this route, if the authorizationType is `CUSTOM`.
         """
@@ -199,7 +199,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modelSelectionExpression")
-    def model_selection_expression(self) -> Optional[str]:
+    def model_selection_expression(self) -> pulumi.Output[Optional[str]]:
         """
         The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route.
         """
@@ -207,7 +207,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="operationName")
-    def operation_name(self) -> Optional[str]:
+    def operation_name(self) -> pulumi.Output[Optional[str]]:
         """
         The operation name for the route.
         """
@@ -215,7 +215,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestModels")
-    def request_models(self) -> Optional[Mapping[str, str]]:
+    def request_models(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The request models for the route.
         """
@@ -223,7 +223,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeKey")
-    def route_key(self) -> str:
+    def route_key(self) -> pulumi.Output[str]:
         """
         The route key for the route.
         """
@@ -231,7 +231,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeResponseSelectionExpression")
-    def route_response_selection_expression(self) -> Optional[str]:
+    def route_response_selection_expression(self) -> pulumi.Output[Optional[str]]:
         """
         The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route.
         """
@@ -239,7 +239,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def target(self) -> Optional[str]:
+    def target(self) -> pulumi.Output[Optional[str]]:
         """
         The target for the route.
         """

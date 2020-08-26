@@ -15,7 +15,7 @@ __all__ = ['Accelerator']
 
 class Accelerator(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[pulumi.Input[pulumi.InputType['AcceleratorAttributesArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -129,7 +129,7 @@ class Accelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional['outputs.AcceleratorAttributes']:
+    def attributes(self) -> pulumi.Output[Optional['outputs.AcceleratorAttributes']]:
         """
         The attributes of the accelerator. Fields documented below.
         """
@@ -137,7 +137,7 @@ class Accelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> pulumi.Output[str]:
         """
         The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
@@ -148,7 +148,7 @@ class Accelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the accelerator is enabled. The value is true or false. The default value is true.
         """
@@ -156,12 +156,12 @@ class Accelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> str:
+    def hosted_zone_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "hosted_zone_id")
 
     @property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[str]:
+    def ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
         The value for the address type must be `IPV4`.
         """
@@ -169,7 +169,7 @@ class Accelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipSets")
-    def ip_sets(self) -> List['outputs.AcceleratorIpSet']:
+    def ip_sets(self) -> pulumi.Output[List['outputs.AcceleratorIpSet']]:
         """
         IP address set associated with the accelerator.
         """
@@ -177,7 +177,7 @@ class Accelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the accelerator.
         """
@@ -185,7 +185,7 @@ class Accelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

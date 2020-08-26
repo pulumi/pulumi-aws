@@ -15,7 +15,7 @@ __all__ = ['DeliveryChannel']
 
 class DeliveryChannel(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class DeliveryChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         """
@@ -155,7 +155,7 @@ class DeliveryChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3BucketName")
-    def s3_bucket_name(self) -> str:
+    def s3_bucket_name(self) -> pulumi.Output[str]:
         """
         The name of the S3 bucket used to store the configuration history.
         """
@@ -163,7 +163,7 @@ class DeliveryChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3KeyPrefix")
-    def s3_key_prefix(self) -> Optional[str]:
+    def s3_key_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The prefix for the specified S3 bucket.
         """
@@ -171,7 +171,7 @@ class DeliveryChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotDeliveryProperties")
-    def snapshot_delivery_properties(self) -> Optional['outputs.DeliveryChannelSnapshotDeliveryProperties']:
+    def snapshot_delivery_properties(self) -> pulumi.Output[Optional['outputs.DeliveryChannelSnapshotDeliveryProperties']]:
         """
         Options for how AWS Config delivers configuration snapshots. See below
         """
@@ -179,7 +179,7 @@ class DeliveryChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[str]:
+    def sns_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the SNS topic that AWS Config delivers notifications to.
         """

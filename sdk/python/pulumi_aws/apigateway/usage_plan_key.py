@@ -13,7 +13,7 @@ __all__ = ['UsagePlanKey']
 
 class UsagePlanKey(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  key_type: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class UsagePlanKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> str:
+    def key_id(self) -> pulumi.Output[str]:
         """
         The identifier of the API key resource.
         """
@@ -126,7 +126,7 @@ class UsagePlanKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> str:
+    def key_type(self) -> pulumi.Output[str]:
         """
         The type of the API key resource. Currently, the valid key type is API_KEY.
         """
@@ -134,7 +134,7 @@ class UsagePlanKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of a usage plan key.
         """
@@ -142,7 +142,7 @@ class UsagePlanKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usagePlanId")
-    def usage_plan_id(self) -> str:
+    def usage_plan_id(self) -> pulumi.Output[str]:
         """
         The Id of the usage plan resource representing to associate the key to.
         """
@@ -150,7 +150,7 @@ class UsagePlanKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> pulumi.Output[str]:
         """
         The value of a usage plan key.
         """

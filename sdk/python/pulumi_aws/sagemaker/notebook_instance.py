@@ -13,7 +13,7 @@ __all__ = ['NotebookInstance']
 
 class NotebookInstance(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  direct_internet_access: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -145,7 +145,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
         """
@@ -153,7 +153,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="directInternetAccess")
-    def direct_internet_access(self) -> Optional[str]:
+    def direct_internet_access(self) -> pulumi.Output[Optional[str]]:
         """
         Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
         """
@@ -161,7 +161,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> pulumi.Output[str]:
         """
         The name of ML compute instance type.
         """
@@ -169,7 +169,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
@@ -177,7 +177,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lifecycleConfigName")
-    def lifecycle_config_name(self) -> Optional[str]:
+    def lifecycle_config_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of a lifecycle configuration to associate with the notebook instance.
         """
@@ -185,7 +185,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the notebook instance (must be unique).
         """
@@ -193,7 +193,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
         """
@@ -201,7 +201,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> List[str]:
+    def security_groups(self) -> pulumi.Output[List[str]]:
         """
         The associated security groups.
         """
@@ -209,7 +209,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
+    def subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
         The VPC subnet ID.
         """
@@ -217,7 +217,7 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

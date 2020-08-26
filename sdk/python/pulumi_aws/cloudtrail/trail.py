@@ -15,7 +15,7 @@ __all__ = ['Trail']
 
 class Trail(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_watch_logs_group_arn: Optional[pulumi.Input[str]] = None,
                  cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
@@ -280,7 +280,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name of the trail.
         """
@@ -288,7 +288,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudWatchLogsGroupArn")
-    def cloud_watch_logs_group_arn(self) -> Optional[str]:
+    def cloud_watch_logs_group_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies a log group name using an Amazon Resource Name (ARN),
         that represents the log group to which CloudTrail logs will be delivered.
@@ -297,7 +297,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudWatchLogsRoleArn")
-    def cloud_watch_logs_role_arn(self) -> Optional[str]:
+    def cloud_watch_logs_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the role for the CloudWatch Logs
         endpoint to assume to write to a user’s log group.
@@ -306,7 +306,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableLogFileValidation")
-    def enable_log_file_validation(self) -> Optional[bool]:
+    def enable_log_file_validation(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether log file integrity validation is enabled.
         Defaults to `false`.
@@ -315,7 +315,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableLogging")
-    def enable_logging(self) -> Optional[bool]:
+    def enable_logging(self) -> pulumi.Output[Optional[bool]]:
         """
         Enables logging for the trail. Defaults to `true`.
         Setting this to `false` will pause logging.
@@ -324,7 +324,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventSelectors")
-    def event_selectors(self) -> Optional[List['outputs.TrailEventSelector']]:
+    def event_selectors(self) -> pulumi.Output[Optional[List['outputs.TrailEventSelector']]]:
         """
         Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
         """
@@ -332,7 +332,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="homeRegion")
-    def home_region(self) -> str:
+    def home_region(self) -> pulumi.Output[str]:
         """
         The region in which the trail was created.
         """
@@ -340,7 +340,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includeGlobalServiceEvents")
-    def include_global_service_events(self) -> Optional[bool]:
+    def include_global_service_events(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the trail is publishing events
         from global services such as IAM to the log files. Defaults to `true`.
@@ -349,7 +349,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isMultiRegionTrail")
-    def is_multi_region_trail(self) -> Optional[bool]:
+    def is_multi_region_trail(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the trail is created in the current
         region or in all regions. Defaults to `false`.
@@ -358,7 +358,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isOrganizationTrail")
-    def is_organization_trail(self) -> Optional[bool]:
+    def is_organization_trail(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         """
@@ -366,7 +366,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         """
@@ -374,7 +374,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the trail.
         """
@@ -382,7 +382,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3BucketName")
-    def s3_bucket_name(self) -> str:
+    def s3_bucket_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the S3 bucket designated for publishing log files.
         """
@@ -390,7 +390,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3KeyPrefix")
-    def s3_key_prefix(self) -> Optional[str]:
+    def s3_key_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the S3 key prefix that follows
         the name of the bucket you have designated for log file delivery.
@@ -399,7 +399,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snsTopicName")
-    def sns_topic_name(self) -> Optional[str]:
+    def sns_topic_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the name of the Amazon SNS topic
         defined for notification of log file delivery.
@@ -408,7 +408,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the trail
         """

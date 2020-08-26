@@ -15,7 +15,7 @@ __all__ = ['MaintenanceWindowTask']
 
 class MaintenanceWindowTask(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  max_concurrency: Optional[pulumi.Input[str]] = None,
@@ -240,7 +240,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the maintenance window task.
         """
@@ -248,7 +248,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxConcurrency")
-    def max_concurrency(self) -> str:
+    def max_concurrency(self) -> pulumi.Output[str]:
         """
         The maximum number of targets this task can be run for in parallel.
         """
@@ -256,7 +256,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxErrors")
-    def max_errors(self) -> str:
+    def max_errors(self) -> pulumi.Output[str]:
         """
         The maximum number of errors allowed before this task stops being scheduled.
         """
@@ -264,7 +264,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the maintenance window task.
         """
@@ -272,7 +272,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> pulumi.Output[Optional[float]]:
         """
         The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         """
@@ -280,7 +280,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceRoleArn")
-    def service_role_arn(self) -> str:
+    def service_role_arn(self) -> pulumi.Output[str]:
         """
         The role that should be assumed when executing the task.
         """
@@ -288,7 +288,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def targets(self) -> List['outputs.MaintenanceWindowTaskTarget']:
+    def targets(self) -> pulumi.Output[List['outputs.MaintenanceWindowTaskTarget']]:
         """
         The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         """
@@ -296,7 +296,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="taskArn")
-    def task_arn(self) -> str:
+    def task_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the task to execute.
         """
@@ -304,7 +304,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="taskInvocationParameters")
-    def task_invocation_parameters(self) -> Optional['outputs.MaintenanceWindowTaskTaskInvocationParameters']:
+    def task_invocation_parameters(self) -> pulumi.Output[Optional['outputs.MaintenanceWindowTaskTaskInvocationParameters']]:
         """
         Configuration block with parameters for task execution.
         """
@@ -312,7 +312,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="taskType")
-    def task_type(self) -> str:
+    def task_type(self) -> pulumi.Output[str]:
         """
         The type of task being registered. The only allowed value is `RUN_COMMAND`.
         """
@@ -320,7 +320,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="windowId")
-    def window_id(self) -> str:
+    def window_id(self) -> pulumi.Output[str]:
         """
         The Id of the maintenance window to register the task with.
         """

@@ -13,7 +13,7 @@ __all__ = ['Resource']
 
 class Resource(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  parent_id: Optional[pulumi.Input[str]] = None,
                  path_part: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class Resource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parentId")
-    def parent_id(self) -> str:
+    def parent_id(self) -> pulumi.Output[str]:
         """
         The ID of the parent API resource
         """
@@ -116,7 +116,7 @@ class Resource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> pulumi.Output[str]:
         """
         The complete path for this API resource, including all parent paths.
         """
@@ -124,7 +124,7 @@ class Resource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pathPart")
-    def path_part(self) -> str:
+    def path_part(self) -> pulumi.Output[str]:
         """
         The last path segment of this API resource.
         """
@@ -132,7 +132,7 @@ class Resource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> str:
+    def rest_api(self) -> pulumi.Output[str]:
         """
         The ID of the associated REST API
         """

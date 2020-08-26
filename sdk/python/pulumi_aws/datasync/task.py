@@ -15,7 +15,7 @@ __all__ = ['Task']
 
 class Task(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  destination_location_arn: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the DataSync Task.
         """
@@ -121,7 +121,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
-    def cloudwatch_log_group_arn(self) -> Optional[str]:
+    def cloudwatch_log_group_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         """
@@ -129,7 +129,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationLocationArn")
-    def destination_location_arn(self) -> str:
+    def destination_location_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of destination DataSync Location.
         """
@@ -137,7 +137,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the DataSync Task.
         """
@@ -145,7 +145,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def options(self) -> Optional['outputs.TaskOptions']:
+    def options(self) -> pulumi.Output[Optional['outputs.TaskOptions']]:
         """
         Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
         """
@@ -153,7 +153,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceLocationArn")
-    def source_location_arn(self) -> str:
+    def source_location_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of source DataSync Location.
         """
@@ -161,7 +161,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value pairs of resource tags to assign to the DataSync Task.
         """

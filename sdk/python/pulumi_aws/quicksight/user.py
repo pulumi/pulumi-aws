@@ -13,7 +13,7 @@ __all__ = ['User']
 
 class User(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
@@ -138,7 +138,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the user
         """
@@ -146,7 +146,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> str:
+    def aws_account_id(self) -> pulumi.Output[str]:
         """
         The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         """
@@ -154,7 +154,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> pulumi.Output[str]:
         """
         The email address of the user that you want to register.
         """
@@ -162,7 +162,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamArn")
-    def iam_arn(self) -> Optional[str]:
+    def iam_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the IAM user or role that you are registering with Amazon QuickSight.
         """
@@ -170,7 +170,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identityType")
-    def identity_type(self) -> str:
+    def identity_type(self) -> pulumi.Output[str]:
         """
         Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
         """
@@ -178,7 +178,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def namespace(self) -> Optional[str]:
+    def namespace(self) -> pulumi.Output[Optional[str]]:
         """
         The namespace. Currently, you should set this to `default`.
         """
@@ -186,7 +186,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sessionName")
-    def session_name(self) -> Optional[str]:
+    def session_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the IAM session to use when assuming roles that can embed QuickSight dashboards.
         """
@@ -194,7 +194,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[str]:
+    def user_name(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon QuickSight user name that you want to create for the user you are registering.
         """
@@ -202,7 +202,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userRole")
-    def user_role(self) -> str:
+    def user_role(self) -> pulumi.Output[str]:
         """
         The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
         """

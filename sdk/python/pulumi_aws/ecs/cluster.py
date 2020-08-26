@@ -15,7 +15,7 @@ __all__ = ['Cluster']
 
 class Cluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_providers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  default_capacity_provider_strategies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ClusterDefaultCapacityProviderStrategyArgs']]]]] = None,
@@ -112,7 +112,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) that identifies the cluster
         """
@@ -120,7 +120,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="capacityProviders")
-    def capacity_providers(self) -> Optional[List[str]]:
+    def capacity_providers(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         """
@@ -128,7 +128,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultCapacityProviderStrategies")
-    def default_capacity_provider_strategies(self) -> Optional[List['outputs.ClusterDefaultCapacityProviderStrategy']]:
+    def default_capacity_provider_strategies(self) -> pulumi.Output[Optional[List['outputs.ClusterDefaultCapacityProviderStrategy']]]:
         """
         The capacity provider strategy to use by default for the cluster. Can be one or more.  Defined below.
         """
@@ -136,7 +136,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
         """
@@ -144,7 +144,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def settings(self) -> List['outputs.ClusterSetting']:
+    def settings(self) -> pulumi.Output[List['outputs.ClusterSetting']]:
         """
         Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Defined below.
         """
@@ -152,7 +152,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

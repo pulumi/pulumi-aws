@@ -13,7 +13,7 @@ __all__ = ['VpcDhcpOptionsAssociation']
 
 class VpcDhcpOptionsAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dhcp_options_id: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dhcpOptionsId")
-    def dhcp_options_id(self) -> str:
+    def dhcp_options_id(self) -> pulumi.Output[str]:
         """
         The ID of the DHCP Options Set to associate to the VPC.
         """
@@ -106,7 +106,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The ID of the VPC to which we would like to associate a DHCP Options Set.
         """

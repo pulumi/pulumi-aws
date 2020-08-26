@@ -13,7 +13,7 @@ __all__ = ['SnapshotSchedule']
 
 class SnapshotSchedule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definitions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -119,12 +119,12 @@ class SnapshotSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def definitions(self) -> List[str]:
+    def definitions(self) -> pulumi.Output[List[str]]:
         """
         The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
         """
@@ -132,7 +132,7 @@ class SnapshotSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the snapshot schedule.
         """
@@ -140,7 +140,7 @@ class SnapshotSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[bool]:
+    def force_destroy(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
         """
@@ -148,7 +148,7 @@ class SnapshotSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identifier(self) -> str:
+    def identifier(self) -> pulumi.Output[str]:
         """
         The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
         """
@@ -156,7 +156,7 @@ class SnapshotSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identifierPrefix")
-    def identifier_prefix(self) -> str:
+    def identifier_prefix(self) -> pulumi.Output[str]:
         """
         Creates a unique
         identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -165,7 +165,7 @@ class SnapshotSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

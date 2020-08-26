@@ -13,7 +13,7 @@ __all__ = ['Stack']
 
 class Stack(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capabilities: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  disable_rollback: Optional[pulumi.Input[bool]] = None,
@@ -193,7 +193,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[List[str]]:
+    def capabilities(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of capabilities.
         Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
@@ -202,7 +202,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableRollback")
-    def disable_rollback(self) -> Optional[bool]:
+    def disable_rollback(self) -> pulumi.Output[Optional[bool]]:
         """
         Set to true to disable rollback of the stack if stack creation failed.
         Conflicts with `on_failure`.
@@ -211,7 +211,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[str]:
+    def iam_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         """
@@ -219,7 +219,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Stack name.
         """
@@ -227,7 +227,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationArns")
-    def notification_arns(self) -> Optional[List[str]]:
+    def notification_arns(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of SNS topic ARNs to publish stack related events.
         """
@@ -235,7 +235,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="onFailure")
-    def on_failure(self) -> Optional[str]:
+    def on_failure(self) -> pulumi.Output[Optional[str]]:
         """
         Action to be taken if stack creation fails. This must be
         one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
@@ -244,7 +244,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> Mapping[str, str]:
+    def outputs(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of outputs from the stack.
         """
@@ -252,7 +252,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Mapping[str, str]:
+    def parameters(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of Parameter structures that specify input parameters for the stack.
         """
@@ -260,7 +260,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyBody")
-    def policy_body(self) -> str:
+    def policy_body(self) -> pulumi.Output[str]:
         """
         Structure containing the stack policy body.
         Conflicts w/ `policy_url`.
@@ -269,7 +269,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyUrl")
-    def policy_url(self) -> Optional[str]:
+    def policy_url(self) -> pulumi.Output[Optional[str]]:
         """
         Location of a file containing the stack policy.
         Conflicts w/ `policy_body`.
@@ -278,7 +278,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A list of tags to associate with this stack.
         """
@@ -286,7 +286,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateBody")
-    def template_body(self) -> str:
+    def template_body(self) -> pulumi.Output[str]:
         """
         Structure containing the template body (max size: 51,200 bytes).
         """
@@ -294,7 +294,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateUrl")
-    def template_url(self) -> Optional[str]:
+    def template_url(self) -> pulumi.Output[Optional[str]]:
         """
         Location of a file containing the template body (max size: 460,800 bytes).
         """
@@ -302,7 +302,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeoutInMinutes")
-    def timeout_in_minutes(self) -> Optional[float]:
+    def timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         """

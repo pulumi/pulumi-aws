@@ -13,7 +13,7 @@ __all__ = ['Schedule']
 
 class Schedule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
                  desired_capacity: Optional[pulumi.Input[float]] = None,
@@ -155,7 +155,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN assigned by AWS to the autoscaling schedule.
         """
@@ -163,7 +163,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
-    def autoscaling_group_name(self) -> str:
+    def autoscaling_group_name(self) -> pulumi.Output[str]:
         """
         The name or Amazon Resource Name (ARN) of the Auto Scaling group.
         """
@@ -171,7 +171,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="desiredCapacity")
-    def desired_capacity(self) -> float:
+    def desired_capacity(self) -> pulumi.Output[float]:
         """
         The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
         """
@@ -179,7 +179,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> str:
+    def end_time(self) -> pulumi.Output[str]:
         """
         The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         If you try to schedule your action in the past, Auto Scaling returns an error message.
@@ -188,7 +188,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSize")
-    def max_size(self) -> float:
+    def max_size(self) -> pulumi.Output[float]:
         """
         The maximum size for the Auto Scaling group. Default 0.
         Set to -1 if you don't want to change the maximum size at the scheduled time.
@@ -197,7 +197,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minSize")
-    def min_size(self) -> float:
+    def min_size(self) -> pulumi.Output[float]:
         """
         The minimum size for the Auto Scaling group. Default 0.
         Set to -1 if you don't want to change the minimum size at the scheduled time.
@@ -206,7 +206,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def recurrence(self) -> str:
+    def recurrence(self) -> pulumi.Output[str]:
         """
         The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
         """
@@ -214,7 +214,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scheduledActionName")
-    def scheduled_action_name(self) -> str:
+    def scheduled_action_name(self) -> pulumi.Output[str]:
         """
         The name of this scaling action.
         """
@@ -222,7 +222,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> str:
+    def start_time(self) -> pulumi.Output[str]:
         """
         The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
         If you try to schedule your action in the past, Auto Scaling returns an error message.

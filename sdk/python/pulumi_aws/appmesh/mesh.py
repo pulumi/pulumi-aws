@@ -15,7 +15,7 @@ __all__ = ['Mesh']
 
 class Mesh(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  spec: Optional[pulumi.Input[pulumi.InputType['MeshSpecArgs']]] = None,
@@ -121,7 +121,7 @@ class Mesh(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the service mesh.
         """
@@ -129,7 +129,7 @@ class Mesh(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the service mesh.
         """
@@ -137,7 +137,7 @@ class Mesh(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> str:
+    def last_updated_date(self) -> pulumi.Output[str]:
         """
         The last update date of the service mesh.
         """
@@ -145,7 +145,7 @@ class Mesh(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name to use for the service mesh.
         """
@@ -153,7 +153,7 @@ class Mesh(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def spec(self) -> Optional['outputs.MeshSpec']:
+    def spec(self) -> pulumi.Output[Optional['outputs.MeshSpec']]:
         """
         The service mesh specification to apply.
         """
@@ -161,7 +161,7 @@ class Mesh(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

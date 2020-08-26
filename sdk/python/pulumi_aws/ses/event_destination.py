@@ -15,7 +15,7 @@ __all__ = ['EventDestination']
 
 class EventDestination(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_destinations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EventDestinationCloudwatchDestinationArgs']]]]] = None,
                  configuration_set_name: Optional[pulumi.Input[str]] = None,
@@ -171,7 +171,7 @@ class EventDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudwatchDestinations")
-    def cloudwatch_destinations(self) -> Optional[List['outputs.EventDestinationCloudwatchDestination']]:
+    def cloudwatch_destinations(self) -> pulumi.Output[Optional[List['outputs.EventDestinationCloudwatchDestination']]]:
         """
         CloudWatch destination for the events
         """
@@ -179,7 +179,7 @@ class EventDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationSetName")
-    def configuration_set_name(self) -> str:
+    def configuration_set_name(self) -> pulumi.Output[str]:
         """
         The name of the configuration set
         """
@@ -187,7 +187,7 @@ class EventDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the event destination will be enabled
         """
@@ -195,7 +195,7 @@ class EventDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kinesisDestination")
-    def kinesis_destination(self) -> Optional['outputs.EventDestinationKinesisDestination']:
+    def kinesis_destination(self) -> pulumi.Output[Optional['outputs.EventDestinationKinesisDestination']]:
         """
         Send the events to a kinesis firehose destination
         """
@@ -203,7 +203,7 @@ class EventDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchingTypes")
-    def matching_types(self) -> List[str]:
+    def matching_types(self) -> pulumi.Output[List[str]]:
         """
         A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         """
@@ -211,7 +211,7 @@ class EventDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the event destination
         """
@@ -219,7 +219,7 @@ class EventDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snsDestination")
-    def sns_destination(self) -> Optional['outputs.EventDestinationSnsDestination']:
+    def sns_destination(self) -> pulumi.Output[Optional['outputs.EventDestinationSnsDestination']]:
         """
         Send the events to an SNS Topic destination
         """

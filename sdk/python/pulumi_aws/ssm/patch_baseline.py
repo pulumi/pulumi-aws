@@ -15,7 +15,7 @@ __all__ = ['PatchBaseline']
 
 class PatchBaseline(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  approval_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PatchBaselineApprovalRuleArgs']]]]] = None,
                  approved_patches: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -250,7 +250,7 @@ class PatchBaseline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="approvalRules")
-    def approval_rules(self) -> Optional[List['outputs.PatchBaselineApprovalRule']]:
+    def approval_rules(self) -> pulumi.Output[Optional[List['outputs.PatchBaselineApprovalRule']]]:
         """
         A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approval_rule block requires the fields documented below.
         """
@@ -258,7 +258,7 @@ class PatchBaseline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="approvedPatches")
-    def approved_patches(self) -> Optional[List[str]]:
+    def approved_patches(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of explicitly approved patches for the baseline.
         """
@@ -266,7 +266,7 @@ class PatchBaseline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="approvedPatchesComplianceLevel")
-    def approved_patches_compliance_level(self) -> Optional[str]:
+    def approved_patches_compliance_level(self) -> pulumi.Output[Optional[str]]:
         """
         Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         """
@@ -274,7 +274,7 @@ class PatchBaseline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the patch baseline.
         """
@@ -282,7 +282,7 @@ class PatchBaseline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalFilters")
-    def global_filters(self) -> Optional[List['outputs.PatchBaselineGlobalFilter']]:
+    def global_filters(self) -> pulumi.Output[Optional[List['outputs.PatchBaselineGlobalFilter']]]:
         """
         A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
         """
@@ -290,7 +290,7 @@ class PatchBaseline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the patch baseline.
         """
@@ -298,7 +298,7 @@ class PatchBaseline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="operatingSystem")
-    def operating_system(self) -> Optional[str]:
+    def operating_system(self) -> pulumi.Output[Optional[str]]:
         """
         Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
         """
@@ -306,7 +306,7 @@ class PatchBaseline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rejectedPatches")
-    def rejected_patches(self) -> Optional[List[str]]:
+    def rejected_patches(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of rejected patches.
         """
@@ -314,7 +314,7 @@ class PatchBaseline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

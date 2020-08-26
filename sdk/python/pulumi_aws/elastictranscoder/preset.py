@@ -15,7 +15,7 @@ __all__ = ['Preset']
 
 class Preset(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audio: Optional[pulumi.Input[pulumi.InputType['PresetAudioArgs']]] = None,
                  audio_codec_options: Optional[pulumi.Input[pulumi.InputType['PresetAudioCodecOptionsArgs']]] = None,
@@ -193,12 +193,12 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def audio(self) -> Optional['outputs.PresetAudio']:
+    def audio(self) -> pulumi.Output[Optional['outputs.PresetAudio']]:
         """
         Audio parameters object (documented below).
         """
@@ -206,7 +206,7 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="audioCodecOptions")
-    def audio_codec_options(self) -> Optional['outputs.PresetAudioCodecOptions']:
+    def audio_codec_options(self) -> pulumi.Output[Optional['outputs.PresetAudioCodecOptions']]:
         """
         Codec options for the audio parameters (documented below)
         """
@@ -214,7 +214,7 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def container(self) -> str:
+    def container(self) -> pulumi.Output[str]:
         """
         The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
         """
@@ -222,7 +222,7 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the preset (maximum 255 characters)
         """
@@ -230,7 +230,7 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the preset. (maximum 40 characters)
         """
@@ -238,7 +238,7 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbnails(self) -> Optional['outputs.PresetThumbnails']:
+    def thumbnails(self) -> pulumi.Output[Optional['outputs.PresetThumbnails']]:
         """
         Thumbnail parameters object (documented below)
         """
@@ -246,12 +246,12 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
-    def video(self) -> Optional['outputs.PresetVideo']:
+    def video(self) -> pulumi.Output[Optional['outputs.PresetVideo']]:
         """
         Video parameters object (documented below)
         """
@@ -259,7 +259,7 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="videoCodecOptions")
-    def video_codec_options(self) -> Optional[Mapping[str, str]]:
+    def video_codec_options(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Codec options for the video parameters
         """
@@ -267,7 +267,7 @@ class Preset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="videoWatermarks")
-    def video_watermarks(self) -> Optional[List['outputs.PresetVideoWatermark']]:
+    def video_watermarks(self) -> pulumi.Output[Optional[List['outputs.PresetVideoWatermark']]]:
         """
         Watermark parameters for the video parameters (documented below)
         """

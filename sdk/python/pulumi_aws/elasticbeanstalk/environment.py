@@ -15,7 +15,7 @@ __all__ = ['Environment']
 
 class Environment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application: Optional[pulumi.Input[str]] = None,
                  cname_prefix: Optional[pulumi.Input[str]] = None,
@@ -274,7 +274,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allSettings")
-    def all_settings(self) -> List['outputs.EnvironmentAllSetting']:
+    def all_settings(self) -> pulumi.Output[List['outputs.EnvironmentAllSetting']]:
         """
         List of all option settings configured in this Environment. These
         are a combination of default settings and their overrides from `setting` in
@@ -284,7 +284,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def application(self) -> str:
+    def application(self) -> pulumi.Output[str]:
         """
         Name of the application that contains the version
         to be deployed
@@ -293,12 +293,12 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoscalingGroups")
-    def autoscaling_groups(self) -> List[str]:
+    def autoscaling_groups(self) -> pulumi.Output[List[str]]:
         """
         The autoscaling groups used by this Environment.
         """
@@ -306,7 +306,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cname(self) -> str:
+    def cname(self) -> pulumi.Output[str]:
         """
         Fully qualified DNS name for this Environment.
         """
@@ -314,7 +314,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cnamePrefix")
-    def cname_prefix(self) -> str:
+    def cname_prefix(self) -> pulumi.Output[str]:
         """
         Prefix to use for the fully qualified DNS name of
         the Environment.
@@ -323,7 +323,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Short description of the Environment
         """
@@ -331,7 +331,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointUrl")
-    def endpoint_url(self) -> str:
+    def endpoint_url(self) -> pulumi.Output[str]:
         """
         The URL to the Load Balancer for this Environment
         """
@@ -339,7 +339,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def instances(self) -> List[str]:
+    def instances(self) -> pulumi.Output[List[str]]:
         """
         Instances used by this Environment.
         """
@@ -347,7 +347,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchConfigurations")
-    def launch_configurations(self) -> List[str]:
+    def launch_configurations(self) -> pulumi.Output[List[str]]:
         """
         Launch configurations in use by this Environment.
         """
@@ -355,7 +355,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> List[str]:
+    def load_balancers(self) -> pulumi.Output[List[str]]:
         """
         Elastic load balancers in use by this Environment.
         """
@@ -363,7 +363,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A unique name for this Environment. This name is used
         in the application URL
@@ -372,7 +372,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformArn")
-    def platform_arn(self) -> str:
+    def platform_arn(self) -> pulumi.Output[str]:
         """
         The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
         to use in deployment
@@ -381,7 +381,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pollInterval")
-    def poll_interval(self) -> Optional[str]:
+    def poll_interval(self) -> pulumi.Output[Optional[str]]:
         """
         The time between polling the AWS API to
         check if changes have been applied. Use this to adjust the rate of API calls
@@ -392,7 +392,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def queues(self) -> List[str]:
+    def queues(self) -> pulumi.Output[List[str]]:
         """
         SQS queues in use by this Environment.
         """
@@ -400,7 +400,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[List['outputs.EnvironmentSetting']]:
+    def settings(self) -> pulumi.Output[Optional[List['outputs.EnvironmentSetting']]]:
         """
         Option settings to configure the new Environment. These
         override specific values that are set as defaults. The format is detailed
@@ -410,7 +410,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="solutionStackName")
-    def solution_stack_name(self) -> str:
+    def solution_stack_name(self) -> pulumi.Output[str]:
         """
         A solution stack to base your environment
         off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
@@ -419,7 +419,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A set of tags to apply to the Environment.
         """
@@ -427,7 +427,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[str]:
+    def template_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Elastic Beanstalk Configuration
         template to use in deployment
@@ -436,7 +436,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[str]:
+    def tier(self) -> pulumi.Output[Optional[str]]:
         """
         Elastic Beanstalk Environment tier. Valid values are `Worker`
         or `WebServer`. If tier is left blank `WebServer` will be used.
@@ -445,7 +445,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def triggers(self) -> List[str]:
+    def triggers(self) -> pulumi.Output[List[str]]:
         """
         Autoscaling triggers in use by this Environment.
         """
@@ -453,7 +453,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         The name of the Elastic Beanstalk Application Version
         to use in deployment.
@@ -462,7 +462,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="waitForReadyTimeout")
-    def wait_for_ready_timeout(self) -> Optional[str]:
+    def wait_for_ready_timeout(self) -> pulumi.Output[Optional[str]]:
         """
         The maximum
         [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should

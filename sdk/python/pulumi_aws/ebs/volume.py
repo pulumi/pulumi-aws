@@ -13,7 +13,7 @@ __all__ = ['Volume']
 
 class Volume(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
@@ -149,7 +149,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         """
@@ -157,7 +157,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> pulumi.Output[str]:
         """
         The AZ where the EBS volume will exist.
         """
@@ -165,7 +165,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> bool:
+    def encrypted(self) -> pulumi.Output[bool]:
         """
         If true, the disk will be encrypted.
         """
@@ -173,7 +173,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def iops(self) -> float:
+    def iops(self) -> pulumi.Output[float]:
         """
         The amount of IOPS to provision for the disk. Only valid for `type` of `io1`.
         """
@@ -181,7 +181,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> pulumi.Output[str]:
         """
         The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         """
@@ -189,7 +189,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="multiAttachEnabled")
-    def multi_attach_enabled(self) -> Optional[bool]:
+    def multi_attach_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
         """
@@ -197,7 +197,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> Optional[str]:
+    def outpost_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Outpost.
         """
@@ -205,7 +205,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> float:
+    def size(self) -> pulumi.Output[float]:
         """
         The size of the drive in GiBs.
         """
@@ -213,7 +213,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> str:
+    def snapshot_id(self) -> pulumi.Output[str]:
         """
         A snapshot to base the EBS volume off of.
         """
@@ -221,7 +221,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -229,7 +229,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of EBS volume. Can be "standard", "gp2", "io1", "sc1" or "st1" (Default: "gp2").
         """

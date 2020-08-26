@@ -13,7 +13,7 @@ __all__ = ['IdentityProvider']
 
 class IdentityProvider(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attribute_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  idp_identifiers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -133,7 +133,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attributeMapping")
-    def attribute_mapping(self) -> Mapping[str, str]:
+    def attribute_mapping(self) -> pulumi.Output[Mapping[str, str]]:
         """
         The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         """
@@ -141,7 +141,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idpIdentifiers")
-    def idp_identifiers(self) -> Optional[List[str]]:
+    def idp_identifiers(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The list of identity providers.
         """
@@ -149,7 +149,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerDetails")
-    def provider_details(self) -> Mapping[str, str]:
+    def provider_details(self) -> pulumi.Output[Mapping[str, str]]:
         """
         The map of identity details, such as access token
         """
@@ -157,7 +157,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> str:
+    def provider_name(self) -> pulumi.Output[str]:
         """
         The provider name
         """
@@ -165,7 +165,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerType")
-    def provider_type(self) -> str:
+    def provider_type(self) -> pulumi.Output[str]:
         """
         The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
         """
@@ -173,7 +173,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userPoolId")
-    def user_pool_id(self) -> str:
+    def user_pool_id(self) -> pulumi.Output[str]:
         """
         The user pool id
         """

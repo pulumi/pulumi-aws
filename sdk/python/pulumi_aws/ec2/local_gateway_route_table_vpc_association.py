@@ -13,7 +13,7 @@ __all__ = ['LocalGatewayRouteTableVpcAssociation']
 
 class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -105,12 +105,12 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localGatewayId")
-    def local_gateway_id(self) -> str:
+    def local_gateway_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "local_gateway_id")
 
     @property
     @pulumi.getter(name="localGatewayRouteTableId")
-    def local_gateway_route_table_id(self) -> str:
+    def local_gateway_route_table_id(self) -> pulumi.Output[str]:
         """
         Identifier of EC2 Local Gateway Route Table.
         """
@@ -118,7 +118,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags.
         """
@@ -126,7 +126,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         Identifier of EC2 VPC.
         """

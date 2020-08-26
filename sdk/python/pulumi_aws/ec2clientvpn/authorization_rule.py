@@ -13,7 +13,7 @@ __all__ = ['AuthorizationRule']
 
 class AuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_group_id: Optional[pulumi.Input[str]] = None,
                  authorize_all_groups: Optional[pulumi.Input[bool]] = None,
@@ -114,7 +114,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessGroupId")
-    def access_group_id(self) -> Optional[str]:
+    def access_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
         """
@@ -122,7 +122,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizeAllGroups")
-    def authorize_all_groups(self) -> Optional[bool]:
+    def authorize_all_groups(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
         """
@@ -130,7 +130,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
-    def client_vpn_endpoint_id(self) -> str:
+    def client_vpn_endpoint_id(self) -> pulumi.Output[str]:
         """
         The ID of the Client VPN endpoint.
         """
@@ -138,7 +138,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A brief description of the authorization rule.
         """
@@ -146,7 +146,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetNetworkCidr")
-    def target_network_cidr(self) -> str:
+    def target_network_cidr(self) -> pulumi.Output[str]:
         """
         The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
         """

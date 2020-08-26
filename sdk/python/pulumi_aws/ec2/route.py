@@ -13,7 +13,7 @@ __all__ = ['Route']
 
 class Route(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
@@ -175,7 +175,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
-    def destination_cidr_block(self) -> Optional[str]:
+    def destination_cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         The destination CIDR block.
         """
@@ -183,7 +183,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationIpv6CidrBlock")
-    def destination_ipv6_cidr_block(self) -> Optional[str]:
+    def destination_ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         The destination IPv6 CIDR block.
         """
@@ -191,12 +191,12 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationPrefixListId")
-    def destination_prefix_list_id(self) -> str:
+    def destination_prefix_list_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "destination_prefix_list_id")
 
     @property
     @pulumi.getter(name="egressOnlyGatewayId")
-    def egress_only_gateway_id(self) -> str:
+    def egress_only_gateway_id(self) -> pulumi.Output[str]:
         """
         Identifier of a VPC Egress Only Internet Gateway.
         """
@@ -204,7 +204,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> str:
+    def gateway_id(self) -> pulumi.Output[str]:
         """
         Identifier of a VPC internet gateway or a virtual private gateway.
         """
@@ -212,7 +212,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> str:
+    def instance_id(self) -> pulumi.Output[str]:
         """
         Identifier of an EC2 instance.
         """
@@ -220,12 +220,12 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceOwnerId")
-    def instance_owner_id(self) -> str:
+    def instance_owner_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "instance_owner_id")
 
     @property
     @pulumi.getter(name="natGatewayId")
-    def nat_gateway_id(self) -> str:
+    def nat_gateway_id(self) -> pulumi.Output[str]:
         """
         Identifier of a VPC NAT gateway.
         """
@@ -233,7 +233,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> pulumi.Output[str]:
         """
         Identifier of an EC2 network interface.
         """
@@ -241,12 +241,12 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origin(self) -> str:
+    def origin(self) -> pulumi.Output[str]:
         return pulumi.get(self, "origin")
 
     @property
     @pulumi.getter(name="routeTableId")
-    def route_table_id(self) -> str:
+    def route_table_id(self) -> pulumi.Output[str]:
         """
         The ID of the routing table.
         """
@@ -254,12 +254,12 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> Optional[str]:
+    def transit_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of an EC2 Transit Gateway.
         """
@@ -267,7 +267,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
-    def vpc_peering_connection_id(self) -> Optional[str]:
+    def vpc_peering_connection_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of a VPC peering connection.
         """

@@ -13,7 +13,7 @@ __all__ = ['ContainerPolicy']
 
 class ContainerPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class ContainerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> str:
+    def container_name(self) -> pulumi.Output[str]:
         """
         The name of the container.
         """
@@ -118,7 +118,7 @@ class ContainerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         The contents of the policy.
         """

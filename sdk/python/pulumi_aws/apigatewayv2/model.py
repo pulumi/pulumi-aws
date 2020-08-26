@@ -13,7 +13,7 @@ __all__ = ['Model']
 
 class Model(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> str:
+    def api_id(self) -> pulumi.Output[str]:
         """
         The API identifier.
         """
@@ -132,7 +132,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> str:
+    def content_type(self) -> pulumi.Output[str]:
         """
         The content-type for the model, for example, `application/json`.
         """
@@ -140,7 +140,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the model.
         """
@@ -148,7 +148,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the model. Must be alphanumeric.
         """
@@ -156,7 +156,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schema(self) -> str:
+    def schema(self) -> pulumi.Output[str]:
         """
         The schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model.
         """

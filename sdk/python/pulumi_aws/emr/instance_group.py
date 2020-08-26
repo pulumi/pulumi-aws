@@ -15,7 +15,7 @@ __all__ = ['InstanceGroup']
 
 class InstanceGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autoscaling_policy: Optional[pulumi.Input[str]] = None,
                  bid_price: Optional[pulumi.Input[str]] = None,
@@ -150,7 +150,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoscalingPolicy")
-    def autoscaling_policy(self) -> Optional[str]:
+    def autoscaling_policy(self) -> pulumi.Output[Optional[str]]:
         """
         The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         """
@@ -158,7 +158,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bidPrice")
-    def bid_price(self) -> Optional[str]:
+    def bid_price(self) -> pulumi.Output[Optional[str]]:
         """
         If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         """
@@ -166,7 +166,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> str:
+    def cluster_id(self) -> pulumi.Output[str]:
         """
         ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         """
@@ -174,7 +174,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationsJson")
-    def configurations_json(self) -> Optional[str]:
+    def configurations_json(self) -> pulumi.Output[Optional[str]]:
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
         """
@@ -182,7 +182,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsConfigs")
-    def ebs_configs(self) -> List['outputs.InstanceGroupEbsConfig']:
+    def ebs_configs(self) -> pulumi.Output[List['outputs.InstanceGroupEbsConfig']]:
         """
         One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         """
@@ -190,7 +190,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[bool]:
+    def ebs_optimized(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         """
@@ -198,7 +198,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[float]:
+    def instance_count(self) -> pulumi.Output[Optional[float]]:
         """
         target number of instances for the instance group. defaults to 0.
         """
@@ -206,7 +206,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> pulumi.Output[str]:
         """
         The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         """
@@ -214,7 +214,7 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Human friendly name given to the instance group. Changing this forces a new resource to be created.
         """
@@ -222,12 +222,12 @@ class InstanceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runningInstanceCount")
-    def running_instance_count(self) -> float:
+    def running_instance_count(self) -> pulumi.Output[float]:
         return pulumi.get(self, "running_instance_count")
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
 
     def translate_output_property(self, prop):

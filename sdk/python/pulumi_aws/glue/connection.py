@@ -15,7 +15,7 @@ __all__ = ['Connection']
 
 class Connection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  connection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -151,7 +151,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Glue Connection.
         """
@@ -159,7 +159,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> str:
+    def catalog_id(self) -> pulumi.Output[str]:
         """
         The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         """
@@ -167,7 +167,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionProperties")
-    def connection_properties(self) -> Mapping[str, str]:
+    def connection_properties(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of key-value pairs used as parameters for this connection.
         """
@@ -175,7 +175,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionType")
-    def connection_type(self) -> Optional[str]:
+    def connection_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`. Defaults to `JBDC`.
         """
@@ -183,7 +183,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the connection.
         """
@@ -191,7 +191,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchCriterias")
-    def match_criterias(self) -> Optional[List[str]]:
+    def match_criterias(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of criteria that can be used in selecting this connection.
         """
@@ -199,7 +199,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the connection.
         """
@@ -207,7 +207,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="physicalConnectionRequirements")
-    def physical_connection_requirements(self) -> Optional['outputs.ConnectionPhysicalConnectionRequirements']:
+    def physical_connection_requirements(self) -> pulumi.Output[Optional['outputs.ConnectionPhysicalConnectionRequirements']]:
         """
         A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         """

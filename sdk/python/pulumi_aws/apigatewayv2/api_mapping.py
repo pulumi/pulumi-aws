@@ -13,7 +13,7 @@ __all__ = ['ApiMapping']
 
 class ApiMapping(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  api_mapping_key: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class ApiMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> str:
+    def api_id(self) -> pulumi.Output[str]:
         """
         The API identifier.
         """
@@ -119,7 +119,7 @@ class ApiMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiMappingKey")
-    def api_mapping_key(self) -> Optional[str]:
+    def api_mapping_key(self) -> pulumi.Output[Optional[str]]:
         """
         The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
         """
@@ -127,7 +127,7 @@ class ApiMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         The domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
         """
@@ -135,7 +135,7 @@ class ApiMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def stage(self) -> str:
+    def stage(self) -> pulumi.Output[str]:
         """
         The API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """

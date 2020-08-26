@@ -13,7 +13,7 @@ __all__ = ['RoleAssociation']
 
 class RoleAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  feature_name: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class RoleAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbInstanceIdentifier")
-    def db_instance_identifier(self) -> str:
+    def db_instance_identifier(self) -> pulumi.Output[str]:
         """
         DB Instance Identifier to associate with the IAM Role.
         """
@@ -116,7 +116,7 @@ class RoleAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="featureName")
-    def feature_name(self) -> str:
+    def feature_name(self) -> pulumi.Output[str]:
         """
         Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         """
@@ -124,7 +124,7 @@ class RoleAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
         """

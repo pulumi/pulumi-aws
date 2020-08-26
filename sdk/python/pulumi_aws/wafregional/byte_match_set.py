@@ -15,7 +15,7 @@ __all__ = ['ByteMatchSet']
 
 class ByteMatchSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  byte_match_tuples: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ByteMatchSetByteMatchTupleArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class ByteMatchSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="byteMatchTuples")
-    def byte_match_tuples(self) -> Optional[List['outputs.ByteMatchSetByteMatchTuple']]:
+    def byte_match_tuples(self) -> pulumi.Output[Optional[List['outputs.ByteMatchSetByteMatchTuple']]]:
         """
         Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
         """
@@ -106,7 +106,7 @@ class ByteMatchSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name or description of the ByteMatchSet.
         """

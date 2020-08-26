@@ -15,7 +15,7 @@ __all__ = ['RuleGroup']
 
 class RuleGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[float]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -161,7 +161,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the IP Set that this statement references.
         """
@@ -169,7 +169,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> pulumi.Output[float]:
         """
         The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
         """
@@ -177,7 +177,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A friendly description of the rule group.
         """
@@ -185,12 +185,12 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockToken")
-    def lock_token(self) -> str:
+    def lock_token(self) -> pulumi.Output[str]:
         return pulumi.get(self, "lock_token")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A friendly name of the rule group.
         """
@@ -198,7 +198,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.RuleGroupRule']]:
+    def rules(self) -> pulumi.Output[Optional[List['outputs.RuleGroupRule']]]:
         """
         The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         """
@@ -206,7 +206,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> pulumi.Output[str]:
         """
         Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         """
@@ -214,7 +214,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         An array of key:value pairs to associate with the resource.
         """
@@ -222,7 +222,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> 'outputs.RuleGroupVisibilityConfig':
+    def visibility_config(self) -> pulumi.Output['outputs.RuleGroupVisibilityConfig']:
         """
         Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         """

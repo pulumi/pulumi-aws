@@ -13,7 +13,7 @@ __all__ = ['ClusterEndpoint']
 
 class ClusterEndpoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_endpoint_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -175,7 +175,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of cluster
         """
@@ -183,7 +183,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterEndpointIdentifier")
-    def cluster_endpoint_identifier(self) -> str:
+    def cluster_endpoint_identifier(self) -> pulumi.Output[str]:
         """
         The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
         """
@@ -191,7 +191,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> str:
+    def cluster_identifier(self) -> pulumi.Output[str]:
         """
         The cluster identifier.
         """
@@ -199,7 +199,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customEndpointType")
-    def custom_endpoint_type(self) -> str:
+    def custom_endpoint_type(self) -> pulumi.Output[str]:
         """
         The type of the endpoint. One of: READER , ANY .
         """
@@ -207,7 +207,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> pulumi.Output[str]:
         """
         A custom endpoint for the Aurora cluster
         """
@@ -215,7 +215,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludedMembers")
-    def excluded_members(self) -> Optional[List[str]]:
+    def excluded_members(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         """
@@ -223,7 +223,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="staticMembers")
-    def static_members(self) -> Optional[List[str]]:
+    def static_members(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         """
@@ -231,7 +231,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

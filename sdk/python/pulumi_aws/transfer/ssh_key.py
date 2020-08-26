@@ -13,7 +13,7 @@ __all__ = ['SshKey']
 
 class SshKey(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  body: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
@@ -142,7 +142,7 @@ class SshKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def body(self) -> str:
+    def body(self) -> pulumi.Output[str]:
         """
         The public key portion of an SSH key pair.
         """
@@ -150,7 +150,7 @@ class SshKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> str:
+    def server_id(self) -> pulumi.Output[str]:
         """
         The Server ID of the Transfer Server (e.g. `s-12345678`)
         """
@@ -158,7 +158,7 @@ class SshKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> str:
+    def user_name(self) -> pulumi.Output[str]:
         """
         The name of the user account that is assigned to one or more servers.
         """

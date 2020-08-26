@@ -13,7 +13,7 @@ __all__ = ['ReceiptRuleSet']
 
 class ReceiptRuleSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_set_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -84,7 +84,7 @@ class ReceiptRuleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleSetName")
-    def rule_set_name(self) -> str:
+    def rule_set_name(self) -> pulumi.Output[str]:
         """
         The name of the rule set
         """

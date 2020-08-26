@@ -15,7 +15,7 @@ __all__ = ['EndpointConfiguration']
 
 class EndpointConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
         """
@@ -127,7 +127,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[str]:
+    def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         """
@@ -135,7 +135,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
         """
@@ -143,7 +143,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="productionVariants")
-    def production_variants(self) -> List['outputs.EndpointConfigurationProductionVariant']:
+    def production_variants(self) -> pulumi.Output[List['outputs.EndpointConfigurationProductionVariant']]:
         """
         Fields are documented below.
         """
@@ -151,7 +151,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

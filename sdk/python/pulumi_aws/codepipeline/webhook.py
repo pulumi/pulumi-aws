@@ -15,7 +15,7 @@ __all__ = ['Webhook']
 
 class Webhook(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
                  authentication_configuration: Optional[pulumi.Input[pulumi.InputType['WebhookAuthenticationConfigurationArgs']]] = None,
@@ -196,7 +196,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authentication(self) -> str:
+    def authentication(self) -> pulumi.Output[str]:
         """
         The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
         """
@@ -204,7 +204,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> Optional['outputs.WebhookAuthenticationConfiguration']:
+    def authentication_configuration(self) -> pulumi.Output[Optional['outputs.WebhookAuthenticationConfiguration']]:
         """
         An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         """
@@ -212,7 +212,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> List['outputs.WebhookFilter']:
+    def filters(self) -> pulumi.Output[List['outputs.WebhookFilter']]:
         """
         One or more `filter` blocks. Filter blocks are documented below.
         """
@@ -220,7 +220,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the webhook.
         """
@@ -228,7 +228,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -236,7 +236,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetAction")
-    def target_action(self) -> str:
+    def target_action(self) -> pulumi.Output[str]:
         """
         The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         """
@@ -244,7 +244,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetPipeline")
-    def target_pipeline(self) -> str:
+    def target_pipeline(self) -> pulumi.Output[str]:
         """
         The name of the pipeline.
         """
@@ -252,7 +252,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> pulumi.Output[str]:
         """
         The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
         """

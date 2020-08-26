@@ -15,7 +15,7 @@ __all__ = ['Queue']
 
 class Queue(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Arn of the queue
         """
@@ -126,7 +126,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the queue
         """
@@ -134,7 +134,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A unique identifier describing the queue
         """
@@ -142,7 +142,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> Optional[str]:
+    def pricing_plan(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         """
@@ -150,7 +150,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reservationPlanSettings")
-    def reservation_plan_settings(self) -> 'outputs.QueueReservationPlanSettings':
+    def reservation_plan_settings(self) -> pulumi.Output['outputs.QueueReservationPlanSettings']:
         """
         A detail pricing plan of the  reserved queue. See below.
         """
@@ -158,7 +158,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         """
@@ -166,7 +166,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

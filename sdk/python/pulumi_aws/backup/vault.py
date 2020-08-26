@@ -13,7 +13,7 @@ __all__ = ['Vault']
 
 class Vault(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the vault.
         """
@@ -110,7 +110,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> str:
+    def kms_key_arn(self) -> pulumi.Output[str]:
         """
         The server-side encryption key that is used to protect your backups.
         """
@@ -118,7 +118,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the backup vault to create.
         """
@@ -126,7 +126,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryPoints")
-    def recovery_points(self) -> float:
+    def recovery_points(self) -> pulumi.Output[float]:
         """
         The number of recovery points that are stored in a backup vault.
         """
@@ -134,7 +134,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Metadata that you can assign to help organize the resources that you create.
         """

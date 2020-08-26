@@ -13,7 +13,7 @@ __all__ = ['Application']
 
 class Application(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computePlatform")
-    def compute_platform(self) -> Optional[str]:
+    def compute_platform(self) -> pulumi.Output[Optional[str]]:
         """
         The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
         """
@@ -117,7 +117,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the application.
         """
@@ -125,7 +125,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> str:
+    def unique_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "unique_id")
 
     def translate_output_property(self, prop):

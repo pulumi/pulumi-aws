@@ -15,7 +15,7 @@ __all__ = ['Budget']
 
 class Budget(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  budget_type: Optional[pulumi.Input[str]] = None,
@@ -251,7 +251,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The ID of the target account for budget. Will use current user's account_id by default if omitted.
         """
@@ -259,7 +259,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="budgetType")
-    def budget_type(self) -> str:
+    def budget_type(self) -> pulumi.Output[str]:
         """
         Whether this budget tracks monetary cost or usage.
         """
@@ -267,7 +267,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="costFilters")
-    def cost_filters(self) -> Mapping[str, str]:
+    def cost_filters(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of CostFilters key/value pairs to apply to the budget.
         """
@@ -275,7 +275,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="costTypes")
-    def cost_types(self) -> 'outputs.BudgetCostTypes':
+    def cost_types(self) -> pulumi.Output['outputs.BudgetCostTypes']:
         """
         Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions..
         """
@@ -283,7 +283,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="limitAmount")
-    def limit_amount(self) -> str:
+    def limit_amount(self) -> pulumi.Output[str]:
         """
         The amount of cost or usage being measured for a budget.
         """
@@ -291,7 +291,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="limitUnit")
-    def limit_unit(self) -> str:
+    def limit_unit(self) -> pulumi.Output[str]:
         """
         The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         """
@@ -299,7 +299,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of a budget. Unique within accounts.
         """
@@ -307,7 +307,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> str:
+    def name_prefix(self) -> pulumi.Output[str]:
         """
         The prefix of the name of a budget. Unique within accounts.
         """
@@ -315,7 +315,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notifications(self) -> Optional[List['outputs.BudgetNotification']]:
+    def notifications(self) -> pulumi.Output[Optional[List['outputs.BudgetNotification']]]:
         """
         Object containing Budget Notifications. Can be used multiple times to define more than one budget notification
         """
@@ -323,7 +323,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timePeriodEnd")
-    def time_period_end(self) -> Optional[str]:
+    def time_period_end(self) -> pulumi.Output[Optional[str]]:
         """
         The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         """
@@ -331,7 +331,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timePeriodStart")
-    def time_period_start(self) -> str:
+    def time_period_start(self) -> pulumi.Output[str]:
         """
         The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
         """
@@ -339,7 +339,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeUnit")
-    def time_unit(self) -> str:
+    def time_unit(self) -> pulumi.Output[str]:
         """
         The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`.
         """

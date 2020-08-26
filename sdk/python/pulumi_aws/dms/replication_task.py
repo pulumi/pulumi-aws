@@ -13,7 +13,7 @@ __all__ = ['ReplicationTask']
 
 class ReplicationTask(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdc_start_time: Optional[pulumi.Input[str]] = None,
                  migration_type: Optional[pulumi.Input[str]] = None,
@@ -158,7 +158,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cdcStartTime")
-    def cdc_start_time(self) -> Optional[str]:
+    def cdc_start_time(self) -> pulumi.Output[Optional[str]]:
         """
         The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
         """
@@ -166,7 +166,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="migrationType")
-    def migration_type(self) -> str:
+    def migration_type(self) -> pulumi.Output[str]:
         """
         The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         """
@@ -174,7 +174,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationInstanceArn")
-    def replication_instance_arn(self) -> str:
+    def replication_instance_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the replication instance.
         """
@@ -182,7 +182,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationTaskArn")
-    def replication_task_arn(self) -> str:
+    def replication_task_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) for the replication task.
         """
@@ -190,7 +190,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationTaskId")
-    def replication_task_id(self) -> str:
+    def replication_task_id(self) -> pulumi.Output[str]:
         """
         The replication task identifier.
         """
@@ -198,7 +198,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationTaskSettings")
-    def replication_task_settings(self) -> Optional[str]:
+    def replication_task_settings(self) -> pulumi.Output[Optional[str]]:
         """
         An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
         """
@@ -206,7 +206,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceEndpointArn")
-    def source_endpoint_arn(self) -> str:
+    def source_endpoint_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         """
@@ -214,7 +214,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableMappings")
-    def table_mappings(self) -> str:
+    def table_mappings(self) -> pulumi.Output[str]:
         """
         An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         """
@@ -222,7 +222,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -230,7 +230,7 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetEndpointArn")
-    def target_endpoint_arn(self) -> str:
+    def target_endpoint_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
         """

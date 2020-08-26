@@ -15,7 +15,7 @@ __all__ = ['S3Location']
 
 class S3Location(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  s3_bucket_arn: Optional[pulumi.Input[str]] = None,
                  s3_config: Optional[pulumi.Input[pulumi.InputType['S3LocationS3ConfigArgs']]] = None,
@@ -120,7 +120,7 @@ class S3Location(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the DataSync Location.
         """
@@ -128,7 +128,7 @@ class S3Location(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3BucketArn")
-    def s3_bucket_arn(self) -> str:
+    def s3_bucket_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the S3 Bucket.
         """
@@ -136,7 +136,7 @@ class S3Location(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Config")
-    def s3_config(self) -> 'outputs.S3LocationS3Config':
+    def s3_config(self) -> pulumi.Output['outputs.S3LocationS3Config']:
         """
         Configuration block containing information for connecting to S3.
         """
@@ -144,7 +144,7 @@ class S3Location(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdirectory(self) -> str:
+    def subdirectory(self) -> pulumi.Output[str]:
         """
         Prefix to perform actions as source or destination.
         """
@@ -152,7 +152,7 @@ class S3Location(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value pairs of resource tags to assign to the DataSync Location.
         """
@@ -160,7 +160,7 @@ class S3Location(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> str:
+    def uri(self) -> pulumi.Output[str]:
         return pulumi.get(self, "uri")
 
     def translate_output_property(self, prop):

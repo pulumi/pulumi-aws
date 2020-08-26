@@ -13,7 +13,7 @@ __all__ = ['VideoStream']
 
 class VideoStream(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_retention_in_hours: Optional[pulumi.Input[float]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class VideoStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         """
@@ -142,7 +142,7 @@ class VideoStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> str:
+    def creation_time(self) -> pulumi.Output[str]:
         """
         A time stamp that indicates when the stream was created.
         """
@@ -150,7 +150,7 @@ class VideoStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataRetentionInHours")
-    def data_retention_in_hours(self) -> Optional[float]:
+    def data_retention_in_hours(self) -> pulumi.Output[Optional[float]]:
         """
         The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
         """
@@ -158,7 +158,7 @@ class VideoStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> Optional[str]:
+    def device_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
         """
@@ -166,7 +166,7 @@ class VideoStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> pulumi.Output[str]:
         """
         The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
         """
@@ -174,7 +174,7 @@ class VideoStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mediaType")
-    def media_type(self) -> Optional[str]:
+    def media_type(self) -> pulumi.Output[Optional[str]]:
         """
         The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
         """
@@ -182,7 +182,7 @@ class VideoStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A name to identify the stream. This is unique to the
         AWS account and region the Stream is created in.
@@ -191,7 +191,7 @@ class VideoStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -199,7 +199,7 @@ class VideoStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         The version of the stream.
         """

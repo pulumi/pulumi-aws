@@ -13,7 +13,7 @@ __all__ = ['SmsChannel']
 
 class SmsChannel(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -111,7 +111,7 @@ class SmsChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> str:
+    def application_id(self) -> pulumi.Output[str]:
         """
         The application ID.
         """
@@ -119,7 +119,7 @@ class SmsChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the channel is enabled or disabled. Defaults to `true`.
         """
@@ -127,7 +127,7 @@ class SmsChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="promotionalMessagesPerSecond")
-    def promotional_messages_per_second(self) -> float:
+    def promotional_messages_per_second(self) -> pulumi.Output[float]:
         """
         Promotional messages per second that can be sent.
         """
@@ -135,7 +135,7 @@ class SmsChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="senderId")
-    def sender_id(self) -> Optional[str]:
+    def sender_id(self) -> pulumi.Output[Optional[str]]:
         """
         Sender identifier of your messages.
         """
@@ -143,7 +143,7 @@ class SmsChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shortCode")
-    def short_code(self) -> Optional[str]:
+    def short_code(self) -> pulumi.Output[Optional[str]]:
         """
         The Short Code registered with the phone provider.
         """
@@ -151,7 +151,7 @@ class SmsChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transactionalMessagesPerSecond")
-    def transactional_messages_per_second(self) -> float:
+    def transactional_messages_per_second(self) -> pulumi.Output[float]:
         """
         Transactional messages per second that can be sent.
         """

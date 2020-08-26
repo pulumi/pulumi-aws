@@ -19,7 +19,7 @@ class ListenerRule(pulumi.CustomResource):
     warnings.warn("aws.elasticloadbalancingv2.ListenerRule has been deprecated in favor of aws.lb.ListenerRule", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]]]] = None,
                  conditions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ListenerRuleConditionArgs']]]]] = None,
@@ -264,7 +264,7 @@ class ListenerRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> List['outputs.ListenerRuleAction']:
+    def actions(self) -> pulumi.Output[List['outputs.ListenerRuleAction']]:
         """
         An Action block. Action blocks are documented below.
         """
@@ -272,7 +272,7 @@ class ListenerRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the target group.
         """
@@ -280,7 +280,7 @@ class ListenerRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def conditions(self) -> List['outputs.ListenerRuleCondition']:
+    def conditions(self) -> pulumi.Output[List['outputs.ListenerRuleCondition']]:
         """
         A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
         """
@@ -288,7 +288,7 @@ class ListenerRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="listenerArn")
-    def listener_arn(self) -> str:
+    def listener_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the listener to which to attach the rule.
         """
@@ -296,7 +296,7 @@ class ListenerRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> pulumi.Output[float]:
         """
         The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         """

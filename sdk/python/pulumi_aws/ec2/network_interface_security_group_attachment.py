@@ -13,7 +13,7 @@ __all__ = ['NetworkInterfaceSecurityGroupAttachment']
 
 class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> pulumi.Output[str]:
         """
         The ID of the network interface to attach to.
         """
@@ -155,7 +155,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> str:
+    def security_group_id(self) -> pulumi.Output[str]:
         """
         The ID of the security group.
         """

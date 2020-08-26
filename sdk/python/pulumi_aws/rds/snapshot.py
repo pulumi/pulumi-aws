@@ -13,7 +13,7 @@ __all__ = ['Snapshot']
 
 class Snapshot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -177,7 +177,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> float:
+    def allocated_storage(self) -> pulumi.Output[float]:
         """
         Specifies the allocated storage size in gigabytes (GB).
         """
@@ -185,7 +185,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         """
@@ -193,7 +193,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbInstanceIdentifier")
-    def db_instance_identifier(self) -> str:
+    def db_instance_identifier(self) -> pulumi.Output[str]:
         """
         The DB Instance Identifier from which to take the snapshot.
         """
@@ -201,7 +201,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbSnapshotArn")
-    def db_snapshot_arn(self) -> str:
+    def db_snapshot_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) for the DB snapshot.
         """
@@ -209,7 +209,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbSnapshotIdentifier")
-    def db_snapshot_identifier(self) -> str:
+    def db_snapshot_identifier(self) -> pulumi.Output[str]:
         """
         The Identifier for the snapshot.
         """
@@ -217,7 +217,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> bool:
+    def encrypted(self) -> pulumi.Output[bool]:
         """
         Specifies whether the DB snapshot is encrypted.
         """
@@ -225,7 +225,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> str:
+    def engine(self) -> pulumi.Output[str]:
         """
         Specifies the name of the database engine.
         """
@@ -233,7 +233,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> pulumi.Output[str]:
         """
         Specifies the version of the database engine.
         """
@@ -241,7 +241,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def iops(self) -> float:
+    def iops(self) -> pulumi.Output[float]:
         """
         Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         """
@@ -249,7 +249,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> pulumi.Output[str]:
         """
         The ARN for the KMS encryption key.
         """
@@ -257,7 +257,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseModel")
-    def license_model(self) -> str:
+    def license_model(self) -> pulumi.Output[str]:
         """
         License model information for the restored DB instance.
         """
@@ -265,7 +265,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="optionGroupName")
-    def option_group_name(self) -> str:
+    def option_group_name(self) -> pulumi.Output[str]:
         """
         Provides the option group name for the DB snapshot.
         """
@@ -273,17 +273,17 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> pulumi.Output[float]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="snapshotType")
-    def snapshot_type(self) -> str:
+    def snapshot_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "snapshot_type")
 
     @property
     @pulumi.getter(name="sourceDbSnapshotIdentifier")
-    def source_db_snapshot_identifier(self) -> str:
+    def source_db_snapshot_identifier(self) -> pulumi.Output[str]:
         """
         The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
         """
@@ -291,7 +291,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceRegion")
-    def source_region(self) -> str:
+    def source_region(self) -> pulumi.Output[str]:
         """
         The region that the DB snapshot was created in or copied from.
         """
@@ -299,7 +299,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         Specifies the status of this DB snapshot.
         """
@@ -307,7 +307,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> str:
+    def storage_type(self) -> pulumi.Output[str]:
         """
         Specifies the storage type associated with DB snapshot.
         """
@@ -315,7 +315,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """
@@ -323,7 +323,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         Specifies the storage type associated with DB snapshot.
         """

@@ -15,7 +15,7 @@ __all__ = ['UsagePlan']
 
 class UsagePlan(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_stages: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class UsagePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiStages")
-    def api_stages(self) -> Optional[List['outputs.UsagePlanApiStage']]:
+    def api_stages(self) -> pulumi.Output[Optional[List['outputs.UsagePlanApiStage']]]:
         """
         The associated API stages of the usage plan.
         """
@@ -161,7 +161,7 @@ class UsagePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN)
         """
@@ -169,7 +169,7 @@ class UsagePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of a usage plan.
         """
@@ -177,7 +177,7 @@ class UsagePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the usage plan.
         """
@@ -185,7 +185,7 @@ class UsagePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="productCode")
-    def product_code(self) -> Optional[str]:
+    def product_code(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         """
@@ -193,7 +193,7 @@ class UsagePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="quotaSettings")
-    def quota_settings(self) -> Optional['outputs.UsagePlanQuotaSettings']:
+    def quota_settings(self) -> pulumi.Output[Optional['outputs.UsagePlanQuotaSettings']]:
         """
         The quota settings of the usage plan.
         """
@@ -201,7 +201,7 @@ class UsagePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """
@@ -209,7 +209,7 @@ class UsagePlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="throttleSettings")
-    def throttle_settings(self) -> Optional['outputs.UsagePlanThrottleSettings']:
+    def throttle_settings(self) -> pulumi.Output[Optional['outputs.UsagePlanThrottleSettings']]:
         """
         The throttling limits of the usage plan.
         """

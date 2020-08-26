@@ -13,7 +13,7 @@ __all__ = ['Group']
 
 class Group(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN assigned by AWS for this group.
         """
@@ -104,7 +104,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
         """
@@ -112,7 +112,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[str]:
+    def path(self) -> pulumi.Output[Optional[str]]:
         """
         Path in which to create the group.
         """
@@ -120,7 +120,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> str:
+    def unique_id(self) -> pulumi.Output[str]:
         """
         The [unique ID][1] assigned by AWS.
         """

@@ -13,7 +13,7 @@ __all__ = ['ApnsVoipSandboxChannel']
 
 class ApnsVoipSandboxChannel(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
@@ -144,7 +144,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> str:
+    def application_id(self) -> pulumi.Output[str]:
         """
         The application ID.
         """
@@ -152,7 +152,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bundleId")
-    def bundle_id(self) -> Optional[str]:
+    def bundle_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
         """
@@ -160,7 +160,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificate(self) -> Optional[str]:
+    def certificate(self) -> pulumi.Output[Optional[str]]:
         """
         The pem encoded TLS Certificate from Apple.
         """
@@ -168,7 +168,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultAuthenticationMethod")
-    def default_authentication_method(self) -> Optional[str]:
+    def default_authentication_method(self) -> pulumi.Output[Optional[str]]:
         """
         The default authentication method used for APNs. 
         __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
@@ -179,7 +179,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the channel is enabled or disabled. Defaults to `true`.
         """
@@ -187,7 +187,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[str]:
+    def private_key(self) -> pulumi.Output[Optional[str]]:
         """
         The Certificate Private Key file (ie. `.key` file).
         """
@@ -195,7 +195,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="teamId")
-    def team_id(self) -> Optional[str]:
+    def team_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         """
@@ -203,7 +203,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tokenKey")
-    def token_key(self) -> Optional[str]:
+    def token_key(self) -> pulumi.Output[Optional[str]]:
         """
         The `.p8` file that you download from your Apple developer account when you create an authentication key.
         """
@@ -211,7 +211,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tokenKeyId")
-    def token_key_id(self) -> Optional[str]:
+    def token_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
         """

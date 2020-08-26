@@ -15,7 +15,7 @@ __all__ = ['VirtualNode']
 
 class VirtualNode(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -250,7 +250,7 @@ class VirtualNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the virtual node.
         """
@@ -258,7 +258,7 @@ class VirtualNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the virtual node.
         """
@@ -266,7 +266,7 @@ class VirtualNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> str:
+    def last_updated_date(self) -> pulumi.Output[str]:
         """
         The last update date of the virtual node.
         """
@@ -274,7 +274,7 @@ class VirtualNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="meshName")
-    def mesh_name(self) -> str:
+    def mesh_name(self) -> pulumi.Output[str]:
         """
         The name of the service mesh in which to create the virtual node.
         """
@@ -282,7 +282,7 @@ class VirtualNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name to use for the virtual node.
         """
@@ -290,7 +290,7 @@ class VirtualNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def spec(self) -> 'outputs.VirtualNodeSpec':
+    def spec(self) -> pulumi.Output['outputs.VirtualNodeSpec']:
         """
         The virtual node specification to apply.
         """
@@ -298,7 +298,7 @@ class VirtualNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

@@ -13,7 +13,7 @@ __all__ = ['SamplingRule']
 
 class SamplingRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  fixed_rate: Optional[pulumi.Input[float]] = None,
@@ -186,7 +186,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the sampling rule.
         """
@@ -194,7 +194,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Mapping[str, str]]:
+    def attributes(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Matches attributes derived from the request.
         """
@@ -202,7 +202,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fixedRate")
-    def fixed_rate(self) -> float:
+    def fixed_rate(self) -> pulumi.Output[float]:
         """
         The percentage of matching requests to instrument, after the reservoir is exhausted.
         """
@@ -210,7 +210,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def host(self) -> str:
+    def host(self) -> pulumi.Output[str]:
         """
         Matches the hostname from a request URL.
         """
@@ -218,7 +218,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> str:
+    def http_method(self) -> pulumi.Output[str]:
         """
         Matches the HTTP method of a request.
         """
@@ -226,7 +226,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> pulumi.Output[float]:
         """
         The priority of the sampling rule.
         """
@@ -234,7 +234,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reservoirSize")
-    def reservoir_size(self) -> float:
+    def reservoir_size(self) -> pulumi.Output[float]:
         """
         A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         """
@@ -242,7 +242,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> str:
+    def resource_arn(self) -> pulumi.Output[str]:
         """
         Matches the ARN of the AWS resource on which the service runs.
         """
@@ -250,7 +250,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[str]:
+    def rule_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the sampling rule.
         """
@@ -258,7 +258,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> str:
+    def service_name(self) -> pulumi.Output[str]:
         """
         Matches the `name` that the service uses to identify itself in segments.
         """
@@ -266,7 +266,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceType")
-    def service_type(self) -> str:
+    def service_type(self) -> pulumi.Output[str]:
         """
         Matches the `origin` that the service uses to identify its type in segments.
         """
@@ -274,7 +274,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="urlPath")
-    def url_path(self) -> str:
+    def url_path(self) -> pulumi.Output[str]:
         """
         Matches the path from a request URL.
         """
@@ -282,7 +282,7 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> float:
+    def version(self) -> pulumi.Output[float]:
         """
         The version of the sampling rule format (`1` )
         """

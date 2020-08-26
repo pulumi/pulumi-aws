@@ -15,7 +15,7 @@ __all__ = ['WebAclLoggingConfiguration']
 
 class WebAclLoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_destination_configs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  redacted_fields: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArgs']]]]] = None,
@@ -111,7 +111,7 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logDestinationConfigs")
-    def log_destination_configs(self) -> List[str]:
+    def log_destination_configs(self) -> pulumi.Output[List[str]]:
         """
         The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
         """
@@ -119,7 +119,7 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redactedFields")
-    def redacted_fields(self) -> Optional[List['outputs.WebAclLoggingConfigurationRedactedField']]:
+    def redacted_fields(self) -> pulumi.Output[Optional[List['outputs.WebAclLoggingConfigurationRedactedField']]]:
         """
         The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported.
         """
@@ -127,7 +127,7 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> str:
+    def resource_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
         """

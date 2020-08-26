@@ -15,7 +15,7 @@ __all__ = ['BucketMetric']
 
 class BucketMetric(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  filter: Optional[pulumi.Input[pulumi.InputType['BucketMetricFilterArgs']]] = None,
@@ -117,7 +117,7 @@ class BucketMetric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def bucket(self) -> str:
+    def bucket(self) -> pulumi.Output[str]:
         """
         The name of the bucket to put metric configuration.
         """
@@ -125,7 +125,7 @@ class BucketMetric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional['outputs.BucketMetricFilter']:
+    def filter(self) -> pulumi.Output[Optional['outputs.BucketMetricFilter']]:
         """
         [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         """
@@ -133,7 +133,7 @@ class BucketMetric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Unique identifier of the metrics configuration for the bucket.
         """

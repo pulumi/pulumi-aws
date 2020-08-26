@@ -15,7 +15,7 @@ __all__ = ['SqlInjectionMatchSet']
 
 class SqlInjectionMatchSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sql_injection_match_tuples: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]] = None,
@@ -95,7 +95,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name or description of the SizeConstraintSet.
         """
@@ -103,7 +103,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqlInjectionMatchTuples")
-    def sql_injection_match_tuples(self) -> Optional[List['outputs.SqlInjectionMatchSetSqlInjectionMatchTuple']]:
+    def sql_injection_match_tuples(self) -> pulumi.Output[Optional[List['outputs.SqlInjectionMatchSetSqlInjectionMatchTuple']]]:
         """
         The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """

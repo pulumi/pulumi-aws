@@ -13,7 +13,7 @@ __all__ = ['SpotDatafeedSubscription']
 
 class SpotDatafeedSubscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def bucket(self) -> str:
+    def bucket(self) -> pulumi.Output[str]:
         """
         The Amazon S3 bucket in which to store the Spot instance data feed.
         """
@@ -104,7 +104,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def prefix(self) -> Optional[str]:
+    def prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Path of folder inside bucket to place spot pricing data.
         """

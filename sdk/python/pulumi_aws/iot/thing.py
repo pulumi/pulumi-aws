@@ -13,7 +13,7 @@ __all__ = ['Thing']
 
 class Thing(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class Thing(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the thing.
         """
@@ -116,7 +116,7 @@ class Thing(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Mapping[str, str]]:
+    def attributes(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Map of attributes of the thing.
         """
@@ -124,7 +124,7 @@ class Thing(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultClientId")
-    def default_client_id(self) -> str:
+    def default_client_id(self) -> pulumi.Output[str]:
         """
         The default client ID.
         """
@@ -132,7 +132,7 @@ class Thing(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the thing.
         """
@@ -140,7 +140,7 @@ class Thing(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thingTypeName")
-    def thing_type_name(self) -> Optional[str]:
+    def thing_type_name(self) -> pulumi.Output[Optional[str]]:
         """
         The thing type name.
         """
@@ -148,7 +148,7 @@ class Thing(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> float:
+    def version(self) -> pulumi.Output[float]:
         """
         The current version of the thing record in the registry.
         """

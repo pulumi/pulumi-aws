@@ -13,7 +13,7 @@ __all__ = ['Hsm']
 
 class Hsm(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class Hsm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> pulumi.Output[str]:
         """
         The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
         """
@@ -127,7 +127,7 @@ class Hsm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> str:
+    def cluster_id(self) -> pulumi.Output[str]:
         """
         The ID of Cloud HSM v2 cluster to which HSM will be added.
         """
@@ -135,7 +135,7 @@ class Hsm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hsmEniId")
-    def hsm_eni_id(self) -> str:
+    def hsm_eni_id(self) -> pulumi.Output[str]:
         """
         The id of the ENI interface allocated for HSM module.
         """
@@ -143,7 +143,7 @@ class Hsm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hsmId")
-    def hsm_id(self) -> str:
+    def hsm_id(self) -> pulumi.Output[str]:
         """
         The id of the HSM module.
         """
@@ -151,7 +151,7 @@ class Hsm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hsmState")
-    def hsm_state(self) -> str:
+    def hsm_state(self) -> pulumi.Output[str]:
         """
         The state of the HSM module.
         """
@@ -159,7 +159,7 @@ class Hsm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> str:
+    def ip_address(self) -> pulumi.Output[str]:
         """
         The IP address of HSM module. Must be within the CIDR of selected subnet.
         """
@@ -167,7 +167,7 @@ class Hsm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of subnet in which HSM module will be located.
         """

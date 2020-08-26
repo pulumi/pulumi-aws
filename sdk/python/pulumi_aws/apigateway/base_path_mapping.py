@@ -13,7 +13,7 @@ __all__ = ['BasePathMapping']
 
 class BasePathMapping(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_path: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class BasePathMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="basePath")
-    def base_path(self) -> Optional[str]:
+    def base_path(self) -> pulumi.Output[Optional[str]]:
         """
         Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         """
@@ -126,7 +126,7 @@ class BasePathMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         The already-registered domain name to connect the API to.
         """
@@ -134,7 +134,7 @@ class BasePathMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> str:
+    def rest_api(self) -> pulumi.Output[str]:
         """
         The id of the API to connect.
         """
@@ -142,7 +142,7 @@ class BasePathMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stageName")
-    def stage_name(self) -> Optional[str]:
+    def stage_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """

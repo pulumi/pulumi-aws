@@ -13,7 +13,7 @@ __all__ = ['OriginAccessIdentity']
 
 class OriginAccessIdentity(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -156,7 +156,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="callerReference")
-    def caller_reference(self) -> str:
+    def caller_reference(self) -> pulumi.Output[str]:
         """
         Internal value used by CloudFront to allow future
         updates to the origin access identity.
@@ -165,7 +165,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudfrontAccessIdentityPath")
-    def cloudfront_access_identity_path(self) -> str:
+    def cloudfront_access_identity_path(self) -> pulumi.Output[str]:
         """
         A shortcut to the full path for the
         origin access identity to use in CloudFront, see below.
@@ -174,7 +174,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def comment(self) -> Optional[str]:
+    def comment(self) -> pulumi.Output[Optional[str]]:
         """
         An optional comment for the origin access identity.
         """
@@ -182,7 +182,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         The current version of the origin access identity's information.
         For example: `E2QWRUHAPOMQZL`.
@@ -191,7 +191,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamArn")
-    def iam_arn(self) -> str:
+    def iam_arn(self) -> pulumi.Output[str]:
         """
         A pre-generated ARN for use in S3 bucket policies (see below).
         Example: `arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity
@@ -201,7 +201,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3CanonicalUserId")
-    def s3_canonical_user_id(self) -> str:
+    def s3_canonical_user_id(self) -> pulumi.Output[str]:
         """
         The Amazon S3 canonical user ID for the origin
         access identity, which you use when giving the origin access identity read

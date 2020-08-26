@@ -13,7 +13,7 @@ __all__ = ['Function']
 
 class Function(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  data_source: Optional[pulumi.Input[str]] = None,
@@ -178,7 +178,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> str:
+    def api_id(self) -> pulumi.Output[str]:
         """
         The ID of the associated AppSync API.
         """
@@ -186,7 +186,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Function object.
         """
@@ -194,7 +194,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> str:
+    def data_source(self) -> pulumi.Output[str]:
         """
         The Function DataSource name.
         """
@@ -202,7 +202,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The Function description.
         """
@@ -210,7 +210,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionId")
-    def function_id(self) -> str:
+    def function_id(self) -> pulumi.Output[str]:
         """
         A unique ID representing the Function object.
         """
@@ -218,7 +218,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionVersion")
-    def function_version(self) -> Optional[str]:
+    def function_version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the request mapping template. Currently the supported value is `2018-05-29`.
         """
@@ -226,7 +226,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The Function name. The function name does not have to be unique.
         """
@@ -234,7 +234,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestMappingTemplate")
-    def request_mapping_template(self) -> str:
+    def request_mapping_template(self) -> pulumi.Output[str]:
         """
         The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         """
@@ -242,7 +242,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseMappingTemplate")
-    def response_mapping_template(self) -> str:
+    def response_mapping_template(self) -> pulumi.Output[str]:
         """
         The Function response mapping template.
         """

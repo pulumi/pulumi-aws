@@ -13,7 +13,7 @@ __all__ = ['Permission']
 
 class Permission(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_ssh: Optional[pulumi.Input[bool]] = None,
                  allow_sudo: Optional[pulumi.Input[bool]] = None,
@@ -113,7 +113,7 @@ class Permission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowSsh")
-    def allow_ssh(self) -> bool:
+    def allow_ssh(self) -> pulumi.Output[bool]:
         """
         Whether the user is allowed to use SSH to communicate with the instance
         """
@@ -121,7 +121,7 @@ class Permission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowSudo")
-    def allow_sudo(self) -> bool:
+    def allow_sudo(self) -> pulumi.Output[bool]:
         """
         Whether the user is allowed to use sudo to elevate privileges
         """
@@ -129,7 +129,7 @@ class Permission(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def level(self) -> str:
+    def level(self) -> pulumi.Output[str]:
         """
         The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
         """
@@ -137,7 +137,7 @@ class Permission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stackId")
-    def stack_id(self) -> str:
+    def stack_id(self) -> pulumi.Output[str]:
         """
         The stack to set the permissions for
         """
@@ -145,7 +145,7 @@ class Permission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userArn")
-    def user_arn(self) -> str:
+    def user_arn(self) -> pulumi.Output[str]:
         """
         The user's IAM ARN to set permissions for
         """

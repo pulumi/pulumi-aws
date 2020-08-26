@@ -15,7 +15,7 @@ __all__ = ['Webhook']
 
 class Webhook(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch_filter: Optional[pulumi.Input[str]] = None,
                  filter_groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WebhookFilterGroupArgs']]]]] = None,
@@ -153,7 +153,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="branchFilter")
-    def branch_filter(self) -> Optional[str]:
+    def branch_filter(self) -> pulumi.Output[Optional[str]]:
         """
         A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
         """
@@ -161,7 +161,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="filterGroups")
-    def filter_groups(self) -> Optional[List['outputs.WebhookFilterGroup']]:
+    def filter_groups(self) -> pulumi.Output[Optional[List['outputs.WebhookFilterGroup']]]:
         """
         Information about the webhook's trigger. Filter group blocks are documented below.
         """
@@ -169,7 +169,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="payloadUrl")
-    def payload_url(self) -> str:
+    def payload_url(self) -> pulumi.Output[str]:
         """
         The CodeBuild endpoint where webhook events are sent.
         """
@@ -177,7 +177,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="projectName")
-    def project_name(self) -> str:
+    def project_name(self) -> pulumi.Output[str]:
         """
         The name of the build project.
         """
@@ -185,7 +185,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secret(self) -> str:
+    def secret(self) -> pulumi.Output[str]:
         """
         The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         """
@@ -193,7 +193,7 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> pulumi.Output[str]:
         """
         The URL to the webhook.
         """

@@ -13,7 +13,7 @@ __all__ = ['RegexPatternSet']
 
 class RegexPatternSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  regex_pattern_strings: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -95,7 +95,7 @@ class RegexPatternSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN)
         """
@@ -103,7 +103,7 @@ class RegexPatternSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name or description of the Regex Pattern Set.
         """
@@ -111,7 +111,7 @@ class RegexPatternSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="regexPatternStrings")
-    def regex_pattern_strings(self) -> Optional[List[str]]:
+    def regex_pattern_strings(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
         """

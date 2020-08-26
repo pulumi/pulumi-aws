@@ -15,7 +15,7 @@ __all__ = ['Secret']
 
 class Secret(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -165,7 +165,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the secret.
         """
@@ -173,7 +173,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the secret.
         """
@@ -181,7 +181,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the ARN or Id of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
         """
@@ -189,7 +189,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
         """
@@ -197,7 +197,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> str:
+    def name_prefix(self) -> pulumi.Output[str]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -205,7 +205,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
         """
@@ -213,7 +213,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryWindowInDays")
-    def recovery_window_in_days(self) -> Optional[float]:
+    def recovery_window_in_days(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
         """
@@ -221,7 +221,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rotationEnabled")
-    def rotation_enabled(self) -> bool:
+    def rotation_enabled(self) -> pulumi.Output[bool]:
         """
         Specifies whether automatic rotation is enabled for this secret.
         """
@@ -229,7 +229,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rotationLambdaArn")
-    def rotation_lambda_arn(self) -> str:
+    def rotation_lambda_arn(self) -> pulumi.Output[str]:
         """
         Specifies the ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         """
@@ -237,7 +237,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rotationRules")
-    def rotation_rules(self) -> 'outputs.SecretRotationRules':
+    def rotation_rules(self) -> pulumi.Output['outputs.SecretRotationRules']:
         """
         A structure that defines the rotation configuration for this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         """
@@ -245,7 +245,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Specifies a key-value map of user-defined tags that are attached to the secret.
         """

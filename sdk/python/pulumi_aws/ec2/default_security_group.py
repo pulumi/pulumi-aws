@@ -15,7 +15,7 @@ __all__ = ['DefaultSecurityGroup']
 
 class DefaultSecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  egress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]]] = None,
                  ingress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]]] = None,
@@ -206,12 +206,12 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         The description of the security group
         """
@@ -219,7 +219,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def egress(self) -> Optional[List['outputs.DefaultSecurityGroupEgress']]:
+    def egress(self) -> pulumi.Output[Optional[List['outputs.DefaultSecurityGroupEgress']]]:
         """
         Can be specified multiple times for each
         egress rule. Each egress block supports fields documented below.
@@ -228,7 +228,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ingress(self) -> Optional[List['outputs.DefaultSecurityGroupIngress']]:
+    def ingress(self) -> pulumi.Output[Optional[List['outputs.DefaultSecurityGroupIngress']]]:
         """
         Can be specified multiple times for each
         ingress rule. Each ingress block supports fields documented below.
@@ -237,7 +237,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the security group
         """
@@ -245,7 +245,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> pulumi.Output[str]:
         """
         The owner ID.
         """
@@ -253,12 +253,12 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="revokeRulesOnDelete")
-    def revoke_rules_on_delete(self) -> Optional[bool]:
+    def revoke_rules_on_delete(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "revoke_rules_on_delete")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -266,7 +266,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The VPC ID. **Note that changing
         the `vpc_id` will _not_ restore any default security group rules that were

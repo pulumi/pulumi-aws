@@ -15,7 +15,7 @@ __all__ = ['Trigger']
 
 class Trigger(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None,
@@ -102,12 +102,12 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationId")
-    def configuration_id(self) -> str:
+    def configuration_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "configuration_id")
 
     @property
     @pulumi.getter(name="repositoryName")
-    def repository_name(self) -> str:
+    def repository_name(self) -> pulumi.Output[str]:
         """
         The name for the repository. This needs to be less than 100 characters.
         """
@@ -115,7 +115,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def triggers(self) -> List['outputs.TriggerTrigger']:
+    def triggers(self) -> pulumi.Output[List['outputs.TriggerTrigger']]:
         return pulumi.get(self, "triggers")
 
     def translate_output_property(self, prop):

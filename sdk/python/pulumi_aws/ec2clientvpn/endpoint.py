@@ -15,7 +15,7 @@ __all__ = ['Endpoint']
 
 class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_options: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointAuthenticationOptionArgs']]]]] = None,
                  client_cidr_block: Optional[pulumi.Input[str]] = None,
@@ -165,7 +165,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Client VPN endpoint.
         """
@@ -173,7 +173,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticationOptions")
-    def authentication_options(self) -> List['outputs.EndpointAuthenticationOption']:
+    def authentication_options(self) -> pulumi.Output[List['outputs.EndpointAuthenticationOption']]:
         """
         Information about the authentication method to be used to authenticate clients.
         """
@@ -181,7 +181,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientCidrBlock")
-    def client_cidr_block(self) -> str:
+    def client_cidr_block(self) -> pulumi.Output[str]:
         """
         The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         """
@@ -189,7 +189,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionLogOptions")
-    def connection_log_options(self) -> 'outputs.EndpointConnectionLogOptions':
+    def connection_log_options(self) -> pulumi.Output['outputs.EndpointConnectionLogOptions']:
         """
         Information about the client connection logging options.
         """
@@ -197,7 +197,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the repository.
         """
@@ -205,7 +205,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> pulumi.Output[str]:
         """
         The DNS name to be used by clients when establishing their VPN session.
         """
@@ -213,7 +213,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[List[str]]:
+    def dns_servers(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
         """
@@ -221,7 +221,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverCertificateArn")
-    def server_certificate_arn(self) -> str:
+    def server_certificate_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the ACM server certificate.
         """
@@ -229,7 +229,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="splitTunnel")
-    def split_tunnel(self) -> Optional[bool]:
+    def split_tunnel(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         """
@@ -237,7 +237,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The current state of the Client VPN endpoint.
         """
@@ -245,7 +245,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -253,7 +253,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transportProtocol")
-    def transport_protocol(self) -> Optional[str]:
+    def transport_protocol(self) -> pulumi.Output[Optional[str]]:
         """
         The transport protocol to be used by the VPN session. Default value is `udp`.
         """

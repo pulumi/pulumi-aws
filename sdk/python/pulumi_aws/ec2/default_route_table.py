@@ -15,7 +15,7 @@ __all__ = ['DefaultRouteTable']
 
 class DefaultRouteTable(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_route_table_id: Optional[pulumi.Input[str]] = None,
                  propagating_vgws: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -146,7 +146,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultRouteTableId")
-    def default_route_table_id(self) -> str:
+    def default_route_table_id(self) -> pulumi.Output[str]:
         """
         The ID of the Default Routing Table.
         """
@@ -154,7 +154,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> pulumi.Output[str]:
         """
         The ID of the AWS account that owns the route table
         """
@@ -162,7 +162,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="propagatingVgws")
-    def propagating_vgws(self) -> Optional[List[str]]:
+    def propagating_vgws(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of virtual gateways for propagation.
         """
@@ -170,7 +170,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> List['outputs.DefaultRouteTableRoute']:
+    def routes(self) -> pulumi.Output[List['outputs.DefaultRouteTableRoute']]:
         """
         A list of route objects. Their keys are documented below.
         """
@@ -178,7 +178,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -186,7 +186,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "vpc_id")
 
     def translate_output_property(self, prop):

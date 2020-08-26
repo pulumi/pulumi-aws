@@ -13,7 +13,7 @@ __all__ = ['VpcEndpointService']
 
 class VpcEndpointService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acceptance_required: Optional[pulumi.Input[bool]] = None,
                  allowed_principals: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -159,7 +159,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="acceptanceRequired")
-    def acceptance_required(self) -> bool:
+    def acceptance_required(self) -> pulumi.Output[bool]:
         """
         Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
         """
@@ -167,7 +167,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedPrincipals")
-    def allowed_principals(self) -> List[str]:
+    def allowed_principals(self) -> pulumi.Output[List[str]]:
         """
         The ARNs of one or more principals allowed to discover the endpoint service.
         """
@@ -175,7 +175,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the VPC endpoint service.
         """
@@ -183,7 +183,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> List[str]:
+    def availability_zones(self) -> pulumi.Output[List[str]]:
         """
         The Availability Zones in which the service is available.
         """
@@ -191,7 +191,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="baseEndpointDnsNames")
-    def base_endpoint_dns_names(self) -> List[str]:
+    def base_endpoint_dns_names(self) -> pulumi.Output[List[str]]:
         """
         The DNS names for the service.
         """
@@ -199,7 +199,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managesVpcEndpoints")
-    def manages_vpc_endpoints(self) -> bool:
+    def manages_vpc_endpoints(self) -> pulumi.Output[bool]:
         """
         Whether or not the service manages its VPC endpoints - `true` or `false`.
         """
@@ -207,7 +207,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkLoadBalancerArns")
-    def network_load_balancer_arns(self) -> List[str]:
+    def network_load_balancer_arns(self) -> pulumi.Output[List[str]]:
         """
         The ARNs of one or more Network Load Balancers for the endpoint service.
         """
@@ -215,7 +215,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDnsName")
-    def private_dns_name(self) -> str:
+    def private_dns_name(self) -> pulumi.Output[str]:
         """
         The private DNS name for the service.
         """
@@ -223,7 +223,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> str:
+    def service_name(self) -> pulumi.Output[str]:
         """
         The service name.
         """
@@ -231,7 +231,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceType")
-    def service_type(self) -> str:
+    def service_type(self) -> pulumi.Output[str]:
         """
         The service type, `Gateway` or `Interface`.
         """
@@ -239,7 +239,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The state of the VPC endpoint service.
         """
@@ -247,7 +247,7 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

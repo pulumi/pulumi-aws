@@ -15,7 +15,7 @@ __all__ = ['IpGroup']
 
 class IpGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description.
         """
@@ -108,7 +108,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the IP group.
         """
@@ -116,7 +116,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.IpGroupRule']]:
+    def rules(self) -> pulumi.Output[Optional[List['outputs.IpGroupRule']]]:
         """
         One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
         """
@@ -124,7 +124,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):

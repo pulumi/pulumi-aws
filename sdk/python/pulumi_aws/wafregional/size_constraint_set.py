@@ -15,7 +15,7 @@ __all__ = ['SizeConstraintSet']
 
 class SizeConstraintSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  size_constraints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SizeConstraintSetSizeConstraintArgs']]]]] = None,
@@ -100,12 +100,12 @@ class SizeConstraintSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name or description of the Size Constraint Set.
         """
@@ -113,7 +113,7 @@ class SizeConstraintSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeConstraints")
-    def size_constraints(self) -> Optional[List['outputs.SizeConstraintSetSizeConstraint']]:
+    def size_constraints(self) -> pulumi.Output[Optional[List['outputs.SizeConstraintSetSizeConstraint']]]:
         """
         Specifies the parts of web requests that you want to inspect the size of.
         """

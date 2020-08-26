@@ -13,7 +13,7 @@ __all__ = ['SnapshotCopy']
 
 class SnapshotCopy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
@@ -157,7 +157,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the EBS Snapshot.
         """
@@ -165,7 +165,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataEncryptionKeyId")
-    def data_encryption_key_id(self) -> str:
+    def data_encryption_key_id(self) -> pulumi.Output[str]:
         """
         The data encryption key identifier for the snapshot.
         * `source_snapshot_id` The ARN of the copied snapshot.
@@ -175,7 +175,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of what the snapshot is.
         """
@@ -183,7 +183,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> Optional[bool]:
+    def encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the snapshot is encrypted.
         """
@@ -191,7 +191,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for the KMS encryption key.
         """
@@ -199,7 +199,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerAlias")
-    def owner_alias(self) -> str:
+    def owner_alias(self) -> pulumi.Output[str]:
         """
         Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         """
@@ -207,7 +207,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> pulumi.Output[str]:
         """
         The AWS account ID of the snapshot owner.
         """
@@ -215,7 +215,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceRegion")
-    def source_region(self) -> str:
+    def source_region(self) -> pulumi.Output[str]:
         """
         The region of the source snapshot.
         """
@@ -223,7 +223,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceSnapshotId")
-    def source_snapshot_id(self) -> str:
+    def source_snapshot_id(self) -> pulumi.Output[str]:
         """
         The ARN for the snapshot to be copied.
         """
@@ -231,7 +231,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags for the snapshot.
         """
@@ -239,12 +239,12 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> str:
+    def volume_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "volume_id")
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> float:
+    def volume_size(self) -> pulumi.Output[float]:
         """
         The size of the drive in GiBs.
         """

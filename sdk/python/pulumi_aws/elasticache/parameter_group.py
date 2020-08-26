@@ -15,7 +15,7 @@ __all__ = ['ParameterGroup']
 
 class ParameterGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
         """
@@ -127,7 +127,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def family(self) -> str:
+    def family(self) -> pulumi.Output[str]:
         """
         The family of the ElastiCache parameter group.
         """
@@ -135,7 +135,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the ElastiCache parameter.
         """
@@ -143,7 +143,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.ParameterGroupParameter']]:
+    def parameters(self) -> pulumi.Output[Optional[List['outputs.ParameterGroupParameter']]]:
         """
         A list of ElastiCache parameters to apply.
         """

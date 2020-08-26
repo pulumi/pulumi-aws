@@ -13,7 +13,7 @@ __all__ = ['InstanceProfile']
 
 class InstanceProfile(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -128,7 +128,7 @@ class InstanceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN assigned by AWS to the instance profile.
         """
@@ -136,7 +136,7 @@ class InstanceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> str:
+    def create_date(self) -> pulumi.Output[str]:
         """
         The creation timestamp of the instance profile.
         """
@@ -144,7 +144,7 @@ class InstanceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The profile's name. If omitted, this provider will assign a random, unique name.
         """
@@ -152,7 +152,7 @@ class InstanceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -160,7 +160,7 @@ class InstanceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[str]:
+    def path(self) -> pulumi.Output[Optional[str]]:
         """
         Path in which to create the profile.
         """
@@ -168,7 +168,7 @@ class InstanceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> Optional[str]:
+    def role(self) -> pulumi.Output[Optional[str]]:
         """
         The role name to include in the profile.
         """
@@ -176,7 +176,7 @@ class InstanceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> str:
+    def unique_id(self) -> pulumi.Output[str]:
         """
         The [unique ID][1] assigned by AWS.
         """

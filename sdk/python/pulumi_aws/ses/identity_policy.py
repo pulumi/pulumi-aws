@@ -13,7 +13,7 @@ __all__ = ['IdentityPolicy']
 
 class IdentityPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class IdentityPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> str:
+    def identity(self) -> pulumi.Output[str]:
         """
         Name or Amazon Resource Name (ARN) of the SES Identity.
         """
@@ -120,7 +120,7 @@ class IdentityPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the policy.
         """
@@ -128,7 +128,7 @@ class IdentityPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         JSON string of the policy.
         """

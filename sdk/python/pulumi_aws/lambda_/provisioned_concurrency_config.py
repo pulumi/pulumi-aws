@@ -13,7 +13,7 @@ __all__ = ['ProvisionedConcurrencyConfig']
 
 class ProvisionedConcurrencyConfig(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  provisioned_concurrent_executions: Optional[pulumi.Input[float]] = None,
@@ -115,7 +115,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionName")
-    def function_name(self) -> str:
+    def function_name(self) -> pulumi.Output[str]:
         """
         Name or Amazon Resource Name (ARN) of the Lambda Function.
         """
@@ -123,7 +123,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionedConcurrentExecutions")
-    def provisioned_concurrent_executions(self) -> float:
+    def provisioned_concurrent_executions(self) -> pulumi.Output[float]:
         """
         Amount of capacity to allocate. Must be greater than or equal to `1`.
         """
@@ -131,7 +131,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def qualifier(self) -> str:
+    def qualifier(self) -> pulumi.Output[str]:
         """
         Lambda Function version or Lambda Alias name.
         """

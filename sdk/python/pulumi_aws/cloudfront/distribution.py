@@ -15,7 +15,7 @@ __all__ = ['Distribution']
 
 class Distribution(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aliases: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
@@ -479,7 +479,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def aliases(self) -> Optional[List[str]]:
+    def aliases(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Extra CNAMEs (alternate domain names), if any, for
         this distribution.
@@ -488,7 +488,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         """
@@ -496,7 +496,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="callerReference")
-    def caller_reference(self) -> str:
+    def caller_reference(self) -> pulumi.Output[str]:
         """
         Internal value used by CloudFront to allow future
         updates to the distribution configuration.
@@ -505,7 +505,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def comment(self) -> Optional[str]:
+    def comment(self) -> pulumi.Output[Optional[str]]:
         """
         Any comments you want to include about the
         distribution.
@@ -514,7 +514,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customErrorResponses")
-    def custom_error_responses(self) -> Optional[List['outputs.DistributionCustomErrorResponse']]:
+    def custom_error_responses(self) -> pulumi.Output[Optional[List['outputs.DistributionCustomErrorResponse']]]:
         """
         One or more custom error response elements (multiples allowed).
         """
@@ -522,7 +522,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultCacheBehavior")
-    def default_cache_behavior(self) -> 'outputs.DistributionDefaultCacheBehavior':
+    def default_cache_behavior(self) -> pulumi.Output['outputs.DistributionDefaultCacheBehavior']:
         """
         The default cache behavior for this distribution (maximum
         one).
@@ -531,7 +531,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultRootObject")
-    def default_root_object(self) -> Optional[str]:
+    def default_root_object(self) -> pulumi.Output[Optional[str]]:
         """
         The object that you want CloudFront to
         return (for example, index.html) when an end user requests the root URL.
@@ -540,7 +540,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         The DNS domain name of either the S3 bucket, or
         web site of your custom origin.
@@ -549,7 +549,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         Whether the distribution is enabled to accept end
         user requests for content.
@@ -558,7 +558,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         The current version of the distribution's information. For example:
         `E2QWRUHAPOMQZL`.
@@ -567,7 +567,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> str:
+    def hosted_zone_id(self) -> pulumi.Output[str]:
         """
         The CloudFront Route 53 zone ID that can be used to
         route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an
@@ -577,7 +577,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpVersion")
-    def http_version(self) -> Optional[str]:
+    def http_version(self) -> pulumi.Output[Optional[str]]:
         """
         The maximum HTTP version to support on the
         distribution. Allowed values are `http1.1` and `http2`. The default is
@@ -587,7 +587,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inProgressValidationBatches")
-    def in_progress_validation_batches(self) -> float:
+    def in_progress_validation_batches(self) -> pulumi.Output[float]:
         """
         The number of invalidation batches
         currently in progress.
@@ -596,7 +596,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isIpv6Enabled")
-    def is_ipv6_enabled(self) -> Optional[bool]:
+    def is_ipv6_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the IPv6 is enabled for the distribution.
         """
@@ -604,7 +604,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> str:
+    def last_modified_time(self) -> pulumi.Output[str]:
         """
         The date and time the distribution was last modified.
         """
@@ -612,7 +612,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loggingConfig")
-    def logging_config(self) -> Optional['outputs.DistributionLoggingConfig']:
+    def logging_config(self) -> pulumi.Output[Optional['outputs.DistributionLoggingConfig']]:
         """
         The logging
         configuration that controls how logs are written
@@ -622,7 +622,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="orderedCacheBehaviors")
-    def ordered_cache_behaviors(self) -> Optional[List['outputs.DistributionOrderedCacheBehavior']]:
+    def ordered_cache_behaviors(self) -> pulumi.Output[Optional[List['outputs.DistributionOrderedCacheBehavior']]]:
         """
         An ordered list of cache behaviors
         resource for this distribution. List from top to bottom
@@ -632,7 +632,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originGroups")
-    def origin_groups(self) -> Optional[List['outputs.DistributionOriginGroup']]:
+    def origin_groups(self) -> pulumi.Output[Optional[List['outputs.DistributionOriginGroup']]]:
         """
         One or more origin_group for this
         distribution (multiples allowed).
@@ -641,7 +641,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origins(self) -> List['outputs.DistributionOrigin']:
+    def origins(self) -> pulumi.Output[List['outputs.DistributionOrigin']]:
         """
         One or more origins for this
         distribution (multiples allowed).
@@ -650,7 +650,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="priceClass")
-    def price_class(self) -> Optional[str]:
+    def price_class(self) -> pulumi.Output[Optional[str]]:
         """
         The price class for this distribution. One of
         `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
@@ -659,7 +659,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def restrictions(self) -> 'outputs.DistributionRestrictions':
+    def restrictions(self) -> pulumi.Output['outputs.DistributionRestrictions']:
         """
         The restriction
         configuration for this distribution (maximum one).
@@ -668,7 +668,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retainOnDelete")
-    def retain_on_delete(self) -> Optional[bool]:
+    def retain_on_delete(self) -> pulumi.Output[Optional[bool]]:
         """
         Disables the distribution instead of
         deleting it when destroying the resource. If this is set,
@@ -678,7 +678,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The current status of the distribution. `Deployed` if the
         distribution's information is fully propagated throughout the Amazon
@@ -688,7 +688,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -696,7 +696,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustedSigners")
-    def trusted_signers(self) -> List['outputs.DistributionTrustedSigner']:
+    def trusted_signers(self) -> pulumi.Output[List['outputs.DistributionTrustedSigner']]:
         """
         List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
         See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
@@ -705,7 +705,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="viewerCertificate")
-    def viewer_certificate(self) -> 'outputs.DistributionViewerCertificate':
+    def viewer_certificate(self) -> pulumi.Output['outputs.DistributionViewerCertificate']:
         """
         The SSL
         configuration for this distribution (maximum
@@ -715,7 +715,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="waitForDeployment")
-    def wait_for_deployment(self) -> Optional[bool]:
+    def wait_for_deployment(self) -> pulumi.Output[Optional[bool]]:
         """
         If enabled, the resource will wait for
         the distribution status to change from `InProgress` to `Deployed`. Setting
@@ -725,7 +725,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webAclId")
-    def web_acl_id(self) -> Optional[str]:
+    def web_acl_id(self) -> pulumi.Output[Optional[str]]:
         """
         If you're using AWS WAF to filter CloudFront
         requests, the Id of the AWS WAF web ACL that is associated with the

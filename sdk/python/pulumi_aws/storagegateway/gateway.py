@@ -15,7 +15,7 @@ __all__ = ['Gateway']
 
 class Gateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activation_key: Optional[pulumi.Input[str]] = None,
                  cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
@@ -207,7 +207,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activationKey")
-    def activation_key(self) -> str:
+    def activation_key(self) -> pulumi.Output[str]:
         """
         Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         """
@@ -215,7 +215,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the gateway.
         """
@@ -223,7 +223,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
-    def cloudwatch_log_group_arn(self) -> Optional[str]:
+    def cloudwatch_log_group_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         """
@@ -231,7 +231,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> str:
+    def gateway_id(self) -> pulumi.Output[str]:
         """
         Identifier of the gateway.
         """
@@ -239,7 +239,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayIpAddress")
-    def gateway_ip_address(self) -> str:
+    def gateway_ip_address(self) -> pulumi.Output[str]:
         """
         Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         """
@@ -247,7 +247,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayName")
-    def gateway_name(self) -> str:
+    def gateway_name(self) -> pulumi.Output[str]:
         """
         Name of the gateway.
         """
@@ -255,7 +255,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayTimezone")
-    def gateway_timezone(self) -> str:
+    def gateway_timezone(self) -> pulumi.Output[str]:
         """
         Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
         """
@@ -263,7 +263,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayType")
-    def gateway_type(self) -> Optional[str]:
+    def gateway_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
         """
@@ -271,7 +271,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayVpcEndpoint")
-    def gateway_vpc_endpoint(self) -> Optional[str]:
+    def gateway_vpc_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         """
@@ -279,7 +279,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mediumChangerType")
-    def medium_changer_type(self) -> Optional[str]:
+    def medium_changer_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`.
         """
@@ -287,7 +287,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="smbActiveDirectorySettings")
-    def smb_active_directory_settings(self) -> Optional['outputs.GatewaySmbActiveDirectorySettings']:
+    def smb_active_directory_settings(self) -> pulumi.Output[Optional['outputs.GatewaySmbActiveDirectorySettings']]:
         """
         Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         """
@@ -295,7 +295,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="smbGuestPassword")
-    def smb_guest_password(self) -> Optional[str]:
+    def smb_guest_password(self) -> pulumi.Output[Optional[str]]:
         """
         Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         """
@@ -303,7 +303,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value mapping of resource tags
         """
@@ -311,7 +311,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tapeDriveType")
-    def tape_drive_type(self) -> Optional[str]:
+    def tape_drive_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         """

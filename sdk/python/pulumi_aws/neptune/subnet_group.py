@@ -13,7 +13,7 @@ __all__ = ['SubnetGroup']
 
 class SubnetGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class SubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the neptune subnet group.
         """
@@ -129,7 +129,7 @@ class SubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         The description of the neptune subnet group. Defaults to "Managed by Pulumi".
         """
@@ -137,7 +137,7 @@ class SubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the neptune subnet group. If omitted, this provider will assign a random, unique name.
         """
@@ -145,7 +145,7 @@ class SubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> str:
+    def name_prefix(self) -> pulumi.Output[str]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -153,7 +153,7 @@ class SubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> List[str]:
+    def subnet_ids(self) -> pulumi.Output[List[str]]:
         """
         A list of VPC subnet IDs.
         """
@@ -161,7 +161,7 @@ class SubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

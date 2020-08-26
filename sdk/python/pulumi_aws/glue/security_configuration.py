@@ -15,7 +15,7 @@ __all__ = ['SecurityConfiguration']
 
 class SecurityConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_configuration: Optional[pulumi.Input[pulumi.InputType['SecurityConfigurationEncryptionConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class SecurityConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> 'outputs.SecurityConfigurationEncryptionConfiguration':
+    def encryption_configuration(self) -> pulumi.Output['outputs.SecurityConfigurationEncryptionConfiguration']:
         """
         Configuration block containing encryption configuration. Detailed below.
         """
@@ -111,7 +111,7 @@ class SecurityConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the security configuration.
         """

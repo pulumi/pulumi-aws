@@ -13,7 +13,7 @@ __all__ = ['LicenseConfiguration']
 
 class LicenseConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  license_count: Optional[pulumi.Input[float]] = None,
@@ -141,7 +141,7 @@ class LicenseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the license configuration.
         """
@@ -149,7 +149,7 @@ class LicenseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseCount")
-    def license_count(self) -> Optional[float]:
+    def license_count(self) -> pulumi.Output[Optional[float]]:
         """
         Number of licenses managed by the license configuration.
         """
@@ -157,7 +157,7 @@ class LicenseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseCountHardLimit")
-    def license_count_hard_limit(self) -> Optional[bool]:
+    def license_count_hard_limit(self) -> pulumi.Output[Optional[bool]]:
         """
         Sets the number of available licenses as a hard limit.
         """
@@ -165,7 +165,7 @@ class LicenseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseCountingType")
-    def license_counting_type(self) -> str:
+    def license_counting_type(self) -> pulumi.Output[str]:
         """
         Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
         """
@@ -173,7 +173,7 @@ class LicenseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseRules")
-    def license_rules(self) -> Optional[List[str]]:
+    def license_rules(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Array of configured License Manager rules.
         """
@@ -181,7 +181,7 @@ class LicenseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the license configuration.
         """
@@ -189,7 +189,7 @@ class LicenseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

@@ -13,7 +13,7 @@ __all__ = ['ZoneAssociation']
 
 class ZoneAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  vpc_region: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class ZoneAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="owningAccount")
-    def owning_account(self) -> str:
+    def owning_account(self) -> pulumi.Output[str]:
         """
         The account ID of the account that created the hosted zone.
         """
@@ -127,7 +127,7 @@ class ZoneAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The VPC to associate with the private hosted zone.
         """
@@ -135,7 +135,7 @@ class ZoneAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcRegion")
-    def vpc_region(self) -> str:
+    def vpc_region(self) -> pulumi.Output[str]:
         """
         The VPC's region. Defaults to the region of the AWS provider.
         """
@@ -143,7 +143,7 @@ class ZoneAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> str:
+    def zone_id(self) -> pulumi.Output[str]:
         """
         The private hosted zone to associate.
         """

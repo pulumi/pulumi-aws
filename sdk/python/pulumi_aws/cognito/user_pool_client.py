@@ -15,7 +15,7 @@ __all__ = ['UserPoolClient']
 
 class UserPoolClient(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_oauth_flows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  allowed_oauth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
@@ -244,7 +244,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedOauthFlows")
-    def allowed_oauth_flows(self) -> Optional[List[str]]:
+    def allowed_oauth_flows(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of allowed OAuth flows (code, implicit, client_credentials).
         """
@@ -252,7 +252,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedOauthFlowsUserPoolClient")
-    def allowed_oauth_flows_user_pool_client(self) -> Optional[bool]:
+    def allowed_oauth_flows_user_pool_client(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         """
@@ -260,7 +260,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedOauthScopes")
-    def allowed_oauth_scopes(self) -> Optional[List[str]]:
+    def allowed_oauth_scopes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
         """
@@ -268,7 +268,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="analyticsConfiguration")
-    def analytics_configuration(self) -> Optional['outputs.UserPoolClientAnalyticsConfiguration']:
+    def analytics_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolClientAnalyticsConfiguration']]:
         """
         The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
         """
@@ -276,7 +276,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="callbackUrls")
-    def callback_urls(self) -> Optional[List[str]]:
+    def callback_urls(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of allowed callback URLs for the identity providers.
         """
@@ -284,7 +284,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> str:
+    def client_secret(self) -> pulumi.Output[str]:
         """
         The client secret of the user pool client.
         """
@@ -292,7 +292,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultRedirectUri")
-    def default_redirect_uri(self) -> Optional[str]:
+    def default_redirect_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The default redirect URI. Must be in the list of callback URLs.
         """
@@ -300,7 +300,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="explicitAuthFlows")
-    def explicit_auth_flows(self) -> Optional[List[str]]:
+    def explicit_auth_flows(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY,  USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         """
@@ -308,7 +308,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="generateSecret")
-    def generate_secret(self) -> Optional[bool]:
+    def generate_secret(self) -> pulumi.Output[Optional[bool]]:
         """
         Should an application secret be generated.
         """
@@ -316,7 +316,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logoutUrls")
-    def logout_urls(self) -> Optional[List[str]]:
+    def logout_urls(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of allowed logout URLs for the identity providers.
         """
@@ -324,7 +324,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the application client.
         """
@@ -332,7 +332,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preventUserExistenceErrors")
-    def prevent_user_existence_errors(self) -> str:
+    def prevent_user_existence_errors(self) -> pulumi.Output[str]:
         """
         Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
         """
@@ -340,7 +340,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readAttributes")
-    def read_attributes(self) -> Optional[List[str]]:
+    def read_attributes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of user pool attributes the application client can read from.
         """
@@ -348,7 +348,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshTokenValidity")
-    def refresh_token_validity(self) -> Optional[float]:
+    def refresh_token_validity(self) -> pulumi.Output[Optional[float]]:
         """
         The time limit in days refresh tokens are valid for.
         """
@@ -356,7 +356,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportedIdentityProviders")
-    def supported_identity_providers(self) -> Optional[List[str]]:
+    def supported_identity_providers(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of provider names for the identity providers that are supported on this client.
         """
@@ -364,7 +364,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userPoolId")
-    def user_pool_id(self) -> str:
+    def user_pool_id(self) -> pulumi.Output[str]:
         """
         The user pool the client belongs to.
         """
@@ -372,7 +372,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="writeAttributes")
-    def write_attributes(self) -> Optional[List[str]]:
+    def write_attributes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of user pool attributes the application client can write to.
         """

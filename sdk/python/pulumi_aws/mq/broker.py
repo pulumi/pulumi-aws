@@ -15,7 +15,7 @@ __all__ = ['Broker']
 
 class Broker(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
@@ -231,7 +231,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> Optional[bool]:
+    def apply_immediately(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether any broker modifications
         are applied immediately, or during the next maintenance window. Default is `false`.
@@ -240,7 +240,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the broker.
         """
@@ -248,7 +248,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> Optional[bool]:
+    def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
         """
         Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions.
         """
@@ -256,7 +256,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="brokerName")
-    def broker_name(self) -> str:
+    def broker_name(self) -> pulumi.Output[str]:
         """
         The name of the broker.
         """
@@ -264,7 +264,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> 'outputs.BrokerConfiguration':
+    def configuration(self) -> pulumi.Output['outputs.BrokerConfiguration']:
         """
         Configuration of the broker. See below.
         """
@@ -272,7 +272,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentMode")
-    def deployment_mode(self) -> Optional[str]:
+    def deployment_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The deployment mode of the broker. Supported: `SINGLE_INSTANCE` and `ACTIVE_STANDBY_MULTI_AZ`. Defaults to `SINGLE_INSTANCE`.
         """
@@ -280,7 +280,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionOptions")
-    def encryption_options(self) -> Optional['outputs.BrokerEncryptionOptions']:
+    def encryption_options(self) -> pulumi.Output[Optional['outputs.BrokerEncryptionOptions']]:
         """
         Configuration block containing encryption options. See below.
         """
@@ -288,7 +288,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineType")
-    def engine_type(self) -> str:
+    def engine_type(self) -> pulumi.Output[str]:
         """
         The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
         """
@@ -296,7 +296,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> pulumi.Output[str]:
         """
         The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
         """
@@ -304,7 +304,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostInstanceType")
-    def host_instance_type(self) -> str:
+    def host_instance_type(self) -> pulumi.Output[str]:
         """
         The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
         """
@@ -312,7 +312,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def instances(self) -> List['outputs.BrokerInstance']:
+    def instances(self) -> pulumi.Output[List['outputs.BrokerInstance']]:
         """
         A list of information about allocated brokers (both active & standby).
         * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
@@ -328,7 +328,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def logs(self) -> Optional['outputs.BrokerLogs']:
+    def logs(self) -> pulumi.Output[Optional['outputs.BrokerLogs']]:
         """
         Logging configuration of the broker. See below.
         """
@@ -336,7 +336,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceWindowStartTime")
-    def maintenance_window_start_time(self) -> 'outputs.BrokerMaintenanceWindowStartTime':
+    def maintenance_window_start_time(self) -> pulumi.Output['outputs.BrokerMaintenanceWindowStartTime']:
         """
         Maintenance window start time. See below.
         """
@@ -344,7 +344,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[bool]:
+    def publicly_accessible(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         """
@@ -352,7 +352,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> List[str]:
+    def security_groups(self) -> pulumi.Output[List[str]]:
         """
         The list of security group IDs assigned to the broker.
         """
@@ -360,7 +360,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> List[str]:
+    def subnet_ids(self) -> pulumi.Output[List[str]]:
         """
         The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
         """
@@ -368,7 +368,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -376,7 +376,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> List['outputs.BrokerUser']:
+    def users(self) -> pulumi.Output[List['outputs.BrokerUser']]:
         """
         The list of all ActiveMQ usernames for the specified broker. See below.
         """

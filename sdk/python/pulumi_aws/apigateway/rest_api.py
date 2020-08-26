@@ -15,7 +15,7 @@ __all__ = ['RestApi']
 
 class RestApi(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key_source: Optional[pulumi.Input[str]] = None,
                  binary_media_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -163,7 +163,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiKeySource")
-    def api_key_source(self) -> Optional[str]:
+    def api_key_source(self) -> pulumi.Output[Optional[str]]:
         """
         The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER.
         """
@@ -171,7 +171,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN)
         """
@@ -179,7 +179,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="binaryMediaTypes")
-    def binary_media_types(self) -> Optional[List[str]]:
+    def binary_media_types(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
         """
@@ -187,7 +187,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def body(self) -> Optional[str]:
+    def body(self) -> pulumi.Output[Optional[str]]:
         """
         An OpenAPI specification that defines the set of routes and integrations to create as part of the REST API.
         """
@@ -195,7 +195,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the REST API
         """
@@ -203,7 +203,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the REST API
         """
@@ -211,7 +211,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointConfiguration")
-    def endpoint_configuration(self) -> 'outputs.RestApiEndpointConfiguration':
+    def endpoint_configuration(self) -> pulumi.Output['outputs.RestApiEndpointConfiguration']:
         """
         Nested argument defining API endpoint configuration including endpoint type. Defined below.
         """
@@ -219,7 +219,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionArn")
-    def execution_arn(self) -> str:
+    def execution_arn(self) -> pulumi.Output[str]:
         """
         The execution ARN part to be used in `lambda_permission`'s `source_arn`
         when allowing API Gateway to invoke a Lambda function,
@@ -229,7 +229,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimumCompressionSize")
-    def minimum_compression_size(self) -> Optional[float]:
+    def minimum_compression_size(self) -> pulumi.Output[Optional[float]]:
         """
         Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default).
         """
@@ -237,7 +237,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the REST API
         """
@@ -245,7 +245,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         JSON formatted policy document that controls access to the API Gateway.
         """
@@ -253,7 +253,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootResourceId")
-    def root_resource_id(self) -> str:
+    def root_resource_id(self) -> pulumi.Output[str]:
         """
         The resource ID of the REST API's root
         """
@@ -261,7 +261,7 @@ class RestApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

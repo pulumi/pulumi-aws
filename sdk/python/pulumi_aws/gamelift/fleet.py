@@ -15,7 +15,7 @@ __all__ = ['Fleet']
 
 class Fleet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  build_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -174,7 +174,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Fleet ARN.
         """
@@ -182,7 +182,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="buildId")
-    def build_id(self) -> str:
+    def build_id(self) -> pulumi.Output[str]:
         """
         ID of the Gamelift Build to be deployed on the fleet.
         """
@@ -190,7 +190,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Human-readable description of the fleet.
         """
@@ -198,7 +198,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ec2InboundPermissions")
-    def ec2_inbound_permissions(self) -> Optional[List['outputs.FleetEc2InboundPermission']]:
+    def ec2_inbound_permissions(self) -> pulumi.Output[Optional[List['outputs.FleetEc2InboundPermission']]]:
         """
         Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
         """
@@ -206,7 +206,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ec2InstanceType")
-    def ec2_instance_type(self) -> str:
+    def ec2_instance_type(self) -> pulumi.Output[str]:
         """
         Name of an EC2 instance type. e.g. `t2.micro`
         """
@@ -214,7 +214,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fleetType")
-    def fleet_type(self) -> Optional[str]:
+    def fleet_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
         """
@@ -222,7 +222,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceRoleArn")
-    def instance_role_arn(self) -> Optional[str]:
+    def instance_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of an IAM role that instances in the fleet can assume.
         """
@@ -230,12 +230,12 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logPaths")
-    def log_paths(self) -> List[str]:
+    def log_paths(self) -> pulumi.Output[List[str]]:
         return pulumi.get(self, "log_paths")
 
     @property
     @pulumi.getter(name="metricGroups")
-    def metric_groups(self) -> List[str]:
+    def metric_groups(self) -> pulumi.Output[List[str]]:
         """
         List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
         """
@@ -243,7 +243,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the fleet.
         """
@@ -251,7 +251,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="newGameSessionProtectionPolicy")
-    def new_game_session_protection_policy(self) -> Optional[str]:
+    def new_game_session_protection_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
         """
@@ -259,7 +259,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="operatingSystem")
-    def operating_system(self) -> str:
+    def operating_system(self) -> pulumi.Output[str]:
         """
         Operating system of the fleet's computing resources.
         """
@@ -267,7 +267,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceCreationLimitPolicy")
-    def resource_creation_limit_policy(self) -> Optional['outputs.FleetResourceCreationLimitPolicy']:
+    def resource_creation_limit_policy(self) -> pulumi.Output[Optional['outputs.FleetResourceCreationLimitPolicy']]:
         """
         Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         """
@@ -275,7 +275,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runtimeConfiguration")
-    def runtime_configuration(self) -> Optional['outputs.FleetRuntimeConfiguration']:
+    def runtime_configuration(self) -> pulumi.Output[Optional['outputs.FleetRuntimeConfiguration']]:
         """
         Instructions for launching server processes on each instance in the fleet. See below.
         """
@@ -283,7 +283,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

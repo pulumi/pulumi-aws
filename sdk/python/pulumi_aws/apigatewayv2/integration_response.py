@@ -13,7 +13,7 @@ __all__ = ['IntegrationResponse']
 
 class IntegrationResponse(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  content_handling_strategy: Optional[pulumi.Input[str]] = None,
@@ -123,7 +123,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> str:
+    def api_id(self) -> pulumi.Output[str]:
         """
         The API identifier.
         """
@@ -131,7 +131,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentHandlingStrategy")
-    def content_handling_strategy(self) -> Optional[str]:
+    def content_handling_strategy(self) -> pulumi.Output[Optional[str]]:
         """
         How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         """
@@ -139,7 +139,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrationId")
-    def integration_id(self) -> str:
+    def integration_id(self) -> pulumi.Output[str]:
         """
         The identifier of the `apigatewayv2.Integration`.
         """
@@ -147,7 +147,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrationResponseKey")
-    def integration_response_key(self) -> str:
+    def integration_response_key(self) -> pulumi.Output[str]:
         """
         The integration response key.
         """
@@ -155,7 +155,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseTemplates")
-    def response_templates(self) -> Optional[Mapping[str, str]]:
+    def response_templates(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         """
@@ -163,7 +163,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateSelectionExpression")
-    def template_selection_expression(self) -> Optional[str]:
+    def template_selection_expression(self) -> pulumi.Output[Optional[str]]:
         """
         The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """

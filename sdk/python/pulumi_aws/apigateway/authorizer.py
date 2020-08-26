@@ -13,7 +13,7 @@ __all__ = ['Authorizer']
 
 class Authorizer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizer_credentials: Optional[pulumi.Input[str]] = None,
                  authorizer_result_ttl_in_seconds: Optional[pulumi.Input[float]] = None,
@@ -143,7 +143,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizerCredentials")
-    def authorizer_credentials(self) -> Optional[str]:
+    def authorizer_credentials(self) -> pulumi.Output[Optional[str]]:
         """
         The credentials required for the authorizer.
         To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
@@ -152,7 +152,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizerResultTtlInSeconds")
-    def authorizer_result_ttl_in_seconds(self) -> Optional[float]:
+    def authorizer_result_ttl_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         The TTL of cached authorizer results in seconds.
         Defaults to `300`.
@@ -161,7 +161,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizerUri")
-    def authorizer_uri(self) -> Optional[str]:
+    def authorizer_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The authorizer's Uniform Resource Identifier (URI).
         This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
@@ -171,7 +171,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identitySource")
-    def identity_source(self) -> Optional[str]:
+    def identity_source(self) -> pulumi.Output[Optional[str]]:
         """
         The source of the identity in an incoming request.
         Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g. `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
@@ -180,7 +180,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identityValidationExpression")
-    def identity_validation_expression(self) -> Optional[str]:
+    def identity_validation_expression(self) -> pulumi.Output[Optional[str]]:
         """
         A validation expression for the incoming identity.
         For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched
@@ -191,7 +191,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the authorizer
         """
@@ -199,7 +199,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerArns")
-    def provider_arns(self) -> Optional[List[str]]:
+    def provider_arns(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of the Amazon Cognito user pool ARNs.
         Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
@@ -208,7 +208,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> str:
+    def rest_api(self) -> pulumi.Output[str]:
         """
         The ID of the associated REST API
         """
@@ -216,7 +216,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool.
         Defaults to `TOKEN`.

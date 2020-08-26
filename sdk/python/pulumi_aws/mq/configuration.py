@@ -13,7 +13,7 @@ __all__ = ['Configuration']
 
 class Configuration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -145,7 +145,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the configuration.
         """
@@ -153,7 +153,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def data(self) -> str:
+    def data(self) -> pulumi.Output[str]:
         """
         The broker configuration in XML format.
         See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html)
@@ -163,7 +163,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the configuration.
         """
@@ -171,7 +171,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineType")
-    def engine_type(self) -> str:
+    def engine_type(self) -> pulumi.Output[str]:
         """
         The type of broker engine.
         """
@@ -179,7 +179,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> pulumi.Output[str]:
         """
         The version of the broker engine.
         """
@@ -187,7 +187,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestRevision")
-    def latest_revision(self) -> float:
+    def latest_revision(self) -> pulumi.Output[float]:
         """
         The latest revision of the configuration.
         """
@@ -195,7 +195,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the configuration
         """
@@ -203,7 +203,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

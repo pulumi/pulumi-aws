@@ -15,7 +15,7 @@ __all__ = ['NetworkAcl']
 
 class NetworkAcl(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  egress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkAclEgressArgs']]]]] = None,
                  ingress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkAclIngressArgs']]]]] = None,
@@ -145,7 +145,7 @@ class NetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the network ACL
         """
@@ -153,7 +153,7 @@ class NetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def egress(self) -> List['outputs.NetworkAclEgress']:
+    def egress(self) -> pulumi.Output[List['outputs.NetworkAclEgress']]:
         """
         Specifies an egress rule. Parameters defined below.
         """
@@ -161,7 +161,7 @@ class NetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ingress(self) -> List['outputs.NetworkAclIngress']:
+    def ingress(self) -> pulumi.Output[List['outputs.NetworkAclIngress']]:
         """
         Specifies an ingress rule. Parameters defined below.
         """
@@ -169,7 +169,7 @@ class NetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> pulumi.Output[str]:
         """
         The ID of the AWS account that owns the network ACL.
         """
@@ -177,7 +177,7 @@ class NetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> List[str]:
+    def subnet_ids(self) -> pulumi.Output[List[str]]:
         """
         A list of Subnet IDs to apply the ACL to
         """
@@ -185,7 +185,7 @@ class NetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -193,7 +193,7 @@ class NetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The ID of the associated VPC.
         """

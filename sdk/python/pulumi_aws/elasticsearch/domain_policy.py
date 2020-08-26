@@ -13,7 +13,7 @@ __all__ = ['DomainPolicy']
 
 class DomainPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policies: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class DomainPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> str:
+    def access_policies(self) -> pulumi.Output[str]:
         """
         IAM policy document specifying the access policies for the domain
         """
@@ -117,7 +117,7 @@ class DomainPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         Name of the domain.
         """

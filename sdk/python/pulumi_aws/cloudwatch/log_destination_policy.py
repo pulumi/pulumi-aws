@@ -13,7 +13,7 @@ __all__ = ['LogDestinationPolicy']
 
 class LogDestinationPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: Optional[pulumi.Input[str]] = None,
                  destination_name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class LogDestinationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessPolicy")
-    def access_policy(self) -> str:
+    def access_policy(self) -> pulumi.Output[str]:
         """
         The policy document. This is a JSON formatted string.
         """
@@ -114,7 +114,7 @@ class LogDestinationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationName")
-    def destination_name(self) -> str:
+    def destination_name(self) -> pulumi.Output[str]:
         """
         A name for the subscription filter
         """

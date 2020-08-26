@@ -15,7 +15,7 @@ __all__ = ['Pipeline']
 
 class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_store: Optional[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -223,7 +223,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The codepipeline ARN.
         """
@@ -231,7 +231,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="artifactStore")
-    def artifact_store(self) -> 'outputs.PipelineArtifactStore':
+    def artifact_store(self) -> pulumi.Output['outputs.PipelineArtifactStore']:
         """
         One or more artifact_store blocks. Artifact stores are documented below.
         """
@@ -239,7 +239,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the pipeline.
         """
@@ -247,7 +247,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> pulumi.Output[str]:
         """
         A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         """
@@ -255,7 +255,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def stages(self) -> List['outputs.PipelineStage']:
+    def stages(self) -> pulumi.Output[List['outputs.PipelineStage']]:
         """
         A stage block. Stages are documented below.
         """
@@ -263,7 +263,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

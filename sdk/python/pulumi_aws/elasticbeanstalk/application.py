@@ -15,7 +15,7 @@ __all__ = ['Application']
 
 class Application(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  appversion_lifecycle: Optional[pulumi.Input[pulumi.InputType['ApplicationAppversionLifecycleArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -115,12 +115,12 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appversionLifecycle")
-    def appversion_lifecycle(self) -> Optional['outputs.ApplicationAppversionLifecycle']:
+    def appversion_lifecycle(self) -> pulumi.Output[Optional['outputs.ApplicationAppversionLifecycle']]:
         return pulumi.get(self, "appversion_lifecycle")
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN assigned by AWS for this Elastic Beanstalk Application.
         """
@@ -128,7 +128,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Short description of the application
         """
@@ -136,7 +136,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the application, must be unique within your account
         """
@@ -144,7 +144,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of tags for the Elastic Beanstalk Application.
         """

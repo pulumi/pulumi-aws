@@ -15,7 +15,7 @@ __all__ = ['Model']
 
 class Model(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  containers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ModelContainerArgs']]]]] = None,
                  enable_network_isolation: Optional[pulumi.Input[bool]] = None,
@@ -140,7 +140,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this model.
         """
@@ -148,7 +148,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def containers(self) -> Optional[List['outputs.ModelContainer']]:
+    def containers(self) -> pulumi.Output[Optional[List['outputs.ModelContainer']]]:
         """
         Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         """
@@ -156,7 +156,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableNetworkIsolation")
-    def enable_network_isolation(self) -> Optional[bool]:
+    def enable_network_isolation(self) -> pulumi.Output[Optional[bool]]:
         """
         Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         """
@@ -164,7 +164,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> str:
+    def execution_role_arn(self) -> pulumi.Output[str]:
         """
         A role that SageMaker can assume to access model artifacts and docker images for deployment.
         """
@@ -172,7 +172,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
         """
@@ -180,7 +180,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryContainer")
-    def primary_container(self) -> Optional['outputs.ModelPrimaryContainer']:
+    def primary_container(self) -> pulumi.Output[Optional['outputs.ModelPrimaryContainer']]:
         """
         The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         """
@@ -188,7 +188,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -196,7 +196,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional['outputs.ModelVpcConfig']:
+    def vpc_config(self) -> pulumi.Output[Optional['outputs.ModelVpcConfig']]:
         """
         Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
         """

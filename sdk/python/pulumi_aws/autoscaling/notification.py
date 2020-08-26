@@ -13,7 +13,7 @@ __all__ = ['Notification']
 
 class Notification(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  notifications: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -123,7 +123,7 @@ class Notification(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupNames")
-    def group_names(self) -> List[str]:
+    def group_names(self) -> pulumi.Output[List[str]]:
         """
         A list of AutoScaling Group Names
         """
@@ -131,7 +131,7 @@ class Notification(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notifications(self) -> List[str]:
+    def notifications(self) -> pulumi.Output[List[str]]:
         """
         A list of Notification Types that trigger
         notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
@@ -140,7 +140,7 @@ class Notification(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="topicArn")
-    def topic_arn(self) -> str:
+    def topic_arn(self) -> pulumi.Output[str]:
         """
         The Topic ARN for notifications to be sent through
         """

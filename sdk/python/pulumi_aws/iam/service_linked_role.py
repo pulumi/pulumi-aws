@@ -13,7 +13,7 @@ __all__ = ['ServiceLinkedRole']
 
 class ServiceLinkedRole(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_service_name: Optional[pulumi.Input[str]] = None,
                  custom_suffix: Optional[pulumi.Input[str]] = None,
@@ -116,7 +116,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) specifying the role.
         """
@@ -124,7 +124,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsServiceName")
-    def aws_service_name(self) -> str:
+    def aws_service_name(self) -> pulumi.Output[str]:
         """
         The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
         """
@@ -132,7 +132,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> str:
+    def create_date(self) -> pulumi.Output[str]:
         """
         The creation date of the IAM role.
         """
@@ -140,7 +140,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customSuffix")
-    def custom_suffix(self) -> Optional[str]:
+    def custom_suffix(self) -> pulumi.Output[Optional[str]]:
         """
         Additional string appended to the role name. Not all AWS services support custom suffixes.
         """
@@ -148,7 +148,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the role.
         """
@@ -156,7 +156,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the role.
         """
@@ -164,7 +164,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> pulumi.Output[str]:
         """
         The path of the role.
         """
@@ -172,7 +172,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> str:
+    def unique_id(self) -> pulumi.Output[str]:
         """
         The stable and unique string identifying the role.
         """

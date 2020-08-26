@@ -13,7 +13,7 @@ __all__ = ['IntegrationResponse']
 
 class IntegrationResponse(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_handling: Optional[pulumi.Input[str]] = None,
                  http_method: Optional[pulumi.Input[str]] = None,
@@ -175,7 +175,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentHandling")
-    def content_handling(self) -> Optional[str]:
+    def content_handling(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         """
@@ -183,7 +183,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> str:
+    def http_method(self) -> pulumi.Output[str]:
         """
         The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         """
@@ -191,7 +191,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
+    def resource_id(self) -> pulumi.Output[str]:
         """
         The API resource ID
         """
@@ -199,7 +199,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[Mapping[str, str]]:
+    def response_parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of response parameters that can be read from the backend response.
         For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
@@ -208,7 +208,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseTemplates")
-    def response_templates(self) -> Optional[Mapping[str, str]]:
+    def response_templates(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map specifying the templates used to transform the integration response body
         """
@@ -216,7 +216,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> str:
+    def rest_api(self) -> pulumi.Output[str]:
         """
         The ID of the associated REST API
         """
@@ -224,7 +224,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="selectionPattern")
-    def selection_pattern(self) -> Optional[str]:
+    def selection_pattern(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the regular expression pattern used to choose
         an integration response based on the response from the backend. Setting this to `-` makes the integration the default one.
@@ -235,7 +235,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> str:
+    def status_code(self) -> pulumi.Output[str]:
         """
         The HTTP status code
         """

@@ -15,7 +15,7 @@ __all__ = ['Build']
 
 class Build(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input[str]] = None,
@@ -123,7 +123,7 @@ class Build(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Gamelift Build ARN.
         """
@@ -131,7 +131,7 @@ class Build(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the build
         """
@@ -139,7 +139,7 @@ class Build(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="operatingSystem")
-    def operating_system(self) -> str:
+    def operating_system(self) -> pulumi.Output[str]:
         """
         Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012` or `AMAZON_LINUX`.
         """
@@ -147,7 +147,7 @@ class Build(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageLocation")
-    def storage_location(self) -> 'outputs.BuildStorageLocation':
+    def storage_location(self) -> pulumi.Output['outputs.BuildStorageLocation']:
         """
         Information indicating where your game build files are stored. See below.
         """
@@ -155,7 +155,7 @@ class Build(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """
@@ -163,7 +163,7 @@ class Build(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         Version that is associated with this build.
         """

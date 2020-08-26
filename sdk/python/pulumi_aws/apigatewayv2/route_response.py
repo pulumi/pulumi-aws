@@ -13,7 +13,7 @@ __all__ = ['RouteResponse']
 
 class RouteResponse(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
@@ -117,7 +117,7 @@ class RouteResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> str:
+    def api_id(self) -> pulumi.Output[str]:
         """
         The API identifier.
         """
@@ -125,7 +125,7 @@ class RouteResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modelSelectionExpression")
-    def model_selection_expression(self) -> Optional[str]:
+    def model_selection_expression(self) -> pulumi.Output[Optional[str]]:
         """
         The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
         """
@@ -133,7 +133,7 @@ class RouteResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseModels")
-    def response_models(self) -> Optional[Mapping[str, str]]:
+    def response_models(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The response models for the route response.
         """
@@ -141,7 +141,7 @@ class RouteResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeId")
-    def route_id(self) -> str:
+    def route_id(self) -> pulumi.Output[str]:
         """
         The identifier of the `apigatewayv2.Route`.
         """
@@ -149,7 +149,7 @@ class RouteResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeResponseKey")
-    def route_response_key(self) -> str:
+    def route_response_key(self) -> pulumi.Output[str]:
         """
         The route response key.
         """

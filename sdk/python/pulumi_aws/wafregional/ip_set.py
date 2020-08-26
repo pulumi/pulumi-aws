@@ -15,7 +15,7 @@ __all__ = ['IpSet']
 
 class IpSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ip_set_descriptors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpSetIpSetDescriptorArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class IpSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the WAF IPSet.
         """
@@ -111,7 +111,7 @@ class IpSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipSetDescriptors")
-    def ip_set_descriptors(self) -> Optional[List['outputs.IpSetIpSetDescriptor']]:
+    def ip_set_descriptors(self) -> pulumi.Output[Optional[List['outputs.IpSetIpSetDescriptor']]]:
         """
         One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
         """
@@ -119,7 +119,7 @@ class IpSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name or description of the IPSet.
         """

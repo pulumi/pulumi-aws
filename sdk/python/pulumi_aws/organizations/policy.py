@@ -13,7 +13,7 @@ __all__ = ['Policy']
 
 class Policy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the policy.
         """
@@ -123,7 +123,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def content(self) -> str:
+    def content(self) -> pulumi.Output[str]:
         """
         The policy content to add to the new policy. For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see the [Service Control Policy Syntax documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html) and for more information on the Tag Policy syntax, see the [Tag Policy Syntax documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_example-tag-policies.html).
         """
@@ -131,7 +131,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description to assign to the policy.
         """
@@ -139,7 +139,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The friendly name to assign to the policy.
         """
@@ -147,7 +147,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of policy to create. Valid values are `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY` (SCP), and `TAG_POLICY`. Defaults to `SERVICE_CONTROL_POLICY`.
         """

@@ -13,7 +13,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_id: Optional[pulumi.Input[str]] = None,
                  certificate_pem: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> str:
+    def certificate_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) for the certificate.
         """
@@ -113,7 +113,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> str:
+    def certificate_id(self) -> pulumi.Output[str]:
         """
         The certificate identifier.
         """
@@ -121,7 +121,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificatePem")
-    def certificate_pem(self) -> Optional[str]:
+    def certificate_pem(self) -> pulumi.Output[Optional[str]]:
         """
         The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         """
@@ -129,7 +129,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateWallet")
-    def certificate_wallet(self) -> Optional[str]:
+    def certificate_wallet(self) -> pulumi.Output[Optional[str]]:
         """
         The contents of the Oracle Wallet certificate for use with SSL. Either `certificate_pem` or `certificate_wallet` must be set.
         """

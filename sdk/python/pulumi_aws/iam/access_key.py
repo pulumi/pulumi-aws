@@ -13,7 +13,7 @@ __all__ = ['AccessKey']
 
 class AccessKey(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  pgp_key: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -153,12 +153,12 @@ class AccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptedSecret")
-    def encrypted_secret(self) -> str:
+    def encrypted_secret(self) -> pulumi.Output[str]:
         return pulumi.get(self, "encrypted_secret")
 
     @property
     @pulumi.getter(name="keyFingerprint")
-    def key_fingerprint(self) -> str:
+    def key_fingerprint(self) -> pulumi.Output[str]:
         """
         The fingerprint of the PGP key used to encrypt
         the secret
@@ -167,7 +167,7 @@ class AccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pgpKey")
-    def pgp_key(self) -> Optional[str]:
+    def pgp_key(self) -> pulumi.Output[Optional[str]]:
         """
         Either a base-64 encoded PGP public key, or a
         keybase username in the form `keybase:some_person_that_exists`, for use
@@ -177,7 +177,7 @@ class AccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secret(self) -> str:
+    def secret(self) -> pulumi.Output[str]:
         """
         The secret access key. Note that this will be written
         to the state file. If you use this, please protect your backend state file
@@ -189,7 +189,7 @@ class AccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sesSmtpPasswordV4")
-    def ses_smtp_password_v4(self) -> str:
+    def ses_smtp_password_v4(self) -> pulumi.Output[str]:
         """
         The secret access key converted into an SES SMTP
         password by applying [AWS's documented Sigv4 conversion
@@ -200,7 +200,7 @@ class AccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The access key status to apply. Defaults to `Active`.
         Valid values are `Active` and `Inactive`.
@@ -209,7 +209,7 @@ class AccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def user(self) -> str:
+    def user(self) -> pulumi.Output[str]:
         """
         The IAM user to associate with this access key.
         """

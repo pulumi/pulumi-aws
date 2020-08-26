@@ -13,7 +13,7 @@ __all__ = ['Account']
 
 class Account(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
@@ -131,7 +131,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN for this account.
         """
@@ -139,7 +139,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> pulumi.Output[str]:
         """
         The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         """
@@ -147,7 +147,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamUserAccessToBilling")
-    def iam_user_access_to_billing(self) -> Optional[str]:
+    def iam_user_access_to_billing(self) -> pulumi.Output[Optional[str]]:
         """
         If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
         """
@@ -155,17 +155,17 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="joinedMethod")
-    def joined_method(self) -> str:
+    def joined_method(self) -> pulumi.Output[str]:
         return pulumi.get(self, "joined_method")
 
     @property
     @pulumi.getter(name="joinedTimestamp")
-    def joined_timestamp(self) -> str:
+    def joined_timestamp(self) -> pulumi.Output[str]:
         return pulumi.get(self, "joined_timestamp")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A friendly name for the member account.
         """
@@ -173,7 +173,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parentId")
-    def parent_id(self) -> str:
+    def parent_id(self) -> pulumi.Output[str]:
         """
         Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
         """
@@ -181,7 +181,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[str]:
+    def role_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
         """
@@ -189,12 +189,12 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value mapping of resource tags.
         """

@@ -13,7 +13,7 @@ __all__ = ['QueuePolicy']
 
 class QueuePolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  queue_url: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class QueuePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         The JSON policy for the SQS queue.
         """
@@ -122,7 +122,7 @@ class QueuePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queueUrl")
-    def queue_url(self) -> str:
+    def queue_url(self) -> pulumi.Output[str]:
         """
         The URL of the SQS Queue to which to attach the policy
         """

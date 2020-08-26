@@ -13,7 +13,7 @@ __all__ = ['StackSetInstance']
 
 class StackSetInstance(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -147,7 +147,7 @@ class StackSetInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> pulumi.Output[str]:
         """
         Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         """
@@ -155,7 +155,7 @@ class StackSetInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterOverrides")
-    def parameter_overrides(self) -> Optional[Mapping[str, str]]:
+    def parameter_overrides(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of input parameters to override from the StackSet for this Instance.
         """
@@ -163,7 +163,7 @@ class StackSetInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def region(self) -> str:
+    def region(self) -> pulumi.Output[str]:
         """
         Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         """
@@ -171,7 +171,7 @@ class StackSetInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retainStack")
-    def retain_stack(self) -> Optional[bool]:
+    def retain_stack(self) -> pulumi.Output[Optional[bool]]:
         """
         During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
         """
@@ -179,7 +179,7 @@ class StackSetInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stackId")
-    def stack_id(self) -> str:
+    def stack_id(self) -> pulumi.Output[str]:
         """
         Stack identifier
         """
@@ -187,7 +187,7 @@ class StackSetInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stackSetName")
-    def stack_set_name(self) -> str:
+    def stack_set_name(self) -> pulumi.Output[str]:
         """
         Name of the StackSet.
         """

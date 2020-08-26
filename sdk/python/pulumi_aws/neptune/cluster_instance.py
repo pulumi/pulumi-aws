@@ -13,7 +13,7 @@ __all__ = ['ClusterInstance']
 
 class ClusterInstance(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
@@ -233,7 +233,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def address(self) -> str:
+    def address(self) -> pulumi.Output[str]:
         """
         The hostname of the instance. See also `endpoint` and `port`.
         """
@@ -241,7 +241,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> bool:
+    def apply_immediately(self) -> pulumi.Output[bool]:
         """
         Specifies whether any instance modifications
         are applied immediately, or during the next maintenance window. Default is`false`.
@@ -250,7 +250,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of neptune instance
         """
@@ -258,7 +258,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> Optional[bool]:
+    def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
         """
@@ -266,7 +266,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> pulumi.Output[str]:
         """
         The EC2 Availability Zone that the neptune instance is created in.
         """
@@ -274,7 +274,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> str:
+    def cluster_identifier(self) -> pulumi.Output[str]:
         """
         The identifier of the `neptune.Cluster` in which to launch this instance.
         """
@@ -282,7 +282,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbiResourceId")
-    def dbi_resource_id(self) -> str:
+    def dbi_resource_id(self) -> pulumi.Output[str]:
         """
         The region-unique, immutable identifier for the neptune instance.
         """
@@ -290,7 +290,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> pulumi.Output[str]:
         """
         The connection endpoint in `address:port` format.
         """
@@ -298,7 +298,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> Optional[str]:
+    def engine(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
         """
@@ -306,7 +306,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> pulumi.Output[str]:
         """
         The neptune engine version.
         """
@@ -314,7 +314,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identifier(self) -> str:
+    def identifier(self) -> pulumi.Output[str]:
         """
         The indentifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         """
@@ -322,7 +322,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identifierPrefix")
-    def identifier_prefix(self) -> str:
+    def identifier_prefix(self) -> pulumi.Output[str]:
         """
         Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         """
@@ -330,7 +330,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceClass")
-    def instance_class(self) -> str:
+    def instance_class(self) -> pulumi.Output[str]:
         """
         The instance class to use.
         """
@@ -338,7 +338,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> str:
+    def kms_key_arn(self) -> pulumi.Output[str]:
         """
         The ARN for the KMS encryption key if one is set to the neptune cluster.
         """
@@ -346,7 +346,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="neptuneParameterGroupName")
-    def neptune_parameter_group_name(self) -> Optional[str]:
+    def neptune_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the neptune parameter group to associate with this instance.
         """
@@ -354,7 +354,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="neptuneSubnetGroupName")
-    def neptune_subnet_group_name(self) -> str:
+    def neptune_subnet_group_name(self) -> pulumi.Output[str]:
         """
         A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `neptune.Cluster`.
         """
@@ -362,7 +362,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> pulumi.Output[Optional[float]]:
         """
         The port on which the DB accepts connections. Defaults to `8182`.
         """
@@ -370,7 +370,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> str:
+    def preferred_backup_window(self) -> pulumi.Output[str]:
         """
         The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
         """
@@ -378,7 +378,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> str:
+    def preferred_maintenance_window(self) -> pulumi.Output[str]:
         """
         The window to perform maintenance in.
         Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
@@ -387,7 +387,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="promotionTier")
-    def promotion_tier(self) -> Optional[float]:
+    def promotion_tier(self) -> pulumi.Output[Optional[float]]:
         """
         Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         """
@@ -395,7 +395,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[bool]:
+    def publicly_accessible(self) -> pulumi.Output[Optional[bool]]:
         """
         Bool to control if instance is publicly accessible. Default is `false`.
         """
@@ -403,7 +403,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> bool:
+    def storage_encrypted(self) -> pulumi.Output[bool]:
         """
         Specifies whether the neptune cluster is encrypted.
         """
@@ -411,7 +411,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the instance.
         """
@@ -419,7 +419,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def writer(self) -> bool:
+    def writer(self) -> pulumi.Output[bool]:
         """
         Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """

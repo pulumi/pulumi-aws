@@ -13,7 +13,7 @@ __all__ = ['ResourceShareAccepter']
 
 class ResourceShareAccepter(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  share_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -129,7 +129,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invitationArn")
-    def invitation_arn(self) -> str:
+    def invitation_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the resource share invitation.
         """
@@ -137,7 +137,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="receiverAccountId")
-    def receiver_account_id(self) -> str:
+    def receiver_account_id(self) -> pulumi.Output[str]:
         """
         The account ID of the receiver account which accepts the invitation.
         """
@@ -145,7 +145,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def resources(self) -> List[str]:
+    def resources(self) -> pulumi.Output[List[str]]:
         """
         A list of the resource ARNs shared via the resource share.
         """
@@ -153,7 +153,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="senderAccountId")
-    def sender_account_id(self) -> str:
+    def sender_account_id(self) -> pulumi.Output[str]:
         """
         The account ID of the sender account which submits the invitation.
         """
@@ -161,7 +161,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareArn")
-    def share_arn(self) -> str:
+    def share_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the resource share.
         """
@@ -169,7 +169,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareId")
-    def share_id(self) -> str:
+    def share_id(self) -> pulumi.Output[str]:
         """
         The ID of the resource share as displayed in the console.
         """
@@ -177,7 +177,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareName")
-    def share_name(self) -> str:
+    def share_name(self) -> pulumi.Output[str]:
         """
         The name of the resource share.
         """
@@ -185,7 +185,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
         """

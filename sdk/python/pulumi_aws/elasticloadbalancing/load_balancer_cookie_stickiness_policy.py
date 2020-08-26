@@ -17,7 +17,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
     warnings.warn("aws.elasticloadbalancing.LoadBalancerCookieStickinessPolicy has been deprecated in favor of aws.elb.LoadBalancerCookieStickinessPolicy", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cookie_expiration_period: Optional[pulumi.Input[float]] = None,
                  lb_port: Optional[pulumi.Input[float]] = None,
@@ -128,7 +128,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cookieExpirationPeriod")
-    def cookie_expiration_period(self) -> Optional[float]:
+    def cookie_expiration_period(self) -> pulumi.Output[Optional[float]]:
         """
         The time period after which
         the session cookie should be considered stale, expressed in seconds.
@@ -137,7 +137,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lbPort")
-    def lb_port(self) -> float:
+    def lb_port(self) -> pulumi.Output[float]:
         """
         The load balancer port to which the policy
         should be applied. This must be an active listener on the load
@@ -147,7 +147,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancer")
-    def load_balancer(self) -> str:
+    def load_balancer(self) -> pulumi.Output[str]:
         """
         The load balancer to which the policy
         should be attached.
@@ -156,7 +156,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the stickiness policy.
         """

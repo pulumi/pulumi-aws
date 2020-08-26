@@ -15,7 +15,7 @@ __all__ = ['ResourceServer']
 
 class ResourceServer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -127,7 +127,7 @@ class ResourceServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identifier(self) -> str:
+    def identifier(self) -> pulumi.Output[str]:
         """
         An identifier for the resource server.
         """
@@ -135,7 +135,7 @@ class ResourceServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A name for the resource server.
         """
@@ -143,7 +143,7 @@ class ResourceServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scopeIdentifiers")
-    def scope_identifiers(self) -> List[str]:
+    def scope_identifiers(self) -> pulumi.Output[List[str]]:
         """
         A list of all scopes configured for this resource server in the format identifier/scope_name.
         """
@@ -151,7 +151,7 @@ class ResourceServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[List['outputs.ResourceServerScope']]:
+    def scopes(self) -> pulumi.Output[Optional[List['outputs.ResourceServerScope']]]:
         """
         A list of Authorization Scope.
         """
@@ -159,7 +159,7 @@ class ResourceServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userPoolId")
-    def user_pool_id(self) -> str:
+    def user_pool_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "user_pool_id")
 
     def translate_output_property(self, prop):

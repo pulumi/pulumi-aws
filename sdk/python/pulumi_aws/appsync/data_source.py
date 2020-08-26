@@ -15,7 +15,7 @@ __all__ = ['DataSource']
 
 class DataSource(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -185,7 +185,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> str:
+    def api_id(self) -> pulumi.Output[str]:
         """
         The API ID for the GraphQL API for the DataSource.
         """
@@ -193,7 +193,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN
         """
@@ -201,7 +201,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the DataSource.
         """
@@ -209,7 +209,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dynamodbConfig")
-    def dynamodb_config(self) -> Optional['outputs.DataSourceDynamodbConfig']:
+    def dynamodb_config(self) -> pulumi.Output[Optional['outputs.DataSourceDynamodbConfig']]:
         """
         DynamoDB settings. See below
         """
@@ -217,7 +217,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="elasticsearchConfig")
-    def elasticsearch_config(self) -> Optional['outputs.DataSourceElasticsearchConfig']:
+    def elasticsearch_config(self) -> pulumi.Output[Optional['outputs.DataSourceElasticsearchConfig']]:
         """
         Amazon Elasticsearch settings. See below
         """
@@ -225,7 +225,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpConfig")
-    def http_config(self) -> Optional['outputs.DataSourceHttpConfig']:
+    def http_config(self) -> pulumi.Output[Optional['outputs.DataSourceHttpConfig']]:
         """
         HTTP settings. See below
         """
@@ -233,7 +233,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lambdaConfig")
-    def lambda_config(self) -> Optional['outputs.DataSourceLambdaConfig']:
+    def lambda_config(self) -> pulumi.Output[Optional['outputs.DataSourceLambdaConfig']]:
         """
         AWS Lambda settings. See below
         """
@@ -241,7 +241,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A user-supplied name for the DataSource.
         """
@@ -249,7 +249,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceRoleArn")
-    def service_role_arn(self) -> Optional[str]:
+    def service_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The IAM service role ARN for the data source.
         """
@@ -257,7 +257,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`.
         """

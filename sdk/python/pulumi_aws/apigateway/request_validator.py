@@ -13,7 +13,7 @@ __all__ = ['RequestValidator']
 
 class RequestValidator(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rest_api: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class RequestValidator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the request validator
         """
@@ -113,7 +113,7 @@ class RequestValidator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> str:
+    def rest_api(self) -> pulumi.Output[str]:
         """
         The ID of the associated Rest API
         """
@@ -121,7 +121,7 @@ class RequestValidator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validateRequestBody")
-    def validate_request_body(self) -> Optional[bool]:
+    def validate_request_body(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean whether to validate request body. Defaults to `false`.
         """
@@ -129,7 +129,7 @@ class RequestValidator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validateRequestParameters")
-    def validate_request_parameters(self) -> Optional[bool]:
+    def validate_request_parameters(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean whether to validate request parameters. Defaults to `false`.
         """

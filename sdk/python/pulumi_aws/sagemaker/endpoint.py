@@ -13,7 +13,7 @@ __all__ = ['Endpoint']
 
 class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_config_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
         """
@@ -114,7 +114,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointConfigName")
-    def endpoint_config_name(self) -> str:
+    def endpoint_config_name(self) -> pulumi.Output[str]:
         """
         The name of the endpoint configuration to use.
         """
@@ -122,7 +122,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the endpoint. If omitted, this provider will assign a random, unique name.
         """
@@ -130,7 +130,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

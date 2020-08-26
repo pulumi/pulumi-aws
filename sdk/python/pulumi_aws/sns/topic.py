@@ -13,7 +13,7 @@ __all__ = ['Topic']
 
 class Topic(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  application_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
@@ -233,7 +233,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationFailureFeedbackRoleArn")
-    def application_failure_feedback_role_arn(self) -> Optional[str]:
+    def application_failure_feedback_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         IAM role for failure feedback
         """
@@ -241,7 +241,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationSuccessFeedbackRoleArn")
-    def application_success_feedback_role_arn(self) -> Optional[str]:
+    def application_success_feedback_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
@@ -249,7 +249,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationSuccessFeedbackSampleRate")
-    def application_success_feedback_sample_rate(self) -> Optional[float]:
+    def application_success_feedback_sample_rate(self) -> pulumi.Output[Optional[float]]:
         """
         Percentage of success to sample
         """
@@ -257,7 +257,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the SNS topic, as a more obvious property (clone of id)
         """
@@ -265,7 +265,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryPolicy")
-    def delivery_policy(self) -> Optional[str]:
+    def delivery_policy(self) -> pulumi.Output[Optional[str]]:
         """
         The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
         """
@@ -273,7 +273,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The display name for the SNS topic
         """
@@ -281,7 +281,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpFailureFeedbackRoleArn")
-    def http_failure_feedback_role_arn(self) -> Optional[str]:
+    def http_failure_feedback_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         IAM role for failure feedback
         """
@@ -289,7 +289,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpSuccessFeedbackRoleArn")
-    def http_success_feedback_role_arn(self) -> Optional[str]:
+    def http_success_feedback_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
@@ -297,7 +297,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpSuccessFeedbackSampleRate")
-    def http_success_feedback_sample_rate(self) -> Optional[float]:
+    def http_success_feedback_sample_rate(self) -> pulumi.Output[Optional[float]]:
         """
         Percentage of success to sample
         """
@@ -305,7 +305,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsMasterKeyId")
-    def kms_master_key_id(self) -> Optional[str]:
+    def kms_master_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
         """
@@ -313,7 +313,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lambdaFailureFeedbackRoleArn")
-    def lambda_failure_feedback_role_arn(self) -> Optional[str]:
+    def lambda_failure_feedback_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         IAM role for failure feedback
         """
@@ -321,7 +321,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lambdaSuccessFeedbackRoleArn")
-    def lambda_success_feedback_role_arn(self) -> Optional[str]:
+    def lambda_success_feedback_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
@@ -329,7 +329,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lambdaSuccessFeedbackSampleRate")
-    def lambda_success_feedback_sample_rate(self) -> Optional[float]:
+    def lambda_success_feedback_sample_rate(self) -> pulumi.Output[Optional[float]]:
         """
         Percentage of success to sample
         """
@@ -337,7 +337,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The friendly name for the SNS topic. By default generated by this provider.
         """
@@ -345,7 +345,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The friendly name for the SNS topic. Conflicts with `name`.
         """
@@ -353,7 +353,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         The fully-formed AWS policy as JSON.
         """
@@ -361,7 +361,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqsFailureFeedbackRoleArn")
-    def sqs_failure_feedback_role_arn(self) -> Optional[str]:
+    def sqs_failure_feedback_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         IAM role for failure feedback
         """
@@ -369,7 +369,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqsSuccessFeedbackRoleArn")
-    def sqs_success_feedback_role_arn(self) -> Optional[str]:
+    def sqs_success_feedback_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The IAM role permitted to receive success feedback for this topic
         """
@@ -377,7 +377,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqsSuccessFeedbackSampleRate")
-    def sqs_success_feedback_sample_rate(self) -> Optional[float]:
+    def sqs_success_feedback_sample_rate(self) -> pulumi.Output[Optional[float]]:
         """
         Percentage of success to sample
         """
@@ -385,7 +385,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

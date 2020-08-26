@@ -13,7 +13,7 @@ __all__ = ['BucketPolicy']
 
 class BucketPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class BucketPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def bucket(self) -> str:
+    def bucket(self) -> pulumi.Output[str]:
         """
         The name of the bucket to which to apply the policy.
         """
@@ -120,7 +120,7 @@ class BucketPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         The text of the policy.
         """

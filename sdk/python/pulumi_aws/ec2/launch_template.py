@@ -15,7 +15,7 @@ __all__ = ['LaunchTemplate']
 
 class LaunchTemplate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  block_device_mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LaunchTemplateBlockDeviceMappingArgs']]]]] = None,
                  capacity_reservation_specification: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateCapacityReservationSpecificationArgs']]] = None,
@@ -287,7 +287,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the instance profile.
         """
@@ -295,7 +295,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
-    def block_device_mappings(self) -> Optional[List['outputs.LaunchTemplateBlockDeviceMapping']]:
+    def block_device_mappings(self) -> pulumi.Output[Optional[List['outputs.LaunchTemplateBlockDeviceMapping']]]:
         """
         Specify volumes to attach to the instance besides the volumes specified by the AMI.
         See Block Devices below for details.
@@ -304,7 +304,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="capacityReservationSpecification")
-    def capacity_reservation_specification(self) -> Optional['outputs.LaunchTemplateCapacityReservationSpecification']:
+    def capacity_reservation_specification(self) -> pulumi.Output[Optional['outputs.LaunchTemplateCapacityReservationSpecification']]:
         """
         Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
         """
@@ -312,7 +312,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cpuOptions")
-    def cpu_options(self) -> Optional['outputs.LaunchTemplateCpuOptions']:
+    def cpu_options(self) -> pulumi.Output[Optional['outputs.LaunchTemplateCpuOptions']]:
         """
         The CPU options for the instance. See CPU Options below for more details.
         """
@@ -320,7 +320,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creditSpecification")
-    def credit_specification(self) -> Optional['outputs.LaunchTemplateCreditSpecification']:
+    def credit_specification(self) -> pulumi.Output[Optional['outputs.LaunchTemplateCreditSpecification']]:
         """
         Customize the credit specification of the instance. See Credit
         Specification below for more details.
@@ -329,7 +329,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultVersion")
-    def default_version(self) -> float:
+    def default_version(self) -> pulumi.Output[float]:
         """
         Default Version of the launch template.
         """
@@ -337,7 +337,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the launch template.
         """
@@ -345,7 +345,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableApiTermination")
-    def disable_api_termination(self) -> Optional[bool]:
+    def disable_api_termination(self) -> pulumi.Output[Optional[bool]]:
         """
         If `true`, enables [EC2 Instance
         Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
@@ -354,7 +354,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[str]:
+    def ebs_optimized(self) -> pulumi.Output[Optional[str]]:
         """
         If `true`, the launched EC2 instance will be EBS-optimized.
         """
@@ -362,7 +362,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="elasticGpuSpecifications")
-    def elastic_gpu_specifications(self) -> Optional[List['outputs.LaunchTemplateElasticGpuSpecification']]:
+    def elastic_gpu_specifications(self) -> pulumi.Output[Optional[List['outputs.LaunchTemplateElasticGpuSpecification']]]:
         """
         The elastic GPU to attach to the instance. See Elastic GPU
         below for more details.
@@ -371,7 +371,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="elasticInferenceAccelerator")
-    def elastic_inference_accelerator(self) -> Optional['outputs.LaunchTemplateElasticInferenceAccelerator']:
+    def elastic_inference_accelerator(self) -> pulumi.Output[Optional['outputs.LaunchTemplateElasticInferenceAccelerator']]:
         """
         Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         """
@@ -379,7 +379,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hibernationOptions")
-    def hibernation_options(self) -> Optional['outputs.LaunchTemplateHibernationOptions']:
+    def hibernation_options(self) -> pulumi.Output[Optional['outputs.LaunchTemplateHibernationOptions']]:
         """
         The hibernation options for the instance. See Hibernation Options below for more details.
         """
@@ -387,7 +387,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional['outputs.LaunchTemplateIamInstanceProfile']:
+    def iam_instance_profile(self) -> pulumi.Output[Optional['outputs.LaunchTemplateIamInstanceProfile']]:
         """
         The IAM Instance Profile to launch the instance with. See Instance Profile
         below for more details.
@@ -396,7 +396,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> Optional[str]:
+    def image_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AMI from which to launch the instance.
         """
@@ -404,7 +404,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
-    def instance_initiated_shutdown_behavior(self) -> Optional[str]:
+    def instance_initiated_shutdown_behavior(self) -> pulumi.Output[Optional[str]]:
         """
         Shutdown behavior for the instance. Can be `stop` or `terminate`.
         (Default: `stop`).
@@ -413,7 +413,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceMarketOptions")
-    def instance_market_options(self) -> Optional['outputs.LaunchTemplateInstanceMarketOptions']:
+    def instance_market_options(self) -> pulumi.Output[Optional['outputs.LaunchTemplateInstanceMarketOptions']]:
         """
         The market (purchasing) option for the instance. See Market Options
         below for details.
@@ -422,7 +422,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[str]:
+    def instance_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the instance.
         """
@@ -430,7 +430,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kernelId")
-    def kernel_id(self) -> Optional[str]:
+    def kernel_id(self) -> pulumi.Output[Optional[str]]:
         """
         The kernel ID.
         """
@@ -438,7 +438,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[str]:
+    def key_name(self) -> pulumi.Output[Optional[str]]:
         """
         The key name to use for the instance.
         """
@@ -446,7 +446,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestVersion")
-    def latest_version(self) -> float:
+    def latest_version(self) -> pulumi.Output[float]:
         """
         The latest version of the launch template.
         """
@@ -454,7 +454,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseSpecifications")
-    def license_specifications(self) -> Optional[List['outputs.LaunchTemplateLicenseSpecification']]:
+    def license_specifications(self) -> pulumi.Output[Optional[List['outputs.LaunchTemplateLicenseSpecification']]]:
         """
         A list of license specifications to associate with. See License Specification below for more details.
         """
@@ -462,7 +462,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> 'outputs.LaunchTemplateMetadataOptions':
+    def metadata_options(self) -> pulumi.Output['outputs.LaunchTemplateMetadataOptions']:
         """
         Customize the metadata options for the instance. See Metadata Options below for more details.
         """
@@ -470,7 +470,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def monitoring(self) -> Optional['outputs.LaunchTemplateMonitoring']:
+    def monitoring(self) -> pulumi.Output[Optional['outputs.LaunchTemplateMonitoring']]:
         """
         The monitoring option for the instance. See Monitoring below for more details.
         """
@@ -478,7 +478,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the launch template. If you leave this blank, this provider will auto-generate a unique name.
         """
@@ -486,7 +486,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -494,7 +494,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[List['outputs.LaunchTemplateNetworkInterface']]:
+    def network_interfaces(self) -> pulumi.Output[Optional[List['outputs.LaunchTemplateNetworkInterface']]]:
         """
         Customize network interfaces to be attached at instance boot time. See Network
         Interfaces below for more details.
@@ -503,7 +503,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def placement(self) -> Optional['outputs.LaunchTemplatePlacement']:
+    def placement(self) -> pulumi.Output[Optional['outputs.LaunchTemplatePlacement']]:
         """
         The placement of the instance. See Placement below for more details.
         """
@@ -511,7 +511,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ramDiskId")
-    def ram_disk_id(self) -> Optional[str]:
+    def ram_disk_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the RAM disk.
         """
@@ -519,7 +519,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> Optional[List[str]]:
+    def security_group_names(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of security group names to associate with. If you are creating Instances in a VPC, use
         `vpc_security_group_ids` instead.
@@ -528,7 +528,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagSpecifications")
-    def tag_specifications(self) -> Optional[List['outputs.LaunchTemplateTagSpecification']]:
+    def tag_specifications(self) -> pulumi.Output[Optional[List['outputs.LaunchTemplateTagSpecification']]]:
         """
         The tags to apply to the resources during launch. See Tag Specifications below for more details.
         """
@@ -536,7 +536,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the launch template.
         """
@@ -544,7 +544,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="updateDefaultVersion")
-    def update_default_version(self) -> Optional[bool]:
+    def update_default_version(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to update Default Version each update. Conflicts with `default_version`.
         """
@@ -552,7 +552,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[str]:
+    def user_data(self) -> pulumi.Output[Optional[str]]:
         """
         The Base64-encoded user data to provide when launching the instance.
         """
@@ -560,7 +560,7 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Optional[List[str]]:
+    def vpc_security_group_ids(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of security group IDs to associate with.
         """

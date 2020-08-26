@@ -15,7 +15,7 @@ __all__ = ['AccessPoint']
 
 class AccessPoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
@@ -149,7 +149,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
         """
@@ -157,7 +157,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the S3 Access Point.
         """
@@ -165,7 +165,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def bucket(self) -> str:
+    def bucket(self) -> pulumi.Output[str]:
         """
         The name of the bucket that you want to associate this access point with.
         """
@@ -173,7 +173,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         The DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
         Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
@@ -182,7 +182,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasPublicAccessPolicy")
-    def has_public_access_policy(self) -> bool:
+    def has_public_access_policy(self) -> pulumi.Output[bool]:
         """
         Indicates whether this access point currently has a policy that allows public access.
         """
@@ -190,7 +190,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name you want to assign to this access point.
         """
@@ -198,7 +198,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkOrigin")
-    def network_origin(self) -> str:
+    def network_origin(self) -> pulumi.Output[str]:
         """
         Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
         """
@@ -206,7 +206,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         A valid JSON document that specifies the policy that you want to apply to this access point.
         """
@@ -214,7 +214,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicAccessBlockConfiguration")
-    def public_access_block_configuration(self) -> Optional['outputs.AccessPointPublicAccessBlockConfiguration']:
+    def public_access_block_configuration(self) -> pulumi.Output[Optional['outputs.AccessPointPublicAccessBlockConfiguration']]:
         """
         Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
         """
@@ -222,7 +222,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional['outputs.AccessPointVpcConfiguration']:
+    def vpc_configuration(self) -> pulumi.Output[Optional['outputs.AccessPointVpcConfiguration']]:
         """
         Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Detailed below.
         """

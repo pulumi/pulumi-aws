@@ -13,7 +13,7 @@ __all__ = ['VpcEndpointRouteTableAssociation']
 
 class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  route_table_id: Optional[pulumi.Input[str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeTableId")
-    def route_table_id(self) -> str:
+    def route_table_id(self) -> pulumi.Output[str]:
         """
         Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
         """
@@ -102,7 +102,7 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcEndpointId")
-    def vpc_endpoint_id(self) -> str:
+    def vpc_endpoint_id(self) -> pulumi.Output[str]:
         """
         Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
         """

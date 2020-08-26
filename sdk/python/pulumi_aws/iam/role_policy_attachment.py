@@ -13,7 +13,7 @@ __all__ = ['RolePolicyAttachment']
 
 class RolePolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_arn: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
@@ -127,7 +127,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> str:
+    def policy_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the policy you want to apply
         """
@@ -135,7 +135,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> str:
+    def role(self) -> pulumi.Output[str]:
         """
         The role the policy should be applied to
         """

@@ -13,7 +13,7 @@ __all__ = ['Route']
 
 class Route(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blackhole: Optional[pulumi.Input[bool]] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def blackhole(self) -> Optional[bool]:
+    def blackhole(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether to drop traffic that matches this route (default to `false`).
         """
@@ -127,7 +127,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
-    def destination_cidr_block(self) -> str:
+    def destination_cidr_block(self) -> pulumi.Output[str]:
         """
         IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
         """
@@ -135,7 +135,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> Optional[str]:
+    def transit_gateway_attachment_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
         """
@@ -143,7 +143,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
-    def transit_gateway_route_table_id(self) -> str:
+    def transit_gateway_route_table_id(self) -> pulumi.Output[str]:
         """
         Identifier of EC2 Transit Gateway Route Table.
         """

@@ -13,7 +13,7 @@ __all__ = ['VpnGatewayAttachment']
 
 class VpnGatewayAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The ID of the VPC.
         """
@@ -115,7 +115,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnGatewayId")
-    def vpn_gateway_id(self) -> str:
+    def vpn_gateway_id(self) -> pulumi.Output[str]:
         """
         The ID of the Virtual Private Gateway.
         """

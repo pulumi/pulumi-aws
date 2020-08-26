@@ -15,7 +15,7 @@ __all__ = ['LifecyclePolicy']
 
 class LifecyclePolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
@@ -183,7 +183,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
         """
@@ -191,7 +191,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         A description for the DLM lifecycle policy.
         """
@@ -199,7 +199,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> str:
+    def execution_role_arn(self) -> pulumi.Output[str]:
         """
         The ARN of an IAM role that is able to be assumed by the DLM service.
         """
@@ -207,7 +207,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDetails")
-    def policy_details(self) -> 'outputs.LifecyclePolicyPolicyDetails':
+    def policy_details(self) -> pulumi.Output['outputs.LifecyclePolicyPolicyDetails']:
         """
         See the `policy_details` configuration block. Max of 1.
         """
@@ -215,7 +215,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
         """
@@ -223,7 +223,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags.
         """

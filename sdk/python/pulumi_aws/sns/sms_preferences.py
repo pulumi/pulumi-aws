@@ -13,7 +13,7 @@ __all__ = ['SmsPreferences']
 
 class SmsPreferences(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_sender_id: Optional[pulumi.Input[str]] = None,
                  default_sms_type: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class SmsPreferences(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultSenderId")
-    def default_sender_id(self) -> Optional[str]:
+    def default_sender_id(self) -> pulumi.Output[Optional[str]]:
         """
         A string, such as your business brand, that is displayed as the sender on the receiving device.
         """
@@ -120,7 +120,7 @@ class SmsPreferences(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultSmsType")
-    def default_sms_type(self) -> Optional[str]:
+    def default_sms_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
         """
@@ -128,7 +128,7 @@ class SmsPreferences(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryStatusIamRoleArn")
-    def delivery_status_iam_role_arn(self) -> Optional[str]:
+    def delivery_status_iam_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         """
@@ -136,7 +136,7 @@ class SmsPreferences(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryStatusSuccessSamplingRate")
-    def delivery_status_success_sampling_rate(self) -> Optional[str]:
+    def delivery_status_success_sampling_rate(self) -> pulumi.Output[Optional[str]]:
         """
         The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
         """
@@ -144,7 +144,7 @@ class SmsPreferences(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monthlySpendLimit")
-    def monthly_spend_limit(self) -> Optional[str]:
+    def monthly_spend_limit(self) -> pulumi.Output[Optional[str]]:
         """
         The maximum amount in USD that you are willing to spend each month to send SMS messages.
         """
@@ -152,7 +152,7 @@ class SmsPreferences(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usageReportS3Bucket")
-    def usage_report_s3_bucket(self) -> Optional[str]:
+    def usage_report_s3_bucket(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         """

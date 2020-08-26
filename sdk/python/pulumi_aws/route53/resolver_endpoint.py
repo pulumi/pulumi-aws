@@ -15,7 +15,7 @@ __all__ = ['ResolverEndpoint']
 
 class ResolverEndpoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  direction: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ResolverEndpointIpAddressArgs']]]]] = None,
@@ -145,7 +145,7 @@ class ResolverEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Route 53 Resolver endpoint.
         """
@@ -153,7 +153,7 @@ class ResolverEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def direction(self) -> str:
+    def direction(self) -> pulumi.Output[str]:
         """
         The direction of DNS queries to or from the Route 53 Resolver endpoint.
         Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
@@ -163,7 +163,7 @@ class ResolverEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostVpcId")
-    def host_vpc_id(self) -> str:
+    def host_vpc_id(self) -> pulumi.Output[str]:
         """
         The ID of the VPC that you want to create the resolver endpoint in.
         """
@@ -171,7 +171,7 @@ class ResolverEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> List['outputs.ResolverEndpointIpAddress']:
+    def ip_addresses(self) -> pulumi.Output[List['outputs.ResolverEndpointIpAddress']]:
         """
         The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
         to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
@@ -180,7 +180,7 @@ class ResolverEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The friendly name of the Route 53 Resolver endpoint.
         """
@@ -188,7 +188,7 @@ class ResolverEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> List[str]:
+    def security_group_ids(self) -> pulumi.Output[List[str]]:
         """
         The ID of one or more security groups that you want to use to control access to this VPC.
         """
@@ -196,7 +196,7 @@ class ResolverEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

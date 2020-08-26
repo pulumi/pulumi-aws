@@ -15,7 +15,7 @@ __all__ = ['S3BucketAssociation']
 
 class S3BucketAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  classification_type: Optional[pulumi.Input[pulumi.InputType['S3BucketAssociationClassificationTypeArgs']]] = None,
@@ -113,7 +113,7 @@ class S3BucketAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> str:
+    def bucket_name(self) -> pulumi.Output[str]:
         """
         The name of the S3 bucket that you want to associate with Amazon Macie.
         """
@@ -121,7 +121,7 @@ class S3BucketAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="classificationType")
-    def classification_type(self) -> 'outputs.S3BucketAssociationClassificationType':
+    def classification_type(self) -> pulumi.Output['outputs.S3BucketAssociationClassificationType']:
         """
         The configuration of how Amazon Macie classifies the S3 objects.
         """
@@ -129,7 +129,7 @@ class S3BucketAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="memberAccountId")
-    def member_account_id(self) -> Optional[str]:
+    def member_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `member_account_id` isn't specified, the action associates specified S3 resources with Macie for the current master account.
         """
@@ -137,7 +137,7 @@ class S3BucketAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def prefix(self) -> Optional[str]:
+    def prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Object key prefix identifying one or more S3 objects to which the association applies.
         """

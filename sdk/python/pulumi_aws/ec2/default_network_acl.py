@@ -15,7 +15,7 @@ __all__ = ['DefaultNetworkAcl']
 
 class DefaultNetworkAcl(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_network_acl_id: Optional[pulumi.Input[str]] = None,
                  egress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultNetworkAclEgressArgs']]]]] = None,
@@ -208,7 +208,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Default Network ACL
         """
@@ -216,7 +216,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultNetworkAclId")
-    def default_network_acl_id(self) -> str:
+    def default_network_acl_id(self) -> pulumi.Output[str]:
         """
         The Network ACL ID to manage. This
         attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
@@ -225,7 +225,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def egress(self) -> Optional[List['outputs.DefaultNetworkAclEgress']]:
+    def egress(self) -> pulumi.Output[Optional[List['outputs.DefaultNetworkAclEgress']]]:
         """
         Specifies an egress rule. Parameters defined below.
         """
@@ -233,7 +233,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ingress(self) -> Optional[List['outputs.DefaultNetworkAclIngress']]:
+    def ingress(self) -> pulumi.Output[Optional[List['outputs.DefaultNetworkAclIngress']]]:
         """
         Specifies an ingress rule. Parameters defined below.
         """
@@ -241,7 +241,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> pulumi.Output[str]:
         """
         The ID of the AWS account that owns the Default Network ACL
         """
@@ -249,7 +249,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[List[str]]:
+    def subnet_ids(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of Subnet IDs to apply the ACL to. See the
         notes below on managing Subnets in the Default Network ACL
@@ -258,7 +258,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -266,7 +266,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The ID of the associated VPC
         """

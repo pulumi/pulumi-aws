@@ -13,7 +13,7 @@ __all__ = ['VolumeAttachment']
 
 class VolumeAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  force_detach: Optional[pulumi.Input[bool]] = None,
@@ -144,7 +144,7 @@ class VolumeAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> str:
+    def device_name(self) -> pulumi.Output[str]:
         """
         The device name to expose to the instance (for
         example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
@@ -153,7 +153,7 @@ class VolumeAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceDetach")
-    def force_detach(self) -> Optional[bool]:
+    def force_detach(self) -> pulumi.Output[Optional[bool]]:
         """
         Set to `true` if you want to force the
         volume to detach. Useful if previous attempts failed, but use this option only
@@ -164,7 +164,7 @@ class VolumeAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> str:
+    def instance_id(self) -> pulumi.Output[str]:
         """
         ID of the Instance to attach to
         """
@@ -172,7 +172,7 @@ class VolumeAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skipDestroy")
-    def skip_destroy(self) -> Optional[bool]:
+    def skip_destroy(self) -> pulumi.Output[Optional[bool]]:
         """
         Set this to true if you do not wish
         to detach the volume from the instance to which it is attached at destroy
@@ -184,7 +184,7 @@ class VolumeAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> str:
+    def volume_id(self) -> pulumi.Output[str]:
         """
         ID of the Volume to be attached
         """

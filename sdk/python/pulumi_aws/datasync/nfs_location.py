@@ -15,7 +15,7 @@ __all__ = ['NfsLocation']
 
 class NfsLocation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  on_prem_config: Optional[pulumi.Input[pulumi.InputType['NfsLocationOnPremConfigArgs']]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class NfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the DataSync Location.
         """
@@ -130,7 +130,7 @@ class NfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="onPremConfig")
-    def on_prem_config(self) -> 'outputs.NfsLocationOnPremConfig':
+    def on_prem_config(self) -> pulumi.Output['outputs.NfsLocationOnPremConfig']:
         """
         Configuration block containing information for connecting to the NFS File System.
         """
@@ -138,7 +138,7 @@ class NfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverHostname")
-    def server_hostname(self) -> str:
+    def server_hostname(self) -> pulumi.Output[str]:
         """
         Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         """
@@ -146,7 +146,7 @@ class NfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdirectory(self) -> str:
+    def subdirectory(self) -> pulumi.Output[str]:
         """
         Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         """
@@ -154,7 +154,7 @@ class NfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value pairs of resource tags to assign to the DataSync Location.
         """
@@ -162,7 +162,7 @@ class NfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> str:
+    def uri(self) -> pulumi.Output[str]:
         return pulumi.get(self, "uri")
 
     def translate_output_property(self, prop):

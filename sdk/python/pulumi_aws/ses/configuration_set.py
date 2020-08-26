@@ -13,7 +13,7 @@ __all__ = ['ConfigurationSet']
 
 class ConfigurationSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -84,7 +84,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the configuration set
         """

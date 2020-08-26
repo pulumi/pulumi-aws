@@ -15,7 +15,7 @@ __all__ = ['EfsLocation']
 
 class EfsLocation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ec2_config: Optional[pulumi.Input[pulumi.InputType['EfsLocationEc2ConfigArgs']]] = None,
                  efs_file_system_arn: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class EfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the DataSync Location.
         """
@@ -128,7 +128,7 @@ class EfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ec2Config")
-    def ec2_config(self) -> 'outputs.EfsLocationEc2Config':
+    def ec2_config(self) -> pulumi.Output['outputs.EfsLocationEc2Config']:
         """
         Configuration block containing EC2 configurations for connecting to the EFS File System.
         """
@@ -136,7 +136,7 @@ class EfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="efsFileSystemArn")
-    def efs_file_system_arn(self) -> str:
+    def efs_file_system_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of EFS File System.
         """
@@ -144,7 +144,7 @@ class EfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdirectory(self) -> Optional[str]:
+    def subdirectory(self) -> pulumi.Output[Optional[str]]:
         """
         Subdirectory to perform actions as source or destination. Default `/`.
         """
@@ -152,7 +152,7 @@ class EfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value pairs of resource tags to assign to the DataSync Location.
         """
@@ -160,7 +160,7 @@ class EfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> str:
+    def uri(self) -> pulumi.Output[str]:
         return pulumi.get(self, "uri")
 
     def translate_output_property(self, prop):

@@ -13,7 +13,7 @@ __all__ = ['QueryLog']
 
 class QueryLog(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  zone_id: Optional[pulumi.Input[str]] = None,
@@ -125,7 +125,7 @@ class QueryLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
-    def cloudwatch_log_group_arn(self) -> str:
+    def cloudwatch_log_group_arn(self) -> pulumi.Output[str]:
         """
         CloudWatch log group ARN to send query logs.
         """
@@ -133,7 +133,7 @@ class QueryLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> str:
+    def zone_id(self) -> pulumi.Output[str]:
         """
         Route53 hosted zone ID to enable query logs.
         """

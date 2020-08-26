@@ -13,7 +13,7 @@ __all__ = ['DomainIdentityVerification']
 
 class DomainIdentityVerification(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -102,7 +102,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the domain identity.
         """
@@ -110,7 +110,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def domain(self) -> str:
+    def domain(self) -> pulumi.Output[str]:
         """
         The domain name of the SES domain identity to verify.
         """

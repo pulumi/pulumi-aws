@@ -13,7 +13,7 @@ __all__ = ['NamedQuery']
 
 class NamedQuery(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -128,7 +128,7 @@ class NamedQuery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def database(self) -> str:
+    def database(self) -> pulumi.Output[str]:
         """
         The database to which the query belongs.
         """
@@ -136,7 +136,7 @@ class NamedQuery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A brief explanation of the query. Maximum length of 1024.
         """
@@ -144,7 +144,7 @@ class NamedQuery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The plain language name for the query. Maximum length of 128.
         """
@@ -152,7 +152,7 @@ class NamedQuery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def query(self) -> str:
+    def query(self) -> pulumi.Output[str]:
         """
         The text of the query itself. In other words, all query statements. Maximum length of 262144.
         """
@@ -160,7 +160,7 @@ class NamedQuery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def workgroup(self) -> Optional[str]:
+    def workgroup(self) -> pulumi.Output[Optional[str]]:
         """
         The workgroup to which the query belongs. Defaults to `primary`
         """

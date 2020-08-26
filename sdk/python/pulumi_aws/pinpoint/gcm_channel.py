@@ -13,7 +13,7 @@ __all__ = ['GcmChannel']
 
 class GcmChannel(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class GcmChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> str:
+    def api_key(self) -> pulumi.Output[str]:
         """
         Platform credential API key from Google.
         """
@@ -111,7 +111,7 @@ class GcmChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> str:
+    def application_id(self) -> pulumi.Output[str]:
         """
         The application ID.
         """
@@ -119,7 +119,7 @@ class GcmChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the channel is enabled or disabled. Defaults to `true`.
         """

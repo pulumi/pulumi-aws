@@ -15,7 +15,7 @@ __all__ = ['Group']
 
 class Group(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN assigned by AWS for this resource group.
         """
@@ -130,7 +130,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the resource group.
         """
@@ -138,7 +138,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         """
@@ -146,7 +146,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceQuery")
-    def resource_query(self) -> 'outputs.GroupResourceQuery':
+    def resource_query(self) -> pulumi.Output['outputs.GroupResourceQuery']:
         """
         A `resource_query` block. Resource queries are documented below.
         """
@@ -154,7 +154,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

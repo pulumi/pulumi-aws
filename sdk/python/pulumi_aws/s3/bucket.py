@@ -15,7 +15,7 @@ __all__ = ['Bucket']
 
 class Bucket(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acceleration_status: Optional[pulumi.Input[str]] = None,
                  acl: Optional[pulumi.Input[str]] = None,
@@ -481,7 +481,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accelerationStatus")
-    def acceleration_status(self) -> str:
+    def acceleration_status(self) -> pulumi.Output[str]:
         """
         Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
         """
@@ -489,7 +489,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def acl(self) -> Optional[str]:
+    def acl(self) -> pulumi.Output[Optional[str]]:
         """
         The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".  Conflicts with `grant`.
         """
@@ -497,7 +497,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         """
@@ -505,7 +505,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def bucket(self) -> str:
+    def bucket(self) -> pulumi.Output[str]:
         """
         The name of the bucket. If omitted, this provider will assign a random, unique name.
         """
@@ -513,7 +513,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketDomainName")
-    def bucket_domain_name(self) -> str:
+    def bucket_domain_name(self) -> pulumi.Output[str]:
         """
         The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         """
@@ -521,7 +521,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[str]:
+    def bucket_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
         """
@@ -529,7 +529,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketRegionalDomainName")
-    def bucket_regional_domain_name(self) -> str:
+    def bucket_regional_domain_name(self) -> pulumi.Output[str]:
         """
         The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
         """
@@ -537,7 +537,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> Optional[List['outputs.BucketCorsRule']]:
+    def cors_rules(self) -> pulumi.Output[Optional[List['outputs.BucketCorsRule']]]:
         """
         A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
         """
@@ -545,7 +545,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[bool]:
+    def force_destroy(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
         """
@@ -553,7 +553,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def grants(self) -> Optional[List['outputs.BucketGrant']]:
+    def grants(self) -> pulumi.Output[Optional[List['outputs.BucketGrant']]]:
         """
         An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
         """
@@ -561,7 +561,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> str:
+    def hosted_zone_id(self) -> pulumi.Output[str]:
         """
         The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         """
@@ -569,7 +569,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lifecycleRules")
-    def lifecycle_rules(self) -> Optional[List['outputs.BucketLifecycleRule']]:
+    def lifecycle_rules(self) -> pulumi.Output[Optional[List['outputs.BucketLifecycleRule']]]:
         """
         A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
         """
@@ -577,7 +577,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def loggings(self) -> Optional[List['outputs.BucketLogging']]:
+    def loggings(self) -> pulumi.Output[Optional[List['outputs.BucketLogging']]]:
         """
         A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         """
@@ -585,7 +585,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectLockConfiguration")
-    def object_lock_configuration(self) -> Optional['outputs.BucketObjectLockConfiguration']:
+    def object_lock_configuration(self) -> pulumi.Output[Optional['outputs.BucketObjectLockConfiguration']]:
         """
         A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
         """
@@ -593,7 +593,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[str]:
+    def policy(self) -> pulumi.Output[Optional[str]]:
         """
         A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
         """
@@ -601,7 +601,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def region(self) -> str:
+    def region(self) -> pulumi.Output[str]:
         """
         The AWS region this bucket resides in.
         """
@@ -609,7 +609,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationConfiguration")
-    def replication_configuration(self) -> Optional['outputs.BucketReplicationConfiguration']:
+    def replication_configuration(self) -> pulumi.Output[Optional['outputs.BucketReplicationConfiguration']]:
         """
         A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
         """
@@ -617,7 +617,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestPayer")
-    def request_payer(self) -> str:
+    def request_payer(self) -> pulumi.Output[str]:
         """
         Specifies who should bear the cost of Amazon S3 data transfer.
         Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
@@ -628,7 +628,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
-    def server_side_encryption_configuration(self) -> Optional['outputs.BucketServerSideEncryptionConfiguration']:
+    def server_side_encryption_configuration(self) -> pulumi.Output[Optional['outputs.BucketServerSideEncryptionConfiguration']]:
         """
         A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
         """
@@ -636,7 +636,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the bucket.
         """
@@ -644,7 +644,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def versioning(self) -> 'outputs.BucketVersioning':
+    def versioning(self) -> pulumi.Output['outputs.BucketVersioning']:
         """
         A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
         """
@@ -652,7 +652,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def website(self) -> Optional['outputs.BucketWebsite']:
+    def website(self) -> pulumi.Output[Optional['outputs.BucketWebsite']]:
         """
         A website object (documented below).
         """
@@ -660,7 +660,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="websiteDomain")
-    def website_domain(self) -> str:
+    def website_domain(self) -> pulumi.Output[str]:
         """
         The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         """
@@ -668,7 +668,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="websiteEndpoint")
-    def website_endpoint(self) -> str:
+    def website_endpoint(self) -> pulumi.Output[str]:
         """
         The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         """

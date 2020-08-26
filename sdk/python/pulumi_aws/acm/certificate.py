@@ -15,7 +15,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                  certificate_body: Optional[pulumi.Input[str]] = None,
@@ -221,7 +221,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the certificate
         """
@@ -229,7 +229,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateAuthorityArn")
-    def certificate_authority_arn(self) -> Optional[str]:
+    def certificate_authority_arn(self) -> pulumi.Output[Optional[str]]:
         """
         ARN of an ACMPCA
         """
@@ -237,7 +237,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateBody")
-    def certificate_body(self) -> Optional[str]:
+    def certificate_body(self) -> pulumi.Output[Optional[str]]:
         """
         The certificate's PEM-formatted public key
         """
@@ -245,7 +245,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> Optional[str]:
+    def certificate_chain(self) -> pulumi.Output[Optional[str]]:
         """
         The certificate's PEM-formatted chain
         * Creating a private CA issued certificate
@@ -254,7 +254,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         A domain name for which the certificate should be issued
         """
@@ -262,7 +262,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainValidationOptions")
-    def domain_validation_options(self) -> List['outputs.CertificateDomainValidationOption']:
+    def domain_validation_options(self) -> pulumi.Output[List['outputs.CertificateDomainValidationOption']]:
         """
         Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
         """
@@ -270,7 +270,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def options(self) -> Optional['outputs.CertificateOptions']:
+    def options(self) -> pulumi.Output[Optional['outputs.CertificateOptions']]:
         """
         Configuration block used to set certificate options. Detailed below.
         * Importing an existing certificate
@@ -279,7 +279,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[str]:
+    def private_key(self) -> pulumi.Output[Optional[str]]:
         """
         The certificate's PEM-formatted private key
         """
@@ -287,7 +287,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         Status of the certificate.
         """
@@ -295,7 +295,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> List[str]:
+    def subject_alternative_names(self) -> pulumi.Output[List[str]]:
         """
         Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`) to trigger recreation.
         """
@@ -303,7 +303,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -311,7 +311,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validationEmails")
-    def validation_emails(self) -> List[str]:
+    def validation_emails(self) -> pulumi.Output[List[str]]:
         """
         A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
         """
@@ -319,7 +319,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validationMethod")
-    def validation_method(self) -> str:
+    def validation_method(self) -> pulumi.Output[str]:
         """
         Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
         """

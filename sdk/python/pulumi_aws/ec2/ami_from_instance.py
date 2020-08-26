@@ -15,7 +15,7 @@ __all__ = ['AmiFromInstance']
 
 class AmiFromInstance(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]]] = None,
@@ -196,7 +196,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def architecture(self) -> str:
+    def architecture(self) -> pulumi.Output[str]:
         """
         Machine architecture for created instances. Defaults to "x86_64".
         """
@@ -204,7 +204,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the AMI.
         """
@@ -212,7 +212,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A longer, human-readable description for the AMI.
         """
@@ -220,7 +220,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> List['outputs.AmiFromInstanceEbsBlockDevice']:
+    def ebs_block_devices(self) -> pulumi.Output[List['outputs.AmiFromInstanceEbsBlockDevice']]:
         """
         Nested block describing an EBS block device that should be
         attached to created instances. The structure of this block is described below.
@@ -229,7 +229,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enaSupport")
-    def ena_support(self) -> bool:
+    def ena_support(self) -> pulumi.Output[bool]:
         """
         Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
         """
@@ -237,7 +237,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> List['outputs.AmiFromInstanceEphemeralBlockDevice']:
+    def ephemeral_block_devices(self) -> pulumi.Output[List['outputs.AmiFromInstanceEphemeralBlockDevice']]:
         """
         Nested block describing an ephemeral block device that
         should be attached to created instances. The structure of this block is described below.
@@ -246,7 +246,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageLocation")
-    def image_location(self) -> str:
+    def image_location(self) -> pulumi.Output[str]:
         """
         Path to an S3 object containing an image manifest, e.g. created
         by the `ec2-upload-bundle` command in the EC2 command line tools.
@@ -255,7 +255,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kernelId")
-    def kernel_id(self) -> str:
+    def kernel_id(self) -> pulumi.Output[str]:
         """
         The id of the kernel image (AKI) that will be used as the paravirtual
         kernel in created instances.
@@ -264,12 +264,12 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="manageEbsSnapshots")
-    def manage_ebs_snapshots(self) -> bool:
+    def manage_ebs_snapshots(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "manage_ebs_snapshots")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A region-unique name for the AMI.
         """
@@ -277,7 +277,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ramdiskId")
-    def ramdisk_id(self) -> str:
+    def ramdisk_id(self) -> pulumi.Output[str]:
         """
         The id of an initrd image (ARI) that will be used when booting the
         created instances.
@@ -286,7 +286,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootDeviceName")
-    def root_device_name(self) -> str:
+    def root_device_name(self) -> pulumi.Output[str]:
         """
         The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         """
@@ -294,12 +294,12 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootSnapshotId")
-    def root_snapshot_id(self) -> str:
+    def root_snapshot_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "root_snapshot_id")
 
     @property
     @pulumi.getter(name="snapshotWithoutReboot")
-    def snapshot_without_reboot(self) -> Optional[bool]:
+    def snapshot_without_reboot(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean that overrides the behavior of stopping
         the instance before snapshotting. This is risky since it may cause a snapshot of an
@@ -310,7 +310,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceInstanceId")
-    def source_instance_id(self) -> str:
+    def source_instance_id(self) -> pulumi.Output[str]:
         """
         The id of the instance to use as the basis of the AMI.
         """
@@ -318,7 +318,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sriovNetSupport")
-    def sriov_net_support(self) -> str:
+    def sriov_net_support(self) -> pulumi.Output[str]:
         """
         When set to "simple" (the default), enables enhanced networking
         for created instances. No other value is supported at this time.
@@ -327,7 +327,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -335,7 +335,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualizationType")
-    def virtualization_type(self) -> str:
+    def virtualization_type(self) -> pulumi.Output[str]:
         """
         Keyword to choose what virtualization mode created instances
         will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type

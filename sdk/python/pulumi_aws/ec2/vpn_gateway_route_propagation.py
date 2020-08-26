@@ -13,7 +13,7 @@ __all__ = ['VpnGatewayRoutePropagation']
 
 class VpnGatewayRoutePropagation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  route_table_id: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeTableId")
-    def route_table_id(self) -> str:
+    def route_table_id(self) -> pulumi.Output[str]:
         """
         The id of the `ec2.RouteTable` to propagate routes into.
         """
@@ -106,7 +106,7 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnGatewayId")
-    def vpn_gateway_id(self) -> str:
+    def vpn_gateway_id(self) -> pulumi.Output[str]:
         """
         The id of the `ec2.VpnGateway` to propagate routes from.
         """

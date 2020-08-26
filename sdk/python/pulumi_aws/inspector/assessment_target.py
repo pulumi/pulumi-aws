@@ -13,7 +13,7 @@ __all__ = ['AssessmentTarget']
 
 class AssessmentTarget(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_arn: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class AssessmentTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The target assessment ARN.
         """
@@ -104,7 +104,7 @@ class AssessmentTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the assessment target.
         """
@@ -112,7 +112,7 @@ class AssessmentTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupArn")
-    def resource_group_arn(self) -> Optional[str]:
+    def resource_group_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """

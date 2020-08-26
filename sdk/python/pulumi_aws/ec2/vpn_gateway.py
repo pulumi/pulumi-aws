@@ -13,7 +13,7 @@ __all__ = ['VpnGateway']
 
 class VpnGateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amazon_side_asn: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> str:
+    def amazon_side_asn(self) -> pulumi.Output[str]:
         """
         The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
         """
@@ -116,7 +116,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the VPN Gateway.
         """
@@ -124,7 +124,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         The Availability Zone for the virtual private gateway.
         """
@@ -132,7 +132,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -140,7 +140,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The VPC ID to create in.
         """

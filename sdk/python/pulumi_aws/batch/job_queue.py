@@ -13,7 +13,7 @@ __all__ = ['JobQueue']
 
 class JobQueue(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environments: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class JobQueue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name of the job queue.
         """
@@ -132,7 +132,7 @@ class JobQueue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computeEnvironments")
-    def compute_environments(self) -> List[str]:
+    def compute_environments(self) -> pulumi.Output[List[str]]:
         """
         Specifies the set of compute environments
         mapped to a job queue and their order.  The position of the compute environments
@@ -143,7 +143,7 @@ class JobQueue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the job queue.
         """
@@ -151,7 +151,7 @@ class JobQueue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> pulumi.Output[float]:
         """
         The priority of the job queue. Job queues with a higher priority
         are evaluated first when associated with the same compute environment.
@@ -160,7 +160,7 @@ class JobQueue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
         """

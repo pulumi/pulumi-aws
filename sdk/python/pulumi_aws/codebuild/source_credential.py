@@ -13,7 +13,7 @@ __all__ = ['SourceCredential']
 
 class SourceCredential(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
                  server_type: Optional[pulumi.Input[str]] = None,
@@ -125,7 +125,7 @@ class SourceCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of Source Credential.
         """
@@ -133,7 +133,7 @@ class SourceCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> str:
+    def auth_type(self) -> pulumi.Output[str]:
         """
         The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
         """
@@ -141,7 +141,7 @@ class SourceCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverType")
-    def server_type(self) -> str:
+    def server_type(self) -> pulumi.Output[str]:
         """
         The source provider used for this project.
         """
@@ -149,7 +149,7 @@ class SourceCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def token(self) -> str:
+    def token(self) -> pulumi.Output[str]:
         """
         For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
         """
@@ -157,7 +157,7 @@ class SourceCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[str]:
+    def user_name(self) -> pulumi.Output[Optional[str]]:
         """
         The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
         """

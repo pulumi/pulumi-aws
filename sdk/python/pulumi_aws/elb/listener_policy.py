@@ -13,7 +13,7 @@ __all__ = ['ListenerPolicy']
 
 class ListenerPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  load_balancer_port: Optional[pulumi.Input[float]] = None,
@@ -165,7 +165,7 @@ class ListenerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerName")
-    def load_balancer_name(self) -> str:
+    def load_balancer_name(self) -> pulumi.Output[str]:
         """
         The load balancer to attach the policy to.
         """
@@ -173,7 +173,7 @@ class ListenerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerPort")
-    def load_balancer_port(self) -> float:
+    def load_balancer_port(self) -> pulumi.Output[float]:
         """
         The load balancer listener port to apply the policy to.
         """
@@ -181,7 +181,7 @@ class ListenerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyNames")
-    def policy_names(self) -> Optional[List[str]]:
+    def policy_names(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of Policy Names to apply to the backend server.
         """

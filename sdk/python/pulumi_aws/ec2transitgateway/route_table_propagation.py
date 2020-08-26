@@ -13,7 +13,7 @@ __all__ = ['RouteTablePropagation']
 
 class RouteTablePropagation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class RouteTablePropagation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
+    def resource_id(self) -> pulumi.Output[str]:
         """
         Identifier of the resource
         """
@@ -110,7 +110,7 @@ class RouteTablePropagation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> str:
+    def resource_type(self) -> pulumi.Output[str]:
         """
         Type of the resource
         """
@@ -118,7 +118,7 @@ class RouteTablePropagation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> str:
+    def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
         """
         Identifier of EC2 Transit Gateway Attachment.
         """
@@ -126,7 +126,7 @@ class RouteTablePropagation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
-    def transit_gateway_route_table_id(self) -> str:
+    def transit_gateway_route_table_id(self) -> pulumi.Output[str]:
         """
         Identifier of EC2 Transit Gateway Route Table.
         """

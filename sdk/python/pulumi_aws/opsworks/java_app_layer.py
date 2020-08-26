@@ -15,7 +15,7 @@ __all__ = ['JavaAppLayer']
 
 class JavaAppLayer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_server: Optional[pulumi.Input[str]] = None,
                  app_server_version: Optional[pulumi.Input[str]] = None,
@@ -230,7 +230,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServer")
-    def app_server(self) -> Optional[str]:
+    def app_server(self) -> pulumi.Output[Optional[str]]:
         """
         Keyword for the application container to use. Defaults to "tomcat".
         """
@@ -238,7 +238,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServerVersion")
-    def app_server_version(self) -> Optional[str]:
+    def app_server_version(self) -> pulumi.Output[Optional[str]]:
         """
         Version of the selected application container to use. Defaults to "7".
         """
@@ -246,7 +246,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name(ARN) of the layer.
         """
@@ -254,7 +254,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoAssignElasticIps")
-    def auto_assign_elastic_ips(self) -> Optional[bool]:
+    def auto_assign_elastic_ips(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to automatically assign an elastic IP address to the layer's instances.
         """
@@ -262,7 +262,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoAssignPublicIps")
-    def auto_assign_public_ips(self) -> Optional[bool]:
+    def auto_assign_public_ips(self) -> pulumi.Output[Optional[bool]]:
         """
         For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         """
@@ -270,7 +270,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoHealing")
-    def auto_healing(self) -> Optional[bool]:
+    def auto_healing(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable auto-healing for the layer.
         """
@@ -278,17 +278,17 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customConfigureRecipes")
-    def custom_configure_recipes(self) -> Optional[List[str]]:
+    def custom_configure_recipes(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "custom_configure_recipes")
 
     @property
     @pulumi.getter(name="customDeployRecipes")
-    def custom_deploy_recipes(self) -> Optional[List[str]]:
+    def custom_deploy_recipes(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "custom_deploy_recipes")
 
     @property
     @pulumi.getter(name="customInstanceProfileArn")
-    def custom_instance_profile_arn(self) -> Optional[str]:
+    def custom_instance_profile_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of an IAM profile that will be used for the layer's instances.
         """
@@ -296,7 +296,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customJson")
-    def custom_json(self) -> Optional[str]:
+    def custom_json(self) -> pulumi.Output[Optional[str]]:
         """
         Custom JSON attributes to apply to the layer.
         """
@@ -304,7 +304,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customSecurityGroupIds")
-    def custom_security_group_ids(self) -> Optional[List[str]]:
+    def custom_security_group_ids(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Ids for a set of security groups to apply to the layer's instances.
         """
@@ -312,22 +312,22 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customSetupRecipes")
-    def custom_setup_recipes(self) -> Optional[List[str]]:
+    def custom_setup_recipes(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "custom_setup_recipes")
 
     @property
     @pulumi.getter(name="customShutdownRecipes")
-    def custom_shutdown_recipes(self) -> Optional[List[str]]:
+    def custom_shutdown_recipes(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "custom_shutdown_recipes")
 
     @property
     @pulumi.getter(name="customUndeployRecipes")
-    def custom_undeploy_recipes(self) -> Optional[List[str]]:
+    def custom_undeploy_recipes(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "custom_undeploy_recipes")
 
     @property
     @pulumi.getter(name="drainElbOnShutdown")
-    def drain_elb_on_shutdown(self) -> Optional[bool]:
+    def drain_elb_on_shutdown(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable Elastic Load Balancing connection draining.
         """
@@ -335,7 +335,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> Optional[List['outputs.JavaAppLayerEbsVolume']]:
+    def ebs_volumes(self) -> pulumi.Output[Optional[List['outputs.JavaAppLayerEbsVolume']]]:
         """
         `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
@@ -343,7 +343,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="elasticLoadBalancer")
-    def elastic_load_balancer(self) -> Optional[str]:
+    def elastic_load_balancer(self) -> pulumi.Output[Optional[str]]:
         """
         Name of an Elastic Load Balancer to attach to this layer
         """
@@ -351,7 +351,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="installUpdatesOnBoot")
-    def install_updates_on_boot(self) -> Optional[bool]:
+    def install_updates_on_boot(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to install OS and package updates on each instance when it boots.
         """
@@ -359,7 +359,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceShutdownTimeout")
-    def instance_shutdown_timeout(self) -> Optional[float]:
+    def instance_shutdown_timeout(self) -> pulumi.Output[Optional[float]]:
         """
         The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         """
@@ -367,7 +367,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jvmOptions")
-    def jvm_options(self) -> Optional[str]:
+    def jvm_options(self) -> pulumi.Output[Optional[str]]:
         """
         Options to set for the JVM.
         """
@@ -375,7 +375,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jvmType")
-    def jvm_type(self) -> Optional[str]:
+    def jvm_type(self) -> pulumi.Output[Optional[str]]:
         """
         Keyword for the type of JVM to use. Defaults to `openjdk`.
         """
@@ -383,7 +383,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jvmVersion")
-    def jvm_version(self) -> Optional[str]:
+    def jvm_version(self) -> pulumi.Output[Optional[str]]:
         """
         Version of JVM to use. Defaults to "7".
         """
@@ -391,7 +391,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A human-readable name for the layer.
         """
@@ -399,7 +399,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stackId")
-    def stack_id(self) -> str:
+    def stack_id(self) -> pulumi.Output[str]:
         """
         The id of the stack the layer will belong to.
         """
@@ -407,7 +407,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemPackages")
-    def system_packages(self) -> Optional[List[str]]:
+    def system_packages(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Names of a set of system packages to install on the layer's instances.
         """
@@ -415,7 +415,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -423,7 +423,7 @@ class JavaAppLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="useEbsOptimizedInstances")
-    def use_ebs_optimized_instances(self) -> Optional[bool]:
+    def use_ebs_optimized_instances(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to use EBS-optimized instances.
         """

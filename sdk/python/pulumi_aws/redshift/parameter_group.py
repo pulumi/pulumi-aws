@@ -15,7 +15,7 @@ __all__ = ['ParameterGroup']
 
 class ParameterGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
@@ -131,7 +131,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of parameter group
         """
@@ -139,7 +139,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
         """
@@ -147,7 +147,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def family(self) -> str:
+    def family(self) -> pulumi.Output[str]:
         """
         The family of the Redshift parameter group.
         """
@@ -155,7 +155,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Redshift parameter.
         """
@@ -163,7 +163,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.ParameterGroupParameter']]:
+    def parameters(self) -> pulumi.Output[Optional[List['outputs.ParameterGroupParameter']]]:
         """
         A list of Redshift parameters to apply.
         """
@@ -171,7 +171,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

@@ -15,7 +15,7 @@ __all__ = ['ComputeEnvironment']
 
 class ComputeEnvironment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_name: Optional[pulumi.Input[str]] = None,
                  compute_environment_name_prefix: Optional[pulumi.Input[str]] = None,
@@ -196,7 +196,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the compute environment.
         """
@@ -204,7 +204,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computeEnvironmentName")
-    def compute_environment_name(self) -> str:
+    def compute_environment_name(self) -> pulumi.Output[str]:
         """
         The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
         """
@@ -212,7 +212,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computeEnvironmentNamePrefix")
-    def compute_environment_name_prefix(self) -> Optional[str]:
+    def compute_environment_name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         """
@@ -220,7 +220,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computeResources")
-    def compute_resources(self) -> Optional['outputs.ComputeEnvironmentComputeResources']:
+    def compute_resources(self) -> pulumi.Output[Optional['outputs.ComputeEnvironmentComputeResources']]:
         """
         Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         """
@@ -228,7 +228,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ecsClusterArn")
-    def ecs_cluster_arn(self) -> str:
+    def ecs_cluster_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
         """
@@ -236,7 +236,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceRole")
-    def service_role(self) -> str:
+    def service_role(self) -> pulumi.Output[str]:
         """
         The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         """
@@ -244,7 +244,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         """
@@ -252,7 +252,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The current status of the compute environment (for example, CREATING or VALID).
         """
@@ -260,7 +260,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> str:
+    def status_reason(self) -> pulumi.Output[str]:
         """
         A short, human-readable string to provide additional details about the current status of the compute environment.
         """
@@ -268,7 +268,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of compute environment. Valid items are `EC2` or `SPOT`.
         """

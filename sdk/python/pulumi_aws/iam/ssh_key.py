@@ -13,7 +13,7 @@ __all__ = ['SshKey']
 
 class SshKey(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
                  public_key: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class SshKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encoding(self) -> str:
+    def encoding(self) -> pulumi.Output[str]:
         """
         Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
         """
@@ -126,7 +126,7 @@ class SshKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fingerprint(self) -> str:
+    def fingerprint(self) -> pulumi.Output[str]:
         """
         The MD5 message digest of the SSH public key.
         """
@@ -134,7 +134,7 @@ class SshKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> str:
+    def public_key(self) -> pulumi.Output[str]:
         """
         The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
         """
@@ -142,7 +142,7 @@ class SshKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sshPublicKeyId")
-    def ssh_public_key_id(self) -> str:
+    def ssh_public_key_id(self) -> pulumi.Output[str]:
         """
         The unique identifier for the SSH public key.
         """
@@ -150,7 +150,7 @@ class SshKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
         """
@@ -158,7 +158,7 @@ class SshKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def username(self) -> pulumi.Output[str]:
         """
         The name of the IAM user to associate the SSH public key with.
         """

@@ -13,7 +13,7 @@ __all__ = ['AmiLaunchPermission']
 
 class AmiLaunchPermission(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  image_id: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> pulumi.Output[str]:
         """
         An AWS Account ID to add launch permissions.
         """
@@ -102,7 +102,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> str:
+    def image_id(self) -> pulumi.Output[str]:
         """
         A region-unique name for the AMI.
         """

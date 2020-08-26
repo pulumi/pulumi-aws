@@ -13,7 +13,7 @@ __all__ = ['VpcEndpointSubnetAssociation']
 
 class VpcEndpointSubnetAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the subnet to be associated with the VPC endpoint.
         """
@@ -110,7 +110,7 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcEndpointId")
-    def vpc_endpoint_id(self) -> str:
+    def vpc_endpoint_id(self) -> pulumi.Output[str]:
         """
         The ID of the VPC endpoint with which the subnet will be associated.
         """

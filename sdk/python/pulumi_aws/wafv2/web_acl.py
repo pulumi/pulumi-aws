@@ -15,7 +15,7 @@ __all__ = ['WebAcl']
 
 class WebAcl(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -335,7 +335,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the IP Set that this statement references.
         """
@@ -343,7 +343,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> pulumi.Output[float]:
         """
         The web ACL capacity units (WCUs) currently being used by this web ACL.
         """
@@ -351,7 +351,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> 'outputs.WebAclDefaultAction':
+    def default_action(self) -> pulumi.Output['outputs.WebAclDefaultAction']:
         """
         The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         """
@@ -359,7 +359,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A friendly description of the WebACL.
         """
@@ -367,12 +367,12 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockToken")
-    def lock_token(self) -> str:
+    def lock_token(self) -> pulumi.Output[str]:
         return pulumi.get(self, "lock_token")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A friendly name of the WebACL.
         """
@@ -380,7 +380,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.WebAclRule']]:
+    def rules(self) -> pulumi.Output[Optional[List['outputs.WebAclRule']]]:
         """
         The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         """
@@ -388,7 +388,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> pulumi.Output[str]:
         """
         Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         """
@@ -396,7 +396,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         An array of key:value pairs to associate with the resource.
         """
@@ -404,7 +404,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> 'outputs.WebAclVisibilityConfig':
+    def visibility_config(self) -> pulumi.Output['outputs.WebAclVisibilityConfig']:
         """
         Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         """

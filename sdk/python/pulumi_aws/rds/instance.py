@@ -15,7 +15,7 @@ __all__ = ['Instance']
 
 class Instance(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_storage: Optional[pulumi.Input[float]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
@@ -618,7 +618,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def address(self) -> str:
+    def address(self) -> pulumi.Output[str]:
         """
         The hostname of the RDS instance. See also `endpoint` and `port`.
         """
@@ -626,7 +626,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> float:
+    def allocated_storage(self) -> pulumi.Output[float]:
         """
         The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
         """
@@ -634,7 +634,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowMajorVersionUpgrade")
-    def allow_major_version_upgrade(self) -> Optional[bool]:
+    def allow_major_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates that major version
         upgrades are allowed. Changing this parameter does not result in an outage and
@@ -644,7 +644,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> bool:
+    def apply_immediately(self) -> pulumi.Output[bool]:
         """
         Specifies whether any database modifications
         are applied immediately, or during the next maintenance window. Default is
@@ -655,7 +655,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the RDS instance.
         """
@@ -663,7 +663,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> Optional[bool]:
+    def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates that minor engine upgrades
         will be applied automatically to the DB instance during the maintenance window.
@@ -673,7 +673,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> pulumi.Output[str]:
         """
         The AZ for the RDS instance.
         """
@@ -681,7 +681,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
-    def backup_retention_period(self) -> float:
+    def backup_retention_period(self) -> pulumi.Output[float]:
         """
         The days to retain backups for. Must be
         between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
@@ -690,7 +690,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupWindow")
-    def backup_window(self) -> str:
+    def backup_window(self) -> pulumi.Output[str]:
         """
         The daily time range (in UTC) during which
         automated backups are created if they are enabled. Example: "09:46-10:16". Must
@@ -700,7 +700,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="caCertIdentifier")
-    def ca_cert_identifier(self) -> str:
+    def ca_cert_identifier(self) -> pulumi.Output[str]:
         """
         The identifier of the CA certificate for the DB instance.
         """
@@ -708,7 +708,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="characterSetName")
-    def character_set_name(self) -> str:
+    def character_set_name(self) -> pulumi.Output[str]:
         """
         The character set name to use for DB
         encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
@@ -719,7 +719,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="copyTagsToSnapshot")
-    def copy_tags_to_snapshot(self) -> Optional[bool]:
+    def copy_tags_to_snapshot(self) -> pulumi.Output[Optional[bool]]:
         """
         Copy all Instance `tags` to snapshots. Default is `false`.
         """
@@ -727,7 +727,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbSubnetGroupName")
-    def db_subnet_group_name(self) -> str:
+    def db_subnet_group_name(self) -> pulumi.Output[str]:
         """
         Name of `DB subnet group`. DB instance will
         be created in the VPC associated with the DB subnet group. If unspecified, will
@@ -741,7 +741,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deleteAutomatedBackups")
-    def delete_automated_backups(self) -> Optional[bool]:
+    def delete_automated_backups(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         """
@@ -749,7 +749,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deletionProtection")
-    def deletion_protection(self) -> Optional[bool]:
+    def deletion_protection(self) -> pulumi.Output[Optional[bool]]:
         """
         If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         """
@@ -757,7 +757,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def domain(self) -> Optional[str]:
+    def domain(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Directory Service Active Directory domain to create the instance in.
         """
@@ -765,7 +765,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainIamRoleName")
-    def domain_iam_role_name(self) -> Optional[str]:
+    def domain_iam_role_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the IAM role to be used when making API calls to the Directory Service.
         """
@@ -773,7 +773,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
-    def enabled_cloudwatch_logs_exports(self) -> Optional[List[str]]:
+    def enabled_cloudwatch_logs_exports(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
         """
@@ -781,7 +781,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> pulumi.Output[str]:
         """
         The connection endpoint in `address:port` format.
         """
@@ -789,7 +789,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> str:
+    def engine(self) -> pulumi.Output[str]:
         """
         (Required unless a `snapshot_identifier` or `replicate_source_db`
         is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
@@ -802,7 +802,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> pulumi.Output[str]:
         """
         The engine version to use. If `auto_minor_version_upgrade`
         is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
@@ -814,7 +814,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="finalSnapshotIdentifier")
-    def final_snapshot_identifier(self) -> Optional[str]:
+    def final_snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The name of your final DB snapshot
         when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
@@ -824,7 +824,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> str:
+    def hosted_zone_id(self) -> pulumi.Output[str]:
         """
         The canonical hosted zone ID of the DB instance (to be used
         in a Route 53 Alias record).
@@ -833,7 +833,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamDatabaseAuthenticationEnabled")
-    def iam_database_authentication_enabled(self) -> Optional[bool]:
+    def iam_database_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether or
         mappings of AWS Identity and Access Management (IAM) accounts to database
@@ -843,7 +843,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identifier(self) -> str:
+    def identifier(self) -> pulumi.Output[str]:
         """
         The name of the RDS instance,
         if omitted, this provider will assign a random, unique identifier.
@@ -852,7 +852,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identifierPrefix")
-    def identifier_prefix(self) -> str:
+    def identifier_prefix(self) -> pulumi.Output[str]:
         """
         Creates a unique
         identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -861,7 +861,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceClass")
-    def instance_class(self) -> str:
+    def instance_class(self) -> pulumi.Output[str]:
         """
         The instance type of the RDS instance.
         """
@@ -869,7 +869,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[float]:
+    def iops(self) -> pulumi.Output[Optional[float]]:
         """
         The amount of provisioned IOPS. Setting this implies a
         storage_type of "io1".
@@ -878,7 +878,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> pulumi.Output[str]:
         """
         The ARN for the KMS encryption key. If creating an
         encrypted replica, set this to the destination KMS ARN.
@@ -887,7 +887,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseModel")
-    def license_model(self) -> str:
+    def license_model(self) -> pulumi.Output[str]:
         """
         (Optional, but required for some DB engines, i.e. Oracle
         SE1) License model information for this DB instance.
@@ -896,7 +896,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> str:
+    def maintenance_window(self) -> pulumi.Output[str]:
         """
         The window to perform maintenance in.
         Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -908,7 +908,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxAllocatedStorage")
-    def max_allocated_storage(self) -> Optional[float]:
+    def max_allocated_storage(self) -> pulumi.Output[Optional[float]]:
         """
         When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
         """
@@ -916,7 +916,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringInterval")
-    def monitoring_interval(self) -> Optional[float]:
+    def monitoring_interval(self) -> pulumi.Output[Optional[float]]:
         """
         The interval, in seconds, between points
         when Enhanced Monitoring metrics are collected for the DB instance. To disable
@@ -927,7 +927,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringRoleArn")
-    def monitoring_role_arn(self) -> str:
+    def monitoring_role_arn(self) -> pulumi.Output[str]:
         """
         The ARN for the IAM role that permits RDS
         to send enhanced monitoring metrics to CloudWatch Logs. You can find more
@@ -939,7 +939,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="multiAz")
-    def multi_az(self) -> bool:
+    def multi_az(self) -> pulumi.Output[bool]:
         """
         Specifies if the RDS instance is multi-AZ
         """
@@ -947,7 +947,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines.
         """
@@ -955,7 +955,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="optionGroupName")
-    def option_group_name(self) -> str:
+    def option_group_name(self) -> pulumi.Output[str]:
         """
         Name of the DB option group to associate.
         """
@@ -963,7 +963,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> str:
+    def parameter_group_name(self) -> pulumi.Output[str]:
         """
         Name of the DB parameter group to
         associate.
@@ -972,7 +972,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         (Required unless a `snapshot_identifier` or `replicate_source_db`
         is provided) Password for the master DB user. Note that this may show up in
@@ -982,7 +982,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="performanceInsightsEnabled")
-    def performance_insights_enabled(self) -> Optional[bool]:
+    def performance_insights_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether Performance Insights are enabled. Defaults to false.
         """
@@ -990,7 +990,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="performanceInsightsKmsKeyId")
-    def performance_insights_kms_key_id(self) -> str:
+    def performance_insights_kms_key_id(self) -> pulumi.Output[str]:
         """
         The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
         """
@@ -998,7 +998,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="performanceInsightsRetentionPeriod")
-    def performance_insights_retention_period(self) -> float:
+    def performance_insights_retention_period(self) -> pulumi.Output[float]:
         """
         The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         """
@@ -1006,7 +1006,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> pulumi.Output[float]:
         """
         The port on which the DB accepts connections.
         """
@@ -1014,7 +1014,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[bool]:
+    def publicly_accessible(self) -> pulumi.Output[Optional[bool]]:
         """
         Bool to control if instance is publicly
         accessible. Default is `false`.
@@ -1023,12 +1023,12 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def replicas(self) -> List[str]:
+    def replicas(self) -> pulumi.Output[List[str]]:
         return pulumi.get(self, "replicas")
 
     @property
     @pulumi.getter(name="replicateSourceDb")
-    def replicate_source_db(self) -> Optional[str]:
+    def replicate_source_db(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies that this resource is a Replicate
         database, and to use this value as the source database. This correlates to the
@@ -1044,7 +1044,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
+    def resource_id(self) -> pulumi.Output[str]:
         """
         The RDS Resource ID of this instance.
         """
@@ -1052,7 +1052,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Import")
-    def s3_import(self) -> Optional['outputs.InstanceS3Import']:
+    def s3_import(self) -> pulumi.Output[Optional['outputs.InstanceS3Import']]:
         """
         Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
         """
@@ -1060,7 +1060,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> Optional[List[str]]:
+    def security_group_names(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of DB Security Groups to
         associate. Only used for [DB Instances on the _EC2-Classic_
@@ -1070,7 +1070,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skipFinalSnapshot")
-    def skip_final_snapshot(self) -> Optional[bool]:
+    def skip_final_snapshot(self) -> pulumi.Output[Optional[bool]]:
         """
         Determines whether a final DB snapshot is
         created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -1082,7 +1082,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotIdentifier")
-    def snapshot_identifier(self) -> Optional[str]:
+    def snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether or not to create this
         database from a snapshot. This correlates to the snapshot ID you'd find in the
@@ -1092,7 +1092,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The RDS instance status.
         """
@@ -1100,7 +1100,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> Optional[bool]:
+    def storage_encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the DB instance is
         encrypted. Note that if you are creating a cross-region read replica this field
@@ -1111,7 +1111,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> str:
+    def storage_type(self) -> pulumi.Output[str]:
         """
         One of "standard" (magnetic), "gp2" (general
         purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
@@ -1121,7 +1121,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -1129,7 +1129,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timezone(self) -> str:
+    def timezone(self) -> pulumi.Output[str]:
         """
         Time zone of the DB instance. `timezone` is currently
         only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -1141,7 +1141,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def username(self) -> pulumi.Output[str]:
         """
         (Required unless a `snapshot_identifier` or `replicate_source_db`
         is provided) Username for the master DB user.
@@ -1150,7 +1150,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> List[str]:
+    def vpc_security_group_ids(self) -> pulumi.Output[List[str]]:
         """
         List of VPC security groups to
         associate.

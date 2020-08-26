@@ -13,7 +13,7 @@ __all__ = ['MethodResponse']
 
 class MethodResponse(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  http_method: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
@@ -143,7 +143,7 @@ class MethodResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> str:
+    def http_method(self) -> pulumi.Output[str]:
         """
         The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         """
@@ -151,7 +151,7 @@ class MethodResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
+    def resource_id(self) -> pulumi.Output[str]:
         """
         The API resource ID
         """
@@ -159,7 +159,7 @@ class MethodResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseModels")
-    def response_models(self) -> Optional[Mapping[str, str]]:
+    def response_models(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of the API models used for the response's content type
         """
@@ -167,7 +167,7 @@ class MethodResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[Mapping[str, bool]]:
+    def response_parameters(self) -> pulumi.Output[Optional[Mapping[str, bool]]]:
         """
         A map of response parameters that can be sent to the caller.
         For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
@@ -177,7 +177,7 @@ class MethodResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> str:
+    def rest_api(self) -> pulumi.Output[str]:
         """
         The ID of the associated REST API
         """
@@ -185,7 +185,7 @@ class MethodResponse(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> str:
+    def status_code(self) -> pulumi.Output[str]:
         """
         The HTTP status code
         """

@@ -13,7 +13,7 @@ __all__ = ['LustreFileSystem']
 
 class LustreFileSystem(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
                  export_path: Optional[pulumi.Input[str]] = None,
@@ -163,7 +163,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name of the file system.
         """
@@ -171,7 +171,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> Optional[str]:
+    def deployment_type(self) -> pulumi.Output[Optional[str]]:
         """
         - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`.
         """
@@ -179,7 +179,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> pulumi.Output[str]:
         """
         DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
         """
@@ -187,7 +187,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="exportPath")
-    def export_path(self) -> str:
+    def export_path(self) -> pulumi.Output[str]:
         """
         S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
         """
@@ -195,7 +195,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="importPath")
-    def import_path(self) -> Optional[str]:
+    def import_path(self) -> pulumi.Output[Optional[str]]:
         """
         S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
         """
@@ -203,7 +203,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="importedFileChunkSize")
-    def imported_file_chunk_size(self) -> float:
+    def imported_file_chunk_size(self) -> pulumi.Output[float]:
         """
         For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
         """
@@ -211,7 +211,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> List[str]:
+    def network_interface_ids(self) -> pulumi.Output[List[str]]:
         """
         Set of Elastic Network Interface identifiers from which the file system is accessible.
         """
@@ -219,7 +219,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> pulumi.Output[str]:
         """
         AWS account identifier that created the file system.
         """
@@ -227,7 +227,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="perUnitStorageThroughput")
-    def per_unit_storage_throughput(self) -> Optional[float]:
+    def per_unit_storage_throughput(self) -> pulumi.Output[Optional[float]]:
         """
         - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. For valid values, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemLustreConfiguration.html).
         """
@@ -235,7 +235,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[List[str]]:
+    def security_group_ids(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         """
@@ -243,7 +243,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> float:
+    def storage_capacity(self) -> pulumi.Output[float]:
         """
         The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
         """
@@ -251,7 +251,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> str:
+    def subnet_ids(self) -> pulumi.Output[str]:
         """
         A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
         """
@@ -259,7 +259,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the file system.
         """
@@ -267,7 +267,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         Identifier of the Virtual Private Cloud for the file system.
         """
@@ -275,7 +275,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
-    def weekly_maintenance_start_time(self) -> str:
+    def weekly_maintenance_start_time(self) -> pulumi.Output[str]:
         """
         The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """

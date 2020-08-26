@@ -13,7 +13,7 @@ __all__ = ['AssessmentTemplate']
 
 class AssessmentTemplate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  duration: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The template assessment ARN.
         """
@@ -132,7 +132,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def duration(self) -> float:
+    def duration(self) -> pulumi.Output[float]:
         """
         The duration of the inspector run.
         """
@@ -140,7 +140,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the assessment template.
         """
@@ -148,7 +148,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rulesPackageArns")
-    def rules_package_arns(self) -> List[str]:
+    def rules_package_arns(self) -> pulumi.Output[List[str]]:
         """
         The rules to be used during the run.
         """
@@ -156,7 +156,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of tags for the Inspector assessment template.
         """
@@ -164,7 +164,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetArn")
-    def target_arn(self) -> str:
+    def target_arn(self) -> pulumi.Output[str]:
         """
         The assessment target ARN to attach the template to.
         """

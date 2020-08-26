@@ -13,7 +13,7 @@ __all__ = ['FlowLog']
 
 class FlowLog(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  eni_id: Optional[pulumi.Input[str]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
@@ -210,7 +210,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Flow Log.
         """
@@ -218,7 +218,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eniId")
-    def eni_id(self) -> Optional[str]:
+    def eni_id(self) -> pulumi.Output[Optional[str]]:
         """
         Elastic Network Interface ID to attach to
         """
@@ -226,7 +226,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[str]:
+    def iam_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         """
@@ -234,7 +234,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logDestination")
-    def log_destination(self) -> str:
+    def log_destination(self) -> pulumi.Output[str]:
         """
         The ARN of the logging destination.
         """
@@ -242,7 +242,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logDestinationType")
-    def log_destination_type(self) -> Optional[str]:
+    def log_destination_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
         """
@@ -250,7 +250,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logFormat")
-    def log_format(self) -> str:
+    def log_format(self) -> pulumi.Output[str]:
         """
         The fields to include in the flow log record, in the order in which they should appear.
         """
@@ -258,7 +258,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> str:
+    def log_group_name(self) -> pulumi.Output[str]:
         """
         *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
         """
@@ -266,7 +266,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxAggregationInterval")
-    def max_aggregation_interval(self) -> Optional[float]:
+    def max_aggregation_interval(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum interval of time
         during which a flow of packets is captured and aggregated into a flow
@@ -277,7 +277,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
+    def subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
         Subnet ID to attach to
         """
@@ -285,7 +285,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """
@@ -293,7 +293,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficType")
-    def traffic_type(self) -> str:
+    def traffic_type(self) -> pulumi.Output[str]:
         """
         The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         """
@@ -301,7 +301,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         VPC ID to attach to
         """

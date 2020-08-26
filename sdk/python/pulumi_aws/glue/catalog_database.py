@@ -13,7 +13,7 @@ __all__ = ['CatalogDatabase']
 
 class CatalogDatabase(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Glue Catalog Database.
         """
@@ -118,7 +118,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> str:
+    def catalog_id(self) -> pulumi.Output[str]:
         """
         ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         """
@@ -126,7 +126,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the database.
         """
@@ -134,7 +134,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="locationUri")
-    def location_uri(self) -> Optional[str]:
+    def location_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the database (for example, an HDFS path).
         """
@@ -142,7 +142,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the database.
         """
@@ -150,7 +150,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A list of key-value pairs that define parameters and properties of the database.
         """

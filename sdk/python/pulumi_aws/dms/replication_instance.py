@@ -13,7 +13,7 @@ __all__ = ['ReplicationInstance']
 
 class ReplicationInstance(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_storage: Optional[pulumi.Input[float]] = None,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
@@ -212,7 +212,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> float:
+    def allocated_storage(self) -> pulumi.Output[float]:
         """
         The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         """
@@ -220,7 +220,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> Optional[bool]:
+    def apply_immediately(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         """
@@ -228,7 +228,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> bool:
+    def auto_minor_version_upgrade(self) -> pulumi.Output[bool]:
         """
         Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         """
@@ -236,7 +236,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> pulumi.Output[str]:
         """
         The EC2 Availability Zone that the replication instance will be created in.
         """
@@ -244,7 +244,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> pulumi.Output[str]:
         """
         The engine version number of the replication instance.
         """
@@ -252,7 +252,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> str:
+    def kms_key_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         """
@@ -260,7 +260,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="multiAz")
-    def multi_az(self) -> bool:
+    def multi_az(self) -> pulumi.Output[bool]:
         """
         Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         """
@@ -268,7 +268,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> str:
+    def preferred_maintenance_window(self) -> pulumi.Output[str]:
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         """
@@ -276,7 +276,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> bool:
+    def publicly_accessible(self) -> pulumi.Output[bool]:
         """
         Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         """
@@ -284,7 +284,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationInstanceArn")
-    def replication_instance_arn(self) -> str:
+    def replication_instance_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the replication instance.
         """
@@ -292,7 +292,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationInstanceClass")
-    def replication_instance_class(self) -> str:
+    def replication_instance_class(self) -> pulumi.Output[str]:
         """
         The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
         """
@@ -300,7 +300,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationInstanceId")
-    def replication_instance_id(self) -> str:
+    def replication_instance_id(self) -> pulumi.Output[str]:
         """
         The replication instance identifier. This parameter is stored as a lowercase string.
         """
@@ -308,7 +308,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationInstancePrivateIps")
-    def replication_instance_private_ips(self) -> List[str]:
+    def replication_instance_private_ips(self) -> pulumi.Output[List[str]]:
         """
         A list of the private IP addresses of the replication instance.
         """
@@ -316,7 +316,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationInstancePublicIps")
-    def replication_instance_public_ips(self) -> List[str]:
+    def replication_instance_public_ips(self) -> pulumi.Output[List[str]]:
         """
         A list of the public IP addresses of the replication instance.
         """
@@ -324,7 +324,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationSubnetGroupId")
-    def replication_subnet_group_id(self) -> str:
+    def replication_subnet_group_id(self) -> pulumi.Output[str]:
         """
         A subnet group to associate with the replication instance.
         """
@@ -332,7 +332,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -340,7 +340,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> List[str]:
+    def vpc_security_group_ids(self) -> pulumi.Output[List[str]]:
         """
         A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
         """
