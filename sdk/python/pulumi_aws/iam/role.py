@@ -13,7 +13,7 @@ __all__ = ['Role']
 
 class Role(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assume_role_policy: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -183,7 +183,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) specifying the role.
         """
@@ -191,7 +191,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assumeRolePolicy")
-    def assume_role_policy(self) -> str:
+    def assume_role_policy(self) -> pulumi.Output[str]:
         """
         The policy that grants an entity permission to assume the role.
         """
@@ -199,7 +199,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createDate")
-    def create_date(self) -> str:
+    def create_date(self) -> pulumi.Output[str]:
         """
         The creation date of the IAM role.
         """
@@ -207,7 +207,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the role.
         """
@@ -215,7 +215,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceDetachPolicies")
-    def force_detach_policies(self) -> Optional[bool]:
+    def force_detach_policies(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
         """
@@ -223,7 +223,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSessionDuration")
-    def max_session_duration(self) -> Optional[float]:
+    def max_session_duration(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         """
@@ -231,7 +231,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the role. If omitted, this provider will assign a random, unique name.
         """
@@ -239,7 +239,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -247,7 +247,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[str]:
+    def path(self) -> pulumi.Output[Optional[str]]:
         """
         The path to the role.
         See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
@@ -256,7 +256,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="permissionsBoundary")
-    def permissions_boundary(self) -> Optional[str]:
+    def permissions_boundary(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the policy that is used to set the permissions boundary for the role.
         """
@@ -264,7 +264,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of tags for the IAM role
         """
@@ -272,7 +272,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> str:
+    def unique_id(self) -> pulumi.Output[str]:
         """
         The stable and unique string identifying the role.
         """

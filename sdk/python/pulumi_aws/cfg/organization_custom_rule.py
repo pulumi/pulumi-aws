@@ -13,7 +13,7 @@ __all__ = ['OrganizationCustomRule']
 
 class OrganizationCustomRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  excluded_accounts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -167,7 +167,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the rule
         """
@@ -175,7 +175,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the rule
         """
@@ -183,7 +183,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludedAccounts")
-    def excluded_accounts(self) -> Optional[List[str]]:
+    def excluded_accounts(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of AWS account identifiers to exclude from the rule
         """
@@ -191,7 +191,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputParameters")
-    def input_parameters(self) -> Optional[str]:
+    def input_parameters(self) -> pulumi.Output[Optional[str]]:
         """
         A string in JSON format that is passed to the AWS Config Rule Lambda Function
         """
@@ -199,7 +199,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lambdaFunctionArn")
-    def lambda_function_arn(self) -> str:
+    def lambda_function_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the rule Lambda Function
         """
@@ -207,7 +207,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumExecutionFrequency")
-    def maximum_execution_frequency(self) -> Optional[str]:
+    def maximum_execution_frequency(self) -> pulumi.Output[Optional[str]]:
         """
         The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         """
@@ -215,7 +215,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the rule
         """
@@ -223,7 +223,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceIdScope")
-    def resource_id_scope(self) -> Optional[str]:
+    def resource_id_scope(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of the AWS resource to evaluate
         """
@@ -231,7 +231,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceTypesScopes")
-    def resource_types_scopes(self) -> Optional[List[str]]:
+    def resource_types_scopes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of types of AWS resources to evaluate
         """
@@ -239,7 +239,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagKeyScope")
-    def tag_key_scope(self) -> Optional[str]:
+    def tag_key_scope(self) -> pulumi.Output[Optional[str]]:
         """
         Tag key of AWS resources to evaluate
         """
@@ -247,7 +247,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagValueScope")
-    def tag_value_scope(self) -> Optional[str]:
+    def tag_value_scope(self) -> pulumi.Output[Optional[str]]:
         """
         Tag value of AWS resources to evaluate
         """
@@ -255,7 +255,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="triggerTypes")
-    def trigger_types(self) -> List[str]:
+    def trigger_types(self) -> pulumi.Output[List[str]]:
         """
         List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
         """

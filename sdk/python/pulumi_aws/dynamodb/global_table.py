@@ -15,7 +15,7 @@ __all__ = ['GlobalTable']
 
 class GlobalTable(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  replicas: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GlobalTableReplicaArgs']]]]] = None,
@@ -137,7 +137,7 @@ class GlobalTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the DynamoDB Global Table
         """
@@ -145,7 +145,7 @@ class GlobalTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the global table. Must match underlying DynamoDB Table names in all regions.
         """
@@ -153,7 +153,7 @@ class GlobalTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def replicas(self) -> List['outputs.GlobalTableReplica']:
+    def replicas(self) -> pulumi.Output[List['outputs.GlobalTableReplica']]:
         """
         Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         """

@@ -13,7 +13,7 @@ __all__ = ['ProductSubscription']
 
 class ProductSubscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  product_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -91,7 +91,7 @@ class ProductSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
         """
@@ -99,7 +99,7 @@ class ProductSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="productArn")
-    def product_arn(self) -> str:
+    def product_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the product that generates findings that you want to import into Security Hub - see below.
         """

@@ -13,7 +13,7 @@ __all__ = ['MailFrom']
 
 class MailFrom(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class MailFrom(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="behaviorOnMxFailure")
-    def behavior_on_mx_failure(self) -> Optional[str]:
+    def behavior_on_mx_failure(self) -> pulumi.Output[Optional[str]]:
         """
         The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
         """
@@ -127,7 +127,7 @@ class MailFrom(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def domain(self) -> str:
+    def domain(self) -> pulumi.Output[str]:
         """
         Verified domain name to generate DKIM tokens for.
         """
@@ -135,7 +135,7 @@ class MailFrom(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mailFromDomain")
-    def mail_from_domain(self) -> str:
+    def mail_from_domain(self) -> pulumi.Output[str]:
         """
         Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
         """

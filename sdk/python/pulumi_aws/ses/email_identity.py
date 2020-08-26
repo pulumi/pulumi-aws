@@ -13,7 +13,7 @@ __all__ = ['EmailIdentity']
 
 class EmailIdentity(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -88,7 +88,7 @@ class EmailIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the email identity.
         """
@@ -96,7 +96,7 @@ class EmailIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> pulumi.Output[str]:
         """
         The email address to assign to SES
         """

@@ -15,7 +15,7 @@ __all__ = ['IdentityPool']
 
 class IdentityPool(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_unauthenticated_identities: Optional[pulumi.Input[bool]] = None,
                  cognito_identity_providers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IdentityPoolCognitoIdentityProviderArgs']]]]] = None,
@@ -155,7 +155,7 @@ class IdentityPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowUnauthenticatedIdentities")
-    def allow_unauthenticated_identities(self) -> Optional[bool]:
+    def allow_unauthenticated_identities(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the identity pool supports unauthenticated logins or not.
         """
@@ -163,7 +163,7 @@ class IdentityPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the identity pool.
         """
@@ -171,7 +171,7 @@ class IdentityPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cognitoIdentityProviders")
-    def cognito_identity_providers(self) -> Optional[List['outputs.IdentityPoolCognitoIdentityProvider']]:
+    def cognito_identity_providers(self) -> pulumi.Output[Optional[List['outputs.IdentityPoolCognitoIdentityProvider']]]:
         """
         An array of Amazon Cognito Identity user pools and their client IDs.
         """
@@ -179,7 +179,7 @@ class IdentityPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="developerProviderName")
-    def developer_provider_name(self) -> Optional[str]:
+    def developer_provider_name(self) -> pulumi.Output[Optional[str]]:
         """
         The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
         backend and the Cognito service to communicate about the developer provider.
@@ -188,7 +188,7 @@ class IdentityPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identityPoolName")
-    def identity_pool_name(self) -> str:
+    def identity_pool_name(self) -> pulumi.Output[str]:
         """
         The Cognito Identity Pool name.
         """
@@ -196,7 +196,7 @@ class IdentityPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="openidConnectProviderArns")
-    def openid_connect_provider_arns(self) -> Optional[List[str]]:
+    def openid_connect_provider_arns(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of OpendID Connect provider ARNs.
         """
@@ -204,7 +204,7 @@ class IdentityPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="samlProviderArns")
-    def saml_provider_arns(self) -> Optional[List[str]]:
+    def saml_provider_arns(self) -> pulumi.Output[Optional[List[str]]]:
         """
         An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         """
@@ -212,7 +212,7 @@ class IdentityPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportedLoginProviders")
-    def supported_login_providers(self) -> Optional[Mapping[str, str]]:
+    def supported_login_providers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-Value pairs mapping provider names to provider app IDs.
         """
@@ -220,7 +220,7 @@ class IdentityPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the Identity Pool.
         """

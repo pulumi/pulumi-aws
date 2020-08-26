@@ -15,7 +15,7 @@ __all__ = ['AnalyticsConfiguration']
 
 class AnalyticsConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  filter: Optional[pulumi.Input[pulumi.InputType['AnalyticsConfigurationFilterArgs']]] = None,
@@ -134,7 +134,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def bucket(self) -> str:
+    def bucket(self) -> pulumi.Output[str]:
         """
         The name of the bucket this analytics configuration is associated with.
         """
@@ -142,7 +142,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional['outputs.AnalyticsConfigurationFilter']:
+    def filter(self) -> pulumi.Output[Optional['outputs.AnalyticsConfigurationFilter']]:
         """
         Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         """
@@ -150,7 +150,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Unique identifier of the analytics configuration for the bucket.
         """
@@ -158,7 +158,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageClassAnalysis")
-    def storage_class_analysis(self) -> Optional['outputs.AnalyticsConfigurationStorageClassAnalysis']:
+    def storage_class_analysis(self) -> pulumi.Output[Optional['outputs.AnalyticsConfigurationStorageClassAnalysis']]:
         """
         Configuration for the analytics data export (documented below).
         """

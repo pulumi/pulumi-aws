@@ -13,7 +13,7 @@ __all__ = ['HostedPrivateVirtualInterface']
 
 class HostedPrivateVirtualInterface(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_family: Optional[pulumi.Input[str]] = None,
                  amazon_address: Optional[pulumi.Input[str]] = None,
@@ -166,7 +166,7 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> str:
+    def address_family(self) -> pulumi.Output[str]:
         """
         The address family for the BGP peer. `ipv4 ` or `ipv6`.
         """
@@ -174,7 +174,7 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amazonAddress")
-    def amazon_address(self) -> str:
+    def amazon_address(self) -> pulumi.Output[str]:
         """
         The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         """
@@ -182,12 +182,12 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> str:
+    def amazon_side_asn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "amazon_side_asn")
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the virtual interface.
         """
@@ -195,7 +195,7 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsDevice")
-    def aws_device(self) -> str:
+    def aws_device(self) -> pulumi.Output[str]:
         """
         The Direct Connect endpoint on which the virtual interface terminates.
         """
@@ -203,7 +203,7 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> float:
+    def bgp_asn(self) -> pulumi.Output[float]:
         """
         The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         """
@@ -211,7 +211,7 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpAuthKey")
-    def bgp_auth_key(self) -> str:
+    def bgp_auth_key(self) -> pulumi.Output[str]:
         """
         The authentication key for BGP configuration.
         """
@@ -219,7 +219,7 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionId")
-    def connection_id(self) -> str:
+    def connection_id(self) -> pulumi.Output[str]:
         """
         The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         """
@@ -227,7 +227,7 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerAddress")
-    def customer_address(self) -> str:
+    def customer_address(self) -> pulumi.Output[str]:
         """
         The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         """
@@ -235,7 +235,7 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jumboFrameCapable")
-    def jumbo_frame_capable(self) -> bool:
+    def jumbo_frame_capable(self) -> pulumi.Output[bool]:
         """
         Indicates whether jumbo frames (9001 MTU) are supported.
         """
@@ -243,7 +243,7 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mtu(self) -> Optional[float]:
+    def mtu(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         """
@@ -251,7 +251,7 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name for the virtual interface.
         """
@@ -259,7 +259,7 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> str:
+    def owner_account_id(self) -> pulumi.Output[str]:
         """
         The AWS account that will own the new virtual interface.
         """
@@ -267,7 +267,7 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vlan(self) -> float:
+    def vlan(self) -> pulumi.Output[float]:
         """
         The VLAN ID.
         """

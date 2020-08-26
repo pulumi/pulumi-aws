@@ -13,7 +13,7 @@ __all__ = ['NetworkAclRule']
 
 class NetworkAclRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  egress: Optional[pulumi.Input[bool]] = None,
@@ -167,7 +167,7 @@ class NetworkAclRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> Optional[str]:
+    def cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         """
@@ -175,7 +175,7 @@ class NetworkAclRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def egress(self) -> Optional[bool]:
+    def egress(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         """
@@ -183,7 +183,7 @@ class NetworkAclRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fromPort")
-    def from_port(self) -> Optional[float]:
+    def from_port(self) -> pulumi.Output[Optional[float]]:
         """
         The from port to match.
         """
@@ -191,7 +191,7 @@ class NetworkAclRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="icmpCode")
-    def icmp_code(self) -> Optional[str]:
+    def icmp_code(self) -> pulumi.Output[Optional[str]]:
         """
         ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
         """
@@ -199,7 +199,7 @@ class NetworkAclRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="icmpType")
-    def icmp_type(self) -> Optional[str]:
+    def icmp_type(self) -> pulumi.Output[Optional[str]]:
         """
         ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
         """
@@ -207,7 +207,7 @@ class NetworkAclRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> Optional[str]:
+    def ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv6 CIDR block to allow or deny.
         """
@@ -215,7 +215,7 @@ class NetworkAclRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkAclId")
-    def network_acl_id(self) -> str:
+    def network_acl_id(self) -> pulumi.Output[str]:
         """
         The ID of the network ACL.
         """
@@ -223,7 +223,7 @@ class NetworkAclRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> pulumi.Output[str]:
         """
         The protocol. A value of -1 means all protocols.
         """
@@ -231,7 +231,7 @@ class NetworkAclRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleAction")
-    def rule_action(self) -> str:
+    def rule_action(self) -> pulumi.Output[str]:
         """
         Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         """
@@ -239,7 +239,7 @@ class NetworkAclRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleNumber")
-    def rule_number(self) -> float:
+    def rule_number(self) -> pulumi.Output[float]:
         """
         The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         """
@@ -247,7 +247,7 @@ class NetworkAclRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="toPort")
-    def to_port(self) -> Optional[float]:
+    def to_port(self) -> pulumi.Output[Optional[float]]:
         """
         The to port to match.
         """

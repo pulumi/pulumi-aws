@@ -15,7 +15,7 @@ __all__ = ['Alias']
 
 class Alias(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
@@ -131,7 +131,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) identifying your Lambda function alias.
         """
@@ -139,7 +139,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the alias.
         """
@@ -147,7 +147,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionName")
-    def function_name(self) -> str:
+    def function_name(self) -> pulumi.Output[str]:
         """
         Lambda Function name or ARN.
         """
@@ -155,7 +155,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionVersion")
-    def function_version(self) -> str:
+    def function_version(self) -> pulumi.Output[str]:
         """
         Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
         """
@@ -163,7 +163,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invokeArn")
-    def invoke_arn(self) -> str:
+    def invoke_arn(self) -> pulumi.Output[str]:
         """
         The ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`
         """
@@ -171,7 +171,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
         """
@@ -179,7 +179,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingConfig")
-    def routing_config(self) -> Optional['outputs.AliasRoutingConfig']:
+    def routing_config(self) -> pulumi.Output[Optional['outputs.AliasRoutingConfig']]:
         """
         The Lambda alias' route configuration settings. Fields documented below
         """

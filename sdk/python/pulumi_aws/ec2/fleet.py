@@ -15,7 +15,7 @@ __all__ = ['Fleet']
 
 class Fleet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
                  launch_template_config: Optional[pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']]] = None,
@@ -152,7 +152,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
-    def excess_capacity_termination_policy(self) -> Optional[str]:
+    def excess_capacity_termination_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
         """
@@ -160,7 +160,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchTemplateConfig")
-    def launch_template_config(self) -> 'outputs.FleetLaunchTemplateConfig':
+    def launch_template_config(self) -> pulumi.Output['outputs.FleetLaunchTemplateConfig']:
         """
         Nested argument containing EC2 Launch Template configurations. Defined below.
         """
@@ -168,7 +168,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="onDemandOptions")
-    def on_demand_options(self) -> Optional['outputs.FleetOnDemandOptions']:
+    def on_demand_options(self) -> pulumi.Output[Optional['outputs.FleetOnDemandOptions']]:
         """
         Nested argument containing On-Demand configurations. Defined below.
         """
@@ -176,7 +176,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replaceUnhealthyInstances")
-    def replace_unhealthy_instances(self) -> Optional[bool]:
+    def replace_unhealthy_instances(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
         """
@@ -184,7 +184,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spotOptions")
-    def spot_options(self) -> Optional['outputs.FleetSpotOptions']:
+    def spot_options(self) -> pulumi.Output[Optional['outputs.FleetSpotOptions']]:
         """
         Nested argument containing Spot configurations. Defined below.
         """
@@ -192,7 +192,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template.
         """
@@ -200,7 +200,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetCapacitySpecification")
-    def target_capacity_specification(self) -> 'outputs.FleetTargetCapacitySpecification':
+    def target_capacity_specification(self) -> pulumi.Output['outputs.FleetTargetCapacitySpecification']:
         """
         Nested argument containing target capacity configurations. Defined below.
         """
@@ -208,7 +208,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="terminateInstances")
-    def terminate_instances(self) -> Optional[bool]:
+    def terminate_instances(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         """
@@ -216,7 +216,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="terminateInstancesWithExpiration")
-    def terminate_instances_with_expiration(self) -> Optional[bool]:
+    def terminate_instances_with_expiration(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
         """
@@ -224,7 +224,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
         """

@@ -13,7 +13,7 @@ __all__ = ['IpSet']
 
 class IpSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class IpSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def addresses(self) -> Optional[List[str]]:
+    def addresses(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
         """
@@ -142,7 +142,7 @@ class IpSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) that identifies the cluster.
         """
@@ -150,7 +150,7 @@ class IpSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A friendly description of the IP set.
         """
@@ -158,7 +158,7 @@ class IpSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddressVersion")
-    def ip_address_version(self) -> str:
+    def ip_address_version(self) -> pulumi.Output[str]:
         """
         Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
         """
@@ -166,12 +166,12 @@ class IpSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockToken")
-    def lock_token(self) -> str:
+    def lock_token(self) -> pulumi.Output[str]:
         return pulumi.get(self, "lock_token")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A friendly name of the IP set.
         """
@@ -179,7 +179,7 @@ class IpSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> pulumi.Output[str]:
         """
         Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
         """
@@ -187,7 +187,7 @@ class IpSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         An array of key:value pairs to associate with the resource.
         """

@@ -15,7 +15,7 @@ __all__ = ['Workspace']
 
 class Workspace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
@@ -164,7 +164,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bundleId")
-    def bundle_id(self) -> str:
+    def bundle_id(self) -> pulumi.Output[str]:
         """
         The ID of the bundle for the WorkSpace.
         """
@@ -172,7 +172,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computerName")
-    def computer_name(self) -> str:
+    def computer_name(self) -> pulumi.Output[str]:
         """
         The name of the WorkSpace, as seen by the operating system.
         """
@@ -180,7 +180,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> str:
+    def directory_id(self) -> pulumi.Output[str]:
         """
         The ID of the directory for the WorkSpace.
         """
@@ -188,7 +188,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> str:
+    def ip_address(self) -> pulumi.Output[str]:
         """
         The IP address of the WorkSpace.
         """
@@ -196,7 +196,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootVolumeEncryptionEnabled")
-    def root_volume_encryption_enabled(self) -> Optional[bool]:
+    def root_volume_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the data stored on the root volume is encrypted.
         """
@@ -204,7 +204,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The operational state of the WorkSpace.
         """
@@ -212,7 +212,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The tags for the WorkSpace.
         """
@@ -220,7 +220,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> str:
+    def user_name(self) -> pulumi.Output[str]:
         """
         The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         """
@@ -228,7 +228,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userVolumeEncryptionEnabled")
-    def user_volume_encryption_enabled(self) -> Optional[bool]:
+    def user_volume_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the data stored on the user volume is encrypted.
         """
@@ -236,7 +236,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeEncryptionKey")
-    def volume_encryption_key(self) -> Optional[str]:
+    def volume_encryption_key(self) -> pulumi.Output[Optional[str]]:
         """
         The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         """
@@ -244,7 +244,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceProperties")
-    def workspace_properties(self) -> 'outputs.WorkspaceWorkspaceProperties':
+    def workspace_properties(self) -> pulumi.Output['outputs.WorkspaceWorkspaceProperties']:
         """
         The WorkSpace properties.
         """

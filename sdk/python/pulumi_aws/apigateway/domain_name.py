@@ -15,7 +15,7 @@ __all__ = ['DomainName']
 
 class DomainName(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  certificate_body: Optional[pulumi.Input[str]] = None,
@@ -306,7 +306,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN)
         """
@@ -314,7 +314,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[str]:
+    def certificate_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
         """
@@ -322,7 +322,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateBody")
-    def certificate_body(self) -> Optional[str]:
+    def certificate_body(self) -> pulumi.Output[Optional[str]]:
         """
         The certificate issued for the domain name
         being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
@@ -332,7 +332,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> Optional[str]:
+    def certificate_chain(self) -> pulumi.Output[Optional[str]]:
         """
         The certificate for the CA that issued the
         certificate, along with any intermediate CA certificates required to
@@ -343,7 +343,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> Optional[str]:
+    def certificate_name(self) -> pulumi.Output[Optional[str]]:
         """
         The unique name to use when registering this
         certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and
@@ -353,7 +353,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificatePrivateKey")
-    def certificate_private_key(self) -> Optional[str]:
+    def certificate_private_key(self) -> pulumi.Output[Optional[str]]:
         """
         The private key associated with the
         domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
@@ -362,7 +362,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateUploadDate")
-    def certificate_upload_date(self) -> str:
+    def certificate_upload_date(self) -> pulumi.Output[str]:
         """
         The upload date associated with the domain certificate.
         """
@@ -370,7 +370,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudfrontDomainName")
-    def cloudfront_domain_name(self) -> str:
+    def cloudfront_domain_name(self) -> pulumi.Output[str]:
         """
         The hostname created by Cloudfront to represent
         the distribution that implements this domain name mapping.
@@ -379,7 +379,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudfrontZoneId")
-    def cloudfront_zone_id(self) -> str:
+    def cloudfront_zone_id(self) -> pulumi.Output[str]:
         """
         For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`)
         that can be used to create a Route53 alias record for the distribution.
@@ -388,7 +388,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         The fully-qualified domain name to register
         """
@@ -396,7 +396,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointConfiguration")
-    def endpoint_configuration(self) -> 'outputs.DomainNameEndpointConfiguration':
+    def endpoint_configuration(self) -> pulumi.Output['outputs.DomainNameEndpointConfiguration']:
         """
         Configuration block defining API endpoint information including type. Defined below.
         """
@@ -404,7 +404,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="regionalCertificateArn")
-    def regional_certificate_arn(self) -> Optional[str]:
+    def regional_certificate_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         """
@@ -412,7 +412,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="regionalCertificateName")
-    def regional_certificate_name(self) -> Optional[str]:
+    def regional_certificate_name(self) -> pulumi.Output[Optional[str]]:
         """
         The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and
         `certificate_private_key`.
@@ -421,7 +421,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="regionalDomainName")
-    def regional_domain_name(self) -> str:
+    def regional_domain_name(self) -> pulumi.Output[str]:
         """
         The hostname for the custom domain's regional endpoint.
         """
@@ -429,7 +429,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="regionalZoneId")
-    def regional_zone_id(self) -> str:
+    def regional_zone_id(self) -> pulumi.Output[str]:
         """
         The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
         """
@@ -437,7 +437,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityPolicy")
-    def security_policy(self) -> str:
+    def security_policy(self) -> pulumi.Output[str]:
         """
         The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
         """
@@ -445,7 +445,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

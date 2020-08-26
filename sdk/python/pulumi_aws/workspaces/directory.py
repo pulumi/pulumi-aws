@@ -15,7 +15,7 @@ __all__ = ['Directory']
 
 class Directory(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  self_service_permissions: Optional[pulumi.Input[pulumi.InputType['DirectorySelfServicePermissionsArgs']]] = None,
@@ -164,7 +164,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def alias(self) -> str:
+    def alias(self) -> pulumi.Output[str]:
         """
         The directory alias.
         """
@@ -172,7 +172,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerUserName")
-    def customer_user_name(self) -> str:
+    def customer_user_name(self) -> pulumi.Output[str]:
         """
         The user name for the service account.
         """
@@ -180,7 +180,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> str:
+    def directory_id(self) -> pulumi.Output[str]:
         """
         The directory identifier for registration in WorkSpaces service.
         """
@@ -188,7 +188,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="directoryName")
-    def directory_name(self) -> str:
+    def directory_name(self) -> pulumi.Output[str]:
         """
         The name of the directory.
         """
@@ -196,7 +196,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="directoryType")
-    def directory_type(self) -> str:
+    def directory_type(self) -> pulumi.Output[str]:
         """
         The directory type.
         """
@@ -204,7 +204,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsIpAddresses")
-    def dns_ip_addresses(self) -> List[str]:
+    def dns_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         The IP addresses of the DNS servers for the directory.
         """
@@ -212,7 +212,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRoleId")
-    def iam_role_id(self) -> str:
+    def iam_role_id(self) -> pulumi.Output[str]:
         """
         The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         """
@@ -220,7 +220,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipGroupIds")
-    def ip_group_ids(self) -> List[str]:
+    def ip_group_ids(self) -> pulumi.Output[List[str]]:
         """
         The identifiers of the IP access control groups associated with the directory.
         """
@@ -228,7 +228,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationCode")
-    def registration_code(self) -> str:
+    def registration_code(self) -> pulumi.Output[str]:
         """
         The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         """
@@ -236,7 +236,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="selfServicePermissions")
-    def self_service_permissions(self) -> 'outputs.DirectorySelfServicePermissions':
+    def self_service_permissions(self) -> pulumi.Output['outputs.DirectorySelfServicePermissions']:
         """
         The permissions to enable or disable self-service capabilities.
         """
@@ -244,7 +244,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> List[str]:
+    def subnet_ids(self) -> pulumi.Output[List[str]]:
         """
         The identifiers of the subnets where the directory resides.
         """
@@ -252,7 +252,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags assigned to the WorkSpaces directory.
         """
@@ -260,7 +260,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceSecurityGroupId")
-    def workspace_security_group_id(self) -> str:
+    def workspace_security_group_id(self) -> pulumi.Output[str]:
         """
         The identifier of the security group that is assigned to new WorkSpaces.
         """

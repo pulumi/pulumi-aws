@@ -13,7 +13,7 @@ __all__ = ['Cache']
 
 class Cache(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disk_id: Optional[pulumi.Input[str]] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskId")
-    def disk_id(self) -> str:
+    def disk_id(self) -> pulumi.Output[str]:
         """
         Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         """
@@ -104,7 +104,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayArn")
-    def gateway_arn(self) -> str:
+    def gateway_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the gateway.
         """

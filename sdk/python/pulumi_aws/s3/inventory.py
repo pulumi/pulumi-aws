@@ -15,7 +15,7 @@ __all__ = ['Inventory']
 
 class Inventory(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[pulumi.InputType['InventoryDestinationArgs']]] = None,
@@ -175,7 +175,7 @@ class Inventory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def bucket(self) -> str:
+    def bucket(self) -> pulumi.Output[str]:
         """
         The name of the bucket where the inventory configuration will be stored.
         """
@@ -183,7 +183,7 @@ class Inventory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destination(self) -> 'outputs.InventoryDestination':
+    def destination(self) -> pulumi.Output['outputs.InventoryDestination']:
         """
         Contains information about where to publish the inventory results (documented below).
         """
@@ -191,7 +191,7 @@ class Inventory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the inventory is enabled or disabled.
         """
@@ -199,7 +199,7 @@ class Inventory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional['outputs.InventoryFilter']:
+    def filter(self) -> pulumi.Output[Optional['outputs.InventoryFilter']]:
         """
         Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         """
@@ -207,7 +207,7 @@ class Inventory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includedObjectVersions")
-    def included_object_versions(self) -> str:
+    def included_object_versions(self) -> pulumi.Output[str]:
         """
         Object versions to include in the inventory list. Valid values: `All`, `Current`.
         """
@@ -215,7 +215,7 @@ class Inventory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Unique identifier of the inventory configuration for the bucket.
         """
@@ -223,7 +223,7 @@ class Inventory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="optionalFields")
-    def optional_fields(self) -> Optional[List[str]]:
+    def optional_fields(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of optional fields that are included in the inventory results.
         Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
@@ -232,7 +232,7 @@ class Inventory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedule(self) -> 'outputs.InventorySchedule':
+    def schedule(self) -> pulumi.Output['outputs.InventorySchedule']:
         """
         Specifies the schedule for generating inventory results (documented below).
         """

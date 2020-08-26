@@ -15,7 +15,7 @@ __all__ = ['ParameterGroup']
 
 class ParameterGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Neptune parameter group Amazon Resource Name (ARN).
         """
@@ -127,7 +127,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
         """
@@ -135,7 +135,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def family(self) -> str:
+    def family(self) -> pulumi.Output[str]:
         """
         The family of the Neptune parameter group.
         """
@@ -143,7 +143,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Neptune parameter.
         """
@@ -151,7 +151,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.ParameterGroupParameter']]:
+    def parameters(self) -> pulumi.Output[Optional[List['outputs.ParameterGroupParameter']]]:
         """
         A list of Neptune parameters to apply.
         """
@@ -159,7 +159,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

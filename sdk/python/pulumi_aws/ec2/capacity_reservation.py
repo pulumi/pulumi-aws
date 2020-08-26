@@ -13,7 +13,7 @@ __all__ = ['CapacityReservation']
 
 class CapacityReservation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
@@ -158,7 +158,7 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Capacity Reservation.
         """
@@ -166,7 +166,7 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> pulumi.Output[str]:
         """
         The Availability Zone in which to create the Capacity Reservation.
         """
@@ -174,7 +174,7 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[bool]:
+    def ebs_optimized(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the Capacity Reservation supports EBS-optimized instances.
         """
@@ -182,7 +182,7 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[str]:
+    def end_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """
@@ -190,7 +190,7 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endDateType")
-    def end_date_type(self) -> Optional[str]:
+    def end_date_type(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
         """
@@ -198,7 +198,7 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ephemeralStorage")
-    def ephemeral_storage(self) -> Optional[bool]:
+    def ephemeral_storage(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
         """
@@ -206,7 +206,7 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> float:
+    def instance_count(self) -> pulumi.Output[float]:
         """
         The number of instances for which to reserve capacity.
         """
@@ -214,7 +214,7 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceMatchCriteria")
-    def instance_match_criteria(self) -> Optional[str]:
+    def instance_match_criteria(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
         """
@@ -222,7 +222,7 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instancePlatform")
-    def instance_platform(self) -> str:
+    def instance_platform(self) -> pulumi.Output[str]:
         """
         The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         """
@@ -230,7 +230,7 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> pulumi.Output[str]:
         """
         The instance type for which to reserve capacity.
         """
@@ -238,7 +238,7 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -246,7 +246,7 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tenancy(self) -> Optional[str]:
+    def tenancy(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """

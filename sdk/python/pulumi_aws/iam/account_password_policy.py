@@ -13,7 +13,7 @@ __all__ = ['AccountPasswordPolicy']
 
 class AccountPasswordPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_users_to_change_password: Optional[pulumi.Input[bool]] = None,
                  hard_expiry: Optional[pulumi.Input[bool]] = None,
@@ -148,7 +148,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowUsersToChangePassword")
-    def allow_users_to_change_password(self) -> Optional[bool]:
+    def allow_users_to_change_password(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to allow users to change their own password
         """
@@ -156,7 +156,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirePasswords")
-    def expire_passwords(self) -> bool:
+    def expire_passwords(self) -> pulumi.Output[bool]:
         """
         Indicates whether passwords in the account expire.
         Returns `true` if `max_password_age` contains a value greater than `0`.
@@ -166,7 +166,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hardExpiry")
-    def hard_expiry(self) -> bool:
+    def hard_expiry(self) -> pulumi.Output[bool]:
         """
         Whether users are prevented from setting a new password after their password has expired
         (i.e. require administrator reset)
@@ -175,7 +175,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxPasswordAge")
-    def max_password_age(self) -> float:
+    def max_password_age(self) -> pulumi.Output[float]:
         """
         The number of days that an user password is valid.
         """
@@ -183,7 +183,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimumPasswordLength")
-    def minimum_password_length(self) -> Optional[float]:
+    def minimum_password_length(self) -> pulumi.Output[Optional[float]]:
         """
         Minimum length to require for user passwords.
         """
@@ -191,7 +191,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordReusePrevention")
-    def password_reuse_prevention(self) -> float:
+    def password_reuse_prevention(self) -> pulumi.Output[float]:
         """
         The number of previous passwords that users are prevented from reusing.
         """
@@ -199,7 +199,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requireLowercaseCharacters")
-    def require_lowercase_characters(self) -> bool:
+    def require_lowercase_characters(self) -> pulumi.Output[bool]:
         """
         Whether to require lowercase characters for user passwords.
         """
@@ -207,7 +207,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requireNumbers")
-    def require_numbers(self) -> bool:
+    def require_numbers(self) -> pulumi.Output[bool]:
         """
         Whether to require numbers for user passwords.
         """
@@ -215,7 +215,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requireSymbols")
-    def require_symbols(self) -> bool:
+    def require_symbols(self) -> pulumi.Output[bool]:
         """
         Whether to require symbols for user passwords.
         """
@@ -223,7 +223,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requireUppercaseCharacters")
-    def require_uppercase_characters(self) -> bool:
+    def require_uppercase_characters(self) -> pulumi.Output[bool]:
         """
         Whether to require uppercase characters for user passwords.
         """

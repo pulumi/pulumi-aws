@@ -15,7 +15,7 @@ __all__ = ['Account']
 
 class Account(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -129,7 +129,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudwatchRoleArn")
-    def cloudwatch_role_arn(self) -> Optional[str]:
+    def cloudwatch_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of an IAM role for CloudWatch (to allow logging & monitoring).
         See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console).
@@ -139,7 +139,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="throttleSettings")
-    def throttle_settings(self) -> 'outputs.AccountThrottleSettings':
+    def throttle_settings(self) -> pulumi.Output['outputs.AccountThrottleSettings']:
         """
         Account-Level throttle settings. See exported fields below.
         """

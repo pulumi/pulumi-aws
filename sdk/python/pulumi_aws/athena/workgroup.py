@@ -15,7 +15,7 @@ __all__ = ['Workgroup']
 
 class Workgroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['WorkgroupConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -128,7 +128,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the workgroup
         """
@@ -136,7 +136,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional['outputs.WorkgroupConfiguration']:
+    def configuration(self) -> pulumi.Output[Optional['outputs.WorkgroupConfiguration']]:
         """
         Configuration block with various settings for the workgroup. Documented below.
         """
@@ -144,7 +144,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the workgroup.
         """
@@ -152,7 +152,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[bool]:
+    def force_destroy(self) -> pulumi.Output[Optional[bool]]:
         """
         The option to delete the workgroup and its contents even if the workgroup contains any named queries.
         """
@@ -160,7 +160,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the workgroup.
         """
@@ -168,7 +168,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
         """
@@ -176,7 +176,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags for the workgroup.
         """

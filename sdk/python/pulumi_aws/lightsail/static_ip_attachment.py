@@ -13,7 +13,7 @@ __all__ = ['StaticIpAttachment']
 
 class StaticIpAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  static_ip_name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class StaticIpAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceName")
-    def instance_name(self) -> str:
+    def instance_name(self) -> pulumi.Output[str]:
         """
         The name of the Lightsail instance to attach the IP to
         """
@@ -114,7 +114,7 @@ class StaticIpAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> str:
+    def ip_address(self) -> pulumi.Output[str]:
         """
         The allocated static IP address
         """
@@ -122,7 +122,7 @@ class StaticIpAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="staticIpName")
-    def static_ip_name(self) -> str:
+    def static_ip_name(self) -> pulumi.Output[str]:
         """
         The name of the allocated static IP
         """

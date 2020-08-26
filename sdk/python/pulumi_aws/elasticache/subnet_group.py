@@ -13,7 +13,7 @@ __all__ = ['SubnetGroup']
 
 class SubnetGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class SubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         Description for the cache subnet group. Defaults to "Managed by Pulumi".
         """
@@ -122,7 +122,7 @@ class SubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name for the cache subnet group. Elasticache converts this name to lowercase.
         """
@@ -130,7 +130,7 @@ class SubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> List[str]:
+    def subnet_ids(self) -> pulumi.Output[List[str]]:
         """
         List of VPC Subnet IDs for the cache subnet group
         """

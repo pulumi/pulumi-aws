@@ -13,7 +13,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  csr: Optional[pulumi.Input[str]] = None,
@@ -125,7 +125,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def active(self) -> bool:
+    def active(self) -> pulumi.Output[bool]:
         """
         Boolean flag to indicate if the certificate should be active
         """
@@ -133,7 +133,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the created certificate.
         """
@@ -141,7 +141,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificatePem")
-    def certificate_pem(self) -> str:
+    def certificate_pem(self) -> pulumi.Output[str]:
         """
         The certificate data, in PEM format.
         """
@@ -149,7 +149,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def csr(self) -> Optional[str]:
+    def csr(self) -> pulumi.Output[Optional[str]]:
         """
         The certificate signing request. Review
         [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
@@ -161,7 +161,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> str:
+    def private_key(self) -> pulumi.Output[str]:
         """
         When no CSR is provided, the private key.
         """
@@ -169,7 +169,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> str:
+    def public_key(self) -> pulumi.Output[str]:
         """
         When no CSR is provided, the public key.
         """

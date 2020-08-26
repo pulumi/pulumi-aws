@@ -13,7 +13,7 @@ __all__ = ['WebAclAssociation']
 
 class WebAclAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  web_acl_id: Optional[pulumi.Input[str]] = None,
@@ -202,7 +202,7 @@ class WebAclAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> str:
+    def resource_arn(self) -> pulumi.Output[str]:
         """
         ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
         """
@@ -210,7 +210,7 @@ class WebAclAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webAclId")
-    def web_acl_id(self) -> str:
+    def web_acl_id(self) -> pulumi.Output[str]:
         """
         The ID of the WAF Regional WebACL to create an association.
         """

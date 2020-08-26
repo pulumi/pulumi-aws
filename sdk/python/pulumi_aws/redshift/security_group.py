@@ -15,7 +15,7 @@ __all__ = ['SecurityGroup']
 
 class SecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ingress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]]] = None,
@@ -102,7 +102,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         The description of the Redshift security group. Defaults to "Managed by Pulumi".
         """
@@ -110,7 +110,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ingress(self) -> List['outputs.SecurityGroupIngress']:
+    def ingress(self) -> pulumi.Output[List['outputs.SecurityGroupIngress']]:
         """
         A list of ingress rules.
         """
@@ -118,7 +118,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Redshift security group.
         """

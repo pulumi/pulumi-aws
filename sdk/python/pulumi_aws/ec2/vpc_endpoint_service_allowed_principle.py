@@ -13,7 +13,7 @@ __all__ = ['VpcEndpointServiceAllowedPrinciple']
 
 class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  principal_arn: Optional[pulumi.Input[str]] = None,
                  vpc_endpoint_service_id: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="principalArn")
-    def principal_arn(self) -> str:
+    def principal_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the principal to allow permissions.
         """
@@ -111,7 +111,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcEndpointServiceId")
-    def vpc_endpoint_service_id(self) -> str:
+    def vpc_endpoint_service_id(self) -> pulumi.Output[str]:
         """
         The ID of the VPC endpoint service to allow permission.
         """

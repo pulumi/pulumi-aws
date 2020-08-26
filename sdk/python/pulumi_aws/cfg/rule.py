@@ -15,7 +15,7 @@ __all__ = ['Rule']
 
 class Rule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  input_parameters: Optional[pulumi.Input[str]] = None,
@@ -198,7 +198,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the config rule
         """
@@ -206,7 +206,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the rule
         """
@@ -214,7 +214,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputParameters")
-    def input_parameters(self) -> Optional[str]:
+    def input_parameters(self) -> pulumi.Output[Optional[str]]:
         """
         A string in JSON format that is passed to the AWS Config rule Lambda function.
         """
@@ -222,7 +222,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumExecutionFrequency")
-    def maximum_execution_frequency(self) -> Optional[str]:
+    def maximum_execution_frequency(self) -> pulumi.Output[Optional[str]]:
         """
         The frequency that you want AWS Config to run evaluations for a rule that
         is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
@@ -231,7 +231,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the rule
         """
@@ -239,7 +239,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleId")
-    def rule_id(self) -> str:
+    def rule_id(self) -> pulumi.Output[str]:
         """
         The ID of the config rule
         """
@@ -247,7 +247,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional['outputs.RuleScope']:
+    def scope(self) -> pulumi.Output[Optional['outputs.RuleScope']]:
         """
         Scope defines which resources can trigger an evaluation for the rule as documented below.
         """
@@ -255,7 +255,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> 'outputs.RuleSource':
+    def source(self) -> pulumi.Output['outputs.RuleSource']:
         """
         Source specifies the rule owner, the rule identifier, and the notifications that cause
         the function to evaluate your AWS resources as documented below.
@@ -264,7 +264,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

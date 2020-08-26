@@ -13,7 +13,7 @@ __all__ = ['Association']
 
 class Association(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  license_configuration_arn: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
@@ -85,7 +85,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseConfigurationArn")
-    def license_configuration_arn(self) -> str:
+    def license_configuration_arn(self) -> pulumi.Output[str]:
         """
         ARN of the license configuration.
         """
@@ -93,7 +93,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> str:
+    def resource_arn(self) -> pulumi.Output[str]:
         """
         ARN of the resource associated with the license configuration.
         """

@@ -15,7 +15,7 @@ __all__ = ['DomainName']
 
 class DomainName(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_name_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']]] = None,
@@ -119,7 +119,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiMappingSelectionExpression")
-    def api_mapping_selection_expression(self) -> str:
+    def api_mapping_selection_expression(self) -> pulumi.Output[str]:
         """
         The [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
         """
@@ -127,7 +127,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the domain name.
         """
@@ -135,7 +135,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         The domain name.
         """
@@ -143,7 +143,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainNameConfiguration")
-    def domain_name_configuration(self) -> 'outputs.DomainNameDomainNameConfiguration':
+    def domain_name_configuration(self) -> pulumi.Output['outputs.DomainNameDomainNameConfiguration']:
         """
         The domain name configuration.
         """
@@ -151,7 +151,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the domain name.
         """

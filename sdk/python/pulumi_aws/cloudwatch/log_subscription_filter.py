@@ -13,7 +13,7 @@ __all__ = ['LogSubscriptionFilter']
 
 class LogSubscriptionFilter(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_arn: Optional[pulumi.Input[str]] = None,
                  distribution: Optional[pulumi.Input[str]] = None,
@@ -123,7 +123,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationArn")
-    def destination_arn(self) -> str:
+    def destination_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
         """
@@ -131,7 +131,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def distribution(self) -> Optional[str]:
+    def distribution(self) -> pulumi.Output[Optional[str]]:
         """
         The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
         """
@@ -139,7 +139,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="filterPattern")
-    def filter_pattern(self) -> str:
+    def filter_pattern(self) -> pulumi.Output[str]:
         """
         A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
         """
@@ -147,7 +147,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logGroup")
-    def log_group(self) -> str:
+    def log_group(self) -> pulumi.Output[str]:
         """
         The name of the log group to associate the subscription filter with
         """
@@ -155,7 +155,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A name for the subscription filter
         """
@@ -163,7 +163,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> pulumi.Output[str]:
         """
         The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         """

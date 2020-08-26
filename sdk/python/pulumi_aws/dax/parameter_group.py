@@ -15,7 +15,7 @@ __all__ = ['ParameterGroup']
 
 class ParameterGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the parameter group.
         """
@@ -113,7 +113,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the parameter group.
         """
@@ -121,7 +121,7 @@ class ParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> List['outputs.ParameterGroupParameter']:
+    def parameters(self) -> pulumi.Output[List['outputs.ParameterGroupParameter']]:
         """
         The parameters of the parameter group.
         """

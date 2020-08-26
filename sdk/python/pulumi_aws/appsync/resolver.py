@@ -15,7 +15,7 @@ __all__ = ['Resolver']
 
 class Resolver(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  caching_config: Optional[pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']]] = None,
@@ -214,7 +214,7 @@ class Resolver(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> str:
+    def api_id(self) -> pulumi.Output[str]:
         """
         The API ID for the GraphQL API.
         """
@@ -222,7 +222,7 @@ class Resolver(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN
         """
@@ -230,7 +230,7 @@ class Resolver(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cachingConfig")
-    def caching_config(self) -> Optional['outputs.ResolverCachingConfig']:
+    def caching_config(self) -> pulumi.Output[Optional['outputs.ResolverCachingConfig']]:
         """
         The CachingConfig.
         """
@@ -238,7 +238,7 @@ class Resolver(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[str]:
+    def data_source(self) -> pulumi.Output[Optional[str]]:
         """
         The DataSource name.
         """
@@ -246,7 +246,7 @@ class Resolver(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def field(self) -> str:
+    def field(self) -> pulumi.Output[str]:
         """
         The field name from the schema defined in the GraphQL API.
         """
@@ -254,7 +254,7 @@ class Resolver(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The resolver type. Valid values are `UNIT` and `PIPELINE`.
         """
@@ -262,7 +262,7 @@ class Resolver(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pipelineConfig")
-    def pipeline_config(self) -> Optional['outputs.ResolverPipelineConfig']:
+    def pipeline_config(self) -> pulumi.Output[Optional['outputs.ResolverPipelineConfig']]:
         """
         The PipelineConfig.
         """
@@ -270,7 +270,7 @@ class Resolver(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestTemplate")
-    def request_template(self) -> str:
+    def request_template(self) -> pulumi.Output[str]:
         """
         The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver.
         """
@@ -278,7 +278,7 @@ class Resolver(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseTemplate")
-    def response_template(self) -> str:
+    def response_template(self) -> pulumi.Output[str]:
         """
         The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver.
         """
@@ -286,7 +286,7 @@ class Resolver(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type name from the schema defined in the GraphQL API.
         """

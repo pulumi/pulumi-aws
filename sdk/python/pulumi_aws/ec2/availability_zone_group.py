@@ -13,7 +13,7 @@ __all__ = ['AvailabilityZoneGroup']
 
 class AvailabilityZoneGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  opt_in_status: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> str:
+    def group_name(self) -> pulumi.Output[str]:
         """
         Name of the Availability Zone Group.
         """
@@ -104,7 +104,7 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="optInStatus")
-    def opt_in_status(self) -> str:
+    def opt_in_status(self) -> pulumi.Output[str]:
         """
         Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         """

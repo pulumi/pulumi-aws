@@ -15,7 +15,7 @@ __all__ = ['IdentityPoolRoleAttachment']
 
 class IdentityPoolRoleAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_pool_id: Optional[pulumi.Input[str]] = None,
                  role_mappings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IdentityPoolRoleAttachmentRoleMappingArgs']]]]] = None,
@@ -163,7 +163,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identityPoolId")
-    def identity_pool_id(self) -> str:
+    def identity_pool_id(self) -> pulumi.Output[str]:
         """
         An identity pool ID in the format REGION:GUID.
         """
@@ -171,7 +171,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleMappings")
-    def role_mappings(self) -> Optional[List['outputs.IdentityPoolRoleAttachmentRoleMapping']]:
+    def role_mappings(self) -> pulumi.Output[Optional[List['outputs.IdentityPoolRoleAttachmentRoleMapping']]]:
         """
         A List of Role Mapping.
         """
@@ -179,7 +179,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def roles(self) -> Mapping[str, str]:
+    def roles(self) -> pulumi.Output[Mapping[str, str]]:
         """
         The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         """

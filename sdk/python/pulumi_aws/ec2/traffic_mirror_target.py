@@ -13,7 +13,7 @@ __all__ = ['TrafficMirrorTarget']
 
 class TrafficMirrorTarget(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the traffic mirror target.
         """
@@ -120,7 +120,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the traffic mirror session.
         """
@@ -128,7 +128,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> Optional[str]:
+    def network_interface_id(self) -> pulumi.Output[Optional[str]]:
         """
         The network interface ID that is associated with the target.
         """
@@ -136,7 +136,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkLoadBalancerArn")
-    def network_load_balancer_arn(self) -> Optional[str]:
+    def network_load_balancer_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
         """
@@ -144,7 +144,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags.
         """

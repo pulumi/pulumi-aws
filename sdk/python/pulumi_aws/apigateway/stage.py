@@ -15,7 +15,7 @@ __all__ = ['Stage']
 
 class Stage(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_log_settings: Optional[pulumi.Input[pulumi.InputType['StageAccessLogSettingsArgs']]] = None,
                  cache_cluster_enabled: Optional[pulumi.Input[bool]] = None,
@@ -225,7 +225,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessLogSettings")
-    def access_log_settings(self) -> Optional['outputs.StageAccessLogSettings']:
+    def access_log_settings(self) -> pulumi.Output[Optional['outputs.StageAccessLogSettings']]:
         """
         Enables access logs for the API stage. Detailed below.
         """
@@ -233,7 +233,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN)
         """
@@ -241,7 +241,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheClusterEnabled")
-    def cache_cluster_enabled(self) -> Optional[bool]:
+    def cache_cluster_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether a cache cluster is enabled for the stage
         """
@@ -249,7 +249,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheClusterSize")
-    def cache_cluster_size(self) -> Optional[str]:
+    def cache_cluster_size(self) -> pulumi.Output[Optional[str]]:
         """
         The size of the cache cluster for the stage, if enabled.
         Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
@@ -258,7 +258,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientCertificateId")
-    def client_certificate_id(self) -> Optional[str]:
+    def client_certificate_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of a client certificate for the stage.
         """
@@ -266,7 +266,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def deployment(self) -> str:
+    def deployment(self) -> pulumi.Output[str]:
         """
         The ID of the deployment that the stage points to
         """
@@ -274,7 +274,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the stage
         """
@@ -282,7 +282,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="documentationVersion")
-    def documentation_version(self) -> Optional[str]:
+    def documentation_version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of the associated API documentation
         """
@@ -290,7 +290,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionArn")
-    def execution_arn(self) -> str:
+    def execution_arn(self) -> pulumi.Output[str]:
         """
         The execution ARN to be used in `lambda_permission`'s `source_arn`
         when allowing API Gateway to invoke a Lambda function,
@@ -300,7 +300,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invokeUrl")
-    def invoke_url(self) -> str:
+    def invoke_url(self) -> pulumi.Output[str]:
         """
         The URL to invoke the API pointing to the stage,
         e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
@@ -309,7 +309,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> str:
+    def rest_api(self) -> pulumi.Output[str]:
         """
         The ID of the associated REST API
         """
@@ -317,7 +317,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stageName")
-    def stage_name(self) -> str:
+    def stage_name(self) -> pulumi.Output[str]:
         """
         The name of the stage
         """
@@ -325,7 +325,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -333,7 +333,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Mapping[str, str]]:
+    def variables(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map that defines the stage variables
         """
@@ -341,7 +341,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xrayTracingEnabled")
-    def xray_tracing_enabled(self) -> Optional[bool]:
+    def xray_tracing_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether active tracing with X-ray is enabled. Defaults to `false`.
         """

@@ -15,7 +15,7 @@ __all__ = ['XssMatchSet']
 
 class XssMatchSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  xss_match_tuples: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['XssMatchSetXssMatchTupleArgs']]]]] = None,
@@ -107,7 +107,7 @@ class XssMatchSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN)
         """
@@ -115,7 +115,7 @@ class XssMatchSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name or description of the SizeConstraintSet.
         """
@@ -123,7 +123,7 @@ class XssMatchSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xssMatchTuples")
-    def xss_match_tuples(self) -> Optional[List['outputs.XssMatchSetXssMatchTuple']]:
+    def xss_match_tuples(self) -> pulumi.Output[Optional[List['outputs.XssMatchSetXssMatchTuple']]]:
         """
         The parts of web requests that you want to inspect for cross-site scripting attacks.
         """

@@ -13,7 +13,7 @@ __all__ = ['ResourceGroup']
 
 class ResourceGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -91,7 +91,7 @@ class ResourceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The resource group ARN.
         """
@@ -99,7 +99,7 @@ class ResourceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Mapping[str, str]:
+    def tags(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
         """

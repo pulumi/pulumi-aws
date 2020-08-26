@@ -15,7 +15,7 @@ __all__ = ['Selection']
 
 class Selection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -164,7 +164,7 @@ class Selection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> str:
+    def iam_role_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         """
@@ -172,7 +172,7 @@ class Selection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The display name of a resource selection document.
         """
@@ -180,7 +180,7 @@ class Selection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="planId")
-    def plan_id(self) -> str:
+    def plan_id(self) -> pulumi.Output[str]:
         """
         The backup plan ID to be associated with the selection of resources.
         """
@@ -188,7 +188,7 @@ class Selection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def resources(self) -> Optional[List[str]]:
+    def resources(self) -> pulumi.Output[Optional[List[str]]]:
         """
         An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
         """
@@ -196,7 +196,7 @@ class Selection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="selectionTags")
-    def selection_tags(self) -> Optional[List['outputs.SelectionSelectionTag']]:
+    def selection_tags(self) -> pulumi.Output[Optional[List['outputs.SelectionSelectionTag']]]:
         """
         Tag-based conditions used to specify a set of resources to assign to a backup plan.
         """

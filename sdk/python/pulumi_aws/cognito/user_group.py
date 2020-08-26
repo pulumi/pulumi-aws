@@ -13,7 +13,7 @@ __all__ = ['UserGroup']
 
 class UserGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class UserGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the user group.
         """
@@ -143,7 +143,7 @@ class UserGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the user group.
         """
@@ -151,7 +151,7 @@ class UserGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def precedence(self) -> Optional[float]:
+    def precedence(self) -> pulumi.Output[Optional[float]]:
         """
         The precedence of the user group.
         """
@@ -159,7 +159,7 @@ class UserGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[str]:
+    def role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the IAM role to be associated with the user group.
         """
@@ -167,7 +167,7 @@ class UserGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userPoolId")
-    def user_pool_id(self) -> str:
+    def user_pool_id(self) -> pulumi.Output[str]:
         """
         The user pool ID.
         """

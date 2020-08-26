@@ -17,7 +17,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
     warnings.warn("aws.elasticloadbalancingv2.TargetGroupAttachment has been deprecated in favor of aws.lb.TargetGroupAttachment", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[float]] = None,
@@ -137,7 +137,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[str]:
+    def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
         The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
         """
@@ -145,7 +145,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> pulumi.Output[Optional[float]]:
         """
         The port on which targets receive traffic.
         """
@@ -153,7 +153,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetGroupArn")
-    def target_group_arn(self) -> str:
+    def target_group_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the target group with which to register targets
         """
@@ -161,7 +161,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetId")
-    def target_id(self) -> str:
+    def target_id(self) -> pulumi.Output[str]:
         """
         The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
         """

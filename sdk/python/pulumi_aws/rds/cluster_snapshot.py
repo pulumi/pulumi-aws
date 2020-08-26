@@ -13,7 +13,7 @@ __all__ = ['ClusterSnapshot']
 
 class ClusterSnapshot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -150,7 +150,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> float:
+    def allocated_storage(self) -> pulumi.Output[float]:
         """
         Specifies the allocated storage size in gigabytes (GB).
         """
@@ -158,7 +158,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> List[str]:
+    def availability_zones(self) -> pulumi.Output[List[str]]:
         """
         List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
         """
@@ -166,7 +166,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbClusterIdentifier")
-    def db_cluster_identifier(self) -> str:
+    def db_cluster_identifier(self) -> pulumi.Output[str]:
         """
         The DB Cluster Identifier from which to take the snapshot.
         """
@@ -174,7 +174,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbClusterSnapshotArn")
-    def db_cluster_snapshot_arn(self) -> str:
+    def db_cluster_snapshot_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
         """
@@ -182,7 +182,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbClusterSnapshotIdentifier")
-    def db_cluster_snapshot_identifier(self) -> str:
+    def db_cluster_snapshot_identifier(self) -> pulumi.Output[str]:
         """
         The Identifier for the snapshot.
         """
@@ -190,7 +190,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> str:
+    def engine(self) -> pulumi.Output[str]:
         """
         Specifies the name of the database engine.
         """
@@ -198,7 +198,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> pulumi.Output[str]:
         """
         Version of the database engine for this DB cluster snapshot.
         """
@@ -206,7 +206,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> pulumi.Output[str]:
         """
         If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         """
@@ -214,7 +214,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseModel")
-    def license_model(self) -> str:
+    def license_model(self) -> pulumi.Output[str]:
         """
         License model information for the restored DB cluster.
         """
@@ -222,7 +222,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> pulumi.Output[float]:
         """
         Port that the DB cluster was listening on at the time of the snapshot.
         """
@@ -230,17 +230,17 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotType")
-    def snapshot_type(self) -> str:
+    def snapshot_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "snapshot_type")
 
     @property
     @pulumi.getter(name="sourceDbClusterSnapshotArn")
-    def source_db_cluster_snapshot_arn(self) -> str:
+    def source_db_cluster_snapshot_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "source_db_cluster_snapshot_arn")
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The status of this DB Cluster Snapshot.
         """
@@ -248,7 +248,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> bool:
+    def storage_encrypted(self) -> pulumi.Output[bool]:
         """
         Specifies whether the DB cluster snapshot is encrypted.
         """
@@ -256,7 +256,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the DB cluster.
         """
@@ -264,7 +264,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The VPC ID associated with the DB cluster snapshot.
         """

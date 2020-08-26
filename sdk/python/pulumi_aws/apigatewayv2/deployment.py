@@ -13,7 +13,7 @@ __all__ = ['Deployment']
 
 class Deployment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> str:
+    def api_id(self) -> pulumi.Output[str]:
         """
         The API identifier.
         """
@@ -114,7 +114,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoDeployed")
-    def auto_deployed(self) -> bool:
+    def auto_deployed(self) -> pulumi.Output[bool]:
         """
         Whether the deployment was automatically released.
         """
@@ -122,7 +122,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description for the deployment resource.
         """
@@ -130,7 +130,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def triggers(self) -> Optional[Mapping[str, str]]:
+    def triggers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """

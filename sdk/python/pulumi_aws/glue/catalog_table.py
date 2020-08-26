@@ -15,7 +15,7 @@ __all__ = ['CatalogTable']
 
 class CatalogTable(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -211,7 +211,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Glue Table.
         """
@@ -219,7 +219,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> str:
+    def catalog_id(self) -> pulumi.Output[str]:
         """
         ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         """
@@ -227,7 +227,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> pulumi.Output[str]:
         """
         Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         """
@@ -235,7 +235,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the table.
         """
@@ -243,7 +243,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the SerDe.
         """
@@ -251,7 +251,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def owner(self) -> Optional[str]:
+    def owner(self) -> pulumi.Output[Optional[str]]:
         """
         Owner of the table.
         """
@@ -259,7 +259,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of initialization parameters for the SerDe, in key-value form.
         """
@@ -267,7 +267,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> Optional[List['outputs.CatalogTablePartitionKey']]:
+    def partition_keys(self) -> pulumi.Output[Optional[List['outputs.CatalogTablePartitionKey']]]:
         """
         A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
         """
@@ -275,7 +275,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def retention(self) -> Optional[float]:
+    def retention(self) -> pulumi.Output[Optional[float]]:
         """
         Retention time for this table.
         """
@@ -283,7 +283,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageDescriptor")
-    def storage_descriptor(self) -> Optional['outputs.CatalogTableStorageDescriptor']:
+    def storage_descriptor(self) -> pulumi.Output[Optional['outputs.CatalogTableStorageDescriptor']]:
         """
         A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         """
@@ -291,7 +291,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableType")
-    def table_type(self) -> Optional[str]:
+    def table_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
         """
@@ -299,7 +299,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="viewExpandedText")
-    def view_expanded_text(self) -> Optional[str]:
+    def view_expanded_text(self) -> pulumi.Output[Optional[str]]:
         """
         If the table is a view, the expanded text of the view; otherwise null.
         """
@@ -307,7 +307,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="viewOriginalText")
-    def view_original_text(self) -> Optional[str]:
+    def view_original_text(self) -> pulumi.Output[Optional[str]]:
         """
         If the table is a view, the original text of the view; otherwise null.
         """

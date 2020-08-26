@@ -13,7 +13,7 @@ __all__ = ['SecurityGroupRule']
 
 class SecurityGroupRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr_blocks: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -201,7 +201,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cidrBlocks")
-    def cidr_blocks(self) -> Optional[List[str]]:
+    def cidr_blocks(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of CIDR blocks. Cannot be specified with `source_security_group_id`.
         """
@@ -209,7 +209,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the rule.
         """
@@ -217,7 +217,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fromPort")
-    def from_port(self) -> float:
+    def from_port(self) -> pulumi.Output[float]:
         """
         The start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         """
@@ -225,7 +225,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6CidrBlocks")
-    def ipv6_cidr_blocks(self) -> Optional[List[str]]:
+    def ipv6_cidr_blocks(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of IPv6 CIDR blocks.
         """
@@ -233,7 +233,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="prefixListIds")
-    def prefix_list_ids(self) -> Optional[List[str]]:
+    def prefix_list_ids(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of prefix list IDs (for allowing access to VPC endpoints).
         Only valid with `egress`.
@@ -242,7 +242,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> pulumi.Output[str]:
         """
         The protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         """
@@ -250,7 +250,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> str:
+    def security_group_id(self) -> pulumi.Output[str]:
         """
         The security group to apply this rule to.
         """
@@ -258,7 +258,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def self(self) -> Optional[bool]:
+    def self(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the security group itself will be added as
         a source to this ingress rule. Cannot be specified with `source_security_group_id`.
@@ -267,7 +267,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceSecurityGroupId")
-    def source_security_group_id(self) -> str:
+    def source_security_group_id(self) -> pulumi.Output[str]:
         """
         The security group id to allow access to/from,
         depending on the `type`. Cannot be specified with `cidr_blocks` and `self`.
@@ -276,7 +276,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="toPort")
-    def to_port(self) -> float:
+    def to_port(self) -> pulumi.Output[float]:
         """
         The end port (or ICMP code if protocol is "icmp").
         """
@@ -284,7 +284,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of rule being created. Valid options are `ingress` (inbound)
         or `egress` (outbound).

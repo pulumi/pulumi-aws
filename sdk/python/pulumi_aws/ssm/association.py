@@ -15,7 +15,7 @@ __all__ = ['Association']
 
 class Association(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  association_name: Optional[pulumi.Input[str]] = None,
                  automation_target_parameter_name: Optional[pulumi.Input[str]] = None,
@@ -157,7 +157,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> str:
+    def association_id(self) -> pulumi.Output[str]:
         """
         The ID of the SSM association.
         """
@@ -165,7 +165,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associationName")
-    def association_name(self) -> Optional[str]:
+    def association_name(self) -> pulumi.Output[Optional[str]]:
         """
         The descriptive name for the association.
         """
@@ -173,7 +173,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automationTargetParameterName")
-    def automation_target_parameter_name(self) -> Optional[str]:
+    def automation_target_parameter_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
         """
@@ -181,7 +181,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="complianceSeverity")
-    def compliance_severity(self) -> Optional[str]:
+    def compliance_severity(self) -> pulumi.Output[Optional[str]]:
         """
         The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         """
@@ -189,7 +189,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="documentVersion")
-    def document_version(self) -> str:
+    def document_version(self) -> pulumi.Output[str]:
         """
         The document version you want to associate with the target(s). Can be a specific version or the default version.
         """
@@ -197,7 +197,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> Optional[str]:
+    def instance_id(self) -> pulumi.Output[Optional[str]]:
         """
         The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
         """
@@ -205,7 +205,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxConcurrency")
-    def max_concurrency(self) -> Optional[str]:
+    def max_concurrency(self) -> pulumi.Output[Optional[str]]:
         """
         The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         """
@@ -213,7 +213,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxErrors")
-    def max_errors(self) -> Optional[str]:
+    def max_errors(self) -> pulumi.Output[Optional[str]]:
         """
         The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         """
@@ -221,7 +221,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the SSM document to apply.
         """
@@ -229,7 +229,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputLocation")
-    def output_location(self) -> Optional['outputs.AssociationOutputLocation']:
+    def output_location(self) -> pulumi.Output[Optional['outputs.AssociationOutputLocation']]:
         """
         An output location block. Output Location is documented below.
         """
@@ -237,7 +237,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Mapping[str, str]:
+    def parameters(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A block of arbitrary string parameters to pass to the SSM document.
         """
@@ -245,7 +245,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scheduleExpression")
-    def schedule_expression(self) -> Optional[str]:
+    def schedule_expression(self) -> pulumi.Output[Optional[str]]:
         """
         A cron expression when the association will be applied to the target(s).
         """
@@ -253,7 +253,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def targets(self) -> List['outputs.AssociationTarget']:
+    def targets(self) -> pulumi.Output[List['outputs.AssociationTarget']]:
         """
         A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         """

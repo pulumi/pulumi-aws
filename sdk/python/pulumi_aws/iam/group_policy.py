@@ -13,7 +13,7 @@ __all__ = ['GroupPolicy']
 
 class GroupPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -123,7 +123,7 @@ class GroupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def group(self) -> str:
+    def group(self) -> pulumi.Output[str]:
         """
         The IAM group to attach to the policy.
         """
@@ -131,7 +131,7 @@ class GroupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the policy. If omitted, this provider will
         assign a random, unique name.
@@ -140,7 +140,7 @@ class GroupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified
         prefix. Conflicts with `name`.
@@ -149,7 +149,7 @@ class GroupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         The policy document. This is a JSON formatted string.
         """

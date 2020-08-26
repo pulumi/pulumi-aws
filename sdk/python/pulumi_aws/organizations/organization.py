@@ -15,7 +15,7 @@ __all__ = ['Organization']
 
 class Organization(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_service_access_principals: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  enabled_policy_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -129,7 +129,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def accounts(self) -> List['outputs.OrganizationAccount']:
+    def accounts(self) -> pulumi.Output[List['outputs.OrganizationAccount']]:
         """
         List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
         """
@@ -137,7 +137,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         ARN of the root
         """
@@ -145,7 +145,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsServiceAccessPrincipals")
-    def aws_service_access_principals(self) -> Optional[List[str]]:
+    def aws_service_access_principals(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
         """
@@ -153,7 +153,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledPolicyTypes")
-    def enabled_policy_types(self) -> Optional[List[str]]:
+    def enabled_policy_types(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         """
@@ -161,7 +161,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="featureSet")
-    def feature_set(self) -> Optional[str]:
+    def feature_set(self) -> pulumi.Output[Optional[str]]:
         """
         Specify "ALL" (default) or "CONSOLIDATED_BILLING".
         """
@@ -169,7 +169,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterAccountArn")
-    def master_account_arn(self) -> str:
+    def master_account_arn(self) -> pulumi.Output[str]:
         """
         ARN of the master account
         """
@@ -177,7 +177,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterAccountEmail")
-    def master_account_email(self) -> str:
+    def master_account_email(self) -> pulumi.Output[str]:
         """
         Email address of the master account
         """
@@ -185,7 +185,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterAccountId")
-    def master_account_id(self) -> str:
+    def master_account_id(self) -> pulumi.Output[str]:
         """
         Identifier of the master account
         """
@@ -193,7 +193,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nonMasterAccounts")
-    def non_master_accounts(self) -> List['outputs.OrganizationNonMasterAccount']:
+    def non_master_accounts(self) -> pulumi.Output[List['outputs.OrganizationNonMasterAccount']]:
         """
         List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         """
@@ -201,7 +201,7 @@ class Organization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def roots(self) -> List['outputs.OrganizationRoot']:
+    def roots(self) -> pulumi.Output[List['outputs.OrganizationRoot']]:
         """
         List of organization roots. All elements have these attributes:
         """

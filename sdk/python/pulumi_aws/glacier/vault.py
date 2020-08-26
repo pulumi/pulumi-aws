@@ -15,7 +15,7 @@ __all__ = ['Vault']
 
 class Vault(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -141,7 +141,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessPolicy")
-    def access_policy(self) -> Optional[str]:
+    def access_policy(self) -> pulumi.Output[Optional[str]]:
         """
         The policy document. This is a JSON formatted string.
         The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
@@ -150,7 +150,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the vault.
         """
@@ -158,7 +158,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The URI of the vault that was created.
         """
@@ -166,7 +166,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         """
@@ -174,7 +174,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notifications(self) -> Optional[List['outputs.VaultNotification']]:
+    def notifications(self) -> pulumi.Output[Optional[List['outputs.VaultNotification']]]:
         """
         The notifications for the Vault. Fields documented below.
         """
@@ -182,7 +182,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

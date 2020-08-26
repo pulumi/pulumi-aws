@@ -13,7 +13,7 @@ __all__ = ['TopicSubscription']
 
 class TopicSubscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  confirmation_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
                  delivery_policy: Optional[pulumi.Input[str]] = None,
@@ -285,7 +285,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the subscription stored as a more user-friendly property
         """
@@ -293,7 +293,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="confirmationTimeoutInMinutes")
-    def confirmation_timeout_in_minutes(self) -> Optional[float]:
+    def confirmation_timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         Integer indicating number of minutes to wait in retying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols (default is 1 minute).
         """
@@ -301,7 +301,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryPolicy")
-    def delivery_policy(self) -> Optional[str]:
+    def delivery_policy(self) -> pulumi.Output[Optional[str]]:
         """
         JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         """
@@ -309,7 +309,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint to send data to, the contents will vary with the protocol. (see below for more information)
         """
@@ -317,7 +317,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointAutoConfirms")
-    def endpoint_auto_confirms(self) -> Optional[bool]:
+    def endpoint_auto_confirms(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean indicating whether the end point is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) e.g., PagerDuty (default is false)
         """
@@ -325,7 +325,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="filterPolicy")
-    def filter_policy(self) -> Optional[str]:
+    def filter_policy(self) -> pulumi.Output[Optional[str]]:
         """
         JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
         """
@@ -333,7 +333,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> pulumi.Output[str]:
         """
         The protocol to use. The possible values for this are: `sqs`, `sms`, `lambda`, `application`. (`http` or `https` are partially supported, see below) (`email` is an option but is unsupported, see below).
         """
@@ -341,7 +341,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rawMessageDelivery")
-    def raw_message_delivery(self) -> Optional[bool]:
+    def raw_message_delivery(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean indicating whether or not to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property) (default is false).
         """
@@ -349,7 +349,7 @@ class TopicSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def topic(self) -> str:
+    def topic(self) -> pulumi.Output[str]:
         """
         The ARN of the SNS topic to subscribe to
         """

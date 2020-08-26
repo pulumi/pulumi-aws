@@ -13,7 +13,7 @@ __all__ = ['Workflow']
 
 class Workflow(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_run_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultRunProperties")
-    def default_run_properties(self) -> Optional[Mapping[str, Any]]:
+    def default_run_properties(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         """
@@ -122,7 +122,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the workflow.
         """
@@ -130,7 +130,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name you assign to this workflow.
         """

@@ -15,7 +15,7 @@ __all__ = ['Crawler']
 
 class Crawler(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CrawlerCatalogTargetArgs']]]]] = None,
                  classifiers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -231,7 +231,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the crawler
         """
@@ -239,12 +239,12 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="catalogTargets")
-    def catalog_targets(self) -> Optional[List['outputs.CrawlerCatalogTarget']]:
+    def catalog_targets(self) -> pulumi.Output[Optional[List['outputs.CrawlerCatalogTarget']]]:
         return pulumi.get(self, "catalog_targets")
 
     @property
     @pulumi.getter
-    def classifiers(self) -> Optional[List[str]]:
+    def classifiers(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         """
@@ -252,7 +252,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[str]:
+    def configuration(self) -> pulumi.Output[Optional[str]]:
         """
         JSON string of configuration information.
         """
@@ -260,7 +260,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> pulumi.Output[str]:
         """
         Glue database where results are written.
         """
@@ -268,7 +268,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the crawler.
         """
@@ -276,7 +276,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dynamodbTargets")
-    def dynamodb_targets(self) -> Optional[List['outputs.CrawlerDynamodbTarget']]:
+    def dynamodb_targets(self) -> pulumi.Output[Optional[List['outputs.CrawlerDynamodbTarget']]]:
         """
         List of nested DynamoDB target arguments. See below.
         """
@@ -284,7 +284,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jdbcTargets")
-    def jdbc_targets(self) -> Optional[List['outputs.CrawlerJdbcTarget']]:
+    def jdbc_targets(self) -> pulumi.Output[Optional[List['outputs.CrawlerJdbcTarget']]]:
         """
         List of nested JBDC target arguments. See below.
         """
@@ -292,7 +292,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the crawler.
         """
@@ -300,7 +300,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> str:
+    def role(self) -> pulumi.Output[str]:
         """
         The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         """
@@ -308,7 +308,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Targets")
-    def s3_targets(self) -> Optional[List['outputs.CrawlerS3Target']]:
+    def s3_targets(self) -> pulumi.Output[Optional[List['outputs.CrawlerS3Target']]]:
         """
         List nested Amazon S3 target arguments. See below.
         """
@@ -316,7 +316,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional[str]:
+    def schedule(self) -> pulumi.Output[Optional[str]]:
         """
         A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
         """
@@ -324,7 +324,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schemaChangePolicy")
-    def schema_change_policy(self) -> Optional['outputs.CrawlerSchemaChangePolicy']:
+    def schema_change_policy(self) -> pulumi.Output[Optional['outputs.CrawlerSchemaChangePolicy']]:
         """
         Policy for the crawler's update and deletion behavior.
         """
@@ -332,7 +332,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityConfiguration")
-    def security_configuration(self) -> Optional[str]:
+    def security_configuration(self) -> pulumi.Output[Optional[str]]:
         """
         The name of Security Configuration to be used by the crawler
         """
@@ -340,7 +340,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tablePrefix")
-    def table_prefix(self) -> Optional[str]:
+    def table_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The table prefix used for catalog tables that are created.
         """
@@ -348,7 +348,7 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

@@ -15,7 +15,7 @@ __all__ = ['NodeGroup']
 
 class NodeGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ami_type: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
@@ -235,7 +235,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amiType")
-    def ami_type(self) -> str:
+    def ami_type(self) -> pulumi.Output[str]:
         """
         Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`. This provider will only perform drift detection if a configuration value is provided.
         """
@@ -243,7 +243,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the EKS Node Group.
         """
@@ -251,7 +251,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> str:
+    def cluster_name(self) -> pulumi.Output[str]:
         """
         Name of the EKS Cluster.
         """
@@ -259,7 +259,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSize")
-    def disk_size(self) -> float:
+    def disk_size(self) -> pulumi.Output[float]:
         """
         Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
         """
@@ -267,7 +267,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceUpdateVersion")
-    def force_update_version(self) -> Optional[bool]:
+    def force_update_version(self) -> pulumi.Output[Optional[bool]]:
         """
         Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
         """
@@ -275,7 +275,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> str:
+    def instance_types(self) -> pulumi.Output[str]:
         """
         Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided. Currently, the EKS API only accepts a single value in the set.
         """
@@ -283,7 +283,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[Mapping[str, str]]:
+    def labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         """
@@ -291,7 +291,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeGroupName")
-    def node_group_name(self) -> str:
+    def node_group_name(self) -> pulumi.Output[str]:
         """
         Name of the EKS Node Group.
         """
@@ -299,7 +299,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeRoleArn")
-    def node_role_arn(self) -> str:
+    def node_role_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         """
@@ -307,7 +307,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="releaseVersion")
-    def release_version(self) -> str:
+    def release_version(self) -> pulumi.Output[str]:
         """
         AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         """
@@ -315,7 +315,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remoteAccess")
-    def remote_access(self) -> Optional['outputs.NodeGroupRemoteAccess']:
+    def remote_access(self) -> pulumi.Output[Optional['outputs.NodeGroupRemoteAccess']]:
         """
         Configuration block with remote access settings. Detailed below.
         """
@@ -323,7 +323,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def resources(self) -> List['outputs.NodeGroupResource']:
+    def resources(self) -> pulumi.Output[List['outputs.NodeGroupResource']]:
         """
         List of objects containing information about underlying resources.
         """
@@ -331,7 +331,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scalingConfig")
-    def scaling_config(self) -> 'outputs.NodeGroupScalingConfig':
+    def scaling_config(self) -> pulumi.Output['outputs.NodeGroupScalingConfig']:
         """
         Configuration block with scaling settings. Detailed below.
         """
@@ -339,7 +339,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         Status of the EKS Node Group.
         """
@@ -347,7 +347,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> List[str]:
+    def subnet_ids(self) -> pulumi.Output[List[str]]:
         """
         Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
         """
@@ -355,7 +355,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value mapping of resource tags.
         """
@@ -363,7 +363,7 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         Kubernetes version. Defaults to EKS Cluster Kubernetes version. This provider will only perform drift detection if a configuration value is provided.
         """

@@ -13,7 +13,7 @@ __all__ = ['Activation']
 
 class Activation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
@@ -142,7 +142,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activationCode")
-    def activation_code(self) -> str:
+    def activation_code(self) -> pulumi.Output[str]:
         """
         The code the system generates when it processes the activation.
         """
@@ -150,7 +150,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the resource that you want to register.
         """
@@ -158,7 +158,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> str:
+    def expiration_date(self) -> pulumi.Output[str]:
         """
         UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         """
@@ -166,7 +166,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def expired(self) -> bool:
+    def expired(self) -> pulumi.Output[bool]:
         """
         If the current activation has expired.
         """
@@ -174,7 +174,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRole")
-    def iam_role(self) -> str:
+    def iam_role(self) -> pulumi.Output[str]:
         """
         The IAM Role to attach to the managed instance.
         """
@@ -182,7 +182,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The default name of the registered managed instance.
         """
@@ -190,7 +190,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationCount")
-    def registration_count(self) -> float:
+    def registration_count(self) -> pulumi.Output[float]:
         """
         The number of managed instances that are currently registered using this activation.
         """
@@ -198,7 +198,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationLimit")
-    def registration_limit(self) -> Optional[float]:
+    def registration_limit(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum number of managed instances you want to register. The default value is 1 instance.
         """
@@ -206,7 +206,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the object.
         """

@@ -13,7 +13,7 @@ __all__ = ['Gateway']
 
 class Gateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amazon_side_asn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> str:
+    def amazon_side_asn(self) -> pulumi.Output[str]:
         """
         The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
         """
@@ -102,7 +102,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the connection.
         """
@@ -110,7 +110,7 @@ class Gateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> str:
+    def owner_account_id(self) -> pulumi.Output[str]:
         """
         AWS Account ID of the gateway.
         """

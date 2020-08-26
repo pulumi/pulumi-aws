@@ -15,7 +15,7 @@ __all__ = ['WebAcl']
 
 class WebAcl(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationArgs']]] = None,
@@ -173,7 +173,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the WAF WebACL.
         """
@@ -181,7 +181,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> 'outputs.WebAclDefaultAction':
+    def default_action(self) -> pulumi.Output['outputs.WebAclDefaultAction']:
         """
         Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
         """
@@ -189,7 +189,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loggingConfiguration")
-    def logging_configuration(self) -> Optional['outputs.WebAclLoggingConfiguration']:
+    def logging_configuration(self) -> pulumi.Output[Optional['outputs.WebAclLoggingConfiguration']]:
         """
         Configuration block to enable WAF logging. Detailed below.
         """
@@ -197,7 +197,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> str:
+    def metric_name(self) -> pulumi.Output[str]:
         """
         The name or description for the Amazon CloudWatch metric of this web ACL.
         """
@@ -205,7 +205,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name or description of the web ACL.
         """
@@ -213,7 +213,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.WebAclRule']]:
+    def rules(self) -> pulumi.Output[Optional[List['outputs.WebAclRule']]]:
         """
         Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
         """
@@ -221,7 +221,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

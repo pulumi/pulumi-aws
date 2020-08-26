@@ -13,7 +13,7 @@ __all__ = ['ThingPrincipalAttachment']
 
 class ThingPrincipalAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  principal: Optional[pulumi.Input[str]] = None,
                  thing: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def principal(self) -> str:
+    def principal(self) -> pulumi.Output[str]:
         """
         The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         """
@@ -106,7 +106,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thing(self) -> str:
+    def thing(self) -> pulumi.Output[str]:
         """
         The name of the thing.
         """

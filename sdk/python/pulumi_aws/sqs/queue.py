@@ -13,7 +13,7 @@ __all__ = ['Queue']
 
 class Queue(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
                  delay_seconds: Optional[pulumi.Input[float]] = None,
@@ -195,7 +195,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the SQS queue
         """
@@ -203,7 +203,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentBasedDeduplication")
-    def content_based_deduplication(self) -> Optional[bool]:
+    def content_based_deduplication(self) -> pulumi.Output[Optional[bool]]:
         """
         Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing)
         """
@@ -211,7 +211,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="delaySeconds")
-    def delay_seconds(self) -> Optional[float]:
+    def delay_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
         """
@@ -219,7 +219,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fifoQueue")
-    def fifo_queue(self) -> Optional[bool]:
+    def fifo_queue(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
         """
@@ -227,7 +227,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
-    def kms_data_key_reuse_period_seconds(self) -> float:
+    def kms_data_key_reuse_period_seconds(self) -> pulumi.Output[float]:
         """
         The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
         """
@@ -235,7 +235,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsMasterKeyId")
-    def kms_master_key_id(self) -> Optional[str]:
+    def kms_master_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
         """
@@ -243,7 +243,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxMessageSize")
-    def max_message_size(self) -> Optional[float]:
+    def max_message_size(self) -> pulumi.Output[Optional[float]]:
         """
         The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
         """
@@ -251,7 +251,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messageRetentionSeconds")
-    def message_retention_seconds(self) -> Optional[float]:
+    def message_retention_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
         """
@@ -259,7 +259,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         This is the human-readable name of the queue. If omitted, this provider will assign a random name.
         """
@@ -267,7 +267,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -275,7 +275,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         The JSON policy for the SQS queue.
         """
@@ -283,7 +283,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="receiveWaitTimeSeconds")
-    def receive_wait_time_seconds(self) -> Optional[float]:
+    def receive_wait_time_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         """
@@ -291,7 +291,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redrivePolicy")
-    def redrive_policy(self) -> Optional[str]:
+    def redrive_policy(self) -> pulumi.Output[Optional[str]]:
         """
         The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
         """
@@ -299,7 +299,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the queue.
         """
@@ -307,7 +307,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="visibilityTimeoutSeconds")
-    def visibility_timeout_seconds(self) -> Optional[float]:
+    def visibility_timeout_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
         """

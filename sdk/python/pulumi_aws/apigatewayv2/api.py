@@ -15,7 +15,7 @@ __all__ = ['Api']
 
 class Api(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key_selection_expression: Optional[pulumi.Input[str]] = None,
                  cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']]] = None,
@@ -183,7 +183,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiEndpoint")
-    def api_endpoint(self) -> str:
+    def api_endpoint(self) -> pulumi.Output[str]:
         """
         The URI of the API, of the form `{api-id}.execute-api.{region}.amazonaws.com`.
         """
@@ -191,7 +191,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiKeySelectionExpression")
-    def api_key_selection_expression(self) -> Optional[str]:
+    def api_key_selection_expression(self) -> pulumi.Output[Optional[str]]:
         """
         An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
         Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
@@ -201,7 +201,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the API.
         """
@@ -209,7 +209,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="corsConfiguration")
-    def cors_configuration(self) -> Optional['outputs.ApiCorsConfiguration']:
+    def cors_configuration(self) -> pulumi.Output[Optional['outputs.ApiCorsConfiguration']]:
         """
         The cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         """
@@ -217,7 +217,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="credentialsArn")
-    def credentials_arn(self) -> Optional[str]:
+    def credentials_arn(self) -> pulumi.Output[Optional[str]]:
         """
         Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         """
@@ -225,7 +225,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the API.
         """
@@ -233,7 +233,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionArn")
-    def execution_arn(self) -> str:
+    def execution_arn(self) -> pulumi.Output[str]:
         """
         The ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
         or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
@@ -243,7 +243,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the API.
         """
@@ -251,7 +251,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> str:
+    def protocol_type(self) -> pulumi.Output[str]:
         """
         The API protocol. Valid values: `HTTP`, `WEBSOCKET`.
         """
@@ -259,7 +259,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeKey")
-    def route_key(self) -> Optional[str]:
+    def route_key(self) -> pulumi.Output[Optional[str]]:
         """
         Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
         """
@@ -267,7 +267,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeSelectionExpression")
-    def route_selection_expression(self) -> Optional[str]:
+    def route_selection_expression(self) -> pulumi.Output[Optional[str]]:
         """
         The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         Defaults to `$request.method $request.path`.
@@ -276,7 +276,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the API.
         """
@@ -284,7 +284,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def target(self) -> Optional[str]:
+    def target(self) -> pulumi.Output[Optional[str]]:
         """
         Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
         For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
@@ -294,7 +294,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         A version identifier for the API.
         """

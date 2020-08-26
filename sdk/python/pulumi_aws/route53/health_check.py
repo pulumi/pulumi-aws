@@ -13,7 +13,7 @@ __all__ = ['HealthCheck']
 
 class HealthCheck(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  child_health_threshold: Optional[pulumi.Input[float]] = None,
                  child_healthchecks: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -254,7 +254,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="childHealthThreshold")
-    def child_health_threshold(self) -> Optional[float]:
+    def child_health_threshold(self) -> pulumi.Output[Optional[float]]:
         """
         The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         """
@@ -262,7 +262,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="childHealthchecks")
-    def child_healthchecks(self) -> Optional[List[str]]:
+    def child_healthchecks(self) -> pulumi.Output[Optional[List[str]]]:
         """
         For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
         """
@@ -270,7 +270,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudwatchAlarmName")
-    def cloudwatch_alarm_name(self) -> Optional[str]:
+    def cloudwatch_alarm_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the CloudWatch alarm.
         """
@@ -278,7 +278,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudwatchAlarmRegion")
-    def cloudwatch_alarm_region(self) -> Optional[str]:
+    def cloudwatch_alarm_region(self) -> pulumi.Output[Optional[str]]:
         """
         The CloudWatchRegion that the CloudWatch alarm was created in.
         """
@@ -286,7 +286,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableSni")
-    def enable_sni(self) -> bool:
+    def enable_sni(self) -> pulumi.Output[bool]:
         """
         A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
         """
@@ -294,7 +294,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[float]:
+    def failure_threshold(self) -> pulumi.Output[Optional[float]]:
         """
         The number of consecutive health checks that an endpoint must pass or fail.
         """
@@ -302,7 +302,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> Optional[str]:
+    def fqdn(self) -> pulumi.Output[Optional[str]]:
         """
         The fully qualified domain name of the endpoint to be checked.
         """
@@ -310,7 +310,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="insufficientDataHealthStatus")
-    def insufficient_data_health_status(self) -> Optional[str]:
+    def insufficient_data_health_status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
         """
@@ -318,7 +318,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invertHealthcheck")
-    def invert_healthcheck(self) -> Optional[bool]:
+    def invert_healthcheck(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
         """
@@ -326,7 +326,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[str]:
+    def ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         The IP address of the endpoint to be checked.
         """
@@ -334,7 +334,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="measureLatency")
-    def measure_latency(self) -> Optional[bool]:
+    def measure_latency(self) -> pulumi.Output[Optional[bool]]:
         """
         A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
         """
@@ -342,7 +342,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> pulumi.Output[Optional[float]]:
         """
         The port of the endpoint to be checked.
         """
@@ -350,7 +350,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="referenceName")
-    def reference_name(self) -> Optional[str]:
+    def reference_name(self) -> pulumi.Output[Optional[str]]:
         """
         This is a reference name used in Caller Reference
         (helpful for identifying single health_check set amongst others)
@@ -359,7 +359,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def regions(self) -> Optional[List[str]]:
+    def regions(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
         """
@@ -367,7 +367,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestInterval")
-    def request_interval(self) -> Optional[float]:
+    def request_interval(self) -> pulumi.Output[Optional[float]]:
         """
         The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         """
@@ -375,7 +375,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourcePath")
-    def resource_path(self) -> Optional[str]:
+    def resource_path(self) -> pulumi.Output[Optional[str]]:
         """
         The path that you want Amazon Route 53 to request when performing health checks.
         """
@@ -383,7 +383,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="searchString")
-    def search_string(self) -> Optional[str]:
+    def search_string(self) -> pulumi.Output[Optional[str]]:
         """
         String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         """
@@ -391,7 +391,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the health check.
         """
@@ -399,7 +399,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
         """

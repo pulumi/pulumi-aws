@@ -15,7 +15,7 @@ __all__ = ['DeploymentConfig']
 
 class DeploymentConfig(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  deployment_config_name: Optional[pulumi.Input[str]] = None,
@@ -167,7 +167,7 @@ class DeploymentConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computePlatform")
-    def compute_platform(self) -> Optional[str]:
+    def compute_platform(self) -> pulumi.Output[Optional[str]]:
         """
         The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         """
@@ -175,7 +175,7 @@ class DeploymentConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentConfigId")
-    def deployment_config_id(self) -> str:
+    def deployment_config_id(self) -> pulumi.Output[str]:
         """
         The AWS Assigned deployment config id
         """
@@ -183,7 +183,7 @@ class DeploymentConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentConfigName")
-    def deployment_config_name(self) -> str:
+    def deployment_config_name(self) -> pulumi.Output[str]:
         """
         The name of the deployment config.
         """
@@ -191,7 +191,7 @@ class DeploymentConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimumHealthyHosts")
-    def minimum_healthy_hosts(self) -> Optional['outputs.DeploymentConfigMinimumHealthyHosts']:
+    def minimum_healthy_hosts(self) -> pulumi.Output[Optional['outputs.DeploymentConfigMinimumHealthyHosts']]:
         """
         A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         """
@@ -199,7 +199,7 @@ class DeploymentConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficRoutingConfig")
-    def traffic_routing_config(self) -> Optional['outputs.DeploymentConfigTrafficRoutingConfig']:
+    def traffic_routing_config(self) -> pulumi.Output[Optional['outputs.DeploymentConfigTrafficRoutingConfig']]:
         """
         A traffic_routing_config block. Traffic Routing Config is documented below.
         """

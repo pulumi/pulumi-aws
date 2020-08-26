@@ -15,7 +15,7 @@ __all__ = ['Alias']
 
 class Alias(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Alias ARN.
         """
@@ -121,7 +121,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the alias.
         """
@@ -129,7 +129,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the alias.
         """
@@ -137,7 +137,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingStrategy")
-    def routing_strategy(self) -> 'outputs.AliasRoutingStrategy':
+    def routing_strategy(self) -> pulumi.Output['outputs.AliasRoutingStrategy']:
         """
         Specifies the fleet and/or routing type to use for the alias.
         """
@@ -145,7 +145,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

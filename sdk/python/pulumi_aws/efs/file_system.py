@@ -15,7 +15,7 @@ __all__ = ['FileSystem']
 
 class FileSystem(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creation_token: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
@@ -153,7 +153,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name of the file system.
         """
@@ -161,7 +161,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationToken")
-    def creation_token(self) -> str:
+    def creation_token(self) -> pulumi.Output[str]:
         """
         A unique name (a maximum of 64 characters are allowed)
         used as reference when creating the Elastic File System to ensure idempotent file
@@ -172,7 +172,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> pulumi.Output[str]:
         """
         The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         """
@@ -180,7 +180,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> bool:
+    def encrypted(self) -> pulumi.Output[bool]:
         """
         If true, the disk will be encrypted.
         """
@@ -188,7 +188,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> pulumi.Output[str]:
         """
         The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
         """
@@ -196,7 +196,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lifecyclePolicy")
-    def lifecycle_policy(self) -> Optional['outputs.FileSystemLifecyclePolicy']:
+    def lifecycle_policy(self) -> pulumi.Output[Optional['outputs.FileSystemLifecyclePolicy']]:
         """
         A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
         """
@@ -204,7 +204,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="performanceMode")
-    def performance_mode(self) -> str:
+    def performance_mode(self) -> pulumi.Output[str]:
         """
         The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         """
@@ -212,7 +212,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionedThroughputInMibps")
-    def provisioned_throughput_in_mibps(self) -> Optional[float]:
+    def provisioned_throughput_in_mibps(self) -> pulumi.Output[Optional[float]]:
         """
         The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         """
@@ -220,7 +220,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the file system.
         """
@@ -228,7 +228,7 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="throughputMode")
-    def throughput_mode(self) -> Optional[str]:
+    def throughput_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         """

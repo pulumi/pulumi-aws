@@ -15,7 +15,7 @@ __all__ = ['TargetGroup']
 
 class TargetGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deregistration_delay: Optional[pulumi.Input[float]] = None,
                  health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']]] = None,
@@ -210,7 +210,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Target Group (matches `id`)
         """
@@ -218,7 +218,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="arnSuffix")
-    def arn_suffix(self) -> str:
+    def arn_suffix(self) -> pulumi.Output[str]:
         """
         The ARN suffix for use with CloudWatch Metrics.
         """
@@ -226,7 +226,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deregistrationDelay")
-    def deregistration_delay(self) -> Optional[float]:
+    def deregistration_delay(self) -> pulumi.Output[Optional[float]]:
         """
         The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         """
@@ -234,7 +234,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> 'outputs.TargetGroupHealthCheck':
+    def health_check(self) -> pulumi.Output['outputs.TargetGroupHealthCheck']:
         """
         A Health Check block. Health Check blocks are documented below.
         """
@@ -242,7 +242,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lambdaMultiValueHeadersEnabled")
-    def lambda_multi_value_headers_enabled(self) -> Optional[bool]:
+    def lambda_multi_value_headers_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
         """
@@ -250,7 +250,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancingAlgorithmType")
-    def load_balancing_algorithm_type(self) -> str:
+    def load_balancing_algorithm_type(self) -> pulumi.Output[str]:
         """
         Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
         """
@@ -258,7 +258,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the target group. If omitted, this provider will assign a random, unique name.
         """
@@ -266,7 +266,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         """
@@ -274,7 +274,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> pulumi.Output[Optional[float]]:
         """
         The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         """
@@ -282,7 +282,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[str]:
+    def protocol(self) -> pulumi.Output[Optional[str]]:
         """
         The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         """
@@ -290,7 +290,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proxyProtocolV2")
-    def proxy_protocol_v2(self) -> Optional[bool]:
+    def proxy_protocol_v2(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean to enable / disable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information.
         """
@@ -298,7 +298,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="slowStart")
-    def slow_start(self) -> Optional[float]:
+    def slow_start(self) -> pulumi.Output[Optional[float]]:
         """
         The amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         """
@@ -306,7 +306,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def stickiness(self) -> 'outputs.TargetGroupStickiness':
+    def stickiness(self) -> pulumi.Output['outputs.TargetGroupStickiness']:
         """
         A Stickiness block. Stickiness blocks are documented below. `stickiness` is only valid if used with Load Balancers of type `Application`
         """
@@ -314,7 +314,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -322,7 +322,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> Optional[str]:
+    def target_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of target that you must specify when registering targets with this target group.
         The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn).
@@ -335,7 +335,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[str]:
+    def vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         """

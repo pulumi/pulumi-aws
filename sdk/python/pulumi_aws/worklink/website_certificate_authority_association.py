@@ -13,7 +13,7 @@ __all__ = ['WebsiteCertificateAuthorityAssociation']
 
 class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificate(self) -> str:
+    def certificate(self) -> pulumi.Output[str]:
         """
         The root certificate of the Certificate Authority.
         """
@@ -111,7 +111,7 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The certificate name to display.
         """
@@ -119,7 +119,7 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fleetArn")
-    def fleet_arn(self) -> str:
+    def fleet_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the fleet.
         """
@@ -127,7 +127,7 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="websiteCaId")
-    def website_ca_id(self) -> str:
+    def website_ca_id(self) -> pulumi.Output[str]:
         """
         A unique identifier for the Certificate Authority.
         """

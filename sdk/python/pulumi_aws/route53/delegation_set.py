@@ -13,7 +13,7 @@ __all__ = ['DelegationSet']
 
 class DelegationSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  reference_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -91,7 +91,7 @@ class DelegationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> List[str]:
+    def name_servers(self) -> pulumi.Output[List[str]]:
         """
         A list of authoritative name servers for the hosted zone
         (effectively a list of NS records).
@@ -100,7 +100,7 @@ class DelegationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="referenceName")
-    def reference_name(self) -> Optional[str]:
+    def reference_name(self) -> pulumi.Output[Optional[str]]:
         """
         This is a reference name used in Caller Reference
         (helpful for identifying single delegation set amongst others)

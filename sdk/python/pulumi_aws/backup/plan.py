@@ -15,7 +15,7 @@ __all__ = ['Plan']
 
 class Plan(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PlanRuleArgs']]]]] = None,
@@ -110,7 +110,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the backup plan.
         """
@@ -118,7 +118,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The display name of a backup plan.
         """
@@ -126,7 +126,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> List['outputs.PlanRule']:
+    def rules(self) -> pulumi.Output[List['outputs.PlanRule']]:
         """
         A rule object that specifies a scheduled task that is used to back up a selection of resources.
         """
@@ -134,7 +134,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Metadata that you can assign to help organize the plans you create.
         """
@@ -142,7 +142,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
         """

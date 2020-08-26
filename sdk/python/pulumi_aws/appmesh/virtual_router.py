@@ -15,7 +15,7 @@ __all__ = ['VirtualRouter']
 
 class VirtualRouter(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -139,7 +139,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the virtual router.
         """
@@ -147,7 +147,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the virtual router.
         """
@@ -155,7 +155,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> str:
+    def last_updated_date(self) -> pulumi.Output[str]:
         """
         The last update date of the virtual router.
         """
@@ -163,7 +163,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="meshName")
-    def mesh_name(self) -> str:
+    def mesh_name(self) -> pulumi.Output[str]:
         """
         The name of the service mesh in which to create the virtual router.
         """
@@ -171,7 +171,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name to use for the virtual router.
         """
@@ -179,7 +179,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def spec(self) -> 'outputs.VirtualRouterSpec':
+    def spec(self) -> pulumi.Output['outputs.VirtualRouterSpec']:
         """
         The virtual router specification to apply.
         """
@@ -187,7 +187,7 @@ class VirtualRouter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

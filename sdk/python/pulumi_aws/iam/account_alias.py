@@ -13,7 +13,7 @@ __all__ = ['AccountAlias']
 
 class AccountAlias(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_alias: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -86,7 +86,7 @@ class AccountAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountAlias")
-    def account_alias(self) -> str:
+    def account_alias(self) -> pulumi.Output[str]:
         """
         The account alias
         """

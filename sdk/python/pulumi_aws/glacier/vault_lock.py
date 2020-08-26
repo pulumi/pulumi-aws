@@ -13,7 +13,7 @@ __all__ = ['VaultLock']
 
 class VaultLock(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  complete_lock: Optional[pulumi.Input[bool]] = None,
                  ignore_deletion_error: Optional[pulumi.Input[bool]] = None,
@@ -136,7 +136,7 @@ class VaultLock(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="completeLock")
-    def complete_lock(self) -> bool:
+    def complete_lock(self) -> pulumi.Output[bool]:
         """
         Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
         """
@@ -144,7 +144,7 @@ class VaultLock(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ignoreDeletionError")
-    def ignore_deletion_error(self) -> Optional[bool]:
+    def ignore_deletion_error(self) -> pulumi.Output[Optional[bool]]:
         """
         Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
         """
@@ -152,7 +152,7 @@ class VaultLock(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
         """
@@ -160,7 +160,7 @@ class VaultLock(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vaultName")
-    def vault_name(self) -> str:
+    def vault_name(self) -> pulumi.Output[str]:
         """
         The name of the Glacier Vault.
         """

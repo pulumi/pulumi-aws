@@ -13,7 +13,7 @@ __all__ = ['StandardsSubscription']
 
 class StandardsSubscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  standards_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -88,7 +88,7 @@ class StandardsSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="standardsArn")
-    def standards_arn(self) -> str:
+    def standards_arn(self) -> pulumi.Output[str]:
         """
         The ARN of a standard - see below.
         """

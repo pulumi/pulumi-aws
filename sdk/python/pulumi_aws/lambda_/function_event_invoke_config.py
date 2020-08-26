@@ -15,7 +15,7 @@ __all__ = ['FunctionEventInvokeConfig']
 
 class FunctionEventInvokeConfig(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_config: Optional[pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
@@ -166,7 +166,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationConfig")
-    def destination_config(self) -> Optional['outputs.FunctionEventInvokeConfigDestinationConfig']:
+    def destination_config(self) -> pulumi.Output[Optional['outputs.FunctionEventInvokeConfigDestinationConfig']]:
         """
         Configuration block with destination configuration. See below for details.
         """
@@ -174,7 +174,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionName")
-    def function_name(self) -> str:
+    def function_name(self) -> pulumi.Output[str]:
         """
         Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
         """
@@ -182,7 +182,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumEventAgeInSeconds")
-    def maximum_event_age_in_seconds(self) -> Optional[float]:
+    def maximum_event_age_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         """
@@ -190,7 +190,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumRetryAttempts")
-    def maximum_retry_attempts(self) -> Optional[float]:
+    def maximum_retry_attempts(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         """
@@ -198,7 +198,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def qualifier(self) -> Optional[str]:
+    def qualifier(self) -> pulumi.Output[Optional[str]]:
         """
         Lambda Function published version, `$LATEST`, or Lambda Alias name.
         """

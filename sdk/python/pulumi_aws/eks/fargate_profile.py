@@ -15,7 +15,7 @@ __all__ = ['FargateProfile']
 
 class FargateProfile(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  fargate_profile_name: Optional[pulumi.Input[str]] = None,
@@ -155,7 +155,7 @@ class FargateProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the EKS Fargate Profile.
         """
@@ -163,7 +163,7 @@ class FargateProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> str:
+    def cluster_name(self) -> pulumi.Output[str]:
         """
         Name of the EKS Cluster.
         """
@@ -171,7 +171,7 @@ class FargateProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fargateProfileName")
-    def fargate_profile_name(self) -> str:
+    def fargate_profile_name(self) -> pulumi.Output[str]:
         """
         Name of the EKS Fargate Profile.
         """
@@ -179,7 +179,7 @@ class FargateProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="podExecutionRoleArn")
-    def pod_execution_role_arn(self) -> str:
+    def pod_execution_role_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
         """
@@ -187,7 +187,7 @@ class FargateProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def selectors(self) -> List['outputs.FargateProfileSelector']:
+    def selectors(self) -> pulumi.Output[List['outputs.FargateProfileSelector']]:
         """
         Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         """
@@ -195,7 +195,7 @@ class FargateProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         Status of the EKS Fargate Profile.
         """
@@ -203,7 +203,7 @@ class FargateProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[List[str]]:
+    def subnet_ids(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
         """
@@ -211,7 +211,7 @@ class FargateProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags.
         """

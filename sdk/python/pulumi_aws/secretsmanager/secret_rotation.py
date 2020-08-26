@@ -15,7 +15,7 @@ __all__ = ['SecretRotation']
 
 class SecretRotation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
                  rotation_rules: Optional[pulumi.Input[pulumi.InputType['SecretRotationRotationRulesArgs']]] = None,
@@ -123,7 +123,7 @@ class SecretRotation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rotationEnabled")
-    def rotation_enabled(self) -> bool:
+    def rotation_enabled(self) -> pulumi.Output[bool]:
         """
         Specifies whether automatic rotation is enabled for this secret.
         """
@@ -131,7 +131,7 @@ class SecretRotation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rotationLambdaArn")
-    def rotation_lambda_arn(self) -> str:
+    def rotation_lambda_arn(self) -> pulumi.Output[str]:
         """
         Specifies the ARN of the Lambda function that can rotate the secret.
         """
@@ -139,7 +139,7 @@ class SecretRotation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rotationRules")
-    def rotation_rules(self) -> 'outputs.SecretRotationRotationRules':
+    def rotation_rules(self) -> pulumi.Output['outputs.SecretRotationRotationRules']:
         """
         A structure that defines the rotation configuration for this secret. Defined below.
         """
@@ -147,7 +147,7 @@ class SecretRotation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secretId")
-    def secret_id(self) -> str:
+    def secret_id(self) -> pulumi.Output[str]:
         """
         Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         """
@@ -155,7 +155,7 @@ class SecretRotation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):

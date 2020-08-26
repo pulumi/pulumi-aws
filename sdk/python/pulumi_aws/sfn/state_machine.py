@@ -13,7 +13,7 @@ __all__ = ['StateMachine']
 
 class StateMachine(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the state machine.
         """
@@ -138,7 +138,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         The date the state machine was created.
         """
@@ -146,7 +146,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definition(self) -> str:
+    def definition(self) -> pulumi.Output[str]:
         """
         The Amazon States Language definition of the state machine.
         """
@@ -154,7 +154,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the state machine.
         """
@@ -162,7 +162,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         """
@@ -170,7 +170,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The current status of the state machine. Either "ACTIVE" or "DELETING".
         """
@@ -178,7 +178,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

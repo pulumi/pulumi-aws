@@ -13,7 +13,7 @@ __all__ = ['ApiKey']
 
 class ApiKey(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> str:
+    def api_id(self) -> pulumi.Output[str]:
         """
         The ID of the associated AppSync API
         """
@@ -113,7 +113,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         The API key description. Defaults to "Managed by Pulumi".
         """
@@ -121,7 +121,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def expires(self) -> Optional[str]:
+    def expires(self) -> pulumi.Output[Optional[str]]:
         """
         RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         """
@@ -129,7 +129,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> pulumi.Output[str]:
         """
         The API key
         """

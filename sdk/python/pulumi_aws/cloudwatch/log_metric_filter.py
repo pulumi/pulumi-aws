@@ -15,7 +15,7 @@ __all__ = ['LogMetricFilter']
 
 class LogMetricFilter(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  metric_transformation: Optional[pulumi.Input[pulumi.InputType['LogMetricFilterMetricTransformationArgs']]] = None,
@@ -120,7 +120,7 @@ class LogMetricFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> str:
+    def log_group_name(self) -> pulumi.Output[str]:
         """
         The name of the log group to associate the metric filter with.
         """
@@ -128,7 +128,7 @@ class LogMetricFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metricTransformation")
-    def metric_transformation(self) -> 'outputs.LogMetricFilterMetricTransformation':
+    def metric_transformation(self) -> pulumi.Output['outputs.LogMetricFilterMetricTransformation']:
         """
         A block defining collection of information
         needed to define how metric data gets emitted. See below.
@@ -137,7 +137,7 @@ class LogMetricFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A name for the metric filter.
         """
@@ -145,7 +145,7 @@ class LogMetricFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def pattern(self) -> str:
+    def pattern(self) -> pulumi.Output[str]:
         """
         A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
         for extracting metric data out of ingested log events.

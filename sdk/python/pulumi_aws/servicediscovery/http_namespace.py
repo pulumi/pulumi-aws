@@ -13,7 +13,7 @@ __all__ = ['HttpNamespace']
 
 class HttpNamespace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class HttpNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN that Amazon Route 53 assigns to the namespace when you create it.
         """
@@ -104,7 +104,7 @@ class HttpNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description that you specify for the namespace when you create it.
         """
@@ -112,7 +112,7 @@ class HttpNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the http namespace.
         """
@@ -120,7 +120,7 @@ class HttpNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the namespace.
         """

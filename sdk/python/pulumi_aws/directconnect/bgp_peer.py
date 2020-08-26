@@ -13,7 +13,7 @@ __all__ = ['BgpPeer']
 
 class BgpPeer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_family: Optional[pulumi.Input[str]] = None,
                  amazon_address: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class BgpPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> str:
+    def address_family(self) -> pulumi.Output[str]:
         """
         The address family for the BGP peer. `ipv4 ` or `ipv6`.
         """
@@ -145,7 +145,7 @@ class BgpPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amazonAddress")
-    def amazon_address(self) -> str:
+    def amazon_address(self) -> pulumi.Output[str]:
         """
         The IPv4 CIDR address to use to send traffic to Amazon.
         Required for IPv4 BGP peers on public virtual interfaces.
@@ -154,7 +154,7 @@ class BgpPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsDevice")
-    def aws_device(self) -> str:
+    def aws_device(self) -> pulumi.Output[str]:
         """
         The Direct Connect endpoint on which the BGP peer terminates.
         """
@@ -162,7 +162,7 @@ class BgpPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> float:
+    def bgp_asn(self) -> pulumi.Output[float]:
         """
         The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         """
@@ -170,7 +170,7 @@ class BgpPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpAuthKey")
-    def bgp_auth_key(self) -> str:
+    def bgp_auth_key(self) -> pulumi.Output[str]:
         """
         The authentication key for BGP configuration.
         """
@@ -178,7 +178,7 @@ class BgpPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpPeerId")
-    def bgp_peer_id(self) -> str:
+    def bgp_peer_id(self) -> pulumi.Output[str]:
         """
         The ID of the BGP peer.
         """
@@ -186,7 +186,7 @@ class BgpPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpStatus")
-    def bgp_status(self) -> str:
+    def bgp_status(self) -> pulumi.Output[str]:
         """
         The Up/Down state of the BGP peer.
         """
@@ -194,7 +194,7 @@ class BgpPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerAddress")
-    def customer_address(self) -> str:
+    def customer_address(self) -> pulumi.Output[str]:
         """
         The IPv4 CIDR destination address to which Amazon should send traffic.
         Required for IPv4 BGP peers on public virtual interfaces.
@@ -203,7 +203,7 @@ class BgpPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualInterfaceId")
-    def virtual_interface_id(self) -> str:
+    def virtual_interface_id(self) -> pulumi.Output[str]:
         """
         The ID of the Direct Connect virtual interface on which to create the BGP peer.
         """

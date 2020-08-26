@@ -13,7 +13,7 @@ __all__ = ['RouteTable']
 
 class RouteTable(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultAssociationRouteTable")
-    def default_association_route_table(self) -> bool:
+    def default_association_route_table(self) -> pulumi.Output[bool]:
         """
         Boolean whether this is the default association route table for the EC2 Transit Gateway.
         """
@@ -106,7 +106,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultPropagationRouteTable")
-    def default_propagation_route_table(self) -> bool:
+    def default_propagation_route_table(self) -> pulumi.Output[bool]:
         """
         Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
         """
@@ -114,7 +114,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value tags for the EC2 Transit Gateway Route Table.
         """
@@ -122,7 +122,7 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> str:
+    def transit_gateway_id(self) -> pulumi.Output[str]:
         """
         Identifier of EC2 Transit Gateway.
         """

@@ -17,7 +17,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
     warnings.warn("aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favor of aws.elb.LoadBalancerBackendServerPolicy", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_port: Optional[pulumi.Input[float]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
@@ -142,7 +142,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instancePort")
-    def instance_port(self) -> float:
+    def instance_port(self) -> pulumi.Output[float]:
         """
         The instance port to apply the policy to.
         """
@@ -150,7 +150,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerName")
-    def load_balancer_name(self) -> str:
+    def load_balancer_name(self) -> pulumi.Output[str]:
         """
         The load balancer to attach the policy to.
         """
@@ -158,7 +158,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyNames")
-    def policy_names(self) -> Optional[List[str]]:
+    def policy_names(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of Policy Names to apply to the backend server.
         """

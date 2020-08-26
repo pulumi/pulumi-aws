@@ -15,7 +15,7 @@ __all__ = ['AnalyticsApplication']
 
 class AnalyticsApplication(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationCloudwatchLoggingOptionsArgs']]] = None,
                  code: Optional[pulumi.Input[str]] = None,
@@ -178,7 +178,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Kinesis Analytics Appliation.
         """
@@ -186,7 +186,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
-    def cloudwatch_logging_options(self) -> Optional['outputs.AnalyticsApplicationCloudwatchLoggingOptions']:
+    def cloudwatch_logging_options(self) -> pulumi.Output[Optional['outputs.AnalyticsApplicationCloudwatchLoggingOptions']]:
         """
         The CloudWatch log stream options to monitor application errors.
         See CloudWatch Logging Options below for more details.
@@ -195,7 +195,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[str]:
+    def code(self) -> pulumi.Output[Optional[str]]:
         """
         SQL Code to transform input data, and generate output.
         """
@@ -203,7 +203,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createTimestamp")
-    def create_timestamp(self) -> str:
+    def create_timestamp(self) -> pulumi.Output[str]:
         """
         The Timestamp when the application version was created.
         """
@@ -211,7 +211,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the application.
         """
@@ -219,7 +219,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional['outputs.AnalyticsApplicationInputs']:
+    def inputs(self) -> pulumi.Output[Optional['outputs.AnalyticsApplicationInputs']]:
         """
         Input configuration of the application. See Inputs below for more details.
         """
@@ -227,7 +227,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdateTimestamp")
-    def last_update_timestamp(self) -> str:
+    def last_update_timestamp(self) -> pulumi.Output[str]:
         """
         The Timestamp when the application was last updated.
         """
@@ -235,7 +235,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the Kinesis Analytics Application.
         """
@@ -243,7 +243,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[List['outputs.AnalyticsApplicationOutput']]:
+    def outputs(self) -> pulumi.Output[Optional[List['outputs.AnalyticsApplicationOutput']]]:
         """
         Output destination configuration of the application. See Outputs below for more details.
         """
@@ -251,7 +251,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="referenceDataSources")
-    def reference_data_sources(self) -> Optional['outputs.AnalyticsApplicationReferenceDataSources']:
+    def reference_data_sources(self) -> pulumi.Output[Optional['outputs.AnalyticsApplicationReferenceDataSources']]:
         """
         An S3 Reference Data Source for the application.
         See Reference Data Sources below for more details.
@@ -260,7 +260,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The Status of the application.
         """
@@ -268,7 +268,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of tags for the Kinesis Analytics Application.
         """
@@ -276,7 +276,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> float:
+    def version(self) -> pulumi.Output[float]:
         """
         The Version of the application.
         """

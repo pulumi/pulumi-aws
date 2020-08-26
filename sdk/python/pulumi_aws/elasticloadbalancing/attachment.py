@@ -17,7 +17,7 @@ class Attachment(pulumi.CustomResource):
     warnings.warn("aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elb: Optional[pulumi.Input[str]] = None,
                  instance: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class Attachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def elb(self) -> str:
+    def elb(self) -> pulumi.Output[str]:
         """
         The name of the ELB.
         """
@@ -115,7 +115,7 @@ class Attachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def instance(self) -> str:
+    def instance(self) -> pulumi.Output[str]:
         """
         Instance ID to place in the ELB pool.
         """

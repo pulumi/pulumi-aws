@@ -13,7 +13,7 @@ __all__ = ['User']
 
 class User(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -140,7 +140,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN assigned by AWS for this user.
         """
@@ -148,7 +148,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[bool]:
+    def force_destroy(self) -> pulumi.Output[Optional[bool]]:
         """
         When destroying this user, destroy even if it
         has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
@@ -158,7 +158,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
         """
@@ -166,7 +166,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[str]:
+    def path(self) -> pulumi.Output[Optional[str]]:
         """
         Path in which to create the user.
         """
@@ -174,7 +174,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="permissionsBoundary")
-    def permissions_boundary(self) -> Optional[str]:
+    def permissions_boundary(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the policy that is used to set the permissions boundary for the user.
         """
@@ -182,7 +182,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value mapping of tags for the IAM user
         """
@@ -190,7 +190,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> str:
+    def unique_id(self) -> pulumi.Output[str]:
         """
         The [unique ID][1] assigned by AWS.
         """

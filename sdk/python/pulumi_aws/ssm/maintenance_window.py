@@ -13,7 +13,7 @@ __all__ = ['MaintenanceWindow']
 
 class MaintenanceWindow(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_unassociated_targets: Optional[pulumi.Input[bool]] = None,
                  cutoff: Optional[pulumi.Input[float]] = None,
@@ -151,7 +151,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowUnassociatedTargets")
-    def allow_unassociated_targets(self) -> Optional[bool]:
+    def allow_unassociated_targets(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
         """
@@ -159,7 +159,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cutoff(self) -> float:
+    def cutoff(self) -> pulumi.Output[float]:
         """
         The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
         """
@@ -167,7 +167,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description for the maintenance window.
         """
@@ -175,7 +175,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def duration(self) -> float:
+    def duration(self) -> pulumi.Output[float]:
         """
         The duration of the Maintenance Window in hours.
         """
@@ -183,7 +183,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the maintenance window is enabled. Default: `true`.
         """
@@ -191,7 +191,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[str]:
+    def end_date(self) -> pulumi.Output[Optional[str]]:
         """
         Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
         """
@@ -199,7 +199,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the maintenance window.
         """
@@ -207,7 +207,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedule(self) -> str:
+    def schedule(self) -> pulumi.Output[str]:
         """
         The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
         """
@@ -215,7 +215,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scheduleTimezone")
-    def schedule_timezone(self) -> Optional[str]:
+    def schedule_timezone(self) -> pulumi.Output[Optional[str]]:
         """
         Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         """
@@ -223,7 +223,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[str]:
+    def start_date(self) -> pulumi.Output[Optional[str]]:
         """
         Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
         """
@@ -231,7 +231,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

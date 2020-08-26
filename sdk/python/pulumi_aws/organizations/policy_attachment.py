@@ -13,7 +13,7 @@ __all__ = ['PolicyAttachment']
 
 class PolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> str:
+    def policy_id(self) -> pulumi.Output[str]:
         """
         The unique identifier (ID) of the policy that you want to attach to the target.
         """
@@ -123,7 +123,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetId")
-    def target_id(self) -> str:
+    def target_id(self) -> pulumi.Output[str]:
         """
         The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         """

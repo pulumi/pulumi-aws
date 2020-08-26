@@ -13,7 +13,7 @@ __all__ = ['Dashboard']
 
 class Dashboard(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard_body: Optional[pulumi.Input[str]] = None,
                  dashboard_name: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashboardArn")
-    def dashboard_arn(self) -> str:
+    def dashboard_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the dashboard.
         """
@@ -142,7 +142,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashboardBody")
-    def dashboard_body(self) -> str:
+    def dashboard_body(self) -> pulumi.Output[str]:
         """
         The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         """
@@ -150,7 +150,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashboardName")
-    def dashboard_name(self) -> str:
+    def dashboard_name(self) -> pulumi.Output[str]:
         """
         The name of the dashboard.
         """

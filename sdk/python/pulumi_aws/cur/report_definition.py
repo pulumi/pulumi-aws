@@ -13,7 +13,7 @@ __all__ = ['ReportDefinition']
 
 class ReportDefinition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_artifacts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  additional_schema_elements: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -159,7 +159,7 @@ class ReportDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalArtifacts")
-    def additional_artifacts(self) -> Optional[List[str]]:
+    def additional_artifacts(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT.
         """
@@ -167,7 +167,7 @@ class ReportDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalSchemaElements")
-    def additional_schema_elements(self) -> List[str]:
+    def additional_schema_elements(self) -> pulumi.Output[List[str]]:
         """
         A list of schema elements. Valid values are: RESOURCES.
         """
@@ -175,7 +175,7 @@ class ReportDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def compression(self) -> str:
+    def compression(self) -> pulumi.Output[str]:
         """
         Compression format for report. Valid values are: GZIP, ZIP.
         """
@@ -183,7 +183,7 @@ class ReportDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def format(self) -> str:
+    def format(self) -> pulumi.Output[str]:
         """
         Format for report. Valid values are: textORcsv.
         """
@@ -191,7 +191,7 @@ class ReportDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reportName")
-    def report_name(self) -> str:
+    def report_name(self) -> pulumi.Output[str]:
         """
         Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         """
@@ -199,7 +199,7 @@ class ReportDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> str:
+    def s3_bucket(self) -> pulumi.Output[str]:
         """
         Name of the existing S3 bucket to hold generated reports.
         """
@@ -207,7 +207,7 @@ class ReportDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Prefix")
-    def s3_prefix(self) -> Optional[str]:
+    def s3_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Report path prefix. Limited to 256 characters.
         """
@@ -215,7 +215,7 @@ class ReportDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Region")
-    def s3_region(self) -> str:
+    def s3_region(self) -> pulumi.Output[str]:
         """
         Region of the existing S3 bucket to hold generated reports.
         """
@@ -223,7 +223,7 @@ class ReportDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeUnit")
-    def time_unit(self) -> str:
+    def time_unit(self) -> pulumi.Output[str]:
         """
         The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
         """

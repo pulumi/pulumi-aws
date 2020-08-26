@@ -13,7 +13,7 @@ __all__ = ['GroupMembership']
 
 class GroupMembership(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class GroupMembership(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def group(self) -> str:
+    def group(self) -> pulumi.Output[str]:
         """
         The IAM Group name to attach the list of `users` to
         """
@@ -121,7 +121,7 @@ class GroupMembership(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name to identify the Group Membership
         """
@@ -129,7 +129,7 @@ class GroupMembership(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> List[str]:
+    def users(self) -> pulumi.Output[List[str]]:
         """
         A list of IAM User names to associate with the Group
         """

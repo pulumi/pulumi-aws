@@ -13,7 +13,7 @@ __all__ = ['UserLoginProfile']
 
 class UserLoginProfile(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  password_length: Optional[pulumi.Input[float]] = None,
                  password_reset_required: Optional[pulumi.Input[bool]] = None,
@@ -120,7 +120,7 @@ class UserLoginProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptedPassword")
-    def encrypted_password(self) -> str:
+    def encrypted_password(self) -> pulumi.Output[str]:
         """
         The encrypted password, base64 encoded. Only available if password was handled on this provider resource creation, not import.
         """
@@ -128,7 +128,7 @@ class UserLoginProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyFingerprint")
-    def key_fingerprint(self) -> str:
+    def key_fingerprint(self) -> pulumi.Output[str]:
         """
         The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
         """
@@ -136,7 +136,7 @@ class UserLoginProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordLength")
-    def password_length(self) -> Optional[float]:
+    def password_length(self) -> pulumi.Output[Optional[float]]:
         """
         The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
         """
@@ -144,7 +144,7 @@ class UserLoginProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordResetRequired")
-    def password_reset_required(self) -> Optional[bool]:
+    def password_reset_required(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
         """
@@ -152,7 +152,7 @@ class UserLoginProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pgpKey")
-    def pgp_key(self) -> str:
+    def pgp_key(self) -> pulumi.Output[str]:
         """
         Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
         """
@@ -160,7 +160,7 @@ class UserLoginProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def user(self) -> str:
+    def user(self) -> pulumi.Output[str]:
         """
         The IAM user's name.
         """

@@ -13,7 +13,7 @@ __all__ = ['UserPoolDomain']
 
 class UserPoolDomain(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -140,7 +140,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> str:
+    def aws_account_id(self) -> pulumi.Output[str]:
         """
         The AWS account ID for the user pool owner.
         """
@@ -148,7 +148,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[str]:
+    def certificate_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         """
@@ -156,7 +156,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudfrontDistributionArn")
-    def cloudfront_distribution_arn(self) -> str:
+    def cloudfront_distribution_arn(self) -> pulumi.Output[str]:
         """
         The URL of the CloudFront distribution. This is required to generate the ALIAS `route53.Record`
         """
@@ -164,7 +164,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def domain(self) -> str:
+    def domain(self) -> pulumi.Output[str]:
         """
         The domain string.
         """
@@ -172,7 +172,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> str:
+    def s3_bucket(self) -> pulumi.Output[str]:
         """
         The S3 bucket where the static files for this domain are stored.
         """
@@ -180,7 +180,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userPoolId")
-    def user_pool_id(self) -> str:
+    def user_pool_id(self) -> pulumi.Output[str]:
         """
         The user pool ID.
         """
@@ -188,7 +188,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         The app version.
         """

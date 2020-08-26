@@ -13,7 +13,7 @@ __all__ = ['Protection']
 
 class Protection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class Protection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A friendly name for the Protection you are creating.
         """
@@ -104,7 +104,7 @@ class Protection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> str:
+    def resource_arn(self) -> pulumi.Output[str]:
         """
         The ARN (Amazon Resource Name) of the resource to be protected.
         """

@@ -15,7 +15,7 @@ __all__ = ['ClusterParameterGroup']
 
 class ClusterParameterGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the db cluster parameter group.
         """
@@ -145,7 +145,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
         """
@@ -153,7 +153,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def family(self) -> str:
+    def family(self) -> pulumi.Output[str]:
         """
         The family of the DB cluster parameter group.
         """
@@ -161,7 +161,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the DB parameter.
         """
@@ -169,7 +169,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> str:
+    def name_prefix(self) -> pulumi.Output[str]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
@@ -177,7 +177,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.ClusterParameterGroupParameter']]:
+    def parameters(self) -> pulumi.Output[Optional[List['outputs.ClusterParameterGroupParameter']]]:
         """
         A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
         """
@@ -185,7 +185,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

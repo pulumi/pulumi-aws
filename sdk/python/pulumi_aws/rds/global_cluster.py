@@ -15,7 +15,7 @@ __all__ = ['GlobalCluster']
 
 class GlobalCluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -171,7 +171,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         RDS Global Cluster Amazon Resource Name (ARN)
         """
@@ -179,7 +179,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[str]:
+    def database_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name for an automatically created database on cluster creation.
         """
@@ -187,7 +187,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deletionProtection")
-    def deletion_protection(self) -> Optional[bool]:
+    def deletion_protection(self) -> pulumi.Output[Optional[bool]]:
         """
         If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         """
@@ -195,12 +195,12 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> str:
+    def engine(self) -> pulumi.Output[str]:
         return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> pulumi.Output[str]:
         """
         Engine version of the Aurora global database.
         * **NOTE:** When the engine is set to `aurora-mysql`, an engine version compatible with global database is required. The earliest available version is `5.7.mysql_aurora.2.06.0`.
@@ -209,7 +209,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[bool]:
+    def force_destroy(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
         """
@@ -217,7 +217,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalClusterIdentifier")
-    def global_cluster_identifier(self) -> str:
+    def global_cluster_identifier(self) -> pulumi.Output[str]:
         """
         The global cluster identifier.
         """
@@ -225,7 +225,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalClusterMembers")
-    def global_cluster_members(self) -> List['outputs.GlobalClusterGlobalClusterMember']:
+    def global_cluster_members(self) -> pulumi.Output[List['outputs.GlobalClusterGlobalClusterMember']]:
         """
         Set of objects containing Global Cluster members.
         """
@@ -233,7 +233,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalClusterResourceId")
-    def global_cluster_resource_id(self) -> str:
+    def global_cluster_resource_id(self) -> pulumi.Output[str]:
         """
         AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
         """
@@ -241,12 +241,12 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceDbClusterIdentifier")
-    def source_db_cluster_identifier(self) -> str:
+    def source_db_cluster_identifier(self) -> pulumi.Output[str]:
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @property
     @pulumi.getter(name="storageEncrypted")
-    def storage_encrypted(self) -> Optional[bool]:
+    def storage_encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the DB cluster is encrypted. The default is `false`.
         """

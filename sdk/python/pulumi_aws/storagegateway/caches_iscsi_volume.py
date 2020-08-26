@@ -13,7 +13,7 @@ __all__ = ['CachesIscsiVolume']
 
 class CachesIscsiVolume(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
@@ -192,7 +192,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
@@ -200,7 +200,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="chapEnabled")
-    def chap_enabled(self) -> bool:
+    def chap_enabled(self) -> pulumi.Output[bool]:
         """
         Whether mutual CHAP is enabled for the iSCSI target.
         """
@@ -208,7 +208,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayArn")
-    def gateway_arn(self) -> str:
+    def gateway_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the gateway.
         """
@@ -216,7 +216,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lunNumber")
-    def lun_number(self) -> float:
+    def lun_number(self) -> pulumi.Output[float]:
         """
         Logical disk number.
         """
@@ -224,7 +224,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> pulumi.Output[str]:
         """
         The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         """
@@ -232,7 +232,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfacePort")
-    def network_interface_port(self) -> float:
+    def network_interface_port(self) -> pulumi.Output[float]:
         """
         The port used to communicate with iSCSI targets.
         """
@@ -240,7 +240,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> Optional[str]:
+    def snapshot_id(self) -> pulumi.Output[Optional[str]]:
         """
         The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
         """
@@ -248,7 +248,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceVolumeArn")
-    def source_volume_arn(self) -> Optional[str]:
+    def source_volume_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         """
@@ -256,7 +256,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """
@@ -264,7 +264,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetArn")
-    def target_arn(self) -> str:
+    def target_arn(self) -> pulumi.Output[str]:
         """
         Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         """
@@ -272,7 +272,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetName")
-    def target_name(self) -> str:
+    def target_name(self) -> pulumi.Output[str]:
         """
         The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         """
@@ -280,7 +280,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeArn")
-    def volume_arn(self) -> str:
+    def volume_arn(self) -> pulumi.Output[str]:
         """
         Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
@@ -288,7 +288,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> str:
+    def volume_id(self) -> pulumi.Output[str]:
         """
         Volume ID, e.g. `vol-12345678`.
         """
@@ -296,7 +296,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeSizeInBytes")
-    def volume_size_in_bytes(self) -> float:
+    def volume_size_in_bytes(self) -> pulumi.Output[float]:
         """
         The size of the volume in bytes.
         """

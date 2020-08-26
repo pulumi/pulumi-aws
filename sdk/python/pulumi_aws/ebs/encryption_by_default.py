@@ -13,7 +13,7 @@ __all__ = ['EncryptionByDefault']
 
 class EncryptionByDefault(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
@@ -84,7 +84,7 @@ class EncryptionByDefault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
         """

@@ -13,7 +13,7 @@ __all__ = ['Repository']
 
 class Repository(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_branch: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the repository
         """
@@ -128,7 +128,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloneUrlHttp")
-    def clone_url_http(self) -> str:
+    def clone_url_http(self) -> pulumi.Output[str]:
         """
         The URL to use for cloning the repository over HTTPS.
         """
@@ -136,7 +136,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloneUrlSsh")
-    def clone_url_ssh(self) -> str:
+    def clone_url_ssh(self) -> pulumi.Output[str]:
         """
         The URL to use for cloning the repository over SSH.
         """
@@ -144,7 +144,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> Optional[str]:
+    def default_branch(self) -> pulumi.Output[Optional[str]]:
         """
         The default branch of the repository. The branch specified here needs to exist.
         """
@@ -152,7 +152,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the repository. This needs to be less than 1000 characters
         """
@@ -160,7 +160,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> str:
+    def repository_id(self) -> pulumi.Output[str]:
         """
         The ID of the repository
         """
@@ -168,7 +168,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repositoryName")
-    def repository_name(self) -> str:
+    def repository_name(self) -> pulumi.Output[str]:
         """
         The name for the repository. This needs to be less than 100 characters.
         """
@@ -176,7 +176,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

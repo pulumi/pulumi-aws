@@ -13,7 +13,7 @@ __all__ = ['LinkAggregationGroup']
 
 class LinkAggregationGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connections_bandwidth: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
@@ -127,7 +127,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the LAG.
         * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
@@ -136,7 +136,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionsBandwidth")
-    def connections_bandwidth(self) -> str:
+    def connections_bandwidth(self) -> pulumi.Output[str]:
         """
         The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
         """
@@ -144,7 +144,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[bool]:
+    def force_destroy(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
         """
@@ -152,7 +152,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasLogicalRedundancy")
-    def has_logical_redundancy(self) -> str:
+    def has_logical_redundancy(self) -> pulumi.Output[str]:
         """
         Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
         """
@@ -160,12 +160,12 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jumboFrameCapable")
-    def jumbo_frame_capable(self) -> bool:
+    def jumbo_frame_capable(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "jumbo_frame_capable")
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         """
@@ -173,7 +173,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the LAG.
         """
@@ -181,7 +181,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

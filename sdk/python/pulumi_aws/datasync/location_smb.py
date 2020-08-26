@@ -15,7 +15,7 @@ __all__ = ['LocationSmb']
 
 class LocationSmb(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -150,7 +150,7 @@ class LocationSmb(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentArns")
-    def agent_arns(self) -> List[str]:
+    def agent_arns(self) -> pulumi.Output[List[str]]:
         """
         A list of DataSync Agent ARNs with which this location will be associated.
         """
@@ -158,7 +158,7 @@ class LocationSmb(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the DataSync Location.
         """
@@ -166,7 +166,7 @@ class LocationSmb(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def domain(self) -> str:
+    def domain(self) -> pulumi.Output[str]:
         """
         The name of the Windows domain the SMB server belongs to.
         """
@@ -174,7 +174,7 @@ class LocationSmb(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> Optional['outputs.LocationSmbMountOptions']:
+    def mount_options(self) -> pulumi.Output[Optional['outputs.LocationSmbMountOptions']]:
         """
         Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
         """
@@ -182,7 +182,7 @@ class LocationSmb(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> str:
+    def password(self) -> pulumi.Output[str]:
         """
         The password of the user who can mount the share and has file permissions in the SMB.
         """
@@ -190,7 +190,7 @@ class LocationSmb(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverHostname")
-    def server_hostname(self) -> str:
+    def server_hostname(self) -> pulumi.Output[str]:
         """
         Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
         """
@@ -198,7 +198,7 @@ class LocationSmb(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdirectory(self) -> str:
+    def subdirectory(self) -> pulumi.Output[str]:
         """
         Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         """
@@ -206,7 +206,7 @@ class LocationSmb(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value pairs of resource tags to assign to the DataSync Location.
         """
@@ -214,12 +214,12 @@ class LocationSmb(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> str:
+    def uri(self) -> pulumi.Output[str]:
         return pulumi.get(self, "uri")
 
     @property
     @pulumi.getter
-    def user(self) -> str:
+    def user(self) -> pulumi.Output[str]:
         """
         The user who can mount the share and has file and folder permissions in the SMB share.
         """

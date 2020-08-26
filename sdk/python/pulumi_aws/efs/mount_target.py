@@ -13,7 +13,7 @@ __all__ = ['MountTarget']
 
 class MountTarget(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -143,7 +143,7 @@ class MountTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> str:
+    def availability_zone_id(self) -> pulumi.Output[str]:
         """
         The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
         """
@@ -151,7 +151,7 @@ class MountTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZoneName")
-    def availability_zone_name(self) -> str:
+    def availability_zone_name(self) -> pulumi.Output[str]:
         """
         The name of the Availability Zone (AZ) that the mount target resides in.
         """
@@ -159,7 +159,7 @@ class MountTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> pulumi.Output[str]:
         """
         The DNS name for the EFS file system.
         """
@@ -167,7 +167,7 @@ class MountTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileSystemArn")
-    def file_system_arn(self) -> str:
+    def file_system_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name of the file system.
         """
@@ -175,7 +175,7 @@ class MountTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> str:
+    def file_system_id(self) -> pulumi.Output[str]:
         """
         The ID of the file system for which the mount target is intended.
         """
@@ -183,7 +183,7 @@ class MountTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> str:
+    def ip_address(self) -> pulumi.Output[str]:
         """
         The address (within the address range of the specified subnet) at
         which the file system may be mounted via the mount target.
@@ -192,7 +192,7 @@ class MountTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountTargetDnsName")
-    def mount_target_dns_name(self) -> str:
+    def mount_target_dns_name(self) -> pulumi.Output[str]:
         """
         The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         """
@@ -200,7 +200,7 @@ class MountTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> pulumi.Output[str]:
         """
         The ID of the network interface that Amazon EFS created when it created the mount target.
         """
@@ -208,7 +208,7 @@ class MountTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> pulumi.Output[str]:
         """
         AWS account ID that owns the resource.
         """
@@ -216,7 +216,7 @@ class MountTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> List[str]:
+    def security_groups(self) -> pulumi.Output[List[str]]:
         """
         A list of up to 5 VPC security group IDs (that must
         be for the same VPC as subnet specified) in effect for the mount target.
@@ -225,7 +225,7 @@ class MountTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the subnet to add the mount target in.
         """

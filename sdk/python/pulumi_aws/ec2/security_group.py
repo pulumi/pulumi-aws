@@ -15,7 +15,7 @@ __all__ = ['SecurityGroup']
 
 class SecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  egress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]]] = None,
@@ -200,7 +200,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the security group
         """
@@ -208,7 +208,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         Description of this egress rule.
         """
@@ -216,7 +216,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def egress(self) -> List['outputs.SecurityGroupEgress']:
+    def egress(self) -> pulumi.Output[List['outputs.SecurityGroupEgress']]:
         """
         Can be specified multiple times for each
         egress rule. Each egress block supports fields documented below.
@@ -225,7 +225,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ingress(self) -> List['outputs.SecurityGroupIngress']:
+    def ingress(self) -> pulumi.Output[List['outputs.SecurityGroupIngress']]:
         """
         Can be specified multiple times for each
         ingress rule. Each ingress block supports fields documented below.
@@ -234,7 +234,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the security group. If omitted, this provider will
         assign a random, unique name
@@ -243,7 +243,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified
         prefix. Conflicts with `name`.
@@ -252,7 +252,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> pulumi.Output[str]:
         """
         The owner ID.
         """
@@ -260,7 +260,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="revokeRulesOnDelete")
-    def revoke_rules_on_delete(self) -> Optional[bool]:
+    def revoke_rules_on_delete(self) -> pulumi.Output[Optional[bool]]:
         """
         Instruct this provider to revoke all of the
         Security Groups attached ingress and egress rules before deleting the rule
@@ -274,7 +274,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -282,7 +282,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The VPC ID.
         """

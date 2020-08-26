@@ -13,7 +13,7 @@ __all__ = ['EmailChannel']
 
 class EmailChannel(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -156,7 +156,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> str:
+    def application_id(self) -> pulumi.Output[str]:
         """
         The application ID.
         """
@@ -164,7 +164,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the channel is enabled or disabled. Defaults to `true`.
         """
@@ -172,7 +172,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fromAddress")
-    def from_address(self) -> str:
+    def from_address(self) -> pulumi.Output[str]:
         """
         The email address used to send emails from.
         """
@@ -180,7 +180,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> str:
+    def identity(self) -> pulumi.Output[str]:
         """
         The ARN of an identity verified with SES.
         """
@@ -188,7 +188,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messagesPerSecond")
-    def messages_per_second(self) -> float:
+    def messages_per_second(self) -> pulumi.Output[float]:
         """
         Messages per second that can be sent.
         """
@@ -196,7 +196,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> pulumi.Output[str]:
         """
         The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """

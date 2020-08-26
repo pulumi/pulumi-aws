@@ -15,7 +15,7 @@ __all__ = ['ReplicationGroup']
 
 class ReplicationGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -349,7 +349,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> bool:
+    def apply_immediately(self) -> pulumi.Output[bool]:
         """
         Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         """
@@ -357,7 +357,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="atRestEncryptionEnabled")
-    def at_rest_encryption_enabled(self) -> Optional[bool]:
+    def at_rest_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable encryption at rest.
         """
@@ -365,7 +365,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authToken")
-    def auth_token(self) -> Optional[str]:
+    def auth_token(self) -> pulumi.Output[Optional[str]]:
         """
         The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         """
@@ -373,7 +373,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> Optional[bool]:
+    def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. Defaults to `true`.
         """
@@ -381,7 +381,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automaticFailoverEnabled")
-    def automatic_failover_enabled(self) -> Optional[bool]:
+    def automatic_failover_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         """
@@ -389,7 +389,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[List[str]]:
+    def availability_zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
         """
@@ -397,7 +397,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterMode")
-    def cluster_mode(self) -> 'outputs.ReplicationGroupClusterMode':
+    def cluster_mode(self) -> pulumi.Output['outputs.ReplicationGroupClusterMode']:
         """
         Create a native redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed.
         """
@@ -405,7 +405,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationEndpointAddress")
-    def configuration_endpoint_address(self) -> str:
+    def configuration_endpoint_address(self) -> pulumi.Output[str]:
         """
         The address of the replication group configuration endpoint when cluster mode is enabled.
         """
@@ -413,7 +413,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> Optional[str]:
+    def engine(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the cache engine to be used for the clusters in this replication group. e.g. `redis`
         """
@@ -421,7 +421,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> str:
+    def engine_version(self) -> pulumi.Output[str]:
         """
         The version number of the cache engine to be used for the cache clusters in this replication group.
         """
@@ -429,7 +429,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
         """
@@ -437,7 +437,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> str:
+    def maintenance_window(self) -> pulumi.Output[str]:
         """
         Specifies the weekly time range for when maintenance
         on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
@@ -447,7 +447,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="memberClusters")
-    def member_clusters(self) -> List[str]:
+    def member_clusters(self) -> pulumi.Output[List[str]]:
         """
         The identifiers of all the nodes that are part of this replication group.
         """
@@ -455,7 +455,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeType")
-    def node_type(self) -> str:
+    def node_type(self) -> pulumi.Output[str]:
         """
         The compute and memory capacity of the nodes in the node group.
         """
@@ -463,7 +463,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationTopicArn")
-    def notification_topic_arn(self) -> Optional[str]:
+    def notification_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
         An Amazon Resource Name (ARN) of an
         SNS topic to send ElastiCache notifications to. Example:
@@ -473,7 +473,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberCacheClusters")
-    def number_cache_clusters(self) -> float:
+    def number_cache_clusters(self) -> pulumi.Output[float]:
         """
         The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
         """
@@ -481,7 +481,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> str:
+    def parameter_group_name(self) -> pulumi.Output[str]:
         """
         The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
         """
@@ -489,7 +489,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> pulumi.Output[Optional[float]]:
         """
         The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
         """
@@ -497,7 +497,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryEndpointAddress")
-    def primary_endpoint_address(self) -> str:
+    def primary_endpoint_address(self) -> pulumi.Output[str]:
         """
         (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
         """
@@ -505,7 +505,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationGroupDescription")
-    def replication_group_description(self) -> str:
+    def replication_group_description(self) -> pulumi.Output[str]:
         """
         A user-created description for the replication group.
         """
@@ -513,7 +513,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationGroupId")
-    def replication_group_id(self) -> str:
+    def replication_group_id(self) -> pulumi.Output[str]:
         """
         The replication group identifier. This parameter is stored as a lowercase string.
         """
@@ -521,7 +521,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> List[str]:
+    def security_group_ids(self) -> pulumi.Output[List[str]]:
         """
         One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         """
@@ -529,7 +529,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> List[str]:
+    def security_group_names(self) -> pulumi.Output[List[str]]:
         """
         A list of cache security group names to associate with this replication group.
         """
@@ -537,7 +537,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotArns")
-    def snapshot_arns(self) -> Optional[List[str]]:
+    def snapshot_arns(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A single-element string list containing an
         Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3.
@@ -547,7 +547,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> Optional[str]:
+    def snapshot_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
         """
@@ -555,7 +555,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotRetentionLimit")
-    def snapshot_retention_limit(self) -> Optional[float]:
+    def snapshot_retention_limit(self) -> pulumi.Output[Optional[float]]:
         """
         The number of days for which ElastiCache will
         retain automatic cache cluster snapshots before deleting them. For example, if you set
@@ -567,7 +567,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotWindow")
-    def snapshot_window(self) -> str:
+    def snapshot_window(self) -> pulumi.Output[str]:
         """
         The daily time range (in UTC) during which ElastiCache will
         begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
@@ -576,7 +576,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetGroupName")
-    def subnet_group_name(self) -> str:
+    def subnet_group_name(self) -> pulumi.Output[str]:
         """
         The name of the cache subnet group to be used for the replication group.
         """
@@ -584,7 +584,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource
         """
@@ -592,7 +592,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitEncryptionEnabled")
-    def transit_encryption_enabled(self) -> Optional[bool]:
+    def transit_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable encryption in transit.
         """

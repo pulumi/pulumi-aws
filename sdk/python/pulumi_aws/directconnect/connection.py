@@ -13,7 +13,7 @@ __all__ = ['Connection']
 
 class Connection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bandwidth: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the connection.
         """
@@ -130,7 +130,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsDevice")
-    def aws_device(self) -> str:
+    def aws_device(self) -> pulumi.Output[str]:
         """
         The Direct Connect endpoint on which the physical connection terminates.
         """
@@ -138,7 +138,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def bandwidth(self) -> str:
+    def bandwidth(self) -> pulumi.Output[str]:
         """
         The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
         """
@@ -146,7 +146,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasLogicalRedundancy")
-    def has_logical_redundancy(self) -> str:
+    def has_logical_redundancy(self) -> pulumi.Output[str]:
         """
         Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         """
@@ -154,7 +154,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jumboFrameCapable")
-    def jumbo_frame_capable(self) -> bool:
+    def jumbo_frame_capable(self) -> pulumi.Output[bool]:
         """
         Boolean value representing if jumbo frames have been enabled for this connection.
         """
@@ -162,7 +162,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         """
@@ -170,7 +170,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the connection.
         """
@@ -178,7 +178,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

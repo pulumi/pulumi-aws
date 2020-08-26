@@ -13,7 +13,7 @@ __all__ = ['ExternalKey']
 
 class ExternalKey(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_window_in_days: Optional[pulumi.Input[float]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -136,7 +136,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the key.
         """
@@ -144,7 +144,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deletionWindowInDays")
-    def deletion_window_in_days(self) -> Optional[float]:
+    def deletion_window_in_days(self) -> pulumi.Output[Optional[float]]:
         """
         Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
         """
@@ -152,7 +152,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the key.
         """
@@ -160,7 +160,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         """
@@ -168,7 +168,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationModel")
-    def expiration_model(self) -> str:
+    def expiration_model(self) -> pulumi.Output[str]:
         """
         Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
         """
@@ -176,7 +176,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyMaterialBase64")
-    def key_material_base64(self) -> Optional[str]:
+    def key_material_base64(self) -> pulumi.Output[Optional[str]]:
         """
         Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
         """
@@ -184,7 +184,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyState")
-    def key_state(self) -> str:
+    def key_state(self) -> pulumi.Output[str]:
         """
         The state of the CMK.
         """
@@ -192,7 +192,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> str:
+    def key_usage(self) -> pulumi.Output[str]:
         """
         The cryptographic operations for which you can use the CMK.
         """
@@ -200,7 +200,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         """
@@ -208,7 +208,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A key-value map of tags to assign to the key.
         """
@@ -216,7 +216,7 @@ class ExternalKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validTo")
-    def valid_to(self) -> Optional[str]:
+    def valid_to(self) -> pulumi.Output[Optional[str]]:
         """
         Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """

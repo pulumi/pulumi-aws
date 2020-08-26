@@ -15,7 +15,7 @@ __all__ = ['Listener']
 
 class Listener(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  default_actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]]]] = None,
@@ -251,7 +251,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the target group.
         """
@@ -259,7 +259,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[str]:
+    def certificate_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
         """
@@ -267,7 +267,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultActions")
-    def default_actions(self) -> List['outputs.ListenerDefaultAction']:
+    def default_actions(self) -> pulumi.Output[List['outputs.ListenerDefaultAction']]:
         """
         An Action block. Action blocks are documented below.
         """
@@ -275,7 +275,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerArn")
-    def load_balancer_arn(self) -> str:
+    def load_balancer_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the load balancer.
         """
@@ -283,7 +283,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> pulumi.Output[float]:
         """
         The port on which the load balancer is listening.
         """
@@ -291,7 +291,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[str]:
+    def protocol(self) -> pulumi.Output[Optional[str]]:
         """
         The protocol for connections from clients to the load balancer. Valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `HTTP` and `HTTPS`. Defaults to `HTTP`.
         """
@@ -299,7 +299,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslPolicy")
-    def ssl_policy(self) -> str:
+    def ssl_policy(self) -> pulumi.Output[str]:
         """
         The name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
         """

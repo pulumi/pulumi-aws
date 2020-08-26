@@ -13,7 +13,7 @@ __all__ = ['NatGateway']
 
 class NatGateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> str:
+    def allocation_id(self) -> pulumi.Output[str]:
         """
         The Allocation ID of the Elastic IP address for the gateway.
         """
@@ -134,7 +134,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> pulumi.Output[str]:
         """
         The ENI ID of the network interface created by the NAT gateway.
         """
@@ -142,7 +142,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> str:
+    def private_ip(self) -> pulumi.Output[str]:
         """
         The private IP address of the NAT Gateway.
         """
@@ -150,7 +150,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIp")
-    def public_ip(self) -> str:
+    def public_ip(self) -> pulumi.Output[str]:
         """
         The public IP address of the NAT Gateway.
         """
@@ -158,7 +158,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The Subnet ID of the subnet in which to place the gateway.
         """
@@ -166,7 +166,7 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

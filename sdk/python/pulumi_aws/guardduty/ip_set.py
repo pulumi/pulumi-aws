@@ -13,7 +13,7 @@ __all__ = ['IPSet']
 
 class IPSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activate: Optional[pulumi.Input[bool]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class IPSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def activate(self) -> bool:
+    def activate(self) -> pulumi.Output[bool]:
         """
         Specifies whether GuardDuty is to start using the uploaded IPSet.
         """
@@ -145,7 +145,7 @@ class IPSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the GuardDuty IPSet.
         """
@@ -153,7 +153,7 @@ class IPSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="detectorId")
-    def detector_id(self) -> str:
+    def detector_id(self) -> pulumi.Output[str]:
         """
         The detector ID of the GuardDuty.
         """
@@ -161,7 +161,7 @@ class IPSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def format(self) -> str:
+    def format(self) -> pulumi.Output[str]:
         """
         The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
         """
@@ -169,7 +169,7 @@ class IPSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The URI of the file that contains the IPSet.
         """
@@ -177,7 +177,7 @@ class IPSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The friendly name to identify the IPSet.
         """
@@ -185,7 +185,7 @@ class IPSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags.
         """

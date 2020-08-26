@@ -15,7 +15,7 @@ __all__ = ['OrganizationalUnit']
 
 class OrganizationalUnit(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_id: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class OrganizationalUnit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def accounts(self) -> List['outputs.OrganizationalUnitAccount']:
+    def accounts(self) -> pulumi.Output[List['outputs.OrganizationalUnitAccount']]:
         """
         List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
         """
@@ -108,7 +108,7 @@ class OrganizationalUnit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         ARN of the organizational unit
         """
@@ -116,7 +116,7 @@ class OrganizationalUnit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name for the organizational unit
         """
@@ -124,7 +124,7 @@ class OrganizationalUnit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parentId")
-    def parent_id(self) -> str:
+    def parent_id(self) -> pulumi.Output[str]:
         """
         ID of the parent organizational unit, which may be the root
         """

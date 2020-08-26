@@ -13,7 +13,7 @@ __all__ = ['ConnectionAssociation']
 
 class ConnectionAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_id: Optional[pulumi.Input[str]] = None,
                  lag_id: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class ConnectionAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionId")
-    def connection_id(self) -> str:
+    def connection_id(self) -> pulumi.Output[str]:
         """
         The ID of the connection.
         """
@@ -108,7 +108,7 @@ class ConnectionAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lagId")
-    def lag_id(self) -> str:
+    def lag_id(self) -> pulumi.Output[str]:
         """
         The ID of the LAG with which to associate the connection.
         """

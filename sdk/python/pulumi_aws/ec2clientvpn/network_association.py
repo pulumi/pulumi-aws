@@ -13,7 +13,7 @@ __all__ = ['NetworkAssociation']
 
 class NetworkAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class NetworkAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
-    def client_vpn_endpoint_id(self) -> str:
+    def client_vpn_endpoint_id(self) -> pulumi.Output[str]:
         """
         The ID of the Client VPN endpoint.
         """
@@ -115,7 +115,7 @@ class NetworkAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> List[str]:
+    def security_groups(self) -> pulumi.Output[List[str]]:
         """
         The IDs of the security groups applied to the target network association.
         """
@@ -123,7 +123,7 @@ class NetworkAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         The current state of the target network association.
         """
@@ -131,7 +131,7 @@ class NetworkAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the subnet to associate with the Client VPN endpoint.
         """
@@ -139,7 +139,7 @@ class NetworkAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The ID of the VPC in which the target network (subnet) is located.
         """

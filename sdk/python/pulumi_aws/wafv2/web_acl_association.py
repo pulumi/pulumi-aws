@@ -13,7 +13,7 @@ __all__ = ['WebAclAssociation']
 
 class WebAclAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  web_acl_arn: Optional[pulumi.Input[str]] = None,
@@ -125,7 +125,7 @@ class WebAclAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> str:
+    def resource_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
         """
@@ -133,7 +133,7 @@ class WebAclAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webAclArn")
-    def web_acl_arn(self) -> str:
+    def web_acl_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
         """

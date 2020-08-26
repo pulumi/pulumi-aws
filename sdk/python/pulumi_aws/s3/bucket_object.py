@@ -13,7 +13,7 @@ __all__ = ['BucketObject']
 
 class BucketObject(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acl: Optional[pulumi.Input[str]] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
@@ -285,7 +285,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def acl(self) -> Optional[str]:
+    def acl(self) -> pulumi.Output[Optional[str]]:
         """
         The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to "private".
         """
@@ -293,7 +293,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def bucket(self) -> str:
+    def bucket(self) -> pulumi.Output[str]:
         """
         The name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         """
@@ -301,7 +301,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheControl")
-    def cache_control(self) -> Optional[str]:
+    def cache_control(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         """
@@ -309,7 +309,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def content(self) -> Optional[str]:
+    def content(self) -> pulumi.Output[Optional[str]]:
         """
         Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
         """
@@ -317,7 +317,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentBase64")
-    def content_base64(self) -> Optional[str]:
+    def content_base64(self) -> pulumi.Output[Optional[str]]:
         """
         Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
         """
@@ -325,7 +325,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentDisposition")
-    def content_disposition(self) -> Optional[str]:
+    def content_disposition(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         """
@@ -333,7 +333,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentEncoding")
-    def content_encoding(self) -> Optional[str]:
+    def content_encoding(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         """
@@ -341,7 +341,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentLanguage")
-    def content_language(self) -> Optional[str]:
+    def content_language(self) -> pulumi.Output[Optional[str]]:
         """
         The language the content is in e.g. en-US or en-GB.
         """
@@ -349,7 +349,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> str:
+    def content_type(self) -> pulumi.Output[str]:
         """
         A standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
         """
@@ -357,7 +357,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def etag(self) -> pulumi.Output[str]:
         """
         Used to trigger updates. The only meaningful value is `${filemd5("path/to/file")}` (this provider 0.11.12 or later) or `${md5(file("path/to/file"))}` (this provider 0.11.11 or earlier).
         This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`.
@@ -366,7 +366,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[bool]:
+    def force_destroy(self) -> pulumi.Output[Optional[bool]]:
         """
         Allow the object to be deleted by removing any legal hold on any object version.
         Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
@@ -375,7 +375,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> pulumi.Output[str]:
         """
         The name of the object once it is in the bucket.
         """
@@ -383,7 +383,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[str]:
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the AWS KMS Key ARN to use for object encryption.
         This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`,
@@ -394,7 +394,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         """
@@ -402,7 +402,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectLockLegalHoldStatus")
-    def object_lock_legal_hold_status(self) -> Optional[str]:
+    def object_lock_legal_hold_status(self) -> pulumi.Output[Optional[str]]:
         """
         The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         """
@@ -410,7 +410,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectLockMode")
-    def object_lock_mode(self) -> Optional[str]:
+    def object_lock_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         """
@@ -418,7 +418,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectLockRetainUntilDate")
-    def object_lock_retain_until_date(self) -> Optional[str]:
+    def object_lock_retain_until_date(self) -> pulumi.Output[Optional[str]]:
         """
         The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         """
@@ -426,7 +426,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverSideEncryption")
-    def server_side_encryption(self) -> str:
+    def server_side_encryption(self) -> pulumi.Output[str]:
         """
         Specifies server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         """
@@ -434,7 +434,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[Union[pulumi.Asset, pulumi.Archive]]:
+    def source(self) -> pulumi.Output[Optional[Union[pulumi.Asset, pulumi.Archive]]]:
         """
         The path to a file that will be read and uploaded as raw bytes for the object content.
         """
@@ -442,7 +442,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageClass")
-    def storage_class(self) -> str:
+    def storage_class(self) -> pulumi.Output[str]:
         """
         Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
         for the object. Can be either "`STANDARD`", "`REDUCED_REDUNDANCY`", "`ONEZONE_IA`", "`INTELLIGENT_TIERING`", "`GLACIER`", "`DEEP_ARCHIVE`", or "`STANDARD_IA`". Defaults to "`STANDARD`".
@@ -451,7 +451,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the object.
         """
@@ -459,7 +459,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> str:
+    def version_id(self) -> pulumi.Output[str]:
         """
         A unique version ID value for the object, if bucket versioning
         is enabled.
@@ -468,7 +468,7 @@ class BucketObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="websiteRedirect")
-    def website_redirect(self) -> Optional[str]:
+    def website_redirect(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """

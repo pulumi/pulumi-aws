@@ -13,7 +13,7 @@ __all__ = ['ReplicationSubnetGroup']
 
 class ReplicationSubnetGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  replication_subnet_group_description: Optional[pulumi.Input[str]] = None,
                  replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
@@ -120,12 +120,12 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationSubnetGroupArn")
-    def replication_subnet_group_arn(self) -> str:
+    def replication_subnet_group_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "replication_subnet_group_arn")
 
     @property
     @pulumi.getter(name="replicationSubnetGroupDescription")
-    def replication_subnet_group_description(self) -> str:
+    def replication_subnet_group_description(self) -> pulumi.Output[str]:
         """
         The description for the subnet group.
         """
@@ -133,7 +133,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationSubnetGroupId")
-    def replication_subnet_group_id(self) -> str:
+    def replication_subnet_group_id(self) -> pulumi.Output[str]:
         """
         The name for the replication subnet group. This value is stored as a lowercase string.
         """
@@ -141,7 +141,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> List[str]:
+    def subnet_ids(self) -> pulumi.Output[List[str]]:
         """
         A list of the EC2 subnet IDs for the subnet group.
         """
@@ -149,7 +149,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -157,7 +157,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The ID of the VPC the subnet group is in.
         """

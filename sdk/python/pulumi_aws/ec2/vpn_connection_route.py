@@ -13,7 +13,7 @@ __all__ = ['VpnConnectionRoute']
 
 class VpnConnectionRoute(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  vpn_connection_id: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
-    def destination_cidr_block(self) -> str:
+    def destination_cidr_block(self) -> pulumi.Output[str]:
         """
         The CIDR block associated with the local subnet of the customer network.
         """
@@ -113,7 +113,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnConnectionId")
-    def vpn_connection_id(self) -> str:
+    def vpn_connection_id(self) -> pulumi.Output[str]:
         """
         The ID of the VPN connection.
         """

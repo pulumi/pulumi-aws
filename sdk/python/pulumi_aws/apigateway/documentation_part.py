@@ -15,7 +15,7 @@ __all__ = ['DocumentationPart']
 
 class DocumentationPart(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[pulumi.InputType['DocumentationPartLocationArgs']]] = None,
                  properties: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class DocumentationPart(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> 'outputs.DocumentationPartLocation':
+    def location(self) -> pulumi.Output['outputs.DocumentationPartLocation']:
         """
         The location of the targeted API entity of the to-be-created documentation part. See below.
         """
@@ -118,7 +118,7 @@ class DocumentationPart(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> str:
+    def properties(self) -> pulumi.Output[str]:
         """
         A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
         """
@@ -126,7 +126,7 @@ class DocumentationPart(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restApiId")
-    def rest_api_id(self) -> str:
+    def rest_api_id(self) -> pulumi.Output[str]:
         """
         The ID of the associated Rest API
         """

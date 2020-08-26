@@ -13,7 +13,7 @@ __all__ = ['EipAssociation']
 
 class EipAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: Optional[pulumi.Input[str]] = None,
                  allow_reassociation: Optional[pulumi.Input[bool]] = None,
@@ -146,7 +146,7 @@ class EipAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> str:
+    def allocation_id(self) -> pulumi.Output[str]:
         """
         The allocation ID. This is required for EC2-VPC.
         """
@@ -154,7 +154,7 @@ class EipAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowReassociation")
-    def allow_reassociation(self) -> Optional[bool]:
+    def allow_reassociation(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to allow an Elastic IP to
         be re-associated. Defaults to `true` in VPC.
@@ -163,7 +163,7 @@ class EipAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> str:
+    def instance_id(self) -> pulumi.Output[str]:
         """
         The ID of the instance. This is required for
         EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
@@ -174,7 +174,7 @@ class EipAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> pulumi.Output[str]:
         """
         The ID of the network interface. If the
         instance has more than one network interface, you must specify a network
@@ -184,7 +184,7 @@ class EipAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> str:
+    def private_ip_address(self) -> pulumi.Output[str]:
         """
         The primary or secondary private IP address
         to associate with the Elastic IP address. If no private IP address is
@@ -195,7 +195,7 @@ class EipAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIp")
-    def public_ip(self) -> str:
+    def public_ip(self) -> pulumi.Output[str]:
         """
         The Elastic IP address. This is required for EC2-Classic.
         """

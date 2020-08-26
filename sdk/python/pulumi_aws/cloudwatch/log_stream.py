@@ -13,7 +13,7 @@ __all__ = ['LogStream']
 
 class LogStream(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class LogStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) specifying the log stream.
         """
@@ -103,7 +103,7 @@ class LogStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> str:
+    def log_group_name(self) -> pulumi.Output[str]:
         """
         The name of the log group under which the log stream is to be created.
         """
@@ -111,7 +111,7 @@ class LogStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the log stream. Must not be longer than 512 characters and must not contain `:`
         """

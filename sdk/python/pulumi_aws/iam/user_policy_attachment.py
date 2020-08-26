@@ -13,7 +13,7 @@ __all__ = ['UserPolicyAttachment']
 
 class UserPolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_arn: Optional[pulumi.Input[str]] = None,
                  user: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class UserPolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> str:
+    def policy_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the policy you want to apply
         """
@@ -109,7 +109,7 @@ class UserPolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def user(self) -> str:
+    def user(self) -> pulumi.Output[str]:
         """
         The user the policy should be applied to
         """

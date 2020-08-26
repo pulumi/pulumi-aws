@@ -15,7 +15,7 @@ __all__ = ['SpotInstanceRequest']
 
 class SpotInstanceRequest(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ami: Optional[pulumi.Input[str]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
@@ -459,7 +459,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ami(self) -> str:
+    def ami(self) -> pulumi.Output[str]:
         """
         The AMI to use for the instance.
         """
@@ -467,12 +467,12 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="associatePublicIpAddress")
-    def associate_public_ip_address(self) -> bool:
+    def associate_public_ip_address(self) -> pulumi.Output[bool]:
         """
         Associate a public ip address with an instance in a VPC.  Boolean value.
         """
@@ -480,7 +480,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> pulumi.Output[str]:
         """
         The AZ to start the instance in.
         """
@@ -488,7 +488,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="blockDurationMinutes")
-    def block_duration_minutes(self) -> Optional[float]:
+    def block_duration_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
         The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
@@ -498,7 +498,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cpuCoreCount")
-    def cpu_core_count(self) -> float:
+    def cpu_core_count(self) -> pulumi.Output[float]:
         """
         Sets the number of CPU cores for an instance. This option is
         only supported on creation of instance type that support CPU Options
@@ -508,7 +508,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cpuThreadsPerCore")
-    def cpu_threads_per_core(self) -> float:
+    def cpu_threads_per_core(self) -> pulumi.Output[float]:
         """
         If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         """
@@ -516,7 +516,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creditSpecification")
-    def credit_specification(self) -> Optional['outputs.SpotInstanceRequestCreditSpecification']:
+    def credit_specification(self) -> pulumi.Output[Optional['outputs.SpotInstanceRequestCreditSpecification']]:
         """
         Customize the credit specification of the instance. See Credit Specification below for more details.
         """
@@ -524,7 +524,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableApiTermination")
-    def disable_api_termination(self) -> Optional[bool]:
+    def disable_api_termination(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, enables [EC2 Instance
         Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
@@ -533,7 +533,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> List['outputs.SpotInstanceRequestEbsBlockDevice']:
+    def ebs_block_devices(self) -> pulumi.Output[List['outputs.SpotInstanceRequestEbsBlockDevice']]:
         """
         Additional EBS block devices to attach to the
         instance.  Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection.
@@ -542,7 +542,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[bool]:
+    def ebs_optimized(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the launched EC2 instance will be EBS-optimized.
         Note that if this is not set on an instance type that is optimized by default then
@@ -554,7 +554,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> List['outputs.SpotInstanceRequestEphemeralBlockDevice']:
+    def ephemeral_block_devices(self) -> pulumi.Output[List['outputs.SpotInstanceRequestEphemeralBlockDevice']]:
         """
         Customize Ephemeral (also known as
         "Instance Store") volumes on the instance. See Block Devices below for details.
@@ -563,7 +563,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="getPasswordData")
-    def get_password_data(self) -> Optional[bool]:
+    def get_password_data(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         """
@@ -571,7 +571,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hibernation(self) -> Optional[bool]:
+    def hibernation(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the launched EC2 instance will support hibernation.
         """
@@ -579,7 +579,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostId")
-    def host_id(self) -> str:
+    def host_id(self) -> pulumi.Output[str]:
         """
         The Id of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         """
@@ -587,7 +587,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional[str]:
+    def iam_instance_profile(self) -> pulumi.Output[Optional[str]]:
         """
         The IAM Instance Profile to
         launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
@@ -596,7 +596,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
-    def instance_initiated_shutdown_behavior(self) -> Optional[str]:
+    def instance_initiated_shutdown_behavior(self) -> pulumi.Output[Optional[str]]:
         """
         Shutdown behavior for the
         instance. Amazon defaults this to `stop` for EBS-backed instances and
@@ -607,7 +607,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceInterruptionBehaviour")
-    def instance_interruption_behaviour(self) -> Optional[str]:
+    def instance_interruption_behaviour(self) -> pulumi.Output[Optional[str]]:
         """
         Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
         """
@@ -615,12 +615,12 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceState")
-    def instance_state(self) -> str:
+    def instance_state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "instance_state")
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> pulumi.Output[str]:
         """
         The type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
         """
@@ -628,7 +628,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6AddressCount")
-    def ipv6_address_count(self) -> float:
+    def ipv6_address_count(self) -> pulumi.Output[float]:
         """
         A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         """
@@ -636,7 +636,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> List[str]:
+    def ipv6_addresses(self) -> pulumi.Output[List[str]]:
         """
         Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         """
@@ -644,7 +644,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
+    def key_name(self) -> pulumi.Output[str]:
         """
         The key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         """
@@ -652,7 +652,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchGroup")
-    def launch_group(self) -> Optional[str]:
+    def launch_group(self) -> pulumi.Output[Optional[str]]:
         """
         A launch group is a group of spot instances that launch together and terminate together.
         If left empty instances are launched and terminated individually.
@@ -661,7 +661,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> 'outputs.SpotInstanceRequestMetadataOptions':
+    def metadata_options(self) -> pulumi.Output['outputs.SpotInstanceRequestMetadataOptions']:
         """
         Customize the metadata options of the instance. See Metadata Options below for more details.
         """
@@ -669,7 +669,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def monitoring(self) -> Optional[bool]:
+    def monitoring(self) -> pulumi.Output[Optional[bool]]:
         """
         If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         """
@@ -677,7 +677,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> List['outputs.SpotInstanceRequestNetworkInterface']:
+    def network_interfaces(self) -> pulumi.Output[List['outputs.SpotInstanceRequestNetworkInterface']]:
         """
         Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         """
@@ -685,17 +685,17 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> str:
+    def outpost_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="passwordData")
-    def password_data(self) -> str:
+    def password_data(self) -> pulumi.Output[str]:
         return pulumi.get(self, "password_data")
 
     @property
     @pulumi.getter(name="placementGroup")
-    def placement_group(self) -> str:
+    def placement_group(self) -> pulumi.Output[str]:
         """
         The Placement Group to start the instance in.
         """
@@ -703,12 +703,12 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryNetworkInterfaceId")
-    def primary_network_interface_id(self) -> str:
+    def primary_network_interface_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "primary_network_interface_id")
 
     @property
     @pulumi.getter(name="privateDns")
-    def private_dns(self) -> str:
+    def private_dns(self) -> pulumi.Output[str]:
         """
         The private DNS name assigned to the instance. Can only be
         used inside the Amazon EC2, and only available if you've enabled DNS hostnames
@@ -718,7 +718,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> str:
+    def private_ip(self) -> pulumi.Output[str]:
         """
         Private IP address to associate with the
         instance in a VPC.
@@ -727,7 +727,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicDns")
-    def public_dns(self) -> str:
+    def public_dns(self) -> pulumi.Output[str]:
         """
         The public DNS name assigned to the instance. For EC2-VPC, this
         is only available if you've enabled DNS hostnames for your VPC
@@ -736,7 +736,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIp")
-    def public_ip(self) -> str:
+    def public_ip(self) -> pulumi.Output[str]:
         """
         The public IP address assigned to the instance, if applicable.
         """
@@ -744,7 +744,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootBlockDevice")
-    def root_block_device(self) -> 'outputs.SpotInstanceRequestRootBlockDevice':
+    def root_block_device(self) -> pulumi.Output['outputs.SpotInstanceRequestRootBlockDevice']:
         """
         Customize details about the root block
         device of the instance. See Block Devices below for details.
@@ -753,7 +753,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryPrivateIps")
-    def secondary_private_ips(self) -> List[str]:
+    def secondary_private_ips(self) -> pulumi.Output[List[str]]:
         """
         A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         """
@@ -761,7 +761,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> List[str]:
+    def security_groups(self) -> pulumi.Output[List[str]]:
         """
         A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
         """
@@ -769,7 +769,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceDestCheck")
-    def source_dest_check(self) -> Optional[bool]:
+    def source_dest_check(self) -> pulumi.Output[Optional[bool]]:
         """
         Controls if traffic is routed to the instance when
         the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -778,7 +778,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spotBidStatus")
-    def spot_bid_status(self) -> str:
+    def spot_bid_status(self) -> pulumi.Output[str]:
         """
         The current [bid
         status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
@@ -791,7 +791,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spotInstanceId")
-    def spot_instance_id(self) -> str:
+    def spot_instance_id(self) -> pulumi.Output[str]:
         """
         The Instance ID (if any) that is currently fulfilling
         the Spot Instance request.
@@ -800,7 +800,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spotPrice")
-    def spot_price(self) -> Optional[str]:
+    def spot_price(self) -> pulumi.Output[Optional[str]]:
         """
         The maximum price to request on the spot market.
         """
@@ -808,12 +808,12 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spotRequestState")
-    def spot_request_state(self) -> str:
+    def spot_request_state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "spot_request_state")
 
     @property
     @pulumi.getter(name="spotType")
-    def spot_type(self) -> Optional[str]:
+    def spot_type(self) -> pulumi.Output[Optional[str]]:
         """
         If set to `one-time`, after
         the instance is terminated, the spot request will be closed.
@@ -822,7 +822,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The VPC Subnet ID to launch in.
         """
@@ -830,7 +830,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -838,7 +838,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tenancy(self) -> str:
+    def tenancy(self) -> pulumi.Output[str]:
         """
         The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
         """
@@ -846,7 +846,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[str]:
+    def user_data(self) -> pulumi.Output[Optional[str]]:
         """
         The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         """
@@ -854,7 +854,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userDataBase64")
-    def user_data_base64(self) -> Optional[str]:
+    def user_data_base64(self) -> pulumi.Output[Optional[str]]:
         """
         Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         """
@@ -862,7 +862,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validFrom")
-    def valid_from(self) -> str:
+    def valid_from(self) -> pulumi.Output[str]:
         """
         The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
         """
@@ -870,7 +870,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validUntil")
-    def valid_until(self) -> str:
+    def valid_until(self) -> pulumi.Output[str]:
         """
         The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
         """
@@ -878,7 +878,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeTags")
-    def volume_tags(self) -> Optional[Mapping[str, str]]:
+    def volume_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the devices created by the instance at launch time.
         """
@@ -886,7 +886,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> List[str]:
+    def vpc_security_group_ids(self) -> pulumi.Output[List[str]]:
         """
         A list of security group IDs to associate with.
         """
@@ -894,7 +894,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="waitForFulfillment")
-    def wait_for_fulfillment(self) -> Optional[bool]:
+    def wait_for_fulfillment(self) -> pulumi.Output[Optional[bool]]:
         """
         If set, this provider will
         wait for the Spot Request to be fulfilled, and will throw an error if the

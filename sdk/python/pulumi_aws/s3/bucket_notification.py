@@ -15,7 +15,7 @@ __all__ = ['BucketNotification']
 
 class BucketNotification(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  lambda_functions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BucketNotificationLambdaFunctionArgs']]]]] = None,
@@ -296,7 +296,7 @@ class BucketNotification(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def bucket(self) -> str:
+    def bucket(self) -> pulumi.Output[str]:
         """
         The name of the bucket to put notification configuration.
         """
@@ -304,7 +304,7 @@ class BucketNotification(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lambdaFunctions")
-    def lambda_functions(self) -> Optional[List['outputs.BucketNotificationLambdaFunction']]:
+    def lambda_functions(self) -> pulumi.Output[Optional[List['outputs.BucketNotificationLambdaFunction']]]:
         """
         Used to configure notifications to a Lambda Function (documented below).
         """
@@ -312,7 +312,7 @@ class BucketNotification(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def queues(self) -> Optional[List['outputs.BucketNotificationQueue']]:
+    def queues(self) -> pulumi.Output[Optional[List['outputs.BucketNotificationQueue']]]:
         """
         The notification configuration to SQS Queue (documented below).
         """
@@ -320,7 +320,7 @@ class BucketNotification(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def topics(self) -> Optional[List['outputs.BucketNotificationTopic']]:
+    def topics(self) -> pulumi.Output[Optional[List['outputs.BucketNotificationTopic']]]:
         """
         The notification configuration to SNS Topic (documented below).
         """

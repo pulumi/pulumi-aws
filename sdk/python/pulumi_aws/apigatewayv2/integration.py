@@ -15,7 +15,7 @@ __all__ = ['Integration']
 
 class Integration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  connection_id: Optional[pulumi.Input[str]] = None,
@@ -215,7 +215,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> str:
+    def api_id(self) -> pulumi.Output[str]:
         """
         The API identifier.
         """
@@ -223,7 +223,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionId")
-    def connection_id(self) -> Optional[str]:
+    def connection_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the VPC link for a private integration. Supported only for HTTP APIs.
         """
@@ -231,7 +231,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionType")
-    def connection_type(self) -> Optional[str]:
+    def connection_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
         """
@@ -239,7 +239,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentHandlingStrategy")
-    def content_handling_strategy(self) -> Optional[str]:
+    def content_handling_strategy(self) -> pulumi.Output[Optional[str]]:
         """
         How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
         """
@@ -247,7 +247,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="credentialsArn")
-    def credentials_arn(self) -> Optional[str]:
+    def credentials_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The credentials required for the integration, if any.
         """
@@ -255,7 +255,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the integration.
         """
@@ -263,7 +263,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrationMethod")
-    def integration_method(self) -> Optional[str]:
+    def integration_method(self) -> pulumi.Output[Optional[str]]:
         """
         The integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
         """
@@ -271,7 +271,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrationResponseSelectionExpression")
-    def integration_response_selection_expression(self) -> str:
+    def integration_response_selection_expression(self) -> pulumi.Output[str]:
         """
         The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
         """
@@ -279,7 +279,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrationType")
-    def integration_type(self) -> str:
+    def integration_type(self) -> pulumi.Output[str]:
         """
         The integration type of an integration.
         Valid values: `AWS`, `AWS_PROXY`, `HTTP`, `HTTP_PROXY`, `MOCK`.
@@ -288,7 +288,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrationUri")
-    def integration_uri(self) -> Optional[str]:
+    def integration_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
         For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
@@ -297,7 +297,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passthroughBehavior")
-    def passthrough_behavior(self) -> Optional[str]:
+    def passthrough_behavior(self) -> pulumi.Output[Optional[str]]:
         """
         The pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
         Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
@@ -306,7 +306,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="payloadFormatVersion")
-    def payload_format_version(self) -> Optional[str]:
+    def payload_format_version(self) -> pulumi.Output[Optional[str]]:
         """
         The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
         """
@@ -314,7 +314,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> Optional[Mapping[str, str]]:
+    def request_parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A key-value map specifying request parameters that are passed from the method request to the backend.
         Supported only for WebSocket APIs.
@@ -323,7 +323,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestTemplates")
-    def request_templates(self) -> Optional[Mapping[str, str]]:
+    def request_templates(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
         """
@@ -331,7 +331,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateSelectionExpression")
-    def template_selection_expression(self) -> Optional[str]:
+    def template_selection_expression(self) -> pulumi.Output[Optional[str]]:
         """
         The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
         """
@@ -339,7 +339,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeoutMilliseconds")
-    def timeout_milliseconds(self) -> Optional[float]:
+    def timeout_milliseconds(self) -> pulumi.Output[Optional[float]]:
         """
         Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
         """
@@ -347,7 +347,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tlsConfig")
-    def tls_config(self) -> Optional['outputs.IntegrationTlsConfig']:
+    def tls_config(self) -> pulumi.Output[Optional['outputs.IntegrationTlsConfig']]:
         """
         The TLS configuration for a private integration. Supported only for HTTP APIs.
         """

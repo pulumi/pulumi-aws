@@ -13,7 +13,7 @@ __all__ = ['RoleAlias']
 
 class RoleAlias(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  credential_duration: Optional[pulumi.Input[float]] = None,
@@ -115,7 +115,7 @@ class RoleAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def alias(self) -> str:
+    def alias(self) -> pulumi.Output[str]:
         """
         The name of the role alias.
         """
@@ -123,7 +123,7 @@ class RoleAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN assigned by AWS to this role alias.
         """
@@ -131,7 +131,7 @@ class RoleAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="credentialDuration")
-    def credential_duration(self) -> Optional[float]:
+    def credential_duration(self) -> pulumi.Output[Optional[float]]:
         """
         The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
         """
@@ -139,7 +139,7 @@ class RoleAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
+    def role_arn(self) -> pulumi.Output[str]:
         """
         The identity of the role to which the alias refers.
         """

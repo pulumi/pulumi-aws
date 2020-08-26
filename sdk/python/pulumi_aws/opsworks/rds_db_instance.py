@@ -13,7 +13,7 @@ __all__ = ['RdsDbInstance']
 
 class RdsDbInstance(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_password: Optional[pulumi.Input[str]] = None,
                  db_user: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class RdsDbInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbPassword")
-    def db_password(self) -> str:
+    def db_password(self) -> pulumi.Output[str]:
         """
         A db password
         """
@@ -122,7 +122,7 @@ class RdsDbInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbUser")
-    def db_user(self) -> str:
+    def db_user(self) -> pulumi.Output[str]:
         """
         A db username
         """
@@ -130,7 +130,7 @@ class RdsDbInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rdsDbInstanceArn")
-    def rds_db_instance_arn(self) -> str:
+    def rds_db_instance_arn(self) -> pulumi.Output[str]:
         """
         The db instance to register for this stack. Changing this will force a new resource.
         """
@@ -138,7 +138,7 @@ class RdsDbInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stackId")
-    def stack_id(self) -> str:
+    def stack_id(self) -> pulumi.Output[str]:
         """
         The stack to register a db instance for. Changing this will force a new resource.
         """

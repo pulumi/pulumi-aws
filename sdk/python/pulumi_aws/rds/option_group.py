@@ -15,7 +15,7 @@ __all__ = ['OptionGroup']
 
 class OptionGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  engine_name: Optional[pulumi.Input[str]] = None,
                  major_engine_version: Optional[pulumi.Input[str]] = None,
@@ -159,7 +159,7 @@ class OptionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the db option group.
         """
@@ -167,7 +167,7 @@ class OptionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineName")
-    def engine_name(self) -> str:
+    def engine_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the engine that this option group should be associated with.
         """
@@ -175,7 +175,7 @@ class OptionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="majorEngineVersion")
-    def major_engine_version(self) -> str:
+    def major_engine_version(self) -> pulumi.Output[str]:
         """
         Specifies the major version of the engine that this option group should be associated with.
         """
@@ -183,7 +183,7 @@ class OptionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The Name of the setting.
         """
@@ -191,7 +191,7 @@ class OptionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> str:
+    def name_prefix(self) -> pulumi.Output[str]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         """
@@ -199,7 +199,7 @@ class OptionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="optionGroupDescription")
-    def option_group_description(self) -> str:
+    def option_group_description(self) -> pulumi.Output[str]:
         """
         The description of the option group. Defaults to "Managed by Pulumi".
         """
@@ -207,7 +207,7 @@ class OptionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[List['outputs.OptionGroupOption']]:
+    def options(self) -> pulumi.Output[Optional[List['outputs.OptionGroupOption']]]:
         """
         A list of Options to apply.
         """
@@ -215,7 +215,7 @@ class OptionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

@@ -15,7 +15,7 @@ __all__ = ['ConfigurationTemplate']
 
 class ConfigurationTemplate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def application(self) -> str:
+    def application(self) -> pulumi.Output[str]:
         """
         name of the application to associate with this configuration template
         """
@@ -143,7 +143,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Short description of the Template
         """
@@ -151,7 +151,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[str]:
+    def environment_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the environment used with this configuration template
         """
@@ -159,7 +159,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A unique name for this Template.
         """
@@ -167,7 +167,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def settings(self) -> List['outputs.ConfigurationTemplateSetting']:
+    def settings(self) -> pulumi.Output[List['outputs.ConfigurationTemplateSetting']]:
         """
         Option settings to configure the new Environment. These
         override specific values that are set as defaults. The format is detailed
@@ -177,7 +177,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="solutionStackName")
-    def solution_stack_name(self) -> Optional[str]:
+    def solution_stack_name(self) -> pulumi.Output[Optional[str]]:
         """
         A solution stack to base your Template
         off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)

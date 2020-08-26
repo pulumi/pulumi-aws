@@ -13,7 +13,7 @@ __all__ = ['Subnet']
 
 class Subnet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -180,7 +180,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the subnet.
         """
@@ -188,7 +188,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assignIpv6AddressOnCreation")
-    def assign_ipv6_address_on_creation(self) -> Optional[bool]:
+    def assign_ipv6_address_on_creation(self) -> pulumi.Output[Optional[bool]]:
         """
         Specify true to indicate
         that network interfaces created in the specified subnet should be
@@ -198,7 +198,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> pulumi.Output[str]:
         """
         The AZ for the subnet.
         """
@@ -206,7 +206,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> str:
+    def availability_zone_id(self) -> pulumi.Output[str]:
         """
         The AZ ID of the subnet.
         """
@@ -214,7 +214,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> str:
+    def cidr_block(self) -> pulumi.Output[str]:
         """
         The CIDR block for the subnet.
         """
@@ -222,7 +222,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> str:
+    def ipv6_cidr_block(self) -> pulumi.Output[str]:
         """
         The IPv6 network range for the subnet,
         in CIDR notation. The subnet size must use a /64 prefix length.
@@ -231,7 +231,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6CidrBlockAssociationId")
-    def ipv6_cidr_block_association_id(self) -> str:
+    def ipv6_cidr_block_association_id(self) -> pulumi.Output[str]:
         """
         The association ID for the IPv6 CIDR block.
         """
@@ -239,7 +239,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")
-    def map_public_ip_on_launch(self) -> Optional[bool]:
+    def map_public_ip_on_launch(self) -> pulumi.Output[Optional[bool]]:
         """
         Specify true to indicate
         that instances launched into the subnet should be assigned
@@ -249,7 +249,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> Optional[str]:
+    def outpost_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the Outpost.
         """
@@ -257,7 +257,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> pulumi.Output[str]:
         """
         The ID of the AWS account that owns the subnet.
         """
@@ -265,7 +265,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -273,7 +273,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The VPC ID.
         """

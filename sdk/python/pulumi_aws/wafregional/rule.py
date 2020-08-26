@@ -15,7 +15,7 @@ __all__ = ['Rule']
 
 class Rule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the WAF Regional Rule.
         """
@@ -137,7 +137,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metricName")
-    def metric_name(self) -> str:
+    def metric_name(self) -> pulumi.Output[str]:
         """
         The name or description for the Amazon CloudWatch metric of this rule.
         """
@@ -145,7 +145,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name or description of the rule.
         """
@@ -153,7 +153,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def predicates(self) -> Optional[List['outputs.RulePredicate']]:
+    def predicates(self) -> pulumi.Output[Optional[List['outputs.RulePredicate']]]:
         """
         The objects to include in a rule (documented below).
         """
@@ -161,7 +161,7 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """

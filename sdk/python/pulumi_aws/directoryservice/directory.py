@@ -15,7 +15,7 @@ __all__ = ['Directory']
 
 class Directory(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  connect_settings: Optional[pulumi.Input[pulumi.InputType['DirectoryConnectSettingsArgs']]] = None,
@@ -247,7 +247,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessUrl")
-    def access_url(self) -> str:
+    def access_url(self) -> pulumi.Output[str]:
         """
         The access URL for the directory, such as `http://alias.awsapps.com`.
         """
@@ -255,7 +255,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def alias(self) -> str:
+    def alias(self) -> pulumi.Output[str]:
         """
         The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         """
@@ -263,7 +263,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectSettings")
-    def connect_settings(self) -> Optional['outputs.DirectoryConnectSettings']:
+    def connect_settings(self) -> pulumi.Output[Optional['outputs.DirectoryConnectSettings']]:
         """
         Connector related information about the directory. Fields documented below.
         """
@@ -271,7 +271,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A textual description for the directory.
         """
@@ -279,7 +279,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsIpAddresses")
-    def dns_ip_addresses(self) -> List[str]:
+    def dns_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         A list of IP addresses of the DNS servers for the directory or connector.
         """
@@ -287,7 +287,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def edition(self) -> str:
+    def edition(self) -> pulumi.Output[str]:
         """
         The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
         """
@@ -295,7 +295,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableSso")
-    def enable_sso(self) -> Optional[bool]:
+    def enable_sso(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         """
@@ -303,7 +303,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The fully qualified name for the directory, such as `corp.example.com`
         """
@@ -311,7 +311,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> str:
+    def password(self) -> pulumi.Output[str]:
         """
         The password for the directory administrator or connector user.
         """
@@ -319,7 +319,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> str:
+    def security_group_id(self) -> pulumi.Output[str]:
         """
         The ID of the security group created by the directory.
         """
@@ -327,7 +327,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shortName")
-    def short_name(self) -> str:
+    def short_name(self) -> pulumi.Output[str]:
         """
         The short name of the directory, such as `CORP`.
         """
@@ -335,7 +335,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> str:
+    def size(self) -> pulumi.Output[str]:
         """
         The size of the directory (`Small` or `Large` are accepted values).
         """
@@ -343,7 +343,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -351,7 +351,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         """
@@ -359,7 +359,7 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSettings")
-    def vpc_settings(self) -> Optional['outputs.DirectoryVpcSettings']:
+    def vpc_settings(self) -> pulumi.Output[Optional['outputs.DirectoryVpcSettings']]:
         """
         VPC related information about the directory. Fields documented below.
         """

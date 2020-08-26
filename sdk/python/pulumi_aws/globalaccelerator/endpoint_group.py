@@ -15,7 +15,7 @@ __all__ = ['EndpointGroup']
 
 class EndpointGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]]] = None,
                  endpoint_group_region: Optional[pulumi.Input[str]] = None,
@@ -139,7 +139,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointConfigurations")
-    def endpoint_configurations(self) -> Optional[List['outputs.EndpointGroupEndpointConfiguration']]:
+    def endpoint_configurations(self) -> pulumi.Output[Optional[List['outputs.EndpointGroupEndpointConfiguration']]]:
         """
         The list of endpoint objects. Fields documented below.
         """
@@ -147,7 +147,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointGroupRegion")
-    def endpoint_group_region(self) -> str:
+    def endpoint_group_region(self) -> pulumi.Output[str]:
         """
         The name of the AWS Region where the endpoint group is located.
         """
@@ -155,7 +155,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheckIntervalSeconds")
-    def health_check_interval_seconds(self) -> Optional[float]:
+    def health_check_interval_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
         """
@@ -163,7 +163,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheckPath")
-    def health_check_path(self) -> Optional[str]:
+    def health_check_path(self) -> pulumi.Output[Optional[str]]:
         """
         If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/).
         """
@@ -171,7 +171,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheckPort")
-    def health_check_port(self) -> Optional[float]:
+    def health_check_port(self) -> pulumi.Output[Optional[float]]:
         """
         The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
         """
@@ -179,7 +179,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheckProtocol")
-    def health_check_protocol(self) -> Optional[str]:
+    def health_check_protocol(self) -> pulumi.Output[Optional[str]]:
         """
         The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
         """
@@ -187,7 +187,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="listenerArn")
-    def listener_arn(self) -> str:
+    def listener_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the listener.
         """
@@ -195,7 +195,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thresholdCount")
-    def threshold_count(self) -> Optional[float]:
+    def threshold_count(self) -> pulumi.Output[Optional[float]]:
         """
         The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         """
@@ -203,7 +203,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficDialPercentage")
-    def traffic_dial_percentage(self) -> Optional[float]:
+    def traffic_dial_percentage(self) -> pulumi.Output[Optional[float]]:
         """
         The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
         """

@@ -13,7 +13,7 @@ __all__ = ['Eip']
 
 class Eip(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  associate_with_private_ip: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
@@ -219,12 +219,12 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> str:
+    def allocation_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "allocation_id")
 
     @property
     @pulumi.getter(name="associateWithPrivateIp")
-    def associate_with_private_ip(self) -> Optional[str]:
+    def associate_with_private_ip(self) -> pulumi.Output[Optional[str]]:
         """
         A user specified primary or secondary private IP address to
         associate with the Elastic IP address. If no private IP address is specified,
@@ -234,12 +234,12 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> str:
+    def association_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "association_id")
 
     @property
     @pulumi.getter(name="customerOwnedIp")
-    def customer_owned_ip(self) -> str:
+    def customer_owned_ip(self) -> pulumi.Output[str]:
         """
         Customer owned IP.
         """
@@ -247,7 +247,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerOwnedIpv4Pool")
-    def customer_owned_ipv4_pool(self) -> Optional[str]:
+    def customer_owned_ipv4_pool(self) -> pulumi.Output[Optional[str]]:
         """
         The  ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
         """
@@ -255,12 +255,12 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def domain(self) -> str:
+    def domain(self) -> pulumi.Output[str]:
         return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter
-    def instance(self) -> str:
+    def instance(self) -> pulumi.Output[str]:
         """
         EC2 instance ID.
         """
@@ -268,7 +268,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterface")
-    def network_interface(self) -> str:
+    def network_interface(self) -> pulumi.Output[str]:
         """
         Network interface ID to associate with.
         """
@@ -276,7 +276,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDns")
-    def private_dns(self) -> str:
+    def private_dns(self) -> pulumi.Output[str]:
         """
         The Private DNS associated with the Elastic IP address (if in VPC).
         """
@@ -284,7 +284,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> str:
+    def private_ip(self) -> pulumi.Output[str]:
         """
         Contains the private IP address (if in VPC).
         """
@@ -292,7 +292,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicDns")
-    def public_dns(self) -> str:
+    def public_dns(self) -> pulumi.Output[str]:
         """
         Public DNS associated with the Elastic IP address.
         """
@@ -300,7 +300,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIp")
-    def public_ip(self) -> str:
+    def public_ip(self) -> pulumi.Output[str]:
         """
         Contains the public IP address.
         """
@@ -308,7 +308,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpv4Pool")
-    def public_ipv4_pool(self) -> str:
+    def public_ipv4_pool(self) -> pulumi.Output[str]:
         """
         EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
         """
@@ -316,7 +316,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -324,7 +324,7 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vpc(self) -> bool:
+    def vpc(self) -> pulumi.Output[bool]:
         """
         Boolean if the EIP is in a VPC or not.
         """

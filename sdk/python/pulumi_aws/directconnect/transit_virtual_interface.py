@@ -13,7 +13,7 @@ __all__ = ['TransitVirtualInterface']
 
 class TransitVirtualInterface(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_family: Optional[pulumi.Input[str]] = None,
                  amazon_address: Optional[pulumi.Input[str]] = None,
@@ -176,7 +176,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> str:
+    def address_family(self) -> pulumi.Output[str]:
         """
         The address family for the BGP peer. `ipv4 ` or `ipv6`.
         """
@@ -184,7 +184,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amazonAddress")
-    def amazon_address(self) -> str:
+    def amazon_address(self) -> pulumi.Output[str]:
         """
         The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         """
@@ -192,12 +192,12 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> str:
+    def amazon_side_asn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "amazon_side_asn")
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the virtual interface.
         """
@@ -205,7 +205,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsDevice")
-    def aws_device(self) -> str:
+    def aws_device(self) -> pulumi.Output[str]:
         """
         The Direct Connect endpoint on which the virtual interface terminates.
         """
@@ -213,7 +213,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> float:
+    def bgp_asn(self) -> pulumi.Output[float]:
         """
         The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         """
@@ -221,7 +221,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpAuthKey")
-    def bgp_auth_key(self) -> str:
+    def bgp_auth_key(self) -> pulumi.Output[str]:
         """
         The authentication key for BGP configuration.
         """
@@ -229,7 +229,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionId")
-    def connection_id(self) -> str:
+    def connection_id(self) -> pulumi.Output[str]:
         """
         The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         """
@@ -237,7 +237,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customerAddress")
-    def customer_address(self) -> str:
+    def customer_address(self) -> pulumi.Output[str]:
         """
         The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         """
@@ -245,7 +245,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dxGatewayId")
-    def dx_gateway_id(self) -> str:
+    def dx_gateway_id(self) -> pulumi.Output[str]:
         """
         The ID of the Direct Connect gateway to which to connect the virtual interface.
         """
@@ -253,7 +253,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jumboFrameCapable")
-    def jumbo_frame_capable(self) -> bool:
+    def jumbo_frame_capable(self) -> pulumi.Output[bool]:
         """
         Indicates whether jumbo frames (8500 MTU) are supported.
         """
@@ -261,7 +261,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mtu(self) -> Optional[float]:
+    def mtu(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
         The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
@@ -270,7 +270,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name for the virtual interface.
         """
@@ -278,7 +278,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -286,7 +286,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vlan(self) -> float:
+    def vlan(self) -> pulumi.Output[float]:
         """
         The VLAN ID.
         """

@@ -15,7 +15,7 @@ __all__ = ['JobDefinition']
 
 class JobDefinition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_properties: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -162,7 +162,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name of the job definition.
         """
@@ -170,7 +170,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerProperties")
-    def container_properties(self) -> Optional[str]:
+    def container_properties(self) -> pulumi.Output[Optional[str]]:
         """
         A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
         provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
@@ -179,7 +179,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the job definition.
         """
@@ -187,7 +187,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Specifies the parameter substitution placeholders to set in the job definition.
         """
@@ -195,7 +195,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retryStrategy")
-    def retry_strategy(self) -> Optional['outputs.JobDefinitionRetryStrategy']:
+    def retry_strategy(self) -> pulumi.Output[Optional['outputs.JobDefinitionRetryStrategy']]:
         """
         Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
         Maximum number of `retry_strategy` is `1`.  Defined below.
@@ -204,7 +204,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def revision(self) -> float:
+    def revision(self) -> pulumi.Output[float]:
         """
         The revision of the job definition.
         """
@@ -212,7 +212,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional['outputs.JobDefinitionTimeout']:
+    def timeout(self) -> pulumi.Output[Optional['outputs.JobDefinitionTimeout']]:
         """
         Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         """
@@ -220,7 +220,7 @@ class JobDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of job definition.  Must be `container`
         """

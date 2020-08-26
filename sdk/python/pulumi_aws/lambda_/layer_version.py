@@ -13,7 +13,7 @@ __all__ = ['LayerVersion']
 
 class LayerVersion(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
                  compatible_runtimes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -168,7 +168,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the Lambda Layer with version.
         """
@@ -176,7 +176,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Archive]:
+    def code(self) -> pulumi.Output[Optional[pulumi.Archive]]:
         """
         The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
         """
@@ -184,7 +184,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="compatibleRuntimes")
-    def compatible_runtimes(self) -> Optional[List[str]]:
+    def compatible_runtimes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         """
@@ -192,7 +192,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The date this resource was created.
         """
@@ -200,7 +200,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of what your Lambda Layer does.
         """
@@ -208,7 +208,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="layerArn")
-    def layer_arn(self) -> str:
+    def layer_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the Lambda Layer without version.
         """
@@ -216,7 +216,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="layerName")
-    def layer_name(self) -> str:
+    def layer_name(self) -> pulumi.Output[str]:
         """
         A unique name for your Lambda Layer
         """
@@ -224,7 +224,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseInfo")
-    def license_info(self) -> Optional[str]:
+    def license_info(self) -> pulumi.Output[Optional[str]]:
         """
         License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         """
@@ -232,7 +232,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional[str]:
+    def s3_bucket(self) -> pulumi.Output[Optional[str]]:
         """
         The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         """
@@ -240,7 +240,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Key")
-    def s3_key(self) -> Optional[str]:
+    def s3_key(self) -> pulumi.Output[Optional[str]]:
         """
         The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         """
@@ -248,7 +248,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3ObjectVersion")
-    def s3_object_version(self) -> Optional[str]:
+    def s3_object_version(self) -> pulumi.Output[Optional[str]]:
         """
         The object version containing the function's deployment package. Conflicts with `filename`.
         """
@@ -256,7 +256,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceCodeHash")
-    def source_code_hash(self) -> str:
+    def source_code_hash(self) -> pulumi.Output[str]:
         """
         Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
         """
@@ -264,7 +264,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceCodeSize")
-    def source_code_size(self) -> float:
+    def source_code_size(self) -> pulumi.Output[float]:
         """
         The size in bytes of the function .zip file.
         """
@@ -272,7 +272,7 @@ class LayerVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         This Lamba Layer version.
         """

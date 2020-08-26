@@ -13,7 +13,7 @@ __all__ = ['Route']
 
 class Route(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
-    def client_vpn_endpoint_id(self) -> str:
+    def client_vpn_endpoint_id(self) -> pulumi.Output[str]:
         """
         The ID of the Client VPN endpoint.
         """
@@ -145,7 +145,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A brief description of the authorization rule.
         """
@@ -153,7 +153,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
-    def destination_cidr_block(self) -> str:
+    def destination_cidr_block(self) -> pulumi.Output[str]:
         """
         The IPv4 address range, in CIDR notation, of the route destination.
         """
@@ -161,12 +161,12 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origin(self) -> str:
+    def origin(self) -> pulumi.Output[str]:
         return pulumi.get(self, "origin")
 
     @property
     @pulumi.getter(name="targetVpcSubnetId")
-    def target_vpc_subnet_id(self) -> str:
+    def target_vpc_subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         """
@@ -174,7 +174,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "type")
 
     def translate_output_property(self, prop):

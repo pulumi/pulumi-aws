@@ -13,7 +13,7 @@ __all__ = ['HostedTransitVirtualInterfaceAcceptor']
 
 class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dx_gateway_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -126,7 +126,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the virtual interface.
         """
@@ -134,7 +134,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dxGatewayId")
-    def dx_gateway_id(self) -> str:
+    def dx_gateway_id(self) -> pulumi.Output[str]:
         """
         The ID of the Direct Connect gateway to which to connect the virtual interface.
         """
@@ -142,7 +142,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -150,7 +150,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualInterfaceId")
-    def virtual_interface_id(self) -> str:
+    def virtual_interface_id(self) -> pulumi.Output[str]:
         """
         The ID of the Direct Connect virtual interface to accept.
         """

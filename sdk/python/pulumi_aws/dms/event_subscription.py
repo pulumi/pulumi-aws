@@ -13,7 +13,7 @@ __all__ = ['EventSubscription']
 
 class EventSubscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_categories: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -134,12 +134,12 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the event subscription should be enabled.
         """
@@ -147,7 +147,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventCategories")
-    def event_categories(self) -> List[str]:
+    def event_categories(self) -> pulumi.Output[List[str]]:
         """
         List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         """
@@ -155,7 +155,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of event subscription.
         """
@@ -163,7 +163,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> str:
+    def sns_topic_arn(self) -> pulumi.Output[str]:
         """
         SNS topic arn to send events on.
         """
@@ -171,7 +171,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceIds")
-    def source_ids(self) -> Optional[List[str]]:
+    def source_ids(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Ids of sources to listen to.
         """
@@ -179,7 +179,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[str]:
+    def source_type(self) -> pulumi.Output[Optional[str]]:
         """
         Type of source for events. Valid values: `replication-instance` or `replication-task`
         """
@@ -187,7 +187,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):

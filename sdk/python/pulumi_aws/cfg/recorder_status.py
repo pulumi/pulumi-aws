@@ -13,7 +13,7 @@ __all__ = ['RecorderStatus']
 
 class RecorderStatus(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -131,7 +131,7 @@ class RecorderStatus(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> bool:
+    def is_enabled(self) -> pulumi.Output[bool]:
         """
         Whether the configuration recorder should be enabled or disabled.
         """
@@ -139,7 +139,7 @@ class RecorderStatus(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the recorder
         """

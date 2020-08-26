@@ -15,7 +15,7 @@ __all__ = ['Repository']
 
 class Repository(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
@@ -124,7 +124,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Full ARN of the repository.
         """
@@ -132,7 +132,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionConfigurations")
-    def encryption_configurations(self) -> Optional[List['outputs.RepositoryEncryptionConfiguration']]:
+    def encryption_configurations(self) -> pulumi.Output[Optional[List['outputs.RepositoryEncryptionConfiguration']]]:
         """
         Encryption configuration for the repository. See below for schema.
         """
@@ -140,7 +140,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageScanningConfiguration")
-    def image_scanning_configuration(self) -> Optional['outputs.RepositoryImageScanningConfiguration']:
+    def image_scanning_configuration(self) -> pulumi.Output[Optional['outputs.RepositoryImageScanningConfiguration']]:
         """
         Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         """
@@ -148,7 +148,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageTagMutability")
-    def image_tag_mutability(self) -> Optional[str]:
+    def image_tag_mutability(self) -> pulumi.Output[Optional[str]]:
         """
         The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         """
@@ -156,7 +156,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the repository.
         """
@@ -164,7 +164,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registryId")
-    def registry_id(self) -> str:
+    def registry_id(self) -> pulumi.Output[str]:
         """
         The registry ID where the repository was created.
         """
@@ -172,7 +172,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repositoryUrl")
-    def repository_url(self) -> str:
+    def repository_url(self) -> pulumi.Output[str]:
         """
         The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
         """
@@ -180,7 +180,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

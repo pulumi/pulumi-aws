@@ -13,7 +13,7 @@ __all__ = ['TrafficMirrorFilter']
 
 class TrafficMirrorFilter(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  network_services: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -99,7 +99,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the filter.
         """
@@ -107,7 +107,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkServices")
-    def network_services(self) -> Optional[List[str]]:
+    def network_services(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
         """
@@ -115,7 +115,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags.
         """

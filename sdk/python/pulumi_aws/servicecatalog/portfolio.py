@@ -13,7 +13,7 @@ __all__ = ['Portfolio']
 
 class Portfolio(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -108,17 +108,17 @@ class Portfolio(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         Description of the portfolio
         """
@@ -126,7 +126,7 @@ class Portfolio(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the portfolio.
         """
@@ -134,7 +134,7 @@ class Portfolio(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> Optional[str]:
+    def provider_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the person or organization who owns the portfolio.
         """
@@ -142,7 +142,7 @@ class Portfolio(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Tags to apply to the connection.
         """

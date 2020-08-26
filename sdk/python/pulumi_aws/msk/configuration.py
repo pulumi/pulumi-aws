@@ -13,7 +13,7 @@ __all__ = ['Configuration']
 
 class Configuration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kafka_versions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -119,7 +119,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the configuration.
         """
@@ -127,7 +127,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the configuration.
         """
@@ -135,7 +135,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kafkaVersions")
-    def kafka_versions(self) -> List[str]:
+    def kafka_versions(self) -> pulumi.Output[List[str]]:
         """
         List of Apache Kafka versions which can use this configuration.
         """
@@ -143,7 +143,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestRevision")
-    def latest_revision(self) -> float:
+    def latest_revision(self) -> pulumi.Output[float]:
         """
         Latest revision of the configuration.
         """
@@ -151,7 +151,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the configuration.
         """
@@ -159,7 +159,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverProperties")
-    def server_properties(self) -> str:
+    def server_properties(self) -> pulumi.Output[str]:
         """
         Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         """

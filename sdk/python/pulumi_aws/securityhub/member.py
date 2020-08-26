@@ -13,7 +13,7 @@ __all__ = ['Member']
 
 class Member(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The ID of the member AWS account.
         """
@@ -119,7 +119,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> pulumi.Output[str]:
         """
         The email of the member AWS account.
         """
@@ -127,7 +127,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def invite(self) -> Optional[bool]:
+    def invite(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         """
@@ -135,7 +135,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="masterId")
-    def master_id(self) -> str:
+    def master_id(self) -> pulumi.Output[str]:
         """
         The ID of the master Security Hub AWS account.
         """
@@ -143,7 +143,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="memberStatus")
-    def member_status(self) -> str:
+    def member_status(self) -> pulumi.Output[str]:
         """
         The status of the member account relationship.
         """

@@ -15,7 +15,7 @@ __all__ = ['Channel']
 
 class Channel(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the channel
         """
@@ -118,7 +118,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="channelId")
-    def channel_id(self) -> str:
+    def channel_id(self) -> pulumi.Output[str]:
         """
         A unique identifier describing the channel
         """
@@ -126,7 +126,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         A description of the channel
         """
@@ -134,7 +134,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hlsIngests")
-    def hls_ingests(self) -> List['outputs.ChannelHlsIngest']:
+    def hls_ingests(self) -> pulumi.Output[List['outputs.ChannelHlsIngest']]:
         """
         A single item list of HLS ingest information
         """
@@ -142,7 +142,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """

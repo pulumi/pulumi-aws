@@ -15,7 +15,7 @@ __all__ = ['Fleet']
 
 class Fleet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_stream_arn: Optional[pulumi.Input[str]] = None,
                  device_ca_certificate: Optional[pulumi.Input[str]] = None,
@@ -161,7 +161,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the created WorkLink Fleet.
         """
@@ -169,7 +169,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="auditStreamArn")
-    def audit_stream_arn(self) -> Optional[str]:
+    def audit_stream_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the Amazon Kinesis data stream that receives the audit events.
         """
@@ -177,7 +177,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="companyCode")
-    def company_code(self) -> str:
+    def company_code(self) -> pulumi.Output[str]:
         """
         The identifier used by users to sign in to the Amazon WorkLink app.
         """
@@ -185,7 +185,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> str:
+    def created_time(self) -> pulumi.Output[str]:
         """
         The time that the fleet was created.
         """
@@ -193,7 +193,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceCaCertificate")
-    def device_ca_certificate(self) -> Optional[str]:
+    def device_ca_certificate(self) -> pulumi.Output[Optional[str]]:
         """
         The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
         """
@@ -201,7 +201,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the fleet.
         """
@@ -209,7 +209,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identityProvider")
-    def identity_provider(self) -> Optional['outputs.FleetIdentityProvider']:
+    def identity_provider(self) -> pulumi.Output[Optional['outputs.FleetIdentityProvider']]:
         """
         Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
         """
@@ -217,7 +217,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> str:
+    def last_updated_time(self) -> pulumi.Output[str]:
         """
         The time that the fleet was last updated.
         """
@@ -225,7 +225,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A region-unique name for the AMI.
         """
@@ -233,7 +233,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def network(self) -> Optional['outputs.FleetNetwork']:
+    def network(self) -> pulumi.Output[Optional['outputs.FleetNetwork']]:
         """
         Provide this to allow manage the company network configuration for the fleet. Fields documented below.
         """
@@ -241,7 +241,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="optimizeForEndUserLocation")
-    def optimize_for_end_user_location(self) -> Optional[bool]:
+    def optimize_for_end_user_location(self) -> pulumi.Output[Optional[bool]]:
         """
         The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
         """

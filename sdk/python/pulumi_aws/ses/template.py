@@ -13,7 +13,7 @@ __all__ = ['Template']
 
 class Template(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  html: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def html(self) -> Optional[str]:
+    def html(self) -> pulumi.Output[Optional[str]]:
         """
         The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         """
@@ -113,7 +113,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         """
@@ -121,7 +121,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subject(self) -> Optional[str]:
+    def subject(self) -> pulumi.Output[Optional[str]]:
         """
         The subject line of the email.
         """
@@ -129,7 +129,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def text(self) -> Optional[str]:
+    def text(self) -> pulumi.Output[Optional[str]]:
         """
         The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         """

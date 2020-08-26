@@ -15,7 +15,7 @@ __all__ = ['LaunchConfiguration']
 
 class LaunchConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  ebs_block_devices: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]]] = None,
@@ -357,7 +357,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name of the launch configuration.
         """
@@ -365,7 +365,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associatePublicIpAddress")
-    def associate_public_ip_address(self) -> Optional[bool]:
+    def associate_public_ip_address(self) -> pulumi.Output[Optional[bool]]:
         """
         Associate a public ip address with an instance in a VPC.
         """
@@ -373,7 +373,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> List['outputs.LaunchConfigurationEbsBlockDevice']:
+    def ebs_block_devices(self) -> pulumi.Output[List['outputs.LaunchConfigurationEbsBlockDevice']]:
         """
         Additional EBS block devices to attach to the
         instance.  See Block Devices below for details.
@@ -382,7 +382,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> bool:
+    def ebs_optimized(self) -> pulumi.Output[bool]:
         """
         If true, the launched EC2 instance will be EBS-optimized.
         """
@@ -390,7 +390,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableMonitoring")
-    def enable_monitoring(self) -> Optional[bool]:
+    def enable_monitoring(self) -> pulumi.Output[Optional[bool]]:
         """
         Enables/disables detailed monitoring. This is enabled by default.
         """
@@ -398,7 +398,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> Optional[List['outputs.LaunchConfigurationEphemeralBlockDevice']]:
+    def ephemeral_block_devices(self) -> pulumi.Output[Optional[List['outputs.LaunchConfigurationEphemeralBlockDevice']]]:
         """
         Customize Ephemeral (also known as
         "Instance Store") volumes on the instance. See Block Devices below for details.
@@ -407,7 +407,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional[str]:
+    def iam_instance_profile(self) -> pulumi.Output[Optional[str]]:
         """
         The name attribute of the IAM instance profile to associate
         with launched instances.
@@ -416,7 +416,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> str:
+    def image_id(self) -> pulumi.Output[str]:
         """
         The EC2 image ID to launch.
         """
@@ -424,7 +424,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> pulumi.Output[str]:
         """
         The size of instance to launch.
         """
@@ -432,7 +432,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
+    def key_name(self) -> pulumi.Output[str]:
         """
         The key name that should be used for the instance.
         """
@@ -440,7 +440,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the launch configuration. If you leave
         this blank, this provider will auto-generate a unique name.
@@ -449,7 +449,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[str]:
+    def name_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a unique name beginning with the specified
         prefix. Conflicts with `name`.
@@ -458,7 +458,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="placementTenancy")
-    def placement_tenancy(self) -> Optional[str]:
+    def placement_tenancy(self) -> pulumi.Output[Optional[str]]:
         """
         The tenancy of the instance. Valid values are
         `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
@@ -468,7 +468,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootBlockDevice")
-    def root_block_device(self) -> 'outputs.LaunchConfigurationRootBlockDevice':
+    def root_block_device(self) -> pulumi.Output['outputs.LaunchConfigurationRootBlockDevice']:
         """
         Customize details about the root block
         device of the instance. See Block Devices below for details.
@@ -477,7 +477,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[List[str]]:
+    def security_groups(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of associated security group IDS.
         """
@@ -485,7 +485,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spotPrice")
-    def spot_price(self) -> Optional[str]:
+    def spot_price(self) -> pulumi.Output[Optional[str]]:
         """
         The maximum price to use for reserving spot instances.
         """
@@ -493,7 +493,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[str]:
+    def user_data(self) -> pulumi.Output[Optional[str]]:
         """
         The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         """
@@ -501,7 +501,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userDataBase64")
-    def user_data_base64(self) -> Optional[str]:
+    def user_data_base64(self) -> pulumi.Output[Optional[str]]:
         """
         Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         """
@@ -509,7 +509,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcClassicLinkId")
-    def vpc_classic_link_id(self) -> Optional[str]:
+    def vpc_classic_link_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
         """
@@ -517,7 +517,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcClassicLinkSecurityGroups")
-    def vpc_classic_link_security_groups(self) -> Optional[List[str]]:
+    def vpc_classic_link_security_groups(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         """

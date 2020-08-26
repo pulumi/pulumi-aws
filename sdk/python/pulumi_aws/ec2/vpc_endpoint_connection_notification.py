@@ -13,7 +13,7 @@ __all__ = ['VpcEndpointConnectionNotification']
 
 class VpcEndpointConnectionNotification(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_events: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  connection_notification_arn: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionEvents")
-    def connection_events(self) -> List[str]:
+    def connection_events(self) -> pulumi.Output[List[str]]:
         """
         One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
         """
@@ -142,7 +142,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionNotificationArn")
-    def connection_notification_arn(self) -> str:
+    def connection_notification_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the SNS topic for the notifications.
         """
@@ -150,7 +150,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationType")
-    def notification_type(self) -> str:
+    def notification_type(self) -> pulumi.Output[str]:
         """
         The type of notification.
         """
@@ -158,7 +158,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The state of the notification.
         """
@@ -166,7 +166,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcEndpointId")
-    def vpc_endpoint_id(self) -> Optional[str]:
+    def vpc_endpoint_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the VPC Endpoint to receive notifications for.
         """
@@ -174,7 +174,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcEndpointServiceId")
-    def vpc_endpoint_service_id(self) -> Optional[str]:
+    def vpc_endpoint_service_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the VPC Endpoint Service to receive notifications for.
         """

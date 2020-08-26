@@ -15,7 +15,7 @@ __all__ = ['Cluster']
 
 class Cluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
@@ -221,7 +221,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the DAX cluster
         """
@@ -229,7 +229,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[List[str]]:
+    def availability_zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of Availability Zones in which the
         nodes will be created
@@ -238,7 +238,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterAddress")
-    def cluster_address(self) -> str:
+    def cluster_address(self) -> pulumi.Output[str]:
         """
         The DNS name of the DAX cluster without the port appended
         """
@@ -246,7 +246,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> str:
+    def cluster_name(self) -> pulumi.Output[str]:
         """
         Group identifier. DAX converts this name to
         lowercase
@@ -255,7 +255,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationEndpoint")
-    def configuration_endpoint(self) -> str:
+    def configuration_endpoint(self) -> pulumi.Output[str]:
         """
         The configuration endpoint for this DAX cluster,
         consisting of a DNS name and a port number
@@ -264,7 +264,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description for the cluster
         """
@@ -272,7 +272,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> str:
+    def iam_role_arn(self) -> pulumi.Output[str]:
         """
         A valid Amazon Resource Name (ARN) that identifies
         an IAM role. At runtime, DAX will assume this role and use the role's
@@ -282,7 +282,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> str:
+    def maintenance_window(self) -> pulumi.Output[str]:
         """
         Specifies the weekly time range for when
         maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
@@ -293,7 +293,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeType")
-    def node_type(self) -> str:
+    def node_type(self) -> pulumi.Output[str]:
         """
         The compute and memory capacity of the nodes. See
         [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
@@ -302,7 +302,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def nodes(self) -> List['outputs.ClusterNode']:
+    def nodes(self) -> pulumi.Output[List['outputs.ClusterNode']]:
         """
         List of node objects including `id`, `address`, `port` and
         `availability_zone`. Referenceable e.g. as
@@ -312,7 +312,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationTopicArn")
-    def notification_topic_arn(self) -> Optional[str]:
+    def notification_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
         An Amazon Resource Name (ARN) of an
         SNS topic to send DAX notifications to. Example:
@@ -322,7 +322,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> str:
+    def parameter_group_name(self) -> pulumi.Output[str]:
         """
         Name of the parameter group to associate
         with this DAX cluster
@@ -331,7 +331,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> pulumi.Output[float]:
         """
         The port used by the configuration endpoint
         """
@@ -339,7 +339,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationFactor")
-    def replication_factor(self) -> float:
+    def replication_factor(self) -> pulumi.Output[float]:
         """
         The number of nodes in the DAX cluster. A
         replication factor of 1 will create a single-node cluster, without any read
@@ -349,7 +349,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> List[str]:
+    def security_group_ids(self) -> pulumi.Output[List[str]]:
         """
         One or more VPC security groups associated
         with the cluster
@@ -358,7 +358,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverSideEncryption")
-    def server_side_encryption(self) -> Optional['outputs.ClusterServerSideEncryption']:
+    def server_side_encryption(self) -> pulumi.Output[Optional['outputs.ClusterServerSideEncryption']]:
         """
         Encrypt at rest options
         """
@@ -366,7 +366,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetGroupName")
-    def subnet_group_name(self) -> str:
+    def subnet_group_name(self) -> pulumi.Output[str]:
         """
         Name of the subnet group to be used for the
         cluster
@@ -375,7 +375,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource
         """

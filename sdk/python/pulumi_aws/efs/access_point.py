@@ -15,7 +15,7 @@ __all__ = ['AccessPoint']
 
 class AccessPoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  posix_user: Optional[pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']]] = None,
@@ -115,7 +115,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name of the access point.
         """
@@ -123,7 +123,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileSystemArn")
-    def file_system_arn(self) -> str:
+    def file_system_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name of the file system.
         """
@@ -131,7 +131,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> str:
+    def file_system_id(self) -> pulumi.Output[str]:
         """
         The ID of the file system for which the access point is intended.
         """
@@ -139,12 +139,12 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="posixUser")
-    def posix_user(self) -> Optional['outputs.AccessPointPosixUser']:
+    def posix_user(self) -> pulumi.Output[Optional['outputs.AccessPointPosixUser']]:
         """
         The operating system user and group applied to all file system requests made using the access point. See Posix User below.
         """
@@ -152,7 +152,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootDirectory")
-    def root_directory(self) -> 'outputs.AccessPointRootDirectory':
+    def root_directory(self) -> pulumi.Output['outputs.AccessPointRootDirectory']:
         """
         Specifies the directory on the Amazon EFS file system that the access point provides access to. See Root Directory below.
         """
@@ -160,7 +160,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value mapping of resource tags.
         """

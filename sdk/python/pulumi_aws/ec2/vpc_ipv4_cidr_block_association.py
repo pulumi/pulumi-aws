@@ -13,7 +13,7 @@ __all__ = ['VpcIpv4CidrBlockAssociation']
 
 class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> str:
+    def cidr_block(self) -> pulumi.Output[str]:
         """
         The additional IPv4 CIDR block to associate with the VPC.
         """
@@ -106,7 +106,7 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> str:
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The ID of the VPC to make the association with.
         """

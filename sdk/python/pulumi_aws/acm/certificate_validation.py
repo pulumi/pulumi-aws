@@ -13,7 +13,7 @@ __all__ = ['CertificateValidation']
 
 class CertificateValidation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  validation_record_fqdns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -133,7 +133,7 @@ class CertificateValidation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> str:
+    def certificate_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the certificate that is being validated.
         """
@@ -141,7 +141,7 @@ class CertificateValidation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validationRecordFqdns")
-    def validation_record_fqdns(self) -> Optional[List[str]]:
+    def validation_record_fqdns(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """

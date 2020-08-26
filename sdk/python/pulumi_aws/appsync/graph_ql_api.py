@@ -15,7 +15,7 @@ __all__ = ['GraphQLApi']
 
 class GraphQLApi(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_authentication_providers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
@@ -234,7 +234,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalAuthenticationProviders")
-    def additional_authentication_providers(self) -> Optional[List['outputs.GraphQLApiAdditionalAuthenticationProvider']]:
+    def additional_authentication_providers(self) -> pulumi.Output[Optional[List['outputs.GraphQLApiAdditionalAuthenticationProvider']]]:
         """
         One or more additional authentication providers for the GraphqlApi. Defined below.
         """
@@ -242,7 +242,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN
         """
@@ -250,7 +250,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> str:
+    def authentication_type(self) -> pulumi.Output[str]:
         """
         The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
         """
@@ -258,7 +258,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logConfig")
-    def log_config(self) -> Optional['outputs.GraphQLApiLogConfig']:
+    def log_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiLogConfig']]:
         """
         Nested argument containing logging configuration. Defined below.
         """
@@ -266,7 +266,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A user-supplied name for the GraphqlApi.
         """
@@ -274,7 +274,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="openidConnectConfig")
-    def openid_connect_config(self) -> Optional['outputs.GraphQLApiOpenidConnectConfig']:
+    def openid_connect_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiOpenidConnectConfig']]:
         """
         Nested argument containing OpenID Connect configuration. Defined below.
         """
@@ -282,7 +282,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional[str]:
+    def schema(self) -> pulumi.Output[Optional[str]]:
         """
         The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         """
@@ -290,7 +290,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -298,7 +298,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uris(self) -> Mapping[str, str]:
+    def uris(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         """
@@ -306,7 +306,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userPoolConfig")
-    def user_pool_config(self) -> Optional['outputs.GraphQLApiUserPoolConfig']:
+    def user_pool_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiUserPoolConfig']]:
         """
         The Amazon Cognito User Pool configuration. Defined below.
         """
@@ -314,7 +314,7 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xrayEnabled")
-    def xray_enabled(self) -> Optional[bool]:
+    def xray_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether tracing with X-ray is enabled. Defaults to false.
         """

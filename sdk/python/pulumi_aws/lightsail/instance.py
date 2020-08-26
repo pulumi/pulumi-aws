@@ -13,7 +13,7 @@ __all__ = ['Instance']
 
 class Instance(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  blueprint_id: Optional[pulumi.Input[str]] = None,
@@ -258,7 +258,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Lightsail instance (matches `id`).
         """
@@ -266,7 +266,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> str:
+    def availability_zone(self) -> pulumi.Output[str]:
         """
         The Availability Zone in which to create your
         instance (see list below)
@@ -275,7 +275,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="blueprintId")
-    def blueprint_id(self) -> str:
+    def blueprint_id(self) -> pulumi.Output[str]:
         """
         The ID for a virtual private server image
         (see list below)
@@ -284,7 +284,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bundleId")
-    def bundle_id(self) -> str:
+    def bundle_id(self) -> pulumi.Output[str]:
         """
         The bundle of specification information (see list below)
         """
@@ -292,12 +292,12 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cpuCount")
-    def cpu_count(self) -> float:
+    def cpu_count(self) -> pulumi.Output[float]:
         return pulumi.get(self, "cpu_count")
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> pulumi.Output[str]:
         """
         The timestamp when the instance was created.
         * `availability_zone`
@@ -310,17 +310,17 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6Address")
-    def ipv6_address(self) -> str:
+    def ipv6_address(self) -> pulumi.Output[str]:
         return pulumi.get(self, "ipv6_address")
 
     @property
     @pulumi.getter(name="isStaticIp")
-    def is_static_ip(self) -> bool:
+    def is_static_ip(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "is_static_ip")
 
     @property
     @pulumi.getter(name="keyPairName")
-    def key_pair_name(self) -> Optional[str]:
+    def key_pair_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of your key pair. Created in the
         Lightsail console (cannot use `ec2.KeyPair` at this time)
@@ -329,7 +329,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
         """
@@ -337,22 +337,22 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> str:
+    def private_ip_address(self) -> pulumi.Output[str]:
         return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="publicIpAddress")
-    def public_ip_address(self) -> str:
+    def public_ip_address(self) -> pulumi.Output[str]:
         return pulumi.get(self, "public_ip_address")
 
     @property
     @pulumi.getter(name="ramSize")
-    def ram_size(self) -> float:
+    def ram_size(self) -> pulumi.Output[float]:
         return pulumi.get(self, "ram_size")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -360,7 +360,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[str]:
+    def user_data(self) -> pulumi.Output[Optional[str]]:
         """
         launch script to configure server with additional user data
         """
@@ -368,7 +368,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def username(self) -> pulumi.Output[str]:
         return pulumi.get(self, "username")
 
     def translate_output_property(self, prop):

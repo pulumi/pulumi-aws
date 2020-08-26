@@ -15,7 +15,7 @@ __all__ = ['Classifier']
 
 class Classifier(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  csv_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierCsvClassifierArgs']]] = None,
                  grok_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierGrokClassifierArgs']]] = None,
@@ -153,7 +153,7 @@ class Classifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="csvClassifier")
-    def csv_classifier(self) -> Optional['outputs.ClassifierCsvClassifier']:
+    def csv_classifier(self) -> pulumi.Output[Optional['outputs.ClassifierCsvClassifier']]:
         """
         A classifier for Csv content. Defined below.
         """
@@ -161,7 +161,7 @@ class Classifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="grokClassifier")
-    def grok_classifier(self) -> Optional['outputs.ClassifierGrokClassifier']:
+    def grok_classifier(self) -> pulumi.Output[Optional['outputs.ClassifierGrokClassifier']]:
         """
         A classifier that uses grok patterns. Defined below.
         """
@@ -169,7 +169,7 @@ class Classifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jsonClassifier")
-    def json_classifier(self) -> Optional['outputs.ClassifierJsonClassifier']:
+    def json_classifier(self) -> pulumi.Output[Optional['outputs.ClassifierJsonClassifier']]:
         """
         A classifier for JSON content. Defined below.
         """
@@ -177,7 +177,7 @@ class Classifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the classifier.
         """
@@ -185,7 +185,7 @@ class Classifier(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xmlClassifier")
-    def xml_classifier(self) -> Optional['outputs.ClassifierXmlClassifier']:
+    def xml_classifier(self) -> pulumi.Output[Optional['outputs.ClassifierXmlClassifier']]:
         """
         A classifier for XML content. Defined below.
         """

@@ -13,7 +13,7 @@ __all__ = ['EnvironmentEC2']
 
 class EnvironmentEC2(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatic_stop_time_minutes: Optional[pulumi.Input[float]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -128,7 +128,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the environment.
         """
@@ -136,7 +136,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automaticStopTimeMinutes")
-    def automatic_stop_time_minutes(self) -> Optional[float]:
+    def automatic_stop_time_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         The number of minutes until the running instance is shut down after the environment has last been used.
         """
@@ -144,7 +144,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the environment.
         """
@@ -152,7 +152,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
+    def instance_type(self) -> pulumi.Output[str]:
         """
         The type of instance to connect to the environment, e.g. `t2.micro`.
         """
@@ -160,7 +160,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the environment.
         """
@@ -168,7 +168,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerArn")
-    def owner_arn(self) -> str:
+    def owner_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         """
@@ -176,7 +176,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
+    def subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         """
@@ -184,7 +184,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """
@@ -192,7 +192,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the environment (e.g. `ssh` or `ec2`)
         """

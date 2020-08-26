@@ -13,7 +13,7 @@ __all__ = ['UserProfile']
 
 class UserProfile(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_self_management: Optional[pulumi.Input[bool]] = None,
                  ssh_public_key: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class UserProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowSelfManagement")
-    def allow_self_management(self) -> Optional[bool]:
+    def allow_self_management(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether users can specify their own SSH public key through the My Settings page
         """
@@ -114,7 +114,7 @@ class UserProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sshPublicKey")
-    def ssh_public_key(self) -> Optional[str]:
+    def ssh_public_key(self) -> pulumi.Output[Optional[str]]:
         """
         The users public key
         """
@@ -122,7 +122,7 @@ class UserProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sshUsername")
-    def ssh_username(self) -> str:
+    def ssh_username(self) -> pulumi.Output[str]:
         """
         The ssh username, with witch this user wants to log in
         """
@@ -130,7 +130,7 @@ class UserProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userArn")
-    def user_arn(self) -> str:
+    def user_arn(self) -> pulumi.Output[str]:
         """
         The user's IAM ARN
         """

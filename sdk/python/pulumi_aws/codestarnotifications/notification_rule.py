@@ -15,7 +15,7 @@ __all__ = ['NotificationRule']
 
 class NotificationRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  detail_type: Optional[pulumi.Input[str]] = None,
                  event_type_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -151,7 +151,7 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The codestar notification rule ARN.
         """
@@ -159,7 +159,7 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="detailType")
-    def detail_type(self) -> str:
+    def detail_type(self) -> pulumi.Output[str]:
         """
         The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
         """
@@ -167,7 +167,7 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventTypeIds")
-    def event_type_ids(self) -> List[str]:
+    def event_type_ids(self) -> pulumi.Output[List[str]]:
         """
         A list of event types associated with this notification rule.
         For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
@@ -176,7 +176,7 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of notification rule.
         """
@@ -184,7 +184,7 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def resource(self) -> str:
+    def resource(self) -> pulumi.Output[str]:
         """
         The ARN of the resource to associate with the notification rule.
         """
@@ -192,7 +192,7 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         """
@@ -200,7 +200,7 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -208,7 +208,7 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def targets(self) -> Optional[List['outputs.NotificationRuleTarget']]:
+    def targets(self) -> pulumi.Output[Optional[List['outputs.NotificationRuleTarget']]]:
         """
         Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """

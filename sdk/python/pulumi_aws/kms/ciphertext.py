@@ -13,7 +13,7 @@ __all__ = ['Ciphertext']
 
 class Ciphertext(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
@@ -116,7 +116,7 @@ class Ciphertext(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ciphertextBlob")
-    def ciphertext_blob(self) -> str:
+    def ciphertext_blob(self) -> pulumi.Output[str]:
         """
         Base64 encoded ciphertext
         """
@@ -124,7 +124,7 @@ class Ciphertext(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def context(self) -> Optional[Mapping[str, str]]:
+    def context(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         An optional mapping that makes up the encryption context.
         """
@@ -132,7 +132,7 @@ class Ciphertext(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> str:
+    def key_id(self) -> pulumi.Output[str]:
         """
         Globally unique key ID for the customer master key.
         """
@@ -140,7 +140,7 @@ class Ciphertext(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plaintext(self) -> str:
+    def plaintext(self) -> pulumi.Output[str]:
         """
         Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         """

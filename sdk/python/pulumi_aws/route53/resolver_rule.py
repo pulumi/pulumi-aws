@@ -15,7 +15,7 @@ __all__ = ['ResolverRule']
 
 class ResolverRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -155,7 +155,7 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN (Amazon Resource Name) for the resolver rule.
         """
@@ -163,7 +163,7 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         """
@@ -171,7 +171,7 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
         """
@@ -179,7 +179,7 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> pulumi.Output[str]:
         """
         When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
         """
@@ -187,7 +187,7 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resolverEndpointId")
-    def resolver_endpoint_id(self) -> Optional[str]:
+    def resolver_endpoint_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
         This argument should only be specified for `FORWARD` type rules.
@@ -196,7 +196,7 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleType")
-    def rule_type(self) -> str:
+    def rule_type(self) -> pulumi.Output[str]:
         """
         The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         """
@@ -204,7 +204,7 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareStatus")
-    def share_status(self) -> str:
+    def share_status(self) -> pulumi.Output[str]:
         """
         Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
         Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
@@ -213,7 +213,7 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -221,7 +221,7 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetIps")
-    def target_ips(self) -> Optional[List['outputs.ResolverRuleTargetIp']]:
+    def target_ips(self) -> pulumi.Output[Optional[List['outputs.ResolverRuleTargetIp']]]:
         """
         Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
         This argument should only be specified for `FORWARD` type rules.

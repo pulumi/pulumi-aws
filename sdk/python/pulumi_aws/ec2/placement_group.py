@@ -13,7 +13,7 @@ __all__ = ['PlacementGroup']
 
 class PlacementGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  strategy: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the placement group.
         """
@@ -113,7 +113,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the placement group.
         """
@@ -121,7 +121,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="placementGroupId")
-    def placement_group_id(self) -> str:
+    def placement_group_id(self) -> pulumi.Output[str]:
         """
         The ID of the placement group.
         """
@@ -129,7 +129,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def strategy(self) -> str:
+    def strategy(self) -> pulumi.Output[str]:
         """
         The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         """
@@ -137,7 +137,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags.
         """

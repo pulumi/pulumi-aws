@@ -13,7 +13,7 @@ __all__ = ['LifecyclePolicy']
 
 class LifecyclePolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
@@ -149,7 +149,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
         """
@@ -157,7 +157,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registryId")
-    def registry_id(self) -> str:
+    def registry_id(self) -> pulumi.Output[str]:
         """
         The registry ID where the repository was created.
         """
@@ -165,7 +165,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def repository(self) -> str:
+    def repository(self) -> pulumi.Output[str]:
         """
         Name of the repository to apply the policy.
         """

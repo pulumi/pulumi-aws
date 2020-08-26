@@ -15,7 +15,7 @@ __all__ = ['EventTarget']
 
 class EventTarget(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  batch_target: Optional[pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']]] = None,
@@ -267,7 +267,7 @@ class EventTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) associated of the target.
         """
@@ -275,7 +275,7 @@ class EventTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="batchTarget")
-    def batch_target(self) -> Optional['outputs.EventTargetBatchTarget']:
+    def batch_target(self) -> pulumi.Output[Optional['outputs.EventTargetBatchTarget']]:
         """
         Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         """
@@ -283,7 +283,7 @@ class EventTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ecsTarget")
-    def ecs_target(self) -> Optional['outputs.EventTargetEcsTarget']:
+    def ecs_target(self) -> pulumi.Output[Optional['outputs.EventTargetEcsTarget']]:
         """
         Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         """
@@ -291,7 +291,7 @@ class EventTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def input(self) -> Optional[str]:
+    def input(self) -> pulumi.Output[Optional[str]]:
         """
         Valid JSON text passed to the target.
         """
@@ -299,7 +299,7 @@ class EventTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputPath")
-    def input_path(self) -> Optional[str]:
+    def input_path(self) -> pulumi.Output[Optional[str]]:
         """
         The value of the [JSONPath](http://goessner.net/articles/JsonPath/)
         that is used for extracting part of the matched event when passing it to the target.
@@ -308,7 +308,7 @@ class EventTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputTransformer")
-    def input_transformer(self) -> Optional['outputs.EventTargetInputTransformer']:
+    def input_transformer(self) -> pulumi.Output[Optional['outputs.EventTargetInputTransformer']]:
         """
         Parameters used when you are providing a custom input to a target based on certain event data.
         """
@@ -316,7 +316,7 @@ class EventTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kinesisTarget")
-    def kinesis_target(self) -> Optional['outputs.EventTargetKinesisTarget']:
+    def kinesis_target(self) -> pulumi.Output[Optional['outputs.EventTargetKinesisTarget']]:
         """
         Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         """
@@ -324,7 +324,7 @@ class EventTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[str]:
+    def role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used.
         """
@@ -332,7 +332,7 @@ class EventTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rule(self) -> str:
+    def rule(self) -> pulumi.Output[str]:
         """
         The name of the rule you want to add targets to.
         """
@@ -340,7 +340,7 @@ class EventTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runCommandTargets")
-    def run_command_targets(self) -> Optional[List['outputs.EventTargetRunCommandTarget']]:
+    def run_command_targets(self) -> pulumi.Output[Optional[List['outputs.EventTargetRunCommandTarget']]]:
         """
         Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         """
@@ -348,7 +348,7 @@ class EventTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqsTarget")
-    def sqs_target(self) -> Optional['outputs.EventTargetSqsTarget']:
+    def sqs_target(self) -> pulumi.Output[Optional['outputs.EventTargetSqsTarget']]:
         """
         Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         """
@@ -356,7 +356,7 @@ class EventTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetId")
-    def target_id(self) -> str:
+    def target_id(self) -> pulumi.Output[str]:
         """
         The unique target assignment ID.  If missing, will generate a random, unique id.
         """

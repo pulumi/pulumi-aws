@@ -13,7 +13,7 @@ __all__ = ['PeeringAttachment']
 
 class PeeringAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  peer_account_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
@@ -132,7 +132,7 @@ class PeeringAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerAccountId")
-    def peer_account_id(self) -> str:
+    def peer_account_id(self) -> pulumi.Output[str]:
         """
         Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
         """
@@ -140,7 +140,7 @@ class PeeringAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerRegion")
-    def peer_region(self) -> str:
+    def peer_region(self) -> pulumi.Output[str]:
         """
         Region of EC2 Transit Gateway to peer with.
         """
@@ -148,7 +148,7 @@ class PeeringAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerTransitGatewayId")
-    def peer_transit_gateway_id(self) -> str:
+    def peer_transit_gateway_id(self) -> pulumi.Output[str]:
         """
         Identifier of EC2 Transit Gateway to peer with.
         """
@@ -156,7 +156,7 @@ class PeeringAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value tags for the EC2 Transit Gateway Peering Attachment.
         """
@@ -164,7 +164,7 @@ class PeeringAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> str:
+    def transit_gateway_id(self) -> pulumi.Output[str]:
         """
         Identifier of EC2 Transit Gateway.
         """

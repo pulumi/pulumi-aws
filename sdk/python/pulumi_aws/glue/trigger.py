@@ -15,7 +15,7 @@ __all__ = ['Trigger']
 
 class Trigger(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -216,7 +216,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> List['outputs.TriggerAction']:
+    def actions(self) -> pulumi.Output[List['outputs.TriggerAction']]:
         """
         List of actions initiated by this trigger when it fires. Defined below.
         """
@@ -224,7 +224,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of Glue Trigger
         """
@@ -232,7 +232,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the new trigger.
         """
@@ -240,7 +240,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Start the trigger. Defaults to `true`. Not valid to disable for `ON_DEMAND` type.
         """
@@ -248,7 +248,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the trigger.
         """
@@ -256,7 +256,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def predicate(self) -> Optional['outputs.TriggerPredicate']:
+    def predicate(self) -> pulumi.Output[Optional['outputs.TriggerPredicate']]:
         """
         A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. Defined below.
         """
@@ -264,7 +264,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional[str]:
+    def schedule(self) -> pulumi.Output[Optional[str]]:
         """
         A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         """
@@ -272,7 +272,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value map of resource tags
         """
@@ -280,7 +280,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of trigger. Valid values are `CONDITIONAL`, `ON_DEMAND`, and `SCHEDULED`.
         """
@@ -288,7 +288,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workflowName")
-    def workflow_name(self) -> Optional[str]:
+    def workflow_name(self) -> pulumi.Output[Optional[str]]:
         """
         A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         """

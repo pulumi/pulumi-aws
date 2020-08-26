@@ -15,7 +15,7 @@ __all__ = ['AmiCopy']
 
 class AmiCopy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]]] = None,
@@ -212,7 +212,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def architecture(self) -> str:
+    def architecture(self) -> pulumi.Output[str]:
         """
         Machine architecture for created instances. Defaults to "x86_64".
         """
@@ -220,7 +220,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the AMI.
         """
@@ -228,7 +228,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A longer, human-readable description for the AMI.
         """
@@ -236,7 +236,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> List['outputs.AmiCopyEbsBlockDevice']:
+    def ebs_block_devices(self) -> pulumi.Output[List['outputs.AmiCopyEbsBlockDevice']]:
         """
         Nested block describing an EBS block device that should be
         attached to created instances. The structure of this block is described below.
@@ -245,7 +245,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enaSupport")
-    def ena_support(self) -> bool:
+    def ena_support(self) -> pulumi.Output[bool]:
         """
         Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
         """
@@ -253,7 +253,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> Optional[bool]:
+    def encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         """
@@ -261,7 +261,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> List['outputs.AmiCopyEphemeralBlockDevice']:
+    def ephemeral_block_devices(self) -> pulumi.Output[List['outputs.AmiCopyEphemeralBlockDevice']]:
         """
         Nested block describing an ephemeral block device that
         should be attached to created instances. The structure of this block is described below.
@@ -270,7 +270,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageLocation")
-    def image_location(self) -> str:
+    def image_location(self) -> pulumi.Output[str]:
         """
         Path to an S3 object containing an image manifest, e.g. created
         by the `ec2-upload-bundle` command in the EC2 command line tools.
@@ -279,7 +279,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kernelId")
-    def kernel_id(self) -> str:
+    def kernel_id(self) -> pulumi.Output[str]:
         """
         The id of the kernel image (AKI) that will be used as the paravirtual
         kernel in created instances.
@@ -288,7 +288,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> str:
+    def kms_key_id(self) -> pulumi.Output[str]:
         """
         The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
         an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
@@ -298,12 +298,12 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="manageEbsSnapshots")
-    def manage_ebs_snapshots(self) -> bool:
+    def manage_ebs_snapshots(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "manage_ebs_snapshots")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A region-unique name for the AMI.
         """
@@ -311,7 +311,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ramdiskId")
-    def ramdisk_id(self) -> str:
+    def ramdisk_id(self) -> pulumi.Output[str]:
         """
         The id of an initrd image (ARI) that will be used when booting the
         created instances.
@@ -320,7 +320,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootDeviceName")
-    def root_device_name(self) -> str:
+    def root_device_name(self) -> pulumi.Output[str]:
         """
         The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         """
@@ -328,12 +328,12 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootSnapshotId")
-    def root_snapshot_id(self) -> str:
+    def root_snapshot_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "root_snapshot_id")
 
     @property
     @pulumi.getter(name="sourceAmiId")
-    def source_ami_id(self) -> str:
+    def source_ami_id(self) -> pulumi.Output[str]:
         """
         The id of the AMI to copy. This id must be valid in the region
         given by `source_ami_region`.
@@ -342,7 +342,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceAmiRegion")
-    def source_ami_region(self) -> str:
+    def source_ami_region(self) -> pulumi.Output[str]:
         """
         The region from which the AMI will be copied. This may be the
         same as the AWS provider region in order to create a copy within the same region.
@@ -351,7 +351,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sriovNetSupport")
-    def sriov_net_support(self) -> str:
+    def sriov_net_support(self) -> pulumi.Output[str]:
         """
         When set to "simple" (the default), enables enhanced networking
         for created instances. No other value is supported at this time.
@@ -360,7 +360,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource.
         """
@@ -368,7 +368,7 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualizationType")
-    def virtualization_type(self) -> str:
+    def virtualization_type(self) -> pulumi.Output[str]:
         """
         Keyword to choose what virtualization mode created instances
         will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type

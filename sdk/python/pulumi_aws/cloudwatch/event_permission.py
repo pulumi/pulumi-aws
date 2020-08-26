@@ -15,7 +15,7 @@ __all__ = ['EventPermission']
 
 class EventPermission(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[str]] = None,
                  condition: Optional[pulumi.Input[pulumi.InputType['EventPermissionConditionArgs']]] = None,
@@ -124,7 +124,7 @@ class EventPermission(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[str]:
+    def action(self) -> pulumi.Output[Optional[str]]:
         """
         The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
         """
@@ -132,7 +132,7 @@ class EventPermission(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def condition(self) -> Optional['outputs.EventPermissionCondition']:
+    def condition(self) -> pulumi.Output[Optional['outputs.EventPermissionCondition']]:
         """
         Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
         """
@@ -140,7 +140,7 @@ class EventPermission(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def principal(self) -> str:
+    def principal(self) -> pulumi.Output[str]:
         """
         The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         """
@@ -148,7 +148,7 @@ class EventPermission(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statementId")
-    def statement_id(self) -> str:
+    def statement_id(self) -> pulumi.Output[str]:
         """
         An identifier string for the external account that you are granting permissions to.
         """

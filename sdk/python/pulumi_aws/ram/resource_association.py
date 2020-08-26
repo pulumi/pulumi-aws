@@ -13,7 +13,7 @@ __all__ = ['ResourceAssociation']
 
 class ResourceAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  resource_share_arn: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class ResourceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> str:
+    def resource_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         """
@@ -104,7 +104,7 @@ class ResourceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceShareArn")
-    def resource_share_arn(self) -> str:
+    def resource_share_arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the RAM Resource Share.
         """

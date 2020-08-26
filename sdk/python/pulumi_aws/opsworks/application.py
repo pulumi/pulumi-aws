@@ -15,7 +15,7 @@ __all__ = ['Application']
 
 class Application(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_sources: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationAppSourceArgs']]]]] = None,
                  auto_bundle_on_deploy: Optional[pulumi.Input[str]] = None,
@@ -210,7 +210,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appSources")
-    def app_sources(self) -> List['outputs.ApplicationAppSource']:
+    def app_sources(self) -> pulumi.Output[List['outputs.ApplicationAppSource']]:
         """
         SCM configuration of the app as described below.
         """
@@ -218,7 +218,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoBundleOnDeploy")
-    def auto_bundle_on_deploy(self) -> Optional[str]:
+    def auto_bundle_on_deploy(self) -> pulumi.Output[Optional[str]]:
         """
         Run bundle install when deploying for application of type `rails`.
         """
@@ -226,7 +226,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="awsFlowRubySettings")
-    def aws_flow_ruby_settings(self) -> Optional[str]:
+    def aws_flow_ruby_settings(self) -> pulumi.Output[Optional[str]]:
         """
         Specify activity and workflow workers for your app using the aws-flow gem.
         """
@@ -234,7 +234,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSourceArn")
-    def data_source_arn(self) -> Optional[str]:
+    def data_source_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The data source's ARN.
         """
@@ -242,7 +242,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSourceDatabaseName")
-    def data_source_database_name(self) -> Optional[str]:
+    def data_source_database_name(self) -> pulumi.Output[Optional[str]]:
         """
         The database name.
         """
@@ -250,7 +250,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSourceType")
-    def data_source_type(self) -> Optional[str]:
+    def data_source_type(self) -> pulumi.Output[Optional[str]]:
         """
         The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
         """
@@ -258,7 +258,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the app.
         """
@@ -266,7 +266,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="documentRoot")
-    def document_root(self) -> Optional[str]:
+    def document_root(self) -> pulumi.Output[Optional[str]]:
         """
         Subfolder for the document root for application of type `rails`.
         """
@@ -274,7 +274,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def domains(self) -> Optional[List[str]]:
+    def domains(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of virtual host alias.
         """
@@ -282,7 +282,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableSsl")
-    def enable_ssl(self) -> Optional[bool]:
+    def enable_ssl(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
         """
@@ -290,7 +290,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def environments(self) -> Optional[List['outputs.ApplicationEnvironment']]:
+    def environments(self) -> pulumi.Output[Optional[List['outputs.ApplicationEnvironment']]]:
         """
         Object to define environment variables.  Object is described below.
         """
@@ -298,7 +298,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A human-readable name for the application.
         """
@@ -306,7 +306,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="railsEnv")
-    def rails_env(self) -> Optional[str]:
+    def rails_env(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Rails environment for application of type `rails`.
         """
@@ -314,7 +314,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shortName")
-    def short_name(self) -> str:
+    def short_name(self) -> pulumi.Output[str]:
         """
         A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
         """
@@ -322,7 +322,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslConfigurations")
-    def ssl_configurations(self) -> Optional[List['outputs.ApplicationSslConfiguration']]:
+    def ssl_configurations(self) -> pulumi.Output[Optional[List['outputs.ApplicationSslConfiguration']]]:
         """
         The SSL configuration of the app. Object is described below.
         """
@@ -330,7 +330,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stackId")
-    def stack_id(self) -> str:
+    def stack_id(self) -> pulumi.Output[str]:
         """
         The id of the stack the application will belong to.
         """
@@ -338,7 +338,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         """

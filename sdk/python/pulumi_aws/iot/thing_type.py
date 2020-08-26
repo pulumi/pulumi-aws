@@ -15,7 +15,7 @@ __all__ = ['ThingType']
 
 class ThingType(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deprecated: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class ThingType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the created AWS IoT Thing Type.
         """
@@ -108,7 +108,7 @@ class ThingType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def deprecated(self) -> Optional[bool]:
+    def deprecated(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the thing type is deprecated. If true, no new things could be associated with this type.
         """
@@ -116,7 +116,7 @@ class ThingType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the thing type.
         """
@@ -124,7 +124,7 @@ class ThingType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional['outputs.ThingTypeProperties']:
+    def properties(self) -> pulumi.Output[Optional['outputs.ThingTypeProperties']]:
         """
         , Configuration block that can contain the following properties of the thing type:
         """

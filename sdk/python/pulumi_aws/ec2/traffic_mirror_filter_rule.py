@@ -15,7 +15,7 @@ __all__ = ['TrafficMirrorFilterRule']
 
 class TrafficMirrorFilterRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
@@ -180,7 +180,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the traffic mirror filter rule.
         """
@@ -188,7 +188,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
-    def destination_cidr_block(self) -> str:
+    def destination_cidr_block(self) -> pulumi.Output[str]:
         """
         The destination CIDR block to assign to the Traffic Mirror rule.
         """
@@ -196,7 +196,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationPortRange")
-    def destination_port_range(self) -> Optional['outputs.TrafficMirrorFilterRuleDestinationPortRange']:
+    def destination_port_range(self) -> pulumi.Output[Optional['outputs.TrafficMirrorFilterRuleDestinationPortRange']]:
         """
         The destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         """
@@ -204,7 +204,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[float]:
+    def protocol(self) -> pulumi.Output[Optional[float]]:
         """
         The protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
         """
@@ -212,7 +212,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleAction")
-    def rule_action(self) -> str:
+    def rule_action(self) -> pulumi.Output[str]:
         """
         The action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         """
@@ -220,7 +220,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleNumber")
-    def rule_number(self) -> float:
+    def rule_number(self) -> pulumi.Output[float]:
         """
         The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         """
@@ -228,7 +228,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceCidrBlock")
-    def source_cidr_block(self) -> str:
+    def source_cidr_block(self) -> pulumi.Output[str]:
         """
         The source CIDR block to assign to the Traffic Mirror rule.
         """
@@ -236,7 +236,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourcePortRange")
-    def source_port_range(self) -> Optional['outputs.TrafficMirrorFilterRuleSourcePortRange']:
+    def source_port_range(self) -> pulumi.Output[Optional['outputs.TrafficMirrorFilterRuleSourcePortRange']]:
         """
         The source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         """
@@ -244,7 +244,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficDirection")
-    def traffic_direction(self) -> str:
+    def traffic_direction(self) -> pulumi.Output[str]:
         """
         The direction of traffic to be captured. Valid values are `ingress` and `egress`
         """
@@ -252,7 +252,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficMirrorFilterId")
-    def traffic_mirror_filter_id(self) -> str:
+    def traffic_mirror_filter_id(self) -> pulumi.Output[str]:
         """
         ID of the traffic mirror filter to which this rule should be added
         """

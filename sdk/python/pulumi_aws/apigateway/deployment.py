@@ -13,7 +13,7 @@ __all__ = ['Deployment']
 
 class Deployment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  rest_api: Optional[pulumi.Input[str]] = None,
@@ -155,7 +155,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> str:
+    def created_date(self) -> pulumi.Output[str]:
         """
         The creation date of the deployment
         """
@@ -163,7 +163,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the deployment
         """
@@ -171,7 +171,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionArn")
-    def execution_arn(self) -> str:
+    def execution_arn(self) -> pulumi.Output[str]:
         """
         The execution ARN to be used in `lambda_permission` resource's `source_arn`
         when allowing API Gateway to invoke a Lambda function,
@@ -181,7 +181,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invokeUrl")
-    def invoke_url(self) -> str:
+    def invoke_url(self) -> pulumi.Output[str]:
         """
         The URL to invoke the API pointing to the stage,
         e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
@@ -190,7 +190,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restApi")
-    def rest_api(self) -> str:
+    def rest_api(self) -> pulumi.Output[str]:
         """
         The ID of the associated REST API
         """
@@ -198,7 +198,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stageDescription")
-    def stage_description(self) -> Optional[str]:
+    def stage_description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the stage
         """
@@ -206,7 +206,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stageName")
-    def stage_name(self) -> Optional[str]:
+    def stage_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the stage. If the specified stage already exists, it will be updated to point to the new deployment. If the stage does not exist, a new one will be created and point to this deployment.
         """
@@ -214,7 +214,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def triggers(self) -> Optional[Mapping[str, str]]:
+    def triggers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
@@ -222,7 +222,7 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Mapping[str, str]]:
+    def variables(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map that defines variables for the stage
         """

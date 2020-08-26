@@ -13,7 +13,7 @@ __all__ = ['ListenerCertificate']
 
 class ListenerCertificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  listener_arn: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class ListenerCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> str:
+    def certificate_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the certificate to attach to the listener.
         """
@@ -114,7 +114,7 @@ class ListenerCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="listenerArn")
-    def listener_arn(self) -> str:
+    def listener_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the listener to which to attach the certificate.
         """

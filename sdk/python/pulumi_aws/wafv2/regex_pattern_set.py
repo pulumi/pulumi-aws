@@ -15,7 +15,7 @@ __all__ = ['RegexPatternSet']
 
 class RegexPatternSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -131,7 +131,7 @@ class RegexPatternSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) that identifies the cluster.
         """
@@ -139,7 +139,7 @@ class RegexPatternSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A friendly description of the regular expression pattern set.
         """
@@ -147,12 +147,12 @@ class RegexPatternSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockToken")
-    def lock_token(self) -> str:
+    def lock_token(self) -> pulumi.Output[str]:
         return pulumi.get(self, "lock_token")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         A friendly name of the regular expression pattern set.
         """
@@ -160,7 +160,7 @@ class RegexPatternSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="regularExpressions")
-    def regular_expressions(self) -> Optional[List['outputs.RegexPatternSetRegularExpression']]:
+    def regular_expressions(self) -> pulumi.Output[Optional[List['outputs.RegexPatternSetRegularExpression']]]:
         """
         One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
         """
@@ -168,7 +168,7 @@ class RegexPatternSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> pulumi.Output[str]:
         """
         Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         """
@@ -176,7 +176,7 @@ class RegexPatternSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         An array of key:value pairs to associate with the resource.
         """

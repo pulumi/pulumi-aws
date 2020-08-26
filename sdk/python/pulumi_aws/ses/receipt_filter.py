@@ -13,7 +13,7 @@ __all__ = ['ReceiptFilter']
 
 class ReceiptFilter(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -104,7 +104,7 @@ class ReceiptFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         The SES receipt filter ARN.
         """
@@ -112,7 +112,7 @@ class ReceiptFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cidr(self) -> str:
+    def cidr(self) -> pulumi.Output[str]:
         """
         The IP address or address range to filter, in CIDR notation
         """
@@ -120,7 +120,7 @@ class ReceiptFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the filter
         """
@@ -128,7 +128,7 @@ class ReceiptFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> str:
+    def policy(self) -> pulumi.Output[str]:
         """
         Block or Allow
         """

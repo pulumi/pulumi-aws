@@ -13,7 +13,7 @@ __all__ = ['TransitGateway']
 
 class TransitGateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amazon_side_asn: Optional[pulumi.Input[float]] = None,
                  auto_accept_shared_attachments: Optional[pulumi.Input[str]] = None,
@@ -140,7 +140,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> Optional[float]:
+    def amazon_side_asn(self) -> pulumi.Output[Optional[float]]:
         """
         Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
         """
@@ -148,7 +148,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         EC2 Transit Gateway Amazon Resource Name (ARN)
         """
@@ -156,7 +156,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associationDefaultRouteTableId")
-    def association_default_route_table_id(self) -> str:
+    def association_default_route_table_id(self) -> pulumi.Output[str]:
         """
         Identifier of the default association route table
         """
@@ -164,7 +164,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoAcceptSharedAttachments")
-    def auto_accept_shared_attachments(self) -> Optional[str]:
+    def auto_accept_shared_attachments(self) -> pulumi.Output[Optional[str]]:
         """
         Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
         """
@@ -172,7 +172,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultRouteTableAssociation")
-    def default_route_table_association(self) -> Optional[str]:
+    def default_route_table_association(self) -> pulumi.Output[Optional[str]]:
         """
         Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
         """
@@ -180,7 +180,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultRouteTablePropagation")
-    def default_route_table_propagation(self) -> Optional[str]:
+    def default_route_table_propagation(self) -> pulumi.Output[Optional[str]]:
         """
         Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
         """
@@ -188,7 +188,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the EC2 Transit Gateway.
         """
@@ -196,7 +196,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsSupport")
-    def dns_support(self) -> Optional[str]:
+    def dns_support(self) -> pulumi.Output[Optional[str]]:
         """
         Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """
@@ -204,7 +204,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> pulumi.Output[str]:
         """
         Identifier of the AWS account that owns the EC2 Transit Gateway
         """
@@ -212,7 +212,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="propagationDefaultRouteTableId")
-    def propagation_default_route_table_id(self) -> str:
+    def propagation_default_route_table_id(self) -> pulumi.Output[str]:
         """
         Identifier of the default propagation route table
         """
@@ -220,7 +220,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Key-value tags for the EC2 Transit Gateway.
         """
@@ -228,7 +228,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnEcmpSupport")
-    def vpn_ecmp_support(self) -> Optional[str]:
+    def vpn_ecmp_support(self) -> pulumi.Output[Optional[str]]:
         """
         Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """

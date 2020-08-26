@@ -15,7 +15,7 @@ __all__ = ['Domain']
 
 class Domain(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policies: Optional[pulumi.Input[str]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -329,7 +329,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> str:
+    def access_policies(self) -> pulumi.Output[str]:
         """
         IAM policy document specifying the access policies for the domain
         """
@@ -337,7 +337,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="advancedOptions")
-    def advanced_options(self) -> Mapping[str, str]:
+    def advanced_options(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Key-value string pairs to specify advanced configuration options.
         Note that the values for these configuration options must be strings (wrapped in quotes) or they
@@ -348,7 +348,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="advancedSecurityOptions")
-    def advanced_security_options(self) -> 'outputs.DomainAdvancedSecurityOptions':
+    def advanced_security_options(self) -> pulumi.Output['outputs.DomainAdvancedSecurityOptions']:
         """
         Options for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). See below for more details.
         """
@@ -356,7 +356,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> str:
+    def arn(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the domain.
         """
@@ -364,7 +364,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterConfig")
-    def cluster_config(self) -> 'outputs.DomainClusterConfig':
+    def cluster_config(self) -> pulumi.Output['outputs.DomainClusterConfig']:
         """
         Cluster configuration of the domain, see below.
         """
@@ -372,12 +372,12 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cognitoOptions")
-    def cognito_options(self) -> Optional['outputs.DomainCognitoOptions']:
+    def cognito_options(self) -> pulumi.Output[Optional['outputs.DomainCognitoOptions']]:
         return pulumi.get(self, "cognito_options")
 
     @property
     @pulumi.getter(name="domainEndpointOptions")
-    def domain_endpoint_options(self) -> 'outputs.DomainDomainEndpointOptions':
+    def domain_endpoint_options(self) -> pulumi.Output['outputs.DomainDomainEndpointOptions']:
         """
         Domain endpoint HTTP(S) related options. See below.
         """
@@ -385,7 +385,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainId")
-    def domain_id(self) -> str:
+    def domain_id(self) -> pulumi.Output[str]:
         """
         Unique identifier for the domain.
         """
@@ -393,7 +393,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         Name of the domain.
         """
@@ -401,7 +401,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsOptions")
-    def ebs_options(self) -> 'outputs.DomainEbsOptions':
+    def ebs_options(self) -> pulumi.Output['outputs.DomainEbsOptions']:
         """
         EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). See below.
         """
@@ -409,7 +409,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="elasticsearchVersion")
-    def elasticsearch_version(self) -> Optional[str]:
+    def elasticsearch_version(self) -> pulumi.Output[Optional[str]]:
         """
         The version of Elasticsearch to deploy. Defaults to `1.5`
         """
@@ -417,7 +417,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptAtRest")
-    def encrypt_at_rest(self) -> 'outputs.DomainEncryptAtRest':
+    def encrypt_at_rest(self) -> pulumi.Output['outputs.DomainEncryptAtRest']:
         """
         Encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). See below.
         """
@@ -425,7 +425,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> pulumi.Output[str]:
         """
         Domain-specific endpoint used to submit index, search, and data upload requests.
         """
@@ -433,7 +433,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kibanaEndpoint")
-    def kibana_endpoint(self) -> str:
+    def kibana_endpoint(self) -> pulumi.Output[str]:
         """
         Domain-specific endpoint for kibana without https scheme.
         * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
@@ -443,7 +443,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logPublishingOptions")
-    def log_publishing_options(self) -> Optional[List['outputs.DomainLogPublishingOption']]:
+    def log_publishing_options(self) -> pulumi.Output[Optional[List['outputs.DomainLogPublishingOption']]]:
         """
         Options for publishing slow  and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource.
         """
@@ -451,7 +451,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeToNodeEncryption")
-    def node_to_node_encryption(self) -> 'outputs.DomainNodeToNodeEncryption':
+    def node_to_node_encryption(self) -> pulumi.Output['outputs.DomainNodeToNodeEncryption']:
         """
         Node-to-node encryption options. See below.
         """
@@ -459,7 +459,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotOptions")
-    def snapshot_options(self) -> Optional['outputs.DomainSnapshotOptions']:
+    def snapshot_options(self) -> pulumi.Output[Optional['outputs.DomainSnapshotOptions']]:
         """
         Snapshot related options, see below.
         """
@@ -467,7 +467,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource
         """
@@ -475,7 +475,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcOptions")
-    def vpc_options(self) -> Optional['outputs.DomainVpcOptions']:
+    def vpc_options(self) -> pulumi.Output[Optional['outputs.DomainVpcOptions']]:
         """
         VPC related options, see below. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)).
         """
