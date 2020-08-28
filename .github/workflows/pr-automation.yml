@@ -1,24 +1,37 @@
-env:
-  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
 jobs:
-  open-pull-request:
-    name: open pull request for ci changes
+  automerge:
+    name: automerge labelled pull-requests
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-    - name: Create Pull Request
-      uses: repo-sync/pull-request@v2
-      with:
-        github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
-        pr_body: "\U0001F680 This PR has been opened because changes have been pushed
-          to ${{ github.ref }}, please review them carefully!"
-        pr_label: automation/pull-request,impact/no-changelog-required
-        pr_reviewer: jaxxstorm,stack72
-        pr_title: "\U0001F916 automated pull-request from pulumi"
+    - env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        MERGE_COMMIT_MESSAGE: pull-request-title
+        MERGE_FORKS: "false"
+        MERGE_LABELS: automation/merge,impact/no-changelog-required
+        MERGE_METHOD: squash
+        MERGE_REMOVE_LABELS: automation/merge
+        MERGE_RETRIES: "30"
+        MERGE_RETRY_SLEEP: "60000"
+        UPDATE_LABELS: automation/update
+        UPDATE_METHOD: rebase
+      name: Automerge
+      uses: pascalgn/automerge-action@4775c532c615e0491d53bc42c0893840ae7cc07a
 name: pr-automation
 "on":
-  push:
-    branches:
-    - pulumi-automation
-    - automation/pulumi-provider-ci
+  check_suite:
+    types:
+    - completed
+  pull_request:
+    types:
+    - labeled
+    - unlabeled
+    - synchronize
+    - opened
+    - edited
+    - ready_for_review
+    - reopened
+    - unlocked
+  pull_request_review:
+    types:
+    - submitted
+  status: {}
