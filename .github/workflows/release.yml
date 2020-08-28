@@ -62,11 +62,14 @@ jobs:
       run: make build_${{ matrix.language }}
     - name: Check worktree clean
       run: ./ci-scripts/ci/check-worktree-is-clean
+    - name: Compress SDK folder
+      run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }}
+        .
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ matrix.language  }}-sdk
-        path: ${{ github.workspace}}/sdk/${{ matrix.language }}
+        name: ${{ matrix.language  }}-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
@@ -286,8 +289,11 @@ jobs:
     - name: Download SDK
       uses: actions/download-artifact@v2
       with:
-        name: ${{ matrix.language  }}-sdk
-        path: ${{ github.workspace}}/sdk/${{ matrix.language }}
+        name: ${{ matrix.language  }}-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk/
+    - name: Uncompress SDK folder
+      run: tar -zxf ${{ github.workspace}}/sdk/${{ matrix.language}}.tar.gz -C ${{
+        github.workspace}}/sdk/${{ matrix.language}}
     - name: Update path
       run: echo ::add-path::${{ github.workspace }}/bin
     - name: Install Python deps
