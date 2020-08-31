@@ -216,20 +216,26 @@ jobs:
     - name: Download Python SDK
       uses: actions/download-artifact@v2
       with:
-        name: python-sdk
-        path: ${{ github.workspace}}/sdk/python
+        name: python-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk
+    - name: Unzip Python SDK
+      run: tar -zxf ${{ github.workspace}}/sdk/python.tar.gz -C ${{ github.workspace}}/sdk/python
     - name: Install Twine
       run: python -m pip install pip twine
     - name: Download NodeJS SDK
       uses: actions/download-artifact@v2
       with:
-        name: nodejs-sdk
-        path: ${{ github.workspace}}/sdk/nodejs
+        name: nodejs-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk
+    - name: Unzip NodeJS SDK
+      run: tar -zxf ${{ github.workspace}}/sdk/nodejs.tar.gz -C ${{ github.workspace}}/sdk/nodejs
     - name: Download DotNet SDK
       uses: actions/download-artifact@v2
       with:
-        name: dotnet-sdk
-        path: ${{ github.workspace}}/sdk/dotnet
+        name: dotnet-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk
+    - name: Unzip DotNet SDK
+      run: tar -zxf ${{ github.workspace}}/sdk/dotnet.tar.gz -C ${{ github.workspace}}/sdk/dotnet
     - env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       name: Publish SDKs
