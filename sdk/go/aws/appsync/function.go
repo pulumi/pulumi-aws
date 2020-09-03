@@ -35,6 +35,7 @@ import (
 // 		}
 // 		testDataSource, err := appsync.NewDataSource(ctx, "testDataSource", &appsync.DataSourceArgs{
 // 			ApiId: testGraphQLApi.ID(),
+// 			Name:  pulumi.String("tf-example"),
 // 			Type:  pulumi.String("HTTP"),
 // 			HttpConfig: &appsync.DataSourceHttpConfigArgs{
 // 				Endpoint: pulumi.String("http://example.com"),
