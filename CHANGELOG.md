@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add gov regions for east (us-gov-east-1) and west (us-gov-west-1)
 
 ---
 

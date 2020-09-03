@@ -30,6 +30,8 @@ export let EUWest3Region: Region      = "eu-west-3";
 export let EUSouth1Region: Region     = "eu-south-1";
 export let MESouth1Region: Region     = "me-south-1";
 export let SAEast1Region: Region      = "sa-east-1";
+export let USGovEast1Region: Region   = "us-gov-east-1";
+export let USGovWest1Region: Region   = "us-gov-west-1";
 export let USEast1Region: Region      = "us-east-1";
 export let USEast2Region: Region      = "us-east-2";
 export let USWest1Region: Region      = "us-west-1";
@@ -56,6 +58,8 @@ export type Region =
     "eu-west-3"      |
     "eu-south-1"     |
     "me-south-1"     |
+    "us-gov-east-1"  |
+    "us-gov-west-1"  |
     "sa-east-1"      |
     "us-east-1"      |
     "us-east-2"      |
