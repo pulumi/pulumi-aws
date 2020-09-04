@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Enforce `appsync.DataSource` to adhere to AWS naming conventions of not using `-` in names.
 
 ---
 
