@@ -53,8 +53,11 @@ jobs:
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
-        name: pulumi-${{ env.PROVIDER }}
+        name: ${{ env.PROVIDER }}-provider.tar.gz
         path: ${{ github.workspace }}/bin
+    - name: Untar provider binaries
+      run: tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace
+        }}/bin
     - name: Restore binary perms
       run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
@@ -131,11 +134,15 @@ jobs:
       uses: pulumi/action-install-pulumi-cli@releases/v1
     - name: Build tfgen & provider binaries
       run: make provider
+    - name: Tar provider binaries
+      run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace
+        }}/bin/ pulumi-resource-${{ env.PROVIDER }} pulumi-tfgen-${{ env.PROVIDER
+        }}
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: pulumi-${{ env.PROVIDER }}
-        path: ${{ github.workspace }}/bin
+        name: ${{ env.PROVIDER }}-provider.tar.gz
+        path: ${{ github.workspace }}/bin/provider.tar.gz
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
@@ -287,8 +294,11 @@ jobs:
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
-        name: pulumi-${{ env.PROVIDER }}
+        name: ${{ env.PROVIDER }}-provider.tar.gz
         path: ${{ github.workspace }}/bin
+    - name: Untar provider binaries
+      run: tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace
+        }}/bin
     - name: Restore binary perms
       run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
