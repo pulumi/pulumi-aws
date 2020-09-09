@@ -58,6 +58,7 @@ import * as utilities from "../utilities";
  * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
  * const exampleDataSource = new aws.appsync.DataSource("exampleDataSource", {
  *     apiId: exampleGraphQLApi.id,
+ *     name: "tf_appsync_example",
  *     serviceRoleArn: exampleRole.arn,
  *     type: "AMAZON_DYNAMODB",
  *     dynamodbConfig: {

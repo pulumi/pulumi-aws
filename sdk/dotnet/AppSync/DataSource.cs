@@ -78,6 +78,7 @@ namespace Pulumi.Aws.AppSync
     ///         var exampleDataSource = new Aws.AppSync.DataSource("exampleDataSource", new Aws.AppSync.DataSourceArgs
     ///         {
     ///             ApiId = exampleGraphQLApi.Id,
+    ///             Name = "tf_appsync_example",
     ///             ServiceRoleArn = exampleRole.Arn,
     ///             Type = "AMAZON_DYNAMODB",
     ///             DynamodbConfig = new Aws.AppSync.Inputs.DataSourceDynamodbConfigArgs

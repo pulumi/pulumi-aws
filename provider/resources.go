@@ -302,8 +302,23 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_appsync_graphql_api": {Tok: awsResource(appsyncMod, "GraphQLApi")},
-			"aws_appsync_datasource":  {Tok: awsResource(appsyncMod, "DataSource")},
-			"aws_appsync_resolver":    {Tok: awsResource(appsyncMod, "Resolver")},
+			"aws_appsync_datasource": {
+				Tok: awsResource(appsyncMod, "DataSource"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": {
+						Default: &tfbridge.DefaultInfo{
+							// This is taken from
+							// https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateDataSource.html
+							From: tfbridge.FromName(tfbridge.AutoNameOptions{
+								Separator: "_",
+								Maxlen:    255,
+								Randlen:   7,
+							}),
+						},
+					},
+				},
+			},
+			"aws_appsync_resolver": {Tok: awsResource(appsyncMod, "Resolver")},
 			// AppMesh
 			"aws_appmesh_mesh":            {Tok: awsResource(appmeshMod, "Mesh")},
 			"aws_appmesh_route":           {Tok: awsResource(appmeshMod, "Route")},

@@ -38,6 +38,7 @@ import * as utilities from "../utilities";
  * });
  * const testDataSource = new aws.appsync.DataSource("testDataSource", {
  *     apiId: testGraphQLApi.id,
+ *     name: "tf_example",
  *     type: "HTTP",
  *     httpConfig: {
  *         endpoint: "http://example.com",
