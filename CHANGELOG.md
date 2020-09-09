@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Add gov regions for east (us-gov-east-1) and west (us-gov-west-1)
 * Enforce `appsync.DataSource` to adhere to AWS naming conventions of not using `-` in names.
 
 ---
