@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "aws:elasticloadbalancing/attachment:Attachment"},
+                    new Pulumi.Alias { Type = "aws:elasticloadbalancing/attachment:Attachment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

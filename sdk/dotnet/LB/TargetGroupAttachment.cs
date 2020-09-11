@@ -134,7 +134,7 @@ namespace Pulumi.Aws.LB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment"},
+                    new Pulumi.Alias { Type = "aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

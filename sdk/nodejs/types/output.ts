@@ -49326,4 +49326,3 @@ export namespace workspaces {
         userVolumeSizeGib?: number;
     }
 }
-

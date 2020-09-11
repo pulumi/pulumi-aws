@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Alb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate"},
+                    new Pulumi.Alias { Type = "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

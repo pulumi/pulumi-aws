@@ -333,7 +333,7 @@ namespace Pulumi.Aws.LB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "aws:elasticloadbalancingv2/listenerRule:ListenerRule"},
+                    new Pulumi.Alias { Type = "aws:elasticloadbalancingv2/listenerRule:ListenerRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

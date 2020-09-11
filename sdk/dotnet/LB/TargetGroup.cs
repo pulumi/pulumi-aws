@@ -211,7 +211,7 @@ namespace Pulumi.Aws.LB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "aws:elasticloadbalancingv2/targetGroup:TargetGroup"},
+                    new Pulumi.Alias { Type = "aws:elasticloadbalancingv2/targetGroup:TargetGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -47759,4 +47759,3 @@ export namespace workspaces {
         userVolumeSizeGib?: pulumi.Input<number>;
     }
 }
-

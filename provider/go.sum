@@ -843,6 +843,8 @@ github.com/pulumi/pulumi-terraform-bridge/v2 v2.7.2 h1:ZgBUEz1zPN1p8el+YDXoRlOPS
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.7.2/go.mod h1:UvbLRW8+YFluKwRZjzP3coPYWQPPYh/q9e2NN2GPbxg=
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.7.3 h1:XZxl0fsf9vO45FM+tKPYE9f30fM+q2s6lHsEzkdnBNs=
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.7.3/go.mod h1:TW+CNCZHzlH42y0vmRA9gOzeTFh3Cp7MN9DoGcRDLvo=
+github.com/pulumi/pulumi-terraform-bridge/v2 v2.8.0 h1:X0ehC9Ot6dHUwIx+1hlgN8FUSk8E5xBNehJlO7C8VWc=
+github.com/pulumi/pulumi-terraform-bridge/v2 v2.8.0/go.mod h1:FuQM6YSFhfuTCJGIdDaE1mz8hSm4R45ewU9eNH65hPE=
 github.com/pulumi/pulumi/pkg/v2 v2.0.0/go.mod h1:kNG9MBTdKP9AzMgkETumR3fmX9gUYB+HpQL767K6jXc=
 github.com/pulumi/pulumi/pkg/v2 v2.3.1-0.20200610172153-45a901d3e77c/go.mod h1:aqo0wBboEEdy+T5EYKUB6YnzbL80VPjgJPwjttuHqT0=
 github.com/pulumi/pulumi/pkg/v2 v2.4.0 h1:ntfw/kmhoiUMSa+66wmr5KiQ86EpcXoObnZDitGhzHM=
@@ -861,7 +863,10 @@ github.com/pulumi/pulumi/pkg/v2 v2.9.1-0.20200821035132-629254334213 h1:c8UQ842Z
 github.com/pulumi/pulumi/pkg/v2 v2.9.1-0.20200821035132-629254334213/go.mod h1:Yq1q3nwy/KeU08DyyX0QsMyc6SqPs0jGJb8ev5f45AU=
 github.com/pulumi/pulumi/pkg/v2 v2.9.1-0.20200825190708-910aa96016cd h1:e4nK2jqLm6g7qMW0BInHR3ZM55y1NblvgOlkfNGT2F4=
 github.com/pulumi/pulumi/pkg/v2 v2.9.1-0.20200825190708-910aa96016cd/go.mod h1:Yq1q3nwy/KeU08DyyX0QsMyc6SqPs0jGJb8ev5f45AU=
+github.com/pulumi/pulumi/pkg/v2 v2.10.0 h1:GTUffKvweAzcCZ2Ok44MFY62nT4FY/u+eX8bWlzDs2A=
+github.com/pulumi/pulumi/pkg/v2 v2.10.0/go.mod h1:zQWe2D4tYJDeXNzSclqNmP8/SMSKOh8k22AbWg3+mVc=
 github.com/pulumi/pulumi/sdk/v2 v2.0.0/go.mod h1:W7k1UDYerc5o97mHnlHHp5iQZKEby+oQrQefWt+2RF4=
+github.com/pulumi/pulumi/sdk/v2 v2.2.1/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
 github.com/pulumi/pulumi/sdk/v2 v2.3.1-0.20200610172153-45a901d3e77c h1:jrm4MqhviE8q3uXOsNIOMLwsLBel99z6T5Sik+RRkhQ=
 github.com/pulumi/pulumi/sdk/v2 v2.3.1-0.20200610172153-45a901d3e77c/go.mod h1:llk6tmXss8kJrt3vEXAkwiwgZOuINEFmKIfMveVIwO8=
 github.com/pulumi/pulumi/sdk/v2 v2.4.0 h1:1ef6JbCWG3RWCKNpeeFBezzI6HBdMPpdeZQAd+IGKvw=
@@ -879,6 +884,8 @@ github.com/pulumi/pulumi/sdk/v2 v2.9.1-0.20200821035132-629254334213 h1:h4hBtS6/
 github.com/pulumi/pulumi/sdk/v2 v2.9.1-0.20200821035132-629254334213/go.mod h1:x84WPiFiuE+G4kJ5jUYkOxmnQJlWoJaHNeEYdqnCKA4=
 github.com/pulumi/pulumi/sdk/v2 v2.9.1-0.20200825190708-910aa96016cd h1:m5jEWpbr/Q94vCqA/7fw5US7cHZLeQiMQXrnSblZzdU=
 github.com/pulumi/pulumi/sdk/v2 v2.9.1-0.20200825190708-910aa96016cd/go.mod h1:x84WPiFiuE+G4kJ5jUYkOxmnQJlWoJaHNeEYdqnCKA4=
+github.com/pulumi/pulumi/sdk/v2 v2.10.0 h1:+BPDjZYGl3AI2hLkLCig1+q7hvo/TAVBLGlzPb0r0kk=
+github.com/pulumi/pulumi/sdk/v2 v2.10.0/go.mod h1:x84WPiFiuE+G4kJ5jUYkOxmnQJlWoJaHNeEYdqnCKA4=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20200619081042-5755382a412a h1:nfJ+u6CB3dHl7m2o34sP9d7bc4zkNj+lzDxaXQ445B0=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20200619081042-5755382a412a/go.mod h1:0U3OgA2uDYSc7gNkdWA92+/BxWXwuYhWqqZ4UhM1RCw=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20200624080059-07f101c8fe0a h1:3Bq5saRzbVLSBqx29Ejau5LFgMoG9Kq/GKS6d5XkQrw=
@@ -899,6 +906,8 @@ github.com/pulumi/tf2pulumi v0.8.1-0.20200630203740-1846524be4ec h1:C0l29EHsfhH+
 github.com/pulumi/tf2pulumi v0.8.1-0.20200630203740-1846524be4ec/go.mod h1:lE39suxXfTqjNHg8PxtPUdek3wnTTdnoYXVpQdFGmEo=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200701212620-1e7538fb9a34 h1:u1NyO0NXvl+b6kXq2iuQgU95U3O1muXMZLEglS/k+zM=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200701212620-1e7538fb9a34/go.mod h1:lE39suxXfTqjNHg8PxtPUdek3wnTTdnoYXVpQdFGmEo=
+github.com/pulumi/tf2pulumi v0.9.0 h1:oOvFFYGQVg4fFbHhTOqGhiWyuwW4mHa4fEUcHxAmeHc=
+github.com/pulumi/tf2pulumi v0.9.0/go.mod h1:lE39suxXfTqjNHg8PxtPUdek3wnTTdnoYXVpQdFGmEo=
 github.com/quasilyte/go-consistent v0.0.0-20190521200055-c6f3937de18c/go.mod h1:5STLWrekHfjyYwxBRVRXNOSewLJ3PWfDJd1VyTS21fI=
 github.com/quasilyte/go-ruleguard v0.1.2-0.20200318202121-b00d7a75d3d8/go.mod h1:CGFX09Ci3pq9QZdj86B+VGIdNj4VyCo2iPOGS9esB/k=
 github.com/quasilyte/regex/syntax v0.0.0-20200407221936-30656e2c4a95/go.mod h1:rlzQ04UMyJXu/aOvhd8qT+hvDrFpiwqp8MRXDY9szc0=
