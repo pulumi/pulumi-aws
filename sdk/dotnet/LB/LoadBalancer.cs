@@ -296,7 +296,7 @@ namespace Pulumi.Aws.LB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "aws:elasticloadbalancingv2/loadBalancer:LoadBalancer"},
+                    new Pulumi.Alias { Type = "aws:elasticloadbalancingv2/loadBalancer:LoadBalancer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

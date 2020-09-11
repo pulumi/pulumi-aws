@@ -304,7 +304,7 @@ namespace Pulumi.Aws.LB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "aws:elasticloadbalancingv2/listener:Listener"},
+                    new Pulumi.Alias { Type = "aws:elasticloadbalancingv2/listener:Listener"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
