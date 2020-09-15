@@ -24,10 +24,11 @@ import (
 
 	awsbase "github.com/hashicorp/aws-sdk-go-base"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v3/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
+	shim "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim"
+	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
 	"github.com/terraform-providers/terraform-provider-aws/aws"
@@ -217,7 +218,7 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []st
 // preConfigureCallback validates that AWS credentials can be successfully discovered. This emulates the credentials
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
-func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig) error {
+func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
 	config := &awsbase.Config{
 		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
 		SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
@@ -246,7 +247,7 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() tfbridge.ProviderInfo {
-	p := aws.Provider().(*schema.Provider)
+	p := shimv1.NewProvider(aws.Provider().(*schema.Provider))
 	prov := tfbridge.ProviderInfo{
 		P:           p,
 		Name:        "aws",
@@ -622,13 +623,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudwatch_event_rule": {
 				Tok: awsResource(cloudwatchMod, "EventRule"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"name": tfbridge.AutoName("name", 64),
+					"name": tfbridge.AutoName("name", 64, "-"),
 				},
 			},
 			"aws_cloudwatch_event_target": {
 				Tok: awsResource(cloudwatchMod, "EventTarget"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"target_id": tfbridge.AutoName("targetId", 255),
+					"target_id": tfbridge.AutoName("targetId", 255, "-"),
 				},
 			},
 			"aws_cloudwatch_log_destination":        {Tok: awsResource(cloudwatchMod, "LogDestination")},
@@ -654,7 +655,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudwatch_metric_alarm": {
 				Tok: awsResource(cloudwatchMod, "MetricAlarm"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"alarm_name": tfbridge.AutoName("name", 255),
+					"alarm_name": tfbridge.AutoName("name", 255, "-"),
 					"alarm_actions": {
 						Elem: &tfbridge.SchemaInfo{
 							Type:     "string",
@@ -859,7 +860,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elastic_beanstalk_environment": {
 				Tok: awsResource(elasticbeanstalkMod, "Environment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"name": tfbridge.AutoName("name", 40),
+					"name": tfbridge.AutoName("name", 40, "-"),
 					"application": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "Application")},
@@ -962,7 +963,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_key_pair": {
 				Tok: awsResource(ec2Mod, "KeyPair"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"key_name": tfbridge.AutoName("keyName", 255),
+					"key_name": tfbridge.AutoName("keyName", 255, "-"),
 				},
 			},
 			"aws_launch_configuration": {
@@ -1174,7 +1175,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_efs_file_system": {
 				Tok: awsResource(efsMod, "FileSystem"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"creation_token": tfbridge.AutoName("creationToken", 255),
+					"creation_token": tfbridge.AutoName("creationToken", 255, "-"),
 				},
 			},
 			"aws_efs_mount_target": {
@@ -1195,13 +1196,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_eks_node_group": {
 				Tok: awsResource(eksMod, "NodeGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"node_group_name": tfbridge.AutoName("nodeGroupName", 255),
+					"node_group_name": tfbridge.AutoName("nodeGroupName", 255, "-"),
 				},
 			},
 			"aws_eks_fargate_profile": {
 				Tok: awsResource(eksMod, "FargateProfile"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"fargate_profile_name": tfbridge.AutoName("fargateProfileName", 255),
+					"fargate_profile_name": tfbridge.AutoName("fargateProfileName", 255, "-"),
 				},
 			},
 			// Elastic Search
@@ -1443,7 +1444,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_role": {
 				Tok: awsResource(iamMod, "Role"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"name": tfbridge.AutoName("name", 64),
+					"name": tfbridge.AutoName("name", 64, "-"),
 					"assume_role_policy": {
 						Type:      "string",
 						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
@@ -1565,7 +1566,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:      awsResource(lambdaMod, "Function"),
 				IDFields: []string{"function_name"},
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"function_name": tfbridge.AutoName("name", 64),
+					"function_name": tfbridge.AutoName("name", 64, "-"),
 					"role":          {Type: awsTypeDefaultFile(awsMod, "ARN")},
 					// Terraform accepts two sources for lambdas: a local filename or a S3 bucket/object.  To bridge
 					// with Pulumi's asset model, we will hijack the filename property.  A Pulumi archive is passed in
@@ -1608,7 +1609,7 @@ func Provider() tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsTypeDefaultFile(lambdaMod, "Function")},
 					},
-					"statement_id": tfbridge.AutoName("statementId", 100),
+					"statement_id": tfbridge.AutoName("statementId", 100, "-"),
 				},
 			},
 			"aws_lambda_provisioned_concurrency_config": {Tok: awsResource(lambdaMod, "ProvisionedConcurrencyConfig")},
@@ -2011,7 +2012,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sqs_queue": {
 				Tok: awsResource(sqsMod, "Queue"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"name": tfbridge.AutoName("name", 80),
+					"name": tfbridge.AutoName("name", 80, "-"),
 				},
 			},
 			"aws_sqs_queue_policy": {
@@ -2761,22 +2762,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		})
 
-	// For all resources with name properties, we will add an auto-name property.  Make sure to skip those that
-	// already have a name mapping entry, since those may have custom overrides set above (e.g., for length).
-	const awsName = "name"
-	for resname, res := range prov.Resources {
-		if schema := p.ResourcesMap[resname]; schema != nil {
-			// Only apply auto-name to input properties (Optional || Required) named `name`
-			if tfs, has := schema.Schema[awsName]; has && (tfs.Optional || tfs.Required) {
-				if _, hasfield := res.Fields[awsName]; !hasfield {
-					if res.Fields == nil {
-						res.Fields = make(map[string]*tfbridge.SchemaInfo)
-					}
-					res.Fields[awsName] = tfbridge.AutoName(awsName, 255)
-				}
-			}
-		}
-	}
+	prov.SetAutonaming(255, "-")
 
 	// Add a CSharp-specific override for aws_s3_bucket.bucket.
 	prov.Resources["aws_s3_bucket"].Fields["bucket"].CSharpName = "BucketName"
