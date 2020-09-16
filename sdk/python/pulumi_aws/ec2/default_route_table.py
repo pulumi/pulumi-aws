@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,8 +18,8 @@ class DefaultRouteTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_route_table_id: Optional[pulumi.Input[str]] = None,
-                 propagating_vgws: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]]] = None,
+                 propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -74,8 +74,8 @@ class DefaultRouteTable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_route_table_id: The ID of the Default Routing Table.
-        :param pulumi.Input[List[pulumi.Input[str]]] propagating_vgws: A list of virtual gateways for propagation.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]] routes: A list of route objects. Their keys are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: A list of virtual gateways for propagation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]] routes: A list of route objects. Their keys are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -115,8 +115,8 @@ class DefaultRouteTable(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             default_route_table_id: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
-            propagating_vgws: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]]] = None,
+            propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None) -> 'DefaultRouteTable':
         """
@@ -128,8 +128,8 @@ class DefaultRouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_route_table_id: The ID of the Default Routing Table.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the route table
-        :param pulumi.Input[List[pulumi.Input[str]]] propagating_vgws: A list of virtual gateways for propagation.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]] routes: A list of route objects. Their keys are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: A list of virtual gateways for propagation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]] routes: A list of route objects. Their keys are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -162,7 +162,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="propagatingVgws")
-    def propagating_vgws(self) -> pulumi.Output[Optional[List[str]]]:
+    def propagating_vgws(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of virtual gateways for propagation.
         """
@@ -170,7 +170,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> pulumi.Output[List['outputs.DefaultRouteTableRoute']]:
+    def routes(self) -> pulumi.Output[Sequence['outputs.DefaultRouteTableRoute']]:
         """
         A list of route objects. Their keys are documented below.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -37,7 +37,7 @@ class GetCoipPoolsResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetCoipPoolsFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetCoipPoolsFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -50,7 +50,7 @@ class GetCoipPoolsResult:
 
     @property
     @pulumi.getter(name="poolIds")
-    def pool_ids(self) -> List[str]:
+    def pool_ids(self) -> Sequence[str]:
         """
         Set of COIP Pool Identifiers
         """
@@ -74,14 +74,14 @@ class AwaitableGetCoipPoolsResult(GetCoipPoolsResult):
             tags=self.tags)
 
 
-def get_coip_pools(filters: Optional[List[pulumi.InputType['GetCoipPoolsFilterArgs']]] = None,
+def get_coip_pools(filters: Optional[Sequence[pulumi.InputType['GetCoipPoolsFilterArgs']]] = None,
                    tags: Optional[Mapping[str, str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCoipPoolsResult:
     """
     Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
 
 
-    :param List[pulumi.InputType['GetCoipPoolsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetCoipPoolsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
            a pair on the desired aws_ec2_coip_pools.
     """

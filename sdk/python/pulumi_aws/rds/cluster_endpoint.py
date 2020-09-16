@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ClusterEndpoint']
@@ -18,8 +18,8 @@ class ClusterEndpoint(pulumi.CustomResource):
                  cluster_endpoint_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  custom_endpoint_type: Optional[pulumi.Input[str]] = None,
-                 excluded_members: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 static_members: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 static_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -90,8 +90,8 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_endpoint_identifier: The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
         :param pulumi.Input[str] cluster_identifier: The cluster identifier.
         :param pulumi.Input[str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
-        :param pulumi.Input[List[pulumi.Input[str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
-        :param pulumi.Input[List[pulumi.Input[str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         if __name__ is not None:
@@ -140,8 +140,8 @@ class ClusterEndpoint(pulumi.CustomResource):
             cluster_identifier: Optional[pulumi.Input[str]] = None,
             custom_endpoint_type: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
-            excluded_members: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            static_members: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            static_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ClusterEndpoint':
         """
         Get an existing ClusterEndpoint resource's state with the given name, id, and optional extra
@@ -155,8 +155,8 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_identifier: The cluster identifier.
         :param pulumi.Input[str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
         :param pulumi.Input[str] endpoint: A custom endpoint for the Aurora cluster
-        :param pulumi.Input[List[pulumi.Input[str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
-        :param pulumi.Input[List[pulumi.Input[str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -215,7 +215,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludedMembers")
-    def excluded_members(self) -> pulumi.Output[Optional[List[str]]]:
+    def excluded_members(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         """
@@ -223,7 +223,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="staticMembers")
-    def static_members(self) -> pulumi.Output[Optional[List[str]]]:
+    def static_members(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         """

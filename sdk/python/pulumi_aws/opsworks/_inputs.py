@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -240,18 +240,18 @@ class ApplicationSslConfigurationArgs:
 class CustomLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
-                 number_of_disks: pulumi.Input[float],
-                 size: pulumi.Input[float],
+                 number_of_disks: pulumi.Input[int],
+                 size: pulumi.Input[int],
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 iops: Optional[pulumi.Input[float]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
-        :param pulumi.Input[float] number_of_disks: The number of disks to use for the EBS volume.
-        :param pulumi.Input[float] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
         :param pulumi.Input[bool] encrypted: Encrypt the volume.
-        :param pulumi.Input[float] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
         :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
         :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
@@ -281,26 +281,26 @@ class CustomLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter(name="numberOfDisks")
-    def number_of_disks(self) -> pulumi.Input[float]:
+    def number_of_disks(self) -> pulumi.Input[int]:
         """
         The number of disks to use for the EBS volume.
         """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
-    def number_of_disks(self, value: pulumi.Input[float]):
+    def number_of_disks(self, value: pulumi.Input[int]):
         pulumi.set(self, "number_of_disks", value)
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Input[float]:
+    def size(self) -> pulumi.Input[int]:
         """
         The size of the volume in gigabytes.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: pulumi.Input[float]):
+    def size(self, value: pulumi.Input[int]):
         pulumi.set(self, "size", value)
 
     @property
@@ -317,14 +317,14 @@ class CustomLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[float]]:
+    def iops(self) -> Optional[pulumi.Input[int]]:
         """
         For PIOPS volumes, the IOPS per disk.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[float]]):
+    def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
 
     @property
@@ -356,17 +356,17 @@ class CustomLayerEbsVolumeArgs:
 class GangliaLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
-                 number_of_disks: pulumi.Input[float],
-                 size: pulumi.Input[float],
+                 number_of_disks: pulumi.Input[int],
+                 size: pulumi.Input[int],
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 iops: Optional[pulumi.Input[float]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
-        :param pulumi.Input[float] number_of_disks: The number of disks to use for the EBS volume.
-        :param pulumi.Input[float] size: The size of the volume in gigabytes.
-        :param pulumi.Input[float] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
         :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
         :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
@@ -396,26 +396,26 @@ class GangliaLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter(name="numberOfDisks")
-    def number_of_disks(self) -> pulumi.Input[float]:
+    def number_of_disks(self) -> pulumi.Input[int]:
         """
         The number of disks to use for the EBS volume.
         """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
-    def number_of_disks(self, value: pulumi.Input[float]):
+    def number_of_disks(self, value: pulumi.Input[int]):
         pulumi.set(self, "number_of_disks", value)
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Input[float]:
+    def size(self) -> pulumi.Input[int]:
         """
         The size of the volume in gigabytes.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: pulumi.Input[float]):
+    def size(self, value: pulumi.Input[int]):
         pulumi.set(self, "size", value)
 
     @property
@@ -429,14 +429,14 @@ class GangliaLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[float]]:
+    def iops(self) -> Optional[pulumi.Input[int]]:
         """
         For PIOPS volumes, the IOPS per disk.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[float]]):
+    def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
 
     @property
@@ -468,17 +468,17 @@ class GangliaLayerEbsVolumeArgs:
 class HaproxyLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
-                 number_of_disks: pulumi.Input[float],
-                 size: pulumi.Input[float],
+                 number_of_disks: pulumi.Input[int],
+                 size: pulumi.Input[int],
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 iops: Optional[pulumi.Input[float]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
-        :param pulumi.Input[float] number_of_disks: The number of disks to use for the EBS volume.
-        :param pulumi.Input[float] size: The size of the volume in gigabytes.
-        :param pulumi.Input[float] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
         :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
         :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
@@ -508,26 +508,26 @@ class HaproxyLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter(name="numberOfDisks")
-    def number_of_disks(self) -> pulumi.Input[float]:
+    def number_of_disks(self) -> pulumi.Input[int]:
         """
         The number of disks to use for the EBS volume.
         """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
-    def number_of_disks(self, value: pulumi.Input[float]):
+    def number_of_disks(self, value: pulumi.Input[int]):
         pulumi.set(self, "number_of_disks", value)
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Input[float]:
+    def size(self) -> pulumi.Input[int]:
         """
         The size of the volume in gigabytes.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: pulumi.Input[float]):
+    def size(self, value: pulumi.Input[int]):
         pulumi.set(self, "size", value)
 
     @property
@@ -541,14 +541,14 @@ class HaproxyLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[float]]:
+    def iops(self) -> Optional[pulumi.Input[int]]:
         """
         For PIOPS volumes, the IOPS per disk.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[float]]):
+    def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
 
     @property
@@ -581,9 +581,9 @@ class InstanceEbsBlockDeviceArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
-                 iops: Optional[pulumi.Input[float]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
-                 volume_size: Optional[pulumi.Input[float]] = None,
+                 volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -617,11 +617,11 @@ class InstanceEbsBlockDeviceArgs:
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[float]]:
+    def iops(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[float]]):
+    def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
 
     @property
@@ -635,11 +635,11 @@ class InstanceEbsBlockDeviceArgs:
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> Optional[pulumi.Input[float]]:
+    def volume_size(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
-    def volume_size(self, value: Optional[pulumi.Input[float]]):
+    def volume_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "volume_size", value)
 
     @property
@@ -683,8 +683,8 @@ class InstanceEphemeralBlockDeviceArgs:
 class InstanceRootBlockDeviceArgs:
     def __init__(__self__, *,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
-                 iops: Optional[pulumi.Input[float]] = None,
-                 volume_size: Optional[pulumi.Input[float]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
+                 volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -706,20 +706,20 @@ class InstanceRootBlockDeviceArgs:
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[float]]:
+    def iops(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[float]]):
+    def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
 
     @property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> Optional[pulumi.Input[float]]:
+    def volume_size(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
-    def volume_size(self, value: Optional[pulumi.Input[float]]):
+    def volume_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "volume_size", value)
 
     @property
@@ -736,17 +736,17 @@ class InstanceRootBlockDeviceArgs:
 class JavaAppLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
-                 number_of_disks: pulumi.Input[float],
-                 size: pulumi.Input[float],
+                 number_of_disks: pulumi.Input[int],
+                 size: pulumi.Input[int],
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 iops: Optional[pulumi.Input[float]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
-        :param pulumi.Input[float] number_of_disks: The number of disks to use for the EBS volume.
-        :param pulumi.Input[float] size: The size of the volume in gigabytes.
-        :param pulumi.Input[float] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
         :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
         :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
@@ -776,26 +776,26 @@ class JavaAppLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter(name="numberOfDisks")
-    def number_of_disks(self) -> pulumi.Input[float]:
+    def number_of_disks(self) -> pulumi.Input[int]:
         """
         The number of disks to use for the EBS volume.
         """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
-    def number_of_disks(self, value: pulumi.Input[float]):
+    def number_of_disks(self, value: pulumi.Input[int]):
         pulumi.set(self, "number_of_disks", value)
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Input[float]:
+    def size(self) -> pulumi.Input[int]:
         """
         The size of the volume in gigabytes.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: pulumi.Input[float]):
+    def size(self, value: pulumi.Input[int]):
         pulumi.set(self, "size", value)
 
     @property
@@ -809,14 +809,14 @@ class JavaAppLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[float]]:
+    def iops(self) -> Optional[pulumi.Input[int]]:
         """
         For PIOPS volumes, the IOPS per disk.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[float]]):
+    def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
 
     @property
@@ -848,17 +848,17 @@ class JavaAppLayerEbsVolumeArgs:
 class MemcachedLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
-                 number_of_disks: pulumi.Input[float],
-                 size: pulumi.Input[float],
+                 number_of_disks: pulumi.Input[int],
+                 size: pulumi.Input[int],
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 iops: Optional[pulumi.Input[float]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
-        :param pulumi.Input[float] number_of_disks: The number of disks to use for the EBS volume.
-        :param pulumi.Input[float] size: The size of the volume in gigabytes.
-        :param pulumi.Input[float] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
         :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
         :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
@@ -888,26 +888,26 @@ class MemcachedLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter(name="numberOfDisks")
-    def number_of_disks(self) -> pulumi.Input[float]:
+    def number_of_disks(self) -> pulumi.Input[int]:
         """
         The number of disks to use for the EBS volume.
         """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
-    def number_of_disks(self, value: pulumi.Input[float]):
+    def number_of_disks(self, value: pulumi.Input[int]):
         pulumi.set(self, "number_of_disks", value)
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Input[float]:
+    def size(self) -> pulumi.Input[int]:
         """
         The size of the volume in gigabytes.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: pulumi.Input[float]):
+    def size(self, value: pulumi.Input[int]):
         pulumi.set(self, "size", value)
 
     @property
@@ -921,14 +921,14 @@ class MemcachedLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[float]]:
+    def iops(self) -> Optional[pulumi.Input[int]]:
         """
         For PIOPS volumes, the IOPS per disk.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[float]]):
+    def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
 
     @property
@@ -960,17 +960,17 @@ class MemcachedLayerEbsVolumeArgs:
 class MysqlLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
-                 number_of_disks: pulumi.Input[float],
-                 size: pulumi.Input[float],
+                 number_of_disks: pulumi.Input[int],
+                 size: pulumi.Input[int],
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 iops: Optional[pulumi.Input[float]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
-        :param pulumi.Input[float] number_of_disks: The number of disks to use for the EBS volume.
-        :param pulumi.Input[float] size: The size of the volume in gigabytes.
-        :param pulumi.Input[float] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
         :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
         :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
@@ -1000,26 +1000,26 @@ class MysqlLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter(name="numberOfDisks")
-    def number_of_disks(self) -> pulumi.Input[float]:
+    def number_of_disks(self) -> pulumi.Input[int]:
         """
         The number of disks to use for the EBS volume.
         """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
-    def number_of_disks(self, value: pulumi.Input[float]):
+    def number_of_disks(self, value: pulumi.Input[int]):
         pulumi.set(self, "number_of_disks", value)
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Input[float]:
+    def size(self) -> pulumi.Input[int]:
         """
         The size of the volume in gigabytes.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: pulumi.Input[float]):
+    def size(self, value: pulumi.Input[int]):
         pulumi.set(self, "size", value)
 
     @property
@@ -1033,14 +1033,14 @@ class MysqlLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[float]]:
+    def iops(self) -> Optional[pulumi.Input[int]]:
         """
         For PIOPS volumes, the IOPS per disk.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[float]]):
+    def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
 
     @property
@@ -1072,17 +1072,17 @@ class MysqlLayerEbsVolumeArgs:
 class NodejsAppLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
-                 number_of_disks: pulumi.Input[float],
-                 size: pulumi.Input[float],
+                 number_of_disks: pulumi.Input[int],
+                 size: pulumi.Input[int],
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 iops: Optional[pulumi.Input[float]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
-        :param pulumi.Input[float] number_of_disks: The number of disks to use for the EBS volume.
-        :param pulumi.Input[float] size: The size of the volume in gigabytes.
-        :param pulumi.Input[float] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
         :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
         :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
@@ -1112,26 +1112,26 @@ class NodejsAppLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter(name="numberOfDisks")
-    def number_of_disks(self) -> pulumi.Input[float]:
+    def number_of_disks(self) -> pulumi.Input[int]:
         """
         The number of disks to use for the EBS volume.
         """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
-    def number_of_disks(self, value: pulumi.Input[float]):
+    def number_of_disks(self, value: pulumi.Input[int]):
         pulumi.set(self, "number_of_disks", value)
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Input[float]:
+    def size(self) -> pulumi.Input[int]:
         """
         The size of the volume in gigabytes.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: pulumi.Input[float]):
+    def size(self, value: pulumi.Input[int]):
         pulumi.set(self, "size", value)
 
     @property
@@ -1145,14 +1145,14 @@ class NodejsAppLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[float]]:
+    def iops(self) -> Optional[pulumi.Input[int]]:
         """
         For PIOPS volumes, the IOPS per disk.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[float]]):
+    def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
 
     @property
@@ -1184,17 +1184,17 @@ class NodejsAppLayerEbsVolumeArgs:
 class PhpAppLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
-                 number_of_disks: pulumi.Input[float],
-                 size: pulumi.Input[float],
+                 number_of_disks: pulumi.Input[int],
+                 size: pulumi.Input[int],
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 iops: Optional[pulumi.Input[float]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
-        :param pulumi.Input[float] number_of_disks: The number of disks to use for the EBS volume.
-        :param pulumi.Input[float] size: The size of the volume in gigabytes.
-        :param pulumi.Input[float] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
         :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
         :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
@@ -1224,26 +1224,26 @@ class PhpAppLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter(name="numberOfDisks")
-    def number_of_disks(self) -> pulumi.Input[float]:
+    def number_of_disks(self) -> pulumi.Input[int]:
         """
         The number of disks to use for the EBS volume.
         """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
-    def number_of_disks(self, value: pulumi.Input[float]):
+    def number_of_disks(self, value: pulumi.Input[int]):
         pulumi.set(self, "number_of_disks", value)
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Input[float]:
+    def size(self) -> pulumi.Input[int]:
         """
         The size of the volume in gigabytes.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: pulumi.Input[float]):
+    def size(self, value: pulumi.Input[int]):
         pulumi.set(self, "size", value)
 
     @property
@@ -1257,14 +1257,14 @@ class PhpAppLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[float]]:
+    def iops(self) -> Optional[pulumi.Input[int]]:
         """
         For PIOPS volumes, the IOPS per disk.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[float]]):
+    def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
 
     @property
@@ -1296,17 +1296,17 @@ class PhpAppLayerEbsVolumeArgs:
 class RailsAppLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
-                 number_of_disks: pulumi.Input[float],
-                 size: pulumi.Input[float],
+                 number_of_disks: pulumi.Input[int],
+                 size: pulumi.Input[int],
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 iops: Optional[pulumi.Input[float]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
-        :param pulumi.Input[float] number_of_disks: The number of disks to use for the EBS volume.
-        :param pulumi.Input[float] size: The size of the volume in gigabytes.
-        :param pulumi.Input[float] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
         :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
         :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
@@ -1336,26 +1336,26 @@ class RailsAppLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter(name="numberOfDisks")
-    def number_of_disks(self) -> pulumi.Input[float]:
+    def number_of_disks(self) -> pulumi.Input[int]:
         """
         The number of disks to use for the EBS volume.
         """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
-    def number_of_disks(self, value: pulumi.Input[float]):
+    def number_of_disks(self, value: pulumi.Input[int]):
         pulumi.set(self, "number_of_disks", value)
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Input[float]:
+    def size(self) -> pulumi.Input[int]:
         """
         The size of the volume in gigabytes.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: pulumi.Input[float]):
+    def size(self, value: pulumi.Input[int]):
         pulumi.set(self, "size", value)
 
     @property
@@ -1369,14 +1369,14 @@ class RailsAppLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[float]]:
+    def iops(self) -> Optional[pulumi.Input[int]]:
         """
         For PIOPS volumes, the IOPS per disk.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[float]]):
+    def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
 
     @property
@@ -1509,17 +1509,17 @@ class StackCustomCookbooksSourceArgs:
 class StaticWebLayerEbsVolumeArgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
-                 number_of_disks: pulumi.Input[float],
-                 size: pulumi.Input[float],
+                 number_of_disks: pulumi.Input[int],
+                 size: pulumi.Input[int],
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 iops: Optional[pulumi.Input[float]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
                  raid_level: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mount_point: The path to mount the EBS volume on the layer's instances.
-        :param pulumi.Input[float] number_of_disks: The number of disks to use for the EBS volume.
-        :param pulumi.Input[float] size: The size of the volume in gigabytes.
-        :param pulumi.Input[float] iops: For PIOPS volumes, the IOPS per disk.
+        :param pulumi.Input[int] number_of_disks: The number of disks to use for the EBS volume.
+        :param pulumi.Input[int] size: The size of the volume in gigabytes.
+        :param pulumi.Input[int] iops: For PIOPS volumes, the IOPS per disk.
         :param pulumi.Input[str] raid_level: The RAID level to use for the volume.
         :param pulumi.Input[str] type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
@@ -1549,26 +1549,26 @@ class StaticWebLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter(name="numberOfDisks")
-    def number_of_disks(self) -> pulumi.Input[float]:
+    def number_of_disks(self) -> pulumi.Input[int]:
         """
         The number of disks to use for the EBS volume.
         """
         return pulumi.get(self, "number_of_disks")
 
     @number_of_disks.setter
-    def number_of_disks(self, value: pulumi.Input[float]):
+    def number_of_disks(self, value: pulumi.Input[int]):
         pulumi.set(self, "number_of_disks", value)
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Input[float]:
+    def size(self) -> pulumi.Input[int]:
         """
         The size of the volume in gigabytes.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: pulumi.Input[float]):
+    def size(self, value: pulumi.Input[int]):
         pulumi.set(self, "size", value)
 
     @property
@@ -1582,14 +1582,14 @@ class StaticWebLayerEbsVolumeArgs:
 
     @property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[float]]:
+    def iops(self) -> Optional[pulumi.Input[int]]:
         """
         For PIOPS volumes, the IOPS per disk.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[float]]):
+    def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
 
     @property

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,13 +21,13 @@ class TopicRule(pulumi.CustomResource):
                  cloudwatch_metric: Optional[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchMetricArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodb: Optional[pulumi.Input[pulumi.InputType['TopicRuleDynamodbArgs']]] = None,
-                 dynamodbv2s: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleDynamodbv2Args']]]]] = None,
+                 dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleDynamodbv2Args']]]]] = None,
                  elasticsearch: Optional[pulumi.Input[pulumi.InputType['TopicRuleElasticsearchArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  error_action: Optional[pulumi.Input[pulumi.InputType['TopicRuleErrorActionArgs']]] = None,
                  firehose: Optional[pulumi.Input[pulumi.InputType['TopicRuleFirehoseArgs']]] = None,
-                 iot_analytics: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleIotAnalyticArgs']]]]] = None,
-                 iot_events: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleIotEventArgs']]]]] = None,
+                 iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleIotAnalyticArgs']]]]] = None,
+                 iot_events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleIotEventArgs']]]]] = None,
                  kinesis: Optional[pulumi.Input[pulumi.InputType['TopicRuleKinesisArgs']]] = None,
                  lambda_: Optional[pulumi.Input[pulumi.InputType['TopicRuleLambdaArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -37,7 +37,7 @@ class TopicRule(pulumi.CustomResource):
                  sql: Optional[pulumi.Input[str]] = None,
                  sql_version: Optional[pulumi.Input[str]] = None,
                  sqs: Optional[pulumi.Input[pulumi.InputType['TopicRuleSqsArgs']]] = None,
-                 step_functions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleStepFunctionArgs']]]]] = None,
+                 step_functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleStepFunctionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -169,13 +169,13 @@ class TopicRule(pulumi.CustomResource):
             cloudwatch_metric: Optional[pulumi.Input[pulumi.InputType['TopicRuleCloudwatchMetricArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             dynamodb: Optional[pulumi.Input[pulumi.InputType['TopicRuleDynamodbArgs']]] = None,
-            dynamodbv2s: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleDynamodbv2Args']]]]] = None,
+            dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleDynamodbv2Args']]]]] = None,
             elasticsearch: Optional[pulumi.Input[pulumi.InputType['TopicRuleElasticsearchArgs']]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             error_action: Optional[pulumi.Input[pulumi.InputType['TopicRuleErrorActionArgs']]] = None,
             firehose: Optional[pulumi.Input[pulumi.InputType['TopicRuleFirehoseArgs']]] = None,
-            iot_analytics: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleIotAnalyticArgs']]]]] = None,
-            iot_events: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleIotEventArgs']]]]] = None,
+            iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleIotAnalyticArgs']]]]] = None,
+            iot_events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleIotEventArgs']]]]] = None,
             kinesis: Optional[pulumi.Input[pulumi.InputType['TopicRuleKinesisArgs']]] = None,
             lambda_: Optional[pulumi.Input[pulumi.InputType['TopicRuleLambdaArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -185,7 +185,7 @@ class TopicRule(pulumi.CustomResource):
             sql: Optional[pulumi.Input[str]] = None,
             sql_version: Optional[pulumi.Input[str]] = None,
             sqs: Optional[pulumi.Input[pulumi.InputType['TopicRuleSqsArgs']]] = None,
-            step_functions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TopicRuleStepFunctionArgs']]]]] = None,
+            step_functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleStepFunctionArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'TopicRule':
         """
         Get an existing TopicRule resource's state with the given name, id, and optional extra
@@ -265,7 +265,7 @@ class TopicRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def dynamodbv2s(self) -> pulumi.Output[Optional[List['outputs.TopicRuleDynamodbv2']]]:
+    def dynamodbv2s(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleDynamodbv2']]]:
         return pulumi.get(self, "dynamodbv2s")
 
     @property
@@ -296,12 +296,12 @@ class TopicRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iotAnalytics")
-    def iot_analytics(self) -> pulumi.Output[Optional[List['outputs.TopicRuleIotAnalytic']]]:
+    def iot_analytics(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleIotAnalytic']]]:
         return pulumi.get(self, "iot_analytics")
 
     @property
     @pulumi.getter(name="iotEvents")
-    def iot_events(self) -> pulumi.Output[Optional[List['outputs.TopicRuleIotEvent']]]:
+    def iot_events(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleIotEvent']]]:
         return pulumi.get(self, "iot_events")
 
     @property
@@ -360,7 +360,7 @@ class TopicRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stepFunctions")
-    def step_functions(self) -> pulumi.Output[Optional[List['outputs.TopicRuleStepFunction']]]:
+    def step_functions(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleStepFunction']]]:
         return pulumi.get(self, "step_functions")
 
     @property

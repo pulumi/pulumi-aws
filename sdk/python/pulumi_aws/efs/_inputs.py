@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -18,13 +18,13 @@ __all__ = [
 @pulumi.input_type
 class AccessPointPosixUserArgs:
     def __init__(__self__, *,
-                 gid: pulumi.Input[float],
-                 uid: pulumi.Input[float],
-                 secondary_gids: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None):
+                 gid: pulumi.Input[int],
+                 uid: pulumi.Input[int],
+                 secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
-        :param pulumi.Input[float] gid: The POSIX group ID used for all file system operations using this access point.
-        :param pulumi.Input[float] uid: The POSIX user ID used for all file system operations using this access point.
-        :param pulumi.Input[List[pulumi.Input[float]]] secondary_gids: Secondary POSIX group IDs used for all file system operations using this access point.
+        :param pulumi.Input[int] gid: The POSIX group ID used for all file system operations using this access point.
+        :param pulumi.Input[int] uid: The POSIX user ID used for all file system operations using this access point.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] secondary_gids: Secondary POSIX group IDs used for all file system operations using this access point.
         """
         pulumi.set(__self__, "gid", gid)
         pulumi.set(__self__, "uid", uid)
@@ -33,38 +33,38 @@ class AccessPointPosixUserArgs:
 
     @property
     @pulumi.getter
-    def gid(self) -> pulumi.Input[float]:
+    def gid(self) -> pulumi.Input[int]:
         """
         The POSIX group ID used for all file system operations using this access point.
         """
         return pulumi.get(self, "gid")
 
     @gid.setter
-    def gid(self, value: pulumi.Input[float]):
+    def gid(self, value: pulumi.Input[int]):
         pulumi.set(self, "gid", value)
 
     @property
     @pulumi.getter
-    def uid(self) -> pulumi.Input[float]:
+    def uid(self) -> pulumi.Input[int]:
         """
         The POSIX user ID used for all file system operations using this access point.
         """
         return pulumi.get(self, "uid")
 
     @uid.setter
-    def uid(self, value: pulumi.Input[float]):
+    def uid(self, value: pulumi.Input[int]):
         pulumi.set(self, "uid", value)
 
     @property
     @pulumi.getter(name="secondaryGids")
-    def secondary_gids(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def secondary_gids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         Secondary POSIX group IDs used for all file system operations using this access point.
         """
         return pulumi.get(self, "secondary_gids")
 
     @secondary_gids.setter
-    def secondary_gids(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def secondary_gids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "secondary_gids", value)
 
 
@@ -110,12 +110,12 @@ class AccessPointRootDirectoryArgs:
 @pulumi.input_type
 class AccessPointRootDirectoryCreationInfoArgs:
     def __init__(__self__, *,
-                 owner_gid: pulumi.Input[float],
-                 owner_uid: pulumi.Input[float],
+                 owner_gid: pulumi.Input[int],
+                 owner_uid: pulumi.Input[int],
                  permissions: pulumi.Input[str]):
         """
-        :param pulumi.Input[float] owner_gid: Specifies the POSIX group ID to apply to the `root_directory`.
-        :param pulumi.Input[float] owner_uid: Specifies the POSIX user ID to apply to the `root_directory`.
+        :param pulumi.Input[int] owner_gid: Specifies the POSIX group ID to apply to the `root_directory`.
+        :param pulumi.Input[int] owner_uid: Specifies the POSIX user ID to apply to the `root_directory`.
         :param pulumi.Input[str] permissions: Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
         """
         pulumi.set(__self__, "owner_gid", owner_gid)
@@ -124,26 +124,26 @@ class AccessPointRootDirectoryCreationInfoArgs:
 
     @property
     @pulumi.getter(name="ownerGid")
-    def owner_gid(self) -> pulumi.Input[float]:
+    def owner_gid(self) -> pulumi.Input[int]:
         """
         Specifies the POSIX group ID to apply to the `root_directory`.
         """
         return pulumi.get(self, "owner_gid")
 
     @owner_gid.setter
-    def owner_gid(self, value: pulumi.Input[float]):
+    def owner_gid(self, value: pulumi.Input[int]):
         pulumi.set(self, "owner_gid", value)
 
     @property
     @pulumi.getter(name="ownerUid")
-    def owner_uid(self) -> pulumi.Input[float]:
+    def owner_uid(self) -> pulumi.Input[int]:
         """
         Specifies the POSIX user ID to apply to the `root_directory`.
         """
         return pulumi.get(self, "owner_uid")
 
     @owner_uid.setter
-    def owner_uid(self, value: pulumi.Input[float]):
+    def owner_uid(self, value: pulumi.Input[int]):
         pulumi.set(self, "owner_uid", value)
 
     @property

@@ -27,11 +27,11 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     ///         var testTargetGroup = new Aws.LB.TargetGroup("testTargetGroup", new Aws.LB.TargetGroupArgs
     ///         {
     ///         });
-    ///         // Other arguments
+    ///         // ... other configuration ...
     ///         var testInstance = new Aws.Ec2.Instance("testInstance", new Aws.Ec2.InstanceArgs
     ///         {
     ///         });
-    ///         // Other arguments
+    ///         // ... other configuration ...
     ///         var testTargetGroupAttachment = new Aws.LB.TargetGroupAttachment("testTargetGroupAttachment", new Aws.LB.TargetGroupAttachmentArgs
     ///         {
     ///             TargetGroupArn = testTargetGroup.Arn,
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     ///         var testFunction = new Aws.Lambda.Function("testFunction", new Aws.Lambda.FunctionArgs
     ///         {
     ///         });
-    ///         // Other arguments
+    ///         // ... other configuration ...
     ///         var withLb = new Aws.Lambda.Permission("withLb", new Aws.Lambda.PermissionArgs
     ///         {
     ///             Action = "lambda:InvokeFunction",

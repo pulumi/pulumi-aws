@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -35,7 +35,7 @@ class GetAccessPointsResult:
 
     @property
     @pulumi.getter
-    def arns(self) -> List[str]:
+    def arns(self) -> Sequence[str]:
         """
         Set of Amazon Resource Names (ARNs).
         """
@@ -56,7 +56,7 @@ class GetAccessPointsResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> List[str]:
+    def ids(self) -> Sequence[str]:
         """
         Set of identifiers.
         """

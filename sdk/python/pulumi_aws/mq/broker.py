@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -29,10 +29,10 @@ class Broker(pulumi.CustomResource):
                  logs: Optional[pulumi.Input[pulumi.InputType['BrokerLogsArgs']]] = None,
                  maintenance_window_start_time: Optional[pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArgs']]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
-                 security_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -90,10 +90,10 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['BrokerLogsArgs']] logs: Logging configuration of the broker. See below.
         :param pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArgs']] maintenance_window_start_time: Maintenance window start time. See below.
         :param pulumi.Input[bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
-        :param pulumi.Input[List[pulumi.Input[str]]] security_groups: The list of security group IDs assigned to the broker.
-        :param pulumi.Input[List[pulumi.Input[str]]] subnet_ids: The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The list of security group IDs assigned to the broker.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]] users: The list of all ActiveMQ usernames for the specified broker. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]] users: The list of all ActiveMQ usernames for the specified broker. See below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -162,14 +162,14 @@ class Broker(pulumi.CustomResource):
             engine_type: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             host_instance_type: Optional[pulumi.Input[str]] = None,
-            instances: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BrokerInstanceArgs']]]]] = None,
+            instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerInstanceArgs']]]]] = None,
             logs: Optional[pulumi.Input[pulumi.InputType['BrokerLogsArgs']]] = None,
             maintenance_window_start_time: Optional[pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArgs']]] = None,
             publicly_accessible: Optional[pulumi.Input[bool]] = None,
-            security_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            subnet_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]]] = None) -> 'Broker':
+            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]]] = None) -> 'Broker':
         """
         Get an existing Broker resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -188,7 +188,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[str] engine_type: The type of broker engine. Currently, Amazon MQ supports only `ActiveMQ`.
         :param pulumi.Input[str] engine_version: The version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions.
         :param pulumi.Input[str] host_instance_type: The broker's instance type. e.g. `mq.t2.micro` or `mq.m4.large`
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BrokerInstanceArgs']]]] instances: A list of information about allocated brokers (both active & standby).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerInstanceArgs']]]] instances: A list of information about allocated brokers (both active & standby).
                * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
                * `instances.0.ip_address` - The IP Address of the broker.
                * `instances.0.endpoints` - The broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
@@ -200,10 +200,10 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['BrokerLogsArgs']] logs: Logging configuration of the broker. See below.
         :param pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArgs']] maintenance_window_start_time: Maintenance window start time. See below.
         :param pulumi.Input[bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
-        :param pulumi.Input[List[pulumi.Input[str]]] security_groups: The list of security group IDs assigned to the broker.
-        :param pulumi.Input[List[pulumi.Input[str]]] subnet_ids: The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The list of security group IDs assigned to the broker.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]] users: The list of all ActiveMQ usernames for the specified broker. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]] users: The list of all ActiveMQ usernames for the specified broker. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -312,7 +312,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def instances(self) -> pulumi.Output[List['outputs.BrokerInstance']]:
+    def instances(self) -> pulumi.Output[Sequence['outputs.BrokerInstance']]:
         """
         A list of information about allocated brokers (both active & standby).
         * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
@@ -352,7 +352,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> pulumi.Output[List[str]]:
+    def security_groups(self) -> pulumi.Output[Sequence[str]]:
         """
         The list of security group IDs assigned to the broker.
         """
@@ -360,7 +360,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Output[List[str]]:
+    def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         The list of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires two subnets.
         """
@@ -376,7 +376,7 @@ class Broker(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> pulumi.Output[List['outputs.BrokerUser']]:
+    def users(self) -> pulumi.Output[Sequence['outputs.BrokerUser']]:
         """
         The list of all ActiveMQ usernames for the specified broker. See below.
         """

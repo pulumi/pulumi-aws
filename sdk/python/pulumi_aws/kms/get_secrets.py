@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -50,7 +50,7 @@ class GetSecretsResult:
 
     @property
     @pulumi.getter
-    def secrets(self) -> List['outputs.GetSecretsSecretResult']:
+    def secrets(self) -> Sequence['outputs.GetSecretsSecretResult']:
         return pulumi.get(self, "secrets")
 
 
@@ -65,13 +65,13 @@ class AwaitableGetSecretsResult(GetSecretsResult):
             secrets=self.secrets)
 
 
-def get_secrets(secrets: Optional[List[pulumi.InputType['GetSecretsSecretArgs']]] = None,
+def get_secrets(secrets: Optional[Sequence[pulumi.InputType['GetSecretsSecretArgs']]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretsResult:
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
 
 
-    :param List[pulumi.InputType['GetSecretsSecretArgs']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+    :param Sequence[pulumi.InputType['GetSecretsSecretArgs']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
     """
     __args__ = dict()
     __args__['secrets'] = secrets

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -20,13 +20,13 @@ class ApplicationAppversionLifecycleArgs:
     def __init__(__self__, *,
                  service_role: pulumi.Input[str],
                  delete_source_from_s3: Optional[pulumi.Input[bool]] = None,
-                 max_age_in_days: Optional[pulumi.Input[float]] = None,
-                 max_count: Optional[pulumi.Input[float]] = None):
+                 max_age_in_days: Optional[pulumi.Input[int]] = None,
+                 max_count: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] service_role: The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
         :param pulumi.Input[bool] delete_source_from_s3: Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-        :param pulumi.Input[float] max_age_in_days: The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        :param pulumi.Input[float] max_count: The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
+        :param pulumi.Input[int] max_age_in_days: The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
+        :param pulumi.Input[int] max_count: The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         """
         pulumi.set(__self__, "service_role", service_role)
         if delete_source_from_s3 is not None:
@@ -62,26 +62,26 @@ class ApplicationAppversionLifecycleArgs:
 
     @property
     @pulumi.getter(name="maxAgeInDays")
-    def max_age_in_days(self) -> Optional[pulumi.Input[float]]:
+    def max_age_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         """
         return pulumi.get(self, "max_age_in_days")
 
     @max_age_in_days.setter
-    def max_age_in_days(self, value: Optional[pulumi.Input[float]]):
+    def max_age_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_age_in_days", value)
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[pulumi.Input[float]]:
+    def max_count(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
-    def max_count(self, value: Optional[pulumi.Input[float]]):
+    def max_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_count", value)
 
 

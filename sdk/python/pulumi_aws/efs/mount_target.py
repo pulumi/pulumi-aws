@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['MountTarget']
@@ -17,7 +17,7 @@ class MountTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
-                 security_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -46,7 +46,7 @@ class MountTarget(pulumi.CustomResource):
         :param pulumi.Input[str] file_system_id: The ID of the file system for which the mount target is intended.
         :param pulumi.Input[str] ip_address: The address (within the address range of the specified subnet) at
                which the file system may be mounted via the mount target.
-        :param pulumi.Input[List[pulumi.Input[str]]] security_groups: A list of up to 5 VPC security group IDs (that must
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of up to 5 VPC security group IDs (that must
                be for the same VPC as subnet specified) in effect for the mount target.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to add the mount target in.
         """
@@ -101,7 +101,7 @@ class MountTarget(pulumi.CustomResource):
             mount_target_dns_name: Optional[pulumi.Input[str]] = None,
             network_interface_id: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
-            security_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None) -> 'MountTarget':
         """
         Get an existing MountTarget resource's state with the given name, id, and optional extra
@@ -120,7 +120,7 @@ class MountTarget(pulumi.CustomResource):
         :param pulumi.Input[str] mount_target_dns_name: The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         :param pulumi.Input[str] network_interface_id: The ID of the network interface that Amazon EFS created when it created the mount target.
         :param pulumi.Input[str] owner_id: AWS account ID that owns the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] security_groups: A list of up to 5 VPC security group IDs (that must
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of up to 5 VPC security group IDs (that must
                be for the same VPC as subnet specified) in effect for the mount target.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to add the mount target in.
         """
@@ -216,7 +216,7 @@ class MountTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> pulumi.Output[List[str]]:
+    def security_groups(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of up to 5 VPC security group IDs (that must
         be for the same VPC as subnet specified) in effect for the mount target.

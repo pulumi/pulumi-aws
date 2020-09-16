@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -61,13 +61,13 @@ class NfsFileShareNfsFileShareDefaults(dict):
     def __init__(__self__, *,
                  directory_mode: Optional[str] = None,
                  file_mode: Optional[str] = None,
-                 group_id: Optional[float] = None,
-                 owner_id: Optional[float] = None):
+                 group_id: Optional[int] = None,
+                 owner_id: Optional[int] = None):
         """
         :param str directory_mode: The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
         :param str file_mode: The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
-        :param float group_id: The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-        :param float owner_id: The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
+        :param int group_id: The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
+        :param int owner_id: The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         """
         if directory_mode is not None:
             pulumi.set(__self__, "directory_mode", directory_mode)
@@ -96,7 +96,7 @@ class NfsFileShareNfsFileShareDefaults(dict):
 
     @property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[float]:
+    def group_id(self) -> Optional[int]:
         """
         The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         """
@@ -104,7 +104,7 @@ class NfsFileShareNfsFileShareDefaults(dict):
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[float]:
+    def owner_id(self) -> Optional[int]:
         """
         The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         """

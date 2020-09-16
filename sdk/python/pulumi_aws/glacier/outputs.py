@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -15,10 +15,10 @@ __all__ = [
 @pulumi.output_type
 class VaultNotification(dict):
     def __init__(__self__, *,
-                 events: List[str],
+                 events: Sequence[str],
                  sns_topic: str):
         """
-        :param List[str] events: You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
+        :param Sequence[str] events: You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
         :param str sns_topic: The SNS Topic ARN.
         """
         pulumi.set(__self__, "events", events)
@@ -26,7 +26,7 @@ class VaultNotification(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> List[str]:
+    def events(self) -> Sequence[str]:
         """
         You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
         """

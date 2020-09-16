@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -19,10 +19,10 @@ __all__ = [
 @pulumi.input_type
 class EfsLocationEc2ConfigArgs:
     def __init__(__self__, *,
-                 security_group_arns: pulumi.Input[List[pulumi.Input[str]]],
+                 security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_arn: pulumi.Input[str]):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_arns: List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
         :param pulumi.Input[str] subnet_arn: Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
         """
         pulumi.set(__self__, "security_group_arns", security_group_arns)
@@ -30,14 +30,14 @@ class EfsLocationEc2ConfigArgs:
 
     @property
     @pulumi.getter(name="securityGroupArns")
-    def security_group_arns(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def security_group_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
         """
         return pulumi.get(self, "security_group_arns")
 
     @security_group_arns.setter
-    def security_group_arns(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def security_group_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "security_group_arns", value)
 
     @property
@@ -79,22 +79,22 @@ class LocationSmbMountOptionsArgs:
 @pulumi.input_type
 class NfsLocationOnPremConfigArgs:
     def __init__(__self__, *,
-                 agent_arns: pulumi.Input[List[pulumi.Input[str]]]):
+                 agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] agent_arns: List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
 
     @property
     @pulumi.getter(name="agentArns")
-    def agent_arns(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def agent_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
         """
         return pulumi.get(self, "agent_arns")
 
     @agent_arns.setter
-    def agent_arns(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def agent_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "agent_arns", value)
 
 
@@ -124,7 +124,7 @@ class S3LocationS3ConfigArgs:
 class TaskOptionsArgs:
     def __init__(__self__, *,
                  atime: Optional[pulumi.Input[str]] = None,
-                 bytes_per_second: Optional[pulumi.Input[float]] = None,
+                 bytes_per_second: Optional[pulumi.Input[int]] = None,
                  gid: Optional[pulumi.Input[str]] = None,
                  mtime: Optional[pulumi.Input[str]] = None,
                  posix_permissions: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class TaskOptionsArgs:
                  verify_mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] atime: A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
-        :param pulumi.Input[float] bytes_per_second: Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
+        :param pulumi.Input[int] bytes_per_second: Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
         :param pulumi.Input[str] gid: Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
         :param pulumi.Input[str] mtime: A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         :param pulumi.Input[str] posix_permissions: Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
@@ -176,14 +176,14 @@ class TaskOptionsArgs:
 
     @property
     @pulumi.getter(name="bytesPerSecond")
-    def bytes_per_second(self) -> Optional[pulumi.Input[float]]:
+    def bytes_per_second(self) -> Optional[pulumi.Input[int]]:
         """
         Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
         """
         return pulumi.get(self, "bytes_per_second")
 
     @bytes_per_second.setter
-    def bytes_per_second(self, value: Optional[pulumi.Input[float]]):
+    def bytes_per_second(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "bytes_per_second", value)
 
     @property

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['EventSubscription']
@@ -16,10 +16,10 @@ class EventSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 event_categories: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
-                 source_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -51,10 +51,10 @@ class EventSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether the event subscription should be enabled.
-        :param pulumi.Input[List[pulumi.Input[str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         :param pulumi.Input[str] name: Name of event subscription.
         :param pulumi.Input[str] sns_topic_arn: SNS topic arn to send events on.
-        :param pulumi.Input[List[pulumi.Input[str]]] source_ids: Ids of sources to listen to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ids: Ids of sources to listen to.
         :param pulumi.Input[str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
         """
         if __name__ is not None:
@@ -98,10 +98,10 @@ class EventSubscription(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            event_categories: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             sns_topic_arn: Optional[pulumi.Input[str]] = None,
-            source_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             source_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'EventSubscription':
         """
@@ -112,10 +112,10 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether the event subscription should be enabled.
-        :param pulumi.Input[List[pulumi.Input[str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         :param pulumi.Input[str] name: Name of event subscription.
         :param pulumi.Input[str] sns_topic_arn: SNS topic arn to send events on.
-        :param pulumi.Input[List[pulumi.Input[str]]] source_ids: Ids of sources to listen to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ids: Ids of sources to listen to.
         :param pulumi.Input[str] source_type: Type of source for events. Valid values: `replication-instance` or `replication-task`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -147,7 +147,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventCategories")
-    def event_categories(self) -> pulumi.Output[List[str]]:
+    def event_categories(self) -> pulumi.Output[Sequence[str]]:
         """
         List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         """
@@ -171,7 +171,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceIds")
-    def source_ids(self) -> pulumi.Output[Optional[List[str]]]:
+    def source_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Ids of sources to listen to.
         """

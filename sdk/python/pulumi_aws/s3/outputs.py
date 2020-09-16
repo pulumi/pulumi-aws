@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -313,17 +313,17 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDes
 @pulumi.output_type
 class BucketCorsRule(dict):
     def __init__(__self__, *,
-                 allowed_methods: List[str],
-                 allowed_origins: List[str],
-                 allowed_headers: Optional[List[str]] = None,
-                 expose_headers: Optional[List[str]] = None,
-                 max_age_seconds: Optional[float] = None):
+                 allowed_methods: Sequence[str],
+                 allowed_origins: Sequence[str],
+                 allowed_headers: Optional[Sequence[str]] = None,
+                 expose_headers: Optional[Sequence[str]] = None,
+                 max_age_seconds: Optional[int] = None):
         """
-        :param List[str] allowed_methods: Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
-        :param List[str] allowed_origins: Specifies which origins are allowed.
-        :param List[str] allowed_headers: Specifies which headers are allowed.
-        :param List[str] expose_headers: Specifies expose header in the response.
-        :param float max_age_seconds: Specifies time in seconds that browser can cache the response for a preflight request.
+        :param Sequence[str] allowed_methods: Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+        :param Sequence[str] allowed_origins: Specifies which origins are allowed.
+        :param Sequence[str] allowed_headers: Specifies which headers are allowed.
+        :param Sequence[str] expose_headers: Specifies expose header in the response.
+        :param int max_age_seconds: Specifies time in seconds that browser can cache the response for a preflight request.
         """
         pulumi.set(__self__, "allowed_methods", allowed_methods)
         pulumi.set(__self__, "allowed_origins", allowed_origins)
@@ -336,7 +336,7 @@ class BucketCorsRule(dict):
 
     @property
     @pulumi.getter(name="allowedMethods")
-    def allowed_methods(self) -> List[str]:
+    def allowed_methods(self) -> Sequence[str]:
         """
         Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
         """
@@ -344,7 +344,7 @@ class BucketCorsRule(dict):
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> List[str]:
+    def allowed_origins(self) -> Sequence[str]:
         """
         Specifies which origins are allowed.
         """
@@ -352,7 +352,7 @@ class BucketCorsRule(dict):
 
     @property
     @pulumi.getter(name="allowedHeaders")
-    def allowed_headers(self) -> Optional[List[str]]:
+    def allowed_headers(self) -> Optional[Sequence[str]]:
         """
         Specifies which headers are allowed.
         """
@@ -360,7 +360,7 @@ class BucketCorsRule(dict):
 
     @property
     @pulumi.getter(name="exposeHeaders")
-    def expose_headers(self) -> Optional[List[str]]:
+    def expose_headers(self) -> Optional[Sequence[str]]:
         """
         Specifies expose header in the response.
         """
@@ -368,7 +368,7 @@ class BucketCorsRule(dict):
 
     @property
     @pulumi.getter(name="maxAgeSeconds")
-    def max_age_seconds(self) -> Optional[float]:
+    def max_age_seconds(self) -> Optional[int]:
         """
         Specifies time in seconds that browser can cache the response for a preflight request.
         """
@@ -381,12 +381,12 @@ class BucketCorsRule(dict):
 @pulumi.output_type
 class BucketGrant(dict):
     def __init__(__self__, *,
-                 permissions: List[str],
+                 permissions: Sequence[str],
                  type: str,
                  id: Optional[str] = None,
                  uri: Optional[str] = None):
         """
-        :param List[str] permissions: List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
+        :param Sequence[str] permissions: List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
         :param str type: - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
         :param str id: Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
         :param str uri: Uri address to grant for. Used only when `type` is `Group`.
@@ -400,7 +400,7 @@ class BucketGrant(dict):
 
     @property
     @pulumi.getter
-    def permissions(self) -> List[str]:
+    def permissions(self) -> Sequence[str]:
         """
         List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
         """
@@ -438,24 +438,24 @@ class BucketGrant(dict):
 class BucketLifecycleRule(dict):
     def __init__(__self__, *,
                  enabled: bool,
-                 abort_incomplete_multipart_upload_days: Optional[float] = None,
+                 abort_incomplete_multipart_upload_days: Optional[int] = None,
                  expiration: Optional['outputs.BucketLifecycleRuleExpiration'] = None,
                  id: Optional[str] = None,
                  noncurrent_version_expiration: Optional['outputs.BucketLifecycleRuleNoncurrentVersionExpiration'] = None,
-                 noncurrent_version_transitions: Optional[List['outputs.BucketLifecycleRuleNoncurrentVersionTransition']] = None,
+                 noncurrent_version_transitions: Optional[Sequence['outputs.BucketLifecycleRuleNoncurrentVersionTransition']] = None,
                  prefix: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
-                 transitions: Optional[List['outputs.BucketLifecycleRuleTransition']] = None):
+                 transitions: Optional[Sequence['outputs.BucketLifecycleRuleTransition']] = None):
         """
         :param bool enabled: Specifies lifecycle rule status.
-        :param float abort_incomplete_multipart_upload_days: Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+        :param int abort_incomplete_multipart_upload_days: Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
         :param 'BucketLifecycleRuleExpirationArgs' expiration: Specifies a period in the object's expire (documented below).
         :param str id: Unique identifier for the rule.
         :param 'BucketLifecycleRuleNoncurrentVersionExpirationArgs' noncurrent_version_expiration: Specifies when noncurrent object versions expire (documented below).
-        :param List['BucketLifecycleRuleNoncurrentVersionTransitionArgs'] noncurrent_version_transitions: Specifies when noncurrent object versions transitions (documented below).
+        :param Sequence['BucketLifecycleRuleNoncurrentVersionTransitionArgs'] noncurrent_version_transitions: Specifies when noncurrent object versions transitions (documented below).
         :param str prefix: Object key prefix identifying one or more objects to which the rule applies.
         :param Mapping[str, str] tags: Specifies object tags key and value.
-        :param List['BucketLifecycleRuleTransitionArgs'] transitions: Specifies a period in the object's transitions (documented below).
+        :param Sequence['BucketLifecycleRuleTransitionArgs'] transitions: Specifies a period in the object's transitions (documented below).
         """
         pulumi.set(__self__, "enabled", enabled)
         if abort_incomplete_multipart_upload_days is not None:
@@ -485,7 +485,7 @@ class BucketLifecycleRule(dict):
 
     @property
     @pulumi.getter(name="abortIncompleteMultipartUploadDays")
-    def abort_incomplete_multipart_upload_days(self) -> Optional[float]:
+    def abort_incomplete_multipart_upload_days(self) -> Optional[int]:
         """
         Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
         """
@@ -517,7 +517,7 @@ class BucketLifecycleRule(dict):
 
     @property
     @pulumi.getter(name="noncurrentVersionTransitions")
-    def noncurrent_version_transitions(self) -> Optional[List['outputs.BucketLifecycleRuleNoncurrentVersionTransition']]:
+    def noncurrent_version_transitions(self) -> Optional[Sequence['outputs.BucketLifecycleRuleNoncurrentVersionTransition']]:
         """
         Specifies when noncurrent object versions transitions (documented below).
         """
@@ -541,7 +541,7 @@ class BucketLifecycleRule(dict):
 
     @property
     @pulumi.getter
-    def transitions(self) -> Optional[List['outputs.BucketLifecycleRuleTransition']]:
+    def transitions(self) -> Optional[Sequence['outputs.BucketLifecycleRuleTransition']]:
         """
         Specifies a period in the object's transitions (documented below).
         """
@@ -555,11 +555,11 @@ class BucketLifecycleRule(dict):
 class BucketLifecycleRuleExpiration(dict):
     def __init__(__self__, *,
                  date: Optional[str] = None,
-                 days: Optional[float] = None,
+                 days: Optional[int] = None,
                  expired_object_delete_marker: Optional[bool] = None):
         """
         :param str date: Specifies the date after which you want the corresponding action to take effect.
-        :param float days: Specifies the number of days after object creation when the specific rule action takes effect.
+        :param int days: Specifies the number of days after object creation when the specific rule action takes effect.
         :param bool expired_object_delete_marker: On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers.
         """
         if date is not None:
@@ -579,7 +579,7 @@ class BucketLifecycleRuleExpiration(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[float]:
+    def days(self) -> Optional[int]:
         """
         Specifies the number of days after object creation when the specific rule action takes effect.
         """
@@ -600,16 +600,16 @@ class BucketLifecycleRuleExpiration(dict):
 @pulumi.output_type
 class BucketLifecycleRuleNoncurrentVersionExpiration(dict):
     def __init__(__self__, *,
-                 days: Optional[float] = None):
+                 days: Optional[int] = None):
         """
-        :param float days: Specifies the number of days noncurrent object versions expire.
+        :param int days: Specifies the number of days noncurrent object versions expire.
         """
         if days is not None:
             pulumi.set(__self__, "days", days)
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[float]:
+    def days(self) -> Optional[int]:
         """
         Specifies the number of days noncurrent object versions expire.
         """
@@ -623,10 +623,10 @@ class BucketLifecycleRuleNoncurrentVersionExpiration(dict):
 class BucketLifecycleRuleNoncurrentVersionTransition(dict):
     def __init__(__self__, *,
                  storage_class: str,
-                 days: Optional[float] = None):
+                 days: Optional[int] = None):
         """
         :param str storage_class: Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
-        :param float days: Specifies the number of days noncurrent object versions transition.
+        :param int days: Specifies the number of days noncurrent object versions transition.
         """
         pulumi.set(__self__, "storage_class", storage_class)
         if days is not None:
@@ -642,7 +642,7 @@ class BucketLifecycleRuleNoncurrentVersionTransition(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[float]:
+    def days(self) -> Optional[int]:
         """
         Specifies the number of days noncurrent object versions transition.
         """
@@ -657,11 +657,11 @@ class BucketLifecycleRuleTransition(dict):
     def __init__(__self__, *,
                  storage_class: str,
                  date: Optional[str] = None,
-                 days: Optional[float] = None):
+                 days: Optional[int] = None):
         """
         :param str storage_class: Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
         :param str date: Specifies the date after which you want the corresponding action to take effect.
-        :param float days: Specifies the number of days after object creation when the specific rule action takes effect.
+        :param int days: Specifies the number of days after object creation when the specific rule action takes effect.
         """
         pulumi.set(__self__, "storage_class", storage_class)
         if date is not None:
@@ -687,7 +687,7 @@ class BucketLifecycleRuleTransition(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[float]:
+    def days(self) -> Optional[int]:
         """
         Specifies the number of days after object creation when the specific rule action takes effect.
         """
@@ -767,13 +767,13 @@ class BucketMetricFilter(dict):
 @pulumi.output_type
 class BucketNotificationLambdaFunction(dict):
     def __init__(__self__, *,
-                 events: List[str],
+                 events: Sequence[str],
                  filter_prefix: Optional[str] = None,
                  filter_suffix: Optional[str] = None,
                  id: Optional[str] = None,
                  lambda_function_arn: Optional[str] = None):
         """
-        :param List[str] events: Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        :param Sequence[str] events: Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         :param str filter_prefix: Specifies object key name prefix.
         :param str filter_suffix: Specifies object key name suffix.
         :param str id: Specifies unique identifier for each of the notification configurations.
@@ -791,7 +791,7 @@ class BucketNotificationLambdaFunction(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> List[str]:
+    def events(self) -> Sequence[str]:
         """
         Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         """
@@ -836,13 +836,13 @@ class BucketNotificationLambdaFunction(dict):
 @pulumi.output_type
 class BucketNotificationQueue(dict):
     def __init__(__self__, *,
-                 events: List[str],
+                 events: Sequence[str],
                  queue_arn: str,
                  filter_prefix: Optional[str] = None,
                  filter_suffix: Optional[str] = None,
                  id: Optional[str] = None):
         """
-        :param List[str] events: Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        :param Sequence[str] events: Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         :param str queue_arn: Specifies Amazon SQS queue ARN.
         :param str filter_prefix: Specifies object key name prefix.
         :param str filter_suffix: Specifies object key name suffix.
@@ -859,7 +859,7 @@ class BucketNotificationQueue(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> List[str]:
+    def events(self) -> Sequence[str]:
         """
         Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         """
@@ -904,13 +904,13 @@ class BucketNotificationQueue(dict):
 @pulumi.output_type
 class BucketNotificationTopic(dict):
     def __init__(__self__, *,
-                 events: List[str],
+                 events: Sequence[str],
                  topic_arn: str,
                  filter_prefix: Optional[str] = None,
                  filter_suffix: Optional[str] = None,
                  id: Optional[str] = None):
         """
-        :param List[str] events: Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        :param Sequence[str] events: Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         :param str topic_arn: Specifies Amazon SNS topic ARN.
         :param str filter_prefix: Specifies object key name prefix.
         :param str filter_suffix: Specifies object key name suffix.
@@ -927,7 +927,7 @@ class BucketNotificationTopic(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> List[str]:
+    def events(self) -> Sequence[str]:
         """
         Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         """
@@ -1027,12 +1027,12 @@ class BucketObjectLockConfigurationRule(dict):
 class BucketObjectLockConfigurationRuleDefaultRetention(dict):
     def __init__(__self__, *,
                  mode: str,
-                 days: Optional[float] = None,
-                 years: Optional[float] = None):
+                 days: Optional[int] = None,
+                 years: Optional[int] = None):
         """
         :param str mode: The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
-        :param float days: The number of days that you want to specify for the default retention period.
-        :param float years: The number of years that you want to specify for the default retention period.
+        :param int days: The number of days that you want to specify for the default retention period.
+        :param int years: The number of years that you want to specify for the default retention period.
         """
         pulumi.set(__self__, "mode", mode)
         if days is not None:
@@ -1050,7 +1050,7 @@ class BucketObjectLockConfigurationRuleDefaultRetention(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[float]:
+    def days(self) -> Optional[int]:
         """
         The number of days that you want to specify for the default retention period.
         """
@@ -1058,7 +1058,7 @@ class BucketObjectLockConfigurationRuleDefaultRetention(dict):
 
     @property
     @pulumi.getter
-    def years(self) -> Optional[float]:
+    def years(self) -> Optional[int]:
         """
         The number of years that you want to specify for the default retention period.
         """
@@ -1072,10 +1072,10 @@ class BucketObjectLockConfigurationRuleDefaultRetention(dict):
 class BucketReplicationConfiguration(dict):
     def __init__(__self__, *,
                  role: str,
-                 rules: List['outputs.BucketReplicationConfigurationRule']):
+                 rules: Sequence['outputs.BucketReplicationConfigurationRule']):
         """
         :param str role: The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        :param List['BucketReplicationConfigurationRuleArgs'] rules: Specifies the rules managing the replication (documented below).
+        :param Sequence['BucketReplicationConfigurationRuleArgs'] rules: Specifies the rules managing the replication (documented below).
         """
         pulumi.set(__self__, "role", role)
         pulumi.set(__self__, "rules", rules)
@@ -1090,7 +1090,7 @@ class BucketReplicationConfiguration(dict):
 
     @property
     @pulumi.getter
-    def rules(self) -> List['outputs.BucketReplicationConfigurationRule']:
+    def rules(self) -> Sequence['outputs.BucketReplicationConfigurationRule']:
         """
         Specifies the rules managing the replication (documented below).
         """
@@ -1108,7 +1108,7 @@ class BucketReplicationConfigurationRule(dict):
                  filter: Optional['outputs.BucketReplicationConfigurationRuleFilter'] = None,
                  id: Optional[str] = None,
                  prefix: Optional[str] = None,
-                 priority: Optional[float] = None,
+                 priority: Optional[int] = None,
                  source_selection_criteria: Optional['outputs.BucketReplicationConfigurationRuleSourceSelectionCriteria'] = None):
         """
         :param 'BucketReplicationConfigurationRuleDestinationArgs' destination: Specifies the destination for the rule (documented below).
@@ -1116,7 +1116,7 @@ class BucketReplicationConfigurationRule(dict):
         :param 'BucketReplicationConfigurationRuleFilterArgs' filter: Filter that identifies subset of objects to which the replication rule applies (documented below).
         :param str id: Unique identifier for the rule.
         :param str prefix: Object keyname prefix identifying one or more objects to which the rule applies.
-        :param float priority: is optional (with a default value of `0`) but must be unique between multiple rules
+        :param int priority: is optional (with a default value of `0`) but must be unique between multiple rules
         :param 'BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs' source_selection_criteria: Specifies special object selection criteria (documented below).
         """
         pulumi.set(__self__, "destination", destination)
@@ -1174,7 +1174,7 @@ class BucketReplicationConfigurationRule(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         is optional (with a default value of `0`) but must be unique between multiple rules
         """
@@ -1485,7 +1485,7 @@ class BucketWebsite(dict):
         :param str error_document: An absolute path to the document to return in case of a 4XX error.
         :param str index_document: Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
         :param str redirect_all_requests_to: A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-        :param Union[str, List[str]] routing_rules: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        :param Union[str, Sequence[str]] routing_rules: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
                describing redirect behavior and when redirects are applied.
         """
         if error_document is not None:

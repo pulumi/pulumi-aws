@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testGraphQLApi = new aws.appsync.GraphQLApi("testGraphQLApi", {
+ * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {
  *     authenticationType: "API_KEY",
  *     schema: `type Mutation {
  *   putPost(id: ID!, title: String!): Post
@@ -34,18 +34,18 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const testDataSource = new aws.appsync.DataSource("testDataSource", {
- *     apiId: testGraphQLApi.id,
- *     name: "tf-example",
+ * const exampleDataSource = new aws.appsync.DataSource("exampleDataSource", {
+ *     apiId: exampleGraphQLApi.id,
+ *     name: "example",
  *     type: "HTTP",
  *     httpConfig: {
  *         endpoint: "http://example.com",
  *     },
  * });
- * const testFunction = new aws.appsync.Function("testFunction", {
- *     apiId: testGraphQLApi.id,
- *     dataSource: testDataSource.name,
- *     name: "tf_example",
+ * const exampleFunction = new aws.appsync.Function("exampleFunction", {
+ *     apiId: exampleGraphQLApi.id,
+ *     dataSource: exampleDataSource.name,
+ *     name: "example",
  *     requestMappingTemplate: `{
  *     "version": "2018-05-29",
  *     "method": "GET",

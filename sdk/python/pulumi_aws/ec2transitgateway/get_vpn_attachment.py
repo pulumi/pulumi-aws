@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -40,7 +40,7 @@ class GetVpnAttachmentResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetVpnAttachmentFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetVpnAttachmentFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -83,7 +83,7 @@ class AwaitableGetVpnAttachmentResult(GetVpnAttachmentResult):
             vpn_connection_id=self.vpn_connection_id)
 
 
-def get_vpn_attachment(filters: Optional[List[pulumi.InputType['GetVpnAttachmentFilterArgs']]] = None,
+def get_vpn_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpnAttachmentFilterArgs']]] = None,
                        tags: Optional[Mapping[str, str]] = None,
                        transit_gateway_id: Optional[str] = None,
                        vpn_connection_id: Optional[str] = None,
@@ -114,7 +114,7 @@ def get_vpn_attachment(filters: Optional[List[pulumi.InputType['GetVpnAttachment
     ```
 
 
-    :param List[pulumi.InputType['GetVpnAttachmentFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetVpnAttachmentFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
     :param str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     :param str vpn_connection_id: Identifier of the EC2 VPN Connection.

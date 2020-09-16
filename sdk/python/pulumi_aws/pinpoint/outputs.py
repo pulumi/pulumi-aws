@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -63,15 +63,15 @@ class AppCampaignHook(dict):
 @pulumi.output_type
 class AppLimits(dict):
     def __init__(__self__, *,
-                 daily: Optional[float] = None,
-                 maximum_duration: Optional[float] = None,
-                 messages_per_second: Optional[float] = None,
-                 total: Optional[float] = None):
+                 daily: Optional[int] = None,
+                 maximum_duration: Optional[int] = None,
+                 messages_per_second: Optional[int] = None,
+                 total: Optional[int] = None):
         """
-        :param float daily: The maximum number of messages that the campaign can send daily.
-        :param float maximum_duration: The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-        :param float messages_per_second: The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-        :param float total: The maximum total number of messages that the campaign can send.
+        :param int daily: The maximum number of messages that the campaign can send daily.
+        :param int maximum_duration: The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+        :param int messages_per_second: The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+        :param int total: The maximum total number of messages that the campaign can send.
         """
         if daily is not None:
             pulumi.set(__self__, "daily", daily)
@@ -84,7 +84,7 @@ class AppLimits(dict):
 
     @property
     @pulumi.getter
-    def daily(self) -> Optional[float]:
+    def daily(self) -> Optional[int]:
         """
         The maximum number of messages that the campaign can send daily.
         """
@@ -92,7 +92,7 @@ class AppLimits(dict):
 
     @property
     @pulumi.getter(name="maximumDuration")
-    def maximum_duration(self) -> Optional[float]:
+    def maximum_duration(self) -> Optional[int]:
         """
         The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
         """
@@ -100,7 +100,7 @@ class AppLimits(dict):
 
     @property
     @pulumi.getter(name="messagesPerSecond")
-    def messages_per_second(self) -> Optional[float]:
+    def messages_per_second(self) -> Optional[int]:
         """
         The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
         """
@@ -108,7 +108,7 @@ class AppLimits(dict):
 
     @property
     @pulumi.getter
-    def total(self) -> Optional[float]:
+    def total(self) -> Optional[int]:
         """
         The maximum total number of messages that the campaign can send.
         """

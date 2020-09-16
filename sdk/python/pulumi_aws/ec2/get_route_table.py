@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -55,12 +55,12 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter
-    def associations(self) -> List['outputs.GetRouteTableAssociationResult']:
+    def associations(self) -> Sequence['outputs.GetRouteTableAssociationResult']:
         return pulumi.get(self, "associations")
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetRouteTableFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetRouteTableFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -97,7 +97,7 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter
-    def routes(self) -> List['outputs.GetRouteTableRouteResult']:
+    def routes(self) -> Sequence['outputs.GetRouteTableRouteResult']:
         return pulumi.get(self, "routes")
 
     @property
@@ -137,7 +137,7 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
             vpc_id=self.vpc_id)
 
 
-def get_route_table(filters: Optional[List[pulumi.InputType['GetRouteTableFilterArgs']]] = None,
+def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFilterArgs']]] = None,
                     gateway_id: Optional[str] = None,
                     route_table_id: Optional[str] = None,
                     subnet_id: Optional[str] = None,
@@ -170,7 +170,7 @@ def get_route_table(filters: Optional[List[pulumi.InputType['GetRouteTableFilter
     ```
 
 
-    :param List[pulumi.InputType['GetRouteTableFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: Custom filter block as described below.
     :param str gateway_id: The id of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
     :param str route_table_id: The id of the specific Route Table to retrieve.
     :param str subnet_id: The id of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).

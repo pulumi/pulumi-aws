@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -73,10 +73,10 @@ class AcceleratorAttributesArgs:
 @pulumi.input_type
 class AcceleratorIpSetArgs:
     def __init__(__self__, *,
-                 ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_family: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] ip_addresses: A list of IP addresses in the IP address set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: A list of IP addresses in the IP address set.
         :param pulumi.Input[str] ip_family: The types of IP addresses included in this IP set.
         """
         if ip_addresses is not None:
@@ -86,14 +86,14 @@ class AcceleratorIpSetArgs:
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of IP addresses in the IP address set.
         """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
-    def ip_addresses(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
     @property
@@ -113,10 +113,10 @@ class AcceleratorIpSetArgs:
 class EndpointGroupEndpointConfigurationArgs:
     def __init__(__self__, *,
                  endpoint_id: Optional[pulumi.Input[str]] = None,
-                 weight: Optional[pulumi.Input[float]] = None):
+                 weight: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] endpoint_id: An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-        :param pulumi.Input[float] weight: The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
+        :param pulumi.Input[int] weight: The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         """
         if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
@@ -137,25 +137,25 @@ class EndpointGroupEndpointConfigurationArgs:
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[float]]:
+    def weight(self) -> Optional[pulumi.Input[int]]:
         """
         The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[float]]):
+    def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
 
 
 @pulumi.input_type
 class ListenerPortRangeArgs:
     def __init__(__self__, *,
-                 from_port: Optional[pulumi.Input[float]] = None,
-                 to_port: Optional[pulumi.Input[float]] = None):
+                 from_port: Optional[pulumi.Input[int]] = None,
+                 to_port: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] from_port: The first port in the range of ports, inclusive.
-        :param pulumi.Input[float] to_port: The last port in the range of ports, inclusive.
+        :param pulumi.Input[int] from_port: The first port in the range of ports, inclusive.
+        :param pulumi.Input[int] to_port: The last port in the range of ports, inclusive.
         """
         if from_port is not None:
             pulumi.set(__self__, "from_port", from_port)
@@ -164,26 +164,26 @@ class ListenerPortRangeArgs:
 
     @property
     @pulumi.getter(name="fromPort")
-    def from_port(self) -> Optional[pulumi.Input[float]]:
+    def from_port(self) -> Optional[pulumi.Input[int]]:
         """
         The first port in the range of ports, inclusive.
         """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
-    def from_port(self, value: Optional[pulumi.Input[float]]):
+    def from_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "from_port", value)
 
     @property
     @pulumi.getter(name="toPort")
-    def to_port(self) -> Optional[pulumi.Input[float]]:
+    def to_port(self) -> Optional[pulumi.Input[int]]:
         """
         The last port in the range of ports, inclusive.
         """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
-    def to_port(self, value: Optional[pulumi.Input[float]]):
+    def to_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "to_port", value)
 
 

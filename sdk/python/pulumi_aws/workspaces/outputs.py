@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -125,16 +125,16 @@ class IpGroupRule(dict):
 class WorkspaceWorkspaceProperties(dict):
     def __init__(__self__, *,
                  compute_type_name: Optional[str] = None,
-                 root_volume_size_gib: Optional[float] = None,
+                 root_volume_size_gib: Optional[int] = None,
                  running_mode: Optional[str] = None,
-                 running_mode_auto_stop_timeout_in_minutes: Optional[float] = None,
-                 user_volume_size_gib: Optional[float] = None):
+                 running_mode_auto_stop_timeout_in_minutes: Optional[int] = None,
+                 user_volume_size_gib: Optional[int] = None):
         """
         :param str compute_type_name: The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
-        :param float root_volume_size_gib: The size of the root volume.
+        :param int root_volume_size_gib: The size of the root volume.
         :param str running_mode: The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-        :param float running_mode_auto_stop_timeout_in_minutes: The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-        :param float user_volume_size_gib: The size of the user storage.
+        :param int running_mode_auto_stop_timeout_in_minutes: The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        :param int user_volume_size_gib: The size of the user storage.
         """
         if compute_type_name is not None:
             pulumi.set(__self__, "compute_type_name", compute_type_name)
@@ -157,7 +157,7 @@ class WorkspaceWorkspaceProperties(dict):
 
     @property
     @pulumi.getter(name="rootVolumeSizeGib")
-    def root_volume_size_gib(self) -> Optional[float]:
+    def root_volume_size_gib(self) -> Optional[int]:
         """
         The size of the root volume.
         """
@@ -173,7 +173,7 @@ class WorkspaceWorkspaceProperties(dict):
 
     @property
     @pulumi.getter(name="runningModeAutoStopTimeoutInMinutes")
-    def running_mode_auto_stop_timeout_in_minutes(self) -> Optional[float]:
+    def running_mode_auto_stop_timeout_in_minutes(self) -> Optional[int]:
         """
         The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
         """
@@ -181,7 +181,7 @@ class WorkspaceWorkspaceProperties(dict):
 
     @property
     @pulumi.getter(name="userVolumeSizeGib")
-    def user_volume_size_gib(self) -> Optional[float]:
+    def user_volume_size_gib(self) -> Optional[int]:
         """
         The size of the user storage.
         """

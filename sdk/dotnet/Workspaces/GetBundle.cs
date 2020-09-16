@@ -26,7 +26,11 @@ namespace Pulumi.Aws.Workspaces
         /// {
         ///     public MyStack()
         ///     {
-        ///         var example = Output.Create(Aws.Workspaces.GetBundle.InvokeAsync(new Aws.Workspaces.GetBundleArgs
+        ///         var byId = Output.Create(Aws.Workspaces.GetBundle.InvokeAsync(new Aws.Workspaces.GetBundleArgs
+        ///         {
+        ///             BundleId = "wsb-b0s22j3d7",
+        ///         }));
+        ///         var byOwnerAndName = Output.Create(Aws.Workspaces.GetBundle.InvokeAsync(new Aws.Workspaces.GetBundleArgs
         ///         {
         ///             Name = "Value with Windows 10 and Office 2016",
         ///             Owner = "AMAZON",

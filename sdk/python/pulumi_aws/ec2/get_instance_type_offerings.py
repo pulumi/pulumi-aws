@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -37,7 +37,7 @@ class GetInstanceTypeOfferingsResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetInstanceTypeOfferingsFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetInstanceTypeOfferingsFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -50,7 +50,7 @@ class GetInstanceTypeOfferingsResult:
 
     @property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> List[str]:
+    def instance_types(self) -> Sequence[str]:
         """
         Set of EC2 Instance Types.
         """
@@ -74,7 +74,7 @@ class AwaitableGetInstanceTypeOfferingsResult(GetInstanceTypeOfferingsResult):
             location_type=self.location_type)
 
 
-def get_instance_type_offerings(filters: Optional[List[pulumi.InputType['GetInstanceTypeOfferingsFilterArgs']]] = None,
+def get_instance_type_offerings(filters: Optional[Sequence[pulumi.InputType['GetInstanceTypeOfferingsFilterArgs']]] = None,
                                 location_type: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypeOfferingsResult:
     """
@@ -103,7 +103,7 @@ def get_instance_type_offerings(filters: Optional[List[pulumi.InputType['GetInst
     ```
 
 
-    :param List[pulumi.InputType['GetInstanceTypeOfferingsFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetInstanceTypeOfferingsFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
     """
     __args__ = dict()

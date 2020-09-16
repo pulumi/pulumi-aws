@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -72,15 +72,15 @@ class AppCampaignHookArgs:
 @pulumi.input_type
 class AppLimitsArgs:
     def __init__(__self__, *,
-                 daily: Optional[pulumi.Input[float]] = None,
-                 maximum_duration: Optional[pulumi.Input[float]] = None,
-                 messages_per_second: Optional[pulumi.Input[float]] = None,
-                 total: Optional[pulumi.Input[float]] = None):
+                 daily: Optional[pulumi.Input[int]] = None,
+                 maximum_duration: Optional[pulumi.Input[int]] = None,
+                 messages_per_second: Optional[pulumi.Input[int]] = None,
+                 total: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] daily: The maximum number of messages that the campaign can send daily.
-        :param pulumi.Input[float] maximum_duration: The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-        :param pulumi.Input[float] messages_per_second: The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-        :param pulumi.Input[float] total: The maximum total number of messages that the campaign can send.
+        :param pulumi.Input[int] daily: The maximum number of messages that the campaign can send daily.
+        :param pulumi.Input[int] maximum_duration: The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+        :param pulumi.Input[int] messages_per_second: The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+        :param pulumi.Input[int] total: The maximum total number of messages that the campaign can send.
         """
         if daily is not None:
             pulumi.set(__self__, "daily", daily)
@@ -93,50 +93,50 @@ class AppLimitsArgs:
 
     @property
     @pulumi.getter
-    def daily(self) -> Optional[pulumi.Input[float]]:
+    def daily(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of messages that the campaign can send daily.
         """
         return pulumi.get(self, "daily")
 
     @daily.setter
-    def daily(self, value: Optional[pulumi.Input[float]]):
+    def daily(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "daily", value)
 
     @property
     @pulumi.getter(name="maximumDuration")
-    def maximum_duration(self) -> Optional[pulumi.Input[float]]:
+    def maximum_duration(self) -> Optional[pulumi.Input[int]]:
         """
         The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
         """
         return pulumi.get(self, "maximum_duration")
 
     @maximum_duration.setter
-    def maximum_duration(self, value: Optional[pulumi.Input[float]]):
+    def maximum_duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "maximum_duration", value)
 
     @property
     @pulumi.getter(name="messagesPerSecond")
-    def messages_per_second(self) -> Optional[pulumi.Input[float]]:
+    def messages_per_second(self) -> Optional[pulumi.Input[int]]:
         """
         The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
         """
         return pulumi.get(self, "messages_per_second")
 
     @messages_per_second.setter
-    def messages_per_second(self, value: Optional[pulumi.Input[float]]):
+    def messages_per_second(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "messages_per_second", value)
 
     @property
     @pulumi.getter
-    def total(self) -> Optional[pulumi.Input[float]]:
+    def total(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum total number of messages that the campaign can send.
         """
         return pulumi.get(self, "total")
 
     @total.setter
-    def total(self, value: Optional[pulumi.Input[float]]):
+    def total(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "total", value)
 
 

@@ -25,13 +25,13 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleAccelerator, err := globalaccelerator.NewAccelerator(ctx, "exampleAccelerator", &globalaccelerator.AcceleratorArgs{
+// 			IpAddressType: pulumi.String("IPV4"),
+// 			Enabled:       pulumi.Bool(true),
 // 			Attributes: &globalaccelerator.AcceleratorAttributesArgs{
 // 				FlowLogsEnabled:  pulumi.Bool(true),
 // 				FlowLogsS3Bucket: pulumi.String("example-bucket"),
 // 				FlowLogsS3Prefix: pulumi.String("flow-logs/"),
 // 			},
-// 			Enabled:       pulumi.Bool(true),
-// 			IpAddressType: pulumi.String("IPV4"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -39,13 +39,13 @@ import (
 // 		_, err = globalaccelerator.NewListener(ctx, "exampleListener", &globalaccelerator.ListenerArgs{
 // 			AcceleratorArn: exampleAccelerator.ID(),
 // 			ClientAffinity: pulumi.String("SOURCE_IP"),
+// 			Protocol:       pulumi.String("TCP"),
 // 			PortRanges: globalaccelerator.ListenerPortRangeArray{
 // 				&globalaccelerator.ListenerPortRangeArgs{
 // 					FromPort: pulumi.Int(80),
 // 					ToPort:   pulumi.Int(80),
 // 				},
 // 			},
-// 			Protocol: pulumi.String("TCP"),
 // 		})
 // 		if err != nil {
 // 			return err

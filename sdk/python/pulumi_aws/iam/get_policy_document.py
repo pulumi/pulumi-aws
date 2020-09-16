@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -77,7 +77,7 @@ class GetPolicyDocumentResult:
 
     @property
     @pulumi.getter
-    def statements(self) -> Optional[List['outputs.GetPolicyDocumentStatementResult']]:
+    def statements(self) -> Optional[Sequence['outputs.GetPolicyDocumentStatementResult']]:
         return pulumi.get(self, "statements")
 
     @property
@@ -104,7 +104,7 @@ class AwaitableGetPolicyDocumentResult(GetPolicyDocumentResult):
 def get_policy_document(override_json: Optional[str] = None,
                         policy_id: Optional[str] = None,
                         source_json: Optional[str] = None,
-                        statements: Optional[List[pulumi.InputType['GetPolicyDocumentStatementArgs']]] = None,
+                        statements: Optional[Sequence[pulumi.InputType['GetPolicyDocumentStatementArgs']]] = None,
                         version: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDocumentResult:
     """
@@ -307,7 +307,7 @@ def get_policy_document(override_json: Optional[str] = None,
            current policy document.  Statements with non-blank `sid`s in the current
            policy document will overwrite statements with the same `sid` in the source
            json.  Statements without an `sid` cannot be overwritten.
-    :param List[pulumi.InputType['GetPolicyDocumentStatementArgs']] statements: A nested configuration block (described below)
+    :param Sequence[pulumi.InputType['GetPolicyDocumentStatementArgs']] statements: A nested configuration block (described below)
            configuring one *statement* to be included in the policy document.
     :param str version: IAM policy document version. Valid values: `2008-10-17`, `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
     """

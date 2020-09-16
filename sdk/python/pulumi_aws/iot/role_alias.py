@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['RoleAlias']
@@ -16,7 +16,7 @@ class RoleAlias(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
-                 credential_duration: Optional[pulumi.Input[float]] = None,
+                 credential_duration: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -49,7 +49,7 @@ class RoleAlias(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The name of the role alias.
-        :param pulumi.Input[float] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+        :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
         """
         if __name__ is not None:
@@ -89,7 +89,7 @@ class RoleAlias(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             alias: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            credential_duration: Optional[pulumi.Input[float]] = None,
+            credential_duration: Optional[pulumi.Input[int]] = None,
             role_arn: Optional[pulumi.Input[str]] = None) -> 'RoleAlias':
         """
         Get an existing RoleAlias resource's state with the given name, id, and optional extra
@@ -100,7 +100,7 @@ class RoleAlias(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The name of the role alias.
         :param pulumi.Input[str] arn: The ARN assigned by AWS to this role alias.
-        :param pulumi.Input[float] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
+        :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -131,7 +131,7 @@ class RoleAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="credentialDuration")
-    def credential_duration(self) -> pulumi.Output[Optional[float]]:
+    def credential_duration(self) -> pulumi.Output[Optional[int]]:
         """
         The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 3600 seconds (60 minutes).
         """

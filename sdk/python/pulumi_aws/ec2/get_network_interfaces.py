@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -37,7 +37,7 @@ class GetNetworkInterfacesResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetNetworkInterfacesFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetNetworkInterfacesFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -50,7 +50,7 @@ class GetNetworkInterfacesResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> List[str]:
+    def ids(self) -> Sequence[str]:
         """
         A list of all the network interface ids found. This data source will fail if none are found.
         """
@@ -74,7 +74,7 @@ class AwaitableGetNetworkInterfacesResult(GetNetworkInterfacesResult):
             tags=self.tags)
 
 
-def get_network_interfaces(filters: Optional[List[pulumi.InputType['GetNetworkInterfacesFilterArgs']]] = None,
+def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']]] = None,
                            tags: Optional[Mapping[str, str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfacesResult:
     """
@@ -117,7 +117,7 @@ def get_network_interfaces(filters: Optional[List[pulumi.InputType['GetNetworkIn
     ```
 
 
-    :param List[pulumi.InputType['GetNetworkInterfacesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
            a pair on the desired network interfaces.
     """

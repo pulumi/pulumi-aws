@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,8 +17,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]]] = None,
-                 ingress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]]] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]]] = None,
                  revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -116,14 +116,10 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]] egress: Can be specified multiple times for each
-               egress rule. Each egress block supports fields documented below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]] ingress: Can be specified multiple times for each
-               ingress rule. Each ingress block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]] egress: Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]] ingress: Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[str] vpc_id: The VPC ID. **Note that changing
-               the `vpc_id` will _not_ restore any default security group rules that were
-               modified, added, or removed.** It will be left in its current state
+        :param pulumi.Input[str] vpc_id: The VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -163,8 +159,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            egress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]]] = None,
-            ingress: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]]] = None,
+            egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]]] = None,
+            ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
@@ -177,17 +173,14 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the security group
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]] egress: Can be specified multiple times for each
-               egress rule. Each egress block supports fields documented below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]] ingress: Can be specified multiple times for each
-               ingress rule. Each ingress block supports fields documented below.
+        :param pulumi.Input[str] arn: The ARN of the security group
+        :param pulumi.Input[str] description: Description of this egress rule.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]] egress: Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]] ingress: Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
         :param pulumi.Input[str] name: The name of the security group
         :param pulumi.Input[str] owner_id: The owner ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[str] vpc_id: The VPC ID. **Note that changing
-               the `vpc_id` will _not_ restore any default security group rules that were
-               modified, added, or removed.** It will be left in its current state
+        :param pulumi.Input[str] vpc_id: The VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -207,31 +200,32 @@ class DefaultSecurityGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the security group
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        The description of the security group
+        Description of this egress rule.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def egress(self) -> pulumi.Output[Optional[List['outputs.DefaultSecurityGroupEgress']]]:
+    def egress(self) -> pulumi.Output[Sequence['outputs.DefaultSecurityGroupEgress']]:
         """
-        Can be specified multiple times for each
-        egress rule. Each egress block supports fields documented below.
+        Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
         """
         return pulumi.get(self, "egress")
 
     @property
     @pulumi.getter
-    def ingress(self) -> pulumi.Output[Optional[List['outputs.DefaultSecurityGroupIngress']]]:
+    def ingress(self) -> pulumi.Output[Sequence['outputs.DefaultSecurityGroupIngress']]:
         """
-        Can be specified multiple times for each
-        ingress rule. Each ingress block supports fields documented below.
+        Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
         """
         return pulumi.get(self, "ingress")
 
@@ -268,9 +262,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
         """
-        The VPC ID. **Note that changing
-        the `vpc_id` will _not_ restore any default security group rules that were
-        modified, added, or removed.** It will be left in its current state
+        The VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
         """
         return pulumi.get(self, "vpc_id")
 

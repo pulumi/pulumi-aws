@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -63,7 +63,7 @@ class GetSecretRotationResult:
 
     @property
     @pulumi.getter(name="rotationRules")
-    def rotation_rules(self) -> List['outputs.GetSecretRotationRotationRuleResult']:
+    def rotation_rules(self) -> Sequence['outputs.GetSecretRotationRotationRuleResult']:
         """
         The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
         """

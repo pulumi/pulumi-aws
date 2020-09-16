@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -56,12 +56,12 @@ class DatabaseEncryptionConfigurationArgs:
 @pulumi.input_type
 class WorkgroupConfigurationArgs:
     def __init__(__self__, *,
-                 bytes_scanned_cutoff_per_query: Optional[pulumi.Input[float]] = None,
+                 bytes_scanned_cutoff_per_query: Optional[pulumi.Input[int]] = None,
                  enforce_workgroup_configuration: Optional[pulumi.Input[bool]] = None,
                  publish_cloudwatch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  result_configuration: Optional[pulumi.Input['WorkgroupConfigurationResultConfigurationArgs']] = None):
         """
-        :param pulumi.Input[float] bytes_scanned_cutoff_per_query: Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
+        :param pulumi.Input[int] bytes_scanned_cutoff_per_query: Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
         :param pulumi.Input[bool] enforce_workgroup_configuration: Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
         :param pulumi.Input[bool] publish_cloudwatch_metrics_enabled: Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         :param pulumi.Input['WorkgroupConfigurationResultConfigurationArgs'] result_configuration: Configuration block with result settings. Documented below.
@@ -77,14 +77,14 @@ class WorkgroupConfigurationArgs:
 
     @property
     @pulumi.getter(name="bytesScannedCutoffPerQuery")
-    def bytes_scanned_cutoff_per_query(self) -> Optional[pulumi.Input[float]]:
+    def bytes_scanned_cutoff_per_query(self) -> Optional[pulumi.Input[int]]:
         """
         Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
         """
         return pulumi.get(self, "bytes_scanned_cutoff_per_query")
 
     @bytes_scanned_cutoff_per_query.setter
-    def bytes_scanned_cutoff_per_query(self, value: Optional[pulumi.Input[float]]):
+    def bytes_scanned_cutoff_per_query(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "bytes_scanned_cutoff_per_query", value)
 
     @property

@@ -345,7 +345,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<ImmutableDictionary<string, string>>> TagsCollection { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+        /// A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         /// </summary>
         [Output("targetGroupArns")]
         public Output<ImmutableArray<string>> TargetGroupArns { get; private set; } = null!;
@@ -645,7 +645,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _targetGroupArns;
 
         /// <summary>
-        /// A list of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+        /// A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         /// </summary>
         public InputList<string> TargetGroupArns
         {
@@ -927,7 +927,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _targetGroupArns;
 
         /// <summary>
-        /// A list of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+        /// A set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
         /// </summary>
         public InputList<string> TargetGroupArns
         {

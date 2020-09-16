@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['DelegationSet']
@@ -67,7 +67,7 @@ class DelegationSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             reference_name: Optional[pulumi.Input[str]] = None) -> 'DelegationSet':
         """
         Get an existing DelegationSet resource's state with the given name, id, and optional extra
@@ -76,7 +76,7 @@ class DelegationSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] name_servers: A list of authoritative name servers for the hosted zone
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: A list of authoritative name servers for the hosted zone
                (effectively a list of NS records).
         :param pulumi.Input[str] reference_name: This is a reference name used in Caller Reference
                (helpful for identifying single delegation set amongst others)
@@ -91,7 +91,7 @@ class DelegationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> pulumi.Output[List[str]]:
+    def name_servers(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of authoritative name servers for the hosted zone
         (effectively a list of NS records).

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -76,11 +76,11 @@ class ClusterSnapshotCopyArgs:
     def __init__(__self__, *,
                  destination_region: pulumi.Input[str],
                  grant_name: Optional[pulumi.Input[str]] = None,
-                 retention_period: Optional[pulumi.Input[float]] = None):
+                 retention_period: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] destination_region: The destination region that you want to copy snapshots to.
         :param pulumi.Input[str] grant_name: The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-        :param pulumi.Input[float] retention_period: The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
+        :param pulumi.Input[int] retention_period: The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
         """
         pulumi.set(__self__, "destination_region", destination_region)
         if grant_name is not None:
@@ -114,14 +114,14 @@ class ClusterSnapshotCopyArgs:
 
     @property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input[float]]:
+    def retention_period(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input[float]]):
+    def retention_period(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_period", value)
 
 

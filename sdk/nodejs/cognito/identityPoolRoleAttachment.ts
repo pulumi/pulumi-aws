@@ -15,15 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mainIdentityPool = new aws.cognito.IdentityPool("main", {
- *     allowUnauthenticatedIdentities: false,
+ * const mainIdentityPool = new aws.cognito.IdentityPool("mainIdentityPool", {
  *     identityPoolName: "identity pool",
+ *     allowUnauthenticatedIdentities: false,
  *     supportedLoginProviders: {
  *         "graph.facebook.com": "7346241598935555",
  *     },
  * });
- * const authenticatedRole = new aws.iam.Role("authenticated", {
- *     assumeRolePolicy: pulumi.interpolate`{
+ * const authenticatedRole = new aws.iam.Role("authenticatedRole", {assumeRolePolicy: pulumi.interpolate`{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -43,9 +42,9 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const authenticatedRolePolicy = new aws.iam.RolePolicy("authenticated", {
+ * `});
+ * const authenticatedRolePolicy = new aws.iam.RolePolicy("authenticatedRolePolicy", {
+ *     role: authenticatedRole.id,
  *     policy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -63,20 +62,19 @@ import * as utilities from "../utilities";
  *   ]
  * }
  * `,
- *     role: authenticatedRole.id,
  * });
- * const mainIdentityPoolRoleAttachment = new aws.cognito.IdentityPoolRoleAttachment("main", {
+ * const mainIdentityPoolRoleAttachment = new aws.cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment", {
  *     identityPoolId: mainIdentityPool.id,
  *     roleMappings: [{
- *         ambiguousRoleResolution: "AuthenticatedRole",
  *         identityProvider: "graph.facebook.com",
+ *         ambiguousRoleResolution: "AuthenticatedRole",
+ *         type: "Rules",
  *         mappingRules: [{
  *             claim: "isAdmin",
  *             matchType: "Equals",
  *             roleArn: authenticatedRole.arn,
  *             value: "paid",
  *         }],
- *         type: "Rules",
  *     }],
  *     roles: {
  *         authenticated: authenticatedRole.arn,

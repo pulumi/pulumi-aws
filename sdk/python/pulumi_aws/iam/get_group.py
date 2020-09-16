@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -79,7 +79,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
-    def users(self) -> List['outputs.GetGroupUserResult']:
+    def users(self) -> Sequence['outputs.GetGroupUserResult']:
         """
         List of objects containing group member information. See supported fields below.
         """

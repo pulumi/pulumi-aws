@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['FlowLog']
@@ -21,7 +21,7 @@ class FlowLog(pulumi.CustomResource):
                  log_destination_type: Optional[pulumi.Input[str]] = None,
                  log_format: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
-                 max_aggregation_interval: Optional[pulumi.Input[float]] = None,
+                 max_aggregation_interval: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_type: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
         :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
-        :param pulumi.Input[float] max_aggregation_interval: The maximum interval of time
+        :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
                minutes). Default: `600`.
@@ -162,7 +162,7 @@ class FlowLog(pulumi.CustomResource):
             log_destination_type: Optional[pulumi.Input[str]] = None,
             log_format: Optional[pulumi.Input[str]] = None,
             log_group_name: Optional[pulumi.Input[str]] = None,
-            max_aggregation_interval: Optional[pulumi.Input[float]] = None,
+            max_aggregation_interval: Optional[pulumi.Input[int]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             traffic_type: Optional[pulumi.Input[str]] = None,
@@ -181,7 +181,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] log_destination_type: The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`. Default: `cloud-watch-logs`.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
         :param pulumi.Input[str] log_group_name: *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group.
-        :param pulumi.Input[float] max_aggregation_interval: The maximum interval of time
+        :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time
                during which a flow of packets is captured and aggregated into a flow
                log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
                minutes). Default: `600`.
@@ -266,7 +266,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxAggregationInterval")
-    def max_aggregation_interval(self) -> pulumi.Output[Optional[float]]:
+    def max_aggregation_interval(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum interval of time
         during which a flow of packets is captured and aggregated into a flow

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -22,13 +22,13 @@ __all__ = [
 @pulumi.output_type
 class ConfigurationAggregatorAccountAggregationSource(dict):
     def __init__(__self__, *,
-                 account_ids: List[str],
+                 account_ids: Sequence[str],
                  all_regions: Optional[bool] = None,
-                 regions: Optional[List[str]] = None):
+                 regions: Optional[Sequence[str]] = None):
         """
-        :param List[str] account_ids: List of 12-digit account IDs of the account(s) being aggregated.
+        :param Sequence[str] account_ids: List of 12-digit account IDs of the account(s) being aggregated.
         :param bool all_regions: If true, aggregate existing AWS Config regions and future regions.
-        :param List[str] regions: List of source regions being aggregated.
+        :param Sequence[str] regions: List of source regions being aggregated.
         """
         pulumi.set(__self__, "account_ids", account_ids)
         if all_regions is not None:
@@ -38,7 +38,7 @@ class ConfigurationAggregatorAccountAggregationSource(dict):
 
     @property
     @pulumi.getter(name="accountIds")
-    def account_ids(self) -> List[str]:
+    def account_ids(self) -> Sequence[str]:
         """
         List of 12-digit account IDs of the account(s) being aggregated.
         """
@@ -54,7 +54,7 @@ class ConfigurationAggregatorAccountAggregationSource(dict):
 
     @property
     @pulumi.getter
-    def regions(self) -> Optional[List[str]]:
+    def regions(self) -> Optional[Sequence[str]]:
         """
         List of source regions being aggregated.
         """
@@ -69,11 +69,11 @@ class ConfigurationAggregatorOrganizationAggregationSource(dict):
     def __init__(__self__, *,
                  role_arn: str,
                  all_regions: Optional[bool] = None,
-                 regions: Optional[List[str]] = None):
+                 regions: Optional[Sequence[str]] = None):
         """
         :param str role_arn: ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
         :param bool all_regions: If true, aggregate existing AWS Config regions and future regions.
-        :param List[str] regions: List of source regions being aggregated.
+        :param Sequence[str] regions: List of source regions being aggregated.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if all_regions is not None:
@@ -99,7 +99,7 @@ class ConfigurationAggregatorOrganizationAggregationSource(dict):
 
     @property
     @pulumi.getter
-    def regions(self) -> Optional[List[str]]:
+    def regions(self) -> Optional[Sequence[str]]:
         """
         List of source regions being aggregated.
         """
@@ -140,14 +140,14 @@ class RecorderRecordingGroup(dict):
     def __init__(__self__, *,
                  all_supported: Optional[bool] = None,
                  include_global_resource_types: Optional[bool] = None,
-                 resource_types: Optional[List[str]] = None):
+                 resource_types: Optional[Sequence[str]] = None):
         """
         :param bool all_supported: Specifies whether AWS Config records configuration changes
                for every supported type of regional resource (which includes any new type that will become supported in the future).
                Conflicts with `resource_types`. Defaults to `true`.
         :param bool include_global_resource_types: Specifies whether AWS Config includes all supported types of *global resources*
                with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
-        :param List[str] resource_types: A list that specifies the types of AWS resources for which
+        :param Sequence[str] resource_types: A list that specifies the types of AWS resources for which
                AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
                See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
         """
@@ -179,7 +179,7 @@ class RecorderRecordingGroup(dict):
 
     @property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[List[str]]:
+    def resource_types(self) -> Optional[Sequence[str]]:
         """
         A list that specifies the types of AWS resources for which
         AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`).
@@ -195,13 +195,13 @@ class RecorderRecordingGroup(dict):
 class RuleScope(dict):
     def __init__(__self__, *,
                  compliance_resource_id: Optional[str] = None,
-                 compliance_resource_types: Optional[List[str]] = None,
+                 compliance_resource_types: Optional[Sequence[str]] = None,
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
         """
         :param str compliance_resource_id: The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
                If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
-        :param List[str] compliance_resource_types: A list of resource types of only those AWS resources that you want to trigger an
+        :param Sequence[str] compliance_resource_types: A list of resource types of only those AWS resources that you want to trigger an
                evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
                a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
         :param str tag_key: The tag key that is applied to only those AWS resources that you want you
@@ -228,7 +228,7 @@ class RuleScope(dict):
 
     @property
     @pulumi.getter(name="complianceResourceTypes")
-    def compliance_resource_types(self) -> Optional[List[str]]:
+    def compliance_resource_types(self) -> Optional[Sequence[str]]:
         """
         A list of resource types of only those AWS resources that you want to trigger an
         evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify
@@ -262,11 +262,11 @@ class RuleSource(dict):
     def __init__(__self__, *,
                  owner: str,
                  source_identifier: str,
-                 source_details: Optional[List['outputs.RuleSourceSourceDetail']] = None):
+                 source_details: Optional[Sequence['outputs.RuleSourceSourceDetail']] = None):
         """
         :param str owner: Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.
         :param str source_identifier: For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
-        :param List['RuleSourceSourceDetailArgs'] source_details: Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
+        :param Sequence['RuleSourceSourceDetailArgs'] source_details: Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
         """
         pulumi.set(__self__, "owner", owner)
         pulumi.set(__self__, "source_identifier", source_identifier)
@@ -291,7 +291,7 @@ class RuleSource(dict):
 
     @property
     @pulumi.getter(name="sourceDetails")
-    def source_details(self) -> Optional[List['outputs.RuleSourceSourceDetail']]:
+    def source_details(self) -> Optional[Sequence['outputs.RuleSourceSourceDetail']]:
         """
         Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
         """

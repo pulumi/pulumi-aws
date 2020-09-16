@@ -36,7 +36,7 @@ namespace Pulumi.Aws.CloudFormation
         ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
         ///         {
         ///             Ami = "ami-abb07bcb",
-        ///             InstanceType = "t1.micro",
+        ///             InstanceType = "t2.micro",
         ///             SubnetId = subnetId.Apply(subnetId =&gt; subnetId.Value),
         ///         });
         ///     }

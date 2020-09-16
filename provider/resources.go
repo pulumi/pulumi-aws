@@ -23,12 +23,11 @@ import (
 	"unicode"
 
 	awsbase "github.com/hashicorp/aws-sdk-go-base"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v3/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
 	"github.com/terraform-providers/terraform-provider-aws/aws"
@@ -247,7 +246,7 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() tfbridge.ProviderInfo {
-	p := shimv1.NewProvider(aws.Provider().(*schema.Provider))
+	p := shimv2.NewProvider(aws.Provider())
 	prov := tfbridge.ProviderInfo{
 		P:           p,
 		Name:        "aws",
@@ -2214,6 +2213,10 @@ func Provider() tfbridge.ProviderInfo {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"associate_public_ip_address": {
+									Type:           "boolean",
+									MarkAsOptional: boolRef(true),
+								},
+								"delete_on_termination": {
 									Type:           "boolean",
 									MarkAsOptional: boolRef(true),
 								},

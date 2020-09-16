@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Pinpoint
     ///         });
     ///         var channel = new Aws.Pinpoint.BaiduChannel("channel", new Aws.Pinpoint.BaiduChannelArgs
     ///         {
-    ///             ApiKey = "",
     ///             ApplicationId = app.ApplicationId,
+    ///             ApiKey = "",
     ///             SecretKey = "",
     ///         });
     ///     }

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -29,8 +29,8 @@ class GetTaskDefinitionResult:
         if network_mode and not isinstance(network_mode, str):
             raise TypeError("Expected argument 'network_mode' to be a str")
         pulumi.set(__self__, "network_mode", network_mode)
-        if revision and not isinstance(revision, float):
-            raise TypeError("Expected argument 'revision' to be a float")
+        if revision and not isinstance(revision, int):
+            raise TypeError("Expected argument 'revision' to be a int")
         pulumi.set(__self__, "revision", revision)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
@@ -68,7 +68,7 @@ class GetTaskDefinitionResult:
 
     @property
     @pulumi.getter
-    def revision(self) -> float:
+    def revision(self) -> int:
         """
         The revision of this task definition
         """

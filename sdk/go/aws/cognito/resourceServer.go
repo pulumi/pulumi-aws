@@ -60,8 +60,8 @@ import (
 // 			Identifier: pulumi.String("https://example.com"),
 // 			Scopes: cognito.ResourceServerScopeArray{
 // 				&cognito.ResourceServerScopeArgs{
-// 					ScopeDescription: pulumi.String("a Sample Scope Description"),
 // 					ScopeName:        pulumi.String("sample-scope"),
+// 					ScopeDescription: pulumi.String("a Sample Scope Description"),
 // 				},
 // 			},
 // 			UserPoolId: pool.ID(),

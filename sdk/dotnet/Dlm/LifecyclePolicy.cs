@@ -37,11 +37,11 @@ namespace Pulumi.Aws.Dlm
     ///     }
     ///   ]
     /// }
-    /// 
     /// ",
     ///         });
     ///         var dlmLifecycle = new Aws.Iam.RolePolicy("dlmLifecycle", new Aws.Iam.RolePolicyArgs
     ///         {
+    ///             Role = dlmLifecycleRole.Id,
     ///             Policy = @"{
     ///    ""Version"": ""2012-10-17"",
     ///    ""Statement"": [
@@ -64,14 +64,13 @@ namespace Pulumi.Aws.Dlm
     ///       }
     ///    ]
     /// }
-    /// 
     /// ",
-    ///             Role = dlmLifecycleRole.Id,
     ///         });
     ///         var example = new Aws.Dlm.LifecyclePolicy("example", new Aws.Dlm.LifecyclePolicyArgs
     ///         {
     ///             Description = "example DLM lifecycle policy",
     ///             ExecutionRoleArn = dlmLifecycleRole.Arn,
+    ///             State = "ENABLED",
     ///             PolicyDetails = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsArgs
     ///             {
     ///                 ResourceTypes = 
@@ -82,14 +81,16 @@ namespace Pulumi.Aws.Dlm
     ///                 {
     ///                     new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleArgs
     ///                     {
-    ///                         CopyTags = false,
+    ///                         Name = "2 weeks of daily snapshots",
     ///                         CreateRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs
     ///                         {
     ///                             Interval = 24,
     ///                             IntervalUnit = "HOURS",
-    ///                             Times = "23:45",
+    ///                             Times = 
+    ///                             {
+    ///                                 "23:45",
+    ///                             },
     ///                         },
-    ///                         Name = "2 weeks of daily snapshots",
     ///                         RetainRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs
     ///                         {
     ///                             Count = 14,
@@ -98,6 +99,7 @@ namespace Pulumi.Aws.Dlm
     ///                         {
     ///                             { "SnapshotCreator", "DLM" },
     ///                         },
+    ///                         CopyTags = false,
     ///                     },
     ///                 },
     ///                 TargetTags = 
@@ -105,7 +107,6 @@ namespace Pulumi.Aws.Dlm
     ///                     { "Snapshot", "true" },
     ///                 },
     ///             },
-    ///             State = "ENABLED",
     ///         });
     ///     }
     /// 

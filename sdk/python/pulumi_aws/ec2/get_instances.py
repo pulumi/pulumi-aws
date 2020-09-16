@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -46,7 +46,7 @@ class GetInstancesResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetInstancesFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetInstancesFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -59,7 +59,7 @@ class GetInstancesResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> List[str]:
+    def ids(self) -> Sequence[str]:
         """
         IDs of instances found through the filter
         """
@@ -67,7 +67,7 @@ class GetInstancesResult:
 
     @property
     @pulumi.getter(name="instanceStateNames")
-    def instance_state_names(self) -> Optional[List[str]]:
+    def instance_state_names(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "instance_state_names")
 
     @property
@@ -77,7 +77,7 @@ class GetInstancesResult:
 
     @property
     @pulumi.getter(name="privateIps")
-    def private_ips(self) -> List[str]:
+    def private_ips(self) -> Sequence[str]:
         """
         Private IP addresses of instances found through the filter
         """
@@ -85,7 +85,7 @@ class GetInstancesResult:
 
     @property
     @pulumi.getter(name="publicIps")
-    def public_ips(self) -> List[str]:
+    def public_ips(self) -> Sequence[str]:
         """
         Public IP addresses of instances found through the filter
         """
@@ -107,8 +107,8 @@ class AwaitableGetInstancesResult(GetInstancesResult):
             public_ips=self.public_ips)
 
 
-def get_instances(filters: Optional[List[pulumi.InputType['GetInstancesFilterArgs']]] = None,
-                  instance_state_names: Optional[List[str]] = None,
+def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]] = None,
+                  instance_state_names: Optional[Sequence[str]] = None,
                   instance_tags: Optional[Mapping[str, str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
     """
@@ -143,10 +143,10 @@ def get_instances(filters: Optional[List[pulumi.InputType['GetInstancesFilterArg
     ```
 
 
-    :param List[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
-    :param List[str] instance_state_names: A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+    :param Sequence[str] instance_state_names: A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
     :param Mapping[str, str] instance_tags: A map of tags, each pair of which must
            exactly match a pair on desired instances.
     """

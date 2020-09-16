@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Ssm
     ///             Value = @var.Database_master_password,
     ///             Tags = 
     ///             {
-    ///                 { "environment", @var.Environment },
+    ///                 { "environment", "production" },
     ///             },
     ///         });
     ///     }

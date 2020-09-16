@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -110,15 +110,15 @@ class BuildStorageLocation(dict):
 @pulumi.output_type
 class FleetEc2InboundPermission(dict):
     def __init__(__self__, *,
-                 from_port: float,
+                 from_port: int,
                  ip_range: str,
                  protocol: str,
-                 to_port: float):
+                 to_port: int):
         """
-        :param float from_port: Starting value for a range of allowed port numbers.
+        :param int from_port: Starting value for a range of allowed port numbers.
         :param str ip_range: Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
         :param str protocol: Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
-        :param float to_port: Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
+        :param int to_port: Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "ip_range", ip_range)
@@ -127,7 +127,7 @@ class FleetEc2InboundPermission(dict):
 
     @property
     @pulumi.getter(name="fromPort")
-    def from_port(self) -> float:
+    def from_port(self) -> int:
         """
         Starting value for a range of allowed port numbers.
         """
@@ -151,7 +151,7 @@ class FleetEc2InboundPermission(dict):
 
     @property
     @pulumi.getter(name="toPort")
-    def to_port(self) -> float:
+    def to_port(self) -> int:
         """
         Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
         """
@@ -164,11 +164,11 @@ class FleetEc2InboundPermission(dict):
 @pulumi.output_type
 class FleetResourceCreationLimitPolicy(dict):
     def __init__(__self__, *,
-                 new_game_sessions_per_creator: Optional[float] = None,
-                 policy_period_in_minutes: Optional[float] = None):
+                 new_game_sessions_per_creator: Optional[int] = None,
+                 policy_period_in_minutes: Optional[int] = None):
         """
-        :param float new_game_sessions_per_creator: Maximum number of game sessions that an individual can create during the policy period.
-        :param float policy_period_in_minutes: Time span used in evaluating the resource creation limit policy.
+        :param int new_game_sessions_per_creator: Maximum number of game sessions that an individual can create during the policy period.
+        :param int policy_period_in_minutes: Time span used in evaluating the resource creation limit policy.
         """
         if new_game_sessions_per_creator is not None:
             pulumi.set(__self__, "new_game_sessions_per_creator", new_game_sessions_per_creator)
@@ -177,7 +177,7 @@ class FleetResourceCreationLimitPolicy(dict):
 
     @property
     @pulumi.getter(name="newGameSessionsPerCreator")
-    def new_game_sessions_per_creator(self) -> Optional[float]:
+    def new_game_sessions_per_creator(self) -> Optional[int]:
         """
         Maximum number of game sessions that an individual can create during the policy period.
         """
@@ -185,7 +185,7 @@ class FleetResourceCreationLimitPolicy(dict):
 
     @property
     @pulumi.getter(name="policyPeriodInMinutes")
-    def policy_period_in_minutes(self) -> Optional[float]:
+    def policy_period_in_minutes(self) -> Optional[int]:
         """
         Time span used in evaluating the resource creation limit policy.
         """
@@ -198,13 +198,13 @@ class FleetResourceCreationLimitPolicy(dict):
 @pulumi.output_type
 class FleetRuntimeConfiguration(dict):
     def __init__(__self__, *,
-                 game_session_activation_timeout_seconds: Optional[float] = None,
-                 max_concurrent_game_session_activations: Optional[float] = None,
-                 server_processes: Optional[List['outputs.FleetRuntimeConfigurationServerProcess']] = None):
+                 game_session_activation_timeout_seconds: Optional[int] = None,
+                 max_concurrent_game_session_activations: Optional[int] = None,
+                 server_processes: Optional[Sequence['outputs.FleetRuntimeConfigurationServerProcess']] = None):
         """
-        :param float game_session_activation_timeout_seconds: Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
-        :param float max_concurrent_game_session_activations: Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
-        :param List['FleetRuntimeConfigurationServerProcessArgs'] server_processes: Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
+        :param int game_session_activation_timeout_seconds: Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
+        :param int max_concurrent_game_session_activations: Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
+        :param Sequence['FleetRuntimeConfigurationServerProcessArgs'] server_processes: Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
         """
         if game_session_activation_timeout_seconds is not None:
             pulumi.set(__self__, "game_session_activation_timeout_seconds", game_session_activation_timeout_seconds)
@@ -215,7 +215,7 @@ class FleetRuntimeConfiguration(dict):
 
     @property
     @pulumi.getter(name="gameSessionActivationTimeoutSeconds")
-    def game_session_activation_timeout_seconds(self) -> Optional[float]:
+    def game_session_activation_timeout_seconds(self) -> Optional[int]:
         """
         Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
         """
@@ -223,7 +223,7 @@ class FleetRuntimeConfiguration(dict):
 
     @property
     @pulumi.getter(name="maxConcurrentGameSessionActivations")
-    def max_concurrent_game_session_activations(self) -> Optional[float]:
+    def max_concurrent_game_session_activations(self) -> Optional[int]:
         """
         Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
         """
@@ -231,7 +231,7 @@ class FleetRuntimeConfiguration(dict):
 
     @property
     @pulumi.getter(name="serverProcesses")
-    def server_processes(self) -> Optional[List['outputs.FleetRuntimeConfigurationServerProcess']]:
+    def server_processes(self) -> Optional[Sequence['outputs.FleetRuntimeConfigurationServerProcess']]:
         """
         Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
         """
@@ -244,11 +244,11 @@ class FleetRuntimeConfiguration(dict):
 @pulumi.output_type
 class FleetRuntimeConfigurationServerProcess(dict):
     def __init__(__self__, *,
-                 concurrent_executions: float,
+                 concurrent_executions: int,
                  launch_path: str,
                  parameters: Optional[str] = None):
         """
-        :param float concurrent_executions: Number of server processes using this configuration to run concurrently on an instance.
+        :param int concurrent_executions: Number of server processes using this configuration to run concurrently on an instance.
         :param str launch_path: Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
         :param str parameters: Optional list of parameters to pass to the server executable on launch.
         """
@@ -259,7 +259,7 @@ class FleetRuntimeConfigurationServerProcess(dict):
 
     @property
     @pulumi.getter(name="concurrentExecutions")
-    def concurrent_executions(self) -> float:
+    def concurrent_executions(self) -> int:
         """
         Number of server processes using this configuration to run concurrently on an instance.
         """
@@ -288,11 +288,11 @@ class FleetRuntimeConfigurationServerProcess(dict):
 @pulumi.output_type
 class GameSessionQueuePlayerLatencyPolicy(dict):
     def __init__(__self__, *,
-                 maximum_individual_player_latency_milliseconds: float,
-                 policy_duration_seconds: Optional[float] = None):
+                 maximum_individual_player_latency_milliseconds: int,
+                 policy_duration_seconds: Optional[int] = None):
         """
-        :param float maximum_individual_player_latency_milliseconds: Maximum latency value that is allowed for any player.
-        :param float policy_duration_seconds: Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
+        :param int maximum_individual_player_latency_milliseconds: Maximum latency value that is allowed for any player.
+        :param int policy_duration_seconds: Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
         """
         pulumi.set(__self__, "maximum_individual_player_latency_milliseconds", maximum_individual_player_latency_milliseconds)
         if policy_duration_seconds is not None:
@@ -300,7 +300,7 @@ class GameSessionQueuePlayerLatencyPolicy(dict):
 
     @property
     @pulumi.getter(name="maximumIndividualPlayerLatencyMilliseconds")
-    def maximum_individual_player_latency_milliseconds(self) -> float:
+    def maximum_individual_player_latency_milliseconds(self) -> int:
         """
         Maximum latency value that is allowed for any player.
         """
@@ -308,7 +308,7 @@ class GameSessionQueuePlayerLatencyPolicy(dict):
 
     @property
     @pulumi.getter(name="policyDurationSeconds")
-    def policy_duration_seconds(self) -> Optional[float]:
+    def policy_duration_seconds(self) -> Optional[int]:
         """
         Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
         """

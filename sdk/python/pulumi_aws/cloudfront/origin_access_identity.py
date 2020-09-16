@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['OriginAccessIdentity']
@@ -47,6 +47,14 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import pulumi_aws as aws
+
+        # ... other configuration ...
+        example = aws.cloudfront.Distribution("example", origins=[aws.cloudfront.DistributionOriginArgs(
+            s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
+                origin_access_identity=aws_cloudfront_origin_access_identity["example"]["cloudfront_access_identity_path"],
+            ),
+        )])
         ```
 
         ### Updating your bucket policy

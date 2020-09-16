@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class ResourceServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -49,8 +49,8 @@ class ResourceServer(pulumi.CustomResource):
         resource = aws.cognito.ResourceServer("resource",
             identifier="https://example.com",
             scopes=[aws.cognito.ResourceServerScopeArgs(
-                scope_description="a Sample Scope Description",
                 scope_name="sample-scope",
+                scope_description="a Sample Scope Description",
             )],
             user_pool_id=pool.id)
         ```
@@ -59,7 +59,7 @@ class ResourceServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identifier: An identifier for the resource server.
         :param pulumi.Input[str] name: A name for the resource server.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]] scopes: A list of Authorization Scope.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]] scopes: A list of Authorization Scope.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,8 +99,8 @@ class ResourceServer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             identifier: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            scope_identifiers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            scopes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]]] = None,
+            scope_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]]] = None,
             user_pool_id: Optional[pulumi.Input[str]] = None) -> 'ResourceServer':
         """
         Get an existing ResourceServer resource's state with the given name, id, and optional extra
@@ -111,8 +111,8 @@ class ResourceServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identifier: An identifier for the resource server.
         :param pulumi.Input[str] name: A name for the resource server.
-        :param pulumi.Input[List[pulumi.Input[str]]] scope_identifiers: A list of all scopes configured for this resource server in the format identifier/scope_name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]] scopes: A list of Authorization Scope.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_identifiers: A list of all scopes configured for this resource server in the format identifier/scope_name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]] scopes: A list of Authorization Scope.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -143,7 +143,7 @@ class ResourceServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scopeIdentifiers")
-    def scope_identifiers(self) -> pulumi.Output[List[str]]:
+    def scope_identifiers(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of all scopes configured for this resource server in the format identifier/scope_name.
         """
@@ -151,7 +151,7 @@ class ResourceServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[Optional[List['outputs.ResourceServerScope']]]:
+    def scopes(self) -> pulumi.Output[Optional[Sequence['outputs.ResourceServerScope']]]:
         """
         A list of Authorization Scope.
         """

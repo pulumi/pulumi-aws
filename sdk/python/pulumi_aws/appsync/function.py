@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Function']
@@ -34,7 +34,7 @@ class Function(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_graph_ql_api = aws.appsync.GraphQLApi("testGraphQLApi",
+        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi",
             authentication_type="API_KEY",
             schema=\"\"\"type Mutation {
           putPost(id: ID!, title: String!): Post
@@ -54,17 +54,17 @@ class Function(pulumi.CustomResource):
           mutation: Mutation
         }
         \"\"\")
-        test_data_source = aws.appsync.DataSource("testDataSource",
-            api_id=test_graph_ql_api.id,
-            name="tf-example",
+        example_data_source = aws.appsync.DataSource("exampleDataSource",
+            api_id=example_graph_ql_api.id,
+            name="example",
             type="HTTP",
             http_config=aws.appsync.DataSourceHttpConfigArgs(
                 endpoint="http://example.com",
             ))
-        test_function = aws.appsync.Function("testFunction",
-            api_id=test_graph_ql_api.id,
-            data_source=test_data_source.name,
-            name="tf_example",
+        example_function = aws.appsync.Function("exampleFunction",
+            api_id=example_graph_ql_api.id,
+            data_source=example_data_source.name,
+            name="example",
             request_mapping_template=\"\"\"{
             "version": "2018-05-29",
             "method": "GET",

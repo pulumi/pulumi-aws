@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class Trigger(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 triggers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -81,7 +81,7 @@ class Trigger(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             configuration_id: Optional[pulumi.Input[str]] = None,
             repository_name: Optional[pulumi.Input[str]] = None,
-            triggers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None) -> 'Trigger':
+            triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None) -> 'Trigger':
         """
         Get an existing Trigger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -115,7 +115,7 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def triggers(self) -> pulumi.Output[List['outputs.TriggerTrigger']]:
+    def triggers(self) -> pulumi.Output[Sequence['outputs.TriggerTrigger']]:
         return pulumi.get(self, "triggers")
 
     def translate_output_property(self, prop):

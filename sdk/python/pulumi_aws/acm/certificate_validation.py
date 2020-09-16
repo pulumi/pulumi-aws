@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['CertificateValidation']
@@ -16,7 +16,7 @@ class CertificateValidation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
-                 validation_record_fqdns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -78,7 +78,7 @@ class CertificateValidation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The ARN of the certificate that is being validated.
-        :param pulumi.Input[List[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -112,7 +112,7 @@ class CertificateValidation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             certificate_arn: Optional[pulumi.Input[str]] = None,
-            validation_record_fqdns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'CertificateValidation':
+            validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'CertificateValidation':
         """
         Get an existing CertificateValidation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -121,7 +121,7 @@ class CertificateValidation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: The ARN of the certificate that is being validated.
-        :param pulumi.Input[List[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -141,7 +141,7 @@ class CertificateValidation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validationRecordFqdns")
-    def validation_record_fqdns(self) -> pulumi.Output[Optional[List[str]]]:
+    def validation_record_fqdns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """

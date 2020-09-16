@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -82,7 +82,7 @@ class GetVpcDhcpOptionsResult:
 
     @property
     @pulumi.getter(name="domainNameServers")
-    def domain_name_servers(self) -> List[str]:
+    def domain_name_servers(self) -> Sequence[str]:
         """
         List of name servers.
         """
@@ -90,7 +90,7 @@ class GetVpcDhcpOptionsResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetVpcDhcpOptionsFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetVpcDhcpOptionsFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -103,7 +103,7 @@ class GetVpcDhcpOptionsResult:
 
     @property
     @pulumi.getter(name="netbiosNameServers")
-    def netbios_name_servers(self) -> List[str]:
+    def netbios_name_servers(self) -> Sequence[str]:
         """
         List of NETBIOS name servers.
         """
@@ -119,7 +119,7 @@ class GetVpcDhcpOptionsResult:
 
     @property
     @pulumi.getter(name="ntpServers")
-    def ntp_servers(self) -> List[str]:
+    def ntp_servers(self) -> Sequence[str]:
         """
         List of NTP servers.
         """
@@ -162,7 +162,7 @@ class AwaitableGetVpcDhcpOptionsResult(GetVpcDhcpOptionsResult):
 
 
 def get_vpc_dhcp_options(dhcp_options_id: Optional[str] = None,
-                         filters: Optional[List[pulumi.InputType['GetVpcDhcpOptionsFilterArgs']]] = None,
+                         filters: Optional[Sequence[pulumi.InputType['GetVpcDhcpOptionsFilterArgs']]] = None,
                          tags: Optional[Mapping[str, str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcDhcpOptionsResult:
     """
@@ -197,7 +197,7 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[str] = None,
 
 
     :param str dhcp_options_id: The EC2 DHCP Options ID.
-    :param List[pulumi.InputType['GetVpcDhcpOptionsFilterArgs']] filters: List of custom filters as described below.
+    :param Sequence[pulumi.InputType['GetVpcDhcpOptionsFilterArgs']] filters: List of custom filters as described below.
     :param Mapping[str, str] tags: A map of tags assigned to the resource.
     """
     __args__ = dict()

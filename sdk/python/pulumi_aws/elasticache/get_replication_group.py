@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -38,11 +38,11 @@ class GetReplicationGroupResult:
         if node_type and not isinstance(node_type, str):
             raise TypeError("Expected argument 'node_type' to be a str")
         pulumi.set(__self__, "node_type", node_type)
-        if number_cache_clusters and not isinstance(number_cache_clusters, float):
-            raise TypeError("Expected argument 'number_cache_clusters' to be a float")
+        if number_cache_clusters and not isinstance(number_cache_clusters, int):
+            raise TypeError("Expected argument 'number_cache_clusters' to be a int")
         pulumi.set(__self__, "number_cache_clusters", number_cache_clusters)
-        if port and not isinstance(port, float):
-            raise TypeError("Expected argument 'port' to be a float")
+        if port and not isinstance(port, int):
+            raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
         if primary_endpoint_address and not isinstance(primary_endpoint_address, str):
             raise TypeError("Expected argument 'primary_endpoint_address' to be a str")
@@ -53,8 +53,8 @@ class GetReplicationGroupResult:
         if replication_group_id and not isinstance(replication_group_id, str):
             raise TypeError("Expected argument 'replication_group_id' to be a str")
         pulumi.set(__self__, "replication_group_id", replication_group_id)
-        if snapshot_retention_limit and not isinstance(snapshot_retention_limit, float):
-            raise TypeError("Expected argument 'snapshot_retention_limit' to be a float")
+        if snapshot_retention_limit and not isinstance(snapshot_retention_limit, int):
+            raise TypeError("Expected argument 'snapshot_retention_limit' to be a int")
         pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window and not isinstance(snapshot_window, str):
             raise TypeError("Expected argument 'snapshot_window' to be a str")
@@ -94,7 +94,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="memberClusters")
-    def member_clusters(self) -> List[str]:
+    def member_clusters(self) -> Sequence[str]:
         """
         The identifiers of all the nodes that are part of this replication group.
         """
@@ -110,7 +110,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="numberCacheClusters")
-    def number_cache_clusters(self) -> float:
+    def number_cache_clusters(self) -> int:
         """
         The number of cache clusters that the replication group has.
         """
@@ -118,7 +118,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The port number on which the configuration endpoint will accept connections.
         """
@@ -150,7 +150,7 @@ class GetReplicationGroupResult:
 
     @property
     @pulumi.getter(name="snapshotRetentionLimit")
-    def snapshot_retention_limit(self) -> float:
+    def snapshot_retention_limit(self) -> int:
         """
         The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
         """

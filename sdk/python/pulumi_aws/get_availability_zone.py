@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -63,7 +63,7 @@ class GetAvailabilityZoneResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetAvailabilityZoneFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetAvailabilityZoneFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -150,7 +150,7 @@ class AwaitableGetAvailabilityZoneResult(GetAvailabilityZoneResult):
 
 
 def get_availability_zone(all_availability_zones: Optional[bool] = None,
-                          filters: Optional[List[pulumi.InputType['GetAvailabilityZoneFilterArgs']]] = None,
+                          filters: Optional[Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']]] = None,
                           name: Optional[str] = None,
                           state: Optional[str] = None,
                           zone_id: Optional[str] = None,
@@ -170,7 +170,7 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-    :param List[pulumi.InputType['GetAvailabilityZoneFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
     :param str state: A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param str zone_id: The zone ID of the availability zone to select.

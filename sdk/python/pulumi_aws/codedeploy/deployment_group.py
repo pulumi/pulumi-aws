@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,18 +20,18 @@ class DeploymentGroup(pulumi.CustomResource):
                  alarm_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupAlarmConfigurationArgs']]] = None,
                  app_name: Optional[pulumi.Input[str]] = None,
                  auto_rollback_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupAutoRollbackConfigurationArgs']]] = None,
-                 autoscaling_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 autoscaling_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  blue_green_deployment_config: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupBlueGreenDeploymentConfigArgs']]] = None,
                  deployment_config_name: Optional[pulumi.Input[str]] = None,
                  deployment_group_name: Optional[pulumi.Input[str]] = None,
                  deployment_style: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupDeploymentStyleArgs']]] = None,
-                 ec2_tag_filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagFilterArgs']]]]] = None,
-                 ec2_tag_sets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagSetArgs']]]]] = None,
+                 ec2_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagFilterArgs']]]]] = None,
+                 ec2_tag_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagSetArgs']]]]] = None,
                  ecs_service: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupEcsServiceArgs']]] = None,
                  load_balancer_info: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']]] = None,
-                 on_premises_instance_tag_filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]]] = None,
+                 on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
-                 trigger_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]]] = None,
+                 trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -185,18 +185,18 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DeploymentGroupAlarmConfigurationArgs']] alarm_configuration: Configuration block of alarms associated with the deployment group (documented below).
         :param pulumi.Input[str] app_name: The name of the application.
         :param pulumi.Input[pulumi.InputType['DeploymentGroupAutoRollbackConfigurationArgs']] auto_rollback_configuration: Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        :param pulumi.Input[List[pulumi.Input[str]]] autoscaling_groups: Autoscaling groups associated with the deployment group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] autoscaling_groups: Autoscaling groups associated with the deployment group.
         :param pulumi.Input[pulumi.InputType['DeploymentGroupBlueGreenDeploymentConfigArgs']] blue_green_deployment_config: Configuration block of the blue/green deployment options for a deployment group (documented below).
         :param pulumi.Input[str] deployment_config_name: The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
         :param pulumi.Input[str] deployment_group_name: The name of the deployment group.
         :param pulumi.Input[pulumi.InputType['DeploymentGroupDeploymentStyleArgs']] deployment_style: Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagFilterArgs']]]] ec2_tag_filters: Tag filters associated with the deployment group. See the AWS docs for details.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagSetArgs']]]] ec2_tag_sets: Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagFilterArgs']]]] ec2_tag_filters: Tag filters associated with the deployment group. See the AWS docs for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagSetArgs']]]] ec2_tag_sets: Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
         :param pulumi.Input[pulumi.InputType['DeploymentGroupEcsServiceArgs']] ecs_service: Configuration block(s) of the ECS services for a deployment group (documented below).
         :param pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
         :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -249,18 +249,18 @@ class DeploymentGroup(pulumi.CustomResource):
             alarm_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupAlarmConfigurationArgs']]] = None,
             app_name: Optional[pulumi.Input[str]] = None,
             auto_rollback_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupAutoRollbackConfigurationArgs']]] = None,
-            autoscaling_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            autoscaling_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             blue_green_deployment_config: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupBlueGreenDeploymentConfigArgs']]] = None,
             deployment_config_name: Optional[pulumi.Input[str]] = None,
             deployment_group_name: Optional[pulumi.Input[str]] = None,
             deployment_style: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupDeploymentStyleArgs']]] = None,
-            ec2_tag_filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagFilterArgs']]]]] = None,
-            ec2_tag_sets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagSetArgs']]]]] = None,
+            ec2_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagFilterArgs']]]]] = None,
+            ec2_tag_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagSetArgs']]]]] = None,
             ecs_service: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupEcsServiceArgs']]] = None,
             load_balancer_info: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']]] = None,
-            on_premises_instance_tag_filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]]] = None,
+            on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]]] = None,
             service_role_arn: Optional[pulumi.Input[str]] = None,
-            trigger_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]]] = None) -> 'DeploymentGroup':
+            trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]]] = None) -> 'DeploymentGroup':
         """
         Get an existing DeploymentGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -271,18 +271,18 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DeploymentGroupAlarmConfigurationArgs']] alarm_configuration: Configuration block of alarms associated with the deployment group (documented below).
         :param pulumi.Input[str] app_name: The name of the application.
         :param pulumi.Input[pulumi.InputType['DeploymentGroupAutoRollbackConfigurationArgs']] auto_rollback_configuration: Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
-        :param pulumi.Input[List[pulumi.Input[str]]] autoscaling_groups: Autoscaling groups associated with the deployment group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] autoscaling_groups: Autoscaling groups associated with the deployment group.
         :param pulumi.Input[pulumi.InputType['DeploymentGroupBlueGreenDeploymentConfigArgs']] blue_green_deployment_config: Configuration block of the blue/green deployment options for a deployment group (documented below).
         :param pulumi.Input[str] deployment_config_name: The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
         :param pulumi.Input[str] deployment_group_name: The name of the deployment group.
         :param pulumi.Input[pulumi.InputType['DeploymentGroupDeploymentStyleArgs']] deployment_style: Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagFilterArgs']]]] ec2_tag_filters: Tag filters associated with the deployment group. See the AWS docs for details.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagSetArgs']]]] ec2_tag_sets: Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagFilterArgs']]]] ec2_tag_filters: Tag filters associated with the deployment group. See the AWS docs for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupEc2TagSetArgs']]]] ec2_tag_sets: Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
         :param pulumi.Input[pulumi.InputType['DeploymentGroupEcsServiceArgs']] ecs_service: Configuration block(s) of the ECS services for a deployment group (documented below).
         :param pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
         :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -331,7 +331,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoscalingGroups")
-    def autoscaling_groups(self) -> pulumi.Output[Optional[List[str]]]:
+    def autoscaling_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Autoscaling groups associated with the deployment group.
         """
@@ -371,7 +371,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ec2TagFilters")
-    def ec2_tag_filters(self) -> pulumi.Output[Optional[List['outputs.DeploymentGroupEc2TagFilter']]]:
+    def ec2_tag_filters(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupEc2TagFilter']]]:
         """
         Tag filters associated with the deployment group. See the AWS docs for details.
         """
@@ -379,7 +379,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ec2TagSets")
-    def ec2_tag_sets(self) -> pulumi.Output[Optional[List['outputs.DeploymentGroupEc2TagSet']]]:
+    def ec2_tag_sets(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupEc2TagSet']]]:
         """
         Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
         """
@@ -403,7 +403,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="onPremisesInstanceTagFilters")
-    def on_premises_instance_tag_filters(self) -> pulumi.Output[Optional[List['outputs.DeploymentGroupOnPremisesInstanceTagFilter']]]:
+    def on_premises_instance_tag_filters(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupOnPremisesInstanceTagFilter']]]:
         """
         On premise tag filters associated with the group. See the AWS docs for details.
         """
@@ -419,7 +419,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="triggerConfigurations")
-    def trigger_configurations(self) -> pulumi.Output[Optional[List['outputs.DeploymentGroupTriggerConfiguration']]]:
+    def trigger_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupTriggerConfiguration']]]:
         """
         Configuration block(s) of the triggers for the deployment group (documented below).
         """

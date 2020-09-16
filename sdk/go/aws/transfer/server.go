@@ -24,26 +24,26 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		fooRole, err := iam.NewRole(ctx, "fooRole", &iam.RoleArgs{
+// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
 // 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "	\"Version\": \"2012-10-17\",\n", "	\"Statement\": [\n", "		{\n", "		\"Effect\": \"Allow\",\n", "		\"Principal\": {\n", "			\"Service\": \"transfer.amazonaws.com\"\n", "		},\n", "		\"Action\": \"sts:AssumeRole\"\n", "		}\n", "	]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRolePolicy(ctx, "fooRolePolicy", &iam.RolePolicyArgs{
-// 			Role: fooRole.ID(),
-// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "	\"Version\": \"2012-10-17\",\n", "	\"Statement\": [\n", "		{\n", "		\"Sid\": \"AllowFullAccesstoCloudWatchLogs\",\n", "		\"Effect\": \"Allow\",\n", "		\"Action\": [\n", "			\"logs:*\"\n", "		],\n", "		\"Resource\": \"*\"\n", "		}\n", "	]\n", "}\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = transfer.NewServer(ctx, "fooServer", &transfer.ServerArgs{
+// 		_, err = transfer.NewServer(ctx, "exampleServer", &transfer.ServerArgs{
 // 			IdentityProviderType: pulumi.String("SERVICE_MANAGED"),
-// 			LoggingRole:          fooRole.Arn,
+// 			LoggingRole:          exampleRole.Arn,
 // 			Tags: pulumi.StringMap{
 // 				"NAME": pulumi.String("tf-acc-test-transfer-server"),
 // 				"ENV":  pulumi.String("test"),
 // 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+// 			Role: exampleRole.ID(),
+// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "	\"Version\": \"2012-10-17\",\n", "	\"Statement\": [\n", "		{\n", "		\"Sid\": \"AllowFullAccesstoCloudWatchLogs\",\n", "		\"Effect\": \"Allow\",\n", "		\"Action\": [\n", "			\"logs:*\"\n", "		],\n", "		\"Resource\": \"*\"\n", "		}\n", "	]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err

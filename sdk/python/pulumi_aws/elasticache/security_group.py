@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['SecurityGroup']
@@ -17,7 +17,7 @@ class SecurityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 security_group_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -43,7 +43,7 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: description for the cache security group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] name: Name for the cache security group. This value is stored as a lowercase string.
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_names: List of EC2 security group names to be
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of EC2 security group names to be
                authorized for ingress to the cache security group
         """
         if __name__ is not None:
@@ -82,7 +82,7 @@ class SecurityGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            security_group_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'SecurityGroup':
+            security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'SecurityGroup':
         """
         Get an existing SecurityGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -92,7 +92,7 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: description for the cache security group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] name: Name for the cache security group. This value is stored as a lowercase string.
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_names: List of EC2 security group names to be
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of EC2 security group names to be
                authorized for ingress to the cache security group
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -122,7 +122,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> pulumi.Output[List[str]]:
+    def security_group_names(self) -> pulumi.Output[Sequence[str]]:
         """
         List of EC2 security group names to be
         authorized for ingress to the cache security group

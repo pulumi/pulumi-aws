@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -43,12 +43,12 @@ class GetScriptResult:
 
     @property
     @pulumi.getter(name="dagEdges")
-    def dag_edges(self) -> List['outputs.GetScriptDagEdgeResult']:
+    def dag_edges(self) -> Sequence['outputs.GetScriptDagEdgeResult']:
         return pulumi.get(self, "dag_edges")
 
     @property
     @pulumi.getter(name="dagNodes")
-    def dag_nodes(self) -> List['outputs.GetScriptDagNodeResult']:
+    def dag_nodes(self) -> Sequence['outputs.GetScriptDagNodeResult']:
         return pulumi.get(self, "dag_nodes")
 
     @property
@@ -95,8 +95,8 @@ class AwaitableGetScriptResult(GetScriptResult):
             scala_code=self.scala_code)
 
 
-def get_script(dag_edges: Optional[List[pulumi.InputType['GetScriptDagEdgeArgs']]] = None,
-               dag_nodes: Optional[List[pulumi.InputType['GetScriptDagNodeArgs']]] = None,
+def get_script(dag_edges: Optional[Sequence[pulumi.InputType['GetScriptDagEdgeArgs']]] = None,
+               dag_nodes: Optional[Sequence[pulumi.InputType['GetScriptDagNodeArgs']]] = None,
                language: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScriptResult:
     """
@@ -287,8 +287,8 @@ def get_script(dag_edges: Optional[List[pulumi.InputType['GetScriptDagEdgeArgs']
     ```
 
 
-    :param List[pulumi.InputType['GetScriptDagEdgeArgs']] dag_edges: A list of the edges in the DAG. Defined below.
-    :param List[pulumi.InputType['GetScriptDagNodeArgs']] dag_nodes: A list of the nodes in the DAG. Defined below.
+    :param Sequence[pulumi.InputType['GetScriptDagEdgeArgs']] dag_edges: A list of the edges in the DAG. Defined below.
+    :param Sequence[pulumi.InputType['GetScriptDagNodeArgs']] dag_nodes: A list of the nodes in the DAG. Defined below.
     :param str language: The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
     """
     __args__ = dict()

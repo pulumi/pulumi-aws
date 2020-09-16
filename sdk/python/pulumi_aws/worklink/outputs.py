@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -48,12 +48,12 @@ class FleetIdentityProvider(dict):
 @pulumi.output_type
 class FleetNetwork(dict):
     def __init__(__self__, *,
-                 security_group_ids: List[str],
-                 subnet_ids: List[str],
+                 security_group_ids: Sequence[str],
+                 subnet_ids: Sequence[str],
                  vpc_id: str):
         """
-        :param List[str] security_group_ids: A list of security group IDs associated with access to the provided subnets.
-        :param List[str] subnet_ids: A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+        :param Sequence[str] security_group_ids: A list of security group IDs associated with access to the provided subnets.
+        :param Sequence[str] subnet_ids: A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
         :param str vpc_id: The VPC ID with connectivity to associated websites.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -62,7 +62,7 @@ class FleetNetwork(dict):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> List[str]:
+    def security_group_ids(self) -> Sequence[str]:
         """
         A list of security group IDs associated with access to the provided subnets.
         """
@@ -70,7 +70,7 @@ class FleetNetwork(dict):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> List[str]:
+    def subnet_ids(self) -> Sequence[str]:
         """
         A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
         """

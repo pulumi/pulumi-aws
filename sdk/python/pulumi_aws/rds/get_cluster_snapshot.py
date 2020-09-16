@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -20,8 +20,8 @@ class GetClusterSnapshotResult:
     A collection of values returned by getClusterSnapshot.
     """
     def __init__(__self__, allocated_storage=None, availability_zones=None, db_cluster_identifier=None, db_cluster_snapshot_arn=None, db_cluster_snapshot_identifier=None, engine=None, engine_version=None, id=None, include_public=None, include_shared=None, kms_key_id=None, license_model=None, most_recent=None, port=None, snapshot_create_time=None, snapshot_type=None, source_db_cluster_snapshot_arn=None, status=None, storage_encrypted=None, tags=None, vpc_id=None):
-        if allocated_storage and not isinstance(allocated_storage, float):
-            raise TypeError("Expected argument 'allocated_storage' to be a float")
+        if allocated_storage and not isinstance(allocated_storage, int):
+            raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
@@ -59,8 +59,8 @@ class GetClusterSnapshotResult:
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")
         pulumi.set(__self__, "most_recent", most_recent)
-        if port and not isinstance(port, float):
-            raise TypeError("Expected argument 'port' to be a float")
+        if port and not isinstance(port, int):
+            raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
         if snapshot_create_time and not isinstance(snapshot_create_time, str):
             raise TypeError("Expected argument 'snapshot_create_time' to be a str")
@@ -86,7 +86,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> float:
+    def allocated_storage(self) -> int:
         """
         Specifies the allocated storage size in gigabytes (GB).
         """
@@ -94,7 +94,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> List[str]:
+    def availability_zones(self) -> Sequence[str]:
         """
         List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
         """
@@ -178,7 +178,7 @@ class GetClusterSnapshotResult:
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         Port that the DB cluster was listening on at the time of the snapshot.
         """

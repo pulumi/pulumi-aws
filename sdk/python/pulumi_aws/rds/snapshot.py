@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Snapshot']
@@ -103,7 +103,7 @@ class Snapshot(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allocated_storage: Optional[pulumi.Input[float]] = None,
+            allocated_storage: Optional[pulumi.Input[int]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
             db_instance_identifier: Optional[pulumi.Input[str]] = None,
             db_snapshot_arn: Optional[pulumi.Input[str]] = None,
@@ -111,11 +111,11 @@ class Snapshot(pulumi.CustomResource):
             encrypted: Optional[pulumi.Input[bool]] = None,
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
-            iops: Optional[pulumi.Input[float]] = None,
+            iops: Optional[pulumi.Input[int]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             license_model: Optional[pulumi.Input[str]] = None,
             option_group_name: Optional[pulumi.Input[str]] = None,
-            port: Optional[pulumi.Input[float]] = None,
+            port: Optional[pulumi.Input[int]] = None,
             snapshot_type: Optional[pulumi.Input[str]] = None,
             source_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
             source_region: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,7 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
+        :param pulumi.Input[int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
         :param pulumi.Input[str] availability_zone: Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         :param pulumi.Input[str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_snapshot_arn: The Amazon Resource Name (ARN) for the DB snapshot.
@@ -138,7 +138,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[bool] encrypted: Specifies whether the DB snapshot is encrypted.
         :param pulumi.Input[str] engine: Specifies the name of the database engine.
         :param pulumi.Input[str] engine_version: Specifies the version of the database engine.
-        :param pulumi.Input[float] iops: Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        :param pulumi.Input[int] iops: Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[str] option_group_name: Provides the option group name for the DB snapshot.
@@ -177,7 +177,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> pulumi.Output[float]:
+    def allocated_storage(self) -> pulumi.Output[int]:
         """
         Specifies the allocated storage size in gigabytes (GB).
         """
@@ -241,7 +241,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def iops(self) -> pulumi.Output[float]:
+    def iops(self) -> pulumi.Output[int]:
         """
         Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         """
@@ -273,7 +273,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[float]:
+    def port(self) -> pulumi.Output[int]:
         return pulumi.get(self, "port")
 
     @property

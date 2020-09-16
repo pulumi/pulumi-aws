@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Ram
     ///             },
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.alternate",
+    ///             Provider = aws.Alternate,
     ///         });
     ///         var receiver = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
     ///         var senderInvite = new Aws.Ram.PrincipalAssociation("senderInvite", new Aws.Ram.PrincipalAssociationArgs
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Ram
     ///             ResourceShareArn = senderShare.Arn,
     ///         }, new CustomResourceOptions
     ///         {
-    ///             Provider = "aws.alternate",
+    ///             Provider = aws.Alternate,
     ///         });
     ///         var receiverAccept = new Aws.Ram.ResourceShareAccepter("receiverAccept", new Aws.Ram.ResourceShareAccepterArgs
     ///         {

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -52,8 +52,8 @@ class GetTableResult:
         if range_key and not isinstance(range_key, str):
             raise TypeError("Expected argument 'range_key' to be a str")
         pulumi.set(__self__, "range_key", range_key)
-        if read_capacity and not isinstance(read_capacity, float):
-            raise TypeError("Expected argument 'read_capacity' to be a float")
+        if read_capacity and not isinstance(read_capacity, int):
+            raise TypeError("Expected argument 'read_capacity' to be a int")
         pulumi.set(__self__, "read_capacity", read_capacity)
         if replicas and not isinstance(replicas, list):
             raise TypeError("Expected argument 'replicas' to be a list")
@@ -79,8 +79,8 @@ class GetTableResult:
         if ttl and not isinstance(ttl, dict):
             raise TypeError("Expected argument 'ttl' to be a dict")
         pulumi.set(__self__, "ttl", ttl)
-        if write_capacity and not isinstance(write_capacity, float):
-            raise TypeError("Expected argument 'write_capacity' to be a float")
+        if write_capacity and not isinstance(write_capacity, int):
+            raise TypeError("Expected argument 'write_capacity' to be a int")
         pulumi.set(__self__, "write_capacity", write_capacity)
 
     @property
@@ -90,7 +90,7 @@ class GetTableResult:
 
     @property
     @pulumi.getter
-    def attributes(self) -> List['outputs.GetTableAttributeResult']:
+    def attributes(self) -> Sequence['outputs.GetTableAttributeResult']:
         return pulumi.get(self, "attributes")
 
     @property
@@ -100,7 +100,7 @@ class GetTableResult:
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
-    def global_secondary_indexes(self) -> List['outputs.GetTableGlobalSecondaryIndexResult']:
+    def global_secondary_indexes(self) -> Sequence['outputs.GetTableGlobalSecondaryIndexResult']:
         return pulumi.get(self, "global_secondary_indexes")
 
     @property
@@ -118,7 +118,7 @@ class GetTableResult:
 
     @property
     @pulumi.getter(name="localSecondaryIndexes")
-    def local_secondary_indexes(self) -> List['outputs.GetTableLocalSecondaryIndexResult']:
+    def local_secondary_indexes(self) -> Sequence['outputs.GetTableLocalSecondaryIndexResult']:
         return pulumi.get(self, "local_secondary_indexes")
 
     @property
@@ -138,12 +138,12 @@ class GetTableResult:
 
     @property
     @pulumi.getter(name="readCapacity")
-    def read_capacity(self) -> float:
+    def read_capacity(self) -> int:
         return pulumi.get(self, "read_capacity")
 
     @property
     @pulumi.getter
-    def replicas(self) -> List['outputs.GetTableReplicaResult']:
+    def replicas(self) -> Sequence['outputs.GetTableReplicaResult']:
         return pulumi.get(self, "replicas")
 
     @property
@@ -183,7 +183,7 @@ class GetTableResult:
 
     @property
     @pulumi.getter(name="writeCapacity")
-    def write_capacity(self) -> float:
+    def write_capacity(self) -> int:
         return pulumi.get(self, "write_capacity")
 
 

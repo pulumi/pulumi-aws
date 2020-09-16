@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -40,7 +40,7 @@ class GetPrefixListResult:
 
     @property
     @pulumi.getter(name="cidrBlocks")
-    def cidr_blocks(self) -> List[str]:
+    def cidr_blocks(self) -> Sequence[str]:
         """
         The list of CIDR blocks for the AWS service associated with the prefix list.
         """
@@ -48,7 +48,7 @@ class GetPrefixListResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetPrefixListFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetPrefixListFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -86,7 +86,7 @@ class AwaitableGetPrefixListResult(GetPrefixListResult):
             prefix_list_id=self.prefix_list_id)
 
 
-def get_prefix_list(filters: Optional[List[pulumi.InputType['GetPrefixListFilterArgs']]] = None,
+def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFilterArgs']]] = None,
                     name: Optional[str] = None,
                     prefix_list_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrefixListResult:
@@ -133,7 +133,7 @@ def get_prefix_list(filters: Optional[List[pulumi.InputType['GetPrefixListFilter
     ```
 
 
-    :param List[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
     :param str prefix_list_id: The ID of the prefix list to select.
     """

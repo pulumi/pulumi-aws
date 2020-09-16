@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['GroupMembership']
@@ -17,7 +17,7 @@ class GroupMembership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 users: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -52,7 +52,7 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The IAM Group name to attach the list of `users` to
         :param pulumi.Input[str] name: The name to identify the Group Membership
-        :param pulumi.Input[List[pulumi.Input[str]]] users: A list of IAM User names to associate with the Group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: A list of IAM User names to associate with the Group
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,7 +90,7 @@ class GroupMembership(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             group: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            users: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'GroupMembership':
+            users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'GroupMembership':
         """
         Get an existing GroupMembership resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -100,7 +100,7 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The IAM Group name to attach the list of `users` to
         :param pulumi.Input[str] name: The name to identify the Group Membership
-        :param pulumi.Input[List[pulumi.Input[str]]] users: A list of IAM User names to associate with the Group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: A list of IAM User names to associate with the Group
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -129,7 +129,7 @@ class GroupMembership(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> pulumi.Output[List[str]]:
+    def users(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of IAM User names to associate with the Group
         """

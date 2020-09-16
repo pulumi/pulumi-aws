@@ -47,11 +47,26 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ```csharp
     /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
     /// class MyStack : Stack
     /// {
     ///     public MyStack()
     ///     {
+    ///         // ... other configuration ...
+    ///         var example = new Aws.CloudFront.Distribution("example", new Aws.CloudFront.DistributionArgs
+    ///         {
+    ///             Origins = 
+    ///             {
+    ///                 new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///                 {
+    ///                     S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
+    ///                     {
+    ///                         OriginAccessIdentity = aws_cloudfront_origin_access_identity.Example.Cloudfront_access_identity_path,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
     ///     }
     /// 
     /// }

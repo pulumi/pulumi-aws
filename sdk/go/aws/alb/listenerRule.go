@@ -190,7 +190,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = lb.NewListenerRule(ctx, "adminListenerRule", &lb.ListenerRuleArgs{
+// 		_, err = lb.NewListenerRule(ctx, "admin", &lb.ListenerRuleArgs{
 // 			ListenerArn: frontEndListener.Arn,
 // 			Actions: lb.ListenerRuleActionArray{
 // 				&lb.ListenerRuleActionArgs{
@@ -210,7 +210,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = lb.NewListenerRule(ctx, "adminLb_listenerRuleListenerRule", &lb.ListenerRuleArgs{
+// 		_, err = lb.NewListenerRule(ctx, "oidc", &lb.ListenerRuleArgs{
 // 			ListenerArn: frontEndListener.Arn,
 // 			Actions: lb.ListenerRuleActionArray{
 // 				&lb.ListenerRuleActionArgs{

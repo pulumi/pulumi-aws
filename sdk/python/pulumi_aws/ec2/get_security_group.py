@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -62,7 +62,7 @@ class GetSecurityGroupResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetSecurityGroupFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetSecurityGroupFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -101,7 +101,7 @@ class AwaitableGetSecurityGroupResult(GetSecurityGroupResult):
             vpc_id=self.vpc_id)
 
 
-def get_security_group(filters: Optional[List[pulumi.InputType['GetSecurityGroupFilterArgs']]] = None,
+def get_security_group(filters: Optional[Sequence[pulumi.InputType['GetSecurityGroupFilterArgs']]] = None,
                        id: Optional[str] = None,
                        name: Optional[str] = None,
                        tags: Optional[Mapping[str, str]] = None,
@@ -132,7 +132,7 @@ def get_security_group(filters: Optional[List[pulumi.InputType['GetSecurityGroup
     ```
 
 
-    :param List[pulumi.InputType['GetSecurityGroupFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetSecurityGroupFilterArgs']] filters: Custom filter block as described below.
     :param str id: The id of the specific security group to retrieve.
     :param str name: The name of the field to filter by, as defined by
            [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).

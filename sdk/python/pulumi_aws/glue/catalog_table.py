@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,8 @@ class CatalogTable(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 partition_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]]] = None,
-                 retention: Optional[pulumi.Input[float]] = None,
+                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]]] = None,
+                 retention: Optional[pulumi.Input[int]] = None,
                  storage_descriptor: Optional[pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']]] = None,
                  table_type: Optional[pulumi.Input[str]] = None,
                  view_expanded_text: Optional[pulumi.Input[str]] = None,
@@ -107,8 +107,8 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the SerDe.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
-        :param pulumi.Input[float] retention: Retention time for this table.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+        :param pulumi.Input[int] retention: Retention time for this table.
         :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         :param pulumi.Input[str] table_type: The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
@@ -163,8 +163,8 @@ class CatalogTable(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            partition_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]]] = None,
-            retention: Optional[pulumi.Input[float]] = None,
+            partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]]] = None,
+            retention: Optional[pulumi.Input[int]] = None,
             storage_descriptor: Optional[pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']]] = None,
             table_type: Optional[pulumi.Input[str]] = None,
             view_expanded_text: Optional[pulumi.Input[str]] = None,
@@ -183,8 +183,8 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the SerDe.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
-        :param pulumi.Input[float] retention: Retention time for this table.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+        :param pulumi.Input[int] retention: Retention time for this table.
         :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         :param pulumi.Input[str] table_type: The type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.).
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
@@ -267,7 +267,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> pulumi.Output[Optional[List['outputs.CatalogTablePartitionKey']]]:
+    def partition_keys(self) -> pulumi.Output[Optional[Sequence['outputs.CatalogTablePartitionKey']]]:
         """
         A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
         """
@@ -275,7 +275,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def retention(self) -> pulumi.Output[Optional[float]]:
+    def retention(self) -> pulumi.Output[Optional[int]]:
         """
         Retention time for this table.
         """

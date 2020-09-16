@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -51,8 +51,8 @@ class GetFileSystemResult:
         if provisioned_throughput_in_mibps and not isinstance(provisioned_throughput_in_mibps, float):
             raise TypeError("Expected argument 'provisioned_throughput_in_mibps' to be a float")
         pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
-        if size_in_bytes and not isinstance(size_in_bytes, float):
-            raise TypeError("Expected argument 'size_in_bytes' to be a float")
+        if size_in_bytes and not isinstance(size_in_bytes, int):
+            raise TypeError("Expected argument 'size_in_bytes' to be a int")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -138,7 +138,7 @@ class GetFileSystemResult:
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> float:
+    def size_in_bytes(self) -> int:
         """
         The current byte count used by the file system.
         """

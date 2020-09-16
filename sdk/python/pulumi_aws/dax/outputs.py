@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -20,9 +20,9 @@ class ClusterNode(dict):
                  address: Optional[str] = None,
                  availability_zone: Optional[str] = None,
                  id: Optional[str] = None,
-                 port: Optional[float] = None):
+                 port: Optional[int] = None):
         """
-        :param float port: The port used by the configuration endpoint
+        :param int port: The port used by the configuration endpoint
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -50,7 +50,7 @@ class ClusterNode(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         The port used by the configuration endpoint
         """

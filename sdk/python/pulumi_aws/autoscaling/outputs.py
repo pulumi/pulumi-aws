@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -31,7 +31,7 @@ class GroupInitialLifecycleHook(dict):
                  lifecycle_transition: str,
                  name: str,
                  default_result: Optional[str] = None,
-                 heartbeat_timeout: Optional[float] = None,
+                 heartbeat_timeout: Optional[int] = None,
                  notification_metadata: Optional[str] = None,
                  notification_target_arn: Optional[str] = None,
                  role_arn: Optional[str] = None):
@@ -71,7 +71,7 @@ class GroupInitialLifecycleHook(dict):
 
     @property
     @pulumi.getter(name="heartbeatTimeout")
-    def heartbeat_timeout(self) -> Optional[float]:
+    def heartbeat_timeout(self) -> Optional[int]:
         return pulumi.get(self, "heartbeat_timeout")
 
     @property
@@ -176,17 +176,17 @@ class GroupMixedInstancesPolicy(dict):
 class GroupMixedInstancesPolicyInstancesDistribution(dict):
     def __init__(__self__, *,
                  on_demand_allocation_strategy: Optional[str] = None,
-                 on_demand_base_capacity: Optional[float] = None,
-                 on_demand_percentage_above_base_capacity: Optional[float] = None,
+                 on_demand_base_capacity: Optional[int] = None,
+                 on_demand_percentage_above_base_capacity: Optional[int] = None,
                  spot_allocation_strategy: Optional[str] = None,
-                 spot_instance_pools: Optional[float] = None,
+                 spot_instance_pools: Optional[int] = None,
                  spot_max_price: Optional[str] = None):
         """
         :param str on_demand_allocation_strategy: Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
-        :param float on_demand_base_capacity: Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-        :param float on_demand_percentage_above_base_capacity: Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
+        :param int on_demand_base_capacity: Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
+        :param int on_demand_percentage_above_base_capacity: Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
         :param str spot_allocation_strategy: How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`. Default: `lowest-price`.
-        :param float spot_instance_pools: Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
+        :param int spot_instance_pools: Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
         :param str spot_max_price: Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
         """
         if on_demand_allocation_strategy is not None:
@@ -212,7 +212,7 @@ class GroupMixedInstancesPolicyInstancesDistribution(dict):
 
     @property
     @pulumi.getter(name="onDemandBaseCapacity")
-    def on_demand_base_capacity(self) -> Optional[float]:
+    def on_demand_base_capacity(self) -> Optional[int]:
         """
         Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
         """
@@ -220,7 +220,7 @@ class GroupMixedInstancesPolicyInstancesDistribution(dict):
 
     @property
     @pulumi.getter(name="onDemandPercentageAboveBaseCapacity")
-    def on_demand_percentage_above_base_capacity(self) -> Optional[float]:
+    def on_demand_percentage_above_base_capacity(self) -> Optional[int]:
         """
         Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
         """
@@ -236,7 +236,7 @@ class GroupMixedInstancesPolicyInstancesDistribution(dict):
 
     @property
     @pulumi.getter(name="spotInstancePools")
-    def spot_instance_pools(self) -> Optional[float]:
+    def spot_instance_pools(self) -> Optional[int]:
         """
         Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
         """
@@ -258,10 +258,10 @@ class GroupMixedInstancesPolicyInstancesDistribution(dict):
 class GroupMixedInstancesPolicyLaunchTemplate(dict):
     def __init__(__self__, *,
                  launch_template_specification: 'outputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification',
-                 overrides: Optional[List['outputs.GroupMixedInstancesPolicyLaunchTemplateOverride']] = None):
+                 overrides: Optional[Sequence['outputs.GroupMixedInstancesPolicyLaunchTemplateOverride']] = None):
         """
         :param 'GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs' launch_template_specification: Nested argument defines the Launch Template. Defined below.
-        :param List['GroupMixedInstancesPolicyLaunchTemplateOverrideArgs'] overrides: List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
+        :param Sequence['GroupMixedInstancesPolicyLaunchTemplateOverrideArgs'] overrides: List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
         """
         pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if overrides is not None:
@@ -277,7 +277,7 @@ class GroupMixedInstancesPolicyLaunchTemplate(dict):
 
     @property
     @pulumi.getter
-    def overrides(self) -> Optional[List['outputs.GroupMixedInstancesPolicyLaunchTemplateOverride']]:
+    def overrides(self) -> Optional[Sequence['outputs.GroupMixedInstancesPolicyLaunchTemplateOverride']]:
         """
         List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
         """
@@ -415,11 +415,11 @@ class GroupTag(dict):
 @pulumi.output_type
 class PolicyStepAdjustment(dict):
     def __init__(__self__, *,
-                 scaling_adjustment: float,
+                 scaling_adjustment: int,
                  metric_interval_lower_bound: Optional[str] = None,
                  metric_interval_upper_bound: Optional[str] = None):
         """
-        :param float scaling_adjustment: The number of members by which to
+        :param int scaling_adjustment: The number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
         :param str metric_interval_lower_bound: The lower bound for the
@@ -438,7 +438,7 @@ class PolicyStepAdjustment(dict):
 
     @property
     @pulumi.getter(name="scalingAdjustment")
-    def scaling_adjustment(self) -> float:
+    def scaling_adjustment(self) -> int:
         """
         The number of members by which to
         scale, when the adjustment bounds are breached. A positive value scales
@@ -534,13 +534,13 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
                  metric_name: str,
                  namespace: str,
                  statistic: str,
-                 metric_dimensions: Optional[List['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension']] = None,
+                 metric_dimensions: Optional[Sequence['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension']] = None,
                  unit: Optional[str] = None):
         """
         :param str metric_name: The name of the metric.
         :param str namespace: The namespace of the metric.
         :param str statistic: The statistic of the metric.
-        :param List['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs'] metric_dimensions: The dimensions of the metric.
+        :param Sequence['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs'] metric_dimensions: The dimensions of the metric.
         :param str unit: The unit of the metric.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -577,7 +577,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
 
     @property
     @pulumi.getter(name="metricDimensions")
-    def metric_dimensions(self) -> Optional[List['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension']]:
+    def metric_dimensions(self) -> Optional[Sequence['outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension']]:
         """
         The dimensions of the metric.
         """

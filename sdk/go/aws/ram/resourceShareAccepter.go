@@ -41,7 +41,7 @@ import (
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("tf-test-resource-share"),
 // 			},
-// 		}, pulumi.Provider("aws.alternate"))
+// 		}, pulumi.Provider(aws.Alternate))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -52,7 +52,7 @@ import (
 // 		senderInvite, err := ram.NewPrincipalAssociation(ctx, "senderInvite", &ram.PrincipalAssociationArgs{
 // 			Principal:        pulumi.String(receiver.AccountId),
 // 			ResourceShareArn: senderShare.Arn,
-// 		}, pulumi.Provider("aws.alternate"))
+// 		}, pulumi.Provider(aws.Alternate))
 // 		if err != nil {
 // 			return err
 // 		}

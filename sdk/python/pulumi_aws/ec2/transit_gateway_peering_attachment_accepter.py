@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['TransitGatewayPeeringAttachmentAccepter']
@@ -30,10 +30,10 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.TransitGatewayPeeringAttachmentAccepter("example",
+            transit_gateway_attachment_id=aws_ec2_transit_gateway_peering_attachment["example"]["id"],
             tags={
                 "Name": "Example cross-account attachment",
-            },
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_peering_attachment["example"]["id"])
+            })
         ```
 
         :param str resource_name: The name of the resource.

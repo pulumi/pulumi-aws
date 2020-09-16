@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -38,8 +38,8 @@ class GetListenerResult:
         if load_balancer_arn and not isinstance(load_balancer_arn, str):
             raise TypeError("Expected argument 'load_balancer_arn' to be a str")
         pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
-        if port and not isinstance(port, float):
-            raise TypeError("Expected argument 'port' to be a float")
+        if port and not isinstance(port, int):
+            raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
         if protocol and not isinstance(protocol, str):
             raise TypeError("Expected argument 'protocol' to be a str")
@@ -60,7 +60,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter(name="defaultActions")
-    def default_actions(self) -> List['outputs.GetListenerDefaultActionResult']:
+    def default_actions(self) -> Sequence['outputs.GetListenerDefaultActionResult']:
         return pulumi.get(self, "default_actions")
 
     @property
@@ -78,7 +78,7 @@ class GetListenerResult:
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         return pulumi.get(self, "port")
 
     @property
@@ -110,7 +110,7 @@ class AwaitableGetListenerResult(GetListenerResult):
 
 def get_listener(arn: Optional[str] = None,
                  load_balancer_arn: Optional[str] = None,
-                 port: Optional[float] = None,
+                 port: Optional[int] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerResult:
     """
     > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
@@ -138,7 +138,7 @@ def get_listener(arn: Optional[str] = None,
 
     :param str arn: The arn of the listener. Required if `load_balancer_arn` and `port` is not set.
     :param str load_balancer_arn: The arn of the load balancer. Required if `arn` is not set.
-    :param float port: The port of the listener. Required if `arn` is not set.
+    :param int port: The port of the listener. Required if `arn` is not set.
     """
     pulumi.log.warn("get_listener is deprecated: aws.applicationloadbalancing.getListener has been deprecated in favor of aws.alb.getListener")
     __args__ = dict()

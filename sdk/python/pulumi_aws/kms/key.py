@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Key']
@@ -16,7 +16,7 @@ class Key(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_master_key_spec: Optional[pulumi.Input[str]] = None,
-                 deletion_window_in_days: Optional[pulumi.Input[float]] = None,
+                 deletion_window_in_days: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
@@ -44,7 +44,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
                Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
-        :param pulumi.Input[float] deletion_window_in_days: Duration in days after which the key is deleted
+        :param pulumi.Input[int] deletion_window_in_days: Duration in days after which the key is deleted
                after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
         :param pulumi.Input[str] description: The description of the key as viewed in AWS console.
         :param pulumi.Input[bool] enable_key_rotation: Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
@@ -94,7 +94,7 @@ class Key(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             customer_master_key_spec: Optional[pulumi.Input[str]] = None,
-            deletion_window_in_days: Optional[pulumi.Input[float]] = None,
+            deletion_window_in_days: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enable_key_rotation: Optional[pulumi.Input[bool]] = None,
             is_enabled: Optional[pulumi.Input[bool]] = None,
@@ -112,7 +112,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the key.
         :param pulumi.Input[str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
                Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
-        :param pulumi.Input[float] deletion_window_in_days: Duration in days after which the key is deleted
+        :param pulumi.Input[int] deletion_window_in_days: Duration in days after which the key is deleted
                after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
         :param pulumi.Input[str] description: The description of the key as viewed in AWS console.
         :param pulumi.Input[bool] enable_key_rotation: Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html)
@@ -159,7 +159,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deletionWindowInDays")
-    def deletion_window_in_days(self) -> pulumi.Output[Optional[float]]:
+    def deletion_window_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         Duration in days after which the key is deleted
         after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.

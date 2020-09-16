@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -168,12 +168,12 @@ class OrganizationRoot(dict):
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
-                 policy_types: Optional[List['outputs.OrganizationRootPolicyType']] = None):
+                 policy_types: Optional[Sequence['outputs.OrganizationRootPolicyType']] = None):
         """
         :param str arn: ARN of the root
         :param str id: Identifier of the root
         :param str name: The name of the policy type
-        :param List['OrganizationRootPolicyTypeArgs'] policy_types: List of policy types enabled for this root. All elements have these attributes:
+        :param Sequence['OrganizationRootPolicyTypeArgs'] policy_types: List of policy types enabled for this root. All elements have these attributes:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -210,7 +210,7 @@ class OrganizationRoot(dict):
 
     @property
     @pulumi.getter(name="policyTypes")
-    def policy_types(self) -> Optional[List['outputs.OrganizationRootPolicyType']]:
+    def policy_types(self) -> Optional[Sequence['outputs.OrganizationRootPolicyType']]:
         """
         List of policy types enabled for this root. All elements have these attributes:
         """
@@ -438,12 +438,12 @@ class GetOrganizationRootResult(dict):
                  arn: str,
                  id: str,
                  name: str,
-                 policy_types: List['outputs.GetOrganizationRootPolicyTypeResult']):
+                 policy_types: Sequence['outputs.GetOrganizationRootPolicyTypeResult']):
         """
         :param str arn: ARN of the root
         :param str id: Identifier of the root
         :param str name: The name of the policy type
-        :param List['GetOrganizationRootPolicyTypeArgs'] policy_types: List of policy types enabled for this root. All elements have these attributes:
+        :param Sequence['GetOrganizationRootPolicyTypeArgs'] policy_types: List of policy types enabled for this root. All elements have these attributes:
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -476,7 +476,7 @@ class GetOrganizationRootResult(dict):
 
     @property
     @pulumi.getter(name="policyTypes")
-    def policy_types(self) -> List['outputs.GetOrganizationRootPolicyTypeResult']:
+    def policy_types(self) -> Sequence['outputs.GetOrganizationRootPolicyTypeResult']:
         """
         List of policy types enabled for this root. All elements have these attributes:
         """

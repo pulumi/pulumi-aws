@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -30,14 +30,14 @@ class GetClusterResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if pending_tasks_count and not isinstance(pending_tasks_count, float):
-            raise TypeError("Expected argument 'pending_tasks_count' to be a float")
+        if pending_tasks_count and not isinstance(pending_tasks_count, int):
+            raise TypeError("Expected argument 'pending_tasks_count' to be a int")
         pulumi.set(__self__, "pending_tasks_count", pending_tasks_count)
-        if registered_container_instances_count and not isinstance(registered_container_instances_count, float):
-            raise TypeError("Expected argument 'registered_container_instances_count' to be a float")
+        if registered_container_instances_count and not isinstance(registered_container_instances_count, int):
+            raise TypeError("Expected argument 'registered_container_instances_count' to be a int")
         pulumi.set(__self__, "registered_container_instances_count", registered_container_instances_count)
-        if running_tasks_count and not isinstance(running_tasks_count, float):
-            raise TypeError("Expected argument 'running_tasks_count' to be a float")
+        if running_tasks_count and not isinstance(running_tasks_count, int):
+            raise TypeError("Expected argument 'running_tasks_count' to be a int")
         pulumi.set(__self__, "running_tasks_count", running_tasks_count)
         if settings and not isinstance(settings, list):
             raise TypeError("Expected argument 'settings' to be a list")
@@ -69,7 +69,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="pendingTasksCount")
-    def pending_tasks_count(self) -> float:
+    def pending_tasks_count(self) -> int:
         """
         The number of pending tasks for the ECS Cluster
         """
@@ -77,7 +77,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="registeredContainerInstancesCount")
-    def registered_container_instances_count(self) -> float:
+    def registered_container_instances_count(self) -> int:
         """
         The number of registered container instances for the ECS Cluster
         """
@@ -85,7 +85,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="runningTasksCount")
-    def running_tasks_count(self) -> float:
+    def running_tasks_count(self) -> int:
         """
         The number of running tasks for the ECS Cluster
         """
@@ -93,7 +93,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def settings(self) -> List['outputs.GetClusterSettingResult']:
+    def settings(self) -> Sequence['outputs.GetClusterSettingResult']:
         """
         The settings associated with the ECS Cluster.
         """

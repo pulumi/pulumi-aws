@@ -139,25 +139,26 @@ namespace Pulumi.Aws.Ec2
     /// </summary>
     public partial class DefaultSecurityGroup : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the security group
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the security group
+        /// Description of this egress rule.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// egress rule. Each egress block supports fields documented below.
+        /// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
         /// </summary>
         [Output("egress")]
         public Output<ImmutableArray<Outputs.DefaultSecurityGroupEgress>> Egress { get; private set; } = null!;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// ingress rule. Each ingress block supports fields documented below.
+        /// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
         /// </summary>
         [Output("ingress")]
         public Output<ImmutableArray<Outputs.DefaultSecurityGroupIngress>> Ingress { get; private set; } = null!;
@@ -184,9 +185,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC ID. **Note that changing
-        /// the `vpc_id` will _not_ restore any default security group rules that were
-        /// modified, added, or removed.** It will be left in its current state
+        /// The VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -241,8 +240,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.DefaultSecurityGroupEgressArgs>? _egress;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// egress rule. Each egress block supports fields documented below.
+        /// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
         /// </summary>
         public InputList<Inputs.DefaultSecurityGroupEgressArgs> Egress
         {
@@ -254,8 +252,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.DefaultSecurityGroupIngressArgs>? _ingress;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// ingress rule. Each ingress block supports fields documented below.
+        /// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
         /// </summary>
         public InputList<Inputs.DefaultSecurityGroupIngressArgs> Ingress
         {
@@ -279,9 +276,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The VPC ID. **Note that changing
-        /// the `vpc_id` will _not_ restore any default security group rules that were
-        /// modified, added, or removed.** It will be left in its current state
+        /// The VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -293,11 +288,14 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class DefaultSecurityGroupState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the security group
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The description of the security group
+        /// Description of this egress rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -306,8 +304,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.DefaultSecurityGroupEgressGetArgs>? _egress;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// egress rule. Each egress block supports fields documented below.
+        /// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
         /// </summary>
         public InputList<Inputs.DefaultSecurityGroupEgressGetArgs> Egress
         {
@@ -319,8 +316,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.DefaultSecurityGroupIngressGetArgs>? _ingress;
 
         /// <summary>
-        /// Can be specified multiple times for each
-        /// ingress rule. Each ingress block supports fields documented below.
+        /// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
         /// </summary>
         public InputList<Inputs.DefaultSecurityGroupIngressGetArgs> Ingress
         {
@@ -356,9 +352,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The VPC ID. **Note that changing
-        /// the `vpc_id` will _not_ restore any default security group rules that were
-        /// modified, added, or removed.** It will be left in its current state
+        /// The VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

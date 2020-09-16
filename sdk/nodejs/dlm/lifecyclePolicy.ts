@@ -15,8 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const dlmLifecycleRole = new aws.iam.Role("dlm_lifecycle_role", {
- *     assumeRolePolicy: `{
+ * const dlmLifecycleRole = new aws.iam.Role("dlmLifecycleRole", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -29,9 +28,9 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `,
- * });
- * const dlmLifecycle = new aws.iam.RolePolicy("dlm_lifecycle", {
+ * `});
+ * const dlmLifecycle = new aws.iam.RolePolicy("dlmLifecycle", {
+ *     role: dlmLifecycleRole.id,
  *     policy: `{
  *    "Version": "2012-10-17",
  *    "Statement": [
@@ -55,33 +54,32 @@ import * as utilities from "../utilities";
  *    ]
  * }
  * `,
- *     role: dlmLifecycleRole.id,
  * });
  * const example = new aws.dlm.LifecyclePolicy("example", {
  *     description: "example DLM lifecycle policy",
  *     executionRoleArn: dlmLifecycleRole.arn,
+ *     state: "ENABLED",
  *     policyDetails: {
  *         resourceTypes: ["VOLUME"],
  *         schedules: [{
- *             copyTags: false,
+ *             name: "2 weeks of daily snapshots",
  *             createRule: {
  *                 interval: 24,
  *                 intervalUnit: "HOURS",
- *                 times: "23:45",
+ *                 times: ["23:45"],
  *             },
- *             name: "2 weeks of daily snapshots",
  *             retainRule: {
  *                 count: 14,
  *             },
  *             tagsToAdd: {
  *                 SnapshotCreator: "DLM",
  *             },
+ *             copyTags: false,
  *         }],
  *         targetTags: {
  *             Snapshot: "true",
  *         },
  *     },
- *     state: "ENABLED",
  * });
  * ```
  */

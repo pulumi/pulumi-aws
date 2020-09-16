@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,14 +19,14 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  adjustment_type: Optional[pulumi.Input[str]] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-                 cooldown: Optional[pulumi.Input[float]] = None,
-                 estimated_instance_warmup: Optional[pulumi.Input[float]] = None,
+                 cooldown: Optional[pulumi.Input[int]] = None,
+                 estimated_instance_warmup: Optional[pulumi.Input[int]] = None,
                  metric_aggregation_type: Optional[pulumi.Input[str]] = None,
-                 min_adjustment_magnitude: Optional[pulumi.Input[float]] = None,
+                 min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
-                 scaling_adjustment: Optional[pulumi.Input[float]] = None,
-                 step_adjustments: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]]] = None,
+                 scaling_adjustment: Optional[pulumi.Input[int]] = None,
+                 step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]]] = None,
                  target_tracking_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyTargetTrackingConfigurationArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -65,15 +65,15 @@ class Policy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] adjustment_type: Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         :param pulumi.Input[str] autoscaling_group_name: The name of the autoscaling group.
-        :param pulumi.Input[float] cooldown: The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
-        :param pulumi.Input[float] estimated_instance_warmup: The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
+        :param pulumi.Input[int] cooldown: The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+        :param pulumi.Input[int] estimated_instance_warmup: The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         :param pulumi.Input[str] metric_aggregation_type: The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[str] name: The name of the dimension.
         :param pulumi.Input[str] policy_type: The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
-        :param pulumi.Input[float] scaling_adjustment: The number of members by which to
+        :param pulumi.Input[int] scaling_adjustment: The number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]] step_adjustments: A set of adjustments that manage
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]] step_adjustments: A set of adjustments that manage
                group scaling. These have the following structure:
         :param pulumi.Input[pulumi.InputType['PolicyTargetTrackingConfigurationArgs']] target_tracking_configuration: A target tracking policy. These have the following structure:
         """
@@ -121,14 +121,14 @@ class Policy(pulumi.CustomResource):
             adjustment_type: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-            cooldown: Optional[pulumi.Input[float]] = None,
-            estimated_instance_warmup: Optional[pulumi.Input[float]] = None,
+            cooldown: Optional[pulumi.Input[int]] = None,
+            estimated_instance_warmup: Optional[pulumi.Input[int]] = None,
             metric_aggregation_type: Optional[pulumi.Input[str]] = None,
-            min_adjustment_magnitude: Optional[pulumi.Input[float]] = None,
+            min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             policy_type: Optional[pulumi.Input[str]] = None,
-            scaling_adjustment: Optional[pulumi.Input[float]] = None,
-            step_adjustments: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]]] = None,
+            scaling_adjustment: Optional[pulumi.Input[int]] = None,
+            step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]]] = None,
             target_tracking_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyTargetTrackingConfigurationArgs']]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
@@ -140,15 +140,15 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] adjustment_type: Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         :param pulumi.Input[str] arn: The ARN assigned by AWS to the scaling policy.
         :param pulumi.Input[str] autoscaling_group_name: The name of the autoscaling group.
-        :param pulumi.Input[float] cooldown: The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
-        :param pulumi.Input[float] estimated_instance_warmup: The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
+        :param pulumi.Input[int] cooldown: The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+        :param pulumi.Input[int] estimated_instance_warmup: The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         :param pulumi.Input[str] metric_aggregation_type: The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[str] name: The name of the dimension.
         :param pulumi.Input[str] policy_type: The policy type, either "SimpleScaling", "StepScaling" or "TargetTrackingScaling". If this value isn't provided, AWS will default to "SimpleScaling."
-        :param pulumi.Input[float] scaling_adjustment: The number of members by which to
+        :param pulumi.Input[int] scaling_adjustment: The number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]] step_adjustments: A set of adjustments that manage
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]] step_adjustments: A set of adjustments that manage
                group scaling. These have the following structure:
         :param pulumi.Input[pulumi.InputType['PolicyTargetTrackingConfigurationArgs']] target_tracking_configuration: A target tracking policy. These have the following structure:
         """
@@ -196,7 +196,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cooldown(self) -> pulumi.Output[Optional[float]]:
+    def cooldown(self) -> pulumi.Output[Optional[int]]:
         """
         The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         """
@@ -204,7 +204,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="estimatedInstanceWarmup")
-    def estimated_instance_warmup(self) -> pulumi.Output[Optional[float]]:
+    def estimated_instance_warmup(self) -> pulumi.Output[Optional[int]]:
         """
         The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         """
@@ -220,7 +220,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minAdjustmentMagnitude")
-    def min_adjustment_magnitude(self) -> pulumi.Output[Optional[float]]:
+    def min_adjustment_magnitude(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "min_adjustment_magnitude")
 
     @property
@@ -241,7 +241,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scalingAdjustment")
-    def scaling_adjustment(self) -> pulumi.Output[Optional[float]]:
+    def scaling_adjustment(self) -> pulumi.Output[Optional[int]]:
         """
         The number of members by which to
         scale, when the adjustment bounds are breached. A positive value scales
@@ -251,7 +251,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stepAdjustments")
-    def step_adjustments(self) -> pulumi.Output[Optional[List['outputs.PolicyStepAdjustment']]]:
+    def step_adjustments(self) -> pulumi.Output[Optional[Sequence['outputs.PolicyStepAdjustment']]]:
         """
         A set of adjustments that manage
         group scaling. These have the following structure:

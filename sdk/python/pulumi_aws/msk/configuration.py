@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Configuration']
@@ -16,7 +16,7 @@ class Configuration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 kafka_versions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 kafka_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_properties: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -44,7 +44,7 @@ class Configuration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the configuration.
-        :param pulumi.Input[List[pulumi.Input[str]]] kafka_versions: List of Apache Kafka versions which can use this configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] kafka_versions: List of Apache Kafka versions which can use this configuration.
         :param pulumi.Input[str] name: Name of the configuration.
         :param pulumi.Input[str] server_properties: Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         """
@@ -87,8 +87,8 @@ class Configuration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            kafka_versions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            latest_revision: Optional[pulumi.Input[float]] = None,
+            kafka_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            latest_revision: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             server_properties: Optional[pulumi.Input[str]] = None) -> 'Configuration':
         """
@@ -100,8 +100,8 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the configuration.
         :param pulumi.Input[str] description: Description of the configuration.
-        :param pulumi.Input[List[pulumi.Input[str]]] kafka_versions: List of Apache Kafka versions which can use this configuration.
-        :param pulumi.Input[float] latest_revision: Latest revision of the configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] kafka_versions: List of Apache Kafka versions which can use this configuration.
+        :param pulumi.Input[int] latest_revision: Latest revision of the configuration.
         :param pulumi.Input[str] name: Name of the configuration.
         :param pulumi.Input[str] server_properties: Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         """
@@ -135,7 +135,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kafkaVersions")
-    def kafka_versions(self) -> pulumi.Output[List[str]]:
+    def kafka_versions(self) -> pulumi.Output[Sequence[str]]:
         """
         List of Apache Kafka versions which can use this configuration.
         """
@@ -143,7 +143,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latestRevision")
-    def latest_revision(self) -> pulumi.Output[float]:
+    def latest_revision(self) -> pulumi.Output[int]:
         """
         Latest revision of the configuration.
         """

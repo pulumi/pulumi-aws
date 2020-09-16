@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -59,7 +59,7 @@ class GetRouteTableResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetRouteTableFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetRouteTableFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -101,7 +101,7 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
             transit_gateway_id=self.transit_gateway_id)
 
 
-def get_route_table(filters: Optional[List[pulumi.InputType['GetRouteTableFilterArgs']]] = None,
+def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFilterArgs']]] = None,
                     id: Optional[str] = None,
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableResult:
@@ -136,7 +136,7 @@ def get_route_table(filters: Optional[List[pulumi.InputType['GetRouteTableFilter
     ```
 
 
-    :param List[pulumi.InputType['GetRouteTableFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway Route Table.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Route Table
     """

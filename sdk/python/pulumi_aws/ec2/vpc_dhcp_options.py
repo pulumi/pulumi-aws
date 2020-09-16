@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['VpcDhcpOptions']
@@ -16,10 +16,10 @@ class VpcDhcpOptions(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 domain_name_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 netbios_name_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[str]] = None,
-                 ntp_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -71,10 +71,10 @@ class VpcDhcpOptions(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
-        :param pulumi.Input[List[pulumi.Input[str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
-        :param pulumi.Input[List[pulumi.Input[str]]] netbios_name_servers: List of NETBIOS name servers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: List of NETBIOS name servers.
         :param pulumi.Input[str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-        :param pulumi.Input[List[pulumi.Input[str]]] ntp_servers: List of NTP servers to configure.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: List of NTP servers to configure.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -114,10 +114,10 @@ class VpcDhcpOptions(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
-            domain_name_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            netbios_name_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             netbios_node_type: Optional[pulumi.Input[str]] = None,
-            ntp_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'VpcDhcpOptions':
         """
@@ -129,10 +129,10 @@ class VpcDhcpOptions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the DHCP Options Set.
         :param pulumi.Input[str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
-        :param pulumi.Input[List[pulumi.Input[str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
-        :param pulumi.Input[List[pulumi.Input[str]]] netbios_name_servers: List of NETBIOS name servers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: List of NETBIOS name servers.
         :param pulumi.Input[str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-        :param pulumi.Input[List[pulumi.Input[str]]] ntp_servers: List of NTP servers to configure.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: List of NTP servers to configure.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the DHCP options set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
@@ -168,7 +168,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainNameServers")
-    def domain_name_servers(self) -> pulumi.Output[Optional[List[str]]]:
+    def domain_name_servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
         """
@@ -176,7 +176,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="netbiosNameServers")
-    def netbios_name_servers(self) -> pulumi.Output[Optional[List[str]]]:
+    def netbios_name_servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of NETBIOS name servers.
         """
@@ -192,7 +192,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ntpServers")
-    def ntp_servers(self) -> pulumi.Output[Optional[List[str]]]:
+    def ntp_servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of NTP servers to configure.
         """

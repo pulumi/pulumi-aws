@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -32,8 +32,8 @@ class GetVaultResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if recovery_points and not isinstance(recovery_points, float):
-            raise TypeError("Expected argument 'recovery_points' to be a float")
+        if recovery_points and not isinstance(recovery_points, int):
+            raise TypeError("Expected argument 'recovery_points' to be a int")
         pulumi.set(__self__, "recovery_points", recovery_points)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -70,7 +70,7 @@ class GetVaultResult:
 
     @property
     @pulumi.getter(name="recoveryPoints")
-    def recovery_points(self) -> float:
+    def recovery_points(self) -> int:
         """
         The number of recovery points that are stored in a backup vault.
         """

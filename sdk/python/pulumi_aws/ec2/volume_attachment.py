@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['VolumeAttachment']
@@ -38,7 +38,7 @@ class VolumeAttachment(pulumi.CustomResource):
         web = aws.ec2.Instance("web",
             ami="ami-21f78e11",
             availability_zone="us-west-2a",
-            instance_type="t1.micro",
+            instance_type="t2.micro",
             tags={
                 "Name": "HelloWorld",
             })

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['PolicyAttachment']
@@ -15,11 +15,11 @@ class PolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_arn: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 users: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -76,11 +76,11 @@ class PolicyAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: The group(s) the policy should be applied to
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The group(s) the policy should be applied to
         :param pulumi.Input[str] name: The name of the attachment. This cannot be an empty string.
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[List[pulumi.Input[str]]] roles: The role(s) the policy should be applied to
-        :param pulumi.Input[List[pulumi.Input[str]]] users: The user(s) the policy should be applied to
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The role(s) the policy should be applied to
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The user(s) the policy should be applied to
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -116,11 +116,11 @@ class PolicyAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             policy_arn: Optional[pulumi.Input[str]] = None,
-            roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            users: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'PolicyAttachment':
+            roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'PolicyAttachment':
         """
         Get an existing PolicyAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -128,11 +128,11 @@ class PolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: The group(s) the policy should be applied to
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The group(s) the policy should be applied to
         :param pulumi.Input[str] name: The name of the attachment. This cannot be an empty string.
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
-        :param pulumi.Input[List[pulumi.Input[str]]] roles: The role(s) the policy should be applied to
-        :param pulumi.Input[List[pulumi.Input[str]]] users: The user(s) the policy should be applied to
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The role(s) the policy should be applied to
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The user(s) the policy should be applied to
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -147,7 +147,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The group(s) the policy should be applied to
         """
@@ -171,7 +171,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def roles(self) -> pulumi.Output[Optional[List[str]]]:
+    def roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The role(s) the policy should be applied to
         """
@@ -179,7 +179,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[List[str]]]:
+    def users(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The user(s) the policy should be applied to
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -19,10 +19,10 @@ __all__ = [
 @pulumi.output_type
 class EfsLocationEc2Config(dict):
     def __init__(__self__, *,
-                 security_group_arns: List[str],
+                 security_group_arns: Sequence[str],
                  subnet_arn: str):
         """
-        :param List[str] security_group_arns: List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+        :param Sequence[str] security_group_arns: List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
         :param str subnet_arn: Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
         """
         pulumi.set(__self__, "security_group_arns", security_group_arns)
@@ -30,7 +30,7 @@ class EfsLocationEc2Config(dict):
 
     @property
     @pulumi.getter(name="securityGroupArns")
-    def security_group_arns(self) -> List[str]:
+    def security_group_arns(self) -> Sequence[str]:
         """
         List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
         """
@@ -73,15 +73,15 @@ class LocationSmbMountOptions(dict):
 @pulumi.output_type
 class NfsLocationOnPremConfig(dict):
     def __init__(__self__, *,
-                 agent_arns: List[str]):
+                 agent_arns: Sequence[str]):
         """
-        :param List[str] agent_arns: List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
+        :param Sequence[str] agent_arns: List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
 
     @property
     @pulumi.getter(name="agentArns")
-    def agent_arns(self) -> List[str]:
+    def agent_arns(self) -> Sequence[str]:
         """
         List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
         """
@@ -116,7 +116,7 @@ class S3LocationS3Config(dict):
 class TaskOptions(dict):
     def __init__(__self__, *,
                  atime: Optional[str] = None,
-                 bytes_per_second: Optional[float] = None,
+                 bytes_per_second: Optional[int] = None,
                  gid: Optional[str] = None,
                  mtime: Optional[str] = None,
                  posix_permissions: Optional[str] = None,
@@ -126,7 +126,7 @@ class TaskOptions(dict):
                  verify_mode: Optional[str] = None):
         """
         :param str atime: A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
-        :param float bytes_per_second: Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
+        :param int bytes_per_second: Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
         :param str gid: Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
         :param str mtime: A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         :param str posix_permissions: Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
@@ -164,7 +164,7 @@ class TaskOptions(dict):
 
     @property
     @pulumi.getter(name="bytesPerSecond")
-    def bytes_per_second(self) -> Optional[float]:
+    def bytes_per_second(self) -> Optional[int]:
         """
         Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
         """

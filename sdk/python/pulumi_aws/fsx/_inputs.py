@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -15,14 +15,14 @@ __all__ = [
 @pulumi.input_type
 class WindowsFileSystemSelfManagedActiveDirectoryArgs:
     def __init__(__self__, *,
-                 dns_ips: pulumi.Input[List[pulumi.Input[str]]],
+                 dns_ips: pulumi.Input[Sequence[pulumi.Input[str]]],
                  domain_name: pulumi.Input[str],
                  password: pulumi.Input[str],
                  username: pulumi.Input[str],
                  file_system_administrators_group: Optional[pulumi.Input[str]] = None,
                  organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_ips: A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ips: A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
         :param pulumi.Input[str] domain_name: The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
         :param pulumi.Input[str] password: The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
         :param pulumi.Input[str] username: The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
@@ -40,14 +40,14 @@ class WindowsFileSystemSelfManagedActiveDirectoryArgs:
 
     @property
     @pulumi.getter(name="dnsIps")
-    def dns_ips(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def dns_ips(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
         """
         return pulumi.get(self, "dns_ips")
 
     @dns_ips.setter
-    def dns_ips(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def dns_ips(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "dns_ips", value)
 
     @property

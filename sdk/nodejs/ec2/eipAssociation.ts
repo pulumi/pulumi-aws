@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-21f78e11",
  *     availabilityZone: "us-west-2a",
- *     instanceType: "t1.micro",
+ *     instanceType: "t2.micro",
  *     tags: {
  *         Name: "HelloWorld",
  *     },

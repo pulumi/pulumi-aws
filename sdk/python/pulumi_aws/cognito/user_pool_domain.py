@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['UserPoolDomain']
@@ -44,19 +44,19 @@ class UserPoolDomain(pulumi.CustomResource):
 
         example_user_pool = aws.cognito.UserPool("exampleUserPool")
         main = aws.cognito.UserPoolDomain("main",
-            certificate_arn=aws_acm_certificate["cert"]["arn"],
             domain="example-domain.example.com",
+            certificate_arn=aws_acm_certificate["cert"]["arn"],
             user_pool_id=example_user_pool.id)
         example_zone = aws.route53.get_zone(name="example.com")
         auth_cognito__a = aws.route53.Record("auth-cognito-A",
+            name=main.domain,
+            type="A",
+            zone_id=example_zone.zone_id,
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=False,
                 name=main.cloudfront_distribution_arn,
                 zone_id="Z2FDTNDATAQYW2",
-            )],
-            name=main.domain,
-            type="A",
-            zone_id=example_zone.zone_id)
+            )])
         ```
 
         :param str resource_name: The name of the resource.

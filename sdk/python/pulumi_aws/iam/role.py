@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Role']
@@ -18,7 +18,7 @@ class Role(pulumi.CustomResource):
                  assume_role_policy: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  force_detach_policies: Optional[pulumi.Input[bool]] = None,
-                 max_session_duration: Optional[pulumi.Input[float]] = None,
+                 max_session_duration: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
@@ -81,7 +81,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] assume_role_policy: The policy that grants an entity permission to assume the role.
         :param pulumi.Input[str] description: The description of the role.
         :param pulumi.Input[bool] force_detach_policies: Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
-        :param pulumi.Input[float] max_session_duration: The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+        :param pulumi.Input[int] max_session_duration: The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         :param pulumi.Input[str] name: The name of the role. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: The path to the role.
@@ -135,7 +135,7 @@ class Role(pulumi.CustomResource):
             create_date: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             force_detach_policies: Optional[pulumi.Input[bool]] = None,
-            max_session_duration: Optional[pulumi.Input[float]] = None,
+            max_session_duration: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             path: Optional[pulumi.Input[str]] = None,
@@ -154,7 +154,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] create_date: The creation date of the IAM role.
         :param pulumi.Input[str] description: The description of the role.
         :param pulumi.Input[bool] force_detach_policies: Specifies to force detaching any policies the role has before destroying it. Defaults to `false`.
-        :param pulumi.Input[float] max_session_duration: The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+        :param pulumi.Input[int] max_session_duration: The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         :param pulumi.Input[str] name: The name of the role. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: The path to the role.
@@ -223,7 +223,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSessionDuration")
-    def max_session_duration(self) -> pulumi.Output[Optional[float]]:
+    def max_session_duration(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         """

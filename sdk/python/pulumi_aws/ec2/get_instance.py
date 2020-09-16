@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -177,7 +177,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="creditSpecifications")
-    def credit_specifications(self) -> List['outputs.GetInstanceCreditSpecificationResult']:
+    def credit_specifications(self) -> Sequence['outputs.GetInstanceCreditSpecificationResult']:
         """
         The credit specification of the Instance.
         """
@@ -190,7 +190,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> List['outputs.GetInstanceEbsBlockDeviceResult']:
+    def ebs_block_devices(self) -> Sequence['outputs.GetInstanceEbsBlockDeviceResult']:
         """
         The EBS block device mappings of the Instance.
         """
@@ -206,7 +206,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> List['outputs.GetInstanceEphemeralBlockDeviceResult']:
+    def ephemeral_block_devices(self) -> Sequence['outputs.GetInstanceEphemeralBlockDeviceResult']:
         """
         The ephemeral block device mappings of the Instance.
         """
@@ -214,7 +214,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetInstanceFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetInstanceFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -287,7 +287,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> List['outputs.GetInstanceMetadataOptionResult']:
+    def metadata_options(self) -> Sequence['outputs.GetInstanceMetadataOptionResult']:
         """
         The metadata options of the Instance.
         """
@@ -373,7 +373,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="rootBlockDevices")
-    def root_block_devices(self) -> List['outputs.GetInstanceRootBlockDeviceResult']:
+    def root_block_devices(self) -> Sequence['outputs.GetInstanceRootBlockDeviceResult']:
         """
         The root block device mappings of the Instance
         """
@@ -381,7 +381,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="secondaryPrivateIps")
-    def secondary_private_ips(self) -> List[str]:
+    def secondary_private_ips(self) -> Sequence[str]:
         """
         The secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
         """
@@ -389,7 +389,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> List[str]:
+    def security_groups(self) -> Sequence[str]:
         """
         The associated security groups.
         """
@@ -445,7 +445,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> List[str]:
+    def vpc_security_group_ids(self) -> Sequence[str]:
         """
         The associated security groups in a non-default VPC.
         """
@@ -500,7 +500,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
-def get_instance(filters: Optional[List[pulumi.InputType['GetInstanceFilterArgs']]] = None,
+def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterArgs']]] = None,
                  get_password_data: Optional[bool] = None,
                  get_user_data: Optional[bool] = None,
                  instance_id: Optional[str] = None,
@@ -531,7 +531,7 @@ def get_instance(filters: Optional[List[pulumi.InputType['GetInstanceFilterArgs'
     ```
 
 
-    :param List[pulumi.InputType['GetInstanceFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[pulumi.InputType['GetInstanceFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
     :param bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -82,7 +82,7 @@ class Channel(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             channel_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            hls_ingests: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]]]] = None,
+            hls_ingests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Channel':
         """
         Get an existing Channel resource's state with the given name, id, and optional extra
@@ -94,7 +94,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the channel
         :param pulumi.Input[str] channel_id: A unique identifier describing the channel
         :param pulumi.Input[str] description: A description of the channel
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]]] hls_ingests: A single item list of HLS ingest information
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]]] hls_ingests: A single item list of HLS ingest information
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -134,7 +134,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hlsIngests")
-    def hls_ingests(self) -> pulumi.Output[List['outputs.ChannelHlsIngest']]:
+    def hls_ingests(self) -> pulumi.Output[Sequence['outputs.ChannelHlsIngest']]:
         """
         A single item list of HLS ingest information
         """

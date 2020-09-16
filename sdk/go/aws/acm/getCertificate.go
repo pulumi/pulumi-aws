@@ -25,6 +25,26 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
 // 			Domain: "tf.example.com",
+// 			Statuses: []string{
+// 				"ISSUED",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt0 := true
+// 		_, err = acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
+// 			Domain:     "tf.example.com",
+// 			MostRecent: &opt0,
+// 			Types: []string{
+// 				"AMAZON_ISSUED",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
+// 			Domain: "tf.example.com",
 // 			KeyTypes: []string{
 // 				"RSA_4096",
 // 			},

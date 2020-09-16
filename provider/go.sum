@@ -117,6 +117,7 @@ github.com/abdullin/seq v0.0.0-20160510034733-d5467c17e7af/go.mod h1:5Jv4cbFiHJM
 github.com/agext/levenshtein v1.2.1/go.mod h1:JEDfjyjHDjOF/1e4FlBE/PkbqA9OfWu2ki2W0IB5558=
 github.com/agext/levenshtein v1.2.2 h1:0S/Yg6LYmFJ5stwQeRp6EeOcCbj7xiqQSdNelsXvaqE=
 github.com/agext/levenshtein v1.2.2/go.mod h1:JEDfjyjHDjOF/1e4FlBE/PkbqA9OfWu2ki2W0IB5558=
+github.com/agl/ed25519 v0.0.0-20170116200512-5312a6153412 h1:w1UutsfOrms1J05zt7ISrnJIXKzwaspym5BTKGx93EI=
 github.com/agl/ed25519 v0.0.0-20170116200512-5312a6153412/go.mod h1:WPjqKcmVOxf0XSf3YxCJs6N6AOSrOx3obionmG7T0y0=
 github.com/alcortesm/tgz v0.0.0-20161220082320-9c5fe88206d7 h1:uSoVVbwJiQipAclBbw+8quDsfcvFjOpI5iCf4p/cqCs=
 github.com/alcortesm/tgz v0.0.0-20161220082320-9c5fe88206d7/go.mod h1:6zEj6s6u/ghQa61ZWa/C2Aw3RkjiTBOix7dkqa1VLIs=
@@ -175,6 +176,7 @@ github.com/bflad/tfproviderdocs v0.6.0/go.mod h1:W6wVZPtBa6V5bpjaK1eJAoVCL/7B4Am
 github.com/bflad/tfproviderdocs v0.7.0/go.mod h1:W6wVZPtBa6V5bpjaK1eJAoVCL/7B4Amfrld0dro+fHU=
 github.com/bflad/tfproviderlint v0.14.0/go.mod h1:1Jtjs6DPKoyqPrbPyMiy33h0ViO2h831uzoOuikCA60=
 github.com/bflad/tfproviderlint v0.15.0/go.mod h1:0fdh7JywihC58Io8AZ+gpcmQtJggse0MCOXF2tMmnAQ=
+github.com/bflad/tfproviderlint v0.17.0/go.mod h1:0fdh7JywihC58Io8AZ+gpcmQtJggse0MCOXF2tMmnAQ=
 github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d h1:xDfNPAt8lFiC1UJrqV3uuy861HCTo708pDMbjHHdCas=
 github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d/go.mod h1:6QX/PXZ00z/TKoufEY6K/a0k6AhaJrQKdFe6OfVXsa4=
 github.com/bgentry/speakeasy v0.1.0 h1:ByYyxL9InA1OWqxJqqp2A5pYHUrCiAL6K3J+LKSsQkY=
@@ -562,6 +564,7 @@ github.com/hashicorp/terraform-plugin-sdk v1.9.0/go.mod h1:C/AXwmDHqbc3h6URiHpIs
 github.com/hashicorp/terraform-plugin-sdk v1.14.0 h1:sUKcw7OHqDXhBarlHjv+/yMCr8eEb1lO8CGQ3pEEFiE=
 github.com/hashicorp/terraform-plugin-sdk v1.14.0/go.mod h1:t62Xy+m7Zjq5tA2vrs8Wuo/TQ0sc9Mx9MjXL3+7MHBQ=
 github.com/hashicorp/terraform-plugin-sdk/v2 v2.0.0/go.mod h1:xOf85UtHJ0/9/EF3eKgZFlJ6feN8sDtjQRWRHhimCUw=
+github.com/hashicorp/terraform-plugin-sdk/v2 v2.0.1/go.mod h1:BRz6UtYmksQJU0eMfahQR8fcJf8tIe77gn7YVm6rGD4=
 github.com/hashicorp/terraform-plugin-sdk/v2 v2.0.2 h1:gNLt9kE9YZnYHB1VCDQI0AvNVcvlRPHMeOHtMAoHwLk=
 github.com/hashicorp/terraform-plugin-sdk/v2 v2.0.2/go.mod h1:pVZLnLuSe/yv0XqTHFPb8xRGWPwgANT77jHeHqjXS5o=
 github.com/hashicorp/terraform-plugin-test v1.2.0 h1:AWFdqyfnOj04sxTdaAF57QqvW7XXrT8PseUHkbKsE8I=
@@ -569,6 +572,7 @@ github.com/hashicorp/terraform-plugin-test v1.2.0/go.mod h1:QIJHYz8j+xJtdtLrFTlz
 github.com/hashicorp/terraform-plugin-test v1.3.0 h1:hU5LoxrOn9qvOo+LTKN6mSav2J+dAMprbdxJPEQvp4U=
 github.com/hashicorp/terraform-plugin-test v1.3.0/go.mod h1:QIJHYz8j+xJtdtLrFTlzQVC0ocr3rf/OjIpgZLK56Hs=
 github.com/hashicorp/terraform-plugin-test/v2 v2.0.0-20200724200815-faa9931ac59e/go.mod h1:C6VALgUlvaif+PnHyRGKWPTdQkMJK4NQ20VJolxZLI0=
+github.com/hashicorp/terraform-plugin-test/v2 v2.0.0/go.mod h1:C6VALgUlvaif+PnHyRGKWPTdQkMJK4NQ20VJolxZLI0=
 github.com/hashicorp/terraform-plugin-test/v2 v2.1.1 h1:aATRyyPlEKkFYUweD2Hld9eep77qzJVu8wg0mgyUE50=
 github.com/hashicorp/terraform-plugin-test/v2 v2.1.1/go.mod h1:HaW2G5cDTVyiEKt7PHC85YSM5BwvYl/rIko1g8Lg7qE=
 github.com/hashicorp/terraform-svchost v0.0.0-20191011084731-65d371908596 h1:hjyO2JsNZUKT1ym+FAdlBEkGPevazYsmVgIMw7dVELg=
@@ -652,6 +656,7 @@ github.com/katbyte/terrafmt v0.2.1-0.20200303174203-e6a3e82cb21b/go.mod h1:WRq5t
 github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51/go.mod h1:CzGEWj7cYgsdH8dAjBGEr58BoE7ScuLd+fwFZ44+/x8=
 github.com/kevinburke/ssh_config v0.0.0-20190725054713-01f96b0aa0cd h1:Coekwdh0v2wtGp9Gmz1Ze3eVRAWJMLokvN3QjdzCHLY=
 github.com/kevinburke/ssh_config v0.0.0-20190725054713-01f96b0aa0cd/go.mod h1:CT57kijsi8u/K/BOFA39wgDQJ9CxiF4nAY/ojJ6r6mM=
+github.com/keybase/go-crypto v0.0.0-20161004153544-93f5b35093ba h1:NARVGAAgEXvoMeNPHhPFt1SBt1VMznA3Gnz9d0qj+co=
 github.com/keybase/go-crypto v0.0.0-20161004153544-93f5b35093ba/go.mod h1:ghbZscTyKdM07+Fw3KSi0hcJm+AlEUWj8QLlPtijN/M=
 github.com/keybase/go-crypto v0.0.0-20190403132359-d65b6b94177f h1:Gsc9mVHLRqBjMgdQCghN9NObCcRncDqxJvBvEaIIQEo=
 github.com/keybase/go-crypto v0.0.0-20190403132359-d65b6b94177f/go.mod h1:ghbZscTyKdM07+Fw3KSi0hcJm+AlEUWj8QLlPtijN/M=
@@ -873,6 +878,10 @@ github.com/pulumi/pulumi-terraform-bridge/v2 v2.9.1-0.20200916195329-5709a703af1
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.9.1-0.20200916195329-5709a703af1e/go.mod h1:GpEbnMQcce2uVKyGhTbn24SjIdHvyaOG7dXvmhaVsJQ=
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.9.1 h1:vvKseB48RVSrf6hcLIGGpC2lUC4agsSwmaL6VqtWNKs=
 github.com/pulumi/pulumi-terraform-bridge/v2 v2.9.1/go.mod h1:GpEbnMQcce2uVKyGhTbn24SjIdHvyaOG7dXvmhaVsJQ=
+github.com/pulumi/pulumi-terraform-bridge/v2 v2.9.2-0.20200916232324-c5ead709df8c h1:8EUKakmXoYG2+Yg5JGVOxCv1A9gpP51fuDk2BFrbJEI=
+github.com/pulumi/pulumi-terraform-bridge/v2 v2.9.2-0.20200916232324-c5ead709df8c/go.mod h1:+WebiK3Ra3ZhXE5O/ALkYMuT5WDEyR2CZJeryb1UZyU=
+github.com/pulumi/pulumi-terraform-bridge/v2 v2.9.2 h1:G9UdCQa8u+DIWHLG+I1iqbUUmad4UmwzOnVJTRyi2nU=
+github.com/pulumi/pulumi-terraform-bridge/v2 v2.9.2/go.mod h1:+WebiK3Ra3ZhXE5O/ALkYMuT5WDEyR2CZJeryb1UZyU=
 github.com/pulumi/pulumi/pkg/v2 v2.0.0/go.mod h1:kNG9MBTdKP9AzMgkETumR3fmX9gUYB+HpQL767K6jXc=
 github.com/pulumi/pulumi/pkg/v2 v2.3.1-0.20200610172153-45a901d3e77c/go.mod h1:aqo0wBboEEdy+T5EYKUB6YnzbL80VPjgJPwjttuHqT0=
 github.com/pulumi/pulumi/pkg/v2 v2.4.0 h1:ntfw/kmhoiUMSa+66wmr5KiQ86EpcXoObnZDitGhzHM=
@@ -893,6 +902,8 @@ github.com/pulumi/pulumi/pkg/v2 v2.9.1-0.20200825190708-910aa96016cd h1:e4nK2jqL
 github.com/pulumi/pulumi/pkg/v2 v2.9.1-0.20200825190708-910aa96016cd/go.mod h1:Yq1q3nwy/KeU08DyyX0QsMyc6SqPs0jGJb8ev5f45AU=
 github.com/pulumi/pulumi/pkg/v2 v2.10.0 h1:GTUffKvweAzcCZ2Ok44MFY62nT4FY/u+eX8bWlzDs2A=
 github.com/pulumi/pulumi/pkg/v2 v2.10.0/go.mod h1:zQWe2D4tYJDeXNzSclqNmP8/SMSKOh8k22AbWg3+mVc=
+github.com/pulumi/pulumi/pkg/v2 v2.10.2-0.20200916204740-92a7d717a4d1 h1:6MkruuwuH0SStrTbanQDj002KvmQiiJho8idovsMUgA=
+github.com/pulumi/pulumi/pkg/v2 v2.10.2-0.20200916204740-92a7d717a4d1/go.mod h1:zQWe2D4tYJDeXNzSclqNmP8/SMSKOh8k22AbWg3+mVc=
 github.com/pulumi/pulumi/sdk/v2 v2.0.0/go.mod h1:W7k1UDYerc5o97mHnlHHp5iQZKEby+oQrQefWt+2RF4=
 github.com/pulumi/pulumi/sdk/v2 v2.2.1/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
 github.com/pulumi/pulumi/sdk/v2 v2.3.1-0.20200610172153-45a901d3e77c h1:jrm4MqhviE8q3uXOsNIOMLwsLBel99z6T5Sik+RRkhQ=
@@ -914,6 +925,10 @@ github.com/pulumi/pulumi/sdk/v2 v2.9.1-0.20200825190708-910aa96016cd h1:m5jEWpbr
 github.com/pulumi/pulumi/sdk/v2 v2.9.1-0.20200825190708-910aa96016cd/go.mod h1:x84WPiFiuE+G4kJ5jUYkOxmnQJlWoJaHNeEYdqnCKA4=
 github.com/pulumi/pulumi/sdk/v2 v2.10.0 h1:+BPDjZYGl3AI2hLkLCig1+q7hvo/TAVBLGlzPb0r0kk=
 github.com/pulumi/pulumi/sdk/v2 v2.10.0/go.mod h1:x84WPiFiuE+G4kJ5jUYkOxmnQJlWoJaHNeEYdqnCKA4=
+github.com/pulumi/pulumi/sdk/v2 v2.10.2-0.20200916204740-92a7d717a4d1 h1:OuuZs684M+C63XqvNjjK6BHn1+tw2/CYzcPNRwH3mNE=
+github.com/pulumi/pulumi/sdk/v2 v2.10.2-0.20200916204740-92a7d717a4d1/go.mod h1:EED7KCDOohYIewUppsav5KHTFTmfYGqUFib1uRvYdWQ=
+github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20200910230100-328eb4ff41df h1:kXSvfAz43o0D0gfxUqVCOP3NrfnGbptJBshVsqZlBqA=
+github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20200910230100-328eb4ff41df/go.mod h1:pVZLnLuSe/yv0XqTHFPb8xRGWPwgANT77jHeHqjXS5o=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20200619081042-5755382a412a h1:nfJ+u6CB3dHl7m2o34sP9d7bc4zkNj+lzDxaXQ445B0=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20200619081042-5755382a412a/go.mod h1:0U3OgA2uDYSc7gNkdWA92+/BxWXwuYhWqqZ4UhM1RCw=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20200624080059-07f101c8fe0a h1:3Bq5saRzbVLSBqx29Ejau5LFgMoG9Kq/GKS6d5XkQrw=
@@ -928,6 +943,8 @@ github.com/pulumi/terraform-provider-aws v1.38.1-0.20200731171956-596b56b07cc0 h
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20200731171956-596b56b07cc0/go.mod h1:hYYFcZmfgjIjO2xNEg89xPLrT9hBULOs6qGmiCREN80=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20200811114406-442cad19496b h1:nkcWgv0F1us+nf3po/QhdJmDbLoa+ytuOwYYNp2VZUU=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20200811114406-442cad19496b/go.mod h1:6maj14kbPlYXJM9jjerOLaPXOUxLDML5i0YGqXj5X4A=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20200814102553-13169b427d8d h1:8KKW2mtg0/AcXY+ikfX+l6flPI1SDXp0SINKWluUhaw=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20200814102553-13169b427d8d/go.mod h1:FOGh5NzGokvhJGfejk6B3ZXMaVaaFZy7NxerPYCRzfs=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200610210702-8e5d1a569c4a h1:CUbap8oEhlXRiqVBcAGiW63iXuDY7iIwQLM4r7y8lw8=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200610210702-8e5d1a569c4a/go.mod h1:lE39suxXfTqjNHg8PxtPUdek3wnTTdnoYXVpQdFGmEo=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200630203740-1846524be4ec h1:C0l29EHsfhH+reeRSmqr0sIzJipQpXssof3YZurRrVo=

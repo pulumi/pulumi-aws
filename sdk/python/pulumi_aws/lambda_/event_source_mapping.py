@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,16 +17,16 @@ class EventSourceMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 batch_size: Optional[pulumi.Input[float]] = None,
+                 batch_size: Optional[pulumi.Input[int]] = None,
                  bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
                  destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
-                 maximum_batching_window_in_seconds: Optional[pulumi.Input[float]] = None,
-                 maximum_record_age_in_seconds: Optional[pulumi.Input[float]] = None,
-                 maximum_retry_attempts: Optional[pulumi.Input[float]] = None,
-                 parallelization_factor: Optional[pulumi.Input[float]] = None,
+                 maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
+                 maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+                 parallelization_factor: Optional[pulumi.Input[int]] = None,
                  starting_position: Optional[pulumi.Input[str]] = None,
                  starting_position_timestamp: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -74,11 +74,11 @@ class EventSourceMapping(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
+        :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
         :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.
-        :param pulumi.Input[float] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+        :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
         :param pulumi.Input[str] starting_position: The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
         :param pulumi.Input[str] starting_position_timestamp: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
                * `parallelization_factor`: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
@@ -136,7 +136,7 @@ class EventSourceMapping(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            batch_size: Optional[pulumi.Input[float]] = None,
+            batch_size: Optional[pulumi.Input[int]] = None,
             bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
             destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -145,10 +145,10 @@ class EventSourceMapping(pulumi.CustomResource):
             function_name: Optional[pulumi.Input[str]] = None,
             last_modified: Optional[pulumi.Input[str]] = None,
             last_processing_result: Optional[pulumi.Input[str]] = None,
-            maximum_batching_window_in_seconds: Optional[pulumi.Input[float]] = None,
-            maximum_record_age_in_seconds: Optional[pulumi.Input[float]] = None,
-            maximum_retry_attempts: Optional[pulumi.Input[float]] = None,
-            parallelization_factor: Optional[pulumi.Input[float]] = None,
+            maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
+            maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
+            maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+            parallelization_factor: Optional[pulumi.Input[int]] = None,
             starting_position: Optional[pulumi.Input[str]] = None,
             starting_position_timestamp: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
@@ -161,14 +161,14 @@ class EventSourceMapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
+        :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - can be a Kinesis stream, DynamoDB stream, or SQS queue.
         :param pulumi.Input[str] function_arn: The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.
         :param pulumi.Input[str] last_modified: The date this resource was last modified.
         :param pulumi.Input[str] last_processing_result: The result of the last AWS Lambda invocation of your Lambda function.
-        :param pulumi.Input[float] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
+        :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
         :param pulumi.Input[str] starting_position: The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis or DynamoDB. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
         :param pulumi.Input[str] starting_position_timestamp: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
                * `parallelization_factor`: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
@@ -206,7 +206,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="batchSize")
-    def batch_size(self) -> pulumi.Output[Optional[float]]:
+    def batch_size(self) -> pulumi.Output[Optional[int]]:
         """
         The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB and Kinesis, `10` for SQS.
         """
@@ -272,7 +272,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
-    def maximum_batching_window_in_seconds(self) -> pulumi.Output[Optional[float]]:
+    def maximum_batching_window_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum amount of time to gather records before invoking the function, in seconds.  Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. Defaults to as soon as records are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
         """
@@ -280,17 +280,17 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumRecordAgeInSeconds")
-    def maximum_record_age_in_seconds(self) -> pulumi.Output[float]:
+    def maximum_record_age_in_seconds(self) -> pulumi.Output[int]:
         return pulumi.get(self, "maximum_record_age_in_seconds")
 
     @property
     @pulumi.getter(name="maximumRetryAttempts")
-    def maximum_retry_attempts(self) -> pulumi.Output[float]:
+    def maximum_retry_attempts(self) -> pulumi.Output[int]:
         return pulumi.get(self, "maximum_retry_attempts")
 
     @property
     @pulumi.getter(name="parallelizationFactor")
-    def parallelization_factor(self) -> pulumi.Output[float]:
+    def parallelization_factor(self) -> pulumi.Output[int]:
         return pulumi.get(self, "parallelization_factor")
 
     @property

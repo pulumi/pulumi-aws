@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Alb
     ///         {
     ///         });
     ///         // ...
-    ///         var adminListenerRule = new Aws.LB.ListenerRule("adminListenerRule", new Aws.LB.ListenerRuleArgs
+    ///         var admin = new Aws.LB.ListenerRule("admin", new Aws.LB.ListenerRuleArgs
     ///         {
     ///             ListenerArn = frontEndListener.Arn,
     ///             Actions = 
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.Alb
     ///             },
     ///         });
     ///         // Authenticate-oidc Action
-    ///         var adminLb_listenerRuleListenerRule = new Aws.LB.ListenerRule("adminLb/listenerRuleListenerRule", new Aws.LB.ListenerRuleArgs
+    ///         var oidc = new Aws.LB.ListenerRule("oidc", new Aws.LB.ListenerRuleArgs
     ///         {
     ///             ListenerArn = frontEndListener.Arn,
     ///             Actions = 

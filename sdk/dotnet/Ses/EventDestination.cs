@@ -25,6 +25,13 @@ namespace Pulumi.Aws.Ses
     ///     {
     ///         var cloudwatch = new Aws.Ses.EventDestination("cloudwatch", new Aws.Ses.EventDestinationArgs
     ///         {
+    ///             ConfigurationSetName = aws_ses_configuration_set.Example.Name,
+    ///             Enabled = true,
+    ///             MatchingTypes = 
+    ///             {
+    ///                 "bounce",
+    ///                 "send",
+    ///             },
     ///             CloudwatchDestinations = 
     ///             {
     ///                 new Aws.Ses.Inputs.EventDestinationCloudwatchDestinationArgs
@@ -33,13 +40,6 @@ namespace Pulumi.Aws.Ses
     ///                     DimensionName = "dimension",
     ///                     ValueSource = "emailHeader",
     ///                 },
-    ///             },
-    ///             ConfigurationSetName = aws_ses_configuration_set.Example.Name,
-    ///             Enabled = true,
-    ///             MatchingTypes = 
-    ///             {
-    ///                 "bounce",
-    ///                 "send",
     ///             },
     ///         });
     ///     }
@@ -60,15 +60,15 @@ namespace Pulumi.Aws.Ses
     ///         {
     ///             ConfigurationSetName = aws_ses_configuration_set.Example.Name,
     ///             Enabled = true,
-    ///             KinesisDestination = new Aws.Ses.Inputs.EventDestinationKinesisDestinationArgs
-    ///             {
-    ///                 RoleArn = aws_iam_role.Example.Arn,
-    ///                 StreamArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
-    ///             },
     ///             MatchingTypes = 
     ///             {
     ///                 "bounce",
     ///                 "send",
+    ///             },
+    ///             KinesisDestination = new Aws.Ses.Inputs.EventDestinationKinesisDestinationArgs
+    ///             {
+    ///                 StreamArn = aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///                 RoleArn = aws_iam_role.Example.Arn,
     ///             },
     ///         });
     ///     }

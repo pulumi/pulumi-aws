@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
@@ -25,8 +25,8 @@ class Cluster(pulumi.CustomResource):
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 replication_factor: Optional[pulumi.Input[float]] = None,
-                 security_group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 replication_factor: Optional[pulumi.Input[int]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_side_encryption: Optional[pulumi.Input[pulumi.InputType['ClusterServerSideEncryptionArgs']]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -51,7 +51,7 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] availability_zones: List of Availability Zones in which the
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of Availability Zones in which the
                nodes will be created
         :param pulumi.Input[str] cluster_name: Group identifier. DAX converts this name to
                lowercase
@@ -70,10 +70,10 @@ class Cluster(pulumi.CustomResource):
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[str] parameter_group_name: Name of the parameter group to associate
                with this DAX cluster
-        :param pulumi.Input[float] replication_factor: The number of nodes in the DAX cluster. A
+        :param pulumi.Input[int] replication_factor: The number of nodes in the DAX cluster. A
                replication factor of 1 will create a single-node cluster, without any read
                replicas
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated
                with the cluster
         :param pulumi.Input[pulumi.InputType['ClusterServerSideEncryptionArgs']] server_side_encryption: Encrypt at rest options
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the
@@ -134,7 +134,7 @@ class Cluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             cluster_address: Optional[pulumi.Input[str]] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
             configuration_endpoint: Optional[pulumi.Input[str]] = None,
@@ -142,12 +142,12 @@ class Cluster(pulumi.CustomResource):
             iam_role_arn: Optional[pulumi.Input[str]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
             node_type: Optional[pulumi.Input[str]] = None,
-            nodes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ClusterNodeArgs']]]]] = None,
+            nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterNodeArgs']]]]] = None,
             notification_topic_arn: Optional[pulumi.Input[str]] = None,
             parameter_group_name: Optional[pulumi.Input[str]] = None,
-            port: Optional[pulumi.Input[float]] = None,
-            replication_factor: Optional[pulumi.Input[float]] = None,
-            security_group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            port: Optional[pulumi.Input[int]] = None,
+            replication_factor: Optional[pulumi.Input[int]] = None,
+            security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             server_side_encryption: Optional[pulumi.Input[pulumi.InputType['ClusterServerSideEncryptionArgs']]] = None,
             subnet_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Cluster':
@@ -159,7 +159,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the DAX cluster
-        :param pulumi.Input[List[pulumi.Input[str]]] availability_zones: List of Availability Zones in which the
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of Availability Zones in which the
                nodes will be created
         :param pulumi.Input[str] cluster_address: The DNS name of the DAX cluster without the port appended
         :param pulumi.Input[str] cluster_name: Group identifier. DAX converts this name to
@@ -176,7 +176,7 @@ class Cluster(pulumi.CustomResource):
                `sun:05:00-sun:09:00`
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes. See
                [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClusterNodeArgs']]]] nodes: List of node objects including `id`, `address`, `port` and
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterNodeArgs']]]] nodes: List of node objects including `id`, `address`, `port` and
                `availability_zone`. Referenceable e.g. as
                `${aws_dax_cluster.test.nodes.0.address}`
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
@@ -184,11 +184,11 @@ class Cluster(pulumi.CustomResource):
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[str] parameter_group_name: Name of the parameter group to associate
                with this DAX cluster
-        :param pulumi.Input[float] port: The port used by the configuration endpoint
-        :param pulumi.Input[float] replication_factor: The number of nodes in the DAX cluster. A
+        :param pulumi.Input[int] port: The port used by the configuration endpoint
+        :param pulumi.Input[int] replication_factor: The number of nodes in the DAX cluster. A
                replication factor of 1 will create a single-node cluster, without any read
                replicas
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated
                with the cluster
         :param pulumi.Input[pulumi.InputType['ClusterServerSideEncryptionArgs']] server_side_encryption: Encrypt at rest options
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the
@@ -229,7 +229,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Availability Zones in which the
         nodes will be created
@@ -302,7 +302,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def nodes(self) -> pulumi.Output[List['outputs.ClusterNode']]:
+    def nodes(self) -> pulumi.Output[Sequence['outputs.ClusterNode']]:
         """
         List of node objects including `id`, `address`, `port` and
         `availability_zone`. Referenceable e.g. as
@@ -331,7 +331,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[float]:
+    def port(self) -> pulumi.Output[int]:
         """
         The port used by the configuration endpoint
         """
@@ -339,7 +339,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationFactor")
-    def replication_factor(self) -> pulumi.Output[float]:
+    def replication_factor(self) -> pulumi.Output[int]:
         """
         The number of nodes in the DAX cluster. A
         replication factor of 1 will create a single-node cluster, without any read
@@ -349,7 +349,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Output[List[str]]:
+    def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         One or more VPC security groups associated
         with the cluster

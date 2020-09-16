@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -114,7 +114,7 @@ class GetCertificateAuthorityResult:
 
     @property
     @pulumi.getter(name="revocationConfigurations")
-    def revocation_configurations(self) -> List['outputs.GetCertificateAuthorityRevocationConfigurationResult']:
+    def revocation_configurations(self) -> Sequence['outputs.GetCertificateAuthorityRevocationConfigurationResult']:
         """
         Nested attribute containing revocation configuration.
         * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
@@ -179,7 +179,7 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
 
 
 def get_certificate_authority(arn: Optional[str] = None,
-                              revocation_configurations: Optional[List[pulumi.InputType['GetCertificateAuthorityRevocationConfigurationArgs']]] = None,
+                              revocation_configurations: Optional[Sequence[pulumi.InputType['GetCertificateAuthorityRevocationConfigurationArgs']]] = None,
                               tags: Optional[Mapping[str, str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateAuthorityResult:
     """
@@ -196,7 +196,7 @@ def get_certificate_authority(arn: Optional[str] = None,
 
 
     :param str arn: Amazon Resource Name (ARN) of the certificate authority.
-    :param List[pulumi.InputType['GetCertificateAuthorityRevocationConfigurationArgs']] revocation_configurations: Nested attribute containing revocation configuration.
+    :param Sequence[pulumi.InputType['GetCertificateAuthorityRevocationConfigurationArgs']] revocation_configurations: Nested attribute containing revocation configuration.
            * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
            * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
            * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.

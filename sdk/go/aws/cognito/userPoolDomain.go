@@ -58,8 +58,8 @@ import (
 // 			return err
 // 		}
 // 		main, err := cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
-// 			CertificateArn: pulumi.Any(aws_acm_certificate.Cert.Arn),
 // 			Domain:         pulumi.String("example-domain.example.com"),
+// 			CertificateArn: pulumi.Any(aws_acm_certificate.Cert.Arn),
 // 			UserPoolId:     exampleUserPool.ID(),
 // 		})
 // 		if err != nil {
@@ -73,6 +73,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = route53.NewRecord(ctx, "auth_cognito_A", &route53.RecordArgs{
+// 			Name:   main.Domain,
+// 			Type:   pulumi.String("A"),
+// 			ZoneId: pulumi.String(exampleZone.ZoneId),
 // 			Aliases: route53.RecordAliasArray{
 // 				&route53.RecordAliasArgs{
 // 					EvaluateTargetHealth: pulumi.Bool(false),
@@ -80,9 +83,6 @@ import (
 // 					ZoneId:               pulumi.String("Z2FDTNDATAQYW2"),
 // 				},
 // 			},
-// 			Name:   main.Domain,
-// 			Type:   pulumi.String("A"),
-// 			ZoneId: pulumi.String(exampleZone.ZoneId),
 // 		})
 // 		if err != nil {
 // 			return err

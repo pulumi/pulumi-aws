@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -41,8 +41,8 @@ class GetBucketObjectsResult:
         if keys and not isinstance(keys, list):
             raise TypeError("Expected argument 'keys' to be a list")
         pulumi.set(__self__, "keys", keys)
-        if max_keys and not isinstance(max_keys, float):
-            raise TypeError("Expected argument 'max_keys' to be a float")
+        if max_keys and not isinstance(max_keys, int):
+            raise TypeError("Expected argument 'max_keys' to be a int")
         pulumi.set(__self__, "max_keys", max_keys)
         if owners and not isinstance(owners, list):
             raise TypeError("Expected argument 'owners' to be a list")
@@ -61,7 +61,7 @@ class GetBucketObjectsResult:
 
     @property
     @pulumi.getter(name="commonPrefixes")
-    def common_prefixes(self) -> List[str]:
+    def common_prefixes(self) -> Sequence[str]:
         """
         List of any keys between `prefix` and the next occurrence of `delimiter` (i.e., similar to subdirectories of the `prefix` "directory"); the list is only returned when you specify `delimiter`
         """
@@ -92,7 +92,7 @@ class GetBucketObjectsResult:
 
     @property
     @pulumi.getter
-    def keys(self) -> List[str]:
+    def keys(self) -> Sequence[str]:
         """
         List of strings representing object keys
         """
@@ -100,12 +100,12 @@ class GetBucketObjectsResult:
 
     @property
     @pulumi.getter(name="maxKeys")
-    def max_keys(self) -> Optional[float]:
+    def max_keys(self) -> Optional[int]:
         return pulumi.get(self, "max_keys")
 
     @property
     @pulumi.getter
-    def owners(self) -> List[str]:
+    def owners(self) -> Sequence[str]:
         """
         List of strings representing object owner IDs (see `fetch_owner` above)
         """
@@ -145,7 +145,7 @@ def get_bucket_objects(bucket: Optional[str] = None,
                        delimiter: Optional[str] = None,
                        encoding_type: Optional[str] = None,
                        fetch_owner: Optional[bool] = None,
-                       max_keys: Optional[float] = None,
+                       max_keys: Optional[int] = None,
                        prefix: Optional[str] = None,
                        start_after: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBucketObjectsResult:
@@ -172,7 +172,7 @@ def get_bucket_objects(bucket: Optional[str] = None,
     :param str delimiter: A character used to group keys (Default: none)
     :param str encoding_type: Encodes keys using this method (Default: none; besides none, only "url" can be used)
     :param bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
-    :param float max_keys: Maximum object keys to return (Default: 1000)
+    :param int max_keys: Maximum object keys to return (Default: 1000)
     :param str prefix: Limits results to object keys with this prefix (Default: none)
     :param str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
     """

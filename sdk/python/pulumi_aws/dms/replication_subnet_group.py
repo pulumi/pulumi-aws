@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ReplicationSubnetGroup']
@@ -17,7 +17,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  replication_subnet_group_description: Optional[pulumi.Input[str]] = None,
                  replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
-                 subnet_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -45,7 +45,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.
         :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
-        :param pulumi.Input[List[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -90,7 +90,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
             replication_subnet_group_arn: Optional[pulumi.Input[str]] = None,
             replication_subnet_group_description: Optional[pulumi.Input[str]] = None,
             replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
-            subnet_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None) -> 'ReplicationSubnetGroup':
         """
@@ -102,7 +102,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.
         :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
-        :param pulumi.Input[List[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         :param pulumi.Input[str] vpc_id: The ID of the VPC the subnet group is in.
         """
@@ -141,7 +141,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Output[List[str]]:
+    def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of the EC2 subnet IDs for the subnet group.
         """

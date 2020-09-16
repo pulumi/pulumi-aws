@@ -143,14 +143,13 @@ import (
 type DefaultSecurityGroup struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the security group
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the security group
+	// Description of this egress rule.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Can be specified multiple times for each
-	// egress rule. Each egress block supports fields documented below.
+	// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
 	Egress DefaultSecurityGroupEgressArrayOutput `pulumi:"egress"`
-	// Can be specified multiple times for each
-	// ingress rule. Each ingress block supports fields documented below.
+	// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
 	Ingress DefaultSecurityGroupIngressArrayOutput `pulumi:"ingress"`
 	// The name of the security group
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -159,9 +158,7 @@ type DefaultSecurityGroup struct {
 	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The VPC ID. **Note that changing
-	// the `vpcId` will _not_ restore any default security group rules that were
-	// modified, added, or removed.** It will be left in its current state
+	// The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -193,14 +190,13 @@ func GetDefaultSecurityGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultSecurityGroup resources.
 type defaultSecurityGroupState struct {
+	// The ARN of the security group
 	Arn *string `pulumi:"arn"`
-	// The description of the security group
+	// Description of this egress rule.
 	Description *string `pulumi:"description"`
-	// Can be specified multiple times for each
-	// egress rule. Each egress block supports fields documented below.
+	// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
 	Egress []DefaultSecurityGroupEgress `pulumi:"egress"`
-	// Can be specified multiple times for each
-	// ingress rule. Each ingress block supports fields documented below.
+	// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
 	Ingress []DefaultSecurityGroupIngress `pulumi:"ingress"`
 	// The name of the security group
 	Name *string `pulumi:"name"`
@@ -209,21 +205,18 @@ type defaultSecurityGroupState struct {
 	RevokeRulesOnDelete *bool   `pulumi:"revokeRulesOnDelete"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC ID. **Note that changing
-	// the `vpcId` will _not_ restore any default security group rules that were
-	// modified, added, or removed.** It will be left in its current state
+	// The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type DefaultSecurityGroupState struct {
+	// The ARN of the security group
 	Arn pulumi.StringPtrInput
-	// The description of the security group
+	// Description of this egress rule.
 	Description pulumi.StringPtrInput
-	// Can be specified multiple times for each
-	// egress rule. Each egress block supports fields documented below.
+	// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
 	Egress DefaultSecurityGroupEgressArrayInput
-	// Can be specified multiple times for each
-	// ingress rule. Each ingress block supports fields documented below.
+	// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
 	Ingress DefaultSecurityGroupIngressArrayInput
 	// The name of the security group
 	Name pulumi.StringPtrInput
@@ -232,9 +225,7 @@ type DefaultSecurityGroupState struct {
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The VPC ID. **Note that changing
-	// the `vpcId` will _not_ restore any default security group rules that were
-	// modified, added, or removed.** It will be left in its current state
+	// The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
 	VpcId pulumi.StringPtrInput
 }
 
@@ -243,35 +234,27 @@ func (DefaultSecurityGroupState) ElementType() reflect.Type {
 }
 
 type defaultSecurityGroupArgs struct {
-	// Can be specified multiple times for each
-	// egress rule. Each egress block supports fields documented below.
+	// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
 	Egress []DefaultSecurityGroupEgress `pulumi:"egress"`
-	// Can be specified multiple times for each
-	// ingress rule. Each ingress block supports fields documented below.
+	// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
 	Ingress             []DefaultSecurityGroupIngress `pulumi:"ingress"`
 	RevokeRulesOnDelete *bool                         `pulumi:"revokeRulesOnDelete"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The VPC ID. **Note that changing
-	// the `vpcId` will _not_ restore any default security group rules that were
-	// modified, added, or removed.** It will be left in its current state
+	// The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
 	VpcId *string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a DefaultSecurityGroup resource.
 type DefaultSecurityGroupArgs struct {
-	// Can be specified multiple times for each
-	// egress rule. Each egress block supports fields documented below.
+	// Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
 	Egress DefaultSecurityGroupEgressArrayInput
-	// Can be specified multiple times for each
-	// ingress rule. Each ingress block supports fields documented below.
+	// Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
 	Ingress             DefaultSecurityGroupIngressArrayInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The VPC ID. **Note that changing
-	// the `vpcId` will _not_ restore any default security group rules that were
-	// modified, added, or removed.** It will be left in its current state
+	// The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
 	VpcId pulumi.StringPtrInput
 }
 

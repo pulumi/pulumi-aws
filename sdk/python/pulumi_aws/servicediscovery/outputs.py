@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -19,11 +19,11 @@ __all__ = [
 @pulumi.output_type
 class ServiceDnsConfig(dict):
     def __init__(__self__, *,
-                 dns_records: List['outputs.ServiceDnsConfigDnsRecord'],
+                 dns_records: Sequence['outputs.ServiceDnsConfigDnsRecord'],
                  namespace_id: str,
                  routing_policy: Optional[str] = None):
         """
-        :param List['ServiceDnsConfigDnsRecordArgs'] dns_records: An array that contains one DnsRecord object for each resource record set.
+        :param Sequence['ServiceDnsConfigDnsRecordArgs'] dns_records: An array that contains one DnsRecord object for each resource record set.
         :param str namespace_id: The ID of the namespace to use for DNS configuration.
         :param str routing_policy: The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
         """
@@ -34,7 +34,7 @@ class ServiceDnsConfig(dict):
 
     @property
     @pulumi.getter(name="dnsRecords")
-    def dns_records(self) -> List['outputs.ServiceDnsConfigDnsRecord']:
+    def dns_records(self) -> Sequence['outputs.ServiceDnsConfigDnsRecord']:
         """
         An array that contains one DnsRecord object for each resource record set.
         """
@@ -63,10 +63,10 @@ class ServiceDnsConfig(dict):
 @pulumi.output_type
 class ServiceDnsConfigDnsRecord(dict):
     def __init__(__self__, *,
-                 ttl: float,
+                 ttl: int,
                  type: str):
         """
-        :param float ttl: The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+        :param int ttl: The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
         :param str type: The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
         """
         pulumi.set(__self__, "ttl", ttl)
@@ -74,7 +74,7 @@ class ServiceDnsConfigDnsRecord(dict):
 
     @property
     @pulumi.getter
-    def ttl(self) -> float:
+    def ttl(self) -> int:
         """
         The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
         """
@@ -95,11 +95,11 @@ class ServiceDnsConfigDnsRecord(dict):
 @pulumi.output_type
 class ServiceHealthCheckConfig(dict):
     def __init__(__self__, *,
-                 failure_threshold: Optional[float] = None,
+                 failure_threshold: Optional[int] = None,
                  resource_path: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param float failure_threshold: The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        :param int failure_threshold: The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
         :param str resource_path: The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
         :param str type: The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
         """
@@ -112,7 +112,7 @@ class ServiceHealthCheckConfig(dict):
 
     @property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[float]:
+    def failure_threshold(self) -> Optional[int]:
         """
         The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
         """
@@ -141,16 +141,16 @@ class ServiceHealthCheckConfig(dict):
 @pulumi.output_type
 class ServiceHealthCheckCustomConfig(dict):
     def __init__(__self__, *,
-                 failure_threshold: Optional[float] = None):
+                 failure_threshold: Optional[int] = None):
         """
-        :param float failure_threshold: The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        :param int failure_threshold: The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
         """
         if failure_threshold is not None:
             pulumi.set(__self__, "failure_threshold", failure_threshold)
 
     @property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[float]:
+    def failure_threshold(self) -> Optional[int]:
         """
         The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
         """

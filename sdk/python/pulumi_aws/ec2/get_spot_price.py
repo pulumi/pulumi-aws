@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -48,7 +48,7 @@ class GetSpotPriceResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetSpotPriceFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetSpotPriceFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -96,7 +96,7 @@ class AwaitableGetSpotPriceResult(GetSpotPriceResult):
 
 
 def get_spot_price(availability_zone: Optional[str] = None,
-                   filters: Optional[List[pulumi.InputType['GetSpotPriceFilterArgs']]] = None,
+                   filters: Optional[Sequence[pulumi.InputType['GetSpotPriceFilterArgs']]] = None,
                    instance_type: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpotPriceResult:
     """
@@ -104,7 +104,7 @@ def get_spot_price(availability_zone: Optional[str] = None,
 
 
     :param str availability_zone: The availability zone in which to query Spot price information.
-    :param List[pulumi.InputType['GetSpotPriceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetSpotPriceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
     :param str instance_type: The type of instance for which to query Spot Price information.
     """
     __args__ = dict()

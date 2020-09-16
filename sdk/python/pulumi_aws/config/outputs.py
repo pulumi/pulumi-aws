@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -17,14 +17,14 @@ __all__ = [
 @pulumi.output_type
 class AssumeRole(dict):
     def __init__(__self__, *,
-                 duration_seconds: Optional[float] = None,
+                 duration_seconds: Optional[int] = None,
                  external_id: Optional[str] = None,
                  policy: Optional[str] = None,
-                 policy_arns: Optional[List[str]] = None,
+                 policy_arns: Optional[Sequence[str]] = None,
                  role_arn: Optional[str] = None,
                  session_name: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
-                 transitive_tag_keys: Optional[List[str]] = None):
+                 transitive_tag_keys: Optional[Sequence[str]] = None):
         if duration_seconds is not None:
             pulumi.set(__self__, "duration_seconds", duration_seconds)
         if external_id is not None:
@@ -44,7 +44,7 @@ class AssumeRole(dict):
 
     @property
     @pulumi.getter(name="durationSeconds")
-    def duration_seconds(self) -> Optional[float]:
+    def duration_seconds(self) -> Optional[int]:
         return pulumi.get(self, "duration_seconds")
 
     @property
@@ -59,7 +59,7 @@ class AssumeRole(dict):
 
     @property
     @pulumi.getter(name="policyArns")
-    def policy_arns(self) -> Optional[List[str]]:
+    def policy_arns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "policy_arns")
 
     @property
@@ -79,7 +79,7 @@ class AssumeRole(dict):
 
     @property
     @pulumi.getter(name="transitiveTagKeys")
-    def transitive_tag_keys(self) -> Optional[List[str]]:
+    def transitive_tag_keys(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "transitive_tag_keys")
 
     def _translate_property(self, prop):
@@ -1209,8 +1209,8 @@ class Endpoints(dict):
 @pulumi.output_type
 class IgnoreTags(dict):
     def __init__(__self__, *,
-                 key_prefixes: Optional[List[str]] = None,
-                 keys: Optional[List[str]] = None):
+                 key_prefixes: Optional[Sequence[str]] = None,
+                 keys: Optional[Sequence[str]] = None):
         if key_prefixes is not None:
             pulumi.set(__self__, "key_prefixes", key_prefixes)
         if keys is not None:
@@ -1218,12 +1218,12 @@ class IgnoreTags(dict):
 
     @property
     @pulumi.getter(name="keyPrefixes")
-    def key_prefixes(self) -> Optional[List[str]]:
+    def key_prefixes(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "key_prefixes")
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[List[str]]:
+    def keys(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "keys")
 
     def _translate_property(self, prop):

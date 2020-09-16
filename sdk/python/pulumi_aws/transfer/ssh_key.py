@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['SshKey']
@@ -28,12 +28,12 @@ class SshKey(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo_server = aws.transfer.Server("fooServer",
+        example_server = aws.transfer.Server("exampleServer",
             identity_provider_type="SERVICE_MANAGED",
             tags={
                 "NAME": "tf-acc-test-transfer-server",
             })
-        foo_role = aws.iam.Role("fooRole", assume_role_policy=\"\"\"{
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
         	"Version": "2012-10-17",
         	"Statement": [
         		{
@@ -46,8 +46,19 @@ class SshKey(pulumi.CustomResource):
         	]
         }
         \"\"\")
-        foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
-            role=foo_role.id,
+        example_user = aws.transfer.User("exampleUser",
+            server_id=example_server.id,
+            user_name="tftestuser",
+            role=example_role.arn,
+            tags={
+                "NAME": "tftestuser",
+            })
+        example_ssh_key = aws.transfer.SshKey("exampleSshKey",
+            server_id=example_server.id,
+            user_name=example_user.user_name,
+            body="... SSH key ...")
+        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
+            role=example_role.id,
             policy=\"\"\"{
         	"Version": "2012-10-17",
         	"Statement": [
@@ -62,17 +73,6 @@ class SshKey(pulumi.CustomResource):
         	]
         }
         \"\"\")
-        foo_user = aws.transfer.User("fooUser",
-            server_id=foo_server.id,
-            user_name="tftestuser",
-            role=foo_role.arn,
-            tags={
-                "NAME": "tftestuser",
-            })
-        foo_ssh_key = aws.transfer.SshKey("fooSshKey",
-            server_id=foo_server.id,
-            user_name=foo_user.user_name,
-            body="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 example@example.com")
         ```
 
         :param str resource_name: The name of the resource.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -21,15 +21,15 @@ __all__ = [
 class ComputeEnvironmentComputeResources(dict):
     def __init__(__self__, *,
                  instance_role: str,
-                 instance_types: List[str],
-                 max_vcpus: float,
-                 min_vcpus: float,
-                 security_group_ids: List[str],
-                 subnets: List[str],
+                 instance_types: Sequence[str],
+                 max_vcpus: int,
+                 min_vcpus: int,
+                 security_group_ids: Sequence[str],
+                 subnets: Sequence[str],
                  type: str,
                  allocation_strategy: Optional[str] = None,
-                 bid_percentage: Optional[float] = None,
-                 desired_vcpus: Optional[float] = None,
+                 bid_percentage: Optional[int] = None,
+                 desired_vcpus: Optional[int] = None,
                  ec2_key_pair: Optional[str] = None,
                  image_id: Optional[str] = None,
                  launch_template: Optional['outputs.ComputeEnvironmentComputeResourcesLaunchTemplate'] = None,
@@ -37,15 +37,15 @@ class ComputeEnvironmentComputeResources(dict):
                  tags: Optional[Mapping[str, str]] = None):
         """
         :param str instance_role: The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
-        :param List[str] instance_types: A list of instance types that may be launched.
-        :param float max_vcpus: The maximum number of EC2 vCPUs that an environment can reach.
-        :param float min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain.
-        :param List[str] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment.
-        :param List[str] subnets: A list of VPC subnets into which the compute resources are launched.
+        :param Sequence[str] instance_types: A list of instance types that may be launched.
+        :param int max_vcpus: The maximum number of EC2 vCPUs that an environment can reach.
+        :param int min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain.
+        :param Sequence[str] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment.
+        :param Sequence[str] subnets: A list of VPC subnets into which the compute resources are launched.
         :param str type: The type of compute environment. Valid items are `EC2` or `SPOT`.
         :param str allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details.
-        :param float bid_percentage: Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
-        :param float desired_vcpus: The desired number of EC2 vCPUS in the compute environment.
+        :param int bid_percentage: Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
+        :param int desired_vcpus: The desired number of EC2 vCPUS in the compute environment.
         :param str ec2_key_pair: The EC2 key pair that is used for instances launched in the compute environment.
         :param str image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
         :param 'ComputeEnvironmentComputeResourcesLaunchTemplateArgs' launch_template: The launch template to use for your compute resources. See details below.
@@ -86,7 +86,7 @@ class ComputeEnvironmentComputeResources(dict):
 
     @property
     @pulumi.getter(name="instanceTypes")
-    def instance_types(self) -> List[str]:
+    def instance_types(self) -> Sequence[str]:
         """
         A list of instance types that may be launched.
         """
@@ -94,7 +94,7 @@ class ComputeEnvironmentComputeResources(dict):
 
     @property
     @pulumi.getter(name="maxVcpus")
-    def max_vcpus(self) -> float:
+    def max_vcpus(self) -> int:
         """
         The maximum number of EC2 vCPUs that an environment can reach.
         """
@@ -102,7 +102,7 @@ class ComputeEnvironmentComputeResources(dict):
 
     @property
     @pulumi.getter(name="minVcpus")
-    def min_vcpus(self) -> float:
+    def min_vcpus(self) -> int:
         """
         The minimum number of EC2 vCPUs that an environment should maintain.
         """
@@ -110,7 +110,7 @@ class ComputeEnvironmentComputeResources(dict):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> List[str]:
+    def security_group_ids(self) -> Sequence[str]:
         """
         A list of EC2 security group that are associated with instances launched in the compute environment.
         """
@@ -118,7 +118,7 @@ class ComputeEnvironmentComputeResources(dict):
 
     @property
     @pulumi.getter
-    def subnets(self) -> List[str]:
+    def subnets(self) -> Sequence[str]:
         """
         A list of VPC subnets into which the compute resources are launched.
         """
@@ -142,7 +142,7 @@ class ComputeEnvironmentComputeResources(dict):
 
     @property
     @pulumi.getter(name="bidPercentage")
-    def bid_percentage(self) -> Optional[float]:
+    def bid_percentage(self) -> Optional[int]:
         """
         Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments.
         """
@@ -150,7 +150,7 @@ class ComputeEnvironmentComputeResources(dict):
 
     @property
     @pulumi.getter(name="desiredVcpus")
-    def desired_vcpus(self) -> Optional[float]:
+    def desired_vcpus(self) -> Optional[int]:
         """
         The desired number of EC2 vCPUS in the compute environment.
         """
@@ -249,16 +249,16 @@ class ComputeEnvironmentComputeResourcesLaunchTemplate(dict):
 @pulumi.output_type
 class JobDefinitionRetryStrategy(dict):
     def __init__(__self__, *,
-                 attempts: Optional[float] = None):
+                 attempts: Optional[int] = None):
         """
-        :param float attempts: The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+        :param int attempts: The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
         """
         if attempts is not None:
             pulumi.set(__self__, "attempts", attempts)
 
     @property
     @pulumi.getter
-    def attempts(self) -> Optional[float]:
+    def attempts(self) -> Optional[int]:
         """
         The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
         """
@@ -271,16 +271,16 @@ class JobDefinitionRetryStrategy(dict):
 @pulumi.output_type
 class JobDefinitionTimeout(dict):
     def __init__(__self__, *,
-                 attempt_duration_seconds: Optional[float] = None):
+                 attempt_duration_seconds: Optional[int] = None):
         """
-        :param float attempt_duration_seconds: The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+        :param int attempt_duration_seconds: The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
         """
         if attempt_duration_seconds is not None:
             pulumi.set(__self__, "attempt_duration_seconds", attempt_duration_seconds)
 
     @property
     @pulumi.getter(name="attemptDurationSeconds")
-    def attempt_duration_seconds(self) -> Optional[float]:
+    def attempt_duration_seconds(self) -> Optional[int]:
         """
         The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
         """
@@ -294,7 +294,7 @@ class JobDefinitionTimeout(dict):
 class GetJobQueueComputeEnvironmentOrderResult(dict):
     def __init__(__self__, *,
                  compute_environment: str,
-                 order: float):
+                 order: int):
         pulumi.set(__self__, "compute_environment", compute_environment)
         pulumi.set(__self__, "order", order)
 
@@ -305,7 +305,7 @@ class GetJobQueueComputeEnvironmentOrderResult(dict):
 
     @property
     @pulumi.getter
-    def order(self) -> float:
+    def order(self) -> int:
         return pulumi.get(self, "order")
 
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -88,7 +88,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="connectSettings")
-    def connect_settings(self) -> List['outputs.GetDirectoryConnectSettingResult']:
+    def connect_settings(self) -> Sequence['outputs.GetDirectoryConnectSettingResult']:
         return pulumi.get(self, "connect_settings")
 
     @property
@@ -106,7 +106,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="dnsIpAddresses")
-    def dns_ip_addresses(self) -> List[str]:
+    def dns_ip_addresses(self) -> Sequence[str]:
         """
         A list of IP addresses of the DNS servers for the directory/connector.
         """
@@ -186,7 +186,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="vpcSettings")
-    def vpc_settings(self) -> List['outputs.GetDirectoryVpcSettingResult']:
+    def vpc_settings(self) -> Sequence['outputs.GetDirectoryVpcSettingResult']:
         return pulumi.get(self, "vpc_settings")
 
 

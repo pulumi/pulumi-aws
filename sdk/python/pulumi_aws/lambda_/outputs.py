@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -282,12 +282,12 @@ class FunctionTracingConfig(dict):
 @pulumi.output_type
 class FunctionVpcConfig(dict):
     def __init__(__self__, *,
-                 security_group_ids: List[str],
-                 subnet_ids: List[str],
+                 security_group_ids: Sequence[str],
+                 subnet_ids: Sequence[str],
                  vpc_id: Optional[str] = None):
         """
-        :param List[str] security_group_ids: A list of security group IDs associated with the Lambda function.
-        :param List[str] subnet_ids: A list of subnet IDs associated with the Lambda function.
+        :param Sequence[str] security_group_ids: A list of security group IDs associated with the Lambda function.
+        :param Sequence[str] subnet_ids: A list of subnet IDs associated with the Lambda function.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -296,7 +296,7 @@ class FunctionVpcConfig(dict):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> List[str]:
+    def security_group_ids(self) -> Sequence[str]:
         """
         A list of security group IDs associated with the Lambda function.
         """
@@ -304,7 +304,7 @@ class FunctionVpcConfig(dict):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> List[str]:
+    def subnet_ids(self) -> Sequence[str]:
         """
         A list of subnet IDs associated with the Lambda function.
         """
@@ -383,8 +383,8 @@ class GetFunctionTracingConfigResult(dict):
 @pulumi.output_type
 class GetFunctionVpcConfigResult(dict):
     def __init__(__self__, *,
-                 security_group_ids: List[str],
-                 subnet_ids: List[str],
+                 security_group_ids: Sequence[str],
+                 subnet_ids: Sequence[str],
                  vpc_id: str):
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -392,12 +392,12 @@ class GetFunctionVpcConfigResult(dict):
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> List[str]:
+    def security_group_ids(self) -> Sequence[str]:
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> List[str]:
+    def subnet_ids(self) -> Sequence[str]:
         return pulumi.get(self, "subnet_ids")
 
     @property

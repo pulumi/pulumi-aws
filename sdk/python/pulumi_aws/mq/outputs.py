@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -27,10 +27,10 @@ __all__ = [
 class BrokerConfiguration(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
-                 revision: Optional[float] = None):
+                 revision: Optional[int] = None):
         """
         :param str id: The Configuration ID.
-        :param float revision: Revision of the Configuration.
+        :param int revision: Revision of the Configuration.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -47,7 +47,7 @@ class BrokerConfiguration(dict):
 
     @property
     @pulumi.getter
-    def revision(self) -> Optional[float]:
+    def revision(self) -> Optional[int]:
         """
         Revision of the Configuration.
         """
@@ -95,7 +95,7 @@ class BrokerEncryptionOptions(dict):
 class BrokerInstance(dict):
     def __init__(__self__, *,
                  console_url: Optional[str] = None,
-                 endpoints: Optional[List[str]] = None,
+                 endpoints: Optional[Sequence[str]] = None,
                  ip_address: Optional[str] = None):
         if console_url is not None:
             pulumi.set(__self__, "console_url", console_url)
@@ -111,7 +111,7 @@ class BrokerInstance(dict):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[List[str]]:
+    def endpoints(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "endpoints")
 
     @property
@@ -206,12 +206,12 @@ class BrokerUser(dict):
                  password: str,
                  username: str,
                  console_access: Optional[bool] = None,
-                 groups: Optional[List[str]] = None):
+                 groups: Optional[Sequence[str]] = None):
         """
         :param str password: The password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
         :param str username: The username of the user.
         :param bool console_access: Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user.
-        :param List[str] groups: The list of groups (20 maximum) to which the ActiveMQ user belongs.
+        :param Sequence[str] groups: The list of groups (20 maximum) to which the ActiveMQ user belongs.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -246,7 +246,7 @@ class BrokerUser(dict):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> Optional[Sequence[str]]:
         """
         The list of groups (20 maximum) to which the ActiveMQ user belongs.
         """
@@ -260,7 +260,7 @@ class BrokerUser(dict):
 class GetBrokerConfigurationResult(dict):
     def __init__(__self__, *,
                  id: str,
-                 revision: float):
+                 revision: int):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "revision", revision)
 
@@ -271,7 +271,7 @@ class GetBrokerConfigurationResult(dict):
 
     @property
     @pulumi.getter
-    def revision(self) -> float:
+    def revision(self) -> int:
         return pulumi.get(self, "revision")
 
 
@@ -298,7 +298,7 @@ class GetBrokerEncryptionOptionResult(dict):
 class GetBrokerInstanceResult(dict):
     def __init__(__self__, *,
                  console_url: str,
-                 endpoints: List[str],
+                 endpoints: Sequence[str],
                  ip_address: str):
         pulumi.set(__self__, "console_url", console_url)
         pulumi.set(__self__, "endpoints", endpoints)
@@ -311,7 +311,7 @@ class GetBrokerInstanceResult(dict):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> List[str]:
+    def endpoints(self) -> Sequence[str]:
         return pulumi.get(self, "endpoints")
 
     @property
@@ -369,7 +369,7 @@ class GetBrokerMaintenanceWindowStartTimeResult(dict):
 class GetBrokerUserResult(dict):
     def __init__(__self__, *,
                  console_access: bool,
-                 groups: List[str],
+                 groups: Sequence[str],
                  username: str):
         pulumi.set(__self__, "console_access", console_access)
         pulumi.set(__self__, "groups", groups)
@@ -382,7 +382,7 @@ class GetBrokerUserResult(dict):
 
     @property
     @pulumi.getter
-    def groups(self) -> List[str]:
+    def groups(self) -> Sequence[str]:
         return pulumi.get(self, "groups")
 
     @property

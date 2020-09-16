@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -102,7 +102,7 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetElasticIpFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetElasticIpFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -209,7 +209,7 @@ class AwaitableGetElasticIpResult(GetElasticIpResult):
             tags=self.tags)
 
 
-def get_elastic_ip(filters: Optional[List[pulumi.InputType['GetElasticIpFilterArgs']]] = None,
+def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilterArgs']]] = None,
                    id: Optional[str] = None,
                    public_ip: Optional[str] = None,
                    tags: Optional[Mapping[str, str]] = None,
@@ -257,7 +257,7 @@ def get_elastic_ip(filters: Optional[List[pulumi.InputType['GetElasticIpFilterAr
     ```
 
 
-    :param List[pulumi.InputType['GetElasticIpFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+    :param Sequence[pulumi.InputType['GetElasticIpFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
     :param str id: The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
     :param str public_ip: The public IP of the specific EIP to retrieve.
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Elastic IP

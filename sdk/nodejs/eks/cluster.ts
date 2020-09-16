@@ -33,10 +33,6 @@ import * as utilities from "../utilities";
  *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
  *     role: example.name,
  * });
- * const example_AmazonEKSServicePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSServicePolicy", {
- *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSServicePolicy",
- *     role: example.name,
- * });
  * ```
  * ### Enabling Control Plane Logging
  *

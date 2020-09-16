@@ -80,12 +80,12 @@ import * as utilities from "../utilities";
  *     loadBalancerType: "network",
  *     subnetMappings: [
  *         {
+ *             subnetId: aws_subnet.example1.id,
  *             privateIpv4Address: "10.0.1.15",
- *             subnetId: aws_subnet_example1.id,
  *         },
  *         {
+ *             subnetId: aws_subnet.example2.id,
  *             privateIpv4Address: "10.0.2.15",
- *             subnetId: aws_subnet_example2.id,
  *         },
  *     ],
  * });

@@ -121,6 +121,11 @@ type HealthCheck struct {
 	CloudwatchAlarmName pulumi.StringPtrOutput `pulumi:"cloudwatchAlarmName"`
 	// The CloudWatchRegion that the CloudWatch alarm was created in.
 	CloudwatchAlarmRegion pulumi.StringPtrOutput `pulumi:"cloudwatchAlarmRegion"`
+	// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
+	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
+	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni pulumi.BoolOutput `pulumi:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail.
@@ -193,6 +198,11 @@ type healthCheckState struct {
 	CloudwatchAlarmName *string `pulumi:"cloudwatchAlarmName"`
 	// The CloudWatchRegion that the CloudWatch alarm was created in.
 	CloudwatchAlarmRegion *string `pulumi:"cloudwatchAlarmRegion"`
+	// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
+	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
+	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	Disabled *bool `pulumi:"disabled"`
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni *bool `pulumi:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail.
@@ -235,6 +245,11 @@ type HealthCheckState struct {
 	CloudwatchAlarmName pulumi.StringPtrInput
 	// The CloudWatchRegion that the CloudWatch alarm was created in.
 	CloudwatchAlarmRegion pulumi.StringPtrInput
+	// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
+	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
+	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	Disabled pulumi.BoolPtrInput
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni pulumi.BoolPtrInput
 	// The number of consecutive health checks that an endpoint must pass or fail.
@@ -281,6 +296,11 @@ type healthCheckArgs struct {
 	CloudwatchAlarmName *string `pulumi:"cloudwatchAlarmName"`
 	// The CloudWatchRegion that the CloudWatch alarm was created in.
 	CloudwatchAlarmRegion *string `pulumi:"cloudwatchAlarmRegion"`
+	// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
+	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
+	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	Disabled *bool `pulumi:"disabled"`
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni *bool `pulumi:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail.
@@ -324,6 +344,11 @@ type HealthCheckArgs struct {
 	CloudwatchAlarmName pulumi.StringPtrInput
 	// The CloudWatchRegion that the CloudWatch alarm was created in.
 	CloudwatchAlarmRegion pulumi.StringPtrInput
+	// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
+	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
+	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
+	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	Disabled pulumi.BoolPtrInput
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni pulumi.BoolPtrInput
 	// The number of consecutive health checks that an endpoint must pass or fail.

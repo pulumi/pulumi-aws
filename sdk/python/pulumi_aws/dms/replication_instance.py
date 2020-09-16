@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ReplicationInstance']
@@ -15,7 +15,7 @@ class ReplicationInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocated_storage: Optional[pulumi.Input[float]] = None,
+                 allocated_storage: Optional[pulumi.Input[int]] = None,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class ReplicationInstance(pulumi.CustomResource):
                  replication_instance_id: Optional[pulumi.Input[str]] = None,
                  replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -82,7 +82,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+        :param pulumi.Input[int] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         :param pulumi.Input[bool] apply_immediately: Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the replication instance will be created in.
@@ -95,7 +95,7 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[str] replication_subnet_group_id: A subnet group to associate with the replication instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] vpc_security_group_ids: A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -145,7 +145,7 @@ class ReplicationInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allocated_storage: Optional[pulumi.Input[float]] = None,
+            allocated_storage: Optional[pulumi.Input[int]] = None,
             apply_immediately: Optional[pulumi.Input[bool]] = None,
             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
@@ -157,11 +157,11 @@ class ReplicationInstance(pulumi.CustomResource):
             replication_instance_arn: Optional[pulumi.Input[str]] = None,
             replication_instance_class: Optional[pulumi.Input[str]] = None,
             replication_instance_id: Optional[pulumi.Input[str]] = None,
-            replication_instance_private_ips: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            replication_instance_public_ips: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            replication_instance_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            replication_instance_public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            vpc_security_group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'ReplicationInstance':
+            vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ReplicationInstance':
         """
         Get an existing ReplicationInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -169,7 +169,7 @@ class ReplicationInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+        :param pulumi.Input[int] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         :param pulumi.Input[bool] apply_immediately: Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the replication instance will be created in.
@@ -181,11 +181,11 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
         :param pulumi.Input[str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
-        :param pulumi.Input[List[pulumi.Input[str]]] replication_instance_private_ips: A list of the private IP addresses of the replication instance.
-        :param pulumi.Input[List[pulumi.Input[str]]] replication_instance_public_ips: A list of the public IP addresses of the replication instance.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_instance_private_ips: A list of the private IP addresses of the replication instance.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_instance_public_ips: A list of the public IP addresses of the replication instance.
         :param pulumi.Input[str] replication_subnet_group_id: A subnet group to associate with the replication instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] vpc_security_group_ids: A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -212,7 +212,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> pulumi.Output[float]:
+    def allocated_storage(self) -> pulumi.Output[int]:
         """
         The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         """
@@ -308,7 +308,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationInstancePrivateIps")
-    def replication_instance_private_ips(self) -> pulumi.Output[List[str]]:
+    def replication_instance_private_ips(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of the private IP addresses of the replication instance.
         """
@@ -316,7 +316,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationInstancePublicIps")
-    def replication_instance_public_ips(self) -> pulumi.Output[List[str]]:
+    def replication_instance_public_ips(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of the public IP addresses of the replication instance.
         """
@@ -340,7 +340,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> pulumi.Output[List[str]]:
+    def vpc_security_group_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
         """

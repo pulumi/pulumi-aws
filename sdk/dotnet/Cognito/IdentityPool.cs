@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Cognito
     ///         });
     ///         var main = new Aws.Cognito.IdentityPool("main", new Aws.Cognito.IdentityPoolArgs
     ///         {
+    ///             IdentityPoolName = "identity pool",
     ///             AllowUnauthenticatedIdentities = false,
     ///             CognitoIdentityProviders = 
     ///             {
@@ -45,19 +46,18 @@ namespace Pulumi.Aws.Cognito
     ///                     ServerSideTokenCheck = false,
     ///                 },
     ///             },
-    ///             IdentityPoolName = "identity pool",
-    ///             OpenidConnectProviderArns = 
+    ///             SupportedLoginProviders = 
     ///             {
-    ///                 "arn:aws:iam::123456789012:oidc-provider/foo.example.com",
+    ///                 { "graph.facebook.com", "7346241598935552" },
+    ///                 { "accounts.google.com", "123456789012.apps.googleusercontent.com" },
     ///             },
     ///             SamlProviderArns = 
     ///             {
     ///                 @default.Arn,
     ///             },
-    ///             SupportedLoginProviders = 
+    ///             OpenidConnectProviderArns = 
     ///             {
-    ///                 { "accounts.google.com", "123456789012.apps.googleusercontent.com" },
-    ///                 { "graph.facebook.com", "7346241598935552" },
+    ///                 "arn:aws:iam::123456789012:oidc-provider/id.example.com",
     ///             },
     ///         });
     ///     }

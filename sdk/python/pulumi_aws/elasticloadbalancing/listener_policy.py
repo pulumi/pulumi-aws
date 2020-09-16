@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ListenerPolicy']
@@ -20,8 +20,8 @@ class ListenerPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
-                 load_balancer_port: Optional[pulumi.Input[float]] = None,
-                 policy_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 load_balancer_port: Optional[pulumi.Input[int]] = None,
+                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -105,8 +105,8 @@ class ListenerPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
-        :param pulumi.Input[float] load_balancer_port: The load balancer listener port to apply the policy to.
-        :param pulumi.Input[List[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[int] load_balancer_port: The load balancer listener port to apply the policy to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
         """
         pulumi.log.warn("ListenerPolicy is deprecated: aws.elasticloadbalancing.ListenerPolicy has been deprecated in favor of aws.elb.ListenerPolicy")
         if __name__ is not None:
@@ -144,8 +144,8 @@ class ListenerPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             load_balancer_name: Optional[pulumi.Input[str]] = None,
-            load_balancer_port: Optional[pulumi.Input[float]] = None,
-            policy_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'ListenerPolicy':
+            load_balancer_port: Optional[pulumi.Input[int]] = None,
+            policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ListenerPolicy':
         """
         Get an existing ListenerPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -154,8 +154,8 @@ class ListenerPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
-        :param pulumi.Input[float] load_balancer_port: The load balancer listener port to apply the policy to.
-        :param pulumi.Input[List[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[int] load_balancer_port: The load balancer listener port to apply the policy to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -176,7 +176,7 @@ class ListenerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerPort")
-    def load_balancer_port(self) -> pulumi.Output[float]:
+    def load_balancer_port(self) -> pulumi.Output[int]:
         """
         The load balancer listener port to apply the policy to.
         """
@@ -184,7 +184,7 @@ class ListenerPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyNames")
-    def policy_names(self) -> pulumi.Output[Optional[List[str]]]:
+    def policy_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Policy Names to apply to the backend server.
         """

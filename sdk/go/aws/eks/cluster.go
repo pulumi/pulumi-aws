@@ -40,13 +40,6 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "example_AmazonEKSServicePolicy", &iam.RolePolicyAttachmentArgs{
-// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSServicePolicy"),
-// 			Role:      example.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
 // 		return nil
 // 	})
 // }

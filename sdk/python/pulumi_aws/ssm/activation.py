@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Activation']
@@ -19,7 +19,7 @@ class Activation(pulumi.CustomResource):
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  iam_role: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 registration_limit: Optional[pulumi.Input[float]] = None,
+                 registration_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -58,7 +58,7 @@ class Activation(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_date: UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[str] name: The default name of the registered managed instance.
-        :param pulumi.Input[float] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
+        :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
         """
         if __name__ is not None:
@@ -105,8 +105,8 @@ class Activation(pulumi.CustomResource):
             expired: Optional[pulumi.Input[bool]] = None,
             iam_role: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            registration_count: Optional[pulumi.Input[float]] = None,
-            registration_limit: Optional[pulumi.Input[float]] = None,
+            registration_count: Optional[pulumi.Input[int]] = None,
+            registration_limit: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Activation':
         """
         Get an existing Activation resource's state with the given name, id, and optional extra
@@ -121,8 +121,8 @@ class Activation(pulumi.CustomResource):
         :param pulumi.Input[bool] expired: If the current activation has expired.
         :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
         :param pulumi.Input[str] name: The default name of the registered managed instance.
-        :param pulumi.Input[float] registration_count: The number of managed instances that are currently registered using this activation.
-        :param pulumi.Input[float] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
+        :param pulumi.Input[int] registration_count: The number of managed instances that are currently registered using this activation.
+        :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -190,7 +190,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationCount")
-    def registration_count(self) -> pulumi.Output[float]:
+    def registration_count(self) -> pulumi.Output[int]:
         """
         The number of managed instances that are currently registered using this activation.
         """
@@ -198,7 +198,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationLimit")
-    def registration_limit(self) -> pulumi.Output[Optional[float]]:
+    def registration_limit(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum number of managed instances you want to register. The default value is 1 instance.
         """

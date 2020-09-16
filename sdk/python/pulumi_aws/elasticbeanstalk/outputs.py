@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -21,13 +21,13 @@ class ApplicationAppversionLifecycle(dict):
     def __init__(__self__, *,
                  service_role: str,
                  delete_source_from_s3: Optional[bool] = None,
-                 max_age_in_days: Optional[float] = None,
-                 max_count: Optional[float] = None):
+                 max_age_in_days: Optional[int] = None,
+                 max_count: Optional[int] = None):
         """
         :param str service_role: The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
         :param bool delete_source_from_s3: Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-        :param float max_age_in_days: The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        :param float max_count: The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
+        :param int max_age_in_days: The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
+        :param int max_count: The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         """
         pulumi.set(__self__, "service_role", service_role)
         if delete_source_from_s3 is not None:
@@ -55,7 +55,7 @@ class ApplicationAppversionLifecycle(dict):
 
     @property
     @pulumi.getter(name="maxAgeInDays")
-    def max_age_in_days(self) -> Optional[float]:
+    def max_age_in_days(self) -> Optional[int]:
         """
         The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         """
@@ -63,7 +63,7 @@ class ApplicationAppversionLifecycle(dict):
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[float]:
+    def max_count(self) -> Optional[int]:
         """
         The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         """
@@ -210,13 +210,13 @@ class EnvironmentSetting(dict):
 class GetApplicationAppversionLifecycleResult(dict):
     def __init__(__self__, *,
                  delete_source_from_s3: bool,
-                 max_age_in_days: float,
-                 max_count: float,
+                 max_age_in_days: int,
+                 max_count: int,
                  service_role: str):
         """
         :param bool delete_source_from_s3: Specifies whether delete a version's source bundle from S3 when the application version is deleted.
-        :param float max_age_in_days: The number of days to retain an application version.
-        :param float max_count: The maximum number of application versions to retain.
+        :param int max_age_in_days: The number of days to retain an application version.
+        :param int max_count: The maximum number of application versions to retain.
         :param str service_role: The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
         """
         pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
@@ -234,7 +234,7 @@ class GetApplicationAppversionLifecycleResult(dict):
 
     @property
     @pulumi.getter(name="maxAgeInDays")
-    def max_age_in_days(self) -> float:
+    def max_age_in_days(self) -> int:
         """
         The number of days to retain an application version.
         """
@@ -242,7 +242,7 @@ class GetApplicationAppversionLifecycleResult(dict):
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> float:
+    def max_count(self) -> int:
         """
         The maximum number of application versions to retain.
         """

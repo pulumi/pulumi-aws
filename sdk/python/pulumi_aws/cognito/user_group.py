@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['UserGroup']
@@ -17,7 +17,7 @@ class UserGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 precedence: Optional[pulumi.Input[float]] = None,
+                 precedence: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -66,7 +66,7 @@ class UserGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the user group.
         :param pulumi.Input[str] name: The name of the user group.
-        :param pulumi.Input[float] precedence: The precedence of the user group.
+        :param pulumi.Input[int] precedence: The precedence of the user group.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be associated with the user group.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
         """
@@ -106,7 +106,7 @@ class UserGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            precedence: Optional[pulumi.Input[float]] = None,
+            precedence: Optional[pulumi.Input[int]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             user_pool_id: Optional[pulumi.Input[str]] = None) -> 'UserGroup':
         """
@@ -118,7 +118,7 @@ class UserGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the user group.
         :param pulumi.Input[str] name: The name of the user group.
-        :param pulumi.Input[float] precedence: The precedence of the user group.
+        :param pulumi.Input[int] precedence: The precedence of the user group.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be associated with the user group.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
         """
@@ -151,7 +151,7 @@ class UserGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def precedence(self) -> pulumi.Output[Optional[float]]:
+    def precedence(self) -> pulumi.Output[Optional[int]]:
         """
         The precedence of the user group.
         """

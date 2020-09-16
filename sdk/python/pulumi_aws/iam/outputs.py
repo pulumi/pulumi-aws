@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -71,34 +71,34 @@ class GetGroupUserResult(dict):
 @pulumi.output_type
 class GetPolicyDocumentStatementResult(dict):
     def __init__(__self__, *,
-                 actions: Optional[List[str]] = None,
-                 conditions: Optional[List['outputs.GetPolicyDocumentStatementConditionResult']] = None,
+                 actions: Optional[Sequence[str]] = None,
+                 conditions: Optional[Sequence['outputs.GetPolicyDocumentStatementConditionResult']] = None,
                  effect: Optional[str] = None,
-                 not_actions: Optional[List[str]] = None,
-                 not_principals: Optional[List['outputs.GetPolicyDocumentStatementNotPrincipalResult']] = None,
-                 not_resources: Optional[List[str]] = None,
-                 principals: Optional[List['outputs.GetPolicyDocumentStatementPrincipalResult']] = None,
-                 resources: Optional[List[str]] = None,
+                 not_actions: Optional[Sequence[str]] = None,
+                 not_principals: Optional[Sequence['outputs.GetPolicyDocumentStatementNotPrincipalResult']] = None,
+                 not_resources: Optional[Sequence[str]] = None,
+                 principals: Optional[Sequence['outputs.GetPolicyDocumentStatementPrincipalResult']] = None,
+                 resources: Optional[Sequence[str]] = None,
                  sid: Optional[str] = None):
         """
-        :param List[str] actions: A list of actions that this statement either allows
+        :param Sequence[str] actions: A list of actions that this statement either allows
                or denies. For example, ``["ec2:RunInstances", "s3:*"]``.
-        :param List['GetPolicyDocumentStatementConditionArgs'] conditions: A nested configuration block (described below)
+        :param Sequence['GetPolicyDocumentStatementConditionArgs'] conditions: A nested configuration block (described below)
                that defines a further, possibly-service-specific condition that constrains
                whether this statement applies.
         :param str effect: Either "Allow" or "Deny", to specify whether this
                statement allows or denies the given actions. The default is "Allow".
-        :param List[str] not_actions: A list of actions that this statement does *not*
+        :param Sequence[str] not_actions: A list of actions that this statement does *not*
                apply to. Used to apply a policy statement to all actions *except* those
                listed.
-        :param List['GetPolicyDocumentStatementNotPrincipalArgs'] not_principals: Like `principals` except gives principals that
+        :param Sequence['GetPolicyDocumentStatementNotPrincipalArgs'] not_principals: Like `principals` except gives principals that
                the statement does *not* apply to.
-        :param List[str] not_resources: A list of resource ARNs that this statement
+        :param Sequence[str] not_resources: A list of resource ARNs that this statement
                does *not* apply to. Used to apply a policy statement to all resources
                *except* those listed.
-        :param List['GetPolicyDocumentStatementPrincipalArgs'] principals: A nested configuration block (described below)
+        :param Sequence['GetPolicyDocumentStatementPrincipalArgs'] principals: A nested configuration block (described below)
                specifying a principal (or principal pattern) to which this statement applies.
-        :param List[str] resources: A list of resource ARNs that this statement applies
+        :param Sequence[str] resources: A list of resource ARNs that this statement applies
                to. This is required by AWS if used for an IAM policy.
         :param str sid: An ID for the policy statement.
         """
@@ -123,7 +123,7 @@ class GetPolicyDocumentStatementResult(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List[str]]:
+    def actions(self) -> Optional[Sequence[str]]:
         """
         A list of actions that this statement either allows
         or denies. For example, ``["ec2:RunInstances", "s3:*"]``.
@@ -132,7 +132,7 @@ class GetPolicyDocumentStatementResult(dict):
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[List['outputs.GetPolicyDocumentStatementConditionResult']]:
+    def conditions(self) -> Optional[Sequence['outputs.GetPolicyDocumentStatementConditionResult']]:
         """
         A nested configuration block (described below)
         that defines a further, possibly-service-specific condition that constrains
@@ -151,7 +151,7 @@ class GetPolicyDocumentStatementResult(dict):
 
     @property
     @pulumi.getter(name="notActions")
-    def not_actions(self) -> Optional[List[str]]:
+    def not_actions(self) -> Optional[Sequence[str]]:
         """
         A list of actions that this statement does *not*
         apply to. Used to apply a policy statement to all actions *except* those
@@ -161,7 +161,7 @@ class GetPolicyDocumentStatementResult(dict):
 
     @property
     @pulumi.getter(name="notPrincipals")
-    def not_principals(self) -> Optional[List['outputs.GetPolicyDocumentStatementNotPrincipalResult']]:
+    def not_principals(self) -> Optional[Sequence['outputs.GetPolicyDocumentStatementNotPrincipalResult']]:
         """
         Like `principals` except gives principals that
         the statement does *not* apply to.
@@ -170,7 +170,7 @@ class GetPolicyDocumentStatementResult(dict):
 
     @property
     @pulumi.getter(name="notResources")
-    def not_resources(self) -> Optional[List[str]]:
+    def not_resources(self) -> Optional[Sequence[str]]:
         """
         A list of resource ARNs that this statement
         does *not* apply to. Used to apply a policy statement to all resources
@@ -180,7 +180,7 @@ class GetPolicyDocumentStatementResult(dict):
 
     @property
     @pulumi.getter
-    def principals(self) -> Optional[List['outputs.GetPolicyDocumentStatementPrincipalResult']]:
+    def principals(self) -> Optional[Sequence['outputs.GetPolicyDocumentStatementPrincipalResult']]:
         """
         A nested configuration block (described below)
         specifying a principal (or principal pattern) to which this statement applies.
@@ -189,7 +189,7 @@ class GetPolicyDocumentStatementResult(dict):
 
     @property
     @pulumi.getter
-    def resources(self) -> Optional[List[str]]:
+    def resources(self) -> Optional[Sequence[str]]:
         """
         A list of resource ARNs that this statement applies
         to. This is required by AWS if used for an IAM policy.
@@ -209,13 +209,13 @@ class GetPolicyDocumentStatementResult(dict):
 class GetPolicyDocumentStatementConditionResult(dict):
     def __init__(__self__, *,
                  test: str,
-                 values: List[str],
+                 values: Sequence[str],
                  variable: str):
         """
         :param str test: The name of the
                [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html)
                to evaluate.
-        :param List[str] values: The values to evaluate the condition against. If multiple
+        :param Sequence[str] values: The values to evaluate the condition against. If multiple
                values are provided, the condition matches if at least one of them applies.
                (That is, the tests are combined with the "OR" boolean operation.)
         :param str variable: The name of a
@@ -240,7 +240,7 @@ class GetPolicyDocumentStatementConditionResult(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         The values to evaluate the condition against. If multiple
         values are provided, the condition matches if at least one of them applies.
@@ -264,10 +264,10 @@ class GetPolicyDocumentStatementConditionResult(dict):
 @pulumi.output_type
 class GetPolicyDocumentStatementNotPrincipalResult(dict):
     def __init__(__self__, *,
-                 identifiers: List[str],
+                 identifiers: Sequence[str],
                  type: str):
         """
-        :param List[str] identifiers: List of identifiers for principals. When `type`
+        :param Sequence[str] identifiers: List of identifiers for principals. When `type`
                is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
         :param str type: The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
         """
@@ -276,7 +276,7 @@ class GetPolicyDocumentStatementNotPrincipalResult(dict):
 
     @property
     @pulumi.getter
-    def identifiers(self) -> List[str]:
+    def identifiers(self) -> Sequence[str]:
         """
         List of identifiers for principals. When `type`
         is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
@@ -295,10 +295,10 @@ class GetPolicyDocumentStatementNotPrincipalResult(dict):
 @pulumi.output_type
 class GetPolicyDocumentStatementPrincipalResult(dict):
     def __init__(__self__, *,
-                 identifiers: List[str],
+                 identifiers: Sequence[str],
                  type: str):
         """
-        :param List[str] identifiers: List of identifiers for principals. When `type`
+        :param Sequence[str] identifiers: List of identifiers for principals. When `type`
                is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.
         :param str type: The type of principal. For AWS ARNs this is "AWS".  For AWS services (e.g. Lambda), this is "Service". For Federated access the type is "Federated".
         """
@@ -307,7 +307,7 @@ class GetPolicyDocumentStatementPrincipalResult(dict):
 
     @property
     @pulumi.getter
-    def identifiers(self) -> List[str]:
+    def identifiers(self) -> Sequence[str]:
         """
         List of identifiers for principals. When `type`
         is "AWS", these are IAM user or role ARNs.  When `type` is "Service", these are AWS Service roles e.g. `lambda.amazonaws.com`. When `type` is "Federated", these are web identity users or SAML provider ARNs.

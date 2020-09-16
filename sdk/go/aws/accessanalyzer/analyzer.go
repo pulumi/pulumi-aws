@@ -13,6 +13,7 @@ import (
 // Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
 //
 // ## Example Usage
+// ### Account Analyzer
 //
 // ```go
 // package main
@@ -34,6 +35,40 @@ import (
 // 	})
 // }
 // ```
+// ### Organization Analyzer
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/accessanalyzer"
+// 	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/organizations"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
+// 			AwsServiceAccessPrincipals: pulumi.StringArray{
+// 				pulumi.String("access-analyzer.amazonaws.com"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = accessanalyzer.NewAnalyzer(ctx, "exampleAnalyzer", &accessanalyzer.AnalyzerArgs{
+// 			AnalyzerName: pulumi.String("example"),
+// 			Type:         pulumi.String("ORGANIZATION"),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			exampleOrganization,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Analyzer struct {
 	pulumi.CustomResourceState
 
@@ -42,7 +77,7 @@ type Analyzer struct {
 	Arn          pulumi.StringOutput `pulumi:"arn"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
+	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -82,7 +117,7 @@ type analyzerState struct {
 	Arn          *string `pulumi:"arn"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
+	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
 	Type *string `pulumi:"type"`
 }
 
@@ -92,7 +127,7 @@ type AnalyzerState struct {
 	Arn          pulumi.StringPtrInput
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput
-	// Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
+	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
 	Type pulumi.StringPtrInput
 }
 
@@ -105,7 +140,7 @@ type analyzerArgs struct {
 	AnalyzerName string `pulumi:"analyzerName"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
+	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
 	Type *string `pulumi:"type"`
 }
 
@@ -115,7 +150,7 @@ type AnalyzerArgs struct {
 	AnalyzerName pulumi.StringInput
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput
-	// Type of Analyzer. Valid value is currently only `ACCOUNT`. Defaults to `ACCOUNT`.
+	// Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
 	Type pulumi.StringPtrInput
 }
 

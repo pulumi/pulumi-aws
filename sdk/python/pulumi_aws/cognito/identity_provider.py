@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['IdentityProvider']
@@ -16,7 +16,7 @@ class IdentityProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attribute_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 idp_identifiers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
@@ -52,7 +52,7 @@ class IdentityProvider(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attribute_mapping: The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-        :param pulumi.Input[List[pulumi.Input[str]]] idp_identifiers: The list of identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] idp_identifiers: The list of identity providers.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] provider_details: The map of identity details, such as access token
         :param pulumi.Input[str] provider_name: The provider name
         :param pulumi.Input[str] provider_type: The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
@@ -100,7 +100,7 @@ class IdentityProvider(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             attribute_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            idp_identifiers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             provider_name: Optional[pulumi.Input[str]] = None,
             provider_type: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class IdentityProvider(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attribute_mapping: The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-        :param pulumi.Input[List[pulumi.Input[str]]] idp_identifiers: The list of identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] idp_identifiers: The list of identity providers.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] provider_details: The map of identity details, such as access token
         :param pulumi.Input[str] provider_name: The provider name
         :param pulumi.Input[str] provider_type: The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
@@ -141,7 +141,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idpIdentifiers")
-    def idp_identifiers(self) -> pulumi.Output[Optional[List[str]]]:
+    def idp_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of identity providers.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -183,11 +183,11 @@ class ProjectArtifactsArgs:
 class ProjectCacheArgs:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
-                 modes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] location: The location where the AWS CodeBuild project stores cached resources. For type `S3` the value must be a valid S3 bucket name/prefix.
-        :param pulumi.Input[List[pulumi.Input[str]]] modes: Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, and `LOCAL_CUSTOM_CACHE`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] modes: Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, and `LOCAL_CUSTOM_CACHE`
         :param pulumi.Input[str] type: The type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, and `S3`. Defaults to `NO_CACHE`.
         """
         if location is not None:
@@ -211,14 +211,14 @@ class ProjectCacheArgs:
 
     @property
     @pulumi.getter
-    def modes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, and `LOCAL_CUSTOM_CACHE`
         """
         return pulumi.get(self, "modes")
 
     @modes.setter
-    def modes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "modes", value)
 
     @property
@@ -241,7 +241,7 @@ class ProjectEnvironmentArgs:
                  image: pulumi.Input[str],
                  type: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
-                 environment_variables: Optional[pulumi.Input[List[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]] = None,
                  image_pull_credentials_type: Optional[pulumi.Input[str]] = None,
                  privileged_mode: Optional[pulumi.Input[bool]] = None,
                  registry_credential: Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArgs']] = None):
@@ -250,7 +250,7 @@ class ProjectEnvironmentArgs:
         :param pulumi.Input[str] image: The Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
         :param pulumi.Input[str] type: The type of build environment to use for related builds. Available values are: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` or `ARM_CONTAINER`.
         :param pulumi.Input[str] certificate: The ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
-        :param pulumi.Input[List[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]] environment_variables: A set of environment variables to make available to builds for this build project.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]] environment_variables: A set of environment variables to make available to builds for this build project.
         :param pulumi.Input[str] image_pull_credentials_type: The type of credentials AWS CodeBuild uses to pull images in your build. Available values for this parameter are `CODEBUILD` or `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials. Default to `CODEBUILD`
         :param pulumi.Input[bool] privileged_mode: If set to true, enables running the Docker daemon inside a Docker container. Defaults to `false`.
         :param pulumi.Input['ProjectEnvironmentRegistryCredentialArgs'] registry_credential: Information about credentials for access to a private Docker registry. Registry Credential config blocks are documented below.
@@ -319,14 +319,14 @@ class ProjectEnvironmentArgs:
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[List[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]]:
         """
         A set of environment variables to make available to builds for this build project.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[List[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @property
@@ -759,9 +759,9 @@ class ProjectSecondarySourceArgs:
     def __init__(__self__, *,
                  source_identifier: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 auths: Optional[pulumi.Input[List[pulumi.Input['ProjectSecondarySourceAuthArgs']]]] = None,
+                 auths: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceAuthArgs']]]] = None,
                  buildspec: Optional[pulumi.Input[str]] = None,
-                 git_clone_depth: Optional[pulumi.Input[float]] = None,
+                 git_clone_depth: Optional[pulumi.Input[int]] = None,
                  git_submodules_config: Optional[pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs']] = None,
                  insecure_ssl: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -769,9 +769,9 @@ class ProjectSecondarySourceArgs:
         """
         :param pulumi.Input[str] source_identifier: The source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
         :param pulumi.Input[str] type: The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
-        :param pulumi.Input[List[pulumi.Input['ProjectSecondarySourceAuthArgs']]] auths: Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceAuthArgs']]] auths: Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
         :param pulumi.Input[str] buildspec: The build spec declaration to use for this build project's related builds.
-        :param pulumi.Input[float] git_clone_depth: Truncate git history to this many commits.
+        :param pulumi.Input[int] git_clone_depth: Truncate git history to this many commits.
         :param pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs'] git_submodules_config: Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
         :param pulumi.Input[bool] insecure_ssl: Ignore SSL warnings when connecting to source control.
         :param pulumi.Input[str] location: The location of the source code from git or s3.
@@ -820,14 +820,14 @@ class ProjectSecondarySourceArgs:
 
     @property
     @pulumi.getter
-    def auths(self) -> Optional[pulumi.Input[List[pulumi.Input['ProjectSecondarySourceAuthArgs']]]]:
+    def auths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceAuthArgs']]]]:
         """
         Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
         """
         return pulumi.get(self, "auths")
 
     @auths.setter
-    def auths(self, value: Optional[pulumi.Input[List[pulumi.Input['ProjectSecondarySourceAuthArgs']]]]):
+    def auths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceAuthArgs']]]]):
         pulumi.set(self, "auths", value)
 
     @property
@@ -844,14 +844,14 @@ class ProjectSecondarySourceArgs:
 
     @property
     @pulumi.getter(name="gitCloneDepth")
-    def git_clone_depth(self) -> Optional[pulumi.Input[float]]:
+    def git_clone_depth(self) -> Optional[pulumi.Input[int]]:
         """
         Truncate git history to this many commits.
         """
         return pulumi.get(self, "git_clone_depth")
 
     @git_clone_depth.setter
-    def git_clone_depth(self, value: Optional[pulumi.Input[float]]):
+    def git_clone_depth(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "git_clone_depth", value)
 
     @property
@@ -967,18 +967,18 @@ class ProjectSecondarySourceGitSubmodulesConfigArgs:
 class ProjectSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 auths: Optional[pulumi.Input[List[pulumi.Input['ProjectSourceAuthArgs']]]] = None,
+                 auths: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSourceAuthArgs']]]] = None,
                  buildspec: Optional[pulumi.Input[str]] = None,
-                 git_clone_depth: Optional[pulumi.Input[float]] = None,
+                 git_clone_depth: Optional[pulumi.Input[int]] = None,
                  git_submodules_config: Optional[pulumi.Input['ProjectSourceGitSubmodulesConfigArgs']] = None,
                  insecure_ssl: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  report_build_status: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] type: The type of repository that contains the source code to be built. Valid values for this parameter are: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3` or `NO_SOURCE`.
-        :param pulumi.Input[List[pulumi.Input['ProjectSourceAuthArgs']]] auths: Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectSourceAuthArgs']]] auths: Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
         :param pulumi.Input[str] buildspec: The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
-        :param pulumi.Input[float] git_clone_depth: Truncate git history to this many commits.
+        :param pulumi.Input[int] git_clone_depth: Truncate git history to this many commits.
         :param pulumi.Input['ProjectSourceGitSubmodulesConfigArgs'] git_submodules_config: Information about the Git submodules configuration for an AWS CodeBuild build project. Git submodules config blocks are documented below. This option is only valid when the `type` is `CODECOMMIT`, `GITHUB` or `GITHUB_ENTERPRISE`.
         :param pulumi.Input[bool] insecure_ssl: Ignore SSL warnings when connecting to source control.
         :param pulumi.Input[str] location: The location of the source code from git or s3.
@@ -1014,14 +1014,14 @@ class ProjectSourceArgs:
 
     @property
     @pulumi.getter
-    def auths(self) -> Optional[pulumi.Input[List[pulumi.Input['ProjectSourceAuthArgs']]]]:
+    def auths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSourceAuthArgs']]]]:
         """
         Information about the authorization settings for AWS CodeBuild to access the source code to be built. Auth blocks are documented below.
         """
         return pulumi.get(self, "auths")
 
     @auths.setter
-    def auths(self, value: Optional[pulumi.Input[List[pulumi.Input['ProjectSourceAuthArgs']]]]):
+    def auths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSourceAuthArgs']]]]):
         pulumi.set(self, "auths", value)
 
     @property
@@ -1038,14 +1038,14 @@ class ProjectSourceArgs:
 
     @property
     @pulumi.getter(name="gitCloneDepth")
-    def git_clone_depth(self) -> Optional[pulumi.Input[float]]:
+    def git_clone_depth(self) -> Optional[pulumi.Input[int]]:
         """
         Truncate git history to this many commits.
         """
         return pulumi.get(self, "git_clone_depth")
 
     @git_clone_depth.setter
-    def git_clone_depth(self, value: Optional[pulumi.Input[float]]):
+    def git_clone_depth(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "git_clone_depth", value)
 
     @property
@@ -1160,12 +1160,12 @@ class ProjectSourceGitSubmodulesConfigArgs:
 @pulumi.input_type
 class ProjectVpcConfigArgs:
     def __init__(__self__, *,
-                 security_group_ids: pulumi.Input[List[pulumi.Input[str]]],
-                 subnets: pulumi.Input[List[pulumi.Input[str]]],
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] security_group_ids: The security group IDs to assign to running builds.
-        :param pulumi.Input[List[pulumi.Input[str]]] subnets: The subnet IDs within which to run builds.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs to assign to running builds.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The subnet IDs within which to run builds.
         :param pulumi.Input[str] vpc_id: The ID of the VPC within which to run builds.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -1174,26 +1174,26 @@ class ProjectVpcConfigArgs:
 
     @property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The security group IDs to assign to running builds.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @property
     @pulumi.getter
-    def subnets(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The subnet IDs within which to run builds.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
 
     @property
@@ -1212,23 +1212,23 @@ class ProjectVpcConfigArgs:
 @pulumi.input_type
 class WebhookFilterGroupArgs:
     def __init__(__self__, *,
-                 filters: Optional[pulumi.Input[List[pulumi.Input['WebhookFilterGroupFilterArgs']]]] = None):
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['WebhookFilterGroupFilterArgs']]] filters: A webhook filter for the group. Filter blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]] filters: A webhook filter for the group. Filter blocks are documented below.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[List[pulumi.Input['WebhookFilterGroupFilterArgs']]]]:
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]]]:
         """
         A webhook filter for the group. Filter blocks are documented below.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[List[pulumi.Input['WebhookFilterGroupFilterArgs']]]]):
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
 

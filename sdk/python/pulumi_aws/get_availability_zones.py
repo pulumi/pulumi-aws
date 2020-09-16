@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -57,22 +57,22 @@ class GetAvailabilityZonesResult:
 
     @property
     @pulumi.getter(name="excludeNames")
-    def exclude_names(self) -> Optional[List[str]]:
+    def exclude_names(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "exclude_names")
 
     @property
     @pulumi.getter(name="excludeZoneIds")
-    def exclude_zone_ids(self) -> Optional[List[str]]:
+    def exclude_zone_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "exclude_zone_ids")
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetAvailabilityZonesFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetAvailabilityZonesFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
     @pulumi.getter(name="groupNames")
-    def group_names(self) -> List[str]:
+    def group_names(self) -> Sequence[str]:
         return pulumi.get(self, "group_names")
 
     @property
@@ -85,7 +85,7 @@ class GetAvailabilityZonesResult:
 
     @property
     @pulumi.getter
-    def names(self) -> List[str]:
+    def names(self) -> Sequence[str]:
         """
         A list of the Availability Zone names available to the account.
         """
@@ -98,7 +98,7 @@ class GetAvailabilityZonesResult:
 
     @property
     @pulumi.getter(name="zoneIds")
-    def zone_ids(self) -> List[str]:
+    def zone_ids(self) -> Sequence[str]:
         """
         A list of the Availability Zone IDs available to the account.
         """
@@ -123,9 +123,9 @@ class AwaitableGetAvailabilityZonesResult(GetAvailabilityZonesResult):
 
 
 def get_availability_zones(all_availability_zones: Optional[bool] = None,
-                           exclude_names: Optional[List[str]] = None,
-                           exclude_zone_ids: Optional[List[str]] = None,
-                           filters: Optional[List[pulumi.InputType['GetAvailabilityZonesFilterArgs']]] = None,
+                           exclude_names: Optional[Sequence[str]] = None,
+                           exclude_zone_ids: Optional[Sequence[str]] = None,
+                           filters: Optional[Sequence[pulumi.InputType['GetAvailabilityZonesFilterArgs']]] = None,
                            state: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilityZonesResult:
     """
@@ -183,9 +183,9 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-    :param List[str] exclude_names: List of Availability Zone names to exclude.
-    :param List[str] exclude_zone_ids: List of Availability Zone IDs to exclude.
-    :param List[pulumi.InputType['GetAvailabilityZonesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[str] exclude_names: List of Availability Zone names to exclude.
+    :param Sequence[str] exclude_zone_ids: List of Availability Zone IDs to exclude.
+    :param Sequence[pulumi.InputType['GetAvailabilityZonesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str state: Allows to filter list of Availability Zones based on their
            current state. Can be either `"available"`, `"information"`, `"impaired"` or
            `"unavailable"`. By default the list includes a complete set of Availability Zones

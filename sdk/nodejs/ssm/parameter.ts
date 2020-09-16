@@ -46,7 +46,7 @@ import {ParameterType} from "./index";
  *     type: "SecureString",
  *     value: _var.database_master_password,
  *     tags: {
- *         environment: _var.environment,
+ *         environment: "production",
  *     },
  * });
  * ```

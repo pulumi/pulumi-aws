@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -37,8 +37,8 @@ class GetVolumeResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if iops and not isinstance(iops, float):
-            raise TypeError("Expected argument 'iops' to be a float")
+        if iops and not isinstance(iops, int):
+            raise TypeError("Expected argument 'iops' to be a int")
         pulumi.set(__self__, "iops", iops)
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
@@ -52,8 +52,8 @@ class GetVolumeResult:
         if outpost_arn and not isinstance(outpost_arn, str):
             raise TypeError("Expected argument 'outpost_arn' to be a str")
         pulumi.set(__self__, "outpost_arn", outpost_arn)
-        if size and not isinstance(size, float):
-            raise TypeError("Expected argument 'size' to be a float")
+        if size and not isinstance(size, int):
+            raise TypeError("Expected argument 'size' to be a int")
         pulumi.set(__self__, "size", size)
         if snapshot_id and not isinstance(snapshot_id, str):
             raise TypeError("Expected argument 'snapshot_id' to be a str")
@@ -94,7 +94,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetVolumeFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetVolumeFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -107,7 +107,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
-    def iops(self) -> float:
+    def iops(self) -> int:
         """
         The amount of IOPS for the disk.
         """
@@ -144,7 +144,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
-    def size(self) -> float:
+    def size(self) -> int:
         """
         The size of the drive in GiBs.
         """
@@ -206,7 +206,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             volume_type=self.volume_type)
 
 
-def get_volume(filters: Optional[List[pulumi.InputType['GetVolumeFilterArgs']]] = None,
+def get_volume(filters: Optional[Sequence[pulumi.InputType['GetVolumeFilterArgs']]] = None,
                most_recent: Optional[bool] = None,
                tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
@@ -234,7 +234,7 @@ def get_volume(filters: Optional[List[pulumi.InputType['GetVolumeFilterArgs']]] 
     ```
 
 
-    :param List[pulumi.InputType['GetVolumeFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[pulumi.InputType['GetVolumeFilterArgs']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-volumes in the AWS CLI reference][1].
     :param bool most_recent: If more than one result is returned, use the most

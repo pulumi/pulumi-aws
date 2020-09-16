@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['AccountPasswordPolicy']
@@ -17,9 +17,9 @@ class AccountPasswordPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_users_to_change_password: Optional[pulumi.Input[bool]] = None,
                  hard_expiry: Optional[pulumi.Input[bool]] = None,
-                 max_password_age: Optional[pulumi.Input[float]] = None,
-                 minimum_password_length: Optional[pulumi.Input[float]] = None,
-                 password_reuse_prevention: Optional[pulumi.Input[float]] = None,
+                 max_password_age: Optional[pulumi.Input[int]] = None,
+                 minimum_password_length: Optional[pulumi.Input[int]] = None,
+                 password_reuse_prevention: Optional[pulumi.Input[int]] = None,
                  require_lowercase_characters: Optional[pulumi.Input[bool]] = None,
                  require_numbers: Optional[pulumi.Input[bool]] = None,
                  require_symbols: Optional[pulumi.Input[bool]] = None,
@@ -54,9 +54,9 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_users_to_change_password: Whether to allow users to change their own password
         :param pulumi.Input[bool] hard_expiry: Whether users are prevented from setting a new password after their password has expired
                (i.e. require administrator reset)
-        :param pulumi.Input[float] max_password_age: The number of days that an user password is valid.
-        :param pulumi.Input[float] minimum_password_length: Minimum length to require for user passwords.
-        :param pulumi.Input[float] password_reuse_prevention: The number of previous passwords that users are prevented from reusing.
+        :param pulumi.Input[int] max_password_age: The number of days that an user password is valid.
+        :param pulumi.Input[int] minimum_password_length: Minimum length to require for user passwords.
+        :param pulumi.Input[int] password_reuse_prevention: The number of previous passwords that users are prevented from reusing.
         :param pulumi.Input[bool] require_lowercase_characters: Whether to require lowercase characters for user passwords.
         :param pulumi.Input[bool] require_numbers: Whether to require numbers for user passwords.
         :param pulumi.Input[bool] require_symbols: Whether to require symbols for user passwords.
@@ -102,9 +102,9 @@ class AccountPasswordPolicy(pulumi.CustomResource):
             allow_users_to_change_password: Optional[pulumi.Input[bool]] = None,
             expire_passwords: Optional[pulumi.Input[bool]] = None,
             hard_expiry: Optional[pulumi.Input[bool]] = None,
-            max_password_age: Optional[pulumi.Input[float]] = None,
-            minimum_password_length: Optional[pulumi.Input[float]] = None,
-            password_reuse_prevention: Optional[pulumi.Input[float]] = None,
+            max_password_age: Optional[pulumi.Input[int]] = None,
+            minimum_password_length: Optional[pulumi.Input[int]] = None,
+            password_reuse_prevention: Optional[pulumi.Input[int]] = None,
             require_lowercase_characters: Optional[pulumi.Input[bool]] = None,
             require_numbers: Optional[pulumi.Input[bool]] = None,
             require_symbols: Optional[pulumi.Input[bool]] = None,
@@ -122,9 +122,9 @@ class AccountPasswordPolicy(pulumi.CustomResource):
                Returns `false` if it is `0` or _not present_.
         :param pulumi.Input[bool] hard_expiry: Whether users are prevented from setting a new password after their password has expired
                (i.e. require administrator reset)
-        :param pulumi.Input[float] max_password_age: The number of days that an user password is valid.
-        :param pulumi.Input[float] minimum_password_length: Minimum length to require for user passwords.
-        :param pulumi.Input[float] password_reuse_prevention: The number of previous passwords that users are prevented from reusing.
+        :param pulumi.Input[int] max_password_age: The number of days that an user password is valid.
+        :param pulumi.Input[int] minimum_password_length: Minimum length to require for user passwords.
+        :param pulumi.Input[int] password_reuse_prevention: The number of previous passwords that users are prevented from reusing.
         :param pulumi.Input[bool] require_lowercase_characters: Whether to require lowercase characters for user passwords.
         :param pulumi.Input[bool] require_numbers: Whether to require numbers for user passwords.
         :param pulumi.Input[bool] require_symbols: Whether to require symbols for user passwords.
@@ -175,7 +175,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxPasswordAge")
-    def max_password_age(self) -> pulumi.Output[float]:
+    def max_password_age(self) -> pulumi.Output[int]:
         """
         The number of days that an user password is valid.
         """
@@ -183,7 +183,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimumPasswordLength")
-    def minimum_password_length(self) -> pulumi.Output[Optional[float]]:
+    def minimum_password_length(self) -> pulumi.Output[Optional[int]]:
         """
         Minimum length to require for user passwords.
         """
@@ -191,7 +191,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="passwordReusePrevention")
-    def password_reuse_prevention(self) -> pulumi.Output[float]:
+    def password_reuse_prevention(self) -> pulumi.Output[int]:
         """
         The number of previous passwords that users are prevented from reusing.
         """

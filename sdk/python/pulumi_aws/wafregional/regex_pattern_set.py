@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['RegexPatternSet']
@@ -16,7 +16,7 @@ class RegexPatternSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 regex_pattern_strings: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 regex_pattern_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -38,7 +38,7 @@ class RegexPatternSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the Regex Pattern Set.
-        :param pulumi.Input[List[pulumi.Input[str]]] regex_pattern_strings: A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regex_pattern_strings: A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -70,7 +70,7 @@ class RegexPatternSet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            regex_pattern_strings: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'RegexPatternSet':
+            regex_pattern_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'RegexPatternSet':
         """
         Get an existing RegexPatternSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -79,7 +79,7 @@ class RegexPatternSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the Regex Pattern Set.
-        :param pulumi.Input[List[pulumi.Input[str]]] regex_pattern_strings: A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regex_pattern_strings: A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -99,7 +99,7 @@ class RegexPatternSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="regexPatternStrings")
-    def regex_pattern_strings(self) -> pulumi.Output[Optional[List[str]]]:
+    def regex_pattern_strings(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
         """

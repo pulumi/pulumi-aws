@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -40,7 +40,7 @@ class GetSubnetIdsResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetSubnetIdsFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetSubnetIdsFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -53,7 +53,7 @@ class GetSubnetIdsResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> List[str]:
+    def ids(self) -> Sequence[str]:
         """
         A set of all the subnet ids found. This data source will fail if none are found.
         """
@@ -83,7 +83,7 @@ class AwaitableGetSubnetIdsResult(GetSubnetIdsResult):
             vpc_id=self.vpc_id)
 
 
-def get_subnet_ids(filters: Optional[List[pulumi.InputType['GetSubnetIdsFilterArgs']]] = None,
+def get_subnet_ids(filters: Optional[Sequence[pulumi.InputType['GetSubnetIdsFilterArgs']]] = None,
                    tags: Optional[Mapping[str, str]] = None,
                    vpc_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetIdsResult:
@@ -126,7 +126,7 @@ def get_subnet_ids(filters: Optional[List[pulumi.InputType['GetSubnetIdsFilterAr
     ```
 
 
-    :param List[pulumi.InputType['GetSubnetIdsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetSubnetIdsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
            a pair on the desired subnets.
     :param str vpc_id: The VPC ID that you want to filter from.

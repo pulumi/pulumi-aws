@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -252,12 +252,12 @@ class CertificateAuthorityRevocationConfiguration(dict):
 @pulumi.output_type
 class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
     def __init__(__self__, *,
-                 expiration_in_days: float,
+                 expiration_in_days: int,
                  custom_cname: Optional[str] = None,
                  enabled: Optional[bool] = None,
                  s3_bucket_name: Optional[str] = None):
         """
-        :param float expiration_in_days: Number of days until a certificate expires. Must be between 1 and 5000.
+        :param int expiration_in_days: Number of days until a certificate expires. Must be between 1 and 5000.
         :param str custom_cname: Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
         :param bool enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
         :param str s3_bucket_name: Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
@@ -272,7 +272,7 @@ class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
 
     @property
     @pulumi.getter(name="expirationInDays")
-    def expiration_in_days(self) -> float:
+    def expiration_in_days(self) -> int:
         """
         Number of days until a certificate expires. Must be between 1 and 5000.
         """
@@ -309,12 +309,12 @@ class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
 @pulumi.output_type
 class GetCertificateAuthorityRevocationConfigurationResult(dict):
     def __init__(__self__, *,
-                 crl_configurations: List['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult']):
+                 crl_configurations: Sequence['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult']):
         pulumi.set(__self__, "crl_configurations", crl_configurations)
 
     @property
     @pulumi.getter(name="crlConfigurations")
-    def crl_configurations(self) -> List['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult']:
+    def crl_configurations(self) -> Sequence['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult']:
         return pulumi.get(self, "crl_configurations")
 
 
@@ -323,7 +323,7 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(dict)
     def __init__(__self__, *,
                  custom_cname: str,
                  enabled: bool,
-                 expiration_in_days: float,
+                 expiration_in_days: int,
                  s3_bucket_name: str):
         pulumi.set(__self__, "custom_cname", custom_cname)
         pulumi.set(__self__, "enabled", enabled)
@@ -342,7 +342,7 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(dict)
 
     @property
     @pulumi.getter(name="expirationInDays")
-    def expiration_in_days(self) -> float:
+    def expiration_in_days(self) -> int:
         return pulumi.get(self, "expiration_in_days")
 
     @property

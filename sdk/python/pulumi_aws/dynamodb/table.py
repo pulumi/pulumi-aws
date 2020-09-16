@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,22 +17,22 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]]] = None,
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
-                 global_secondary_indexes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
+                 global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
                  hash_key: Optional[pulumi.Input[str]] = None,
-                 local_secondary_indexes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
+                 local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']]] = None,
                  range_key: Optional[pulumi.Input[str]] = None,
-                 read_capacity: Optional[pulumi.Input[float]] = None,
-                 replicas: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]]] = None,
+                 read_capacity: Optional[pulumi.Input[int]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]]] = None,
                  server_side_encryption: Optional[pulumi.Input[pulumi.InputType['TableServerSideEncryptionArgs']]] = None,
                  stream_enabled: Optional[pulumi.Input[bool]] = None,
                  stream_view_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[pulumi.InputType['TableTtlArgs']]] = None,
-                 write_capacity: Optional[pulumi.Input[float]] = None,
+                 write_capacity: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -117,27 +117,27 @@ class Table(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]] attributes: List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]] attributes: List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table;
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table;
                subject to the normal limits on the number of GSIs, projected
                attributes, etc.
         :param pulumi.Input[str] hash_key: The name of the hash key in the index; must be
                defined as an attribute in the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table;
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table;
                these can only be allocated *at creation* so you cannot change this
                definition after you have created the resource.
         :param pulumi.Input[str] name: The name of the index
         :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Point-in-time recovery options.
         :param pulumi.Input[str] range_key: The name of the range key; must be defined
-        :param pulumi.Input[float] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+        :param pulumi.Input[int] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
         :param pulumi.Input[pulumi.InputType['TableServerSideEncryptionArgs']] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
         :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table.
         :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Defines ttl, has two properties, and can only be specified once:
-        :param pulumi.Input[float] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[int] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -190,16 +190,16 @@ class Table(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            attributes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]]] = None,
+            attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]]] = None,
             billing_mode: Optional[pulumi.Input[str]] = None,
-            global_secondary_indexes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
+            global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
             hash_key: Optional[pulumi.Input[str]] = None,
-            local_secondary_indexes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
+            local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             point_in_time_recovery: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']]] = None,
             range_key: Optional[pulumi.Input[str]] = None,
-            read_capacity: Optional[pulumi.Input[float]] = None,
-            replicas: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]]] = None,
+            read_capacity: Optional[pulumi.Input[int]] = None,
+            replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]]] = None,
             server_side_encryption: Optional[pulumi.Input[pulumi.InputType['TableServerSideEncryptionArgs']]] = None,
             stream_arn: Optional[pulumi.Input[str]] = None,
             stream_enabled: Optional[pulumi.Input[bool]] = None,
@@ -207,7 +207,7 @@ class Table(pulumi.CustomResource):
             stream_view_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ttl: Optional[pulumi.Input[pulumi.InputType['TableTtlArgs']]] = None,
-            write_capacity: Optional[pulumi.Input[float]] = None) -> 'Table':
+            write_capacity: Optional[pulumi.Input[int]] = None) -> 'Table':
         """
         Get an existing Table resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -216,21 +216,21 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The arn of the table
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]] attributes: List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]] attributes: List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table;
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table;
                subject to the normal limits on the number of GSIs, projected
                attributes, etc.
         :param pulumi.Input[str] hash_key: The name of the hash key in the index; must be
                defined as an attribute in the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table;
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table;
                these can only be allocated *at creation* so you cannot change this
                definition after you have created the resource.
         :param pulumi.Input[str] name: The name of the index
         :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Point-in-time recovery options.
         :param pulumi.Input[str] range_key: The name of the range key; must be defined
-        :param pulumi.Input[float] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+        :param pulumi.Input[int] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
         :param pulumi.Input[pulumi.InputType['TableServerSideEncryptionArgs']] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
         :param pulumi.Input[str] stream_arn: The ARN of the Table Stream. Only available when `stream_enabled = true`
         :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
@@ -241,7 +241,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table.
         :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Defines ttl, has two properties, and can only be specified once:
-        :param pulumi.Input[float] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[int] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -278,7 +278,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def attributes(self) -> pulumi.Output[List['outputs.TableAttribute']]:
+    def attributes(self) -> pulumi.Output[Sequence['outputs.TableAttribute']]:
         """
         List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
         """
@@ -294,7 +294,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
-    def global_secondary_indexes(self) -> pulumi.Output[Optional[List['outputs.TableGlobalSecondaryIndex']]]:
+    def global_secondary_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.TableGlobalSecondaryIndex']]]:
         """
         Describe a GSI for the table;
         subject to the normal limits on the number of GSIs, projected
@@ -313,7 +313,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localSecondaryIndexes")
-    def local_secondary_indexes(self) -> pulumi.Output[Optional[List['outputs.TableLocalSecondaryIndex']]]:
+    def local_secondary_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.TableLocalSecondaryIndex']]]:
         """
         Describe an LSI on the table;
         these can only be allocated *at creation* so you cannot change this
@@ -347,7 +347,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readCapacity")
-    def read_capacity(self) -> pulumi.Output[Optional[float]]:
+    def read_capacity(self) -> pulumi.Output[Optional[int]]:
         """
         The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
@@ -355,7 +355,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def replicas(self) -> pulumi.Output[Optional[List['outputs.TableReplica']]]:
+    def replicas(self) -> pulumi.Output[Optional[Sequence['outputs.TableReplica']]]:
         """
         Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
         """
@@ -422,7 +422,7 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="writeCapacity")
-    def write_capacity(self) -> pulumi.Output[Optional[float]]:
+    def write_capacity(self) -> pulumi.Output[Optional[int]]:
         """
         The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """

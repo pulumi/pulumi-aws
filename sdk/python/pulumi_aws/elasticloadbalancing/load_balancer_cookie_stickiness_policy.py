@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['LoadBalancerCookieStickinessPolicy']
@@ -19,8 +19,8 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cookie_expiration_period: Optional[pulumi.Input[float]] = None,
-                 lb_port: Optional[pulumi.Input[float]] = None,
+                 cookie_expiration_period: Optional[pulumi.Input[int]] = None,
+                 lb_port: Optional[pulumi.Input[int]] = None,
                  load_balancer: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -51,9 +51,9 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] cookie_expiration_period: The time period after which
+        :param pulumi.Input[int] cookie_expiration_period: The time period after which
                the session cookie should be considered stale, expressed in seconds.
-        :param pulumi.Input[float] lb_port: The load balancer port to which the policy
+        :param pulumi.Input[int] lb_port: The load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
@@ -96,8 +96,8 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cookie_expiration_period: Optional[pulumi.Input[float]] = None,
-            lb_port: Optional[pulumi.Input[float]] = None,
+            cookie_expiration_period: Optional[pulumi.Input[int]] = None,
+            lb_port: Optional[pulumi.Input[int]] = None,
             load_balancer: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'LoadBalancerCookieStickinessPolicy':
         """
@@ -107,9 +107,9 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] cookie_expiration_period: The time period after which
+        :param pulumi.Input[int] cookie_expiration_period: The time period after which
                the session cookie should be considered stale, expressed in seconds.
-        :param pulumi.Input[float] lb_port: The load balancer port to which the policy
+        :param pulumi.Input[int] lb_port: The load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
@@ -128,7 +128,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cookieExpirationPeriod")
-    def cookie_expiration_period(self) -> pulumi.Output[Optional[float]]:
+    def cookie_expiration_period(self) -> pulumi.Output[Optional[int]]:
         """
         The time period after which
         the session cookie should be considered stale, expressed in seconds.
@@ -137,7 +137,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lbPort")
-    def lb_port(self) -> pulumi.Output[float]:
+    def lb_port(self) -> pulumi.Output[int]:
         """
         The load balancer port to which the policy
         should be applied. This must be an active listener on the load

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -45,7 +45,7 @@ class GetDirectConnectGatewayAttachmentResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetDirectConnectGatewayAttachmentFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetDirectConnectGatewayAttachmentFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -84,7 +84,7 @@ class AwaitableGetDirectConnectGatewayAttachmentResult(GetDirectConnectGatewayAt
 
 
 def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[str] = None,
-                                          filters: Optional[List[pulumi.InputType['GetDirectConnectGatewayAttachmentFilterArgs']]] = None,
+                                          filters: Optional[Sequence[pulumi.InputType['GetDirectConnectGatewayAttachmentFilterArgs']]] = None,
                                           tags: Optional[Mapping[str, str]] = None,
                                           transit_gateway_id: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectConnectGatewayAttachmentResult:
@@ -104,7 +104,7 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[str] = None,
 
 
     :param str dx_gateway_id: Identifier of the Direct Connect Gateway.
-    :param List[pulumi.InputType['GetDirectConnectGatewayAttachmentFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetDirectConnectGatewayAttachmentFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
     :param str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     """

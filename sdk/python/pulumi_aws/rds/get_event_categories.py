@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -32,7 +32,7 @@ class GetEventCategoriesResult:
 
     @property
     @pulumi.getter(name="eventCategories")
-    def event_categories(self) -> List[str]:
+    def event_categories(self) -> Sequence[str]:
         """
         A list of the event categories.
         """

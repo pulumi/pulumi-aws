@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -153,15 +153,15 @@ class RecordLatencyRoutingPolicy(dict):
 @pulumi.output_type
 class RecordWeightedRoutingPolicy(dict):
     def __init__(__self__, *,
-                 weight: float):
+                 weight: int):
         """
-        :param float weight: A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
+        :param int weight: A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
         """
         pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
-    def weight(self) -> float:
+    def weight(self) -> int:
         """
         A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
         """
@@ -216,10 +216,10 @@ class ResolverEndpointIpAddress(dict):
 class ResolverRuleTargetIp(dict):
     def __init__(__self__, *,
                  ip: str,
-                 port: Optional[float] = None):
+                 port: Optional[int] = None):
         """
         :param str ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
-        :param float port: The port at `ip` that you want to forward DNS queries to. Default value is `53`
+        :param int port: The port at `ip` that you want to forward DNS queries to. Default value is `53`
         """
         pulumi.set(__self__, "ip", ip)
         if port is not None:
@@ -235,7 +235,7 @@ class ResolverRuleTargetIp(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         The port at `ip` that you want to forward DNS queries to. Default value is `53`
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -23,13 +23,13 @@ __all__ = [
 @pulumi.output_type
 class AccessPointPosixUser(dict):
     def __init__(__self__, *,
-                 gid: float,
-                 uid: float,
-                 secondary_gids: Optional[List[float]] = None):
+                 gid: int,
+                 uid: int,
+                 secondary_gids: Optional[Sequence[int]] = None):
         """
-        :param float gid: The POSIX group ID used for all file system operations using this access point.
-        :param float uid: The POSIX user ID used for all file system operations using this access point.
-        :param List[float] secondary_gids: Secondary POSIX group IDs used for all file system operations using this access point.
+        :param int gid: The POSIX group ID used for all file system operations using this access point.
+        :param int uid: The POSIX user ID used for all file system operations using this access point.
+        :param Sequence[int] secondary_gids: Secondary POSIX group IDs used for all file system operations using this access point.
         """
         pulumi.set(__self__, "gid", gid)
         pulumi.set(__self__, "uid", uid)
@@ -38,7 +38,7 @@ class AccessPointPosixUser(dict):
 
     @property
     @pulumi.getter
-    def gid(self) -> float:
+    def gid(self) -> int:
         """
         The POSIX group ID used for all file system operations using this access point.
         """
@@ -46,7 +46,7 @@ class AccessPointPosixUser(dict):
 
     @property
     @pulumi.getter
-    def uid(self) -> float:
+    def uid(self) -> int:
         """
         The POSIX user ID used for all file system operations using this access point.
         """
@@ -54,7 +54,7 @@ class AccessPointPosixUser(dict):
 
     @property
     @pulumi.getter(name="secondaryGids")
-    def secondary_gids(self) -> Optional[List[float]]:
+    def secondary_gids(self) -> Optional[Sequence[int]]:
         """
         Secondary POSIX group IDs used for all file system operations using this access point.
         """
@@ -101,12 +101,12 @@ class AccessPointRootDirectory(dict):
 @pulumi.output_type
 class AccessPointRootDirectoryCreationInfo(dict):
     def __init__(__self__, *,
-                 owner_gid: float,
-                 owner_uid: float,
+                 owner_gid: int,
+                 owner_uid: int,
                  permissions: str):
         """
-        :param float owner_gid: Specifies the POSIX group ID to apply to the `root_directory`.
-        :param float owner_uid: Specifies the POSIX user ID to apply to the `root_directory`.
+        :param int owner_gid: Specifies the POSIX group ID to apply to the `root_directory`.
+        :param int owner_uid: Specifies the POSIX user ID to apply to the `root_directory`.
         :param str permissions: Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
         """
         pulumi.set(__self__, "owner_gid", owner_gid)
@@ -115,7 +115,7 @@ class AccessPointRootDirectoryCreationInfo(dict):
 
     @property
     @pulumi.getter(name="ownerGid")
-    def owner_gid(self) -> float:
+    def owner_gid(self) -> int:
         """
         Specifies the POSIX group ID to apply to the `root_directory`.
         """
@@ -123,7 +123,7 @@ class AccessPointRootDirectoryCreationInfo(dict):
 
     @property
     @pulumi.getter(name="ownerUid")
-    def owner_uid(self) -> float:
+    def owner_uid(self) -> int:
         """
         Specifies the POSIX user ID to apply to the `root_directory`.
         """
@@ -165,13 +165,13 @@ class FileSystemLifecyclePolicy(dict):
 @pulumi.output_type
 class GetAccessPointPosixUserResult(dict):
     def __init__(__self__, *,
-                 gid: float,
-                 secondary_gids: List[float],
-                 uid: float):
+                 gid: int,
+                 secondary_gids: Sequence[int],
+                 uid: int):
         """
-        :param float gid: Group ID
-        :param List[float] secondary_gids: Secondary group IDs
-        :param float uid: User Id
+        :param int gid: Group ID
+        :param Sequence[int] secondary_gids: Secondary group IDs
+        :param int uid: User Id
                * `root_directory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
         """
         pulumi.set(__self__, "gid", gid)
@@ -180,7 +180,7 @@ class GetAccessPointPosixUserResult(dict):
 
     @property
     @pulumi.getter
-    def gid(self) -> float:
+    def gid(self) -> int:
         """
         Group ID
         """
@@ -188,7 +188,7 @@ class GetAccessPointPosixUserResult(dict):
 
     @property
     @pulumi.getter(name="secondaryGids")
-    def secondary_gids(self) -> List[float]:
+    def secondary_gids(self) -> Sequence[int]:
         """
         Secondary group IDs
         """
@@ -196,7 +196,7 @@ class GetAccessPointPosixUserResult(dict):
 
     @property
     @pulumi.getter
-    def uid(self) -> float:
+    def uid(self) -> int:
         """
         User Id
         * `root_directory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
@@ -207,10 +207,10 @@ class GetAccessPointPosixUserResult(dict):
 @pulumi.output_type
 class GetAccessPointRootDirectoryResult(dict):
     def __init__(__self__, *,
-                 creation_infos: List['outputs.GetAccessPointRootDirectoryCreationInfoResult'],
+                 creation_infos: Sequence['outputs.GetAccessPointRootDirectoryCreationInfoResult'],
                  path: str):
         """
-        :param List['GetAccessPointRootDirectoryCreationInfoArgs'] creation_infos: Single element list containing information on the creation permissions of the directory
+        :param Sequence['GetAccessPointRootDirectoryCreationInfoArgs'] creation_infos: Single element list containing information on the creation permissions of the directory
         :param str path: Path exposed as the root directory
         """
         pulumi.set(__self__, "creation_infos", creation_infos)
@@ -218,7 +218,7 @@ class GetAccessPointRootDirectoryResult(dict):
 
     @property
     @pulumi.getter(name="creationInfos")
-    def creation_infos(self) -> List['outputs.GetAccessPointRootDirectoryCreationInfoResult']:
+    def creation_infos(self) -> Sequence['outputs.GetAccessPointRootDirectoryCreationInfoResult']:
         """
         Single element list containing information on the creation permissions of the directory
         """
@@ -236,12 +236,12 @@ class GetAccessPointRootDirectoryResult(dict):
 @pulumi.output_type
 class GetAccessPointRootDirectoryCreationInfoResult(dict):
     def __init__(__self__, *,
-                 owner_gid: float,
-                 owner_uid: float,
+                 owner_gid: int,
+                 owner_uid: int,
                  permissions: str):
         """
-        :param float owner_gid: POSIX owner group ID
-        :param float owner_uid: POSIX owner user ID
+        :param int owner_gid: POSIX owner group ID
+        :param int owner_uid: POSIX owner user ID
         :param str permissions: POSIX permissions mode
         """
         pulumi.set(__self__, "owner_gid", owner_gid)
@@ -250,7 +250,7 @@ class GetAccessPointRootDirectoryCreationInfoResult(dict):
 
     @property
     @pulumi.getter(name="ownerGid")
-    def owner_gid(self) -> float:
+    def owner_gid(self) -> int:
         """
         POSIX owner group ID
         """
@@ -258,7 +258,7 @@ class GetAccessPointRootDirectoryCreationInfoResult(dict):
 
     @property
     @pulumi.getter(name="ownerUid")
-    def owner_uid(self) -> float:
+    def owner_uid(self) -> int:
         """
         POSIX owner user ID
         """

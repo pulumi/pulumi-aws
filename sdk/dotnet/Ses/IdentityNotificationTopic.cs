@@ -24,10 +24,10 @@ namespace Pulumi.Aws.Ses
     ///     {
     ///         var test = new Aws.Ses.IdentityNotificationTopic("test", new Aws.Ses.IdentityNotificationTopicArgs
     ///         {
+    ///             TopicArn = aws_sns_topic.Example.Arn,
+    ///             NotificationType = "Bounce",
     ///             Identity = aws_ses_domain_identity.Example.Domain,
     ///             IncludeOriginalHeaders = true,
-    ///             NotificationType = "Bounce",
-    ///             TopicArn = aws_sns_topic.Example.Arn,
     ///         });
     ///     }
     /// 

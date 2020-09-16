@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -23,8 +23,8 @@ class GetContainerDefinitionResult:
         if container_name and not isinstance(container_name, str):
             raise TypeError("Expected argument 'container_name' to be a str")
         pulumi.set(__self__, "container_name", container_name)
-        if cpu and not isinstance(cpu, float):
-            raise TypeError("Expected argument 'cpu' to be a float")
+        if cpu and not isinstance(cpu, int):
+            raise TypeError("Expected argument 'cpu' to be a int")
         pulumi.set(__self__, "cpu", cpu)
         if disable_networking and not isinstance(disable_networking, bool):
             raise TypeError("Expected argument 'disable_networking' to be a bool")
@@ -44,11 +44,11 @@ class GetContainerDefinitionResult:
         if image_digest and not isinstance(image_digest, str):
             raise TypeError("Expected argument 'image_digest' to be a str")
         pulumi.set(__self__, "image_digest", image_digest)
-        if memory and not isinstance(memory, float):
-            raise TypeError("Expected argument 'memory' to be a float")
+        if memory and not isinstance(memory, int):
+            raise TypeError("Expected argument 'memory' to be a int")
         pulumi.set(__self__, "memory", memory)
-        if memory_reservation and not isinstance(memory_reservation, float):
-            raise TypeError("Expected argument 'memory_reservation' to be a float")
+        if memory_reservation and not isinstance(memory_reservation, int):
+            raise TypeError("Expected argument 'memory_reservation' to be a int")
         pulumi.set(__self__, "memory_reservation", memory_reservation)
         if task_definition and not isinstance(task_definition, str):
             raise TypeError("Expected argument 'task_definition' to be a str")
@@ -61,7 +61,7 @@ class GetContainerDefinitionResult:
 
     @property
     @pulumi.getter
-    def cpu(self) -> float:
+    def cpu(self) -> int:
         """
         The CPU limit for this container definition
         """
@@ -117,7 +117,7 @@ class GetContainerDefinitionResult:
 
     @property
     @pulumi.getter
-    def memory(self) -> float:
+    def memory(self) -> int:
         """
         The memory limit for this container definition
         """
@@ -125,7 +125,7 @@ class GetContainerDefinitionResult:
 
     @property
     @pulumi.getter(name="memoryReservation")
-    def memory_reservation(self) -> float:
+    def memory_reservation(self) -> int:
         """
         The soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
         """

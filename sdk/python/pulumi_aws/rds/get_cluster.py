@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -26,11 +26,11 @@ class GetClusterResult:
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
-        if backtrack_window and not isinstance(backtrack_window, float):
-            raise TypeError("Expected argument 'backtrack_window' to be a float")
+        if backtrack_window and not isinstance(backtrack_window, int):
+            raise TypeError("Expected argument 'backtrack_window' to be a int")
         pulumi.set(__self__, "backtrack_window", backtrack_window)
-        if backup_retention_period and not isinstance(backup_retention_period, float):
-            raise TypeError("Expected argument 'backup_retention_period' to be a float")
+        if backup_retention_period and not isinstance(backup_retention_period, int):
+            raise TypeError("Expected argument 'backup_retention_period' to be a int")
         pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if cluster_identifier and not isinstance(cluster_identifier, str):
             raise TypeError("Expected argument 'cluster_identifier' to be a str")
@@ -83,8 +83,8 @@ class GetClusterResult:
         if master_username and not isinstance(master_username, str):
             raise TypeError("Expected argument 'master_username' to be a str")
         pulumi.set(__self__, "master_username", master_username)
-        if port and not isinstance(port, float):
-            raise TypeError("Expected argument 'port' to be a float")
+        if port and not isinstance(port, int):
+            raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
         if preferred_backup_window and not isinstance(preferred_backup_window, str):
             raise TypeError("Expected argument 'preferred_backup_window' to be a str")
@@ -115,17 +115,17 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> List[str]:
+    def availability_zones(self) -> Sequence[str]:
         return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="backtrackWindow")
-    def backtrack_window(self) -> float:
+    def backtrack_window(self) -> int:
         return pulumi.get(self, "backtrack_window")
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
-    def backup_retention_period(self) -> float:
+    def backup_retention_period(self) -> int:
         return pulumi.get(self, "backup_retention_period")
 
     @property
@@ -135,7 +135,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clusterMembers")
-    def cluster_members(self) -> List[str]:
+    def cluster_members(self) -> Sequence[str]:
         return pulumi.get(self, "cluster_members")
 
     @property
@@ -160,7 +160,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
-    def enabled_cloudwatch_logs_exports(self) -> List[str]:
+    def enabled_cloudwatch_logs_exports(self) -> Sequence[str]:
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
     @property
@@ -195,7 +195,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> List[str]:
+    def iam_roles(self) -> Sequence[str]:
         return pulumi.get(self, "iam_roles")
 
     @property
@@ -218,7 +218,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         return pulumi.get(self, "port")
 
     @property
@@ -253,7 +253,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> List[str]:
+    def vpc_security_group_ids(self) -> Sequence[str]:
         return pulumi.get(self, "vpc_security_group_ids")
 
 

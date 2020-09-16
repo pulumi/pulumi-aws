@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -49,10 +49,10 @@ __all__ = [
 class ThingTypePropertiesArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
-                 searchable_attributes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 searchable_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] description: The description of the thing type.
-        :param pulumi.Input[List[pulumi.Input[str]]] searchable_attributes: A list of searchable thing attribute names.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] searchable_attributes: A list of searchable thing attribute names.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -73,14 +73,14 @@ class ThingTypePropertiesArgs:
 
     @property
     @pulumi.getter(name="searchableAttributes")
-    def searchable_attributes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def searchable_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of searchable thing attribute names.
         """
         return pulumi.get(self, "searchable_attributes")
 
     @searchable_attributes.setter
-    def searchable_attributes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def searchable_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "searchable_attributes", value)
 
 
@@ -1432,11 +1432,11 @@ class TopicRuleErrorActionRepublishArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  topic: pulumi.Input[str],
-                 qos: Optional[pulumi.Input[float]] = None):
+                 qos: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access.
         :param pulumi.Input[str] topic: The name of the MQTT topic the message should be republished to.
-        :param pulumi.Input[float] qos: The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+        :param pulumi.Input[int] qos: The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "topic", topic)
@@ -1469,14 +1469,14 @@ class TopicRuleErrorActionRepublishArgs:
 
     @property
     @pulumi.getter
-    def qos(self) -> Optional[pulumi.Input[float]]:
+    def qos(self) -> Optional[pulumi.Input[int]]:
         """
         The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
         """
         return pulumi.get(self, "qos")
 
     @qos.setter
-    def qos(self, value: Optional[pulumi.Input[float]]):
+    def qos(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "qos", value)
 
 
@@ -1913,11 +1913,11 @@ class TopicRuleRepublishArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  topic: pulumi.Input[str],
-                 qos: Optional[pulumi.Input[float]] = None):
+                 qos: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access.
         :param pulumi.Input[str] topic: The name of the MQTT topic the message should be republished to.
-        :param pulumi.Input[float] qos: The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+        :param pulumi.Input[int] qos: The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "topic", topic)
@@ -1950,14 +1950,14 @@ class TopicRuleRepublishArgs:
 
     @property
     @pulumi.getter
-    def qos(self) -> Optional[pulumi.Input[float]]:
+    def qos(self) -> Optional[pulumi.Input[int]]:
         """
         The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
         """
         return pulumi.get(self, "qos")
 
     @qos.setter
-    def qos(self, value: Optional[pulumi.Input[float]]):
+    def qos(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "qos", value)
 
 

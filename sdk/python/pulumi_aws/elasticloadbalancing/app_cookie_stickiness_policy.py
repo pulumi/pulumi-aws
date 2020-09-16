@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['AppCookieStickinessPolicy']
@@ -20,7 +20,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cookie_name: Optional[pulumi.Input[str]] = None,
-                 lb_port: Optional[pulumi.Input[float]] = None,
+                 lb_port: Optional[pulumi.Input[int]] = None,
                  load_balancer: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -52,7 +52,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cookie_name: The application cookie whose lifetime the ELB's cookie should follow.
-        :param pulumi.Input[float] lb_port: The load balancer port to which the policy
+        :param pulumi.Input[int] lb_port: The load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
         :param pulumi.Input[str] load_balancer: The name of load balancer to which the policy
@@ -98,7 +98,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cookie_name: Optional[pulumi.Input[str]] = None,
-            lb_port: Optional[pulumi.Input[float]] = None,
+            lb_port: Optional[pulumi.Input[int]] = None,
             load_balancer: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'AppCookieStickinessPolicy':
         """
@@ -109,7 +109,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cookie_name: The application cookie whose lifetime the ELB's cookie should follow.
-        :param pulumi.Input[float] lb_port: The load balancer port to which the policy
+        :param pulumi.Input[int] lb_port: The load balancer port to which the policy
                should be applied. This must be an active listener on the load
                balancer.
         :param pulumi.Input[str] load_balancer: The name of load balancer to which the policy
@@ -136,7 +136,7 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lbPort")
-    def lb_port(self) -> pulumi.Output[float]:
+    def lb_port(self) -> pulumi.Output[int]:
         """
         The load balancer port to which the policy
         should be applied. This must be an active listener on the load

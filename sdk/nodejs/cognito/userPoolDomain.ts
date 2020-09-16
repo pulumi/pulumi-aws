@@ -26,25 +26,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleUserPool = new aws.cognito.UserPool("example", {});
+ * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
  * const main = new aws.cognito.UserPoolDomain("main", {
- *     certificateArn: aws_acm_certificate_cert.arn,
  *     domain: "example-domain.example.com",
+ *     certificateArn: aws_acm_certificate.cert.arn,
  *     userPoolId: exampleUserPool.id,
  * });
- * const exampleZone = pulumi.output(aws.route53.getZone({
+ * const exampleZone = aws.route53.getZone({
  *     name: "example.com",
- * }, { async: true }));
+ * });
  * const auth_cognito_A = new aws.route53.Record("auth-cognito-A", {
+ *     name: main.domain,
+ *     type: "A",
+ *     zoneId: exampleZone.then(exampleZone => exampleZone.zoneId),
  *     aliases: [{
  *         evaluateTargetHealth: false,
  *         name: main.cloudfrontDistributionArn,
- *         // This zone_id is fixed
  *         zoneId: "Z2FDTNDATAQYW2",
  *     }],
- *     name: main.domain,
- *     type: "A",
- *     zoneId: exampleZone.zoneId!,
  * });
  * ```
  */

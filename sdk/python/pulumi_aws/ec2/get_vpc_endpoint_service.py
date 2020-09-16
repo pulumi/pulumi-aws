@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -86,7 +86,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> List[str]:
+    def availability_zones(self) -> Sequence[str]:
         """
         The Availability Zones in which the service is available.
         """
@@ -94,7 +94,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter(name="baseEndpointDnsNames")
-    def base_endpoint_dns_names(self) -> List[str]:
+    def base_endpoint_dns_names(self) -> Sequence[str]:
         """
         The DNS names for the service.
         """
@@ -102,7 +102,7 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetVpcEndpointServiceFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetVpcEndpointServiceFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -203,7 +203,7 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             vpc_endpoint_policy_supported=self.vpc_endpoint_policy_supported)
 
 
-def get_vpc_endpoint_service(filters: Optional[List[pulumi.InputType['GetVpcEndpointServiceFilterArgs']]] = None,
+def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']]] = None,
                              service: Optional[str] = None,
                              service_name: Optional[str] = None,
                              tags: Optional[Mapping[str, str]] = None,
@@ -248,7 +248,7 @@ def get_vpc_endpoint_service(filters: Optional[List[pulumi.InputType['GetVpcEndp
     ```
 
 
-    :param List[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str service: The common name of an AWS service (e.g. `s3`).
     :param str service_name: The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.

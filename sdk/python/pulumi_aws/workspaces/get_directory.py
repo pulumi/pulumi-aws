@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -103,7 +103,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="dnsIpAddresses")
-    def dns_ip_addresses(self) -> List[str]:
+    def dns_ip_addresses(self) -> Sequence[str]:
         """
         The IP addresses of the DNS servers for the directory.
         """
@@ -127,7 +127,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="ipGroupIds")
-    def ip_group_ids(self) -> List[str]:
+    def ip_group_ids(self) -> Sequence[str]:
         """
         The identifiers of the IP access control groups associated with the directory.
         """
@@ -143,7 +143,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="selfServicePermissions")
-    def self_service_permissions(self) -> List['outputs.GetDirectorySelfServicePermissionResult']:
+    def self_service_permissions(self) -> Sequence['outputs.GetDirectorySelfServicePermissionResult']:
         """
         The permissions to enable or disable self-service capabilities.
         """
@@ -151,7 +151,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> List[str]:
+    def subnet_ids(self) -> Sequence[str]:
         """
         The identifiers of the subnets where the directory resides.
         """

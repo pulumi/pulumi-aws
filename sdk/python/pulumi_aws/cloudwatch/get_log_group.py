@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -23,8 +23,8 @@ class GetLogGroupResult:
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if creation_time and not isinstance(creation_time, float):
-            raise TypeError("Expected argument 'creation_time' to be a float")
+        if creation_time and not isinstance(creation_time, int):
+            raise TypeError("Expected argument 'creation_time' to be a int")
         pulumi.set(__self__, "creation_time", creation_time)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -35,8 +35,8 @@ class GetLogGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if retention_in_days and not isinstance(retention_in_days, float):
-            raise TypeError("Expected argument 'retention_in_days' to be a float")
+        if retention_in_days and not isinstance(retention_in_days, int):
+            raise TypeError("Expected argument 'retention_in_days' to be a int")
         pulumi.set(__self__, "retention_in_days", retention_in_days)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,7 +52,7 @@ class GetLogGroupResult:
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> float:
+    def creation_time(self) -> int:
         """
         The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
         """
@@ -81,7 +81,7 @@ class GetLogGroupResult:
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> float:
+    def retention_in_days(self) -> int:
         """
         The number of days log events retained in the specified log group.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['EventStream']
@@ -45,13 +45,13 @@ class EventStream(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         stream = aws.pinpoint.EventStream("stream",
             application_id=app.application_id,
             destination_stream_arn=test_stream.arn,
             role_arn=test_role.arn)
         test_role_policy = aws.iam.RolePolicy("testRolePolicy",
+            role=test_role.id,
             policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": {
@@ -65,9 +65,7 @@ class EventStream(pulumi.CustomResource):
             ]
           }
         }
-
-        \"\"\",
-            role=test_role.id)
+        \"\"\")
         ```
 
         :param str resource_name: The name of the resource.

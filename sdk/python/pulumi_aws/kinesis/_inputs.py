@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -139,8 +139,8 @@ class AnalyticsApplicationInputsArgs:
                  kinesis_stream: Optional[pulumi.Input['AnalyticsApplicationInputsKinesisStreamArgs']] = None,
                  parallelism: Optional[pulumi.Input['AnalyticsApplicationInputsParallelismArgs']] = None,
                  processing_configuration: Optional[pulumi.Input['AnalyticsApplicationInputsProcessingConfigurationArgs']] = None,
-                 starting_position_configurations: Optional[pulumi.Input[List[pulumi.Input['AnalyticsApplicationInputsStartingPositionConfigurationArgs']]]] = None,
-                 stream_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 starting_position_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationInputsStartingPositionConfigurationArgs']]]] = None,
+                 stream_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name_prefix: The Name Prefix to use when creating an in-application stream.
         :param pulumi.Input['AnalyticsApplicationInputsSchemaArgs'] schema: The Schema format of the data in the streaming source. See Source Schema below for more details.
@@ -261,20 +261,20 @@ class AnalyticsApplicationInputsArgs:
 
     @property
     @pulumi.getter(name="startingPositionConfigurations")
-    def starting_position_configurations(self) -> Optional[pulumi.Input[List[pulumi.Input['AnalyticsApplicationInputsStartingPositionConfigurationArgs']]]]:
+    def starting_position_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationInputsStartingPositionConfigurationArgs']]]]:
         return pulumi.get(self, "starting_position_configurations")
 
     @starting_position_configurations.setter
-    def starting_position_configurations(self, value: Optional[pulumi.Input[List[pulumi.Input['AnalyticsApplicationInputsStartingPositionConfigurationArgs']]]]):
+    def starting_position_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationInputsStartingPositionConfigurationArgs']]]]):
         pulumi.set(self, "starting_position_configurations", value)
 
     @property
     @pulumi.getter(name="streamNames")
-    def stream_names(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def stream_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "stream_names")
 
     @stream_names.setter
-    def stream_names(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def stream_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "stream_names", value)
 
 
@@ -355,22 +355,22 @@ class AnalyticsApplicationInputsKinesisStreamArgs:
 @pulumi.input_type
 class AnalyticsApplicationInputsParallelismArgs:
     def __init__(__self__, *,
-                 count: pulumi.Input[float]):
+                 count: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] count: The Count of streams.
+        :param pulumi.Input[int] count: The Count of streams.
         """
         pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
-    def count(self) -> pulumi.Input[float]:
+    def count(self) -> pulumi.Input[int]:
         """
         The Count of streams.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: pulumi.Input[float]):
+    def count(self, value: pulumi.Input[int]):
         pulumi.set(self, "count", value)
 
 
@@ -436,11 +436,11 @@ class AnalyticsApplicationInputsProcessingConfigurationLambdaArgs:
 @pulumi.input_type
 class AnalyticsApplicationInputsSchemaArgs:
     def __init__(__self__, *,
-                 record_columns: pulumi.Input[List[pulumi.Input['AnalyticsApplicationInputsSchemaRecordColumnArgs']]],
+                 record_columns: pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationInputsSchemaRecordColumnArgs']]],
                  record_format: pulumi.Input['AnalyticsApplicationInputsSchemaRecordFormatArgs'],
                  record_encoding: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['AnalyticsApplicationInputsSchemaRecordColumnArgs']]] record_columns: The Record Column mapping for the streaming source data element.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationInputsSchemaRecordColumnArgs']]] record_columns: The Record Column mapping for the streaming source data element.
                See Record Columns below for more details.
         :param pulumi.Input['AnalyticsApplicationInputsSchemaRecordFormatArgs'] record_format: The Record Format and mapping information to schematize a record.
                See Record Format below for more details.
@@ -453,7 +453,7 @@ class AnalyticsApplicationInputsSchemaArgs:
 
     @property
     @pulumi.getter(name="recordColumns")
-    def record_columns(self) -> pulumi.Input[List[pulumi.Input['AnalyticsApplicationInputsSchemaRecordColumnArgs']]]:
+    def record_columns(self) -> pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationInputsSchemaRecordColumnArgs']]]:
         """
         The Record Column mapping for the streaming source data element.
         See Record Columns below for more details.
@@ -461,7 +461,7 @@ class AnalyticsApplicationInputsSchemaArgs:
         return pulumi.get(self, "record_columns")
 
     @record_columns.setter
-    def record_columns(self, value: pulumi.Input[List[pulumi.Input['AnalyticsApplicationInputsSchemaRecordColumnArgs']]]):
+    def record_columns(self, value: pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationInputsSchemaRecordColumnArgs']]]):
         pulumi.set(self, "record_columns", value)
 
     @property
@@ -1065,11 +1065,11 @@ class AnalyticsApplicationReferenceDataSourcesS3Args:
 @pulumi.input_type
 class AnalyticsApplicationReferenceDataSourcesSchemaArgs:
     def __init__(__self__, *,
-                 record_columns: pulumi.Input[List[pulumi.Input['AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs']]],
+                 record_columns: pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs']]],
                  record_format: pulumi.Input['AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs'],
                  record_encoding: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs']]] record_columns: The Record Column mapping for the streaming source data element.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs']]] record_columns: The Record Column mapping for the streaming source data element.
                See Record Columns below for more details.
         :param pulumi.Input['AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs'] record_format: The Record Format and mapping information to schematize a record.
                See Record Format below for more details.
@@ -1082,7 +1082,7 @@ class AnalyticsApplicationReferenceDataSourcesSchemaArgs:
 
     @property
     @pulumi.getter(name="recordColumns")
-    def record_columns(self) -> pulumi.Input[List[pulumi.Input['AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs']]]:
+    def record_columns(self) -> pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs']]]:
         """
         The Record Column mapping for the streaming source data element.
         See Record Columns below for more details.
@@ -1090,7 +1090,7 @@ class AnalyticsApplicationReferenceDataSourcesSchemaArgs:
         return pulumi.get(self, "record_columns")
 
     @record_columns.setter
-    def record_columns(self, value: pulumi.Input[List[pulumi.Input['AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs']]]):
+    def record_columns(self, value: pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs']]]):
         pulumi.set(self, "record_columns", value)
 
     @property
@@ -1321,24 +1321,24 @@ class FirehoseDeliveryStreamElasticsearchConfigurationArgs:
                  domain_arn: pulumi.Input[str],
                  index_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 buffering_interval: Optional[pulumi.Input[float]] = None,
-                 buffering_size: Optional[pulumi.Input[float]] = None,
+                 buffering_interval: Optional[pulumi.Input[int]] = None,
+                 buffering_size: Optional[pulumi.Input[int]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs']] = None,
                  index_rotation_period: Optional[pulumi.Input[str]] = None,
                  processing_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs']] = None,
-                 retry_duration: Optional[pulumi.Input[float]] = None,
+                 retry_duration: Optional[pulumi.Input[int]] = None,
                  s3_backup_mode: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] domain_arn: The ARN of the Amazon ES domain.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming `RoleARN`.  The pattern needs to be `arn:.*`.
         :param pulumi.Input[str] index_name: The Elasticsearch index name.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
-        :param pulumi.Input[float] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-        :param pulumi.Input[float] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] index_rotation_period: The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration.  More details are given below.
-        :param pulumi.Input[float] retry_duration: After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        :param pulumi.Input[int] retry_duration: After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
         :param pulumi.Input[str] s3_backup_mode: Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
         :param pulumi.Input[str] type_name: The Elasticsearch type name with maximum length of 100 characters.
         """
@@ -1400,26 +1400,26 @@ class FirehoseDeliveryStreamElasticsearchConfigurationArgs:
 
     @property
     @pulumi.getter(name="bufferingInterval")
-    def buffering_interval(self) -> Optional[pulumi.Input[float]]:
+    def buffering_interval(self) -> Optional[pulumi.Input[int]]:
         """
         Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
         """
         return pulumi.get(self, "buffering_interval")
 
     @buffering_interval.setter
-    def buffering_interval(self, value: Optional[pulumi.Input[float]]):
+    def buffering_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "buffering_interval", value)
 
     @property
     @pulumi.getter(name="bufferingSize")
-    def buffering_size(self) -> Optional[pulumi.Input[float]]:
+    def buffering_size(self) -> Optional[pulumi.Input[int]]:
         """
         Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         """
         return pulumi.get(self, "buffering_size")
 
     @buffering_size.setter
-    def buffering_size(self, value: Optional[pulumi.Input[float]]):
+    def buffering_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "buffering_size", value)
 
     @property
@@ -1460,14 +1460,14 @@ class FirehoseDeliveryStreamElasticsearchConfigurationArgs:
 
     @property
     @pulumi.getter(name="retryDuration")
-    def retry_duration(self) -> Optional[pulumi.Input[float]]:
+    def retry_duration(self) -> Optional[pulumi.Input[int]]:
         """
         After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
         """
         return pulumi.get(self, "retry_duration")
 
     @retry_duration.setter
-    def retry_duration(self, value: Optional[pulumi.Input[float]]):
+    def retry_duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retry_duration", value)
 
     @property
@@ -1554,10 +1554,10 @@ class FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsAr
 class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 processors: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs']]]] = None):
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs']]]] = None):
         """
         :param pulumi.Input[bool] enabled: Enables or disables data processing.
-        :param pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs']]] processors: Array of data processors. More details are given below
+        :param pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs']]] processors: Array of data processors. More details are given below
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1578,14 +1578,14 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArg
 
     @property
     @pulumi.getter
-    def processors(self) -> Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs']]]]:
+    def processors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs']]]]:
         """
         Array of data processors. More details are given below
         """
         return pulumi.get(self, "processors")
 
     @processors.setter
-    def processors(self, value: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs']]]]):
+    def processors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs']]]]):
         pulumi.set(self, "processors", value)
 
 
@@ -1593,10 +1593,10 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArg
 class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 parameters: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs']]]] = None):
         """
         :param pulumi.Input[str] type: The type of processor. Valid Values: `Lambda`
-        :param pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs']]] parameters: Array of processor parameters. More details are given below
+        :param pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs']]] parameters: Array of processor parameters. More details are given below
         """
         pulumi.set(__self__, "type", type)
         if parameters is not None:
@@ -1616,14 +1616,14 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs']]]]:
         """
         Array of processor parameters. More details are given below
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -1669,8 +1669,8 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     def __init__(__self__, *,
                  bucket_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 buffer_interval: Optional[pulumi.Input[float]] = None,
-                 buffer_size: Optional[pulumi.Input[float]] = None,
+                 buffer_interval: Optional[pulumi.Input[int]] = None,
+                 buffer_size: Optional[pulumi.Input[int]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs']] = None,
                  compression_format: Optional[pulumi.Input[str]] = None,
                  data_format_conversion_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs']] = None,
@@ -1683,8 +1683,8 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
         :param pulumi.Input[str] role_arn: The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        :param pulumi.Input[float] buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        :param pulumi.Input[float] buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        :param pulumi.Input[int] buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        :param pulumi.Input[int] buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
                We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
@@ -1748,19 +1748,19 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
 
     @property
     @pulumi.getter(name="bufferInterval")
-    def buffer_interval(self) -> Optional[pulumi.Input[float]]:
+    def buffer_interval(self) -> Optional[pulumi.Input[int]]:
         """
         Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         """
         return pulumi.get(self, "buffer_interval")
 
     @buffer_interval.setter
-    def buffer_interval(self, value: Optional[pulumi.Input[float]]):
+    def buffer_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "buffer_interval", value)
 
     @property
     @pulumi.getter(name="bufferSize")
-    def buffer_size(self) -> Optional[pulumi.Input[float]]:
+    def buffer_size(self) -> Optional[pulumi.Input[int]]:
         """
         Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
@@ -1768,7 +1768,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
         return pulumi.get(self, "buffer_size")
 
     @buffer_size.setter
-    def buffer_size(self, value: Optional[pulumi.Input[float]]):
+    def buffer_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "buffer_size", value)
 
     @property
@@ -2068,23 +2068,23 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
 @pulumi.input_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs:
     def __init__(__self__, *,
-                 timestamp_formats: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 timestamp_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] timestamp_formats: A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] timestamp_formats: A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
         """
         if timestamp_formats is not None:
             pulumi.set(__self__, "timestamp_formats", timestamp_formats)
 
     @property
     @pulumi.getter(name="timestampFormats")
-    def timestamp_formats(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def timestamp_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
         """
         return pulumi.get(self, "timestamp_formats")
 
     @timestamp_formats.setter
-    def timestamp_formats(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def timestamp_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "timestamp_formats", value)
 
 
@@ -2207,27 +2207,27 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
 @pulumi.input_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs:
     def __init__(__self__, *,
-                 block_size_bytes: Optional[pulumi.Input[float]] = None,
-                 bloom_filter_columns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 block_size_bytes: Optional[pulumi.Input[int]] = None,
+                 bloom_filter_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bloom_filter_false_positive_probability: Optional[pulumi.Input[float]] = None,
                  compression: Optional[pulumi.Input[str]] = None,
                  dictionary_key_threshold: Optional[pulumi.Input[float]] = None,
                  enable_padding: Optional[pulumi.Input[bool]] = None,
                  format_version: Optional[pulumi.Input[str]] = None,
                  padding_tolerance: Optional[pulumi.Input[float]] = None,
-                 row_index_stride: Optional[pulumi.Input[float]] = None,
-                 stripe_size_bytes: Optional[pulumi.Input[float]] = None):
+                 row_index_stride: Optional[pulumi.Input[int]] = None,
+                 stripe_size_bytes: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] block_size_bytes: The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-        :param pulumi.Input[List[pulumi.Input[str]]] bloom_filter_columns: A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+        :param pulumi.Input[int] block_size_bytes: The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bloom_filter_columns: A list of column names for which you want Kinesis Data Firehose to create bloom filters.
         :param pulumi.Input[float] bloom_filter_false_positive_probability: The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
         :param pulumi.Input[str] compression: The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
         :param pulumi.Input[float] dictionary_key_threshold: A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
         :param pulumi.Input[bool] enable_padding: Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
         :param pulumi.Input[str] format_version: The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
         :param pulumi.Input[float] padding_tolerance: A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enable_padding` is `false`.
-        :param pulumi.Input[float] row_index_stride: The number of rows between index entries. The default is `10000` and the minimum is `1000`.
-        :param pulumi.Input[float] stripe_size_bytes: The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+        :param pulumi.Input[int] row_index_stride: The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+        :param pulumi.Input[int] stripe_size_bytes: The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
         """
         if block_size_bytes is not None:
             pulumi.set(__self__, "block_size_bytes", block_size_bytes)
@@ -2252,26 +2252,26 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
 
     @property
     @pulumi.getter(name="blockSizeBytes")
-    def block_size_bytes(self) -> Optional[pulumi.Input[float]]:
+    def block_size_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
         """
         return pulumi.get(self, "block_size_bytes")
 
     @block_size_bytes.setter
-    def block_size_bytes(self, value: Optional[pulumi.Input[float]]):
+    def block_size_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "block_size_bytes", value)
 
     @property
     @pulumi.getter(name="bloomFilterColumns")
-    def bloom_filter_columns(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def bloom_filter_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of column names for which you want Kinesis Data Firehose to create bloom filters.
         """
         return pulumi.get(self, "bloom_filter_columns")
 
     @bloom_filter_columns.setter
-    def bloom_filter_columns(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def bloom_filter_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "bloom_filter_columns", value)
 
     @property
@@ -2348,44 +2348,44 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
 
     @property
     @pulumi.getter(name="rowIndexStride")
-    def row_index_stride(self) -> Optional[pulumi.Input[float]]:
+    def row_index_stride(self) -> Optional[pulumi.Input[int]]:
         """
         The number of rows between index entries. The default is `10000` and the minimum is `1000`.
         """
         return pulumi.get(self, "row_index_stride")
 
     @row_index_stride.setter
-    def row_index_stride(self, value: Optional[pulumi.Input[float]]):
+    def row_index_stride(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "row_index_stride", value)
 
     @property
     @pulumi.getter(name="stripeSizeBytes")
-    def stripe_size_bytes(self) -> Optional[pulumi.Input[float]]:
+    def stripe_size_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
         """
         return pulumi.get(self, "stripe_size_bytes")
 
     @stripe_size_bytes.setter
-    def stripe_size_bytes(self, value: Optional[pulumi.Input[float]]):
+    def stripe_size_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "stripe_size_bytes", value)
 
 
 @pulumi.input_type
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs:
     def __init__(__self__, *,
-                 block_size_bytes: Optional[pulumi.Input[float]] = None,
+                 block_size_bytes: Optional[pulumi.Input[int]] = None,
                  compression: Optional[pulumi.Input[str]] = None,
                  enable_dictionary_compression: Optional[pulumi.Input[bool]] = None,
-                 max_padding_bytes: Optional[pulumi.Input[float]] = None,
-                 page_size_bytes: Optional[pulumi.Input[float]] = None,
+                 max_padding_bytes: Optional[pulumi.Input[int]] = None,
+                 page_size_bytes: Optional[pulumi.Input[int]] = None,
                  writer_version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] block_size_bytes: The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+        :param pulumi.Input[int] block_size_bytes: The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
         :param pulumi.Input[str] compression: The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
         :param pulumi.Input[bool] enable_dictionary_compression: Indicates whether to enable dictionary compression.
-        :param pulumi.Input[float] max_padding_bytes: The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
-        :param pulumi.Input[float] page_size_bytes: The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
+        :param pulumi.Input[int] max_padding_bytes: The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
+        :param pulumi.Input[int] page_size_bytes: The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
         :param pulumi.Input[str] writer_version: Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
         """
         if block_size_bytes is not None:
@@ -2403,14 +2403,14 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
 
     @property
     @pulumi.getter(name="blockSizeBytes")
-    def block_size_bytes(self) -> Optional[pulumi.Input[float]]:
+    def block_size_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
         """
         return pulumi.get(self, "block_size_bytes")
 
     @block_size_bytes.setter
-    def block_size_bytes(self, value: Optional[pulumi.Input[float]]):
+    def block_size_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "block_size_bytes", value)
 
     @property
@@ -2439,26 +2439,26 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
 
     @property
     @pulumi.getter(name="maxPaddingBytes")
-    def max_padding_bytes(self) -> Optional[pulumi.Input[float]]:
+    def max_padding_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
         """
         return pulumi.get(self, "max_padding_bytes")
 
     @max_padding_bytes.setter
-    def max_padding_bytes(self, value: Optional[pulumi.Input[float]]):
+    def max_padding_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_padding_bytes", value)
 
     @property
     @pulumi.getter(name="pageSizeBytes")
-    def page_size_bytes(self) -> Optional[pulumi.Input[float]]:
+    def page_size_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
         """
         return pulumi.get(self, "page_size_bytes")
 
     @page_size_bytes.setter
-    def page_size_bytes(self, value: Optional[pulumi.Input[float]]):
+    def page_size_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "page_size_bytes", value)
 
     @property
@@ -2578,10 +2578,10 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
 class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 processors: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs']]]] = None):
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs']]]] = None):
         """
         :param pulumi.Input[bool] enabled: Enables or disables data processing.
-        :param pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs']]] processors: Array of data processors. More details are given below
+        :param pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs']]] processors: Array of data processors. More details are given below
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -2602,14 +2602,14 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs:
 
     @property
     @pulumi.getter
-    def processors(self) -> Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs']]]]:
+    def processors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs']]]]:
         """
         Array of data processors. More details are given below
         """
         return pulumi.get(self, "processors")
 
     @processors.setter
-    def processors(self, value: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs']]]]):
+    def processors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs']]]]):
         pulumi.set(self, "processors", value)
 
 
@@ -2617,10 +2617,10 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs:
 class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 parameters: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs']]]] = None):
         """
         :param pulumi.Input[str] type: The type of processor. Valid Values: `Lambda`
-        :param pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs']]] parameters: Array of processor parameters. More details are given below
+        :param pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs']]] parameters: Array of processor parameters. More details are given below
         """
         pulumi.set(__self__, "type", type)
         if parameters is not None:
@@ -2640,14 +2640,14 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs']]]]:
         """
         Array of processor parameters. More details are given below
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -2693,8 +2693,8 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     def __init__(__self__, *,
                  bucket_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 buffer_interval: Optional[pulumi.Input[float]] = None,
-                 buffer_size: Optional[pulumi.Input[float]] = None,
+                 buffer_interval: Optional[pulumi.Input[int]] = None,
+                 buffer_size: Optional[pulumi.Input[int]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs']] = None,
                  compression_format: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -2702,8 +2702,8 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
         :param pulumi.Input[str] role_arn: The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        :param pulumi.Input[float] buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        :param pulumi.Input[float] buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        :param pulumi.Input[int] buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        :param pulumi.Input[int] buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
                We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
@@ -2752,19 +2752,19 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
 
     @property
     @pulumi.getter(name="bufferInterval")
-    def buffer_interval(self) -> Optional[pulumi.Input[float]]:
+    def buffer_interval(self) -> Optional[pulumi.Input[int]]:
         """
         Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         """
         return pulumi.get(self, "buffer_interval")
 
     @buffer_interval.setter
-    def buffer_interval(self, value: Optional[pulumi.Input[float]]):
+    def buffer_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "buffer_interval", value)
 
     @property
     @pulumi.getter(name="bufferSize")
-    def buffer_size(self) -> Optional[pulumi.Input[float]]:
+    def buffer_size(self) -> Optional[pulumi.Input[int]]:
         """
         Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
@@ -2772,7 +2772,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
         return pulumi.get(self, "buffer_size")
 
     @buffer_size.setter
-    def buffer_size(self, value: Optional[pulumi.Input[float]]):
+    def buffer_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "buffer_size", value)
 
     @property
@@ -2929,7 +2929,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgs:
                  copy_options: Optional[pulumi.Input[str]] = None,
                  data_table_columns: Optional[pulumi.Input[str]] = None,
                  processing_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs']] = None,
-                 retry_duration: Optional[pulumi.Input[float]] = None,
+                 retry_duration: Optional[pulumi.Input[int]] = None,
                  s3_backup_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs']] = None,
                  s3_backup_mode: Optional[pulumi.Input[str]] = None):
         """
@@ -2942,7 +2942,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgs:
         :param pulumi.Input[str] copy_options: Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
         :param pulumi.Input[str] data_table_columns: The data table columns that will be targeted by the copy command.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration.  More details are given below.
-        :param pulumi.Input[float] retry_duration: The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        :param pulumi.Input[int] retry_duration: The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs'] s3_backup_configuration: The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
         :param pulumi.Input[str] s3_backup_mode: The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         """
@@ -3076,14 +3076,14 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgs:
 
     @property
     @pulumi.getter(name="retryDuration")
-    def retry_duration(self) -> Optional[pulumi.Input[float]]:
+    def retry_duration(self) -> Optional[pulumi.Input[int]]:
         """
         The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
         """
         return pulumi.get(self, "retry_duration")
 
     @retry_duration.setter
-    def retry_duration(self, value: Optional[pulumi.Input[float]]):
+    def retry_duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retry_duration", value)
 
     @property
@@ -3170,10 +3170,10 @@ class FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs:
 class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 processors: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs']]]] = None):
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs']]]] = None):
         """
         :param pulumi.Input[bool] enabled: Enables or disables data processing.
-        :param pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs']]] processors: Array of data processors. More details are given below
+        :param pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs']]] processors: Array of data processors. More details are given below
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -3194,14 +3194,14 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs:
 
     @property
     @pulumi.getter
-    def processors(self) -> Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs']]]]:
+    def processors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs']]]]:
         """
         Array of data processors. More details are given below
         """
         return pulumi.get(self, "processors")
 
     @processors.setter
-    def processors(self, value: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs']]]]):
+    def processors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs']]]]):
         pulumi.set(self, "processors", value)
 
 
@@ -3209,10 +3209,10 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs:
 class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 parameters: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs']]]] = None):
         """
         :param pulumi.Input[str] type: The type of processor. Valid Values: `Lambda`
-        :param pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs']]] parameters: Array of processor parameters. More details are given below
+        :param pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs']]] parameters: Array of processor parameters. More details are given below
         """
         pulumi.set(__self__, "type", type)
         if parameters is not None:
@@ -3232,14 +3232,14 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs']]]]:
         """
         Array of processor parameters. More details are given below
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -3285,8 +3285,8 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     def __init__(__self__, *,
                  bucket_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 buffer_interval: Optional[pulumi.Input[float]] = None,
-                 buffer_size: Optional[pulumi.Input[float]] = None,
+                 buffer_interval: Optional[pulumi.Input[int]] = None,
+                 buffer_size: Optional[pulumi.Input[int]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs']] = None,
                  compression_format: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -3294,8 +3294,8 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
         :param pulumi.Input[str] role_arn: The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        :param pulumi.Input[float] buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        :param pulumi.Input[float] buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        :param pulumi.Input[int] buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        :param pulumi.Input[int] buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
                We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
@@ -3344,19 +3344,19 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
 
     @property
     @pulumi.getter(name="bufferInterval")
-    def buffer_interval(self) -> Optional[pulumi.Input[float]]:
+    def buffer_interval(self) -> Optional[pulumi.Input[int]]:
         """
         Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         """
         return pulumi.get(self, "buffer_interval")
 
     @buffer_interval.setter
-    def buffer_interval(self, value: Optional[pulumi.Input[float]]):
+    def buffer_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "buffer_interval", value)
 
     @property
     @pulumi.getter(name="bufferSize")
-    def buffer_size(self) -> Optional[pulumi.Input[float]]:
+    def buffer_size(self) -> Optional[pulumi.Input[int]]:
         """
         Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
@@ -3364,7 +3364,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
         return pulumi.get(self, "buffer_size")
 
     @buffer_size.setter
-    def buffer_size(self, value: Optional[pulumi.Input[float]]):
+    def buffer_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "buffer_size", value)
 
     @property
@@ -3477,8 +3477,8 @@ class FirehoseDeliveryStreamS3ConfigurationArgs:
     def __init__(__self__, *,
                  bucket_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 buffer_interval: Optional[pulumi.Input[float]] = None,
-                 buffer_size: Optional[pulumi.Input[float]] = None,
+                 buffer_interval: Optional[pulumi.Input[int]] = None,
+                 buffer_size: Optional[pulumi.Input[int]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs']] = None,
                  compression_format: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -3486,8 +3486,8 @@ class FirehoseDeliveryStreamS3ConfigurationArgs:
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
         :param pulumi.Input[str] role_arn: The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-        :param pulumi.Input[float] buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
-        :param pulumi.Input[float] buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        :param pulumi.Input[int] buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        :param pulumi.Input[int] buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
                We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         :param pulumi.Input['FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below
         :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
@@ -3536,19 +3536,19 @@ class FirehoseDeliveryStreamS3ConfigurationArgs:
 
     @property
     @pulumi.getter(name="bufferInterval")
-    def buffer_interval(self) -> Optional[pulumi.Input[float]]:
+    def buffer_interval(self) -> Optional[pulumi.Input[int]]:
         """
         Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         """
         return pulumi.get(self, "buffer_interval")
 
     @buffer_interval.setter
-    def buffer_interval(self, value: Optional[pulumi.Input[float]]):
+    def buffer_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "buffer_interval", value)
 
     @property
     @pulumi.getter(name="bufferSize")
-    def buffer_size(self) -> Optional[pulumi.Input[float]]:
+    def buffer_size(self) -> Optional[pulumi.Input[int]]:
         """
         Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
@@ -3556,7 +3556,7 @@ class FirehoseDeliveryStreamS3ConfigurationArgs:
         return pulumi.get(self, "buffer_size")
 
     @buffer_size.setter
-    def buffer_size(self, value: Optional[pulumi.Input[float]]):
+    def buffer_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "buffer_size", value)
 
     @property
@@ -3693,19 +3693,19 @@ class FirehoseDeliveryStreamSplunkConfigurationArgs:
                  hec_endpoint: pulumi.Input[str],
                  hec_token: pulumi.Input[str],
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs']] = None,
-                 hec_acknowledgment_timeout: Optional[pulumi.Input[float]] = None,
+                 hec_acknowledgment_timeout: Optional[pulumi.Input[int]] = None,
                  hec_endpoint_type: Optional[pulumi.Input[str]] = None,
                  processing_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs']] = None,
-                 retry_duration: Optional[pulumi.Input[float]] = None,
+                 retry_duration: Optional[pulumi.Input[int]] = None,
                  s3_backup_mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] hec_endpoint: The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
         :param pulumi.Input[str] hec_token: The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. More details are given below.
-        :param pulumi.Input[float] hec_acknowledgment_timeout: The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+        :param pulumi.Input[int] hec_acknowledgment_timeout: The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
         :param pulumi.Input[str] hec_endpoint_type: The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration.  More details are given below.
-        :param pulumi.Input[float] retry_duration: After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+        :param pulumi.Input[int] retry_duration: After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
         :param pulumi.Input[str] s3_backup_mode: Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
         """
         pulumi.set(__self__, "hec_endpoint", hec_endpoint)
@@ -3761,14 +3761,14 @@ class FirehoseDeliveryStreamSplunkConfigurationArgs:
 
     @property
     @pulumi.getter(name="hecAcknowledgmentTimeout")
-    def hec_acknowledgment_timeout(self) -> Optional[pulumi.Input[float]]:
+    def hec_acknowledgment_timeout(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
         """
         return pulumi.get(self, "hec_acknowledgment_timeout")
 
     @hec_acknowledgment_timeout.setter
-    def hec_acknowledgment_timeout(self, value: Optional[pulumi.Input[float]]):
+    def hec_acknowledgment_timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "hec_acknowledgment_timeout", value)
 
     @property
@@ -3797,14 +3797,14 @@ class FirehoseDeliveryStreamSplunkConfigurationArgs:
 
     @property
     @pulumi.getter(name="retryDuration")
-    def retry_duration(self) -> Optional[pulumi.Input[float]]:
+    def retry_duration(self) -> Optional[pulumi.Input[int]]:
         """
         After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
         """
         return pulumi.get(self, "retry_duration")
 
     @retry_duration.setter
-    def retry_duration(self, value: Optional[pulumi.Input[float]]):
+    def retry_duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retry_duration", value)
 
     @property
@@ -3879,10 +3879,10 @@ class FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs:
 class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 processors: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs']]]] = None):
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs']]]] = None):
         """
         :param pulumi.Input[bool] enabled: Enables or disables data processing.
-        :param pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs']]] processors: Array of data processors. More details are given below
+        :param pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs']]] processors: Array of data processors. More details are given below
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -3903,14 +3903,14 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs:
 
     @property
     @pulumi.getter
-    def processors(self) -> Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs']]]]:
+    def processors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs']]]]:
         """
         Array of data processors. More details are given below
         """
         return pulumi.get(self, "processors")
 
     @processors.setter
-    def processors(self, value: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs']]]]):
+    def processors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs']]]]):
         pulumi.set(self, "processors", value)
 
 
@@ -3918,10 +3918,10 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs:
 class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 parameters: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs']]]] = None):
         """
         :param pulumi.Input[str] type: The type of processor. Valid Values: `Lambda`
-        :param pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs']]] parameters: Array of processor parameters. More details are given below
+        :param pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs']]] parameters: Array of processor parameters. More details are given below
         """
         pulumi.set(__self__, "type", type)
         if parameters is not None:
@@ -3941,14 +3941,14 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorA
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs']]]]:
         """
         Array of processor parameters. More details are given below
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 

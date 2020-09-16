@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ClusterSnapshot']
@@ -88,8 +88,8 @@ class ClusterSnapshot(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allocated_storage: Optional[pulumi.Input[float]] = None,
-            availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            allocated_storage: Optional[pulumi.Input[int]] = None,
+            availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             db_cluster_identifier: Optional[pulumi.Input[str]] = None,
             db_cluster_snapshot_arn: Optional[pulumi.Input[str]] = None,
             db_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -97,7 +97,7 @@ class ClusterSnapshot(pulumi.CustomResource):
             engine_version: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             license_model: Optional[pulumi.Input[str]] = None,
-            port: Optional[pulumi.Input[float]] = None,
+            port: Optional[pulumi.Input[int]] = None,
             snapshot_type: Optional[pulumi.Input[str]] = None,
             source_db_cluster_snapshot_arn: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -111,8 +111,8 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
-        :param pulumi.Input[List[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
+        :param pulumi.Input[int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
         :param pulumi.Input[str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
         :param pulumi.Input[str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
@@ -120,7 +120,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: Version of the database engine for this DB cluster snapshot.
         :param pulumi.Input[str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         :param pulumi.Input[str] license_model: License model information for the restored DB cluster.
-        :param pulumi.Input[float] port: Port that the DB cluster was listening on at the time of the snapshot.
+        :param pulumi.Input[int] port: Port that the DB cluster was listening on at the time of the snapshot.
         :param pulumi.Input[str] status: The status of this DB Cluster Snapshot.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster snapshot is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster.
@@ -150,7 +150,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> pulumi.Output[float]:
+    def allocated_storage(self) -> pulumi.Output[int]:
         """
         Specifies the allocated storage size in gigabytes (GB).
         """
@@ -158,7 +158,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Output[List[str]]:
+    def availability_zones(self) -> pulumi.Output[Sequence[str]]:
         """
         List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
         """
@@ -222,7 +222,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[float]:
+    def port(self) -> pulumi.Output[int]:
         """
         Port that the DB cluster was listening on at the time of the snapshot.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class Vault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VaultNotificationArgs']]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultNotificationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -70,7 +70,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.
                The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VaultNotificationArgs']]]] notifications: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultNotificationArgs']]]] notifications: The notifications for the Vault. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -110,7 +110,7 @@ class Vault(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            notifications: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VaultNotificationArgs']]]]] = None,
+            notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultNotificationArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Vault':
         """
         Get an existing Vault resource's state with the given name, id, and optional extra
@@ -124,7 +124,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the vault.
         :param pulumi.Input[str] location: The URI of the vault that was created.
         :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VaultNotificationArgs']]]] notifications: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultNotificationArgs']]]] notifications: The notifications for the Vault. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -174,7 +174,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notifications(self) -> pulumi.Output[Optional[List['outputs.VaultNotification']]]:
+    def notifications(self) -> pulumi.Output[Optional[Sequence['outputs.VaultNotification']]]:
         """
         The notifications for the Vault. Fields documented below.
         """

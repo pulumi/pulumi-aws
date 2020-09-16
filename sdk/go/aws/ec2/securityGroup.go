@@ -38,7 +38,22 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewVpcEndpoint(ctx, "myEndpoint", nil)
+// 		myEndpoint, err := ec2.NewVpcEndpoint(ctx, "myEndpoint", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+// 			Egress: ec2.SecurityGroupEgressArray{
+// 				&ec2.SecurityGroupEgressArgs{
+// 					FromPort: pulumi.Int(0),
+// 					ToPort:   pulumi.Int(0),
+// 					Protocol: pulumi.String("-1"),
+// 					PrefixListIds: pulumi.StringArray{
+// 						myEndpoint.PrefixListId,
+// 					},
+// 				},
+// 			},
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

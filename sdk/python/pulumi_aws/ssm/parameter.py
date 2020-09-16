@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Parameter']
@@ -67,7 +67,7 @@ class Parameter(pulumi.CustomResource):
             type="SecureString",
             value=var["database_master_password"],
             tags={
-                "environment": var["environment"],
+                "environment": "production",
             })
         ```
 
@@ -142,7 +142,7 @@ class Parameter(pulumi.CustomResource):
             tier: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
             value: Optional[pulumi.Input[str]] = None,
-            version: Optional[pulumi.Input[float]] = None) -> 'Parameter':
+            version: Optional[pulumi.Input[int]] = None) -> 'Parameter':
         """
         Get an existing Parameter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -162,7 +162,7 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[str] tier: The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard` and `Advanced`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[str] type: The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         :param pulumi.Input[str] value: The value of the parameter.
-        :param pulumi.Input[float] version: The version of the parameter.
+        :param pulumi.Input[int] version: The version of the parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -273,7 +273,7 @@ class Parameter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[float]:
+    def version(self) -> pulumi.Output[int]:
         """
         The version of the parameter.
         """

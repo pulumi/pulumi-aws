@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -25,12 +25,12 @@ class LoadBalancerAccessLogs(dict):
                  bucket: str,
                  bucket_prefix: Optional[str] = None,
                  enabled: Optional[bool] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         """
         :param str bucket: The S3 bucket name to store the logs in.
         :param str bucket_prefix: The S3 bucket prefix. Logs are stored in the root if not configured.
         :param bool enabled: Boolean to enable / disable `access_logs`. Default is `true`
-        :param float interval: The publishing interval in minutes. Default: 60 minutes.
+        :param int interval: The publishing interval in minutes. Default: 60 minutes.
         """
         pulumi.set(__self__, "bucket", bucket)
         if bucket_prefix is not None:
@@ -66,7 +66,7 @@ class LoadBalancerAccessLogs(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         """
         The publishing interval in minutes. Default: 60 minutes.
         """
@@ -79,20 +79,20 @@ class LoadBalancerAccessLogs(dict):
 @pulumi.output_type
 class LoadBalancerHealthCheck(dict):
     def __init__(__self__, *,
-                 healthy_threshold: float,
-                 interval: float,
+                 healthy_threshold: int,
+                 interval: int,
                  target: str,
-                 timeout: float,
-                 unhealthy_threshold: float):
+                 timeout: int,
+                 unhealthy_threshold: int):
         """
-        :param float healthy_threshold: The number of checks before the instance is declared healthy.
-        :param float interval: The interval between checks.
+        :param int healthy_threshold: The number of checks before the instance is declared healthy.
+        :param int interval: The interval between checks.
         :param str target: The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
                values are:
                * `HTTP`, `HTTPS` - PORT and PATH are required
                * `TCP`, `SSL` - PORT is required, PATH is not supported
-        :param float timeout: The length of time before the check times out.
-        :param float unhealthy_threshold: The number of checks before the instance is declared unhealthy.
+        :param int timeout: The length of time before the check times out.
+        :param int unhealthy_threshold: The number of checks before the instance is declared unhealthy.
         """
         pulumi.set(__self__, "healthy_threshold", healthy_threshold)
         pulumi.set(__self__, "interval", interval)
@@ -102,7 +102,7 @@ class LoadBalancerHealthCheck(dict):
 
     @property
     @pulumi.getter(name="healthyThreshold")
-    def healthy_threshold(self) -> float:
+    def healthy_threshold(self) -> int:
         """
         The number of checks before the instance is declared healthy.
         """
@@ -110,7 +110,7 @@ class LoadBalancerHealthCheck(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> float:
+    def interval(self) -> int:
         """
         The interval between checks.
         """
@@ -129,7 +129,7 @@ class LoadBalancerHealthCheck(dict):
 
     @property
     @pulumi.getter
-    def timeout(self) -> float:
+    def timeout(self) -> int:
         """
         The length of time before the check times out.
         """
@@ -137,7 +137,7 @@ class LoadBalancerHealthCheck(dict):
 
     @property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> float:
+    def unhealthy_threshold(self) -> int:
         """
         The number of checks before the instance is declared unhealthy.
         """
@@ -150,16 +150,16 @@ class LoadBalancerHealthCheck(dict):
 @pulumi.output_type
 class LoadBalancerListener(dict):
     def __init__(__self__, *,
-                 instance_port: float,
+                 instance_port: int,
                  instance_protocol: str,
-                 lb_port: float,
+                 lb_port: int,
                  lb_protocol: str,
                  ssl_certificate_id: Optional[str] = None):
         """
-        :param float instance_port: The port on the instance to route to
+        :param int instance_port: The port on the instance to route to
         :param str instance_protocol: The protocol to use to the instance. Valid
                values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
-        :param float lb_port: The port to listen on for the load balancer
+        :param int lb_port: The port to listen on for the load balancer
         :param str lb_protocol: The protocol to listen on. Valid values are `HTTP`,
                `HTTPS`, `TCP`, or `SSL`
         :param str ssl_certificate_id: The ARN of an SSL certificate you have
@@ -174,7 +174,7 @@ class LoadBalancerListener(dict):
 
     @property
     @pulumi.getter(name="instancePort")
-    def instance_port(self) -> float:
+    def instance_port(self) -> int:
         """
         The port on the instance to route to
         """
@@ -191,7 +191,7 @@ class LoadBalancerListener(dict):
 
     @property
     @pulumi.getter(name="lbPort")
-    def lb_port(self) -> float:
+    def lb_port(self) -> int:
         """
         The port to listen on for the load balancer
         """
@@ -281,7 +281,7 @@ class GetLoadBalancerAccessLogsResult(dict):
                  bucket: str,
                  bucket_prefix: str,
                  enabled: bool,
-                 interval: float):
+                 interval: int):
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "bucket_prefix", bucket_prefix)
         pulumi.set(__self__, "enabled", enabled)
@@ -304,18 +304,18 @@ class GetLoadBalancerAccessLogsResult(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> float:
+    def interval(self) -> int:
         return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
 class GetLoadBalancerHealthCheckResult(dict):
     def __init__(__self__, *,
-                 healthy_threshold: float,
-                 interval: float,
+                 healthy_threshold: int,
+                 interval: int,
                  target: str,
-                 timeout: float,
-                 unhealthy_threshold: float):
+                 timeout: int,
+                 unhealthy_threshold: int):
         pulumi.set(__self__, "healthy_threshold", healthy_threshold)
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "target", target)
@@ -324,12 +324,12 @@ class GetLoadBalancerHealthCheckResult(dict):
 
     @property
     @pulumi.getter(name="healthyThreshold")
-    def healthy_threshold(self) -> float:
+    def healthy_threshold(self) -> int:
         return pulumi.get(self, "healthy_threshold")
 
     @property
     @pulumi.getter
-    def interval(self) -> float:
+    def interval(self) -> int:
         return pulumi.get(self, "interval")
 
     @property
@@ -339,21 +339,21 @@ class GetLoadBalancerHealthCheckResult(dict):
 
     @property
     @pulumi.getter
-    def timeout(self) -> float:
+    def timeout(self) -> int:
         return pulumi.get(self, "timeout")
 
     @property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> float:
+    def unhealthy_threshold(self) -> int:
         return pulumi.get(self, "unhealthy_threshold")
 
 
 @pulumi.output_type
 class GetLoadBalancerListenerResult(dict):
     def __init__(__self__, *,
-                 instance_port: float,
+                 instance_port: int,
                  instance_protocol: str,
-                 lb_port: float,
+                 lb_port: int,
                  lb_protocol: str,
                  ssl_certificate_id: str):
         pulumi.set(__self__, "instance_port", instance_port)
@@ -364,7 +364,7 @@ class GetLoadBalancerListenerResult(dict):
 
     @property
     @pulumi.getter(name="instancePort")
-    def instance_port(self) -> float:
+    def instance_port(self) -> int:
         return pulumi.get(self, "instance_port")
 
     @property
@@ -374,7 +374,7 @@ class GetLoadBalancerListenerResult(dict):
 
     @property
     @pulumi.getter(name="lbPort")
-    def lb_port(self) -> float:
+    def lb_port(self) -> int:
         return pulumi.get(self, "lb_port")
 
     @property

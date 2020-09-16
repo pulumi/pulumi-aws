@@ -28,7 +28,24 @@ namespace Pulumi.Aws.Acm
         /// {
         ///     public MyStack()
         ///     {
-        ///         var example = Output.Create(Aws.Acm.GetCertificate.InvokeAsync(new Aws.Acm.GetCertificateArgs
+        ///         var issued = Output.Create(Aws.Acm.GetCertificate.InvokeAsync(new Aws.Acm.GetCertificateArgs
+        ///         {
+        ///             Domain = "tf.example.com",
+        ///             Statuses = 
+        ///             {
+        ///                 "ISSUED",
+        ///             },
+        ///         }));
+        ///         var amazonIssued = Output.Create(Aws.Acm.GetCertificate.InvokeAsync(new Aws.Acm.GetCertificateArgs
+        ///         {
+        ///             Domain = "tf.example.com",
+        ///             MostRecent = true,
+        ///             Types = 
+        ///             {
+        ///                 "AMAZON_ISSUED",
+        ///             },
+        ///         }));
+        ///         var rsa4096 = Output.Create(Aws.Acm.GetCertificate.InvokeAsync(new Aws.Acm.GetCertificateArgs
         ///         {
         ///             Domain = "tf.example.com",
         ///             KeyTypes = 

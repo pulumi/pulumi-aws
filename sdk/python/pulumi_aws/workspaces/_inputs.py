@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -143,16 +143,16 @@ class IpGroupRuleArgs:
 class WorkspaceWorkspacePropertiesArgs:
     def __init__(__self__, *,
                  compute_type_name: Optional[pulumi.Input[str]] = None,
-                 root_volume_size_gib: Optional[pulumi.Input[float]] = None,
+                 root_volume_size_gib: Optional[pulumi.Input[int]] = None,
                  running_mode: Optional[pulumi.Input[str]] = None,
-                 running_mode_auto_stop_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
-                 user_volume_size_gib: Optional[pulumi.Input[float]] = None):
+                 running_mode_auto_stop_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 user_volume_size_gib: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] compute_type_name: The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
-        :param pulumi.Input[float] root_volume_size_gib: The size of the root volume.
+        :param pulumi.Input[int] root_volume_size_gib: The size of the root volume.
         :param pulumi.Input[str] running_mode: The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-        :param pulumi.Input[float] running_mode_auto_stop_timeout_in_minutes: The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-        :param pulumi.Input[float] user_volume_size_gib: The size of the user storage.
+        :param pulumi.Input[int] running_mode_auto_stop_timeout_in_minutes: The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        :param pulumi.Input[int] user_volume_size_gib: The size of the user storage.
         """
         if compute_type_name is not None:
             pulumi.set(__self__, "compute_type_name", compute_type_name)
@@ -179,14 +179,14 @@ class WorkspaceWorkspacePropertiesArgs:
 
     @property
     @pulumi.getter(name="rootVolumeSizeGib")
-    def root_volume_size_gib(self) -> Optional[pulumi.Input[float]]:
+    def root_volume_size_gib(self) -> Optional[pulumi.Input[int]]:
         """
         The size of the root volume.
         """
         return pulumi.get(self, "root_volume_size_gib")
 
     @root_volume_size_gib.setter
-    def root_volume_size_gib(self, value: Optional[pulumi.Input[float]]):
+    def root_volume_size_gib(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "root_volume_size_gib", value)
 
     @property
@@ -203,26 +203,26 @@ class WorkspaceWorkspacePropertiesArgs:
 
     @property
     @pulumi.getter(name="runningModeAutoStopTimeoutInMinutes")
-    def running_mode_auto_stop_timeout_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def running_mode_auto_stop_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
         """
         return pulumi.get(self, "running_mode_auto_stop_timeout_in_minutes")
 
     @running_mode_auto_stop_timeout_in_minutes.setter
-    def running_mode_auto_stop_timeout_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def running_mode_auto_stop_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "running_mode_auto_stop_timeout_in_minutes", value)
 
     @property
     @pulumi.getter(name="userVolumeSizeGib")
-    def user_volume_size_gib(self) -> Optional[pulumi.Input[float]]:
+    def user_volume_size_gib(self) -> Optional[pulumi.Input[int]]:
         """
         The size of the user storage.
         """
         return pulumi.get(self, "user_volume_size_gib")
 
     @user_volume_size_gib.setter
-    def user_volume_size_gib(self, value: Optional[pulumi.Input[float]]):
+    def user_volume_size_gib(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "user_volume_size_gib", value)
 
 

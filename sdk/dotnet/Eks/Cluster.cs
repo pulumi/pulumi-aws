@@ -44,11 +44,6 @@ namespace Pulumi.Aws.Eks
     ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
     ///             Role = example.Name,
     ///         });
-    ///         var example_AmazonEKSServicePolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSServicePolicy", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy",
-    ///             Role = example.Name,
-    ///         });
     ///     }
     /// 
     /// }

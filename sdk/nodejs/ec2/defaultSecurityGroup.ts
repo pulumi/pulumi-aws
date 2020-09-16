@@ -125,21 +125,22 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DefaultSecurityGroup.__pulumiType;
     }
 
+    /**
+     * The ARN of the security group
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The description of the security group
+     * Description of this egress rule.
      */
     public /*out*/ readonly description!: pulumi.Output<string>;
     /**
-     * Can be specified multiple times for each
-     * egress rule. Each egress block supports fields documented below.
+     * Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
      */
-    public readonly egress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupEgress[] | undefined>;
+    public readonly egress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupEgress[]>;
     /**
-     * Can be specified multiple times for each
-     * ingress rule. Each ingress block supports fields documented below.
+     * Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
      */
-    public readonly ingress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupIngress[] | undefined>;
+    public readonly ingress!: pulumi.Output<outputs.ec2.DefaultSecurityGroupIngress[]>;
     /**
      * The name of the security group
      */
@@ -154,9 +155,7 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The VPC ID. **Note that changing
-     * the `vpcId` will _not_ restore any default security group rules that were
-     * modified, added, or removed.** It will be left in its current state
+     * The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -208,19 +207,20 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultSecurityGroup resources.
  */
 export interface DefaultSecurityGroupState {
+    /**
+     * The ARN of the security group
+     */
     readonly arn?: pulumi.Input<string>;
     /**
-     * The description of the security group
+     * Description of this egress rule.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Can be specified multiple times for each
-     * egress rule. Each egress block supports fields documented below.
+     * Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
      */
     readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupEgress>[]>;
     /**
-     * Can be specified multiple times for each
-     * ingress rule. Each ingress block supports fields documented below.
+     * Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
      */
     readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
     /**
@@ -237,9 +237,7 @@ export interface DefaultSecurityGroupState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The VPC ID. **Note that changing
-     * the `vpcId` will _not_ restore any default security group rules that were
-     * modified, added, or removed.** It will be left in its current state
+     * The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
      */
     readonly vpcId?: pulumi.Input<string>;
 }
@@ -249,13 +247,11 @@ export interface DefaultSecurityGroupState {
  */
 export interface DefaultSecurityGroupArgs {
     /**
-     * Can be specified multiple times for each
-     * egress rule. Each egress block supports fields documented below.
+     * Can be specified multiple times for each egress rule. Each egress block supports fields documented below.
      */
     readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupEgress>[]>;
     /**
-     * Can be specified multiple times for each
-     * ingress rule. Each ingress block supports fields documented below.
+     * Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
      */
     readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
     readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
@@ -264,9 +260,7 @@ export interface DefaultSecurityGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The VPC ID. **Note that changing
-     * the `vpcId` will _not_ restore any default security group rules that were
-     * modified, added, or removed.** It will be left in its current state
+     * The VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state
      */
     readonly vpcId?: pulumi.Input<string>;
 }

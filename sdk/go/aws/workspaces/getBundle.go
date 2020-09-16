@@ -21,11 +21,18 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "Value with Windows 10 and Office 2016"
-// 		opt1 := "AMAZON"
+// 		opt0 := "wsb-b0s22j3d7"
 // 		_, err := workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
-// 			Name:  &opt0,
-// 			Owner: &opt1,
+// 			BundleId: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt1 := "Value with Windows 10 and Office 2016"
+// 		opt2 := "AMAZON"
+// 		_, err = workspaces.GetBundle(ctx, &workspaces.GetBundleArgs{
+// 			Name:  &opt1,
+// 			Owner: &opt2,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

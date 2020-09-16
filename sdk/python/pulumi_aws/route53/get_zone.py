@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -44,8 +44,8 @@ class GetZoneResult:
         if private_zone and not isinstance(private_zone, bool):
             raise TypeError("Expected argument 'private_zone' to be a bool")
         pulumi.set(__self__, "private_zone", private_zone)
-        if resource_record_set_count and not isinstance(resource_record_set_count, float):
-            raise TypeError("Expected argument 'resource_record_set_count' to be a float")
+        if resource_record_set_count and not isinstance(resource_record_set_count, int):
+            raise TypeError("Expected argument 'resource_record_set_count' to be a int")
         pulumi.set(__self__, "resource_record_set_count", resource_record_set_count)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -104,7 +104,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> List[str]:
+    def name_servers(self) -> Sequence[str]:
         """
         The list of DNS name servers for the Hosted Zone.
         """
@@ -117,7 +117,7 @@ class GetZoneResult:
 
     @property
     @pulumi.getter(name="resourceRecordSetCount")
-    def resource_record_set_count(self) -> float:
+    def resource_record_set_count(self) -> int:
         """
         The number of Record Set in the Hosted Zone.
         """
@@ -161,7 +161,7 @@ class AwaitableGetZoneResult(GetZoneResult):
 
 def get_zone(name: Optional[str] = None,
              private_zone: Optional[bool] = None,
-             resource_record_set_count: Optional[float] = None,
+             resource_record_set_count: Optional[int] = None,
              tags: Optional[Mapping[str, str]] = None,
              vpc_id: Optional[str] = None,
              zone_id: Optional[str] = None,
@@ -192,7 +192,7 @@ def get_zone(name: Optional[str] = None,
 
     :param str name: The Hosted Zone name of the desired Hosted Zone.
     :param bool private_zone: Used with `name` field to get a private Hosted Zone.
-    :param float resource_record_set_count: The number of Record Set in the Hosted Zone.
+    :param int resource_record_set_count: The number of Record Set in the Hosted Zone.
     :param Mapping[str, str] tags: Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
     :param str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
     :param str zone_id: The Hosted Zone id of the desired Hosted Zone.

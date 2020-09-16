@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -38,8 +38,8 @@ class GetClusterResult:
         if kafka_version and not isinstance(kafka_version, str):
             raise TypeError("Expected argument 'kafka_version' to be a str")
         pulumi.set(__self__, "kafka_version", kafka_version)
-        if number_of_broker_nodes and not isinstance(number_of_broker_nodes, float):
-            raise TypeError("Expected argument 'number_of_broker_nodes' to be a float")
+        if number_of_broker_nodes and not isinstance(number_of_broker_nodes, int):
+            raise TypeError("Expected argument 'number_of_broker_nodes' to be a int")
         pulumi.set(__self__, "number_of_broker_nodes", number_of_broker_nodes)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -95,7 +95,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="numberOfBrokerNodes")
-    def number_of_broker_nodes(self) -> float:
+    def number_of_broker_nodes(self) -> int:
         """
         Number of broker nodes in the cluster.
         """

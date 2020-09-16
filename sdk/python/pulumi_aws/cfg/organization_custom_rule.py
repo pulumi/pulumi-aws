@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['OrganizationCustomRule']
@@ -16,16 +16,16 @@ class OrganizationCustomRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 excluded_accounts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  input_parameters: Optional[pulumi.Input[str]] = None,
                  lambda_function_arn: Optional[pulumi.Input[str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_id_scope: Optional[pulumi.Input[str]] = None,
-                 resource_types_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_key_scope: Optional[pulumi.Input[str]] = None,
                  tag_value_scope: Optional[pulumi.Input[str]] = None,
-                 trigger_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 trigger_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -61,16 +61,16 @@ class OrganizationCustomRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[List[pulumi.Input[str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
         :param pulumi.Input[str] lambda_function_arn: Amazon Resource Name (ARN) of the rule Lambda Function
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         :param pulumi.Input[str] name: The name of the rule
         :param pulumi.Input[str] resource_id_scope: Identifier of the AWS resource to evaluate
-        :param pulumi.Input[List[pulumi.Input[str]]] resource_types_scopes: List of types of AWS resources to evaluate
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types_scopes: List of types of AWS resources to evaluate
         :param pulumi.Input[str] tag_key_scope: Tag key of AWS resources to evaluate
         :param pulumi.Input[str] tag_value_scope: Tag value of AWS resources to evaluate
-        :param pulumi.Input[List[pulumi.Input[str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,16 +117,16 @@ class OrganizationCustomRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            excluded_accounts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             input_parameters: Optional[pulumi.Input[str]] = None,
             lambda_function_arn: Optional[pulumi.Input[str]] = None,
             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_id_scope: Optional[pulumi.Input[str]] = None,
-            resource_types_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tag_key_scope: Optional[pulumi.Input[str]] = None,
             tag_value_scope: Optional[pulumi.Input[str]] = None,
-            trigger_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'OrganizationCustomRule':
+            trigger_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'OrganizationCustomRule':
         """
         Get an existing OrganizationCustomRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -136,16 +136,16 @@ class OrganizationCustomRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the rule
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[List[pulumi.Input[str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
         :param pulumi.Input[str] lambda_function_arn: Amazon Resource Name (ARN) of the rule Lambda Function
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         :param pulumi.Input[str] name: The name of the rule
         :param pulumi.Input[str] resource_id_scope: Identifier of the AWS resource to evaluate
-        :param pulumi.Input[List[pulumi.Input[str]]] resource_types_scopes: List of types of AWS resources to evaluate
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types_scopes: List of types of AWS resources to evaluate
         :param pulumi.Input[str] tag_key_scope: Tag key of AWS resources to evaluate
         :param pulumi.Input[str] tag_value_scope: Tag value of AWS resources to evaluate
-        :param pulumi.Input[List[pulumi.Input[str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -183,7 +183,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludedAccounts")
-    def excluded_accounts(self) -> pulumi.Output[Optional[List[str]]]:
+    def excluded_accounts(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of AWS account identifiers to exclude from the rule
         """
@@ -231,7 +231,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceTypesScopes")
-    def resource_types_scopes(self) -> pulumi.Output[Optional[List[str]]]:
+    def resource_types_scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of types of AWS resources to evaluate
         """
@@ -255,7 +255,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="triggerTypes")
-    def trigger_types(self) -> pulumi.Output[List[str]]:
+    def trigger_types(self) -> pulumi.Output[Sequence[str]]:
         """
         List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class Trail(pulumi.CustomResource):
                  cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
                  enable_log_file_validation: Optional[pulumi.Input[bool]] = None,
                  enable_logging: Optional[pulumi.Input[bool]] = None,
-                 event_selectors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]]] = None,
+                 event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]]] = None,
                  include_global_service_events: Optional[pulumi.Input[bool]] = None,
                  is_multi_region_trail: Optional[pulumi.Input[bool]] = None,
                  is_organization_trail: Optional[pulumi.Input[bool]] = None,
@@ -148,7 +148,7 @@ class Trail(pulumi.CustomResource):
                Defaults to `false`.
         :param pulumi.Input[bool] enable_logging: Enables logging for the trail. Defaults to `true`.
                Setting this to `false` will pause logging.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
         :param pulumi.Input[bool] include_global_service_events: Specifies whether the trail is publishing events
                from global services such as IAM to the log files. Defaults to `true`.
         :param pulumi.Input[bool] is_multi_region_trail: Specifies whether the trail is created in the current
@@ -213,7 +213,7 @@ class Trail(pulumi.CustomResource):
             cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
             enable_log_file_validation: Optional[pulumi.Input[bool]] = None,
             enable_logging: Optional[pulumi.Input[bool]] = None,
-            event_selectors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]]] = None,
+            event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]]] = None,
             home_region: Optional[pulumi.Input[str]] = None,
             include_global_service_events: Optional[pulumi.Input[bool]] = None,
             is_multi_region_trail: Optional[pulumi.Input[bool]] = None,
@@ -240,7 +240,7 @@ class Trail(pulumi.CustomResource):
                Defaults to `false`.
         :param pulumi.Input[bool] enable_logging: Enables logging for the trail. Defaults to `true`.
                Setting this to `false` will pause logging.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
         :param pulumi.Input[str] home_region: The region in which the trail was created.
         :param pulumi.Input[bool] include_global_service_events: Specifies whether the trail is publishing events
                from global services such as IAM to the log files. Defaults to `true`.
@@ -324,7 +324,7 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventSelectors")
-    def event_selectors(self) -> pulumi.Output[Optional[List['outputs.TrailEventSelector']]]:
+    def event_selectors(self) -> pulumi.Output[Optional[Sequence['outputs.TrailEventSelector']]]:
         """
         Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
         """

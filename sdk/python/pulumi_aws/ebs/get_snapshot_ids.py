@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -40,7 +40,7 @@ class GetSnapshotIdsResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetSnapshotIdsFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetSnapshotIdsFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -53,17 +53,17 @@ class GetSnapshotIdsResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> List[str]:
+    def ids(self) -> Sequence[str]:
         return pulumi.get(self, "ids")
 
     @property
     @pulumi.getter
-    def owners(self) -> Optional[List[str]]:
+    def owners(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "owners")
 
     @property
     @pulumi.getter(name="restorableByUserIds")
-    def restorable_by_user_ids(self) -> Optional[List[str]]:
+    def restorable_by_user_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "restorable_by_user_ids")
 
 
@@ -80,9 +80,9 @@ class AwaitableGetSnapshotIdsResult(GetSnapshotIdsResult):
             restorable_by_user_ids=self.restorable_by_user_ids)
 
 
-def get_snapshot_ids(filters: Optional[List[pulumi.InputType['GetSnapshotIdsFilterArgs']]] = None,
-                     owners: Optional[List[str]] = None,
-                     restorable_by_user_ids: Optional[List[str]] = None,
+def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIdsFilterArgs']]] = None,
+                     owners: Optional[Sequence[str]] = None,
+                     restorable_by_user_ids: Optional[Sequence[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotIdsResult:
     """
     Use this data source to get a list of EBS Snapshot IDs matching the specified
@@ -108,11 +108,11 @@ def get_snapshot_ids(filters: Optional[List[pulumi.InputType['GetSnapshotIdsFilt
     ```
 
 
-    :param List[pulumi.InputType['GetSnapshotIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[pulumi.InputType['GetSnapshotIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-volumes in the AWS CLI reference][1].
-    :param List[str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-    :param List[str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
+    :param Sequence[str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    :param Sequence[str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     """
     __args__ = dict()
     __args__['filters'] = filters

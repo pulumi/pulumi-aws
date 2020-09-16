@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['GroupPolicyAttachment']
@@ -34,8 +34,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         group = aws.iam.Group("group")
         policy = aws.iam.Policy("policy",
             description="A test policy",
-            policy="")
-        # insert policy here
+            policy="{ ... policy JSON ... }")
         test_attach = aws.iam.GroupPolicyAttachment("test-attach",
             group=group.name,
             policy_arn=policy.arn)

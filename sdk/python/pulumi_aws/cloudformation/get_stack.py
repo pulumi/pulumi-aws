@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -53,13 +53,13 @@ class GetStackResult:
         if template_body and not isinstance(template_body, str):
             raise TypeError("Expected argument 'template_body' to be a str")
         pulumi.set(__self__, "template_body", template_body)
-        if timeout_in_minutes and not isinstance(timeout_in_minutes, float):
-            raise TypeError("Expected argument 'timeout_in_minutes' to be a float")
+        if timeout_in_minutes and not isinstance(timeout_in_minutes, int):
+            raise TypeError("Expected argument 'timeout_in_minutes' to be a int")
         pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
 
     @property
     @pulumi.getter
-    def capabilities(self) -> List[str]:
+    def capabilities(self) -> Sequence[str]:
         """
         A list of capabilities
         """
@@ -104,7 +104,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter(name="notificationArns")
-    def notification_arns(self) -> List[str]:
+    def notification_arns(self) -> Sequence[str]:
         """
         A list of SNS topic ARNs to publish stack related events
         """
@@ -144,7 +144,7 @@ class GetStackResult:
 
     @property
     @pulumi.getter(name="timeoutInMinutes")
-    def timeout_in_minutes(self) -> float:
+    def timeout_in_minutes(self) -> int:
         """
         The amount of time that can pass before the stack status becomes `CREATE_FAILED`
         """
@@ -187,7 +187,7 @@ def get_stack(name: Optional[str] = None,
     network = aws.cloudformation.get_stack(name="my-network-stack")
     web = aws.ec2.Instance("web",
         ami="ami-abb07bcb",
-        instance_type="t1.micro",
+        instance_type="t2.micro",
         subnet_id=network.outputs["SubnetId"],
         tags={
             "Name": "HelloWorld",

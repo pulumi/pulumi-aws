@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,18 +17,18 @@ class Distribution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aliases: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 custom_error_responses: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]]] = None,
+                 custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]]] = None,
                  default_cache_behavior: Optional[pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']]] = None,
                  default_root_object: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  http_version: Optional[pulumi.Input[str]] = None,
                  is_ipv6_enabled: Optional[pulumi.Input[bool]] = None,
                  logging_config: Optional[pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']]] = None,
-                 ordered_cache_behaviors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]]] = None,
-                 origin_groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]]] = None,
-                 origins: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]]] = None,
+                 ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]]] = None,
+                 origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]]] = None,
                  price_class: Optional[pulumi.Input[str]] = None,
                  restrictions: Optional[pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']]] = None,
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
@@ -235,11 +235,11 @@ class Distribution(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for
                this distribution.
         :param pulumi.Input[str] comment: Any comments you want to include about the
                distribution.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
         :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: The default cache behavior for this distribution (maximum
                one).
         :param pulumi.Input[str] default_root_object: The object that you want CloudFront to
@@ -253,12 +253,12 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']] logging_config: The logging
                configuration that controls how logs are written
                to your distribution (maximum one).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]] ordered_cache_behaviors: An ordered list of cache behaviors
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]] ordered_cache_behaviors: An ordered list of cache behaviors
                resource for this distribution. List from top to bottom
                in order of precedence. The topmost cache behavior will have precedence 0.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]] origin_groups: One or more origin_group for this
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]] origin_groups: One or more origin_group for this
                distribution (multiples allowed).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]] origins: One or more origins for this
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]] origins: One or more origins for this
                distribution (multiples allowed).
         :param pulumi.Input[str] price_class: The price class for this distribution. One of
                `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
@@ -345,11 +345,11 @@ class Distribution(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aliases: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             caller_reference: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
-            custom_error_responses: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]]] = None,
+            custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]]] = None,
             default_cache_behavior: Optional[pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']]] = None,
             default_root_object: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
@@ -357,19 +357,19 @@ class Distribution(pulumi.CustomResource):
             etag: Optional[pulumi.Input[str]] = None,
             hosted_zone_id: Optional[pulumi.Input[str]] = None,
             http_version: Optional[pulumi.Input[str]] = None,
-            in_progress_validation_batches: Optional[pulumi.Input[float]] = None,
+            in_progress_validation_batches: Optional[pulumi.Input[int]] = None,
             is_ipv6_enabled: Optional[pulumi.Input[bool]] = None,
             last_modified_time: Optional[pulumi.Input[str]] = None,
             logging_config: Optional[pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']]] = None,
-            ordered_cache_behaviors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]]] = None,
-            origin_groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]]] = None,
-            origins: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]]] = None,
+            ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]]] = None,
+            origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]]] = None,
+            origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]]] = None,
             price_class: Optional[pulumi.Input[str]] = None,
             restrictions: Optional[pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']]] = None,
             retain_on_delete: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            trusted_signers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionTrustedSignerArgs']]]]] = None,
+            trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedSignerArgs']]]]] = None,
             viewer_certificate: Optional[pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']]] = None,
             wait_for_deployment: Optional[pulumi.Input[bool]] = None,
             web_acl_id: Optional[pulumi.Input[str]] = None) -> 'Distribution':
@@ -380,14 +380,14 @@ class Distribution(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for
                this distribution.
         :param pulumi.Input[str] arn: The ARN (Amazon Resource Name) for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future
                updates to the distribution configuration.
         :param pulumi.Input[str] comment: Any comments you want to include about the
                distribution.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
         :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: The default cache behavior for this distribution (maximum
                one).
         :param pulumi.Input[str] default_root_object: The object that you want CloudFront to
@@ -404,19 +404,19 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[str] http_version: The maximum HTTP version to support on the
                distribution. Allowed values are `http1.1` and `http2`. The default is
                `http2`.
-        :param pulumi.Input[float] in_progress_validation_batches: The number of invalidation batches
+        :param pulumi.Input[int] in_progress_validation_batches: The number of invalidation batches
                currently in progress.
         :param pulumi.Input[bool] is_ipv6_enabled: Whether the IPv6 is enabled for the distribution.
         :param pulumi.Input[str] last_modified_time: The date and time the distribution was last modified.
         :param pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']] logging_config: The logging
                configuration that controls how logs are written
                to your distribution (maximum one).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]] ordered_cache_behaviors: An ordered list of cache behaviors
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]] ordered_cache_behaviors: An ordered list of cache behaviors
                resource for this distribution. List from top to bottom
                in order of precedence. The topmost cache behavior will have precedence 0.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]] origin_groups: One or more origin_group for this
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]] origin_groups: One or more origin_group for this
                distribution (multiples allowed).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]] origins: One or more origins for this
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]] origins: One or more origins for this
                distribution (multiples allowed).
         :param pulumi.Input[str] price_class: The price class for this distribution. One of
                `PriceClass_All`, `PriceClass_200`, `PriceClass_100`
@@ -429,7 +429,7 @@ class Distribution(pulumi.CustomResource):
                distribution's information is fully propagated throughout the Amazon
                CloudFront system.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DistributionTrustedSignerArgs']]]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedSignerArgs']]]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
                See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']] viewer_certificate: The SSL
                configuration for this distribution (maximum
@@ -479,7 +479,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def aliases(self) -> pulumi.Output[Optional[List[str]]]:
+    def aliases(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Extra CNAMEs (alternate domain names), if any, for
         this distribution.
@@ -514,7 +514,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customErrorResponses")
-    def custom_error_responses(self) -> pulumi.Output[Optional[List['outputs.DistributionCustomErrorResponse']]]:
+    def custom_error_responses(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionCustomErrorResponse']]]:
         """
         One or more custom error response elements (multiples allowed).
         """
@@ -587,7 +587,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inProgressValidationBatches")
-    def in_progress_validation_batches(self) -> pulumi.Output[float]:
+    def in_progress_validation_batches(self) -> pulumi.Output[int]:
         """
         The number of invalidation batches
         currently in progress.
@@ -622,7 +622,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="orderedCacheBehaviors")
-    def ordered_cache_behaviors(self) -> pulumi.Output[Optional[List['outputs.DistributionOrderedCacheBehavior']]]:
+    def ordered_cache_behaviors(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionOrderedCacheBehavior']]]:
         """
         An ordered list of cache behaviors
         resource for this distribution. List from top to bottom
@@ -632,7 +632,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originGroups")
-    def origin_groups(self) -> pulumi.Output[Optional[List['outputs.DistributionOriginGroup']]]:
+    def origin_groups(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionOriginGroup']]]:
         """
         One or more origin_group for this
         distribution (multiples allowed).
@@ -641,7 +641,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origins(self) -> pulumi.Output[List['outputs.DistributionOrigin']]:
+    def origins(self) -> pulumi.Output[Sequence['outputs.DistributionOrigin']]:
         """
         One or more origins for this
         distribution (multiples allowed).
@@ -696,7 +696,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustedSigners")
-    def trusted_signers(self) -> pulumi.Output[List['outputs.DistributionTrustedSigner']]:
+    def trusted_signers(self) -> pulumi.Output[Sequence['outputs.DistributionTrustedSigner']]:
         """
         List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. 
         See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.

@@ -32,8 +32,8 @@ import * as utilities from "../utilities";
  * const resource = new aws.cognito.ResourceServer("resource", {
  *     identifier: "https://example.com",
  *     scopes: [{
- *         scopeDescription: "a Sample Scope Description",
  *         scopeName: "sample-scope",
+ *         scopeDescription: "a Sample Scope Description",
  *     }],
  *     userPoolId: pool.id,
  * });

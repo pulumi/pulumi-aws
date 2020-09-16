@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -47,9 +47,9 @@ class LifecyclePolicy(pulumi.CustomResource):
             }
           ]
         }
-
         \"\"\")
         dlm_lifecycle = aws.iam.RolePolicy("dlmLifecycle",
+            role=dlm_lifecycle_role.id,
             policy=\"\"\"{
            "Version": "2012-10-17",
            "Statement": [
@@ -72,34 +72,32 @@ class LifecyclePolicy(pulumi.CustomResource):
               }
            ]
         }
-
-        \"\"\",
-            role=dlm_lifecycle_role.id)
+        \"\"\")
         example = aws.dlm.LifecyclePolicy("example",
             description="example DLM lifecycle policy",
             execution_role_arn=dlm_lifecycle_role.arn,
+            state="ENABLED",
             policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
                 resource_types=["VOLUME"],
                 schedules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleArgs(
-                    copy_tags=False,
+                    name="2 weeks of daily snapshots",
                     create_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs(
                         interval=24,
                         interval_unit="HOURS",
-                        times="23:45",
+                        times=["23:45"],
                     ),
-                    name="2 weeks of daily snapshots",
                     retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs(
                         count=14,
                     ),
                     tags_to_add={
                         "SnapshotCreator": "DLM",
                     },
+                    copy_tags=False,
                 )],
                 target_tags={
                     "Snapshot": "true",
                 },
-            ),
-            state="ENABLED")
+            ))
         ```
 
         :param str resource_name: The name of the resource.

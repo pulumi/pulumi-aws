@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -35,8 +35,8 @@ class GetRoleResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if max_session_duration and not isinstance(max_session_duration, float):
-            raise TypeError("Expected argument 'max_session_duration' to be a float")
+        if max_session_duration and not isinstance(max_session_duration, int):
+            raise TypeError("Expected argument 'max_session_duration' to be a int")
         pulumi.set(__self__, "max_session_duration", max_session_duration)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -96,7 +96,7 @@ class GetRoleResult:
 
     @property
     @pulumi.getter(name="maxSessionDuration")
-    def max_session_duration(self) -> float:
+    def max_session_duration(self) -> int:
         """
         Maximum session duration.
         """

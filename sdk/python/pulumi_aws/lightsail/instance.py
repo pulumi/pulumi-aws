@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Instance']
@@ -197,7 +197,7 @@ class Instance(pulumi.CustomResource):
             availability_zone: Optional[pulumi.Input[str]] = None,
             blueprint_id: Optional[pulumi.Input[str]] = None,
             bundle_id: Optional[pulumi.Input[str]] = None,
-            cpu_count: Optional[pulumi.Input[float]] = None,
+            cpu_count: Optional[pulumi.Input[int]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             ipv6_address: Optional[pulumi.Input[str]] = None,
             is_static_ip: Optional[pulumi.Input[bool]] = None,
@@ -292,7 +292,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cpuCount")
-    def cpu_count(self) -> pulumi.Output[float]:
+    def cpu_count(self) -> pulumi.Output[int]:
         return pulumi.get(self, "cpu_count")
 
     @property

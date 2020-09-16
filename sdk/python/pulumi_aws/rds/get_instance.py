@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -23,8 +23,8 @@ class GetInstanceResult:
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         pulumi.set(__self__, "address", address)
-        if allocated_storage and not isinstance(allocated_storage, float):
-            raise TypeError("Expected argument 'allocated_storage' to be a float")
+        if allocated_storage and not isinstance(allocated_storage, int):
+            raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
         if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError("Expected argument 'auto_minor_version_upgrade' to be a bool")
@@ -32,8 +32,8 @@ class GetInstanceResult:
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
-        if backup_retention_period and not isinstance(backup_retention_period, float):
-            raise TypeError("Expected argument 'backup_retention_period' to be a float")
+        if backup_retention_period and not isinstance(backup_retention_period, int):
+            raise TypeError("Expected argument 'backup_retention_period' to be a int")
         pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if ca_cert_identifier and not isinstance(ca_cert_identifier, str):
             raise TypeError("Expected argument 'ca_cert_identifier' to be a str")
@@ -50,8 +50,8 @@ class GetInstanceResult:
         if db_instance_identifier and not isinstance(db_instance_identifier, str):
             raise TypeError("Expected argument 'db_instance_identifier' to be a str")
         pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
-        if db_instance_port and not isinstance(db_instance_port, float):
-            raise TypeError("Expected argument 'db_instance_port' to be a float")
+        if db_instance_port and not isinstance(db_instance_port, int):
+            raise TypeError("Expected argument 'db_instance_port' to be a int")
         pulumi.set(__self__, "db_instance_port", db_instance_port)
         if db_name and not isinstance(db_name, str):
             raise TypeError("Expected argument 'db_name' to be a str")
@@ -83,8 +83,8 @@ class GetInstanceResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if iops and not isinstance(iops, float):
-            raise TypeError("Expected argument 'iops' to be a float")
+        if iops and not isinstance(iops, int):
+            raise TypeError("Expected argument 'iops' to be a int")
         pulumi.set(__self__, "iops", iops)
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
@@ -95,8 +95,8 @@ class GetInstanceResult:
         if master_username and not isinstance(master_username, str):
             raise TypeError("Expected argument 'master_username' to be a str")
         pulumi.set(__self__, "master_username", master_username)
-        if monitoring_interval and not isinstance(monitoring_interval, float):
-            raise TypeError("Expected argument 'monitoring_interval' to be a float")
+        if monitoring_interval and not isinstance(monitoring_interval, int):
+            raise TypeError("Expected argument 'monitoring_interval' to be a int")
         pulumi.set(__self__, "monitoring_interval", monitoring_interval)
         if monitoring_role_arn and not isinstance(monitoring_role_arn, str):
             raise TypeError("Expected argument 'monitoring_role_arn' to be a str")
@@ -107,8 +107,8 @@ class GetInstanceResult:
         if option_group_memberships and not isinstance(option_group_memberships, list):
             raise TypeError("Expected argument 'option_group_memberships' to be a list")
         pulumi.set(__self__, "option_group_memberships", option_group_memberships)
-        if port and not isinstance(port, float):
-            raise TypeError("Expected argument 'port' to be a float")
+        if port and not isinstance(port, int):
+            raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
         if preferred_backup_window and not isinstance(preferred_backup_window, str):
             raise TypeError("Expected argument 'preferred_backup_window' to be a str")
@@ -151,7 +151,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="allocatedStorage")
-    def allocated_storage(self) -> float:
+    def allocated_storage(self) -> int:
         """
         Specifies the allocated storage size specified in gigabytes.
         """
@@ -175,7 +175,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
-    def backup_retention_period(self) -> float:
+    def backup_retention_period(self) -> int:
         """
         Specifies the number of days for which automatic DB snapshots are retained.
         """
@@ -220,7 +220,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="dbInstancePort")
-    def db_instance_port(self) -> float:
+    def db_instance_port(self) -> int:
         """
         Specifies the port that the DB instance listens on.
         """
@@ -236,7 +236,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="dbParameterGroups")
-    def db_parameter_groups(self) -> List[str]:
+    def db_parameter_groups(self) -> Sequence[str]:
         """
         Provides the list of DB parameter groups applied to this DB instance.
         """
@@ -244,7 +244,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="dbSecurityGroups")
-    def db_security_groups(self) -> List[str]:
+    def db_security_groups(self) -> Sequence[str]:
         """
         Provides List of DB security groups associated to this DB instance.
         """
@@ -260,7 +260,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
-    def enabled_cloudwatch_logs_exports(self) -> List[str]:
+    def enabled_cloudwatch_logs_exports(self) -> Sequence[str]:
         """
         List of log types to export to cloudwatch.
         """
@@ -308,7 +308,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter
-    def iops(self) -> float:
+    def iops(self) -> int:
         """
         Specifies the Provisioned IOPS (I/O operations per second) value.
         """
@@ -340,7 +340,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="monitoringInterval")
-    def monitoring_interval(self) -> float:
+    def monitoring_interval(self) -> int:
         """
         The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
         """
@@ -364,7 +364,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="optionGroupMemberships")
-    def option_group_memberships(self) -> List[str]:
+    def option_group_memberships(self) -> Sequence[str]:
         """
         Provides the list of option group memberships for this DB instance.
         """
@@ -372,7 +372,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The database port.
         """
@@ -449,7 +449,7 @@ class GetInstanceResult:
 
     @property
     @pulumi.getter(name="vpcSecurityGroups")
-    def vpc_security_groups(self) -> List[str]:
+    def vpc_security_groups(self) -> Sequence[str]:
         """
         Provides a list of VPC security group elements that the DB instance belongs to.
         """

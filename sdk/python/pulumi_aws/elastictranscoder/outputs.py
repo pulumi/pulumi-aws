@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -58,11 +58,11 @@ class PipelineContentConfig(dict):
 @pulumi.output_type
 class PipelineContentConfigPermission(dict):
     def __init__(__self__, *,
-                 accesses: Optional[List[str]] = None,
+                 accesses: Optional[Sequence[str]] = None,
                  grantee: Optional[str] = None,
                  grantee_type: Optional[str] = None):
         """
-        :param List[str] accesses: The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
+        :param Sequence[str] accesses: The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
         :param str grantee: The AWS user or group that you want to have access to transcoded files and playlists.
         :param str grantee_type: Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
         """
@@ -75,7 +75,7 @@ class PipelineContentConfigPermission(dict):
 
     @property
     @pulumi.getter
-    def accesses(self) -> Optional[List[str]]:
+    def accesses(self) -> Optional[Sequence[str]]:
         """
         The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`
         """
@@ -196,11 +196,11 @@ class PipelineThumbnailConfig(dict):
 @pulumi.output_type
 class PipelineThumbnailConfigPermission(dict):
     def __init__(__self__, *,
-                 accesses: Optional[List[str]] = None,
+                 accesses: Optional[Sequence[str]] = None,
                  grantee: Optional[str] = None,
                  grantee_type: Optional[str] = None):
         """
-        :param List[str] accesses: The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
+        :param Sequence[str] accesses: The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
         :param str grantee: The AWS user or group that you want to have access to thumbnail files.
         :param str grantee_type: Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object.
         """
@@ -213,7 +213,7 @@ class PipelineThumbnailConfigPermission(dict):
 
     @property
     @pulumi.getter
-    def accesses(self) -> Optional[List[str]]:
+    def accesses(self) -> Optional[Sequence[str]]:
         """
         The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`.
         """

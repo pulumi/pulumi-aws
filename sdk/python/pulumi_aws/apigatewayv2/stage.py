@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,7 +25,7 @@ class Stage(pulumi.CustomResource):
                  deployment_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 route_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]]] = None,
+                 route_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]]] = None,
                  stage_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -57,7 +57,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_id: The deployment identifier of the stage. Use the [`apigatewayv2.Deployment`](https://www.terraform.io/docs/providers/aws/r/apigatewayv2_deployment.html) resource to configure a deployment.
         :param pulumi.Input[str] description: The description for the stage.
         :param pulumi.Input[str] name: The name of the stage.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]] route_settings: Route settings for the stage.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variables: A map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the stage.
         """
@@ -115,7 +115,7 @@ class Stage(pulumi.CustomResource):
             execution_arn: Optional[pulumi.Input[str]] = None,
             invoke_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            route_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]]] = None,
+            route_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]]] = None,
             stage_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Stage':
         """
@@ -142,7 +142,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
                e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         :param pulumi.Input[str] name: The name of the stage.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]] route_settings: Route settings for the stage.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variables: A map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the stage.
         """
@@ -262,7 +262,7 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeSettings")
-    def route_settings(self) -> pulumi.Output[Optional[List['outputs.StageRouteSetting']]]:
+    def route_settings(self) -> pulumi.Output[Optional[Sequence['outputs.StageRouteSetting']]]:
         """
         Route settings for the stage.
         """

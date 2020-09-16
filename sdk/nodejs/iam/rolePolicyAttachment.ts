@@ -18,8 +18,7 @@ import {Role} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const role = new aws.iam.Role("role", {
- *     assumeRolePolicy: `    {
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `    {
  *       "Version": "2012-10-17",
  *       "Statement": [
  *         {
@@ -32,8 +31,7 @@ import {Role} from "./index";
  *         }
  *       ]
  *     }
- * `,
- * });
+ * `});
  * const policy = new aws.iam.Policy("policy", {
  *     description: "A test policy",
  *     policy: `{
@@ -51,8 +49,8 @@ import {Role} from "./index";
  * `,
  * });
  * const test_attach = new aws.iam.RolePolicyAttachment("test-attach", {
- *     policyArn: policy.arn,
  *     role: role.name,
+ *     policyArn: policy.arn,
  * });
  * ```
  */

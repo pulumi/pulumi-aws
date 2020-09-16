@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -31,7 +31,7 @@ class Integration(pulumi.CustomResource):
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
-                 timeout_milliseconds: Optional[pulumi.Input[float]] = None,
+                 timeout_milliseconds: Optional[pulumi.Input[int]] = None,
                  tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -93,7 +93,7 @@ class Integration(pulumi.CustomResource):
                Supported only for WebSocket APIs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
-        :param pulumi.Input[float] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
+        :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
         :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']] tls_config: The TLS configuration for a private integration. Supported only for HTTP APIs.
         """
         if __name__ is not None:
@@ -159,7 +159,7 @@ class Integration(pulumi.CustomResource):
             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             template_selection_expression: Optional[pulumi.Input[str]] = None,
-            timeout_milliseconds: Optional[pulumi.Input[float]] = None,
+            timeout_milliseconds: Optional[pulumi.Input[int]] = None,
             tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
@@ -187,7 +187,7 @@ class Integration(pulumi.CustomResource):
                Supported only for WebSocket APIs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
-        :param pulumi.Input[float] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
+        :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
         :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']] tls_config: The TLS configuration for a private integration. Supported only for HTTP APIs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -339,7 +339,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeoutMilliseconds")
-    def timeout_milliseconds(self) -> pulumi.Output[Optional[float]]:
+    def timeout_milliseconds(self) -> pulumi.Output[Optional[int]]:
         """
         Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
         """

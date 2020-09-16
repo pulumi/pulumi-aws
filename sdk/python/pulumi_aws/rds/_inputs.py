@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -164,15 +164,15 @@ class ClusterS3ImportArgs:
 class ClusterScalingConfigurationArgs:
     def __init__(__self__, *,
                  auto_pause: Optional[pulumi.Input[bool]] = None,
-                 max_capacity: Optional[pulumi.Input[float]] = None,
-                 min_capacity: Optional[pulumi.Input[float]] = None,
-                 seconds_until_auto_pause: Optional[pulumi.Input[float]] = None,
+                 max_capacity: Optional[pulumi.Input[int]] = None,
+                 min_capacity: Optional[pulumi.Input[int]] = None,
+                 seconds_until_auto_pause: Optional[pulumi.Input[int]] = None,
                  timeout_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] auto_pause: Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
-        :param pulumi.Input[float] max_capacity: The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
-        :param pulumi.Input[float] min_capacity: The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
-        :param pulumi.Input[float] seconds_until_auto_pause: The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
+        :param pulumi.Input[int] max_capacity: The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
+        :param pulumi.Input[int] min_capacity: The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
+        :param pulumi.Input[int] seconds_until_auto_pause: The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
         :param pulumi.Input[str] timeout_action: The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
         """
         if auto_pause is not None:
@@ -200,38 +200,38 @@ class ClusterScalingConfigurationArgs:
 
     @property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> Optional[pulumi.Input[float]]:
+    def max_capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum capacity. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `16`.
         """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
-    def max_capacity(self, value: Optional[pulumi.Input[float]]):
+    def max_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_capacity", value)
 
     @property
     @pulumi.getter(name="minCapacity")
-    def min_capacity(self) -> Optional[pulumi.Input[float]]:
+    def min_capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum capacity. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, and `256`. Defaults to `1`.
         """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
-    def min_capacity(self, value: Optional[pulumi.Input[float]]):
+    def min_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_capacity", value)
 
     @property
     @pulumi.getter(name="secondsUntilAutoPause")
-    def seconds_until_auto_pause(self) -> Optional[pulumi.Input[float]]:
+    def seconds_until_auto_pause(self) -> Optional[pulumi.Input[int]]:
         """
         The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
         """
         return pulumi.get(self, "seconds_until_auto_pause")
 
     @seconds_until_auto_pause.setter
-    def seconds_until_auto_pause(self, value: Optional[pulumi.Input[float]]):
+    def seconds_until_auto_pause(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "seconds_until_auto_pause", value)
 
     @property
@@ -373,18 +373,18 @@ class InstanceS3ImportArgs:
 class OptionGroupOptionArgs:
     def __init__(__self__, *,
                  option_name: pulumi.Input[str],
-                 db_security_group_memberships: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 option_settings: Optional[pulumi.Input[List[pulumi.Input['OptionGroupOptionOptionSettingArgs']]]] = None,
-                 port: Optional[pulumi.Input[float]] = None,
+                 db_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 option_settings: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 vpc_security_group_memberships: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 vpc_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] option_name: The Name of the Option (e.g. MEMCACHED).
-        :param pulumi.Input[List[pulumi.Input[str]]] db_security_group_memberships: A list of DB Security Groups for which the option is enabled.
-        :param pulumi.Input[List[pulumi.Input['OptionGroupOptionOptionSettingArgs']]] option_settings: A list of option settings to apply.
-        :param pulumi.Input[float] port: The Port number when connecting to the Option (e.g. 11211).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_security_group_memberships: A list of DB Security Groups for which the option is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]] option_settings: A list of option settings to apply.
+        :param pulumi.Input[int] port: The Port number when connecting to the Option (e.g. 11211).
         :param pulumi.Input[str] version: The version of the option (e.g. 13.1.0.0).
-        :param pulumi.Input[List[pulumi.Input[str]]] vpc_security_group_memberships: A list of VPC Security Groups for which the option is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_memberships: A list of VPC Security Groups for which the option is enabled.
         """
         pulumi.set(__self__, "option_name", option_name)
         if db_security_group_memberships is not None:
@@ -412,38 +412,38 @@ class OptionGroupOptionArgs:
 
     @property
     @pulumi.getter(name="dbSecurityGroupMemberships")
-    def db_security_group_memberships(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def db_security_group_memberships(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of DB Security Groups for which the option is enabled.
         """
         return pulumi.get(self, "db_security_group_memberships")
 
     @db_security_group_memberships.setter
-    def db_security_group_memberships(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def db_security_group_memberships(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "db_security_group_memberships", value)
 
     @property
     @pulumi.getter(name="optionSettings")
-    def option_settings(self) -> Optional[pulumi.Input[List[pulumi.Input['OptionGroupOptionOptionSettingArgs']]]]:
+    def option_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]]]:
         """
         A list of option settings to apply.
         """
         return pulumi.get(self, "option_settings")
 
     @option_settings.setter
-    def option_settings(self, value: Optional[pulumi.Input[List[pulumi.Input['OptionGroupOptionOptionSettingArgs']]]]):
+    def option_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]]]):
         pulumi.set(self, "option_settings", value)
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[float]]:
+    def port(self) -> Optional[pulumi.Input[int]]:
         """
         The Port number when connecting to the Option (e.g. 11211).
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[float]]):
+    def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
     @property
@@ -460,14 +460,14 @@ class OptionGroupOptionArgs:
 
     @property
     @pulumi.getter(name="vpcSecurityGroupMemberships")
-    def vpc_security_group_memberships(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def vpc_security_group_memberships(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of VPC Security Groups for which the option is enabled.
         """
         return pulumi.get(self, "vpc_security_group_memberships")
 
     @vpc_security_group_memberships.setter
-    def vpc_security_group_memberships(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def vpc_security_group_memberships(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "vpc_security_group_memberships", value)
 
 

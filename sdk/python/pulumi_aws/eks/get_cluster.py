@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -90,7 +90,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="enabledClusterLogTypes")
-    def enabled_cluster_log_types(self) -> List[str]:
+    def enabled_cluster_log_types(self) -> Sequence[str]:
         """
         The enabled control plane logs.
         """
@@ -114,7 +114,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def identities(self) -> List['outputs.GetClusterIdentityResult']:
+    def identities(self) -> Sequence['outputs.GetClusterIdentityResult']:
         """
         Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `eks.Cluster` resource documentation.
         """

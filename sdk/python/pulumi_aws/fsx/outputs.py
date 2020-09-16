@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -15,14 +15,14 @@ __all__ = [
 @pulumi.output_type
 class WindowsFileSystemSelfManagedActiveDirectory(dict):
     def __init__(__self__, *,
-                 dns_ips: List[str],
+                 dns_ips: Sequence[str],
                  domain_name: str,
                  password: str,
                  username: str,
                  file_system_administrators_group: Optional[str] = None,
                  organizational_unit_distinguished_name: Optional[str] = None):
         """
-        :param List[str] dns_ips: A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+        :param Sequence[str] dns_ips: A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
         :param str domain_name: The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
         :param str password: The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
         :param str username: The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
@@ -40,7 +40,7 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
 
     @property
     @pulumi.getter(name="dnsIps")
-    def dns_ips(self) -> List[str]:
+    def dns_ips(self) -> Sequence[str]:
         """
         A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
         """

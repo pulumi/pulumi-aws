@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -54,7 +54,7 @@ class GetSecretSecretResult(dict):
                  name: str,
                  payload: str,
                  context: Optional[Mapping[str, str]] = None,
-                 grant_tokens: Optional[List[str]] = None):
+                 grant_tokens: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "payload", payload)
         if context is not None:
@@ -79,7 +79,7 @@ class GetSecretSecretResult(dict):
 
     @property
     @pulumi.getter(name="grantTokens")
-    def grant_tokens(self) -> Optional[List[str]]:
+    def grant_tokens(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "grant_tokens")
 
 
@@ -89,12 +89,12 @@ class GetSecretsSecretResult(dict):
                  name: str,
                  payload: str,
                  context: Optional[Mapping[str, str]] = None,
-                 grant_tokens: Optional[List[str]] = None):
+                 grant_tokens: Optional[Sequence[str]] = None):
         """
         :param str name: The name to export this secret under in the attributes.
         :param str payload: Base64 encoded payload, as returned from a KMS encrypt operation.
         :param Mapping[str, str] context: An optional mapping that makes up the Encryption Context for the secret.
-        :param List[str] grant_tokens: An optional list of Grant Tokens for the secret.
+        :param Sequence[str] grant_tokens: An optional list of Grant Tokens for the secret.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "payload", payload)
@@ -129,7 +129,7 @@ class GetSecretsSecretResult(dict):
 
     @property
     @pulumi.getter(name="grantTokens")
-    def grant_tokens(self) -> Optional[List[str]]:
+    def grant_tokens(self) -> Optional[Sequence[str]]:
         """
         An optional list of Grant Tokens for the secret.
         """

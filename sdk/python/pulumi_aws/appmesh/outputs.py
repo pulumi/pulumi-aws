@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -94,11 +94,11 @@ class MeshSpecEgressFilter(dict):
 class RouteSpec(dict):
     def __init__(__self__, *,
                  http_route: Optional['outputs.RouteSpecHttpRoute'] = None,
-                 priority: Optional[float] = None,
+                 priority: Optional[int] = None,
                  tcp_route: Optional['outputs.RouteSpecTcpRoute'] = None):
         """
         :param 'RouteSpecHttpRouteArgs' http_route: The HTTP routing information for the route.
-        :param float priority: The priority for the route, between `0` and `1000`.
+        :param int priority: The priority for the route, between `0` and `1000`.
                Routes are matched based on the specified value, where `0` is the highest priority.
         :param 'RouteSpecTcpRouteArgs' tcp_route: The TCP routing information for the route.
         """
@@ -119,7 +119,7 @@ class RouteSpec(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         The priority for the route, between `0` and `1000`.
         Routes are matched based on the specified value, where `0` is the highest priority.
@@ -173,16 +173,16 @@ class RouteSpecHttpRoute(dict):
 @pulumi.output_type
 class RouteSpecHttpRouteAction(dict):
     def __init__(__self__, *,
-                 weighted_targets: List['outputs.RouteSpecHttpRouteActionWeightedTarget']):
+                 weighted_targets: Sequence['outputs.RouteSpecHttpRouteActionWeightedTarget']):
         """
-        :param List['RouteSpecHttpRouteActionWeightedTargetArgs'] weighted_targets: The targets that traffic is routed to when a request matches the route.
+        :param Sequence['RouteSpecHttpRouteActionWeightedTargetArgs'] weighted_targets: The targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
         pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
-    def weighted_targets(self) -> List['outputs.RouteSpecHttpRouteActionWeightedTarget']:
+    def weighted_targets(self) -> Sequence['outputs.RouteSpecHttpRouteActionWeightedTarget']:
         """
         The targets that traffic is routed to when a request matches the route.
         You can specify one or more targets and their relative weights with which to distribute traffic.
@@ -197,10 +197,10 @@ class RouteSpecHttpRouteAction(dict):
 class RouteSpecHttpRouteActionWeightedTarget(dict):
     def __init__(__self__, *,
                  virtual_node: str,
-                 weight: float):
+                 weight: int):
         """
         :param str virtual_node: The virtual node to associate with the weighted target.
-        :param float weight: The relative weight of the weighted target. An integer between 0 and 100.
+        :param int weight: The relative weight of the weighted target. An integer between 0 and 100.
         """
         pulumi.set(__self__, "virtual_node", virtual_node)
         pulumi.set(__self__, "weight", weight)
@@ -215,7 +215,7 @@ class RouteSpecHttpRouteActionWeightedTarget(dict):
 
     @property
     @pulumi.getter
-    def weight(self) -> float:
+    def weight(self) -> int:
         """
         The relative weight of the weighted target. An integer between 0 and 100.
         """
@@ -229,13 +229,13 @@ class RouteSpecHttpRouteActionWeightedTarget(dict):
 class RouteSpecHttpRouteMatch(dict):
     def __init__(__self__, *,
                  prefix: str,
-                 headers: Optional[List['outputs.RouteSpecHttpRouteMatchHeader']] = None,
+                 headers: Optional[Sequence['outputs.RouteSpecHttpRouteMatchHeader']] = None,
                  method: Optional[str] = None,
                  scheme: Optional[str] = None):
         """
         :param str prefix: Specifies the path with which to match requests.
                This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-        :param List['RouteSpecHttpRouteMatchHeaderArgs'] headers: The client request headers to match on.
+        :param Sequence['RouteSpecHttpRouteMatchHeaderArgs'] headers: The client request headers to match on.
         :param str method: The client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
         :param str scheme: The client request header scheme to match on. Valid values: `http`, `https`.
         """
@@ -258,7 +258,7 @@ class RouteSpecHttpRouteMatch(dict):
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[List['outputs.RouteSpecHttpRouteMatchHeader']]:
+    def headers(self) -> Optional[Sequence['outputs.RouteSpecHttpRouteMatchHeader']]:
         """
         The client request headers to match on.
         """
@@ -404,18 +404,18 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
 @pulumi.output_type
 class RouteSpecHttpRouteMatchHeaderMatchRange(dict):
     def __init__(__self__, *,
-                 end: float,
-                 start: float):
+                 end: int,
+                 start: int):
         """
-        :param float end: The end of the range.
-        :param float start: The start of the range.
+        :param int end: The end of the range.
+        :param int start: The start of the range.
         """
         pulumi.set(__self__, "end", end)
         pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
-    def end(self) -> float:
+    def end(self) -> int:
         """
         The end of the range.
         """
@@ -423,7 +423,7 @@ class RouteSpecHttpRouteMatchHeaderMatchRange(dict):
 
     @property
     @pulumi.getter
-    def start(self) -> float:
+    def start(self) -> int:
         """
         The start of the range.
         """
@@ -457,16 +457,16 @@ class RouteSpecTcpRoute(dict):
 @pulumi.output_type
 class RouteSpecTcpRouteAction(dict):
     def __init__(__self__, *,
-                 weighted_targets: List['outputs.RouteSpecTcpRouteActionWeightedTarget']):
+                 weighted_targets: Sequence['outputs.RouteSpecTcpRouteActionWeightedTarget']):
         """
-        :param List['RouteSpecTcpRouteActionWeightedTargetArgs'] weighted_targets: The targets that traffic is routed to when a request matches the route.
+        :param Sequence['RouteSpecTcpRouteActionWeightedTargetArgs'] weighted_targets: The targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
         pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
-    def weighted_targets(self) -> List['outputs.RouteSpecTcpRouteActionWeightedTarget']:
+    def weighted_targets(self) -> Sequence['outputs.RouteSpecTcpRouteActionWeightedTarget']:
         """
         The targets that traffic is routed to when a request matches the route.
         You can specify one or more targets and their relative weights with which to distribute traffic.
@@ -481,10 +481,10 @@ class RouteSpecTcpRouteAction(dict):
 class RouteSpecTcpRouteActionWeightedTarget(dict):
     def __init__(__self__, *,
                  virtual_node: str,
-                 weight: float):
+                 weight: int):
         """
         :param str virtual_node: The virtual node to associate with the weighted target.
-        :param float weight: The relative weight of the weighted target. An integer between 0 and 100.
+        :param int weight: The relative weight of the weighted target. An integer between 0 and 100.
         """
         pulumi.set(__self__, "virtual_node", virtual_node)
         pulumi.set(__self__, "weight", weight)
@@ -499,7 +499,7 @@ class RouteSpecTcpRouteActionWeightedTarget(dict):
 
     @property
     @pulumi.getter
-    def weight(self) -> float:
+    def weight(self) -> int:
         """
         The relative weight of the weighted target. An integer between 0 and 100.
         """
@@ -512,12 +512,12 @@ class RouteSpecTcpRouteActionWeightedTarget(dict):
 @pulumi.output_type
 class VirtualNodeSpec(dict):
     def __init__(__self__, *,
-                 backends: Optional[List['outputs.VirtualNodeSpecBackend']] = None,
+                 backends: Optional[Sequence['outputs.VirtualNodeSpecBackend']] = None,
                  listener: Optional['outputs.VirtualNodeSpecListener'] = None,
                  logging: Optional['outputs.VirtualNodeSpecLogging'] = None,
                  service_discovery: Optional['outputs.VirtualNodeSpecServiceDiscovery'] = None):
         """
-        :param List['VirtualNodeSpecBackendArgs'] backends: The backends to which the virtual node is expected to send outbound traffic.
+        :param Sequence['VirtualNodeSpecBackendArgs'] backends: The backends to which the virtual node is expected to send outbound traffic.
         :param 'VirtualNodeSpecListenerArgs' listener: The listeners from which the virtual node is expected to receive inbound traffic.
         :param 'VirtualNodeSpecLoggingArgs' logging: The inbound and outbound access logging information for the virtual node.
         :param 'VirtualNodeSpecServiceDiscoveryArgs' service_discovery: The service discovery information for the virtual node.
@@ -533,7 +533,7 @@ class VirtualNodeSpec(dict):
 
     @property
     @pulumi.getter
-    def backends(self) -> Optional[List['outputs.VirtualNodeSpecBackend']]:
+    def backends(self) -> Optional[Sequence['outputs.VirtualNodeSpecBackend']]:
         """
         The backends to which the virtual node is expected to send outbound traffic.
         """
@@ -646,21 +646,21 @@ class VirtualNodeSpecListener(dict):
 @pulumi.output_type
 class VirtualNodeSpecListenerHealthCheck(dict):
     def __init__(__self__, *,
-                 healthy_threshold: float,
-                 interval_millis: float,
+                 healthy_threshold: int,
+                 interval_millis: int,
                  protocol: str,
-                 timeout_millis: float,
-                 unhealthy_threshold: float,
+                 timeout_millis: int,
+                 unhealthy_threshold: int,
                  path: Optional[str] = None,
-                 port: Optional[float] = None):
+                 port: Optional[int] = None):
         """
-        :param float healthy_threshold: The number of consecutive successful health checks that must occur before declaring listener healthy.
-        :param float interval_millis: The time period in milliseconds between each health check execution.
+        :param int healthy_threshold: The number of consecutive successful health checks that must occur before declaring listener healthy.
+        :param int interval_millis: The time period in milliseconds between each health check execution.
         :param str protocol: The protocol for the health check request. Valid values are `http` and `tcp`.
-        :param float timeout_millis: The amount of time to wait when receiving a response from the health check, in milliseconds.
-        :param float unhealthy_threshold: The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
+        :param int timeout_millis: The amount of time to wait when receiving a response from the health check, in milliseconds.
+        :param int unhealthy_threshold: The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
         :param str path: The destination path for the health check request. This is only required if the specified protocol is `http`.
-        :param float port: The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+        :param int port: The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
         """
         pulumi.set(__self__, "healthy_threshold", healthy_threshold)
         pulumi.set(__self__, "interval_millis", interval_millis)
@@ -674,7 +674,7 @@ class VirtualNodeSpecListenerHealthCheck(dict):
 
     @property
     @pulumi.getter(name="healthyThreshold")
-    def healthy_threshold(self) -> float:
+    def healthy_threshold(self) -> int:
         """
         The number of consecutive successful health checks that must occur before declaring listener healthy.
         """
@@ -682,7 +682,7 @@ class VirtualNodeSpecListenerHealthCheck(dict):
 
     @property
     @pulumi.getter(name="intervalMillis")
-    def interval_millis(self) -> float:
+    def interval_millis(self) -> int:
         """
         The time period in milliseconds between each health check execution.
         """
@@ -698,7 +698,7 @@ class VirtualNodeSpecListenerHealthCheck(dict):
 
     @property
     @pulumi.getter(name="timeoutMillis")
-    def timeout_millis(self) -> float:
+    def timeout_millis(self) -> int:
         """
         The amount of time to wait when receiving a response from the health check, in milliseconds.
         """
@@ -706,7 +706,7 @@ class VirtualNodeSpecListenerHealthCheck(dict):
 
     @property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> float:
+    def unhealthy_threshold(self) -> int:
         """
         The number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
         """
@@ -722,7 +722,7 @@ class VirtualNodeSpecListenerHealthCheck(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         The destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
         """
@@ -735,10 +735,10 @@ class VirtualNodeSpecListenerHealthCheck(dict):
 @pulumi.output_type
 class VirtualNodeSpecListenerPortMapping(dict):
     def __init__(__self__, *,
-                 port: float,
+                 port: int,
                  protocol: str):
         """
-        :param float port: The port used for the port mapping.
+        :param int port: The port used for the port mapping.
         :param str protocol: The protocol used for the port mapping. Valid values are `http` and `tcp`.
         """
         pulumi.set(__self__, "port", port)
@@ -746,7 +746,7 @@ class VirtualNodeSpecListenerPortMapping(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The port used for the port mapping.
         """
@@ -977,10 +977,10 @@ class VirtualRouterSpecListener(dict):
 @pulumi.output_type
 class VirtualRouterSpecListenerPortMapping(dict):
     def __init__(__self__, *,
-                 port: float,
+                 port: int,
                  protocol: str):
         """
-        :param float port: The port used for the port mapping.
+        :param int port: The port used for the port mapping.
         :param str protocol: The protocol used for the port mapping. Valid values are `http` and `tcp`.
         """
         pulumi.set(__self__, "port", port)
@@ -988,7 +988,7 @@ class VirtualRouterSpecListenerPortMapping(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The port used for the port mapping.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -106,7 +106,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetSubnetFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetSubnetFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -189,7 +189,7 @@ def get_subnet(availability_zone: Optional[str] = None,
                availability_zone_id: Optional[str] = None,
                cidr_block: Optional[str] = None,
                default_for_az: Optional[bool] = None,
-               filters: Optional[List[pulumi.InputType['GetSubnetFilterArgs']]] = None,
+               filters: Optional[Sequence[pulumi.InputType['GetSubnetFilterArgs']]] = None,
                id: Optional[str] = None,
                ipv6_cidr_block: Optional[str] = None,
                state: Optional[str] = None,
@@ -233,7 +233,7 @@ def get_subnet(availability_zone: Optional[str] = None,
     :param str cidr_block: The cidr block of the desired subnet.
     :param bool default_for_az: Boolean constraint for whether the desired
            subnet must be the default subnet for its associated availability zone.
-    :param List[pulumi.InputType['GetSubnetFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetSubnetFilterArgs']] filters: Custom filter block as described below.
     :param str id: The id of the specific subnet to retrieve.
     :param str ipv6_cidr_block: The Ipv6 cidr block of the desired subnet
     :param str state: The state that the desired subnet must have.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['UserPolicyAttachment']
@@ -34,11 +34,10 @@ class UserPolicyAttachment(pulumi.CustomResource):
         user = aws.iam.User("user")
         policy = aws.iam.Policy("policy",
             description="A test policy",
-            policy="")
-        # insert policy here
+            policy="{ ... policy JSON ... }")
         test_attach = aws.iam.UserPolicyAttachment("test-attach",
-            policy_arn=policy.arn,
-            user=user.name)
+            user=user.name,
+            policy_arn=policy.arn)
         ```
 
         :param str resource_name: The name of the resource.

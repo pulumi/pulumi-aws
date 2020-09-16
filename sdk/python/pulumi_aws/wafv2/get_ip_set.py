@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -44,7 +44,7 @@ class GetIpSetResult:
 
     @property
     @pulumi.getter
-    def addresses(self) -> List[str]:
+    def addresses(self) -> Sequence[str]:
         """
         An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
         """

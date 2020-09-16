@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -46,7 +46,7 @@ class ListenerDefaultActionArgs:
                  authenticate_oidc: Optional[pulumi.Input['ListenerDefaultActionAuthenticateOidcArgs']] = None,
                  fixed_response: Optional[pulumi.Input['ListenerDefaultActionFixedResponseArgs']] = None,
                  forward: Optional[pulumi.Input['ListenerDefaultActionForwardArgs']] = None,
-                 order: Optional[pulumi.Input[float]] = None,
+                 order: Optional[pulumi.Input[int]] = None,
                  redirect: Optional[pulumi.Input['ListenerDefaultActionRedirectArgs']] = None,
                  target_group_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -128,11 +128,11 @@ class ListenerDefaultActionArgs:
 
     @property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[float]]:
+    def order(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[float]]):
+    def order(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "order", value)
 
     @property
@@ -170,7 +170,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
                  on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  session_cookie_name: Optional[pulumi.Input[str]] = None,
-                 session_timeout: Optional[pulumi.Input[float]] = None):
+                 session_timeout: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] user_pool_arn: The ARN of the Cognito user pool.
         :param pulumi.Input[str] user_pool_client_id: The ID of the Cognito user pool client.
@@ -179,7 +179,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
         :param pulumi.Input[str] on_unauthenticated_request: The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         :param pulumi.Input[str] scope: The set of user claims to be requested from the IdP.
         :param pulumi.Input[str] session_cookie_name: The name of the cookie used to maintain session information.
-        :param pulumi.Input[float] session_timeout: The maximum duration of the authentication session, in seconds.
+        :param pulumi.Input[int] session_timeout: The maximum duration of the authentication session, in seconds.
         """
         pulumi.set(__self__, "user_pool_arn", user_pool_arn)
         pulumi.set(__self__, "user_pool_client_id", user_pool_client_id)
@@ -281,14 +281,14 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
 
     @property
     @pulumi.getter(name="sessionTimeout")
-    def session_timeout(self) -> Optional[pulumi.Input[float]]:
+    def session_timeout(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum duration of the authentication session, in seconds.
         """
         return pulumi.get(self, "session_timeout")
 
     @session_timeout.setter
-    def session_timeout(self, value: Optional[pulumi.Input[float]]):
+    def session_timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "session_timeout", value)
 
 
@@ -305,7 +305,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
                  on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  session_cookie_name: Optional[pulumi.Input[str]] = None,
-                 session_timeout: Optional[pulumi.Input[float]] = None):
+                 session_timeout: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] authorization_endpoint: The authorization endpoint of the IdP.
         :param pulumi.Input[str] client_id: The OAuth 2.0 client identifier.
@@ -317,7 +317,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
         :param pulumi.Input[str] on_unauthenticated_request: The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         :param pulumi.Input[str] scope: The set of user claims to be requested from the IdP.
         :param pulumi.Input[str] session_cookie_name: The name of the cookie used to maintain session information.
-        :param pulumi.Input[float] session_timeout: The maximum duration of the authentication session, in seconds.
+        :param pulumi.Input[int] session_timeout: The maximum duration of the authentication session, in seconds.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "client_id", client_id)
@@ -458,14 +458,14 @@ class ListenerDefaultActionAuthenticateOidcArgs:
 
     @property
     @pulumi.getter(name="sessionTimeout")
-    def session_timeout(self) -> Optional[pulumi.Input[float]]:
+    def session_timeout(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum duration of the authentication session, in seconds.
         """
         return pulumi.get(self, "session_timeout")
 
     @session_timeout.setter
-    def session_timeout(self, value: Optional[pulumi.Input[float]]):
+    def session_timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "session_timeout", value)
 
 
@@ -526,10 +526,10 @@ class ListenerDefaultActionFixedResponseArgs:
 @pulumi.input_type
 class ListenerDefaultActionForwardArgs:
     def __init__(__self__, *,
-                 target_groups: pulumi.Input[List[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]],
+                 target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]],
                  stickiness: Optional[pulumi.Input['ListenerDefaultActionForwardStickinessArgs']] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]] target_groups: One or more target groups block.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]] target_groups: One or more target groups block.
         :param pulumi.Input['ListenerDefaultActionForwardStickinessArgs'] stickiness: The target group stickiness for the rule.
         """
         pulumi.set(__self__, "target_groups", target_groups)
@@ -538,14 +538,14 @@ class ListenerDefaultActionForwardArgs:
 
     @property
     @pulumi.getter(name="targetGroups")
-    def target_groups(self) -> pulumi.Input[List[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]:
+    def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]:
         """
         One or more target groups block.
         """
         return pulumi.get(self, "target_groups")
 
     @target_groups.setter
-    def target_groups(self, value: pulumi.Input[List[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]):
+    def target_groups(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]):
         pulumi.set(self, "target_groups", value)
 
     @property
@@ -564,10 +564,10 @@ class ListenerDefaultActionForwardArgs:
 @pulumi.input_type
 class ListenerDefaultActionForwardStickinessArgs:
     def __init__(__self__, *,
-                 duration: pulumi.Input[float],
+                 duration: pulumi.Input[int],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[float] duration: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        :param pulumi.Input[int] duration: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
         :param pulumi.Input[bool] enabled: Indicates whether target group stickiness is enabled.
         """
         pulumi.set(__self__, "duration", duration)
@@ -576,14 +576,14 @@ class ListenerDefaultActionForwardStickinessArgs:
 
     @property
     @pulumi.getter
-    def duration(self) -> pulumi.Input[float]:
+    def duration(self) -> pulumi.Input[int]:
         """
         The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: pulumi.Input[float]):
+    def duration(self, value: pulumi.Input[int]):
         pulumi.set(self, "duration", value)
 
     @property
@@ -603,10 +603,10 @@ class ListenerDefaultActionForwardStickinessArgs:
 class ListenerDefaultActionForwardTargetGroupArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
-                 weight: Optional[pulumi.Input[float]] = None):
+                 weight: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target group.
-        :param pulumi.Input[float] weight: The weight. The range is 0 to 999.
+        :param pulumi.Input[int] weight: The weight. The range is 0 to 999.
         """
         pulumi.set(__self__, "arn", arn)
         if weight is not None:
@@ -626,14 +626,14 @@ class ListenerDefaultActionForwardTargetGroupArgs:
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[float]]:
+    def weight(self) -> Optional[pulumi.Input[int]]:
         """
         The weight. The range is 0 to 999.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[float]]):
+    def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -747,7 +747,7 @@ class ListenerRuleActionArgs:
                  authenticate_oidc: Optional[pulumi.Input['ListenerRuleActionAuthenticateOidcArgs']] = None,
                  fixed_response: Optional[pulumi.Input['ListenerRuleActionFixedResponseArgs']] = None,
                  forward: Optional[pulumi.Input['ListenerRuleActionForwardArgs']] = None,
-                 order: Optional[pulumi.Input[float]] = None,
+                 order: Optional[pulumi.Input[int]] = None,
                  redirect: Optional[pulumi.Input['ListenerRuleActionRedirectArgs']] = None,
                  target_group_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -837,11 +837,11 @@ class ListenerRuleActionArgs:
 
     @property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[float]]:
+    def order(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[float]]):
+    def order(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "order", value)
 
     @property
@@ -879,7 +879,7 @@ class ListenerRuleActionAuthenticateCognitoArgs:
                  on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  session_cookie_name: Optional[pulumi.Input[str]] = None,
-                 session_timeout: Optional[pulumi.Input[float]] = None):
+                 session_timeout: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] user_pool_arn: The ARN of the Cognito user pool.
         :param pulumi.Input[str] user_pool_client_id: The ID of the Cognito user pool client.
@@ -888,7 +888,7 @@ class ListenerRuleActionAuthenticateCognitoArgs:
         :param pulumi.Input[str] on_unauthenticated_request: The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         :param pulumi.Input[str] scope: The set of user claims to be requested from the IdP.
         :param pulumi.Input[str] session_cookie_name: The name of the cookie used to maintain session information.
-        :param pulumi.Input[float] session_timeout: The maximum duration of the authentication session, in seconds.
+        :param pulumi.Input[int] session_timeout: The maximum duration of the authentication session, in seconds.
         """
         pulumi.set(__self__, "user_pool_arn", user_pool_arn)
         pulumi.set(__self__, "user_pool_client_id", user_pool_client_id)
@@ -990,14 +990,14 @@ class ListenerRuleActionAuthenticateCognitoArgs:
 
     @property
     @pulumi.getter(name="sessionTimeout")
-    def session_timeout(self) -> Optional[pulumi.Input[float]]:
+    def session_timeout(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum duration of the authentication session, in seconds.
         """
         return pulumi.get(self, "session_timeout")
 
     @session_timeout.setter
-    def session_timeout(self, value: Optional[pulumi.Input[float]]):
+    def session_timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "session_timeout", value)
 
 
@@ -1014,7 +1014,7 @@ class ListenerRuleActionAuthenticateOidcArgs:
                  on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  session_cookie_name: Optional[pulumi.Input[str]] = None,
-                 session_timeout: Optional[pulumi.Input[float]] = None):
+                 session_timeout: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] authorization_endpoint: The authorization endpoint of the IdP.
         :param pulumi.Input[str] client_id: The OAuth 2.0 client identifier.
@@ -1026,7 +1026,7 @@ class ListenerRuleActionAuthenticateOidcArgs:
         :param pulumi.Input[str] on_unauthenticated_request: The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         :param pulumi.Input[str] scope: The set of user claims to be requested from the IdP.
         :param pulumi.Input[str] session_cookie_name: The name of the cookie used to maintain session information.
-        :param pulumi.Input[float] session_timeout: The maximum duration of the authentication session, in seconds.
+        :param pulumi.Input[int] session_timeout: The maximum duration of the authentication session, in seconds.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "client_id", client_id)
@@ -1167,14 +1167,14 @@ class ListenerRuleActionAuthenticateOidcArgs:
 
     @property
     @pulumi.getter(name="sessionTimeout")
-    def session_timeout(self) -> Optional[pulumi.Input[float]]:
+    def session_timeout(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum duration of the authentication session, in seconds.
         """
         return pulumi.get(self, "session_timeout")
 
     @session_timeout.setter
-    def session_timeout(self, value: Optional[pulumi.Input[float]]):
+    def session_timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "session_timeout", value)
 
 
@@ -1235,10 +1235,10 @@ class ListenerRuleActionFixedResponseArgs:
 @pulumi.input_type
 class ListenerRuleActionForwardArgs:
     def __init__(__self__, *,
-                 target_groups: pulumi.Input[List[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]],
+                 target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]],
                  stickiness: Optional[pulumi.Input['ListenerRuleActionForwardStickinessArgs']] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]] target_groups: One or more target groups block.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]] target_groups: One or more target groups block.
         :param pulumi.Input['ListenerRuleActionForwardStickinessArgs'] stickiness: The target group stickiness for the rule.
         """
         pulumi.set(__self__, "target_groups", target_groups)
@@ -1247,14 +1247,14 @@ class ListenerRuleActionForwardArgs:
 
     @property
     @pulumi.getter(name="targetGroups")
-    def target_groups(self) -> pulumi.Input[List[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]:
+    def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]:
         """
         One or more target groups block.
         """
         return pulumi.get(self, "target_groups")
 
     @target_groups.setter
-    def target_groups(self, value: pulumi.Input[List[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]):
+    def target_groups(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]):
         pulumi.set(self, "target_groups", value)
 
     @property
@@ -1273,10 +1273,10 @@ class ListenerRuleActionForwardArgs:
 @pulumi.input_type
 class ListenerRuleActionForwardStickinessArgs:
     def __init__(__self__, *,
-                 duration: pulumi.Input[float],
+                 duration: pulumi.Input[int],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[float] duration: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+        :param pulumi.Input[int] duration: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
         :param pulumi.Input[bool] enabled: Indicates whether target group stickiness is enabled.
         """
         pulumi.set(__self__, "duration", duration)
@@ -1285,14 +1285,14 @@ class ListenerRuleActionForwardStickinessArgs:
 
     @property
     @pulumi.getter
-    def duration(self) -> pulumi.Input[float]:
+    def duration(self) -> pulumi.Input[int]:
         """
         The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: pulumi.Input[float]):
+    def duration(self, value: pulumi.Input[int]):
         pulumi.set(self, "duration", value)
 
     @property
@@ -1312,10 +1312,10 @@ class ListenerRuleActionForwardStickinessArgs:
 class ListenerRuleActionForwardTargetGroupArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
-                 weight: Optional[pulumi.Input[float]] = None):
+                 weight: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target group.
-        :param pulumi.Input[float] weight: The weight. The range is 0 to 999.
+        :param pulumi.Input[int] weight: The weight. The range is 0 to 999.
         """
         pulumi.set(__self__, "arn", arn)
         if weight is not None:
@@ -1335,14 +1335,14 @@ class ListenerRuleActionForwardTargetGroupArgs:
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[float]]:
+    def weight(self) -> Optional[pulumi.Input[int]]:
         """
         The weight. The range is 0 to 999.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[float]]):
+    def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -1455,14 +1455,14 @@ class ListenerRuleConditionArgs:
                  http_header: Optional[pulumi.Input['ListenerRuleConditionHttpHeaderArgs']] = None,
                  http_request_method: Optional[pulumi.Input['ListenerRuleConditionHttpRequestMethodArgs']] = None,
                  path_pattern: Optional[pulumi.Input['ListenerRuleConditionPathPatternArgs']] = None,
-                 query_strings: Optional[pulumi.Input[List[pulumi.Input['ListenerRuleConditionQueryStringArgs']]]] = None,
+                 query_strings: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]]] = None,
                  source_ip: Optional[pulumi.Input['ListenerRuleConditionSourceIpArgs']] = None):
         """
         :param pulumi.Input['ListenerRuleConditionHostHeaderArgs'] host_header: Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
         :param pulumi.Input['ListenerRuleConditionHttpHeaderArgs'] http_header: HTTP headers to match. HTTP Header block fields documented below.
         :param pulumi.Input['ListenerRuleConditionHttpRequestMethodArgs'] http_request_method: Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
         :param pulumi.Input['ListenerRuleConditionPathPatternArgs'] path_pattern: Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
-        :param pulumi.Input[List[pulumi.Input['ListenerRuleConditionQueryStringArgs']]] query_strings: Query strings to match. Query String block fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]] query_strings: Query strings to match. Query String block fields documented below.
         :param pulumi.Input['ListenerRuleConditionSourceIpArgs'] source_ip: Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
         """
         if host_header is not None:
@@ -1528,14 +1528,14 @@ class ListenerRuleConditionArgs:
 
     @property
     @pulumi.getter(name="queryStrings")
-    def query_strings(self) -> Optional[pulumi.Input[List[pulumi.Input['ListenerRuleConditionQueryStringArgs']]]]:
+    def query_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]]]:
         """
         Query strings to match. Query String block fields documented below.
         """
         return pulumi.get(self, "query_strings")
 
     @query_strings.setter
-    def query_strings(self, value: Optional[pulumi.Input[List[pulumi.Input['ListenerRuleConditionQueryStringArgs']]]]):
+    def query_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]]]):
         pulumi.set(self, "query_strings", value)
 
     @property
@@ -1554,22 +1554,22 @@ class ListenerRuleConditionArgs:
 @pulumi.input_type
 class ListenerRuleConditionHostHeaderArgs:
     def __init__(__self__, *,
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1577,10 +1577,10 @@ class ListenerRuleConditionHostHeaderArgs:
 class ListenerRuleConditionHttpHeaderArgs:
     def __init__(__self__, *,
                  http_header_name: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[str] http_header_name: Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
-        :param pulumi.Input[List[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         pulumi.set(__self__, "http_header_name", http_header_name)
         pulumi.set(__self__, "values", values)
@@ -1599,58 +1599,58 @@ class ListenerRuleConditionHttpHeaderArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
 class ListenerRuleConditionHttpRequestMethodArgs:
     def __init__(__self__, *,
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
 class ListenerRuleConditionPathPatternArgs:
     def __init__(__self__, *,
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1695,22 +1695,22 @@ class ListenerRuleConditionQueryStringArgs:
 @pulumi.input_type
 class ListenerRuleConditionSourceIpArgs:
     def __init__(__self__, *,
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1826,24 +1826,24 @@ class LoadBalancerSubnetMappingArgs:
 class TargetGroupHealthCheckArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 healthy_threshold: Optional[pulumi.Input[float]] = None,
-                 interval: Optional[pulumi.Input[float]] = None,
+                 healthy_threshold: Optional[pulumi.Input[int]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
                  matcher: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 timeout: Optional[pulumi.Input[float]] = None,
-                 unhealthy_threshold: Optional[pulumi.Input[float]] = None):
+                 timeout: Optional[pulumi.Input[int]] = None,
+                 unhealthy_threshold: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] enabled: Boolean to enable / disable `stickiness`. Default is `true`
-        :param pulumi.Input[float] healthy_threshold: The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
-        :param pulumi.Input[float] interval: The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
+        :param pulumi.Input[int] healthy_threshold: The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
+        :param pulumi.Input[int] interval: The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
         :param pulumi.Input[str] matcher: The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
         :param pulumi.Input[str] path: The destination for the health check request. Applies to Application Load Balancers only (HTTP/HTTPS), not Network Load Balancers (TCP).
         :param pulumi.Input[str] port: The port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets. Should be one of "TCP", "TLS", "UDP", "TCP_UDP", "HTTP" or "HTTPS". Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
-        :param pulumi.Input[float] timeout: The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
-        :param pulumi.Input[float] unhealthy_threshold: The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
+        :param pulumi.Input[int] timeout: The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+        :param pulumi.Input[int] unhealthy_threshold: The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1878,26 +1878,26 @@ class TargetGroupHealthCheckArgs:
 
     @property
     @pulumi.getter(name="healthyThreshold")
-    def healthy_threshold(self) -> Optional[pulumi.Input[float]]:
+    def healthy_threshold(self) -> Optional[pulumi.Input[int]]:
         """
         The number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
         """
         return pulumi.get(self, "healthy_threshold")
 
     @healthy_threshold.setter
-    def healthy_threshold(self, value: Optional[pulumi.Input[float]]):
+    def healthy_threshold(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "healthy_threshold", value)
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[float]]:
+    def interval(self) -> Optional[pulumi.Input[int]]:
         """
         The approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[float]]):
+    def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
 
     @property
@@ -1950,26 +1950,26 @@ class TargetGroupHealthCheckArgs:
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[float]]:
+    def timeout(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[float]]):
+    def timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout", value)
 
     @property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> Optional[pulumi.Input[float]]:
+    def unhealthy_threshold(self) -> Optional[pulumi.Input[int]]:
         """
         The number of consecutive health check failures required before considering the target unhealthy . For Network Load Balancers, this value must be the same as the `healthy_threshold`. Defaults to 3.
         """
         return pulumi.get(self, "unhealthy_threshold")
 
     @unhealthy_threshold.setter
-    def unhealthy_threshold(self, value: Optional[pulumi.Input[float]]):
+    def unhealthy_threshold(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "unhealthy_threshold", value)
 
 
@@ -1977,11 +1977,11 @@ class TargetGroupHealthCheckArgs:
 class TargetGroupStickinessArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 cookie_duration: Optional[pulumi.Input[float]] = None,
+                 cookie_duration: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] type: The type of sticky sessions. The only current possible value is `lb_cookie`.
-        :param pulumi.Input[float] cookie_duration: The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+        :param pulumi.Input[int] cookie_duration: The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
         :param pulumi.Input[bool] enabled: Indicates whether  health checks are enabled. Defaults to true.
         """
         pulumi.set(__self__, "type", type)
@@ -2004,14 +2004,14 @@ class TargetGroupStickinessArgs:
 
     @property
     @pulumi.getter(name="cookieDuration")
-    def cookie_duration(self) -> Optional[pulumi.Input[float]]:
+    def cookie_duration(self) -> Optional[pulumi.Input[int]]:
         """
         The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
         """
         return pulumi.get(self, "cookie_duration")
 
     @cookie_duration.setter
-    def cookie_duration(self, value: Optional[pulumi.Input[float]]):
+    def cookie_duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cookie_duration", value)
 
     @property

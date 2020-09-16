@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -29,7 +29,7 @@ class Endpoint(pulumi.CustomResource):
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[float]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  service_access_role: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']] mongodb_settings: Configuration block with MongoDB settings. Detailed below.
         :param pulumi.Input[str] password: The password to be used to login to the endpoint database.
-        :param pulumi.Input[float] port: The port used by the endpoint database.
+        :param pulumi.Input[int] port: The port used by the endpoint database.
         :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: Configuration block with S3 settings. Detailed below.
         :param pulumi.Input[str] server_name: The host name of the server.
         :param pulumi.Input[str] service_access_role: The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
@@ -157,7 +157,7 @@ class Endpoint(pulumi.CustomResource):
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
             password: Optional[pulumi.Input[str]] = None,
-            port: Optional[pulumi.Input[float]] = None,
+            port: Optional[pulumi.Input[int]] = None,
             s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
             server_name: Optional[pulumi.Input[str]] = None,
             service_access_role: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']] mongodb_settings: Configuration block with MongoDB settings. Detailed below.
         :param pulumi.Input[str] password: The password to be used to login to the endpoint database.
-        :param pulumi.Input[float] port: The port used by the endpoint database.
+        :param pulumi.Input[int] port: The port used by the endpoint database.
         :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: Configuration block with S3 settings. Detailed below.
         :param pulumi.Input[str] server_name: The host name of the server.
         :param pulumi.Input[str] service_access_role: The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
@@ -324,7 +324,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[Optional[float]]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         The port used by the endpoint database.
         """

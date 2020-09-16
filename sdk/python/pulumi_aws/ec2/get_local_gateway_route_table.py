@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -46,7 +46,7 @@ class GetLocalGatewayRouteTableResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetLocalGatewayRouteTableFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetLocalGatewayRouteTableFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -98,7 +98,7 @@ class AwaitableGetLocalGatewayRouteTableResult(GetLocalGatewayRouteTableResult):
             tags=self.tags)
 
 
-def get_local_gateway_route_table(filters: Optional[List[pulumi.InputType['GetLocalGatewayRouteTableFilterArgs']]] = None,
+def get_local_gateway_route_table(filters: Optional[Sequence[pulumi.InputType['GetLocalGatewayRouteTableFilterArgs']]] = None,
                                   local_gateway_id: Optional[str] = None,
                                   local_gateway_route_table_id: Optional[str] = None,
                                   outpost_arn: Optional[str] = None,

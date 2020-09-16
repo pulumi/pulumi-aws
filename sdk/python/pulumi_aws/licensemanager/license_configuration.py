@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['LicenseConfiguration']
@@ -16,10 +16,10 @@ class LicenseConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 license_count: Optional[pulumi.Input[float]] = None,
+                 license_count: Optional[pulumi.Input[int]] = None,
                  license_count_hard_limit: Optional[pulumi.Input[bool]] = None,
                  license_counting_type: Optional[pulumi.Input[str]] = None,
-                 license_rules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 license_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -61,10 +61,10 @@ class LicenseConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the license configuration.
-        :param pulumi.Input[float] license_count: Number of licenses managed by the license configuration.
+        :param pulumi.Input[int] license_count: Number of licenses managed by the license configuration.
         :param pulumi.Input[bool] license_count_hard_limit: Sets the number of available licenses as a hard limit.
         :param pulumi.Input[str] license_counting_type: Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-        :param pulumi.Input[List[pulumi.Input[str]]] license_rules: Array of configured License Manager rules.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] license_rules: Array of configured License Manager rules.
         :param pulumi.Input[str] name: Name of the license configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
@@ -105,10 +105,10 @@ class LicenseConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            license_count: Optional[pulumi.Input[float]] = None,
+            license_count: Optional[pulumi.Input[int]] = None,
             license_count_hard_limit: Optional[pulumi.Input[bool]] = None,
             license_counting_type: Optional[pulumi.Input[str]] = None,
-            license_rules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            license_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LicenseConfiguration':
         """
@@ -119,10 +119,10 @@ class LicenseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the license configuration.
-        :param pulumi.Input[float] license_count: Number of licenses managed by the license configuration.
+        :param pulumi.Input[int] license_count: Number of licenses managed by the license configuration.
         :param pulumi.Input[bool] license_count_hard_limit: Sets the number of available licenses as a hard limit.
         :param pulumi.Input[str] license_counting_type: Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-        :param pulumi.Input[List[pulumi.Input[str]]] license_rules: Array of configured License Manager rules.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] license_rules: Array of configured License Manager rules.
         :param pulumi.Input[str] name: Name of the license configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
@@ -149,7 +149,7 @@ class LicenseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseCount")
-    def license_count(self) -> pulumi.Output[Optional[float]]:
+    def license_count(self) -> pulumi.Output[Optional[int]]:
         """
         Number of licenses managed by the license configuration.
         """
@@ -173,7 +173,7 @@ class LicenseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseRules")
-    def license_rules(self) -> pulumi.Output[Optional[List[str]]]:
+    def license_rules(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Array of configured License Manager rules.
         """

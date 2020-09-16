@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -26,8 +26,8 @@ class GetServiceResult:
         if cluster_arn and not isinstance(cluster_arn, str):
             raise TypeError("Expected argument 'cluster_arn' to be a str")
         pulumi.set(__self__, "cluster_arn", cluster_arn)
-        if desired_count and not isinstance(desired_count, float):
-            raise TypeError("Expected argument 'desired_count' to be a float")
+        if desired_count and not isinstance(desired_count, int):
+            raise TypeError("Expected argument 'desired_count' to be a int")
         pulumi.set(__self__, "desired_count", desired_count)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -60,7 +60,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="desiredCount")
-    def desired_count(self) -> float:
+    def desired_count(self) -> int:
         """
         The number of tasks for the ECS Service
         """

@@ -31,8 +31,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = pinpoint.NewBaiduChannel(ctx, "channel", &pinpoint.BaiduChannelArgs{
-// 			ApiKey:        pulumi.String(""),
 // 			ApplicationId: app.ApplicationId,
+// 			ApiKey:        pulumi.String(""),
 // 			SecretKey:     pulumi.String(""),
 // 		})
 // 		if err != nil {

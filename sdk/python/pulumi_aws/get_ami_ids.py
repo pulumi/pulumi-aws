@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -46,12 +46,12 @@ class GetAmiIdsResult:
 
     @property
     @pulumi.getter(name="executableUsers")
-    def executable_users(self) -> Optional[List[str]]:
+    def executable_users(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "executable_users")
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.GetAmiIdsFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetAmiIdsFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -64,7 +64,7 @@ class GetAmiIdsResult:
 
     @property
     @pulumi.getter
-    def ids(self) -> List[str]:
+    def ids(self) -> Sequence[str]:
         return pulumi.get(self, "ids")
 
     @property
@@ -74,7 +74,7 @@ class GetAmiIdsResult:
 
     @property
     @pulumi.getter
-    def owners(self) -> List[str]:
+    def owners(self) -> Sequence[str]:
         return pulumi.get(self, "owners")
 
     @property
@@ -98,10 +98,10 @@ class AwaitableGetAmiIdsResult(GetAmiIdsResult):
             sort_ascending=self.sort_ascending)
 
 
-def get_ami_ids(executable_users: Optional[List[str]] = None,
-                filters: Optional[List[pulumi.InputType['GetAmiIdsFilterArgs']]] = None,
+def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
+                filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs']]] = None,
                 name_regex: Optional[str] = None,
-                owners: Optional[List[str]] = None,
+                owners: Optional[Sequence[str]] = None,
                 sort_ascending: Optional[bool] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiIdsResult:
     """
@@ -121,9 +121,9 @@ def get_ami_ids(executable_users: Optional[List[str]] = None,
     ```
 
 
-    :param List[str] executable_users: Limit search to users with *explicit* launch
+    :param Sequence[str] executable_users: Limit search to users with *explicit* launch
            permission on  the image. Valid items are the numeric account ID or `self`.
-    :param List[pulumi.InputType['GetAmiIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There
+    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There
            are several valid keys, for a full reference, check out
            [describe-images in the AWS CLI reference][1].
     :param str name_regex: A regex string to apply to the AMI list returned
@@ -131,7 +131,7 @@ def get_ami_ids(executable_users: Optional[List[str]] = None,
            This filtering is done locally on what AWS returns, and could have a performance
            impact if the result is large. It is recommended to combine this with other
            options to narrow down the list AWS returns.
-    :param List[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+    :param Sequence[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
     :param bool sort_ascending: Used to sort AMIs by creation time.
     """
     __args__ = dict()

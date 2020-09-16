@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -26,14 +26,14 @@ class GetGroupResult:
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
-        if default_cooldown and not isinstance(default_cooldown, float):
-            raise TypeError("Expected argument 'default_cooldown' to be a float")
+        if default_cooldown and not isinstance(default_cooldown, int):
+            raise TypeError("Expected argument 'default_cooldown' to be a int")
         pulumi.set(__self__, "default_cooldown", default_cooldown)
-        if desired_capacity and not isinstance(desired_capacity, float):
-            raise TypeError("Expected argument 'desired_capacity' to be a float")
+        if desired_capacity and not isinstance(desired_capacity, int):
+            raise TypeError("Expected argument 'desired_capacity' to be a int")
         pulumi.set(__self__, "desired_capacity", desired_capacity)
-        if health_check_grace_period and not isinstance(health_check_grace_period, float):
-            raise TypeError("Expected argument 'health_check_grace_period' to be a float")
+        if health_check_grace_period and not isinstance(health_check_grace_period, int):
+            raise TypeError("Expected argument 'health_check_grace_period' to be a int")
         pulumi.set(__self__, "health_check_grace_period", health_check_grace_period)
         if health_check_type and not isinstance(health_check_type, str):
             raise TypeError("Expected argument 'health_check_type' to be a str")
@@ -47,11 +47,11 @@ class GetGroupResult:
         if load_balancers and not isinstance(load_balancers, list):
             raise TypeError("Expected argument 'load_balancers' to be a list")
         pulumi.set(__self__, "load_balancers", load_balancers)
-        if max_size and not isinstance(max_size, float):
-            raise TypeError("Expected argument 'max_size' to be a float")
+        if max_size and not isinstance(max_size, int):
+            raise TypeError("Expected argument 'max_size' to be a int")
         pulumi.set(__self__, "max_size", max_size)
-        if min_size and not isinstance(min_size, float):
-            raise TypeError("Expected argument 'min_size' to be a float")
+        if min_size and not isinstance(min_size, int):
+            raise TypeError("Expected argument 'min_size' to be a int")
         pulumi.set(__self__, "min_size", min_size)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -88,7 +88,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> List[str]:
+    def availability_zones(self) -> Sequence[str]:
         """
         One or more Availability Zones for the group.
         """
@@ -96,12 +96,12 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="defaultCooldown")
-    def default_cooldown(self) -> float:
+    def default_cooldown(self) -> int:
         return pulumi.get(self, "default_cooldown")
 
     @property
     @pulumi.getter(name="desiredCapacity")
-    def desired_capacity(self) -> float:
+    def desired_capacity(self) -> int:
         """
         The desired size of the group.
         """
@@ -109,7 +109,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="healthCheckGracePeriod")
-    def health_check_grace_period(self) -> float:
+    def health_check_grace_period(self) -> int:
         """
         The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
         """
@@ -141,7 +141,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> List[str]:
+    def load_balancers(self) -> Sequence[str]:
         """
         One or more load balancers associated with the group.
         """
@@ -149,7 +149,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="maxSize")
-    def max_size(self) -> float:
+    def max_size(self) -> int:
         """
         The maximum size of the group.
         """
@@ -157,7 +157,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="minSize")
-    def min_size(self) -> float:
+    def min_size(self) -> int:
         """
         The minimum size of the group.
         """
@@ -202,7 +202,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="targetGroupArns")
-    def target_group_arns(self) -> List[str]:
+    def target_group_arns(self) -> Sequence[str]:
         """
         The Amazon Resource Names (ARN) of the target groups for your load balancer.
         """
@@ -210,7 +210,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="terminationPolicies")
-    def termination_policies(self) -> List[str]:
+    def termination_policies(self) -> Sequence[str]:
         """
         The termination policies for the group.
         """

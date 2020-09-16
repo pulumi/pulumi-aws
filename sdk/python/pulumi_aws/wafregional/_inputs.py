@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -384,12 +384,12 @@ class RegexMatchSetRegexMatchTupleFieldToMatchArgs:
 class RuleGroupActivatedRuleArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['RuleGroupActivatedRuleActionArgs'],
-                 priority: pulumi.Input[float],
+                 priority: pulumi.Input[int],
                  rule_id: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['RuleGroupActivatedRuleActionArgs'] action: Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
-        :param pulumi.Input[float] priority: Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+        :param pulumi.Input[int] priority: Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
         :param pulumi.Input[str] rule_id: The ID of a `waf_regional_rule`
         :param pulumi.Input[str] type: The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
         """
@@ -413,14 +413,14 @@ class RuleGroupActivatedRuleArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Input[float]:
+    def priority(self) -> pulumi.Input[int]:
         """
         Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: pulumi.Input[float]):
+    def priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -513,14 +513,14 @@ class SizeConstraintSetSizeConstraintArgs:
     def __init__(__self__, *,
                  comparison_operator: pulumi.Input[str],
                  field_to_match: pulumi.Input['SizeConstraintSetSizeConstraintFieldToMatchArgs'],
-                 size: pulumi.Input[float],
+                 size: pulumi.Input[int],
                  text_transformation: pulumi.Input[str]):
         """
         :param pulumi.Input[str] comparison_operator: The type of comparison you want to perform.
                e.g. `EQ`, `NE`, `LT`, `GT`.
                See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
         :param pulumi.Input['SizeConstraintSetSizeConstraintFieldToMatchArgs'] field_to_match: Specifies where in a web request to look for the size constraint.
-        :param pulumi.Input[float] size: The size in bytes that you want to compare against the size of the specified `field_to_match`.
+        :param pulumi.Input[int] size: The size in bytes that you want to compare against the size of the specified `field_to_match`.
                Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
         :param pulumi.Input[str] text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
                If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
@@ -562,7 +562,7 @@ class SizeConstraintSetSizeConstraintArgs:
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Input[float]:
+    def size(self) -> pulumi.Input[int]:
         """
         The size in bytes that you want to compare against the size of the specified `field_to_match`.
         Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
@@ -570,7 +570,7 @@ class SizeConstraintSetSizeConstraintArgs:
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: pulumi.Input[float]):
+    def size(self, value: pulumi.Input[int]):
         pulumi.set(self, "size", value)
 
     @property
@@ -791,22 +791,22 @@ class WebAclLoggingConfigurationArgs:
 @pulumi.input_type
 class WebAclLoggingConfigurationRedactedFieldsArgs:
     def __init__(__self__, *,
-                 field_to_matches: pulumi.Input[List[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]]):
+                 field_to_matches: pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]]):
         """
-        :param pulumi.Input[List[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]] field_to_matches: Set of configuration blocks for fields to redact. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]] field_to_matches: Set of configuration blocks for fields to redact. Detailed below.
         """
         pulumi.set(__self__, "field_to_matches", field_to_matches)
 
     @property
     @pulumi.getter(name="fieldToMatches")
-    def field_to_matches(self) -> pulumi.Input[List[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]]:
+    def field_to_matches(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]]:
         """
         Set of configuration blocks for fields to redact. Detailed below.
         """
         return pulumi.get(self, "field_to_matches")
 
     @field_to_matches.setter
-    def field_to_matches(self, value: pulumi.Input[List[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]]):
+    def field_to_matches(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]]):
         pulumi.set(self, "field_to_matches", value)
 
 
@@ -851,13 +851,13 @@ class WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs:
 @pulumi.input_type
 class WebAclRuleArgs:
     def __init__(__self__, *,
-                 priority: pulumi.Input[float],
+                 priority: pulumi.Input[int],
                  rule_id: pulumi.Input[str],
                  action: Optional[pulumi.Input['WebAclRuleActionArgs']] = None,
                  override_action: Optional[pulumi.Input['WebAclRuleOverrideActionArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] priority: Specifies the order in which the rules in a WebACL are evaluated.
+        :param pulumi.Input[int] priority: Specifies the order in which the rules in a WebACL are evaluated.
                Rules with a lower value are evaluated before rules with a higher value.
         :param pulumi.Input[str] rule_id: ID of the associated WAF (Regional) rule (e.g. `wafregional.Rule`). WAF (Global) rules cannot be used.
         :param pulumi.Input['WebAclRuleActionArgs'] action: Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
@@ -875,7 +875,7 @@ class WebAclRuleArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Input[float]:
+    def priority(self) -> pulumi.Input[int]:
         """
         Specifies the order in which the rules in a WebACL are evaluated.
         Rules with a lower value are evaluated before rules with a higher value.
@@ -883,7 +883,7 @@ class WebAclRuleArgs:
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: pulumi.Input[float]):
+    def priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "priority", value)
 
     @property

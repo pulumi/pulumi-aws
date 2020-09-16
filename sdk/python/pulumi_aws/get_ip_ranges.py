@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -38,8 +38,8 @@ class GetIpRangesResult:
         if services and not isinstance(services, list):
             raise TypeError("Expected argument 'services' to be a list")
         pulumi.set(__self__, "services", services)
-        if sync_token and not isinstance(sync_token, float):
-            raise TypeError("Expected argument 'sync_token' to be a float")
+        if sync_token and not isinstance(sync_token, int):
+            raise TypeError("Expected argument 'sync_token' to be a int")
         pulumi.set(__self__, "sync_token", sync_token)
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
@@ -47,7 +47,7 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter(name="cidrBlocks")
-    def cidr_blocks(self) -> List[str]:
+    def cidr_blocks(self) -> Sequence[str]:
         """
         The lexically ordered list of CIDR blocks.
         """
@@ -71,7 +71,7 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter(name="ipv6CidrBlocks")
-    def ipv6_cidr_blocks(self) -> List[str]:
+    def ipv6_cidr_blocks(self) -> Sequence[str]:
         """
         The lexically ordered list of IPv6 CIDR blocks.
         """
@@ -79,17 +79,17 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter
-    def regions(self) -> Optional[List[str]]:
+    def regions(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "regions")
 
     @property
     @pulumi.getter
-    def services(self) -> List[str]:
+    def services(self) -> Sequence[str]:
         return pulumi.get(self, "services")
 
     @property
     @pulumi.getter(name="syncToken")
-    def sync_token(self) -> float:
+    def sync_token(self) -> int:
         """
         The publication time of the IP ranges, in Unix epoch time format
         (e.g. `1470267965`).
@@ -118,8 +118,8 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             url=self.url)
 
 
-def get_ip_ranges(regions: Optional[List[str]] = None,
-                  services: Optional[List[str]] = None,
+def get_ip_ranges(regions: Optional[Sequence[str]] = None,
+                  services: Optional[Sequence[str]] = None,
                   url: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpRangesResult:
     """
@@ -151,10 +151,10 @@ def get_ip_ranges(regions: Optional[List[str]] = None,
     ```
 
 
-    :param List[str] regions: Filter IP ranges by regions (or include all regions, if
+    :param Sequence[str] regions: Filter IP ranges by regions (or include all regions, if
            omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
            (e.g. `eu-central-1`)
-    :param List[str] services: Filter IP ranges by services. Valid items are `amazon`
+    :param Sequence[str] services: Filter IP ranges by services. Valid items are `amazon`
            (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
            `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
            `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the

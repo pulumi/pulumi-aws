@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -59,7 +59,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter(name="encryptionConfigurations")
-    def encryption_configurations(self) -> List['outputs.GetRepositoryEncryptionConfigurationResult']:
+    def encryption_configurations(self) -> Sequence['outputs.GetRepositoryEncryptionConfigurationResult']:
         """
         Encryption configuration for the repository. See Encryption Configuration below.
         """
@@ -75,7 +75,7 @@ class GetRepositoryResult:
 
     @property
     @pulumi.getter(name="imageScanningConfigurations")
-    def image_scanning_configurations(self) -> List['outputs.GetRepositoryImageScanningConfigurationResult']:
+    def image_scanning_configurations(self) -> Sequence['outputs.GetRepositoryImageScanningConfigurationResult']:
         """
         Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
         """

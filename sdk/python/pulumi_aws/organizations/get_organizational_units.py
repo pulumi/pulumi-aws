@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -33,7 +33,7 @@ class GetOrganizationalUnitsResult:
 
     @property
     @pulumi.getter
-    def childrens(self) -> List['outputs.GetOrganizationalUnitsChildrenResult']:
+    def childrens(self) -> Sequence['outputs.GetOrganizationalUnitsChildrenResult']:
         """
         List of child organizational units, which have the following attributes:
         """
